@@ -1,0 +1,38 @@
+{
+    "name": "@sepraisal/praisal",
+    "version": "0.0.1",
+    "description": "SE Praisal - the core praisal itself.",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "author": "Akuukis",
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.com/space-engineers-community/sepraisal"
+    },
+    "license": "GPL-3.0",
+    "private": true,
+    "scripts": {
+        "start": "yarn run build && yarn run lint && yarn run test",
+        "build": "tsc -v && tsc -b tsconfig-src.json",
+        "clean": "rm -rf coverage lib tmp tsconfig-src.tsbuildinfo",
+        "lint": "tslint -p tsconfig.json",
+        "lint:fix": "tslint -p tsconfig.json --fix",
+        "lint:summary": "yarn lint:verbose | grep ERROR | sed -r 's/ERROR: \\((.*)\\)\\s\\/.*/\\1/' | sort | uniq -c | sort -nr",
+        "lint:verbose": "tslint -p tsconfig.json -t verbose",
+        "test": "jest --config ../../tools/jest.config.js",
+        "test:coverage": "yarn run test --coverage",
+        "watch": "yarn run watch:src",
+        "watch:src": "tsc -b tsconfig-src.json --watch  # --preserveWatchOutput",
+        "watch:test": "yarn run test --watch"
+    },
+    "dependencies": {
+        "@sepraisal/common": "^0.0.1",
+        "mobx": "^5.9.4",
+        "xml2js": "^0.4.19"
+    },
+    "devDependencies": {
+        "@types/mongodb": "^3.1.23",
+        "@types/xml2js": "^0.4.4",
+        "utility-types": "^3.5.0"
+    }
+}

@@ -1,0 +1,135 @@
+import * as FormData from 'form-data'
+import { createReadStream, readFileSync, writeFileSync } from 'fs'
+import { MongoClient } from 'mongodb'
+import fetch from 'node-fetch'
+import { join } from 'path'
+
+import { CLASSES, DB_NAME, DB_URL, IBp } from '../common'
+
+const HOST = 'http://localhost:8004/ocpu/'
+
+interface IScriptVariables {
+    class: string,
+    csv?: string,
+    field: string,
+    subclass: string,
+}
+
+const prepareScript = (filename: string, vars: IScriptVariables) => {
+    const script = readFileSync(filename).toString()
+        .replace(/__CSV__/g, `${vars.csv}/data.csv`)
+        .replace(/__field__/g, vars.field)
+        .replace(/__class__/g, vars.class)
+        .replace(/__subclass__/g, vars.subclass)
+
+    return escape(script)
+        .replace(/\+/g, '%2B')
+        .replace(/%0A/g, '\\n')
+}
+
+
+const uploadCsv = async (path: string): Promise<string> => {
+    const stream = createReadStream(path)
+    const form = new FormData()
+    form.append('file', stream, {filename: 'data.csv'})
+
+    const resCsv = await (await fetch(`${HOST}library/utils/R/read.csv`, {
+        method: 'POST',
+        body: form,
+        headers: form.getHeaders(),
+    })).text()
+    const match = resCsv.match(/tmp\/(\w+)/)
+    if(!match) throw new Error(resCsv)
+
+    return match[1]
+}
+
+
+const runR = async (pathScript: string, vars: IScriptVariables) => {
+    const result1 = await (await fetch(`${HOST}library/base/R/write`, {
+        body: `x="${prepareScript(pathScript, vars)}"&file="script.r"`,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        method: 'POST',
+    })).text()
+    const match1 = result1.match(/tmp\/(\w+)/)
+    if(!match1) throw new Error(result1)
+    const id1 = match1[1]
+
+    const result2 = await (await fetch(`${HOST}tmp/${id1}/files/script.r`, {method: 'POST'})).text()
+    const match = result2.match(/tmp\/(\w+)/)
+    if(!match) throw new Error(result2)
+    const id = match[1]
+    const url = `${HOST}tmp/${id}`
+
+    return {
+        id,
+        chart: async () => (await fetch(`${url}/graphics/11/png?width=1500&height=500`)).buffer(),
+        console: async () => (await fetch(`${url}/console/text`)).text(),
+        p: async () => Number((await (await fetch(`${url}/R/test/text`)).text()).split('\n')[2]),
+        test: async () => (await fetch(`${url}/R/legend/text`)).text(),
+    }
+}
+
+
+const runMyScript = async (csvPath: string, vars: IScriptVariables) => {
+    const csv = await uploadCsv(csvPath)
+
+    return runR('r/test.r', {csv, ...vars})
+}
+
+
+let client: MongoClient
+(async () => {
+
+    client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
+    console.info('Connected successfully to server.')
+    const db = client.db(DB_NAME)
+    const collection = db.collection<IBp>('blueprints')
+
+    // console.log(await db.listCollections())
+    for(const [groupName, group] of Object.entries(CLASSES)) {
+        if(group.distributions.length === 0) continue
+
+        const projection = group.distributions
+            .reduce((map, dist) => {
+                map[dist] = true
+                return map
+            },      Object.create(null))
+        console.log(`class = "${groupName}"`)
+        const docs = (await collection
+            .find(group.trainCriteria)
+            .limit(9999)
+            .project(projection)
+            .toArray())
+
+        const lines = docs.map((doc) => group.distributions.map((field) => doc[field]))
+        const dataAsCsv = [
+                group.distributions.join(','),
+                ...lines,
+            ].join('\n')
+
+        const filename = `tmp/${groupName}Sample.csv`
+        writeFileSync(filename, dataAsCsv)
+        const csv = await uploadCsv(filename)
+
+        for(const field of group.distributions) {
+            const results = await runR(join(__dirname, 'r', 'test.r'), {csv, field, class: groupName, subclass: 'no-subclass'})
+            const p = 100 * await results.p()
+            console.log(`${groupName}-${field}-${p.toFixed(2)}%.png`)
+            // console.log(await results.console())
+            // console.log(`${groupName}-${field}-${p.toFixed(2)}%.png`)
+            writeFileSync(`${groupName}-${field}-${p.toFixed(2)}%.png`, await results.chart())
+            // break
+        }
+    }
+
+    await client.close()
+
+
+})().catch(async (err) => {
+    console.error(err)
+
+    return client.close()
+})

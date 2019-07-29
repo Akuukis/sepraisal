@@ -1,0 +1,15 @@
+{
+    "extends": "../../tsconfig-common.json",
+    "compilerOptions": {
+        "noEmitOnError": true,
+        "rootDir": "src",
+        "outDir": "build"
+    },
+    "include": [
+        "src/"
+    ],
+    "references": [
+        { "path": "../common/tsconfig-src.json" },
+        { "path": "../praisal/tsconfig-src.json" }
+    ]
+}

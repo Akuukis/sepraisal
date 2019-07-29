@@ -1,0 +1,32 @@
+// Used by IDE.
+{
+    "extends": "./tsconfig-common.json",
+    // No files or includes specified: linter will lint everything.
+    "compilerOptions": {
+        "baseUrl": "./",
+        "composite": false,
+        "declarationMap": false,
+        "incremental": true,
+        "jsx": "react",
+        "paths": {
+            "@sepraisal/common": ["workspaces/common/src"],
+            "@sepraisal/common/lib/*": ["workspaces/common/src/*"],
+            "@sepraisal/app": ["workspaces/app/src"],
+            "@sepraisal/app/lib/*": ["workspaces/app/src/*"],
+            "@sepraisal/cli": ["workspaces/cli/src"],
+            "@sepraisal/cli/lib/*": ["workspaces/cli/src/*"],
+            "@sepraisal/lambdas": ["workspaces/lambdas/src"],
+            "@sepraisal/lambdas/lib/*": ["workspaces/lambdas/src/*"],
+            "@sepraisal/praisal": ["workspaces/praisal/src"],
+            "@sepraisal/praisal/lib/*": ["workspaces/praisal/src/*"],
+            "@sepraisal/storybook": ["workspaces/storybook/src"],
+            "@sepraisal/storybook/lib/*": ["workspaces/storybook/src/*"]
+        }
+    },
+    "include": [
+        "./tools",
+        "./workspaces/*/src",
+        "./workspaces/*/spec",
+        "./workspaces/*/tools"
+    ]
+}

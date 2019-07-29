@@ -1,0 +1,51 @@
+{
+    "private": true,
+    "name": "@sepraisal/monorepo",
+    "description": "Space Engineers Praisal: Blueprint Parser & Analyzer",
+    "scripts": {
+        "start": "yarn run watch:app",
+        "bootstrap": "yarn && lerna bootstrap",
+        "build": "yarn run tsc -v && yarn run tsc -b tsconfig-src.json",
+        "clean": "lerna exec --parallel -- yarn run clean",
+        "lint": "lerna exec --parallel -- tslint -p tsconfig.json",
+        "lint:fix": "lerna exec --parallel -- tslint -p tsconfig.json --fix",
+        "lint:verbose": "lerna exec --parallel -- tslint -p tsconfig.json -t verbose",
+        "reinstall": "yarn run uninstall && yarn run bootstrap",
+        "test": "jest",
+        "test:coverage": "yarn run test --coverage",
+        "test:integration": "jest --config workspaces/testsuite/jest.integration.config.js --verbose --detectOpenHandles",
+        "uninstall": "lerna clean --yes",
+        "watch": "concurrently -p '[{name}]' -n 'TS,JEST' 'yarn run watch:src --preserveWatchOutput' 'yarn run watch:test'",
+        "watch:src": "tsc -b tsconfig-src.json --watch  # --preserveWatchOutput",
+        "watch:test": "yarn run test --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "www.github.com/Akuukis/spaceengineers-praisal"
+    },
+    "keywords": [
+        "spaceengineers",
+        "blueprint",
+        "tool",
+        "typescript",
+        "react"
+    ],
+    "author": "Akuukis",
+    "license": "GPL-3.0",
+    "devDependencies": {
+        "@types/node": "^10.14.4",
+        "lerna": "^3.13.2",
+        "rxjs-tslint": "^0.1.7",
+        "tslint": "^5.15.0",
+        "tslint-clean-code": "^0.2.9",
+        "tslint-consistent-codestyle": "^1.15.1",
+        "tslint-react": "^4.0.0",
+        "tslint-sonarts": "^1.9.0",
+        "typescript": "^3.4.3",
+        "typescript-tslint-plugin": "^0.4.0"
+    },
+    "dependencies": {},
+    "workspaces": [
+        "workspaces/*"
+    ]
+}

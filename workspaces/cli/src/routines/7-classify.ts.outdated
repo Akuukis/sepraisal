@@ -1,0 +1,44 @@
+import { MongoClient } from 'mongodb'
+
+import { CLASSES, DB_NAME, DB_URL, IBp } from '../common'
+
+
+let client: MongoClient
+export default async () => {
+
+    client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
+    console.info('Connected successfully to server.')
+    const db = client.db(DB_NAME)
+    const collection = db.collection<IBp>('blueprints')
+
+    // console.log(await db.listCollections())
+    for(const [groupName, group] of Object.entries(CLASSES)) {
+        if(group.distributions.length === 0) continue
+
+        const projection = group.distributions
+            .reduce((map, dist) => {
+                map[dist] = true
+                return map
+            },      Object.create(null))
+        console.log(`class = "${groupName}"`)
+        const docs = (await collection
+            .find(group.findCriteria)
+            .limit(10)
+            .project(projection).toArray())
+
+        const lines = docs.map((doc) => group.distributions.map((field) => doc[field]))
+        const csv = [
+                group.distributions.join(','),
+                ...lines,
+            ].join('\n')
+
+        console.log(csv)
+        // await getDistribution(Querry(collection, field as any, strikeCraft.criteria))
+    }
+    // const test = new Chi2DistPure(3)
+    // console.log(test.range(new BN(.95)).map((bn)=>bn.toFixed(3)))
+
+    await client.close()
+
+
+}

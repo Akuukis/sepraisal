@@ -1,0 +1,40 @@
+service:
+  name: aws-nodejs-typescript
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack:
+    packager: 'yarn'      # Defaults to npm
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-1
+
+  usagePlan: # Optional usage plan configuration
+    quota:
+      limit: 500000
+      offset: 2
+      period: MONTH
+    throttle:
+      burstLimit: 200
+      rateLimit: 100
+
+package:
+  individually: true
+
+functions:
+  hello:
+    handler: src/handler.hello
+    memorySize: 128
+    events:
+      - http:
+          method: get
+          path: hello
+          cors: true
+    environment:
+      db_username: crawler
+      db_password: ZRQLkmZTgyBRf3vn

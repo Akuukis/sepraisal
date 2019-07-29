@@ -1,0 +1,21 @@
+{
+    "extends": "../../tsconfig-common.json",
+    "compilerOptions": {
+        "jsx": "react",
+        "rootDirs": [
+            "src",
+            "blueprints"
+        ],
+        "outDir": "build",
+        "lib": [
+            "dom"
+        ]
+    },
+    "include": [
+        "src",
+        "blueprints"
+    ],
+    "references": [
+        { "path": "../common/tsconfig-src.json" }
+    ]
+}

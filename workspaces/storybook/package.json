@@ -1,0 +1,49 @@
+{
+    "name": "@sepraisal/storybook",
+    "version": "0.0.1",
+    "description": "SE Praisal - storybook of web application.",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "author": "Akuukis",
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.com/space-engineers-community/sepraisal"
+    },
+    "license": "GPL-3.0",
+    "private": true,
+    "scripts": {
+        "start": "yarn run watch",
+        "build": "tsc -v && tsc -b tsconfig-src.json",
+        "clean": "rm -rf coverage lib tmp tsconfig-src.tsbuildinfo",
+        "lint": "tslint -p tsconfig.json",
+        "lint:fix": "tslint -p tsconfig.json --fix",
+        "lint:summary": "yarn lint:verbose | grep ERROR | sed -r 's/ERROR: \\((.*)\\)\\s\\/.*/\\1/' | sort | uniq -c | sort -nr",
+        "lint:verbose": "tslint -p tsconfig.json -t verbose",
+        "test": "jest --config ../../tools/jest.config.js",
+        "test:coverage": "yarn run test --coverage",
+        "watch": "yarn run watch:hot",
+        "watch:src": "tsc -b tsconfig-src.json --watch  # --preserveWatchOutput",
+        "watch:test": "yarn run test --watch",
+        "watch:hot": "start-storybook -p 3000"
+    },
+    "dependencies": {
+        "@material-ui/core": "^4.0.0-alpha.8",
+        "@material-ui/styles": "^4.0.0-alpha.8",
+        "@sepraisal/app": "^0.0.1",
+        "@sepraisal/common": "^0.0.1",
+        "@storybook/addon-actions": "^5.0.11",
+        "@storybook/addon-knobs": "^5.0.7",
+        "@storybook/addon-links": "^5.0.11",
+        "@storybook/react": "^5.0.7",
+        "mobx": "^5.9.4",
+        "moment": "^2.24.0",
+        "react": "^16.8.6"
+    },
+    "devDependencies": {
+        "@types/react": "^16.8.13",
+        "@types/storybook__addon-knobs": "^5.0.0",
+        "@types/storybook__react": "^4.0.1",
+        "mobx-react-devtools": "^6.1.1",
+        "utility-types": "^3.5.0"
+    }
+}

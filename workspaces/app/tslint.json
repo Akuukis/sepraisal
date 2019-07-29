@@ -1,0 +1,36 @@
+{
+    "extends": [
+        "../../tslint.json",
+        "tslint-react"
+    ],
+    "rules": {
+        //// ts-lint overrides.
+        "arrow-return-shorthand": false,
+        "jsx-no-multiline-js": false,
+        "match-default-export-name": false,  // Doesn't work with Material-UI icons.
+        "max-line-length": [true, {"limit": 180}],
+        "no-default-export": false,  // Conflicts with React structure.
+        "no-default-import": false,
+        "no-duplicate-string": ["warning", 5],
+        "no-empty-interface": false,  // Because lots of Components has no props, but consistent typing is important.
+        "no-feature-envy": false,  // Doesn't work together with JSX html elements, nor deconstructors.
+        "no-flag-args" : false,  // Because `handleChange(value: boolean)` from Material-UI philosophy.
+        "no-import-side-effect": false,  // Doesn't work with BluebirdHijack, Storybook and Webpack's plain CSS imports.
+        "no-submodule-imports": [true,
+            "@material-ui/core/styles",
+            "@material-ui/core/colors",
+            "@material-ui/icons",
+            "@material-ui/styles",
+            "react-hot-loader/root",
+            "react-table/react-table.css"
+        ],
+        "no-unnecessary-type-annotation": false,
+        "no-unused": false,
+        "no-use-before-declare": false,  // Because newspaper order - first FC, then helpers.
+        "object-literal-key-quotes": [true, "as-needed"],
+        "prefer-function-over-method": [true, "allow-public"],  // Because React's render.
+        //// tslint-react overrides.
+        "jsx-boolean-value": [true, "never"],
+        "jsx-alignment": false
+    }
+}

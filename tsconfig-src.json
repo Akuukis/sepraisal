@@ -1,0 +1,13 @@
+// Used by build.
+{
+    "extends": "./tsconfig-common.json",
+    "files": [],
+    "references": [
+        { "path": "./workspaces/common/tsconfig-src.json" },
+        { "path": "./workspaces/app/tsconfig-src.json" },
+        { "path": "./workspaces/cli/tsconfig-src.json" },
+        { "path": "./workspaces/lambdas/tsconfig-src.json" },
+        { "path": "./workspaces/praisal/tsconfig-src.json" },
+        { "path": "./workspaces/storybook/tsconfig-src.json" },
+    ]
+}

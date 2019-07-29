@@ -1,0 +1,18 @@
+{
+    "extends": "../../tsconfig-common.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "lib",
+        "jsx": "react",
+        "lib": [
+            "dom"
+        ]
+    },
+    "include": [
+        "src/"
+    ],
+    "references": [
+        { "path": "../common/tsconfig-src.json" },
+        { "path": "../praisal/tsconfig-src.json" }
+    ]
+}
