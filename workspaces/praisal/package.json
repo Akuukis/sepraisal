@@ -27,12 +27,12 @@
     },
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
-        "mobx": "^5.9.4",
+        "mobx": "^5.13.0",
         "xml2js": "^0.4.19"
     },
     "devDependencies": {
         "@types/mongodb": "^3.1.23",
         "@types/xml2js": "^0.4.4",
-        "utility-types": "^3.5.0"
+        "utility-types": "^3.7.0"
     }
 }
