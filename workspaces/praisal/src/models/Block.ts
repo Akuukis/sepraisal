@@ -10,8 +10,8 @@ type Omits = '$' | 'SubtypeName' | 'Min' | 'BlockOrientation' | 'ColorMaskHSV'
 // tslint:disable-next-line: min-class-cohesion
 export class Block<T extends CubeType = CubeType> {
 
-    public static isType<TNarrow extends CubeType>(type: TNarrow) {
-        return (block: Block): block is Block<TNarrow> => block.type === type
+    public static isType<TNarrow extends CubeType>(testType: TNarrow) {
+        return (block: Block): block is Block<TNarrow> => block.type === testType as CubeType
     }
 
     public get gridSize()      { return this.cube ? this.cube.gridSize      : null }
@@ -23,7 +23,7 @@ export class Block<T extends CubeType = CubeType> {
     public get subtype()       { return this.cube ? this.cube.subtype       : null }
     public get time()          { return this.cube ? this.cube.time          : null }
 
-    public get title()         { return `${this.type}/${this.subtype}`}
+    public get title()         { return `${String(this.type)}/${this.subtype}`}
     public get type(): T       { return (this.cube ? this.cube.type         : null) as T}
     public get volume()        { return this.cube ? this.cube.volume        : null }
 
@@ -61,7 +61,7 @@ export class Block<T extends CubeType = CubeType> {
 
     public toJSON(): BlockDefinition<T> {
         return {
-            $: {'xsi:type': `MyObjectBuilder_${this.type}`},
+            $: {'xsi:type': `MyObjectBuilder_${String(this.type)}`},
             BlockOrientation: [{$: {
                 Forward: this.forward,
                 Up: this.up,

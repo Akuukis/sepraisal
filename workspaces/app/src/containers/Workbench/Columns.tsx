@@ -29,13 +29,14 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const columns = [...props.selected]
-        .map<[string, IBlueprint]>((key) => [key, blueprintStore.uploads.get(key) || blueprintStore.recent.get(key)!])
+        // tslint:disable-next-line: no-non-null-assertion
+        .map<[string, IBlueprint]>((key) => [key, blueprintStore.uploads.has(key) ? blueprintStore.uploads.get(key)! : blueprintStore.recent.get(key)!])
         .map(([key, blueprint]) => (
             <AnalysisColumn
                 width={12}
                 classes={{root: classes.column}}
                 key={key}
-                bp={blueprint!}
+                bp={blueprint}
             />
     ))
 

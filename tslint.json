@@ -5,7 +5,6 @@
     ],
    "rulesDirectory": [
         "tslint-consistent-codestyle",
-        "rxjs-tslint",
         "node_modules/tslint-clean-code/dist/src"
     ],
     "rules": {
@@ -26,8 +25,10 @@
         "curly": [true, "ignore-same-line"],  // Quick conditional oneliners are ok.
         "file-name-casing": [true, "camel-case", "pascal-case"],  // Both are ok.
         "indent": [true, "spaces", 4],
+        "invalid-void": false,  // Buggy, see https://github.com/palantir/tslint/issues/4828
         "max-line-length": [true, {"limit": 120}],
         "newline-per-chained-call": false,  // Opnionated style, don't spam LOC.
+        "no-async-without-await": false,  // Because there's a difference, not only a style.
         "no-consecutive-blank-lines": [true, 2],  // Leave doubles alone to divide blocks, e.g. after imports.
         "no-console": [true, "debug", /* "info",  */"log", "time", "timeEnd", "trace"],  // TODO: get logger library.
         "no-implicit-dependencies": [true, "dev"],  // Because webpack requires to have them under devDependencies.
@@ -46,6 +47,7 @@
         ],
         "no-unnecessary-qualifier": false,  // Conflict with Babel loader that doesn't work quite like that.
         "no-unused-variable": false,  // Depreciated.
+        "no-use-before-declare": false,  // Deprecated.
         "no-void-expression": false,  // Let the strict-null check for mistakes, and allow nice onelines where it's ok.
         "object-literal-shorthand": true,  // object-literal-shorthand offers an abbreviation not an abstraction
         "object-literal-sort-keys": [true, "ignore-case"],
@@ -54,6 +56,7 @@
         "quotemark": [true, "single"],
         "semicolon": [true, "never"],  // JS can be written cleanly.
         "strict-boolean-expressions": [true, "allow-null-union", "allow-undefined-union"],  // I just like to use ! as generic falsey.
+        "strict-comparisons": false,  // Buggy, see https://github.com/palantir/tslint/issues/4838
         "type-literal-delimiter": false,  // Don't enforce semicolons.
         "typedef": false,  // Don't spam typedefs.
         "variable-name": false,  // Conflicts with "naming-convention".
@@ -71,11 +74,11 @@
         ],
 
 
-        // rxjs-tslint rules.
-        "rxjs-collapse-imports": true,
-        "rxjs-pipeable-operators-only": true,
-        "rxjs-no-static-observable-methods": true,
-        "rxjs-proper-imports": true,
+        //// rxjs-tslint rules.
+        // "rxjs-collapse-imports": true,
+        // "rxjs-pipeable-operators-only": true,
+        // "rxjs-no-static-observable-methods": true,
+        // "rxjs-proper-imports": true,
 
 
         //// tslint-sonarTS overrides.

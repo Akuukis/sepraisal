@@ -3,7 +3,7 @@ import { useObservable } from 'mobx-react-lite'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { CONTEXT } from '../../stores'
 import Page from './Page'
 import PagesMore from './PagesMore'
@@ -33,8 +33,10 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             <Page index={i} key={i} />
         ))
 
-    return (<>
-        {pagesJsx}
-        <PagesMore add={add} />
-    </>)
+    return (
+        <>
+            {pagesJsx}
+            <PagesMore add={add} />
+        </>
+    )
 })) /* ============================================================================================================= */

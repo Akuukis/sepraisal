@@ -78,7 +78,7 @@ const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, i
 export const main = async () => {
 
 
-    const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
+    const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Successfully connected to server.')
     const db = client.db(DB_NAME)
     const collection = db.collection<IProjection>('blueprints')

@@ -18,9 +18,9 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     cardContent: {
         paddingBottom: 8,
-        paddingTop: 8,
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
+        paddingTop: 8,
     },
     cell: {
         width: '268px',

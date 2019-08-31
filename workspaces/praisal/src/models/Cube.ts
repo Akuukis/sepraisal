@@ -29,7 +29,7 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
     }
 
 
-    public get title() { return `${this.type}/${this.subtype}`}
+    public get title() { return `${String(this.type)}/${this.subtype}`}
     public readonly data: Omit<CubeDTO<T>, Omits>
     public readonly displayName: string
     public readonly gridSize: CubeBlockGridSize
@@ -93,7 +93,7 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
             DisplayName: [this.displayName],
             Id: [{
                 SubtypeId: [this.subtype],
-                TypeId: [`MyObjectBuilder_${this.type}`],
+                TypeId: [`MyObjectBuilder_${String(this.type)}`],
             }],
             PCU: [this.pcu],
             Size: [{

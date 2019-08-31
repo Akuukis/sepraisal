@@ -1,0 +1,123 @@
+{
+    "folders": [
+        {
+            "path": "../workspaces/common",
+            "name": "common"
+        },
+        {
+            "path": "../workspaces/app",
+            "name": "app"
+        },
+        {
+            "path": "../workspaces/cli",
+            "name": "cli"
+        },
+        {
+            "path": "../workspaces/lambdas",
+            "name": "lambdas"
+        },
+        {
+            "path": "../workspaces/praisal",
+            "name": "praisal"
+        },
+        {
+            "path": "../workspaces/storybook",
+            "name": "storybook"
+        },
+        {
+            "path": "..",
+            "name": "<root>"
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "acarreiro.calculate",
+            "amoosbr.markdown-nomnoml",
+            "christian-kohler.npm-intellisense",
+            "christian-kohler.path-intellisense",
+            "eamodio.gitlens",
+            "eg2.vscode-npm-script",
+            "formulahendry.code-runner",
+            "joelday.docthis",
+            "kaiwood.indentation-level-movement",
+            "knisterpeter.vscode-commitizen",
+            "ms-vscode.vscode-typescript-tslint-plugin",
+            "ms-vscode.typescript-javascript-grammar",
+            "rbbit.typescript-hero",
+            "shardulm94.trailing-spaces",
+            "spywhere.guides",
+            "streetsidesoftware.code-spell-checker",
+            "tyriar.sort-lines",
+            "wmaurer.change-case",
+            "yzhang.markdown-all-in-one"
+        ]
+    },
+    "settings": {
+        "breadcrumbs.enabled": true,
+        "cSpell.words": [
+            "FICs",
+            "Subelement",
+            "cyclomatic",
+            "deconstructor",
+            "dmmm",
+            "eth",
+            "fed",
+            "get",
+            "hocs",
+            "key",
+            "mobx",
+            "name",
+            "payload",
+            "public",
+            "stellarguard",
+            "withdraw",
+            "wrap"
+        ],
+        "editor.codeActionsOnSave": {
+            "source.fixAll.tslint": true
+        },
+        "editor.minimap.maxColumn": 180,
+        "editor.wordWrapColumn": 180,
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.rulers": [120, 180],
+        "files.associations": {
+            ".env.example": "shellscript",
+        },
+        "files.exclude": {
+            "*.tsbuildinfo": true,
+            ".git/": true,
+            "workspaces/": true,
+        },
+        "search.exclude": {
+            "*.snap": true,
+            ".nyc_output/": true,
+            "yarn-error.log": true,
+            "build/": true,
+            "dist/": true,
+            "lib/": true,
+            "node_modules/": true,
+        },
+        "search.showLineNumbers": true,
+        "tslint.alwaysShowRuleFailuresAsWarnings": true,
+        "tslint.exclude": [
+            "**/build/**",
+            "**/dist/**",
+            "**/lib/**",
+            "**/node_modules/**"
+        ],
+        // "tslint.configFile":  <-- Make sure this is unset also in user settings for lint to use local configuration.
+        "typescript.preferences.quoteStyle": "single",
+        "typescript.tsdk": "<root>/node_modules/typescript/lib",
+        "editor.detectIndentation": false,
+        "typescriptHero.imports.insertSemicolons": false,
+        "typescriptHero.imports.multiLineWrapThreshold": 120,
+        "typescriptHero.imports.organizeOnSave": true,
+        "typescriptHero.imports.grouping": [
+            "Plains",
+            "Modules",
+            "/@material-ui/",
+            "Workspace"
+        ],
+        "typescript.tsserver.log": "verbose"
+    }
+}

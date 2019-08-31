@@ -61,7 +61,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         }
     })
 
-    if(status !== STATUS.Loaded) {
+    if(status !== STATUS.Loaded || !blueprint) {
         return <Typography variant='body1'>TODO: nice loading animation..</Typography>
     }
 
@@ -69,7 +69,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
       <Grid container spacing={2} style={{padding: '8px'}}>
         <AnalysisColumn
             width={maxWidth}
-            bp={blueprint!}
+            bp={blueprint}
         />
       </Grid>
     )

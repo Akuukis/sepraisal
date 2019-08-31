@@ -11,37 +11,40 @@ console.log(
 module.exports = ({ config, mode }) => {
     // config.bail = true;
     config.mode = isProduction ? "production" : "development";
-    config.module.rules.push({
-        include: [
-            resolve(__dirname, '..', 'blueprints'),
-            resolve(__dirname, '..', 'src'),
-            resolve(__dirname, '..', '..', 'app'),
-        ],
-        test: /\.tsx?$/,
-        use: {
-            loader: "babel-loader",
-            options: {
-                babelrc: false,
-                cacheDirectory: true,
-                plugins: [
-                    ["@babel/plugin-proposal-decorators", { legacy: true }],
-                    ["@babel/plugin-proposal-class-properties", { loose: true }],
-                    ["@babel/plugin-syntax-dynamic-import"],
-                ],
-                presets: [
-                    [
-                        "@babel/preset-env",
-                        { targets: { browsers: "> 1%" } },
+    config.module.rules.push(
+        { test: /\.sbc$/, loader: 'file-loader?name=data/[name].[ext]?[hash]' },
+        {
+            include: [
+                resolve(__dirname, '..', 'blueprints'),
+                resolve(__dirname, '..', 'src'),
+                resolve(__dirname, '..', '..', 'app'),
+            ],
+            test: /\.tsx?$/,
+            use: {
+                loader: "babel-loader",
+                options: {
+                    babelrc: false,
+                    cacheDirectory: true,
+                    plugins: [
+                        ["@babel/plugin-proposal-decorators", { legacy: true }],
+                        ["@babel/plugin-proposal-class-properties", { loose: true }],
+                        ["@babel/plugin-syntax-dynamic-import"],
                     ],
-                    "@babel/preset-typescript",
-                    "@babel/preset-react",
-                ],
+                    presets: [
+                        [
+                            "@babel/preset-env",
+                            { targets: { browsers: "> 1%" } },
+                        ],
+                        "@babel/preset-typescript",
+                        "@babel/preset-react",
+                    ],
+                },
             },
         },
-    });
+    );
 
     config.plugins.push(
-        new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json')}),
+        new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json'), tsconfig: 'tsconfig-src.json'}),
     )
 
     config.devServer = {

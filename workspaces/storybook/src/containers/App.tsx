@@ -12,19 +12,18 @@ import Theme from '../ThemeDecorator'
 storiesOf('Containers|App', module)
     .addDecorator(Theme('my'))
     .addDecorator(withKnobs)
-    .add('Empty', () => {
-        return (<App>
-        </App>)
-    })
-    .add('Loading', () => {
-        return (<App>
+    .add('Empty', () => (
+        <App />
+    ))
+    .add('Loading', () => (
+        <App>
             <Loading />
-        </App>)
-    })
-    .add('Paper', () => {
-        return (<App>
+        </App>
+    ))
+    .add('Paper', () => (
+        <App>
             <Paper>
                 <Typography>Hello World</Typography>
             </Paper>
-        </App>)
-    })
+        </App>
+    ))

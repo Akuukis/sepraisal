@@ -58,9 +58,9 @@ export interface IBpProjectionCard {
 export interface ICard<T extends CardStatus = CardStatus.discovered> {
     classes: T extends CardStatusClassedOnce ? IBpProjectionCard['classes'] : never
     dto:
-        T extends CardStatusOk          ? Pick<IBpProjectionCard, '_id' | 'steam' | 'thumb' | 'sbc' | 'classes'> :
-        T extends CardStatusClassedOnce ? Pick<IBpProjectionCard, '_id' | 'steam' | 'thumb' | 'sbc' | 'classes'> :
-        T extends CardStatusPraisedOnce ? Pick<IBpProjectionCard, '_id' | 'steam' | 'thumb' | 'sbc'> :
+        T extends CardStatusOk          ? Pick<IBpProjectionCard, '_id' | 'steam' | 'thumb' | 'sbc' | 'classes'> :  // tslint:disable-line: max-union-size
+        T extends CardStatusClassedOnce ? Pick<IBpProjectionCard, '_id' | 'steam' | 'thumb' | 'sbc' | 'classes'> :  // tslint:disable-line: max-union-size
+        T extends CardStatusPraisedOnce ? Pick<IBpProjectionCard, '_id' | 'steam' | 'thumb' | 'sbc'> :              // tslint:disable-line: max-union-size
         T extends CardStatusThumbedOnce ? Pick<IBpProjectionCard, '_id' | 'steam' | 'thumb'> :
         T extends CardStatusScrapedOnce ? Pick<IBpProjectionCard, '_id' | 'steam'> :
         T extends CardStatusNothing     ? Pick<IBpProjectionCard, '_id'> :
@@ -114,7 +114,7 @@ export class Card<T extends CardStatus = CardStatus.discovered> implements ICard
         return CardStatus.ok
     }
 
-    public isStatus<TStatus extends CardStatus>(status: TStatus): this is ICard<TStatus> {
+    public isStatus<TStatus extends CardStatus>(status: TStatus): this is Card<TStatus> {
         return this.status >= status
     }
 

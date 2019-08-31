@@ -39,11 +39,12 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     let checked: null | boolean
+    // tslint:disable-next-line: no-non-null-assertion - TODO review.
     const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
     if(index === -1) {
         checked = null
     } else {
-        const item = cardStore.find.$and[index]!
+        const item = cardStore.find.$and[index]
         checked = JSON.stringify(item[findKey]) === JSON.stringify(yes)
     }
     const toggleChecked = action((_, value: boolean) => {

@@ -370,6 +370,7 @@ __pycache__/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/*.code-workspace
 
 # End of https://www.gitignore.io/api/node,linux,visualstudio
 

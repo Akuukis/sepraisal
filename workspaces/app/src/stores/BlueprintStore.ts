@@ -1,12 +1,12 @@
-import { IBlueprint, ObservableMap } from '@sepraisal/common'
+import { IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
 import { Praisal } from '@sepraisal/praisal'
 import { action, runInAction } from 'mobx'
 import * as moment from 'moment'
 
 // tslint:disable-next-line: min-class-cohesion
 export class BlueprintStore {
-    public readonly recent = new ObservableMap<IBlueprint>()
-    public readonly uploads = new ObservableMap<IBlueprint>()
+    public readonly recent = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>>()
+    public readonly uploads = new ObservableMap<RequiredSome<IBlueprint, 'sbc'>>()
 
     public constructor() {
         const keys = Array.from({length: localStorage.length}).map((_, i) => localStorage.key(i))
@@ -17,10 +17,10 @@ export class BlueprintStore {
                 if(value === null) continue
 
                 if(key.slice(0, `recent/`.length) === 'recent/') {
-                    this.recent.set(key.slice(`recent/`.length), JSON.parse(value) as IBlueprint)
+                    this.recent.set(key.slice(`recent/`.length), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
                 }
                 if(key.slice(0, `upload/`.length) === 'upload/') {
-                    this.uploads.set(key.slice(`upload/`.length), JSON.parse(value) as IBlueprint)
+                    this.uploads.set(key.slice(`upload/`.length), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc'>)
                 }
             }
         })
@@ -36,7 +36,7 @@ export class BlueprintStore {
         localStorage.removeItem(`upload/${title}`)
     }
 
-    @action public setRecent(blueprint: Required<IBlueprint>) {
+    @action public setRecent(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
         const title = `${blueprint._id}-${blueprint.steam.revision}`
         localStorage.setItem(`recent/${title}`, JSON.stringify(blueprint))
         this.recent.set(title, blueprint)
@@ -45,7 +45,7 @@ export class BlueprintStore {
     }
 
     @action public setUpload(praisal: Praisal) {
-        const blueprint: IBlueprint = {
+        const blueprint: RequiredSome<IBlueprint, 'sbc'> = {
             _id: 0,
             sbc: praisal.toBlueprintSbc(0),
         }

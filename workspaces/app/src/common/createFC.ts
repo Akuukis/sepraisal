@@ -1,19 +1,19 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
+import { DeepPartial } from 'utility-types'
 
-import { StyleRulesCallback } from '@material-ui/core'
-import { makeStyles, useTheme } from '@material-ui/styles'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { Styles } from '@material-ui/styles/withStyles'
 
 import { FunctionComponent, FunctionComponentProps } from './Component'
 import { IMyTheme } from './myTheme'
-import { DeepPartial } from 'utility-types';
 
 
 // TProps will be provided, but TClasses will be inferred. Due types that can't be mixed in one function.
 
 export const createSmartFC = <TClasses extends string>(
-        styles: StyleRulesCallback<TClasses>,
-    ) => <TProps extends Record<string, unknown>>(
+        styles: Styles<IMyTheme, {}, TClasses>,
+    ) => <TProps extends object>(
         fc: FunctionComponent<TProps, TClasses>,
     ) => {
         const useStyles = makeStyles(styles)
@@ -25,13 +25,13 @@ export const createSmartFC = <TClasses extends string>(
             return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
         }
 
-        return observer<TProps>(wrapperFC as FC<TProps>) as React.NamedExoticComponent<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>>
+        return observer<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>>(wrapperFC)
     }
 
 
 export const createDumbFC = <TClasses extends string>(
-        styles: StyleRulesCallback<TClasses>,
-    ) => <TProps extends Record<string, unknown>>(
+        styles: Styles<IMyTheme, {}, TClasses>,
+    ) => <TProps extends object>(
         fc: FunctionComponent<TProps, TClasses>,
     ) => {
         const useStyles = makeStyles(styles)

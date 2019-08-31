@@ -16,10 +16,10 @@
         "build": "tsc -v && tsc -b tsconfig-src.json",
         "clean": "rm -rf coverage lib tmp tsconfig-src.tsbuildinfo",
         "cli": "ts-node -r dotenv/config src/cli/index.ts",
-        "lint": "tslint -p tsconfig.json",
-        "lint:fix": "tslint -p tsconfig.json --fix",
+        "lint": "tslint -p tsconfig-src.json",
+        "lint:fix": "yarn run lint --fix",
         "lint:summary": "yarn lint:verbose | grep ERROR | sed -r 's/ERROR: \\((.*)\\)\\s\\/.*/\\1/' | sort | uniq -c | sort -nr",
-        "lint:verbose": "tslint -p tsconfig.json -t verbose",
+        "lint:verbose": "yarn run lint -t verbose",
         "launch": "ts-node -r dotenv/config src/index.ts",
         "test": "jest --config ../../tools/jest.config.js",
         "test:coverage": "yarn run test --coverage",
@@ -31,19 +31,19 @@
         "@sepraisal/common": "^0.0.1",
         "@sepraisal/praisal": "^0.0.1",
         "moment": "^2.24.0",
-        "mongodb": "^3.2.3",
-        "pad": "^2.3.0",
+        "mongodb": "^3.3.2",
+        "pad": "^3.2.0",
         "scrape-it": "^5.1.4",
-        "tail": "^2.0.2",
+        "tail": "^2.0.3",
         "unzip": "^0.1.11",
-        "utility-types": "^3.5.0",
-        "worker-farm": "^1.6.0"
+        "utility-types": "^3.7.0",
+        "worker-farm": "^1.7.0"
     },
     "devDependencies": {
-        "@types/cheerio": "^0.22.11",
-        "@types/mongodb": "^3.1.23",
+        "@types/cheerio": "^0.22.13",
+        "@types/mongodb": "^3.3.1",
         "@types/pad": "^1.0.2",
-        "@types/tail": "^1.2.1",
+        "@types/tail": "^1.2.2",
         "@types/unzip": "^0.1.1"
     }
 }

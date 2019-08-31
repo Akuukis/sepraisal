@@ -1,18 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import {
-    Avatar,
-    Badge,
-    Button,
-    Card,
-    CardContent,
-    CardHeader,
-    CardMedia,
-    Divider,
-    Grid,
-    Typography,
-} from '@material-ui/core'
+import { Avatar, Button, Card, CardContent, CardHeader, CardMedia, Divider, Grid, Typography } from '@material-ui/core'
 import IconSearch from '@material-ui/icons/Search'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2, SE_COLORS } from '../../common/'
@@ -27,8 +16,8 @@ const styles = (theme: IMyTheme) => createStyles({
         '&:hover $overlay': {
             opacity: 1,
         },
-        'backgroundColor': SE_COLORS.white,
-        'position': 'relative',
+        backgroundColor: SE_COLORS.white,
+        position: 'relative',
     },
 
     badgeError: {
@@ -80,11 +69,11 @@ const styles = (theme: IMyTheme) => createStyles({
         '&:hover': {
             borderColor: SE_COLORS.black,
         },
-        padding: theme.spacing(1),
+        borderColor: SE_COLORS.grey_dark,
         borderStyle: `dashed`,
         borderWidth: theme.spacing(1),
-        borderColor: SE_COLORS.grey_dark,
         height: `calc(50% - ${theme.spacing(1)}px)`,
+        padding: theme.spacing(1),
         width: `calc(100% - ${theme.spacing(1)}px)`,
     },
     overlayItem2: {
@@ -152,7 +141,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         onClick={() => routerStore.goBlueprint(bp.steam.id, bp.steam.revision)}
                     >
                         <Grid item>
-                            <Button size='large' disableRipple={true} disableFocusRipple disableTouchRipple>
+                            <Button size='large' disableRipple disableFocusRipple disableTouchRipple>
                                 <IconSearch />
                                 <Typography variant='button'>{'Analysis'}</Typography>
                             </Button>

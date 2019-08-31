@@ -54,7 +54,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     return (
         <Grid className={classes.root} container justify='center'>
             {renderBox([RowHeader          as Row], true)}
-            {'steam' in props.bp && renderBox([RowWorkshop        as Row])}
+            {'steam' in props.bp ? renderBox([RowWorkshop        as Row]) : null}
             {renderBox([RowIntegrity       as Row, RowMobility        as Row])}
             {renderBox([RowBlocks          as Row])}
             {renderBox([RowComponents      as Row, RowIngotsOres      as Row])}

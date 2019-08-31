@@ -6,7 +6,7 @@ import { CLASSES, DB_NAME, DB_URL, IBp } from '../common'
 let client: MongoClient
 export default async () => {
 
-    client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
+    client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Connected successfully to server.')
     const db = client.db(DB_NAME)
     const collection = db.collection<IBp>('blueprints')

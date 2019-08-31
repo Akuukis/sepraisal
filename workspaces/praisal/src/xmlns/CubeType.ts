@@ -80,5 +80,5 @@ export const CubeTypePrefixedDefinition = {
 
 
 export const addCubeTypePrefix = <T extends CubeType>(plain: T): typeof CubeTypePrefixed[T] =>
-    `MyObjectBuilder_${plain}` as typeof CubeTypePrefixed[T]
+    `MyObjectBuilder_${String(plain)}` as typeof CubeTypePrefixed[T]
 

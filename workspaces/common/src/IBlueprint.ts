@@ -112,7 +112,7 @@ export namespace IBlueprint {
         mods: IRefItem[],
         collections: IRefItem[],
 
-        ratingStars: number,
+        ratingStars: number | null,
         ratingCount: number | null,
         commentCount: number,
         visitorCount: number,
