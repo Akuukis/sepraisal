@@ -14,7 +14,7 @@
         "test": "jest",
         "test:coverage": "yarn run test --coverage",
         "test:integration": "jest --config workspaces/testsuite/jest.integration.config.js --verbose --detectOpenHandles",
-        "uninstall": "lerna clean --yes",
+        "uninstall": "lerna clean --yes && rm -rf node_modules",
         "watch": "concurrently -p '[{name}]' -n 'TS,JEST' 'yarn run watch:src --preserveWatchOutput' 'yarn run watch:test'",
         "watch:src": "tsc -b tsconfig-src.json --watch  # --preserveWatchOutput",
         "watch:test": "yarn run test --watch"
@@ -33,16 +33,15 @@
     "author": "Akuukis",
     "license": "GPL-3.0",
     "devDependencies": {
-        "@types/node": "^10.14.4",
-        "lerna": "^3.13.2",
-        "rxjs-tslint": "^0.1.7",
-        "tslint": "^5.15.0",
+        "@types/node": "^10.14.17",
+        "lerna": "^3.16.4",
+        "tslint": "^5.19.0",
         "tslint-clean-code": "^0.2.9",
         "tslint-consistent-codestyle": "^1.15.1",
         "tslint-react": "^4.0.0",
         "tslint-sonarts": "^1.9.0",
-        "typescript": "^3.4.3",
-        "typescript-tslint-plugin": "^0.4.0"
+        "typescript": "^3.6.2",
+        "typescript-tslint-plugin": "^0.5.4"
     },
     "dependencies": {},
     "workspaces": [
