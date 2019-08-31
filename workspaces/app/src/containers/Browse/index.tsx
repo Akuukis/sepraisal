@@ -28,8 +28,8 @@ const styles = (theme: IMyTheme) => createStyles({
         width: drawerWidth,
     },
     drawerPaper: {
-        paddingTop: 64,
         height: 'calc(100% - 64px)',
+        paddingTop: 64,
         width: drawerWidth,
         zIndex: 99,
     },

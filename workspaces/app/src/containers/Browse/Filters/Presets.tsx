@@ -37,7 +37,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     expanded: boolean
-    onChange(): void
+    onChange: () => void
 }
 
 

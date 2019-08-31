@@ -22,16 +22,16 @@ import SelectorRow from './Row'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        paddingBottom: theme.spacing(2),
         backgroundColor: '#FFF',
+        paddingBottom: theme.spacing(2),
         position: 'relative',
     },
 
     closeButton: {
+        color: theme.palette.grey[500],
         position: 'absolute',
         right: theme.spacing(1),
         top: theme.spacing(1),
-        color: theme.palette.grey[500],
     },
     content: {
     },
@@ -105,7 +105,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                                     key={key}
                                     id={key}
                                     selected={props.selected}
-                                    title={`${blueprint.steam!.title}, v${blueprint.steam!.revision}`}
+                                    title={`${blueprint.steam.title}, v${blueprint.steam.revision}`}
                                 />
                             ))}
                     </List>

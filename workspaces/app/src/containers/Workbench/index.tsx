@@ -32,8 +32,8 @@ const styles = (theme: IMyTheme) => createStyles({
         width: drawerWidth,
     },
     drawerPaper: {
-        paddingTop: 64,
         height: 'calc(100% - 64px)',
+        paddingTop: 64,
         width: drawerWidth,
         zIndex: 99,
     },
@@ -82,7 +82,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             })
 
             const title = blueprintStore.setUpload(await praisalManager.praiseXml(xml))
-            runInAction(() =>{
+            runInAction(() => {
                 selected.push(title)
             })
         }

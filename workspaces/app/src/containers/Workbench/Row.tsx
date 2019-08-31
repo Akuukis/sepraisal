@@ -14,14 +14,14 @@ const styles = (theme: IMyTheme) => createStyles({
         '&:hover': {
             background: theme.palette.primary.main,
         },
-        "background": theme.palette.primary.main,
+        background: theme.palette.primary.main,
     },
 })
 
 
 interface IProps {
-    selected: IObservableArray<string>
     id: string
+    selected: IObservableArray<string>
     title: string
 }
 

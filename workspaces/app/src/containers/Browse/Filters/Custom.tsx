@@ -5,7 +5,6 @@ import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, FormGroup
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
-import { CONTEXT } from '../../../stores'
 import Checkbox from './FormControls/Checkbox'
 
 
@@ -29,15 +28,11 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     expanded: boolean
-    onChange(): void
+    onChange: () => void
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const cardStore = React.useContext(CONTEXT.CARDS)
-    const [checked, setChecked] = React.useState<null|boolean>(null)
-
-    const toggleChecked = (event, value) => checked === false ? setChecked(null) : setChecked(value)
 
     return (
         <ExpansionPanel className={classes.root} expanded={props.expanded} onChange={props.onChange}>
@@ -50,8 +45,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Typography color='textSecondary' variant='caption'>
                         [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
                     </Typography>
-                    <Checkbox title='Vanilla'               findKey='sbc.vanilla'                   yes={true}            no={false} />
-                    <Checkbox title='Static Grid'           findKey='sbc.gridStatic'                yes={true}            no={false} />
+                    <Checkbox title='Vanilla'               findKey='sbc.vanilla'                   yes                   no={false} />
+                    <Checkbox title='Static Grid'           findKey='sbc.gridStatic'                yes                   no={false} />
                     <Checkbox title='No subgrids'           findKey='sbc.gridCount'                 yes={{$eq: 1}}        no={{$ne: 1}} />
                     <Checkbox title='No Image'              findKey='thumb.webp'                    yes={null}            no={{$ne: null}} />
                     <Checkbox title='Requires Gold ore'     findKey='sbc.ores.Gold'                 yes={{$exists: true}} no={{$exists: false}} />

@@ -19,10 +19,10 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     closeButton: {
-        position: 'absolute',
-        left: theme.spacing(1),
-        top: theme.spacing(1),
         color: theme.palette.grey[500],
+        left: theme.spacing(1),
+        position: 'absolute',
+        top: theme.spacing(1),
     },
 })
 
@@ -35,18 +35,13 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const {toggleDrawer} = props
 
-    const cardStore = React.useContext(CONTEXT.CARDS)
-    const [expanded, setExpanded] = React.useState<typeof Pages[keyof typeof Pages]>(Pages.Presets)
-
-    const setExpandedPage = (page) => () => setExpanded(expanded !== page ? page : null)
-
-    const selectedValue = JSON.stringify(cardStore.find)
-    const found = Object.keys(PRESET).findIndex((key) => selectedValue === JSON.stringify(PRESET[key]))
+    const [expanded, setExpanded] = React.useState<typeof Pages[keyof typeof Pages] | null>(Pages.Presets)
+    const setExpandedPage = (page: typeof Pages[keyof typeof Pages]) => () => setExpanded(expanded !== page ? page : null)
 
     return (
         <div className={classes.root}>
             <Typography variant='h4' align='center' style={{margin: 16}}>Filters</Typography>
-            <IconButton aria-label="Close" className={classes.closeButton} onClick={toggleDrawer}>
+            <IconButton aria-label='Close' className={classes.closeButton} onClick={toggleDrawer}>
                 <CloseIcon />
             </IconButton>
             <Presets

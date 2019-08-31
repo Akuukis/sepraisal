@@ -10,7 +10,7 @@ export class RouterStore extends BaseRouterStore {
     }
 
     public goBlueprint(id: number, revision?: number) {
-        if(!revision) return this.push(`${ROUTES.BLUEPRINT}/${id}`)
+        if(revision !== undefined) return this.push(`${ROUTES.BLUEPRINT}/${id}`)
 
         return this.push(`${ROUTES.BLUEPRINT}/${id}-${revision}`)
     }

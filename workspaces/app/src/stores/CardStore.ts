@@ -95,6 +95,7 @@ const genFighterPreset = (...args) =>
         // {'sbc.gridCount' : {$gte: args[8], $lte: args[9] } },
     ]})
 
+// tslint:disable: object-literal-sort-keys
 export const PRESET = {
     none: {$and: [...presetUpToDate]},
     ship: {$and: [...presetShip]},
@@ -104,6 +105,7 @@ export const PRESET = {
 
     custom: {$and: []},
 }
+// tslint:enable: object-literal-sort-keys
 
 interface IFind {
     $and: Array<{}>,
@@ -202,8 +204,8 @@ export class CardStore {
                 $and: this.sortFindAnd(value.$and),
             }
         }
-        if('$text' in value && value.$text!.$search === '') this._find = {$and: [...this._find.$and]}
-        if('$text' in value && value.$text!.$search !== '') this._find.$text = value.$text
+        if('$text' in value && value.$text && value.$text.$search === '') this._find = {$and: [...this._find.$and]}
+        if('$text' in value && value.$text && value.$text.$search !== '') this._find.$text = value.$text
     }
 
     public sortFindAnd($and: object[]) {
