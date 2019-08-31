@@ -41,7 +41,7 @@
     },
     "devDependencies": {
         "@types/cheerio": "^0.22.11",
-        "@types/mongodb": "^3.1.23",
+        "@types/mongodb": "^3.3.1",
         "@types/pad": "^1.0.2",
         "@types/tail": "^1.2.1",
         "@types/unzip": "^0.1.1"

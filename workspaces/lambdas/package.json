@@ -33,7 +33,7 @@
     },
     "devDependencies": {
         "@types/aws-lambda": "^8.10.24",
-        "@types/mongodb": "^3.1.23",
+        "@types/mongodb": "^3.3.1",
         "serverless": "^1.41.0",
         "serverless-webpack": "^5.2.0",
         "ts-loader": "^5.4.3",

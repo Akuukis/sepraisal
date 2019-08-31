@@ -5,84 +5,84 @@ import * as moment from 'moment'
 
 // tslint:disable:naming-convention
 export namespace QUERIES_RAW {
-    export const pendingScrapeError    = {'steam._error': {$exists: true}} as const
-    export const pendingScrapeInitial  = {steam: {$exists: false}} as const
-    export const pendingScrapeOutdated = {'steam._version': {$lt: IBlueprint.VERSION.steam}} as const
-    export const pendingScrapeStale    = {'steam._updated': {$lt: moment().subtract(7, 'd').toDate()}} as const
+    export const pendingScrapeError    = {'steam._error': {$exists: true}}
+    export const pendingScrapeInitial  = {steam: {$exists: false}}
+    export const pendingScrapeOutdated = {'steam._version': {$lt: IBlueprint.VERSION.steam}}
+    export const pendingScrapeStale    = {'steam._updated': {$lt: moment().subtract(7, 'd').toDate()}}
     export const pendingScrape         = {$or: [
         pendingScrapeInitial,
         pendingScrapeOutdated,
         pendingScrapeStale,
-    ]} as const
+    ]}
 
-    export const pendingThumbError     = {'thumb._error': {$exists: true}} as const
-    export const pendingThumbInitial   = {thumb: {$exists: false}} as const
-    export const pendingThumbOutdated  = {'thumb._version': {$lt: IBlueprint.VERSION.thumb}} as const
-    export const pendingThumbStale     = {$expr: {$ne: ['$thumb._revision', '$steam._thumbName']}} as const
+    export const pendingThumbError     = {'thumb._error': {$exists: true}}
+    export const pendingThumbInitial   = {thumb: {$exists: false}}
+    export const pendingThumbOutdated  = {'thumb._version': {$lt: IBlueprint.VERSION.thumb}}
+    export const pendingThumbStale     = {$expr: {$ne: ['$thumb._revision', '$steam._thumbName']}}
     export const pendingThumb          = {$or: [
         pendingThumbInitial,
         pendingThumbOutdated,
         pendingThumbStale,
-    ]} as const
+    ]}
 
-    export const pendingPraiseError    = {'sbc._error': {$exists: true}} as const
-    export const pendingPraiseInitial  = {sbc: {$exists: false}} as const
-    export const pendingPraiseOutdated = {'sbc._version': {$lt: IBlueprint.VERSION.sbc}} as const
-    export const pendingPraiseStale    = {$expr: {$ne: ['$sbc._revision', '$steam.revision']}} as const
+    export const pendingPraiseError    = {'sbc._error': {$exists: true}}
+    export const pendingPraiseInitial  = {sbc: {$exists: false}}
+    export const pendingPraiseOutdated = {'sbc._version': {$lt: IBlueprint.VERSION.sbc}}
+    export const pendingPraiseStale    = {$expr: {$ne: ['$sbc._revision', '$steam.revision']}}
     export const pendingPraise         = {$or: [
         pendingPraiseInitial,
         pendingPraiseOutdated,
         pendingPraiseStale,
-    ]} as const
+    ]}
 
-    export const pendingClassError     = {'classes._error': {$exists: true}} as const
-    export const pendingClassInitial   = {classes: {$exists: false}} as const
-    export const pendingClassOutdated  = {'classes._version': {$lt: IBlueprint.VERSION.classes}} as const
-    export const pendingClassStale     = {$expr: {$ne: ['$classes._revision', '$steam.revision']}} as const
+    export const pendingClassError     = {'classes._error': {$exists: true}}
+    export const pendingClassInitial   = {classes: {$exists: false}}
+    export const pendingClassOutdated  = {'classes._version': {$lt: IBlueprint.VERSION.classes}}
+    export const pendingClassStale     = {$expr: {$ne: ['$classes._revision', '$steam.revision']}}
     export const pendingClass          = {$or: [
         pendingClassInitial,
         pendingClassOutdated,
         pendingClassStale,
-    ]} as const
+    ]}
 
     export const errors = {$or: [
         pendingScrapeError,
         pendingThumbError,
         pendingPraiseError,
         pendingClassError,
-    ]} as const
+    ]}
 
     export const initial = {$or: [
         pendingScrapeInitial,
         pendingThumbInitial,
         pendingPraiseInitial,
         pendingClassInitial,
-    ]} as const
+    ]}
 
     export const outdated = {$or: [
         pendingScrapeOutdated,
         pendingThumbOutdated,
         pendingPraiseOutdated,
         pendingClassOutdated,
-    ]} as const
+    ]}
 
     export const stale = {$or: [
         pendingScrapeStale,
         pendingThumbStale,
         pendingPraiseStale,
         pendingClassStale,
-    ]} as const
+    ]}
 
     export const pending = {$or: [
         initial,
         outdated,
         stale,
-    ]} as const
+    ]}
 
     export const ok = {$nor: [
         errors,
         pending,
-    ]} as const
+    ]}
 }
 
 // tslint:disable: max-line-length
