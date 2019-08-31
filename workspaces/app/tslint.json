@@ -29,6 +29,7 @@
         "no-use-before-declare": false,  // Because newspaper order - first FC, then helpers.
         "object-literal-key-quotes": [true, "as-needed"],
         "prefer-function-over-method": [true, "allow-public"],  // Because React's render.
+
         //// tslint-react overrides.
         "jsx-boolean-value": [true, "never"],
         "jsx-alignment": false

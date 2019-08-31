@@ -25,7 +25,7 @@ export const main = async () => {
     const db = client.db(DB_NAME)
     const collection = db.collection<IBlueprint>('blueprints')
 
-    //// Snippets for database indexing.
+    // tslint:disable-next-line: no-commented-code - Snippets for database indexing.
     // console.log(await db.indexInformation('blueprints'))
     // console.log(await db.collection('blueprints').dropIndex('TextIndex'))
     // console.log(await db.collection('blueprints').createIndex({

@@ -1,6 +1,7 @@
 {
     "extends": [
-        "../../tslint.json"
+        "../../tslint.json",
+        "tslint-react"
     ],
     // Keep in-sync with ../app
     "rules": {
