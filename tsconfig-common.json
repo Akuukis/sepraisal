@@ -3,13 +3,10 @@
     "compilerOptions": {
         "plugins": [
             {
-                "name": "tslint-language-service",
+                "name": "typescript-tslint-plugin",
                 "alwaysShowRuleFailuresAsWarnings": true,
                 "ignoreDefinitionFiles": true,
                 "suppressWhileTypeErrorsPresent": true
-            },
-            {
-                "name": "typescript-tslint-plugin"
             }
         ],
 
