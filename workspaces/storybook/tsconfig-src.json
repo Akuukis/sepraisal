@@ -16,6 +16,7 @@
         "blueprints"
     ],
     "references": [
-        { "path": "../common/tsconfig-src.json" }
+        { "path": "../common/tsconfig-src.json" },
+        { "path": "../app/tsconfig-src.json" }
     ]
 }
