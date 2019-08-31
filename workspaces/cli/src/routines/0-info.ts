@@ -20,7 +20,7 @@ const indent = (filter: string): string => {
 
 // Use connect method to connect to the server
 export const main = async () => {
-    const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
+    const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Connected successfully to server')
     const db = client.db(DB_NAME)
     const collection = db.collection<IBlueprint>('blueprints')

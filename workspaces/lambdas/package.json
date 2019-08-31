@@ -29,7 +29,7 @@
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
         "aws-lambda": "^0.1.2",
-        "mongodb": "^3.2.3"
+        "mongodb": "^3.3.2"
     },
     "devDependencies": {
         "@types/aws-lambda": "^8.10.24",

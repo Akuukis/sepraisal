@@ -75,7 +75,7 @@ const init = (async () => {
     await sePraisal.addComponents(materialsXml, componentsXml)
     await sePraisal.addCubes(cubeBlocksXml)
     sePraisal.addGroups(BLOCK_GROUPS)
-    const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
+    const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     // console.info(`Database connection established (fork ${process.pid}).`)
     const db = client.db(DB_NAME)
     collection = db.collection<IProjection>('blueprints')

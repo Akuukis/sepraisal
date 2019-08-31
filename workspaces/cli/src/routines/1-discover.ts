@@ -68,7 +68,7 @@ const work: Work<IWorkItem> = async (collection: Collection<{_id: number}>, inde
 export const main = async () => {
 
     const timer = Date.now()
-    const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
+    const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Successfully connected to server.')
     const db = client.db(DB_NAME)
     const collection = db.collection<{_id: number}>('blueprints')
