@@ -62,9 +62,21 @@ export const formatFloat = (amount: NumberAlike): string => {
     } else if(raw.lt(500 * 1000 * 1000)) {
         scaled = raw.div(1000).div(1000)
         scale = 'M'
-    } else {
+    } else if(raw.lt(500 * 1000 * 1000 * 1000)) {
         scaled = raw.div(1000).div(1000).div(1000)
         scale = 'T'
+    } else if(raw.lt(500 * 1000 * 1000 * 1000 * 1000)) {
+        scaled = raw.div(1000).div(1000).div(1000).div(1000)
+        scale = 'P'
+    } else if(raw.lt(500 * 1000 * 1000 * 1000 * 1000 * 1000)) {
+        scaled = raw.div(1000).div(1000).div(1000).div(1000).div(1000)
+        scale = 'E'
+    } else if(raw.lt(500 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
+        scaled = raw.div(1000).div(1000).div(1000).div(1000).div(1000).div(1000)
+        scale = 'Z'
+    } else {
+        scaled = raw.div(1000).div(1000).div(1000).div(1000).div(1000).div(1000).div(1000)
+        scale = 'Y'
     }
 
     return `${scaled.toFixed(scaled.lt(10) ? 1 : 0)}${scale}`
