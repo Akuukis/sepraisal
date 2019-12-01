@@ -40,6 +40,7 @@
         "worker-farm": "^1.7.0"
     },
     "devDependencies": {
+        "@types/node": ">= 10",
         "@types/cheerio": "^0.22.13",
         "@types/mongodb": "^3.3.1",
         "@types/pad": "^1.0.2",

@@ -33,7 +33,6 @@
     "author": "Akuukis",
     "license": "GPL-3.0",
     "devDependencies": {
-        "@types/node": "^10.14.17",
         "lerna": "^3.16.4",
         "tslint": "^5.19.0",
         "tslint-clean-code": "^0.2.9",
