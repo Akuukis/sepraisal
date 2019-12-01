@@ -6,13 +6,53 @@
         <TypeId>BlueprintDefinition</TypeId>
         <SubtypeId>StoneOreToIngot</SubtypeId>
       </Id>
+      <DisplayName>DisplayName_BlueprintClass_Ingots</DisplayName>
+      <Icon>Textures\GUI\Icons\ingot\ingot_class.dds</Icon>
+      <Prerequisites>
+        <Item Amount="1000" TypeId="Ore" SubtypeId="Stone" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="14" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="30" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="2.4" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="4.0" TypeId="Ingot" SubtypeId="Silicon" />
+      </Results>
+      <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+    </Blueprint>
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>StoneOreToIngotBasic</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_BlueprintClass_Ingots</DisplayName>
+      <Icon>Textures\GUI\Icons\ingot\ingot_class.dds</Icon>
+      <Prerequisites>
+        <Item Amount="100" TypeId="Ore" SubtypeId="Stone" />
+      </Prerequisites>
+      <Results>
+        <Item Amount="1.4" TypeId="Ingot" SubtypeId="Stone" />
+        <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="0.24" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="0.4" TypeId="Ingot" SubtypeId="Silicon" />
+      </Results>
+      <Priority>1000</Priority>
+      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+    </Blueprint>
+    <Blueprint>
+      <Id>
+        <TypeId>BlueprintDefinition</TypeId>
+        <SubtypeId>StoneOreToIngot_Deconstruction</SubtypeId>
+      </Id>
       <DisplayName>DisplayName_Item_Gravel</DisplayName>
       <Icon>Textures\GUI\Icons\ingot\gravel_ingot.dds</Icon>
       <Prerequisites>
         <Item Amount="1" TypeId="Ore" SubtypeId="Stone" />
       </Prerequisites>
-      <Result Amount="0.9" TypeId="Ingot" SubtypeId="Stone" />
+      <Results>
+        <Item Amount="1" TypeId="Ingot" SubtypeId="Stone" />
+      </Results>
       <BaseProductionTimeInSeconds>0.1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -26,6 +66,7 @@
       </Prerequisites>
       <Result Amount="0.7" TypeId="Ingot" SubtypeId="Iron" />
       <BaseProductionTimeInSeconds>0.05</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -38,7 +79,7 @@
         <Item Amount="1" TypeId="Ore" SubtypeId="Nickel" />
       </Prerequisites>
       <Result Amount="0.4" TypeId="Ingot" SubtypeId="Nickel" />
-      <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>0.66</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -51,7 +92,7 @@
         <Item Amount="1" TypeId="Ore" SubtypeId="Cobalt" />
       </Prerequisites>
       <Result Amount="0.3" TypeId="Ingot" SubtypeId="Cobalt" />
-      <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -116,7 +157,7 @@
         <Item Amount="1" TypeId="Ore" SubtypeId="Platinum" />
       </Prerequisites>
       <Result Amount="0.005" TypeId="Ingot" SubtypeId="Platinum" />
-      <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -128,7 +169,7 @@
       <Prerequisites>
         <Item Amount="1" TypeId="Ore" SubtypeId="Uranium" />
       </Prerequisites>
-      <Result Amount="0.007" TypeId="Ingot" SubtypeId="Uranium" />
+      <Result Amount="0.01" TypeId="Ingot" SubtypeId="Uranium" />
       <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
@@ -180,6 +221,7 @@
       <Prerequisites>
         <Item Amount="1" TypeId="OxygenContainerObject" SubtypeId="OxygenBottle" />
       </Prerequisites>
+      <Results />
       <Result Amount="0.9" TypeId="Ingot" SubtypeId="Stone" />
       <BaseProductionTimeInSeconds>0.1</BaseProductionTimeInSeconds>
     </Blueprint>
@@ -192,11 +234,12 @@
       <Icon>Textures\GUI\Icons\component\OxygenBottleComponent.dds</Icon>
       <Prerequisites>
         <Item Amount="80" TypeId="Ingot" SubtypeId="Iron" />
-        <Item Amount="10" TypeId="Ingot" SubtypeId="Silver" />
+        <Item Amount="10" TypeId="Ingot" SubtypeId="Silicon" />
         <Item Amount="30" TypeId="Ingot" SubtypeId="Nickel" />
       </Prerequisites>
       <Result Amount="1" TypeId="OxygenContainerObject" SubtypeId="OxygenBottle" />
       <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -220,11 +263,12 @@
       <Icon>Textures\GUI\Icons\component\HydrogenBottle_Component.dds</Icon>
       <Prerequisites>
         <Item Amount="80" TypeId="Ingot" SubtypeId="Iron" />
-        <Item Amount="10" TypeId="Ingot" SubtypeId="Silver" />
+        <Item Amount="10" TypeId="Ingot" SubtypeId="Silicon" />
         <Item Amount="30" TypeId="Ingot" SubtypeId="Nickel" />
       </Prerequisites>
       <Result Amount="1" TypeId="GasContainerObject" SubtypeId="HydrogenBottle" />
       <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -234,10 +278,11 @@
       <DisplayName>DisplayName_Item_ConstructionComponent</DisplayName>
       <Icon>Textures\GUI\Icons\component\construction_components_component.dds</Icon>
       <Prerequisites>
-        <Item Amount="10" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="8" TypeId="Ingot" SubtypeId="Iron" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Construction" />
-      <BaseProductionTimeInSeconds>1.5</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -247,10 +292,11 @@
       <DisplayName>DisplayName_Item_Girder</DisplayName>
       <Icon>Textures\GUI\Icons\component\girder_component.dds</Icon>
       <Prerequisites>
-        <Item Amount="7" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="6" TypeId="Ingot" SubtypeId="Iron" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Girder" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -266,6 +312,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="MetalGrid" />
       <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -275,10 +322,11 @@
       <DisplayName>DisplayName_Item_InteriorPlate</DisplayName>
       <Icon>Textures\GUI\Icons\component\interior_plate_component.dds</Icon>
       <Prerequisites>
-        <Item Amount="3.5" TypeId="Ingot" SubtypeId="Iron" />
+        <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="InteriorPlate" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -292,6 +340,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="SteelPlate" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -305,6 +354,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="SmallTube" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -317,7 +367,8 @@
         <Item Amount="30" TypeId="Ingot" SubtypeId="Iron" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="LargeTube" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -331,7 +382,8 @@
         <Item Amount="5" TypeId="Ingot" SubtypeId="Nickel" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Motor" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -346,6 +398,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Display" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -359,6 +412,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="BulletproofGlass" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -373,6 +427,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Computer" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -387,7 +442,7 @@
         <Item Amount="5" TypeId="Ingot" SubtypeId="Silver" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Reactor" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -403,7 +458,7 @@
         <Item Amount="0.4" TypeId="Ingot" SubtypeId="Platinum" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Thrust" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -419,7 +474,7 @@
         <Item Amount="600" TypeId="Ingot" SubtypeId="Iron" />
        </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="GravityGenerator" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -434,7 +489,8 @@
         <Item Amount="20" TypeId="Ingot" SubtypeId="Silver" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Medical" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -448,7 +504,8 @@
         <Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="RadioCommunication" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -462,7 +519,8 @@
         <Item Amount="15" TypeId="Ingot" SubtypeId="Nickel" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Detector" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -490,7 +548,7 @@
         <Item Amount="2.0" TypeId="Ingot" SubtypeId="Magnesium" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Explosives" />
-      <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -500,11 +558,12 @@
       <DisplayName>DisplayName_Item_SolarCell</DisplayName>
       <Icon>Textures\GUI\Icons\component\SolarCellComponent.dds</Icon>
       <Prerequisites>
-        <Item Amount="10" TypeId="Ingot" SubtypeId="Nickel" />
-        <Item Amount="8" TypeId="Ingot" SubtypeId="Silicon" />
+        <Item Amount="3" TypeId="Ingot" SubtypeId="Nickel" />
+        <Item Amount="6" TypeId="Ingot" SubtypeId="Silicon" />
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="SolarCell" />
-      <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -520,6 +579,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="PowerCell" />
       <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -591,10 +651,11 @@
       <Prerequisites>
         <Item Amount="5" TypeId="Ingot" SubtypeId="Iron" />
         <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-        <Item Amount="0.2" TypeId="Ingot" SubtypeId="Cobalt" />
+        <Item Amount="3" TypeId="Ingot" SubtypeId="Stone" />
       </Prerequisites>
       <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="WelderItem" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -611,6 +672,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="Welder2Item" />
       <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -654,11 +716,12 @@
       <Prerequisites>
         <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
         <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-        <Item Amount="1" TypeId="Ingot" SubtypeId="Cobalt" />
+        <Item Amount="5" TypeId="Ingot" SubtypeId="Stone" />
         <Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
       </Prerequisites>
       <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinderItem" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -675,6 +738,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinder2Item" />
       <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -724,6 +788,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrillItem" />
       <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -739,6 +804,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrill2Item" />
       <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+      <IsPrimary>true</IsPrimary>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -833,6 +899,20 @@
       </Prerequisites>
       <Result Amount="1" TypeId="Component" SubtypeId="Superconductor" />
       <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
-    </Blueprint>    
+    </Blueprint>
+
+    <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>ZoneChip</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_ZoneChip</DisplayName>
+        <Icon>Textures\GUI\Icons\Items\ZoneChip_Item.dds</Icon>
+        <Prerequisites>
+            <Item Amount="1" TypeId="Component" SubtypeId="ZoneChip" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="Component" SubtypeId="ZoneChip" />
+        <BaseProductionTimeInSeconds>99999</BaseProductionTimeInSeconds>
+    </Blueprint>
   </Blueprints>
 </Definitions>

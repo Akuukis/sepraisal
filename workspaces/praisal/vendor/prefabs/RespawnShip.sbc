@@ -6,6 +6,11 @@
         <TypeId>MyObjectBuilder_PrefabDefinition</TypeId>
         <SubtypeId>RespawnShip</SubtypeId>
       </Id>
+        <DisplayName>Starter Ship mk.1</DisplayName>
+        <Description>These ships come from the early days of widespread space pioneering. They are slow, lack life support but come with advanced production capabilities.</Description>
+        <Icon>Textures\GUI\Prefabs\StarterShipmk.1.dds</Icon>
+        <TooltipImage>Textures\GUI\Prefabs\StarterShipmk.1.png</TooltipImage>
+        <EnvironmentType>Space</EnvironmentType>
       <CubeGrids>
         <CubeGrid>
           <EntityId>134637444538539245</EntityId>

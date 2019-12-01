@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CubeBlocks>
+    <Definition>
+      <Id>
+        <TypeId>Passage</TypeId>
+        <SubtypeId />
+      </Id>
+      <DisplayName>DisplayName_Block_Passage</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\passage.dds</Icon>
+      <Description>Description_Passage</Description>
+      <CubeSize>Large</CubeSize>
+        <GuiVisible>false</GuiVisible>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\passage.mwm</Model>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="74" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="SmallTube" Count="48" />
+      </Components>
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.27" />
+        <MountPoint Side="Top" StartX="0" StartY="0.85" EndX="1" EndY="1" />
+        <MountPoint Side="Top" StartX="0" StartY="0.27" EndX="0.25" EndY="0.85" />
+        <MountPoint Side="Top" StartX="0.75" StartY="0.27" EndX="1" EndY="0.85" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0.73" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="0.15" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0.15" EndX="0.25" EndY="0.73" />
+        <MountPoint Side="Bottom" StartX="0.75" StartY="0.15" EndX="1" EndY="0.73" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.15" EndY="1" />
+        <MountPoint Side="Front" StartX="0.85" StartY="0" EndX="1" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\PassageConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\PassageConstruction_2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\PassageConstruction_3.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>Passage</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>16</BuildTimeSeconds>
+      <PCU>1</PCU>      
+    </Definition>
+
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeStairs</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_Stairs</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\stairs.dds</Icon>
+      <Description>Description_Stairs</Description>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="2" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\Stairs.mwm</Model>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="40" />
+        <Component Subtype="Construction" Count="30" />
+        <Component Subtype="InteriorPlate" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.66" EndY="0.2" />
+        <MountPoint Side="Left" StartX="0.66" StartY="0" EndX="1.33" EndY="0.55" />
+        <MountPoint Side="Left" StartX="1.33" StartY="0" EndX="2" EndY="0.9" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.66" EndY="0.9" />
+        <MountPoint Side="Right" StartX="0.66" StartY="0" EndX="1.33" EndY="0.55" />
+        <MountPoint Side="Right" StartX="1.33" StartY="0" EndX="2" EndY="0.2" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="2" Default="true" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\StairsConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\StairsConstruction_2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\StairsConstruction_3.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>Stairs</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>20</BuildTimeSeconds>
+      <PCU>1</PCU>      
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeRamp</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_Ramp</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\ramp.dds</Icon>
+      <Description>Description_Ramp</Description>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="2" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\Ramp.mwm</Model>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="60" />
+        <Component Subtype="Construction" Count="16" />
+        <Component Subtype="InteriorPlate" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.66" EndY="0.2" />
+        <MountPoint Side="Left" StartX="0.66" StartY="0" EndX="1.33" EndY="0.55" />
+        <MountPoint Side="Left" StartX="1.33" StartY="0" EndX="2" EndY="0.9" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.66" EndY="0.9" />
+        <MountPoint Side="Right" StartX="0.66" StartY="0" EndX="1.33" EndY="0.55" />
+        <MountPoint Side="Right" StartX="1.33" StartY="0" EndX="2" EndY="0.2" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="2" Default="true" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\RampConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\RampConstruction_2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RampConstruction_3.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>Ramp</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>20</BuildTimeSeconds>
+      <PCU>1</PCU>      
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeSteelCatwalk</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_SteelCatwalk</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\steel_catwalk.dds</Icon>
+      <Description>Description_SteelCatwalk</Description>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\SteelCatwalk.mwm</Model>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="20" />
+        <Component Subtype="Construction" Count="5" />
+        <Component Subtype="SmallTube" Count="20" />
+        <Component Subtype="InteriorPlate" Count="7" />
+      </Components>
+      <CriticalComponent Subtype="SmallTube" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.1" EndX="0.1" EndY="0.33" />
+        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.1" EndX="1" EndY="0.33" />
+        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.43" />
+        <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SteelCatwalkConstruction_1.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>SteelCatwalk</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>10</BuildTimeSeconds>
+      <DestroyEffectOffset>
+        <X>0</X>
+        <Y>-1.1</Y>
+        <Z>0</Z>
+      </DestroyEffectOffset>
+      <PCU>1</PCU>      
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeSteelCatwalk2Sides</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_SteelCatwalkTwoSides</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\SteelCatwalk_2Sides.dds</Icon>
+      <Description>Description_SteelCatwalk</Description>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\SteelCatwalk_2Sides.mwm</Model>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="20" />
+        <Component Subtype="Construction" Count="7" />
+        <Component Subtype="SmallTube" Count="25" />
+        <Component Subtype="InteriorPlate" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SmallTube" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.1" EndX="0.1" EndY="0.33" />
+        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.1" EndX="1" EndY="0.33" />
+        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.43" />
+        <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SteelCatwalk_2SidesConstruction_1.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>LargeSteelCatwalk2Sides</BlockPairName>
+      <MirroringY>X</MirroringY>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>10</BuildTimeSeconds>
+      <DestroyEffectOffset>
+        <X>0</X>
+        <Y>-1.1</Y>
+        <Z>0</Z>
+      </DestroyEffectOffset>
+      <PCU>1</PCU>      
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeSteelCatwalkCorner</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_SteelCatwalkCorner</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\SteelCatwalk_Corner.dds</Icon>
+      <Description>Description_SteelCatwalk</Description>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\SteelCatwalk_Corner.mwm</Model>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="20" />
+        <Component Subtype="Construction" Count="7" />
+        <Component Subtype="SmallTube" Count="25" />
+        <Component Subtype="InteriorPlate" Count="12" />
+      </Components>
+      <CriticalComponent Subtype="SmallTube" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.1" EndX="0.1" EndY="0.33" />
+        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.1" EndX="1" EndY="0.33" />
+        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.43" />
+        <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SteelCatwalk_CornerConstruction_1.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>LargeSteelCatwalkCorner</BlockPairName>
+      <MirroringY>ZHalfY</MirroringY>
+      <MirroringZ>HalfY</MirroringZ>
+      <MirroringX>MinusHalfY</MirroringX>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>10</BuildTimeSeconds>
+      <DestroyEffectOffset>
+        <X>0</X>
+        <Y>-1.1</Y>
+        <Z>0</Z>
+      </DestroyEffectOffset>
+      <PCU>1</PCU>      
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeSteelCatwalkPlate</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_SteelCatwalkPlate</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\SteelCatwalk_Plate.dds</Icon>
+      <Description>Description_SteelCatwalk</Description>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\SteelCatwalk_Plate.mwm</Model>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="15" />
+        <Component Subtype="Construction" Count="7" />
+        <Component Subtype="SmallTube" Count="17" />
+        <Component Subtype="InteriorPlate" Count="8" />
+      </Components>
+      <CriticalComponent Subtype="SmallTube" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.1" EndX="0.1" EndY="0.33" />
+        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.1" EndX="1" EndY="0.33" />
+        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.43" />
+        <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SteelCatwalk_PlateConstruction_1.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>LargeSteelCatwalkPlate</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>10</BuildTimeSeconds>
+      <DestroyEffectOffset>
+        <X>0</X>
+        <Y>-1.1</Y>
+        <Z>0</Z>
+      </DestroyEffectOffset>
+      <PCU>1</PCU>      
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeCoverWall</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_FullCoverWall</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\cover_wall_full.dds</Icon>
+      <Description>Description_FullCoverWall</Description>
+      <CubeSize>Large</CubeSize>
+        <GuiVisible>false</GuiVisible>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\CoverWall.mwm</Model>
+      <Components>
+        <Component Subtype="SteelPlate" Count="4" />
+        <Component Subtype="Construction" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Left" StartX="0.83" StartY="0.01" EndX="0.97" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.03" StartY="0.01" EndX="0.17" EndY="0.4" />
+        <MountPoint Side="Bottom" StartX="0.01" StartY="0.8" EndX="0.99" EndY="0.99" Default="true" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.40" File="Models\Cubes\Large\CoverWallConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CoverWallConstruction_2.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>FullCoverWall</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>8</BuildTimeSeconds>
+      <PCU>1</PCU>
+      <IsAirTight>false</IsAirTight>      
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeCoverWallHalf</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_HalfCoverWall</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\cover_wall.dds</Icon>
+      <Description>Description_FullCoverWall</Description>
+      <GuiVisible>false</GuiVisible>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\CoverWallHalf.mwm</Model>
+      <Components>
+        <Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="Construction" Count="6" />
+      </Components>
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0.3" StartY="0.8" EndX="0.7" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CoverWallHalfConstruction_1.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>HalfCoverWall</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>5</BuildTimeSeconds>
+      <PCU>1</PCU>
+      <IsAirTight>false</IsAirTight>      
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeBlockInteriorWall</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_InteriorWall</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\interior_wall.dds</Icon>
+      <Description>Description_InteriorWall</Description>
+      <CubeSize>Large</CubeSize>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <CubeDefinition>
+        <CubeTopology>StandaloneBox</CubeTopology>
+        <ShowEdges>false</ShowEdges>
+        <Sides>
+          <Side Model="Models\Cubes\Large\InteriorWallSide.mwm" PatternWidth="1" PatternHeight="1" />
+          <Side Model="Models\Cubes\Large\InteriorWallTop.mwm" PatternWidth="1" PatternHeight="1" />
+          <Side Model="Models\Cubes\Large\InteriorWallSide.mwm" PatternWidth="1" PatternHeight="1" />
+          <Side Model="Models\Cubes\Large\InteriorWallSide.mwm" PatternWidth="1" PatternHeight="1" />
+          <Side Model="Models\Cubes\Large\InteriorWallBottom.mwm" PatternWidth="1" PatternHeight="1" />
+          <Side Model="Models\Cubes\Large\InteriorWallSide.mwm" PatternWidth="1" PatternHeight="1" />
+        </Sides>
+      </CubeDefinition>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="20" />
+        <Component Subtype="Construction" Count="8" />
+        <Component Subtype="InteriorPlate" Count="5" />
+        <Component Subtype="Construction" Count="2" />
+      </Components>
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\InteriorWallConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\InteriorWallConstruction_2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\InteriorWallConstruction_3.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>InteriorWall</BlockPairName>
+      <MirroringY>X</MirroringY>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>14</BuildTimeSeconds>
+      <PCU>1</PCU>
+      <IsAirTight>true</IsAirTight>
+    </Definition>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeInteriorPillar</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_InteriorPillar</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\interior_pillar.dds</Icon>
+      <Description>Description_InteriorPillar</Description>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\InteriorPillar.mwm</Model>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="25" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="SmallTube" Count="4" />
+      </Components>
+      <CriticalComponent Subtype="Construction" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Top" StartX="0.45" StartY="0.45" EndX="0.55" EndY="0.55" />
+        <MountPoint Side="Bottom" StartX="0.45" StartY="0.45" EndX="0.55" EndY="0.55" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\InteriorPillarConstruction_1.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>InteriorPillar</BlockPairName>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>8</BuildTimeSeconds>
+      <AutorotateMode>OppositeDirections</AutorotateMode>
+      <PCU>1</PCU>
+      <IsAirTight>false</IsAirTight>      
+    </Definition>
+    <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+      <Id>
+        <TypeId>Cockpit</TypeId>
+        <SubtypeId>PassengerSeatLarge</SubtypeId>
+        <!-- Large block passenger seat -->
+      </Id>
+      <DisplayName>DisplayName_Block_PassengerSeat</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\PassengerSeat.dds</Icon>
+      <Description>Description_PassengerSeat</Description>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Large\PassengerSeat.mwm</Model>
+      <CharacterAnimation>passengerseat_large</CharacterAnimation>
+      <UsesDeformation>false</UsesDeformation>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="InteriorPlate" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="InteriorPlate" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0.3" StartY="0.6" EndX="0.7" EndY="1" Default="true"/>
+        <MountPoint Side="Back" StartX="0.3" StartY="0" EndX="0.7" EndY="0.4" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\PassengerSeatConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\PassengerSeatConstruction_2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\PassengerSeatConstruction_3.mwm" />
+      </BuildProgressModels>
+      <VoxelPlacement>
+        <StaticMode>
+          <PlacementMode>Volumetric</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>Volumetric</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>PassengerSeat</BlockPairName>
+      <MirroringZ>Y</MirroringZ>
+      <MirroringY>Z</MirroringY>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>15</BuildTimeSeconds>
+      <EnableFirstPerson>true</EnableFirstPerson>
+      <EnableShipControl>false</EnableShipControl>
+      <EnableBuilderCockpit>false</EnableBuilderCockpit>
+      <IsPressurized>false</IsPressurized>
+      <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+      <DamagedSound>ParticleElectrical</DamagedSound>
+      <DestroyEffect>BlockDestroyed_Medium</DestroyEffect>
+      <DestroySound>PoofExplosionCat2</DestroySound>
+      <PCU>15</PCU>
+      <IsAirTight>false</IsAirTight>      
+    </Definition>
+    <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+      <Id>
+        <TypeId>Cockpit</TypeId>
+        <SubtypeId>PassengerSeatSmall</SubtypeId>
+        <!-- Small block passenger seat -->
+      </Id>
+      <DisplayName>DisplayName_Block_PassengerSeat</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\PassengerSeat.dds</Icon>
+      <Description>Description_PassengerSeat</Description>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="3" y="3" z="3" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Small\PassengerSeat.mwm</Model>
+      <CharacterAnimation>passengerseat_small</CharacterAnimation>
+      <UsesDeformation>false</UsesDeformation>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="10" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="InteriorPlate" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="InteriorPlate" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="1" StartY="1" EndX="2" EndY="3" Default="true" />
+        <MountPoint Side="Back" StartX="1" StartY="0" EndX="2" EndY="2" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\PassengerSeatConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\PassengerSeatConstruction_2.mwm" />
+      </BuildProgressModels>
+      <VoxelPlacement>
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>PassengerSeat</BlockPairName>
+      <MirroringZ>Y</MirroringZ>
+      <MirroringY>Z</MirroringY>
+      <BuildTimeSeconds>15</BuildTimeSeconds>
+      <EdgeType>Light</EdgeType>
+      <EnableFirstPerson>true</EnableFirstPerson>
+      <EnableShipControl>false</EnableShipControl>
+      <EnableBuilderCockpit>false</EnableBuilderCockpit>
+      <IsPressurized>false</IsPressurized>
+      <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+      <DamagedSound>ParticleElectrical</DamagedSound>
+      <DestroyEffect>BlockDestroyed_Medium</DestroyEffect>
+      <DestroySound>PoofExplosionCat2</DestroySound>
+      <PCU>15</PCU>
+      <IsAirTight>false</IsAirTight>      
+    </Definition>
+      
+    <Definition>
+      <Id>
+        <TypeId>Ladder2</TypeId>
+        <SubtypeId />
+      </Id>
+      <DisplayName>DisplayName_Block_Ladder</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\Ladder.dds</Icon>
+      <Description>Description_Ladder</Description>
+      <CubeSize>Large</CubeSize>
+        <GuiVisible>false</GuiVisible>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </Size>
+      <ModelOffset>
+        <X>0</X>
+        <Y>0</Y>
+        <Z>0</Z>
+      </ModelOffset>
+      <Model>Models\Cubes\large\Ladder.mwm</Model>
+      <PlaceDecals>false</PlaceDecals>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="10" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="SmallTube" Count="10" />
+        <Component Subtype="Construction" Count="10" />
+      </Components>
+      <CriticalComponent Subtype="SmallTube" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Top" StartX="0.3" StartY="0.0" EndX="0.7" EndY="0.2" />
+        <MountPoint Side="Bottom" StartX="0.3" StartY="0.8" EndX="0.7" EndY="1" />
+        <MountPoint Side="Back" StartX="0.3" StartY="0.0" EndX="0.7" EndY="1" />
+      </MountPoints>
+      <PhysicsOption>Box</PhysicsOption>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\large\Ladder_Construction_1.mwm" />
+        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\large\Ladder_Construction_2.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\Ladder_Construction_3.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>Ladder2</BlockPairName>
+      <ExcludedAreaForCamera>
+        <BoundingBox>
+          <Min>
+            <X>-0.6</X>
+            <Y>-1.3</Y>
+            <Z>-1.3</Z>
+          </Min>
+          <Max>
+            <X>0.6</X>
+            <Y>-1.1</Y>
+            <Z>-0.75</Z>
+          </Max>
+        </BoundingBox>
+        <BoundingBox>
+          <Min>
+            <X>-0.6</X>
+            <Y>1.1</Y>
+            <Z>-1.3</Z>
+          </Min>
+          <Max>
+            <X>0.6</X>
+            <Y>1.3</Y>
+            <Z>-0.75</Z>
+          </Max>
+        </BoundingBox>
+      </ExcludedAreaForCamera>
+      <CenterOffset xsi:nil="true" />
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>      
+    </Definition>
+      <Definition>
+          <Id>
+              <TypeId>Ladder2</TypeId>
+              <SubtypeId>LadderSmall</SubtypeId> 
+          </Id>
+          <DisplayName>DisplayName_Block_Ladder</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Ladder.dds</Icon>
+          <Description>Description_Ladder</Description>
+          <CubeSize>Small</CubeSize>
+          <GuiVisible>false</GuiVisible>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size>
+              <X>3</X>
+              <Y>5</Y>
+              <Z>5</Z>
+          </Size>
+          <ModelOffset>
+              <X>0</X>
+              <Y>0</Y>
+              <Z>0</Z>
+          </ModelOffset>
+          <Model>Models\Cubes\large\Ladder.mwm</Model>
+          <PlaceDecals>false</PlaceDecals>
+          <Components>
+              <Component Subtype="InteriorPlate" Count="10" />
+              <Component Subtype="Construction" Count="10" />
+              <Component Subtype="SmallTube" Count="10" />
+              <Component Subtype="Construction" Count="10" />
+          </Components>
+          <CriticalComponent Subtype="SmallTube" Index="0" />
+          <MountPoints>
+              <MountPoint Side="Top" StartX="0.3" StartY="0.0" EndX="2.7" EndY="1.0" />
+              <MountPoint Side="Bottom" StartX="0.3" StartY="4.0" EndX="2.7" EndY="5" />
+              <MountPoint Side="Back" StartX="0.3" StartY="0.0" EndX="2.7" EndY="5" />
+          </MountPoints>
+          <PhysicsOption>Box</PhysicsOption>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="0.33" File="Models\Cubes\large\Ladder_Construction_1.mwm" />
+              <Model BuildPercentUpperBound="0.66" File="Models\Cubes\large\Ladder_Construction_2.mwm" />
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\Ladder_Construction_3.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Ladder2</BlockPairName>
+          <ExcludedAreaForCamera>
+              <BoundingBox>
+                  <Min>
+                      <X>-0.6</X>
+                      <Y>-1.3</Y>
+                      <Z>-1.3</Z>
+                  </Min>
+                  <Max>
+                      <X>0.6</X>
+                      <Y>-1.1</Y>
+                      <Z>-0.75</Z>
+                  </Max>
+              </BoundingBox>
+              <BoundingBox>
+                  <Min>
+                      <X>-0.6</X>
+                      <Y>1.1</Y>
+                      <Z>-1.3</Z>
+                  </Min>
+                  <Max>
+                      <X>0.6</X>
+                      <Y>1.3</Y>
+                      <Z>-0.75</Z>
+                  </Max>
+              </BoundingBox>
+          </ExcludedAreaForCamera>
+          <CenterOffset xsi:nil="true" />
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+      </Definition>
+  </CubeBlocks>
+</Definitions>
