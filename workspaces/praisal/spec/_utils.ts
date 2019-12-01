@@ -1,17 +1,12 @@
 import { BLOCK_GROUPS } from '@sepraisal/common'
-import { PraisalManager } from '@sepraisal/praisal'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
-const VENDOR_DIR = join(require.resolve('@sepraisal/praisal'), '..', '..', 'vendor')
+import { PraisalManager } from '../src'
 
-;
-(async () => {
-    const sePraisal = new PraisalManager()
+export const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
-    const componentsXml = readFileSync(join(VENDOR_DIR, 'Components.sbc')).toString()
-    const materialsXml = readFileSync(join(VENDOR_DIR, 'Blueprints.sbc')).toString()
-    const physicalItemsXml = readFileSync(join(VENDOR_DIR, 'PhysicalItems.sbc')).toString()
+export const NewPraisalManager = () => {
     const cubeBlocksXmls = [
         readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
@@ -39,16 +34,18 @@ const VENDOR_DIR = join(require.resolve('@sepraisal/praisal'), '..', '..', 'vend
         readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
     ]
-    await sePraisal.addOres(physicalItemsXml)
-    await sePraisal.addIngots(physicalItemsXml, materialsXml)
-    await sePraisal.addComponents(materialsXml, componentsXml)
-    for(const cubeBlocksXml of cubeBlocksXmls) await sePraisal.addCubes(cubeBlocksXml)
-    sePraisal.addGroups(BLOCK_GROUPS)
+    const componentsXml = readFileSync(join(VENDOR_DIR, 'Components.sbc')).toString()
+    const materialsXml = readFileSync(join(VENDOR_DIR, 'Blueprints.sbc')).toString()
+    const physicalItemsXml = readFileSync(join(VENDOR_DIR, 'PhysicalItems.sbc')).toString()
 
-    const praisal = await sePraisal.praiseXml(readFileSync(join(VENDOR_DIR, 'prefabs', 'AtmosphericLander.sbc'), 'utf-8'))
-    // const praisal = await sepraisal.praiseXml(readFileSync(join(__dirname, 'assets', 'blueprints', 'dekartaTests.sbc'), 'utf-8'))
-    // console.log(praisal.blummary.count)
-    // console.log([...praisal.groups.entries()].map(([key, group]) => `${key}: ${group.blockCount}`))
-    console.log(praisal.integrityPlanes.maxValue)
-    // console.log(praisal.silhouette)
-})().catch((err) => console.error(err))
+    return async () => {
+        const sepraisal = new PraisalManager()
+        for(const cubeBlocksXml of cubeBlocksXmls) await sepraisal.addCubes(cubeBlocksXml)
+        await sepraisal.addOres(physicalItemsXml)
+        await sepraisal.addIngots(physicalItemsXml, materialsXml)
+        await sepraisal.addComponents(materialsXml, componentsXml)
+        sepraisal.addGroups(BLOCK_GROUPS)
+
+        return sepraisal
+    }
+}
