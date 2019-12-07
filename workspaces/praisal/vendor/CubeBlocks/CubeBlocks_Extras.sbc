@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CubeBlocks>
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>Monolith</SubtypeId>
+      </Id>
+      <DisplayName>Monolith</DisplayName>
+      <Icon>Textures\GUI\Icons\Fake.dds</Icon>
+      <Public>false</Public>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="4" z="1" />
+      <Center x="0" y="0" z="0" />
+      <ModelOffset x="0" y="-4" z="0" />
+      <Model>Models\Environment\Props\Monolith.mwm</Model>
+      <Components>
+        <Component Subtype="SteelPlate" Count="130" />
+        <Component Subtype="Superconductor" Count="130" />
+      </Components>
+      <CriticalComponent Subtype="Superconductor" Index="0" />
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>200000</BuildTimeSeconds>
+      <InventorySize>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </InventorySize>
+      <PCU>1</PCU>
+      <IsAirTight>false</IsAirTight>
+    </Definition>
+
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>Stereolith</SubtypeId>
+      </Id>
+      <DisplayName>Stereolith</DisplayName>
+      <Icon>Textures\GUI\Icons\Fake.dds</Icon>
+      <Public>false</Public>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="4" z="1" />
+      <Center x="0" y="0" z="0" />
+      <ModelOffset x="0" y="-4" z="0" />
+      <Model>Models\Environment\Props\Stereolith.mwm</Model>
+      <Components>
+        <Component Subtype="SteelPlate" Count="130" />
+        <Component Subtype="Superconductor" Count="130" />
+      </Components>
+      <CriticalComponent Subtype="Superconductor" Index="0" />
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>200000</BuildTimeSeconds>
+      <InventorySize>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </InventorySize>
+      <PCU>1</PCU>
+      <IsAirTight>false</IsAirTight>
+    </Definition>
+
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>DeadAstronaut</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Dead_Astronaut</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\DeadAstronaut.dds</Icon>
+      <Public>false</Public>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <Center x="0" y="0" z="0" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Debris\dead_astronaut.mwm</Model>
+      <Components>
+        <Component Subtype="SteelPlate" Count="13" />
+        <Component Subtype="Superconductor" Count="13" />
+      </Components>
+      <CriticalComponent Subtype="Superconductor" Index="0" />
+      <EdgeType>Light</EdgeType>
+      <InventorySize>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </InventorySize>
+      <PhysicsOption>None</PhysicsOption>
+      <IsAirTight>false</IsAirTight>
+    </Definition>
+
+    <Definition>
+      <Id>
+        <TypeId>CubeBlock</TypeId>
+        <SubtypeId>LargeDeadAstronaut</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Dead_Astronaut</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\DeadAstronaut.dds</Icon>
+      <Public>false</Public>
+      <CubeSize>Large</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="1" y="1" z="1" />
+      <Center x="0" y="0" z="0" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Debris\dead_astronaut.mwm</Model>
+      <Components>
+        <Component Subtype="SteelPlate" Count="13" />
+        <Component Subtype="Superconductor" Count="13" />
+      </Components>
+      <CriticalComponent Subtype="Superconductor" Index="0" />
+      <EdgeType>Light</EdgeType>
+      <InventorySize>
+        <X>1</X>
+        <Y>1</Y>
+        <Z>1</Z>
+      </InventorySize>
+      <PhysicsOption>None</PhysicsOption>
+      <IsAirTight>false</IsAirTight>
+    </Definition>  	
+  </CubeBlocks>
+</Definitions>

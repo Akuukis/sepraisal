@@ -22,7 +22,8 @@ export interface IMaterialBlueprint extends IXml2js {
   readonly DisplayName: readonly [string],
   readonly Id: readonly [IMaterialId],
   readonly Prerequisites: readonly [IMaterialPrerequisites],
-  readonly Result: readonly [IMaterialItem],
+  readonly Result?: readonly [IMaterialItem],
+  readonly Results?: readonly [IMaterialPrerequisites],
   // ...
 }
 

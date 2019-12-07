@@ -19,12 +19,11 @@ export interface ICubeComponent extends IXml2js {
   },
 }
 
-export interface ICubeSize extends IXml2js {
-  readonly $: {
-    readonly x: number,
-    readonly y: number,
-    readonly z: number,
-  }
+// Everything hasICubeSize1, but Ladder has ICubeSize2.
+export interface ICubeSize1 extends IXml2js {
+  readonly $: IVector
+}
+export interface ICubeSize2 extends IXml2js, IVector3I {
 }
 
 export interface ICubeComponents extends IXml2js {
@@ -66,7 +65,7 @@ export namespace CubeDTOCategory {
     readonly MountPoints: unknown,
     readonly NavigationDefinition: readonly ['Default'],
     readonly PCU: readonly [number],
-    readonly Size: readonly [ICubeSize],
+    readonly Size: readonly [ICubeSize1 | ICubeSize2],
     readonly Skeleton: unknown,
     readonly Variants: unknown,
     readonly VoxelPlacement?: unknown,

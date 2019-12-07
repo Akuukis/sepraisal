@@ -1,28 +1,17 @@
-import { BLOCK_GROUPS } from '@sepraisal/common'
-import { createReadStream, readFileSync } from 'fs'
+import { createReadStream } from 'fs'
 import { join } from 'path'
 
 import { PraisalManager } from '../src'
 import { parseSteamArchive } from '../src/parseSteamArchive'
+import { NewPraisalManager } from './_utils'
 
 
-// tslint:disable: no-duplicate-string
-const VENDOR_DIR = join(__dirname, '..', 'vendor')
 const FIXTURES_DIR = join(__dirname, 'fixtures')
-
+const newPraisalManager = NewPraisalManager()
 
 let sepraisal: PraisalManager
 beforeEach(async () => {
-    sepraisal = new PraisalManager()
-    const cubeBlocksXml = readFileSync(join(VENDOR_DIR, 'CubeBlocks.sbc')).toString()
-    const componentsXml = readFileSync(join(VENDOR_DIR, 'Components.sbc')).toString()
-    const materialsXml = readFileSync(join(VENDOR_DIR, 'Blueprints.sbc')).toString()
-    const physicalItemsXml = readFileSync(join(VENDOR_DIR, 'PhysicalItems.sbc')).toString()
-    await sepraisal.addOres(physicalItemsXml)
-    await sepraisal.addIngots(physicalItemsXml, materialsXml)
-    await sepraisal.addComponents(materialsXml, componentsXml)
-    await sepraisal.addCubes(cubeBlocksXml)
-    sepraisal.addGroups(BLOCK_GROUPS)
+    sepraisal = await newPraisalManager()
 })
 
 describe('PraisalManager.praiseXml', () => {

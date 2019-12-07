@@ -129,7 +129,7 @@ export const main = async () => {
         })
     console.info(`But already cached are ${docsAll.length - docsNew.length} blueprints.`)
 
-    const docs = docsNew.filter((doc) => doc.steam.sizeMB < 2)
+    const docs = docsNew.filter((doc) => doc.steam.sizeMB < 5)
     console.info(`But too big (>2MB) are ${docsNew.length - docs.length} blueprints.`)
 
     console.info('Checking passwords...')

@@ -64,11 +64,21 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
         this.time = time
         this.prerequisites = prerequisites
         this.pcu = pcu
-        this.size = {
-                X: Number(Size[0].$.x),
-                Y: Number(Size[0].$.y),
-                Z: Number(Size[0].$.z),
+        const sizeSomething = Size[0]
+        if('$' in sizeSomething) {
+            this.size = {
+                X: Number(sizeSomething.$.x),
+                Y: Number(sizeSomething.$.y),
+                Z: Number(sizeSomething.$.z),
             }
+        } else {
+            this.size = {
+                X: Number(sizeSomething.X[0]),
+                Y: Number(sizeSomething.Y[0]),
+                Z: Number(sizeSomething.Z[0]),
+            }
+        }
+
 
         this.mass = Object.keys(this.prerequisites).reduce((sum, typeSubtype) => {
             const component = componentStore.get(typeSubtype)
