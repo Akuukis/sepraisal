@@ -1,5 +1,3 @@
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 import { DB_NAME, DB_URL, IBlueprint, toMinSec } from '@sepraisal/common'
 import { lstatSync } from 'fs'
 import { MongoClient } from 'mongodb'
@@ -10,6 +8,8 @@ import * as workerFarm from 'worker-farm'
 import { QUERIES } from '../queries'
 import { sbcPath } from '../utils'
 
+// tslint:disable:no-unsafe-any - because `response` is not typed.
+// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 
 interface IProjection {
     _id: number,
@@ -18,17 +18,21 @@ interface IProjection {
     },
 }
 
+
+const isDebug = process.argv.findIndex((arg) => arg.includes('--debug')) !== -1
 const farmOptions = {
-    workerOptions               : {},
+    workerOptions               : {
+        ...(isDebug ? {execArgv: ['--inspect-brk=49999']} : {}),
+    },
     maxCallsPerWorker           : 1,
-    maxConcurrentWorkers        : cpus().length,
+    maxConcurrentWorkers        : isDebug ? 1 : cpus().length,
     maxConcurrentCallsPerWorker : 1,
     maxConcurrentCalls          : Infinity,
-    maxCallTime                 : 10 * 1000,
+    maxCallTime                 : isDebug ? Infinity : 10 * 1000,
     maxRetries                  : 1,
     autoStart                   : false,
 }
-const workers = workerFarm(farmOptions, require.resolve('./5-praiseWorker.ts'))
+const workers = workerFarm(farmOptions, require.resolve(`./5-praiseWorker.${__filename.slice(-2)}`))
 const queueWork = async (index: number, doc: IProjection) => new Promise<void>(
         // tslint:disable-next-line:no-void-expression
         (resolve, reject) => workers(index, doc, (err: Error | void, msg: void) => err ? reject(err) : resolve(msg)),
@@ -41,7 +45,6 @@ const praised = new Map<number, IJobResult>()
 
 export const main = async () => {
 
-
     const timer = Date.now()
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info(`Database connection established (master).`)
@@ -50,18 +53,19 @@ export const main = async () => {
 
     const errors: Error[] = []
 
+    const query = !isDebug
+        ? QUERIES.pendingPraise
+        : {$or: [
+            // For debug, use storybook ships.
+            // tslint:disable-next-line: no-duplicate-string
+            {'steam.title': {$regex: '^Cursor$'}},
+            // {'steam.title': {$regex: '\\[NO MODS\\] Wyvern - Atmospheric Survival Ship'}},
+            // {'steam.title': {$regex: 'IMDC A-1 \'Aegir\' Fighter'}},
+            // {'steam.title': {$regex: 'IMDC A-2 \'Aegir\' Fighter'}},
+        ]}
+
     const docsAll = await collection
-        .find(QUERIES.pendingPraise)
-        // .find({$and: [QUERIES.pendingPraise,
-        //     {$or: [
-        //         // For debug, use storybook ships.
-        //         // tslint:disable-next-line: no-duplicate-string
-        //         {'steam.title': {$regex: '^Cursor$'}},
-        //         {'steam.title': {$regex: '\\[NO MODS\\] Wyvern - Atmospheric Survival Ship'}},
-        //         {'steam.title': {$regex: 'IMDC A-1 \'Aegir\' Fighter'}},
-        //         {'steam.title': {$regex: 'IMDC A-2 \'Aegir\' Fighter'}},
-        //     ]},
-        // ]})
+        .find(query)
         .project({
             '_id': true,
             'steam.revision': true,
