@@ -21,7 +21,7 @@
         "lint:summary": "yarn lint:verbose | grep ERROR | sed -r 's/ERROR: \\((.*)\\)\\s\\/.*/\\1/' | sort | uniq -c | sort -nr",
         "lint:verbose": "yarn run lint -t verbose",
         "launch": "ts-node -r dotenv/config src/index.ts",
-        "test": "jest --config ../../tools/jest.config.js",
+        "test": "echo 'no tests :('",
         "test:coverage": "yarn run test --coverage",
         "watch": "yarn run watch:src",
         "watch:src": "tsc -b tsconfig-src.json --watch  # --preserveWatchOutput",

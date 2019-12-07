@@ -19,7 +19,7 @@
         "lint:fix": "yarn run lint --fix",
         "lint:summary": "yarn lint:verbose | grep ERROR | sed -r 's/ERROR: \\((.*)\\)\\s\\/.*/\\1/' | sort | uniq -c | sort -nr",
         "lint:verbose": "yarn run lint -t verbose",
-        "test": "jest --config ../../tools/jest.config.js",
+        "test": "jest",
         "test:coverage": "yarn run test --coverage",
         "watch": "yarn run watch:src",
         "watch:src": "tsc -b tsconfig-src.json --watch  # --preserveWatchOutput",
@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
+        "jest": "^24.9.0",
         "mobx": "^5.13.0",
         "xml2js": "^0.4.19"
     },
