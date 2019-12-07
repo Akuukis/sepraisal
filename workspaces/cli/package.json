@@ -21,7 +21,7 @@
         "lint:summary": "yarn lint:verbose | grep ERROR | sed -r 's/ERROR: \\((.*)\\)\\s\\/.*/\\1/' | sort | uniq -c | sort -nr",
         "lint:verbose": "yarn run lint -t verbose",
         "launch": "ts-node -r dotenv/config src/index.ts",
-        "test": "jest --config ../../tools/jest.config.js",
+        "test": "echo 'no tests :('",
         "test:coverage": "yarn run test --coverage",
         "watch": "yarn run watch:src",
         "watch:src": "tsc -b tsconfig-src.json --watch  # --preserveWatchOutput",
@@ -35,15 +35,14 @@
         "pad": "^3.2.0",
         "scrape-it": "^5.1.4",
         "tail": "^2.0.3",
-        "unzip": "^0.1.11",
         "utility-types": "^3.7.0",
         "worker-farm": "^1.7.0"
     },
     "devDependencies": {
+        "@types/node": ">= 10",
         "@types/cheerio": "^0.22.13",
         "@types/mongodb": "^3.3.1",
         "@types/pad": "^1.0.2",
-        "@types/tail": "^1.2.2",
-        "@types/unzip": "^0.1.1"
+        "@types/tail": "^1.2.2"
     }
 }

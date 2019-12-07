@@ -14,33 +14,46 @@ export class Block<T extends CubeType = CubeType> {
         return (block: Block): block is Block<TNarrow> => block.type === testType as CubeType
     }
 
-    public get gridSize()      { return this.cube ? this.cube.gridSize      : null }
-    public get integrity()     { return this.cube ? this.cube.integrity     : null }
-    public get mass()          { return this.cube ? this.cube.mass          : null }
-    public get pcu()           { return this.cube ? this.cube.pcu           : null }
-    public get prerequisites() { return this.cube ? this.cube.prerequisites : null }
-    public get size()          { return this.cube ? this.cube.size          : null }
-    public get subtype()       { return this.cube ? this.cube.subtype       : null }
-    public get time()          { return this.cube ? this.cube.time          : null }
-
-    public get title()         { return `${String(this.type)}/${this.subtype}`}
-    public get type(): T       { return (this.cube ? this.cube.type         : null) as T}
-    public get volume()        { return this.cube ? this.cube.volume        : null }
-
     public readonly colorMaskHSV?: IVector
-    public readonly cube?: Cube<T>
+    public readonly cube: Cube<T> | null
     public readonly data: Omit<BlockDefinition<T>, Omits>
     public readonly forward: Direction
+    public readonly gridSize: Cube['gridSize'] | null
+    public readonly integrity: Cube['integrity'] | null
+    public readonly mass: Cube['mass'] | null
+    public readonly pcu: Cube['pcu'] | null
+    public readonly prerequisites: Cube['prerequisites'] | null
     public readonly raw: BlockDefinition<T>
+    public readonly size: Cube['size'] | null
+    public readonly subtype: Cube['subtype'] | null
+    public readonly time: Cube['time'] | null
+    public readonly title: string
+    public readonly type: T | null
     public readonly up: Direction
+    public readonly volume: Cube['volume'] | null
     public readonly x: number
     public readonly y: number
     public readonly z: number
 
+    // tslint:disable-next-line: mccabe-complexity
     public constructor(dto: BlockDefinition<T>, cubeStore: Map<string, Cube<T>>) {
         this.raw = dto
         const {$, SubtypeName, Min, BlockOrientation, ColorMaskHSV, ...rest} = dto
-        this.cube = cubeStore.get(`${$['xsi:type'].replace('MyObjectBuilder_', '')}/${SubtypeName[0]}`)
+
+        // tslint:disable-next-line: strict-boolean-expressions
+        this.cube = cubeStore.get(`${$['xsi:type'].replace('MyObjectBuilder_', '')}/${SubtypeName[0]}`) || null
+        this.gridSize       = this.cube ? this.cube.gridSize      : null
+        this.integrity      = this.cube ? this.cube.integrity     : null
+        this.mass           = this.cube ? this.cube.mass          : null
+        this.pcu            = this.cube ? this.cube.pcu           : null
+        this.prerequisites  = this.cube ? this.cube.prerequisites : null
+        this.size           = this.cube ? this.cube.size          : null
+        this.subtype        = this.cube ? this.cube.subtype       : null
+        this.time           = this.cube ? this.cube.time          : null
+        this.type           = this.cube ? this.cube.type          : null
+        this.volume         = this.cube ? this.cube.volume        : null
+        this.title = `${String(this.type)}/${String(this.subtype)}`
+
         this.x = Number(Min !== undefined ? Min[0].$.x : 0)
         this.y = Number(Min !== undefined ? Min[0].$.y : 0)
         this.z = Number(Min !== undefined ? Min[0].$.z : 0)

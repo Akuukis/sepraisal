@@ -185,10 +185,14 @@ export class Praisal {
 
         const groups = new Map<GroupTitle, Praisal>()
 
+        const groupsOrdered = [...groupDefs.values()]
+            .sort((a, b) => b.priority - a.priority)  // Higher priority first.
+
         let leftoverBlueprint = blueprint
-        for(const group of [...groupDefs.values()].sort((a, b) => b.priority - a.priority)) {
-            const matchedBlueprint = new Blueprint(leftoverBlueprint.toJSON(), this.cubeDefs)
-            const otherBlueprint = new Blueprint(leftoverBlueprint.toJSON(), this.cubeDefs)
+        for(const group of groupsOrdered) {
+            const json = leftoverBlueprint.toJSON()
+            const matchedBlueprint = new Blueprint(json, this.cubeDefs)
+            const otherBlueprint = new Blueprint(json, this.cubeDefs)
             leftoverBlueprint.grids.forEach((grid, i) => {
                 const {matched, other} = group.match(leftoverBlueprint.blocks)
                 matchedBlueprint.grids[i].blocks = matched

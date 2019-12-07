@@ -6,6 +6,7 @@ import { join } from 'path'
     const routineNo = process.argv[2]
     const routinePath = readdirSync(join(__dirname, 'routines'))
         .filter((filename) => filename.includes('-'))
+        .filter((filename) => filename.slice(-3) === __filename.slice(-3))  // ts looks for ts, js looks for js.
         .find((filename) => filename.includes(routineNo))
     if(routinePath === undefined) throw new Error('No routine specified as first argument!')
 

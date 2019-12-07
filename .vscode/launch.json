@@ -1,0 +1,49 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "port": 49999,
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceFolder}/workspaces/cli/build/**/*.js"
+            ],
+            "timeout": 15000,
+            "name": "cli:praise",
+            "program": "${workspaceFolder}/workspaces/cli/src/index.ts",
+            "args": [
+                "5",
+                "--debug"
+            ],
+            "envFile": "${workspaceFolder}/workspaces/cli/.env",
+            "preLaunchTask": "build",
+            "console": "integratedTerminal",
+            "sourceMapPathOverrides": {
+                "${workspaceFolder}/workspaces/cli/build/*": "${workspaceFolder}/workspaces/cli/src/*",
+                "${workspaceFolder}/workspaces/praisal/lib/*": "${workspaceFolder}/workspaces/praisal/src/*",
+                "${workspaceFolder}/workspaces/common/lib/*": "${workspaceFolder}/workspaces/common/src/*"
+            },
+            "cwd": "${workspaceFolder}/workspaces/cli"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "jest this",
+            "outputCapture": "std",
+            "runtimeArgs": [
+                // "--prof",
+                "--expose-gc",
+            ],
+            "program": "${workspaceFolder}/node_modules/.bin/jest",
+            "args": [
+                "${file}",
+                "--detectLeaks",
+                "--detectOpenHandles",
+                "--no-cache",
+                "--logHeapUsage",
+            ],
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}
