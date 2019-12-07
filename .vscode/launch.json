@@ -25,6 +25,25 @@
                 "${workspaceFolder}/workspaces/common/lib/*": "${workspaceFolder}/workspaces/common/src/*"
             },
             "cwd": "${workspaceFolder}/workspaces/cli"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "jest this",
+            "outputCapture": "std",
+            "runtimeArgs": [
+                // "--prof",
+                "--expose-gc",
+            ],
+            "program": "${workspaceFolder}/node_modules/.bin/jest",
+            "args": [
+                "${file}",
+                "--detectLeaks",
+                "--detectOpenHandles",
+                "--no-cache",
+                "--logHeapUsage",
+            ],
+            "internalConsoleOptions": "openOnSessionStart"
         }
     ]
 }
