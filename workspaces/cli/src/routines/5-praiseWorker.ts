@@ -1,55 +1,15 @@
+// tslint:disable: no-submodule-imports
 import { BLOCK_GROUPS, DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
 import { PraisalManager } from '@sepraisal/praisal'
+import { parseSteamArchive } from '@sepraisal/praisal/lib/parseSteamArchive'
 import { createReadStream, readFileSync } from 'fs'
 import { Collection, MongoClient } from 'mongodb'
 import * as pad from 'pad'
 import { join } from 'path'
-import { Stream } from 'stream'
-import * as unzip from 'unzip'
+import { PromiseType } from 'utility-types'
 
 import { sbcPath } from '../utils'
 
-
-interface IArchiveResult {
-    blueprint: string,
-    thumb: Buffer
-}
-const fromArchive = async (readStream: Stream): Promise<IArchiveResult> => {
-    const result: Partial<IArchiveResult> = {}
-
-    return (new Promise<IArchiveResult>((resolve, reject) => {
-        readStream
-            .on('error', reject)
-            .pipe(unzip.Parse())
-                .on('entry', (entry: unzip.Entry) => {
-                    try {
-                        const fileName = entry.path
-                        const chunks: Buffer[] = []
-
-                        entry.on('data', (chunk: Buffer) => {
-                            chunks.push(chunk)
-                        })
-
-                        entry.on('end', () => {
-                            if(fileName.endsWith('.sbc')) {
-                                result.blueprint = Buffer.concat(chunks).toString()
-                            } else {
-                                result.thumb = Buffer.concat(chunks)
-                            }
-                        })
-                    } catch(err) {
-                        reject(err)
-                    }
-                })
-                .on('error', reject)
-                .on('close', () => {
-                    resolve(result as IArchiveResult)
-                })
-    }))
-
-}
-
-// tslint:disable: no-non-null-assertion - I'm kinda sure it's gonna work.
 
 interface IProjection {
     _id: number,
@@ -95,9 +55,9 @@ export = async (index: number, doc: IProjection, callback: (err: Error | void) =
         `|`,
     ].join(' ')
 
-    let archive: IArchiveResult
+    let archive: PromiseType<ReturnType<typeof parseSteamArchive>>
     try {
-        archive = await fromArchive(createReadStream(sbcPath(doc)))
+        archive = await parseSteamArchive(createReadStream(sbcPath(doc)))
     } catch(err) {
         err.type = 'read'
         console.warn(prefix(), `Reading Error: failed to open archive: ${err.message}`)
