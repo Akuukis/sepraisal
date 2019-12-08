@@ -42,7 +42,7 @@ export namespace IBlueprint {
         classes: 1,
         sbc: 5,
         steam: 1,
-        thumb: 1,
+        thumb: 2,
     } as const
 
     interface IProp {

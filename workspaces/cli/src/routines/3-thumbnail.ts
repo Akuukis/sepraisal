@@ -9,6 +9,9 @@ import { QUERIES } from '../queries'
 import { execAsync, execAsyncBuffer, lstatAsync, THUMB_DIR } from '../utils'
 
 
+const QUALITY = 10000  // In bytes. 3000 is the lowest that doesn't make eyes bleed.
+
+
 interface IProjection {
     _id: number,
     steam: {_thumbName: string},
@@ -43,7 +46,7 @@ export const thumbConvert = async (idPair: string) => {
         await execAsync(`curl -s '${link}' -o '${safeFilename}'`)
     }
 
-    return execAsyncBuffer(`cat ${safeFilename} | cwebp -preset default -resize 268 151 -pass 10 -mt -af -size 3000 -quiet -o - -- -`)
+    return execAsyncBuffer(`cat ${safeFilename} | cwebp -preset default -resize 268 151 -pass 10 -mt -af -size ${QUALITY} -quiet -o - -- -`)
 }
 
 type IWorkItem = [Collection, IProjection, number]
