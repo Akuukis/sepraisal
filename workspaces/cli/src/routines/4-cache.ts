@@ -14,6 +14,12 @@ import { sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 const BATCH_SIZE = 100
 const STEAM_LOG = join('/', 'home', 'steam', '.steam', 'logs', 'workshop_log.txt')
 
+const asSteam = (cmd: string) => {
+    const username = execSync(`whoami`).toString().trim()
+
+    return username === 'steam' ? cmd : `sudo su steam -c '${cmd}'`
+}
+
 const fromSteamtoCache = (doc: IProjection) => {
     const steamDir = join(STEAM_DIR, String(doc._id))
     const cacheFile = sbcPath(doc)
@@ -25,7 +31,7 @@ const fromSteamtoCache = (doc: IProjection) => {
     } else {
         throw new Error(`Unrecognized mod contents: ${contents.join(', ')}`)
     }
-    execSync(`sudo su steam -c 'rm -rf ${steamDir}'`)
+    execSync(asSteam(`rm -rf ${steamDir}`))
 }
 
 interface IProjection {
@@ -48,7 +54,7 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
     await Promise.all<unknown>([
         new Promise<void>((resolve, reject) => {
             exec(
-                `sudo su steam -c 'steamcmd +login ${STEAM_USERNAME} ${steamcmdQuery} validate +exit'`,
+                asSteam(`steamcmd +login ${STEAM_USERNAME} ${steamcmdQuery} validate +exit`),
                 {maxBuffer: Infinity},
                 (err) => err ? reject(err) : resolve(),  // tslint:disable-line:no-void-expression
             )
@@ -133,7 +139,7 @@ export const main = async () => {
     console.info(`But too big (>2MB) are ${docsNew.length - docs.length} blueprints.`)
 
     console.info('Checking passwords...')
-    execSync(`sudo su steam -c 'steamcmd +login ${STEAM_USERNAME} +exit'`, {stdio: 'inherit'})
+    execSync(asSteam(`steamcmd +login ${STEAM_USERNAME} +exit`), {stdio: 'inherit'})
 
     console.info(`Caching ${docs.length} blueprints...`)
 
