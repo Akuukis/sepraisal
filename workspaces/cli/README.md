@@ -62,6 +62,35 @@ Each praised blueprint has a calculated freshness (in the given order):
 Summary of routines are at table above, and few that need more details have their sections below.
 
 
+### Script `thumbnail`
+
+Install dependencies
+
+```sh
+# https://developers.google.com/speed/webp/docs/compiling
+sudo apt-get install -y libjpeg-dev libpng-dev libtiff-dev libgif-dev
+wget https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz
+tar xvzf libwebp-1.0.3.tar.gz
+cd libwebp-1.0.3
+./configure
+make
+sudo make install
+sudo ldconfig
+```
+
+
+### Script `cache`
+
+Install dependencies
+
+```sh
+sudo apt-get install -y zip
+
+# TODO: add user 'steam'.
+# TODO: install steamcmd.
+```
+
+
 ### Script `categorize.ts`
 
 *TL;DR*: Create categories using Big Data of 25k+ blueprints, R language and pragmatic common sense.
