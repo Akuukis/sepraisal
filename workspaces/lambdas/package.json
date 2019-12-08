@@ -15,6 +15,7 @@
         "start": "yarn run build && yarn run lint && yarn run test",
         "build": "tsc -v && tsc -b tsconfig-src.json",
         "clean": "rm -rf coverage lib tmp tsconfig-src.tsbuildinfo",
+        "launch": "yarn run ts-node -r dotenv/config src/index.ts",
         "deploy": "serverless deploy",
         "lint": "tslint -p tsconfig-src.json",
         "lint:fix": "yarn run lint --fix",
@@ -29,15 +30,18 @@
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
         "aws-lambda": "^0.1.2",
+        "express": "^4.17.1",
         "mongodb": "^3.3.2"
     },
     "devDependencies": {
         "@types/aws-lambda": "^8.10.31",
-        "@types/node": ">= 10",
+        "@types/express": "^4.17.2",
         "@types/mongodb": "^3.3.1",
+        "@types/node": ">= 10",
         "serverless": "^1.51.0",
         "serverless-webpack": "^5.3.1",
         "ts-loader": "^6.0.4",
+        "ts-node": "^8.5.4",
         "utility-types": "^3.7.0"
     }
 }
