@@ -7,7 +7,7 @@ import * as scrapeIt from 'scrape-it'
 
 
 const SKIP_PAGES = 0
-const MAX_PAGES = 750  // // MAX is 1670 due how steam workshop works. But Mongo free 512MB is too small for that.
+const MAX_PAGES = 1670  // MAX is 1670 due how steam workshop works.
 
 
 export interface IDiscoverScrapeDatum {
@@ -24,8 +24,13 @@ export interface IDiscoverScrapeData {
 
 const scrape = async (page: number): Promise<IDiscoverScrapeData> => {
 
-    // Use 'mostrecent' or 'totaluniquesubscribers'.
-    const TYPE = 'totaluniquesubscribers'
+    /**
+     * For first run, use 'totaluniquesubscribers'. Afterwards leave to 'mostrecent' and run regularly.
+     *
+     * P.S. Mongo free 512MB is too small for infinite blueprints. For 512MB database I recommend to
+     * regularly run only 500-700 pages of 'totaluniquesubscribers' only, and at 3kb thumbs (see 3rd script).
+     */
+    const TYPE = 'mostrecent'
     const url = `https://steamcommunity.com/workshop/browse/?appid=244850&requiredtags%5B0%5D=Blueprint&actualsort=$TYPE&browsesort=${TYPE}&p=${page}`
 
     // tslint:disable-next-line:no-object-literal-type-assertion no-any no-unused no-dead-store
