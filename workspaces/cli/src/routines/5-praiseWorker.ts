@@ -6,7 +6,6 @@ import { createReadStream, readFileSync } from 'fs'
 import { Collection, MongoClient } from 'mongodb'
 import * as pad from 'pad'
 import { join } from 'path'
-import { PromiseType } from 'utility-types'
 
 import { sbcPath } from '../utils'
 
@@ -81,9 +80,9 @@ export = async (index: number, doc: IProjection, callback: (err: Error | void) =
         `|`,
     ].join(' ')
 
-    let archive: PromiseType<ReturnType<typeof parseSteamArchive>>
+    let xml: string
     try {
-        archive = await parseSteamArchive(createReadStream(sbcPath(doc)))
+        xml = await parseSteamArchive(createReadStream(sbcPath(doc)))
     } catch(err) {
         err.type = 'read'
         console.warn(prefix(), `Reading Error: failed to open archive: ${err.message}`)
@@ -93,7 +92,7 @@ export = async (index: number, doc: IProjection, callback: (err: Error | void) =
 
     let sbc: IBlueprint.ISbc
     try {
-        const praisal = await sePraisal.praiseXml(archive.blueprint)
+        const praisal = await sePraisal.praiseXml(xml)
         sbc = praisal.toBlueprintSbc(doc.steam.revision)
     } catch(err) {
         err.type = 'praise'

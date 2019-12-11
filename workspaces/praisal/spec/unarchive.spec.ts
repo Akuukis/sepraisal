@@ -16,7 +16,7 @@ beforeEach(async () => {
 
 describe('PraisalManager.praiseXml', () => {
     test('should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship)', async () => {
-        const archive = await parseSteamArchive(createReadStream(join(FIXTURES_DIR, '659278800.1.zip')))
-        const praisal = await sepraisal.praiseXml(archive.blueprint)
+        const xml = await parseSteamArchive(createReadStream(join(FIXTURES_DIR, '659278800.1.zip')))
+        const praisal = await sepraisal.praiseXml(xml)
     })
 })
