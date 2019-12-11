@@ -19,19 +19,19 @@ const asSteam = (cmd: string) => {
 
     return username === 'steam' ? cmd : `sudo su steam -c '${cmd}'`
 }
-
 const fromSteamtoCache = (doc: IProjection) => {
-    const steamDir = join(STEAM_DIR, String(doc._id))
+    const blueprintDir = join(STEAM_DIR, String(doc._id))
     const cacheFile = sbcPath(doc)
-    const contents = readdirSync(steamDir)
+    const contents = readdirSync(blueprintDir)
     if(contents.some((filename) => filename.includes('_legacy.bin'))) {
-        execSync(`cp ${steamDir}/*_legacy.bin ${cacheFile}`)
+        execSync(`cp ${blueprintDir}/*_legacy.bin ${cacheFile}`)
+        execSync(asSteam(`rm -rf ${blueprintDir}`))
     } else if(contents.includes('bp.sbc') && contents.includes('thumb.png')) {
-        execSync(`zip ${cacheFile} ${steamDir}/bp.sbc ${steamDir}/thumb.png`)
+        execSync(`zip ${cacheFile} ${blueprintDir}/bp.sbc ${blueprintDir}/thumb.png`)
+        execSync(asSteam(`rm -rf ${blueprintDir}`))
     } else {
         throw new Error(`Unrecognized mod contents: ${contents.join(', ')}`)
     }
-    execSync(asSteam(`rm -rf ${steamDir}`))
 }
 
 interface IProjection {
@@ -66,14 +66,16 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
                 if(match === null) return
 
                 try {
-                    if(match[2] !== 'OK') throw new Error()
+                    if(match[2] !== 'OK') throw new Error(`Not OK but "${match[2]}"`)
                     const theDoc = docs.find((doc) => doc._id === Number(match[1]))
-                    if(!theDoc) throw new Error('')
+                    if(!theDoc) throw new Error('Not found ID')
                     fromSteamtoCache(theDoc)
                     process.stdout.write(`.`)
                 } catch(err) {
                     process.stdout.write(`!`)
+                    process.stderr.write(`Matched an ID ${match[1]} but got error: ${err}\n`)
                 }
+
                 remaining = remaining - 1
                 if(remaining === 0) resolve()
             })
