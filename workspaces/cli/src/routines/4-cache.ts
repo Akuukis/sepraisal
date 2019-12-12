@@ -12,7 +12,14 @@ import { QUERIES } from '../queries'
 import { sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
 const BATCH_SIZE = 100
-const STEAM_LOG = join('/', 'home', 'steam', '.steam', 'logs', 'workshop_log.txt')
+
+const steamLogFile = join('/', 'home', 'steam', '.steam', 'logs', 'workshop_log.txt')
+// tslint:disable-next-line: no-non-null-assertion
+const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
+    .split('\n')
+    .concat('SteamApps')
+    .find((folder) => folder.toLowerCase() === 'steamapps')!
+const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '244850')
 
 const asSteam = (cmd: string) => {
     const username = execSync(`whoami`).toString().trim()
@@ -20,7 +27,7 @@ const asSteam = (cmd: string) => {
     return username === 'steam' ? cmd : `sudo su steam -c '${cmd}'`
 }
 const fromSteamtoCache = (doc: IProjection) => {
-    const blueprintDir = join(STEAM_DIR, String(doc._id))
+    const blueprintDir = join(steamDownloadsDir, String(doc._id))
     const cacheFile = sbcPath(doc)
     const contents = readdirSync(blueprintDir)
     if(contents.some((filename) => filename.includes('_legacy.bin'))) {
@@ -46,8 +53,12 @@ type IWorkItem = [number, IProjection[]]
 
 const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
 
+    // Cleanup Steam cache otherwise it slows down 5x already after 500 downloads.
+    execSync(asSteam(`rm -rf ${join(STEAM_DIR, 'userdata', '*', 'ugc', 'consumed.vdf')}`))
+    execSync(asSteam(`rm -rf ${join(STEAM_DIR, steamAppsDir, 'workshop', 'appworkshop_244850.acf')}`))
+
     const steamcmdQuery = docs.reduce((query, bufferedDoc) => `${query} +workshop_download_item 244850 ${bufferedDoc._id}`, '')
-    const tail = new Tail(STEAM_LOG)
+    const tail = new Tail(steamLogFile)
 
     process.stdout.write(`#${pad(String(index), 4)} x${docs.length}: `)
     const start = Date.now()
@@ -154,10 +165,7 @@ export const main = async () => {
     }
 
     const worker = Worker<IWorkItem>(work, errors)
-
-    await Promise.all([
-        worker(works, 0),
-    ])
+    await worker(works, 0)
 
     const duration = (Date.now() - timer) / 1000
     console.info(`Finished in ${toMinSec(duration)}.`)
