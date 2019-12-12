@@ -60,7 +60,7 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
     const steamcmdQuery = docs.reduce((query, bufferedDoc) => `${query} +workshop_download_item 244850 ${bufferedDoc._id}`, '')
     const tail = new Tail(steamLogFile)
 
-    process.stdout.write(`${String(new Date())} #${pad(String(index), 4)} x${docs.length}: `)
+    process.stdout.write(`${(new Date()).toISOString()} #${pad(String(index), 4)} x${docs.length}: `)
     const start = Date.now()
     await Promise.all<unknown>([
         new Promise<void>((resolve, reject) => {
@@ -84,7 +84,7 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
                     process.stdout.write(`.`)
                 } catch(err) {
                     process.stdout.write(`!`)
-                    process.stderr.write(`${String(new Date())} Matched an ID ${match[1]} but got error: ${err}\n`)
+                    process.stderr.write(`${(new Date()).toISOString()} Matched an ID ${match[1]} but got error: ${err}\n`)
                 }
 
                 remaining = remaining - 1
