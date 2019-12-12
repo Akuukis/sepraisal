@@ -90,6 +90,9 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
                 remaining = remaining - 1
                 if(remaining === 0) resolve()
             })
+            // Sometimes something happens and 1 out of batch isn't noticed and that hangs the whole process.
+            // Set a timeout at lower bound of average time it takes for the batch (5sec each).
+            setTimeout(resolve, BATCH_SIZE * 5)
         }),
     ])
 
