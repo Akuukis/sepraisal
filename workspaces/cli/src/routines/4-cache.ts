@@ -11,7 +11,7 @@ import { Tail } from 'tail'
 import { QUERIES } from '../queries'
 import { sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
-const BATCH_SIZE = 100
+const BATCH_SIZE = 50
 
 const steamLogFile = join('/', 'home', 'steam', '.steam', 'logs', 'workshop_log.txt')
 // tslint:disable-next-line: no-non-null-assertion
