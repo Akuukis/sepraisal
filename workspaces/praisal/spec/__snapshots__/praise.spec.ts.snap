@@ -168,6 +168,47 @@ Object {
 }
 `;
 
+exports[`PraisalManager.praiseXml should succeed to praise AtmosphericLander 2`] = `
+".....AA.AA.....
+....AAAAAAA....
+....AAAAAAA....
+AAA.AAAAAAA.AAA
+AAAAACAAABAAAAA
+AAAAABABBBAAAAA
+AAAAAAABAAAAAAA
+AAAAAAAAAAAAAAA
+...A..AAA..A...
+"
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise AtmosphericLander 3`] = `
+"..AAAA.....
+.AAAAAAA...
+.AAAAAAAA..
+.AAAAAAAA..
+.ABBBCAAA..
+.ABBBBAA...
+AAAABBAAA..
+A..BAB.AAA.
+A..AAA.A.AA
+"
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise AtmosphericLander 4`] = `
+"......AAA......
+....AAAAAAA....
+....ABAAABA....
+AAAAABBABBAAAAA
+AAAAAAAAAAAAAAA
+AAAAACAAAAAAAAA
+....AAAAAAA....
+....AAAAAAA....
+.....AAAAA.....
+.......A.......
+.......A.......
+"
+`;
+
 exports[`PraisalManager.praiseXml should succeed to praise EveryLargeBlockOnce 1`] = `
 Object {
   "_revision": 0,
@@ -397,6 +438,63 @@ Object {
 }
 `;
 
+exports[`PraisalManager.praiseXml should succeed to praise EveryLargeBlockOnce 2`] = `
+"............AA........
+............AAAAA.....
+...........AABAAA.....
+............AAAAA.....
+............AAAA......
+............AAAA......
+............AAAA......
+......AAA...AAA.......
+..A...AAA...AA........
+..A...AAA.AABAAA.AAAAA
+AAAAAABBB.ABBAAAAAAAAA
+AABAAABBBAAAABAAAAAAAA
+.AAAAAAAAAAAA.AA.AAAAA
+......AAAAAAAAAA.AAAAA
+......AAAAAAAAA.......
+......AAAAAAA.........
+"
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise EveryLargeBlockOnce 3`] = `
+"........A....
+.......AAA...
+.......AAAA..
+.......AAAA..
+.......AB....
+.......ABA...
+.......ABA...
+......AABA...
+......AAA....
+...AAAAABAA..
+AAAAAABBCBAAA
+...AAABBCBAAA
+.....AABBBAAA
+......AAAAA..
+......AAAA...
+......AAAA...
+"
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise EveryLargeBlockOnce 4`] = `
+".........AA...........
+.........AA...........
+.........AA...........
+......AAAAA..AAA......
+......AAAAA..AAA......
+......AAAAA..AAA......
+......AACAAAAAAAAAA...
+.....AAABBAAAAAAAAA...
+..AAAAABBCBBAAAAAAAAAA
+AAAAAAAAABBA.AAAAAABAA
+AAAAA..AAA...AAAAAA...
+.............AAA......
+.............AAA......
+"
+`;
+
 exports[`PraisalManager.praiseXml should succeed to praise RespawnShip 1`] = `
 Object {
   "_revision": 0,
@@ -563,6 +661,33 @@ Object {
 }
 `;
 
+exports[`PraisalManager.praiseXml should succeed to praise RespawnShip 2`] = `
+"AAAAA
+ABBAA
+BBBBB
+ABBAA
+..A..
+"
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise RespawnShip 3`] = `
+"....AAAAA..
+AAAAAAAAAAA
+AABAAAAABBC
+AAAAAAAAAAA
+......AA...
+"
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise RespawnShip 4`] = `
+".ABAA
+.BBBA
+ABBBA
+.ABAA
+.ABAA
+"
+`;
+
 exports[`PraisalManager.praiseXml should succeed to praise dekartaTests 1`] = `
 Object {
   "_revision": 0,
@@ -679,4 +804,44 @@ Object {
   "unknownDefinitions": Array [],
   "vanilla": true,
 }
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise dekartaTests 2`] = `
+"BB..
+BAAA
+BAAA
+BA..
+BA..
+BA..
+BBAA
+AAAA
+AAA.
+AAA.
+AAA.
+AA..
+"
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise dekartaTests 3`] = `
+"AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAA....AAAA
+.........AAAA
+.........AAAA
+.........AAAA
+.........AAAA
+"
+`;
+
+exports[`PraisalManager.praiseXml should succeed to praise dekartaTests 4`] = `
+"BBBBAAAAAAAAA
+BAAAAAAAAAAAA
+.AA....AAAAA.
+.AA....AA....
+"
 `;

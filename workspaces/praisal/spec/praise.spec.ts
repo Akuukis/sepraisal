@@ -26,6 +26,10 @@ const testBlueprint = (title: string, path: string) => {
                 top: expect.any(Array),
             },
         })
+        const {front, side, top} = praisal.previewPlanes()
+        expect(front).toMatchSnapshot()
+        expect(side).toMatchSnapshot()
+        expect(top).toMatchSnapshot()
     })
 }
 

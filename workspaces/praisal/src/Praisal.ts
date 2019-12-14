@@ -249,12 +249,6 @@ export class Praisal {
             canva[y][x] += value
         }
 
-        // tslint:disable: no-commented-code
-        // console.log(get)
-        // console.log(canva.reduceRight(
-        //     (output, line) => `${output}${line.reduce(
-        //         (i, val) => i + (val > 0 ? String.fromCharCode(Math.round(val / 50000) + 65) : '.'), '')}\n`, ''))
-
         return canva
     }
 
@@ -279,6 +273,21 @@ export class Praisal {
             side,
             top,
         }
+    }
+
+    public previewPlanes() {
+        const {front, side, top} = this.integrityPlanes
+
+        const draw = (canva: number[][]) => canva.reduceRight(
+            (output, line) => `${output}${line.reduce(
+                (i, val) => i + (val > 0 ? String.fromCharCode(Math.round(val / 50000) + 65) : '.'), '')}\n`, '')
+
+        return {
+            front: draw(front),
+            side: draw(side),
+            top: draw(top),
+        }
+
     }
 
     public toBlueprintSbc(revision: number): IBlueprint.ISbc {
