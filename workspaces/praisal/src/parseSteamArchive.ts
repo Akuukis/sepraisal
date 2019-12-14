@@ -2,14 +2,10 @@ import { Stream } from 'stream'
 import * as unzip from 'unzip'
 
 
-interface IArchiveResult {
-    blueprint: string,
-    thumb: Buffer
-}
-export const parseSteamArchive = async (readStream: Stream): Promise<IArchiveResult> => {
-    const result: Partial<IArchiveResult> = {}
+export const parseSteamArchive = async (readStream: Stream): Promise<string> => {
+    let result: string
 
-    return (new Promise<IArchiveResult>((resolve, reject) => {
+    return (new Promise<string>((resolve, reject) => {
         readStream
             .on('error', reject)
             .pipe(unzip.Parse())
@@ -24,9 +20,7 @@ export const parseSteamArchive = async (readStream: Stream): Promise<IArchiveRes
 
                         entry.on('end', () => {
                             if(fileName.endsWith('.sbc')) {
-                                result.blueprint = Buffer.concat(chunks).toString()
-                            } else {
-                                result.thumb = Buffer.concat(chunks)
+                                result = Buffer.concat(chunks).toString()
                             }
                         })
                     } catch(err) {
@@ -35,7 +29,7 @@ export const parseSteamArchive = async (readStream: Stream): Promise<IArchiveRes
                 })
                 .on('error', reject)
                 .on('close', () => {
-                    resolve(result as IArchiveResult)
+                    resolve(result)
                 })
     }))
 

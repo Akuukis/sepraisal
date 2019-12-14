@@ -11,27 +11,34 @@ import { Tail } from 'tail'
 import { QUERIES } from '../queries'
 import { sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
-const BATCH_SIZE = 100
-const STEAM_LOG = join('/', 'home', 'steam', '.steam', 'logs', 'workshop_log.txt')
+const BATCH_SIZE = 50
+
+const steamLogFile = join('/', 'home', 'steam', '.steam', 'logs', 'workshop_log.txt')
+// tslint:disable-next-line: no-non-null-assertion
+const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
+    .split('\n')
+    .concat('SteamApps')
+    .find((folder) => folder.toLowerCase() === 'steamapps')!
+const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '244850')
 
 const asSteam = (cmd: string) => {
     const username = execSync(`whoami`).toString().trim()
 
     return username === 'steam' ? cmd : `sudo su steam -c '${cmd}'`
 }
-
 const fromSteamtoCache = (doc: IProjection) => {
-    const steamDir = join(STEAM_DIR, String(doc._id))
+    const blueprintDir = join(steamDownloadsDir, String(doc._id))
     const cacheFile = sbcPath(doc)
-    const contents = readdirSync(steamDir)
+    const contents = readdirSync(blueprintDir)
     if(contents.some((filename) => filename.includes('_legacy.bin'))) {
-        execSync(`cp ${steamDir}/*_legacy.bin ${cacheFile}`)
-    } else if(contents.includes('bp.sbc') && contents.includes('thumb.png')) {
-        execSync(`zip ${cacheFile} ${steamDir}/bp.sbc ${steamDir}/thumb.png`)
+        execSync(`cp ${blueprintDir}/*_legacy.bin ${cacheFile}`)
+        execSync(asSteam(`rm -rf ${blueprintDir}`))
+    } else if(contents.includes('bp.sbc')) {
+        execSync(`zip ${cacheFile} ${blueprintDir}/bp.sbc`)
+        execSync(asSteam(`rm -rf ${blueprintDir}`))
     } else {
         throw new Error(`Unrecognized mod contents: ${contents.join(', ')}`)
     }
-    execSync(asSteam(`rm -rf ${steamDir}`))
 }
 
 interface IProjection {
@@ -46,10 +53,14 @@ type IWorkItem = [number, IProjection[]]
 
 const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
 
-    const steamcmdQuery = docs.reduce((query, bufferedDoc) => `${query} +workshop_download_item 244850 ${bufferedDoc._id}`, '')
-    const tail = new Tail(STEAM_LOG)
+    // Cleanup Steam cache otherwise it slows down 5x already after 500 downloads.
+    execSync(asSteam(`rm -rf ${join(STEAM_DIR, 'userdata', '*', 'ugc', 'consumed.vdf')}`))
+    execSync(asSteam(`rm -rf ${join(STEAM_DIR, steamAppsDir, 'workshop', 'appworkshop_244850.acf')}`))
 
-    process.stdout.write(`#${pad(String(index), 4)} x${docs.length}: `)
+    const steamcmdQuery = docs.reduce((query, bufferedDoc) => `${query} +workshop_download_item 244850 ${bufferedDoc._id}`, '')
+    const tail = new Tail(steamLogFile)
+
+    process.stdout.write(`${(new Date()).toISOString()} #${pad(String(index), 4)} x${docs.length}: `)
     const start = Date.now()
     await Promise.all<unknown>([
         new Promise<void>((resolve, reject) => {
@@ -66,17 +77,22 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
                 if(match === null) return
 
                 try {
-                    if(match[2] !== 'OK') throw new Error()
+                    if(match[2] !== 'OK') throw new Error(`Not OK but "${match[2]}"`)
                     const theDoc = docs.find((doc) => doc._id === Number(match[1]))
-                    if(!theDoc) throw new Error('')
+                    if(!theDoc) throw new Error('Not found ID')
                     fromSteamtoCache(theDoc)
                     process.stdout.write(`.`)
                 } catch(err) {
                     process.stdout.write(`!`)
+                    process.stderr.write(`${(new Date()).toISOString()} Matched an ID ${match[1]} but got error: ${err}\n`)
                 }
+
                 remaining = remaining - 1
                 if(remaining === 0) resolve()
             })
+            // Sometimes something happens and 1 out of batch isn't noticed and that hangs the whole process.
+            // Set a timeout at lower bound of average time it takes for the batch (5sec each).
+            setTimeout(resolve, BATCH_SIZE * 5)
         }),
     ])
 
@@ -152,10 +168,7 @@ export const main = async () => {
     }
 
     const worker = Worker<IWorkItem>(work, errors)
-
-    await Promise.all([
-        worker(works, 0),
-    ])
+    await worker(works, 0)
 
     const duration = (Date.now() - timer) / 1000
     console.info(`Finished in ${toMinSec(duration)}.`)
