@@ -46,7 +46,6 @@
         "typescript-tslint-plugin": "^0.5.4",
         "weak": "^1.0.1"
     },
-    "dependencies": {},
     "workspaces": [
         "workspaces/*"
     ]
