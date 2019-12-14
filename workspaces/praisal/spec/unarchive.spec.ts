@@ -19,4 +19,8 @@ describe('PraisalManager.praiseXml', () => {
         const xml = await parseSteamArchive(createReadStream(join(FIXTURES_DIR, '659278800.1.zip')))
         const praisal = await sepraisal.praiseXml(xml)
     })
+    test('should succeed to praise fast big steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser)', async () => {
+        const xml = await parseSteamArchive(createReadStream(join(FIXTURES_DIR, '383985794.2.zip')))
+        const praisal = await sepraisal.praiseXml(xml)
+    })
 })
