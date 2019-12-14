@@ -193,7 +193,7 @@ export class Praisal {
             const matchedBlueprint = new Blueprint(leftoverBlueprint, this.cubeDefs)
             const otherBlueprint = new Blueprint(leftoverBlueprint, this.cubeDefs)
             leftoverBlueprint.grids.forEach((grid, i) => {
-                const {matched, other} = group.match(leftoverBlueprint.blocks)
+                const {matched, other} = group.match(leftoverBlueprint.grids[i].blocks)
                 matchedBlueprint.grids[i].blocks = matched
                 otherBlueprint.grids[i].blocks = other
             })
