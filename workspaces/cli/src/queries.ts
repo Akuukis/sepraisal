@@ -5,7 +5,7 @@ import * as moment from 'moment'
 
 // tslint:disable:naming-convention
 export namespace QUERIES_RAW {
-    export const pendingScrapeError    = {'steam._error': {$exists: true}}
+    export const pendingScrapeError    = {'steam._error': {$eq: IBlueprint.VERSION.steam}}
     export const pendingScrapeInitial  = {steam: {$exists: false}}
     export const pendingScrapeOutdated = {'steam._version': {$lt: IBlueprint.VERSION.steam}}
     export const pendingScrapeStale    = {'steam._updated': {$lt: moment().subtract(7, 'd').toDate()}}
@@ -15,7 +15,7 @@ export namespace QUERIES_RAW {
         pendingScrapeStale,
     ]}
 
-    export const pendingThumbError     = {'thumb._error': {$exists: true}}
+    export const pendingThumbError     = {'thumb._error': {$eq: IBlueprint.VERSION.thumb}}
     export const pendingThumbInitial   = {thumb: {$exists: false}}
     export const pendingThumbOutdated  = {'thumb._version': {$lt: IBlueprint.VERSION.thumb}}
     export const pendingThumbStale     = {$expr: {$ne: ['$thumb._revision', '$steam._thumbName']}}
@@ -25,7 +25,7 @@ export namespace QUERIES_RAW {
         pendingThumbStale,
     ]}
 
-    export const pendingPraiseError    = {'sbc._error': {$exists: true}}
+    export const pendingPraiseError    = {'sbc._error': {$eq: IBlueprint.VERSION.sbc}}
     export const pendingPraiseInitial  = {sbc: {$exists: false}}
     export const pendingPraiseOutdated = {'sbc._version': {$lt: IBlueprint.VERSION.sbc}}
     export const pendingPraiseStale    = {$expr: {$ne: ['$sbc._revision', '$steam.revision']}}
@@ -35,7 +35,7 @@ export namespace QUERIES_RAW {
         pendingPraiseStale,
     ]}
 
-    export const pendingClassError     = {'classes._error': {$exists: true}}
+    export const pendingClassError     = {'classes._error': {$eq: IBlueprint.VERSION.classes}}
     export const pendingClassInitial   = {classes: {$exists: false}}
     export const pendingClassOutdated  = {'classes._version': {$lt: IBlueprint.VERSION.classes}}
     export const pendingClassStale     = {$expr: {$ne: ['$classes._revision', '$steam.revision']}}
