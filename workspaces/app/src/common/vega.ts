@@ -56,7 +56,7 @@ export const vegaSpecHeatmap: Vega.Spec = {
             source: 'integrity0',
             transform: [
                 {type: 'flatten', fields: ['data', 'x']},
-                {type: 'project', fields: ['data', 'x', 'y'], as: ['value']},
+                {type: 'project', fields: ['data', 'x', 'y'], as: 'value'},
                 {type: 'filter', expr: 'datum.value > 0'},
                 {type: 'formula', as: 'weight', expr: 'pow(datum.value, 1/2)'},
                 {type: 'formula', as: 'x', expr: 'datum.x + round((xMaxGlobal - xMaxLocal)/2)'},

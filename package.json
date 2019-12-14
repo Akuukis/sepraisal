@@ -42,8 +42,8 @@
         "tslint-consistent-codestyle": "^1.15.1",
         "tslint-react": "^4.0.0",
         "tslint-sonarts": "^1.9.0",
-        "typescript": "^3.6.2",
-        "typescript-tslint-plugin": "^0.5.4",
+        "typescript": "^3.7.3",
+        "typescript-tslint-plugin": "^0.5.5",
         "weak": "^1.0.1"
     },
     "workspaces": [
