@@ -27,14 +27,13 @@
     },
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
-        "jest": "^24.9.0",
-        "mobx": "^5.13.0",
+        "mobx": "^5.15.0",
         "unzip": "^0.1.11",
         "xml2js": "^0.4.19"
     },
     "devDependencies": {
         "@types/xml2js": "^0.4.4",
         "@types/unzip": "^0.1.1",
-        "utility-types": "^3.7.0"
+        "utility-types": "^3.10.0"
     }
 }

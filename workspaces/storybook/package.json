@@ -35,7 +35,7 @@
         "@storybook/addon-knobs": "^5.1.11",
         "@storybook/addon-links": "^5.1.11",
         "@storybook/react": "^5.1.11",
-        "mobx": "^5.13.0",
+        "mobx": "^5.15.0",
         "moment": "^2.24.0",
         "react": "^16.9.0"
     },
@@ -44,6 +44,6 @@
         "@types/storybook__addon-knobs": "^5.0.3",
         "@types/storybook__react": "^4.0.2",
         "mobx-react-devtools": "^6.1.1",
-        "utility-types": "^3.7.0"
+        "utility-types": "^3.10.0"
     }
 }

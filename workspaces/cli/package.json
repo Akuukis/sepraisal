@@ -35,7 +35,7 @@
         "pad": "^3.2.0",
         "scrape-it": "^5.1.4",
         "tail": "^2.0.3",
-        "utility-types": "^3.7.0",
+        "utility-types": "^3.10.0",
         "worker-farm": "^1.7.0"
     },
     "devDependencies": {
