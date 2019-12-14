@@ -67,10 +67,15 @@ export class Blueprint {
     public variant: 'prefab' | 'ship'
     public workshopId?: number
 
-    public constructor(dto: IBlueprintShipOrPrefab, cubeStore: Map<string, Cube>) {
+    public constructor(dto: Blueprint | IBlueprintShipOrPrefab, cubeStore: Map<string, Cube>) {
         this.cubeStore = cubeStore
 
-        if(isPrefab(dto)) {
+        if(dto instanceof Blueprint) {
+            this.variant = dto.variant
+            this.title = dto.title
+            this.grids = dto.grids.map((grid) => new Grid(grid, cubeStore))
+            this.rest = {...dto.rest}
+        } else if(isPrefab(dto)) {
             this.variant = 'prefab'
             const {Id, CubeGrids, ...rest} = dto.Definitions.Prefabs[0].Prefab[0]
             this.title = Id[0].SubtypeId[0]
