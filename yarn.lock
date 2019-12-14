@@ -9065,13 +9065,6 @@ iterate-object@^1.3.1, iterate-object@^1.3.2:
   resolved "https://registry.yarnpkg.com/iterate-object/-/iterate-object-1.3.3.tgz#c58e60f7f0caefa2d382027a484b215988a7a296"
   integrity sha512-DximWbkke36cnrSfNJv6bgcB2QOMV9PRD2FiowwzCoMsh8RupFLdbNIzWe+cVDWT+NIMNJgGlB1dGxP6kpzGtA==
 
-jasmine-fail-fast@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/jasmine-fail-fast/-/jasmine-fail-fast-2.0.0.tgz#e5d82e6a29a25f662c640e4c3270c2f9a71387e7"
-  integrity sha1-5dguaimiX2YsZA5MMnDC+acTh+c=
-  dependencies:
-    lodash "3.10.0"
-
 jest-changed-files@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-24.9.0.tgz#08d8c15eb79a7fa3fc98269bc14b451ee82f8039"
@@ -9079,6 +9072,28 @@ jest-changed-files@^24.9.0:
   dependencies:
     "@jest/types" "^24.9.0"
     execa "^1.0.0"
+    throat "^4.0.0"
+
+jest-circus@^24.9.0:
+  version "24.9.0"
+  resolved "https://registry.yarnpkg.com/jest-circus/-/jest-circus-24.9.0.tgz#8a557683636807d537507eac02ba64c95b686485"
+  integrity sha512-dwkvwFtRc9Anmk1XTc+bonVL8rVMZ3CeGMoFWmv1oaQThdAgvfI9bwaFlZp+gLVphNVz6ZLfCWo3ERhS5CeVvA==
+  dependencies:
+    "@babel/traverse" "^7.1.0"
+    "@jest/environment" "^24.9.0"
+    "@jest/test-result" "^24.9.0"
+    "@jest/types" "^24.9.0"
+    chalk "^2.0.1"
+    co "^4.6.0"
+    expect "^24.9.0"
+    is-generator-fn "^2.0.0"
+    jest-each "^24.9.0"
+    jest-matcher-utils "^24.9.0"
+    jest-message-util "^24.9.0"
+    jest-snapshot "^24.9.0"
+    jest-util "^24.9.0"
+    pretty-format "^24.9.0"
+    stack-utils "^1.0.1"
     throat "^4.0.0"
 
 jest-cli@^24.9.0:
@@ -10097,11 +10112,6 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
-
-lodash@3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.0.tgz#93d51c672828a4416a12af57220ba8a8737e2fbb"
-  integrity sha1-k9UcZygopEFqEq9XIguoqHN+L7s=
 
 lodash@4.17.x, lodash@^4.0.1, lodash@^4.1.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.8.0:
   version "4.17.15"

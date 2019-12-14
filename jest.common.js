@@ -26,6 +26,7 @@ module.exports.getPojectConfig = (projectPath = process.cwd()) => ({
     roots: [`${projectPath}/spec`],
     setupFilesAfterEnv: [`${projectPath === process.cwd() ? '../..' : '.'}/jest-setup.ts`],
     testEnvironment: "node",
+    testRunner: "jest-circus/runner",
 
     globals: { JEST_PROJECT_PATH: process.cwd() },
 });
