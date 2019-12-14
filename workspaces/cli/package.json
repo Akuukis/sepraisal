@@ -41,7 +41,7 @@
     "devDependencies": {
         "@types/node": ">= 10",
         "@types/cheerio": "^0.22.13",
-        "@types/mongodb": "^3.3.1",
+        "@types/mongodb": "^3.3.12",
         "@types/pad": "^1.0.2",
         "@types/tail": "^1.2.2"
     }

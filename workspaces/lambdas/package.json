@@ -32,17 +32,17 @@
         "aws-lambda": "^0.1.2",
         "cors": "^2.8.5",
         "express": "^4.17.1",
-        "mongodb": "^3.3.2"
+        "mongodb": "^3.4.0"
     },
     "devDependencies": {
-        "@types/aws-lambda": "^8.10.31",
+        "@types/aws-lambda": "^8.10.39",
         "@types/cors": "^2.8.6",
         "@types/express": "^4.17.2",
-        "@types/mongodb": "^3.3.1",
+        "@types/mongodb": "^3.3.12",
         "@types/node": ">= 10",
-        "serverless": "^1.51.0",
+        "serverless": "^1.59.3",
         "serverless-webpack": "^5.3.1",
-        "ts-loader": "^6.0.4",
+        "ts-loader": "^6.2.1",
         "ts-node": "^8.5.4",
         "utility-types": "^3.10.0"
     }
