@@ -40,17 +40,6 @@ export class Block<T extends CubeType = CubeType> {
         if(dto instanceof Block) {
             this.raw = dto.raw
             this.cube = dto.cube
-            this.gridSize       = dto.gridSize
-            this.integrity      = dto.integrity
-            this.mass           = dto.mass
-            this.pcu            = dto.pcu
-            this.prerequisites  = dto.prerequisites
-            this.size           = dto.size
-            this.subtype        = dto.subtype
-            this.time           = dto.time
-            this.type           = dto.type
-            this.volume         = dto.volume
-            this.title = dto.title
             this.x = dto.x
             this.y = dto.y
             this.z = dto.z
@@ -64,17 +53,6 @@ export class Block<T extends CubeType = CubeType> {
 
             // tslint:disable-next-line: strict-boolean-expressions
             this.cube = cubeStore.get(`${$['xsi:type'].replace('MyObjectBuilder_', '')}/${SubtypeName[0]}`) || null
-            this.gridSize       = this.cube ? this.cube.gridSize      : null
-            this.integrity      = this.cube ? this.cube.integrity     : null
-            this.mass           = this.cube ? this.cube.mass          : null
-            this.pcu            = this.cube ? this.cube.pcu           : null
-            this.prerequisites  = this.cube ? this.cube.prerequisites : null
-            this.size           = this.cube ? this.cube.size          : null
-            this.subtype        = this.cube ? this.cube.subtype       : null
-            this.time           = this.cube ? this.cube.time          : null
-            this.type           = this.cube ? this.cube.type          : null
-            this.volume         = this.cube ? this.cube.volume        : null
-            this.title = `${String(this.type)}/${String(this.subtype)}`
 
             this.x = Number(Min !== undefined ? Min[0].$.x : 0)
             this.y = Number(Min !== undefined ? Min[0].$.y : 0)
@@ -86,9 +64,20 @@ export class Block<T extends CubeType = CubeType> {
                 y: ColorMaskHSV[0].$.y,
                 z: ColorMaskHSV[0].$.z,
             }
-
             this.data = rest as this['data']
         }
+
+        this.gridSize       = this.cube ? this.cube.gridSize      : null
+        this.integrity      = this.cube ? this.cube.integrity     : null
+        this.mass           = this.cube ? this.cube.mass          : null
+        this.pcu            = this.cube ? this.cube.pcu           : null
+        this.prerequisites  = this.cube ? this.cube.prerequisites : null
+        this.size           = this.cube ? this.cube.size          : null
+        this.subtype        = this.cube ? this.cube.subtype       : null
+        this.time           = this.cube ? this.cube.time          : null
+        this.type           = this.cube ? this.cube.type          : null
+        this.volume         = this.cube ? this.cube.volume        : null
+        this.title = `${String(this.type)}/${String(this.subtype)}`
     }
 
     public isType<TNarrow extends T>(type: TNarrow): this is Block<TNarrow> {

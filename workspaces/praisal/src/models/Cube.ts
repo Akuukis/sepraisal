@@ -80,16 +80,16 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
         }
 
 
-        this.mass = Object.keys(this.prerequisites).reduce((sum, typeSubtype) => {
+        this.mass = Object.entries(this.prerequisites).reduce<number>((sum, [typeSubtype, amount]) => {
             const component = componentStore.get(typeSubtype)
 
-            return sum + (component ? component.mass * this.prerequisites[typeSubtype] : 0)
+            return sum + (component ? component.mass * amount : 0)
         }, 0)
 
-        this.integrity = Object.keys(this.prerequisites).reduce((sum, typeSubtype) => {
+        this.integrity = Object.entries(this.prerequisites).reduce<number>((sum, [typeSubtype, amount]) => {
             const component = componentStore.get(typeSubtype)
 
-            return sum + (component ? component.maxIntegrity * this.prerequisites[typeSubtype] : 0)
+            return sum + (component ? component.maxIntegrity * amount : 0)
         }, 0)
 
         const mod = this.gridSize === 'Large' ? 2.5 : 0.5

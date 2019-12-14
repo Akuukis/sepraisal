@@ -40,10 +40,10 @@ export const NewPraisalManager = () => {
 
     return async () => {
         const sepraisal = new PraisalManager()
-        for(const cubeBlocksXml of cubeBlocksXmls) await sepraisal.addCubes(cubeBlocksXml)
         await sepraisal.addOres(physicalItemsXml)
         await sepraisal.addIngots(physicalItemsXml, materialsXml)
         await sepraisal.addComponents(materialsXml, componentsXml)
+        for(const cubeBlocksXml of cubeBlocksXmls) await sepraisal.addCubes(cubeBlocksXml)
         sepraisal.addGroups(BLOCK_GROUPS)
 
         return sepraisal
