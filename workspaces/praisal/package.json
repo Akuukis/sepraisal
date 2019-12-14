@@ -29,10 +29,10 @@
         "@sepraisal/common": "^0.0.1",
         "mobx": "^5.15.0",
         "unzip": "^0.1.11",
-        "xml2js": "^0.4.19"
+        "xml2js": "^0.4.22"
     },
     "devDependencies": {
-        "@types/xml2js": "^0.4.4",
+        "@types/xml2js": "^0.4.5",
         "@types/unzip": "^0.1.1",
         "utility-types": "^3.10.0"
     }
