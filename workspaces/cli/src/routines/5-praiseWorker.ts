@@ -76,7 +76,7 @@ export = async (index: number, doc: IProjection, callback: (err: Error | void) =
         `|`,
         `${pad(String(doc._id), 10)}`,
         `|`,
-        pad(4, `${((Date.now() - timer) / 1000).toFixed(1)}s`),
+        pad(5, `${((Date.now() - timer) / 1000).toFixed(1)}s`),
         `|`,
     ].join(' ')
 
@@ -112,7 +112,7 @@ export = async (index: number, doc: IProjection, callback: (err: Error | void) =
 
     console.info(
         prefix(),
-        pad(5, String(sbc.blockCount)),
+        pad(6, String(sbc.blockCount)),
         sbc.gridSize === 'Small' ? 'SG' : 'LG',
         `|`,
         `${sbc.gridTitle}`,

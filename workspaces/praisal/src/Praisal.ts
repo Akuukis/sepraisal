@@ -190,11 +190,10 @@ export class Praisal {
 
         let leftoverBlueprint = blueprint
         for(const group of groupsOrdered) {
-            const json = leftoverBlueprint.toJSON()
-            const matchedBlueprint = new Blueprint(json, this.cubeDefs)
-            const otherBlueprint = new Blueprint(json, this.cubeDefs)
+            const matchedBlueprint = new Blueprint(leftoverBlueprint, this.cubeDefs)
+            const otherBlueprint = new Blueprint(leftoverBlueprint, this.cubeDefs)
             leftoverBlueprint.grids.forEach((grid, i) => {
-                const {matched, other} = group.match(leftoverBlueprint.blocks)
+                const {matched, other} = group.match(leftoverBlueprint.grids[i].blocks)
                 matchedBlueprint.grids[i].blocks = matched
                 otherBlueprint.grids[i].blocks = other
             })

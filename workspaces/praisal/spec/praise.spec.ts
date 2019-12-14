@@ -15,17 +15,23 @@ beforeEach(async () => {
     sepraisal = await newPraisalManager()
 })
 
+
+const testBlueprint = (title: string, path: string) => {
+    test(`should succeed to praise ${title}`, async () => {
+        const praisal = await sepraisal.praiseXml(readFileSync(path, 'utf-8'))
+        expect(praisal.toBlueprintSbc(0)).toMatchSnapshot({
+            integrityPlanes: {
+                front: expect.any(Array),
+                side: expect.any(Array),
+                top: expect.any(Array),
+            },
+        })
+    })
+}
+
 describe('PraisalManager.praiseXml', () => {
-    test('should succeed to praise AtmosphericLander', async () => {
-        const praisal = await sepraisal.praiseXml(readFileSync(join(PREFABS_DIR, 'AtmosphericLander.sbc'), 'utf-8'))
-    })
-    test('should succeed to praise RespawnShip', async () => {
-        const praisal = await sepraisal.praiseXml(readFileSync(join(PREFABS_DIR, 'RespawnShip.sbc'), 'utf-8'))
-    })
-    test('should succeed to praise dekartaTests', async () => {
-        const praisal = await sepraisal.praiseXml(readFileSync(join(MY_BLUEPRINTS_DIR, 'dekartaTests.sbc'), 'utf-8'))
-    })
-    test('should succeed to praise EveryLargeBlockOnce', async () => {
-        const praisal = await sepraisal.praiseXml(readFileSync(join(MY_BLUEPRINTS_DIR, 'EveryLargeBlockOnce.sbc'), 'utf-8'))
-    })
+    testBlueprint('AtmosphericLander', join(PREFABS_DIR, 'AtmosphericLander.sbc'))
+    testBlueprint('RespawnShip', join(PREFABS_DIR, 'RespawnShip.sbc'))
+    testBlueprint('dekartaTests', join(MY_BLUEPRINTS_DIR, 'dekartaTests.sbc'))
+    testBlueprint('EveryLargeBlockOnce', join(MY_BLUEPRINTS_DIR, 'EveryLargeBlockOnce.sbc'))
 })

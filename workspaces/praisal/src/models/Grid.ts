@@ -55,37 +55,53 @@ export class Grid {
     public readonly rest: unknown
     private readonly cubeStore: Map<string, Cube>
 
-    public constructor(dto: IBlueprintCubeGrid, cubeStore: Map<string, Cube>) {
+    public constructor(dto: Grid | IBlueprintCubeGrid, cubeStore: Map<string, Cube>) {
         this.cubeStore = cubeStore
-        const {
-                IsStatic,
-                CubeBlocks,
-                EntityId,
-                PersistentFlags,
-                GridSizeEnum,
-                ConveyorLines,
-                BlockGroups,
-                DisplayName,
-                OxygenAmount,
-                DestructibleBlocks,
-                IsRespawnGrid,
-                ...rest
-            } = dto
 
-        this.blocks = CubeBlocks[0].MyObjectBuilder_CubeBlock
-            .map((blockDto) => new Block(blockDto, this.cubeStore))
+        if(dto instanceof Grid) {
+            this.blocks = dto.blocks.map((block) => new Block(block, cubeStore))
+            this.blockGroups = dto.blockGroups
+            this.conveyorLines = dto.conveyorLines
+            this.destructibleBlocks = dto.destructibleBlocks
+            this.displayName = dto.displayName
+            this.entityId = dto.entityId
+            this.gridSizeEnum = dto.gridSizeEnum
+            this.isRespawnGrid = dto.isRespawnGrid
+            this.isStatic = dto.isStatic
+            this.oxygenAmount = dto.oxygenAmount
+            this.persistentFlags = dto.persistentFlags
+            this.rest = dto.rest
+        } else {
+            const {
+                    IsStatic,
+                    CubeBlocks,
+                    EntityId,
+                    PersistentFlags,
+                    GridSizeEnum,
+                    ConveyorLines,
+                    BlockGroups,
+                    DisplayName,
+                    OxygenAmount,
+                    DestructibleBlocks,
+                    IsRespawnGrid,
+                    ...rest
+                } = dto
 
-        this.blockGroups = BlockGroups !== undefined ? BlockGroups[0].MyObjectBuilder_BlockGroup : []
-        this.conveyorLines = ConveyorLines
-        this.destructibleBlocks = DestructibleBlocks ? DestructibleBlocks[0] === 'true' : false
-        this.displayName = DisplayName[0]
-        this.entityId = Number(EntityId[0])
-        this.gridSizeEnum = GridSizeEnum[0]
-        this.isRespawnGrid = IsRespawnGrid ? IsRespawnGrid[0] === 'true' : false
-        this.isStatic = IsStatic ? IsStatic[0] === 'true' : false
-        this.oxygenAmount = OxygenAmount
-        this.persistentFlags = PersistentFlags[0].split(' ')
-        this.rest = rest
+            this.blocks = CubeBlocks[0].MyObjectBuilder_CubeBlock
+                .map((blockDto) => new Block(blockDto, this.cubeStore))
+
+            this.blockGroups = BlockGroups !== undefined ? BlockGroups[0].MyObjectBuilder_BlockGroup : []
+            this.conveyorLines = ConveyorLines
+            this.destructibleBlocks = DestructibleBlocks ? DestructibleBlocks[0] === 'true' : false
+            this.displayName = DisplayName[0]
+            this.entityId = Number(EntityId[0])
+            this.gridSizeEnum = GridSizeEnum[0]
+            this.isRespawnGrid = IsRespawnGrid ? IsRespawnGrid[0] === 'true' : false
+            this.isStatic = IsStatic ? IsStatic[0] === 'true' : false
+            this.oxygenAmount = OxygenAmount
+            this.persistentFlags = PersistentFlags[0].split(' ')
+            this.rest = rest
+        }
     }
 
     public toJSON(): IBlueprintCubeGrid {

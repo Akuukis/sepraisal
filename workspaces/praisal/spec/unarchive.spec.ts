@@ -14,9 +14,23 @@ beforeEach(async () => {
     sepraisal = await newPraisalManager()
 })
 
-describe('PraisalManager.praiseXml', () => {
-    test('should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship)', async () => {
-        const xml = await parseSteamArchive(createReadStream(join(FIXTURES_DIR, '659278800.1.zip')))
+const testBlueprint = (title: string, archive: string) => {
+    test(`should succeed to praise random small steam blueprint (${title})`, async () => {
+
+        const xml = await parseSteamArchive(createReadStream(join(FIXTURES_DIR, archive)))
         const praisal = await sepraisal.praiseXml(xml)
+        expect(praisal.toBlueprintSbc(0)).toMatchSnapshot({
+            integrityPlanes: {
+                front: expect.any(Array),
+                side: expect.any(Array),
+                top: expect.any(Array),
+            },
+        })
     })
+}
+
+describe('PraisalManager.praiseXml', () => {
+    testBlueprint('Wyvern - Atmospheric Survival Ship', '659278800.1.zip')
+    testBlueprint('O.S.C. Aldebaran-Class Heavy Cruiser', '383985794.2.zip')
+    testBlueprint('PZK PCS - T340', '1315913931.2.zip')
 })
