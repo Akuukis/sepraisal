@@ -62,7 +62,7 @@ export class Blueprint {
     public displayName?: string
     public grids: Grid[]
     public ownerSteamId?: number
-    public rest: unknown
+    public rest: object
     public title: string
     public variant: 'prefab' | 'ship'
     public workshopId?: number

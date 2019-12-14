@@ -52,7 +52,7 @@ export class Grid {
     public readonly isStatic: boolean
     public readonly oxygenAmount: unknown
     public readonly persistentFlags: string[]
-    public readonly rest: unknown
+    public readonly rest: object
     private readonly cubeStore: Map<string, Cube>
 
     public constructor(dto: Grid | IBlueprintCubeGrid, cubeStore: Map<string, Cube>) {
@@ -122,7 +122,7 @@ export class Grid {
             ConveyorLines: this.conveyorLines,
             OxygenAmount: this.oxygenAmount,
             ...this.rest,
-        } as IBlueprintCubeGrid
+        } as unknown as IBlueprintCubeGrid
     }
 
 }
