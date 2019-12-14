@@ -1,9 +1,11 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
+import * as cors from 'cors'
 import * as express from 'express'
 
 import { hello } from './handler'
 
 const app = express()
+app.use(cors({credentials: true, origin: true}))
 
 // The HelloWorld
 app.get('/', (req, res) => {
