@@ -23,6 +23,8 @@ const styles = (theme: IMyTheme) => createStyles({
 
     content: {
         flexDirection: 'column',
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
     },
     heading: {
         flexBasis: '33.33%',
@@ -38,13 +40,13 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     expanded: boolean
-    onChange: () => void
+    onChange(): void
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) =>
 
-    return (
+    (
         <ExpansionPanel className={classes.root} expanded={props.expanded} onChange={props.onChange}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>Custom</Typography>
@@ -89,5 +91,4 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 </FormGroup>
             </ExpansionPanelDetails>
         </ExpansionPanel>
-    )
-})) /* ============================================================================================================= */
+    ))) /* ============================================================================================================= */

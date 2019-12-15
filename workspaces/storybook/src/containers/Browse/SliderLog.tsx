@@ -68,7 +68,7 @@ storiesOf('Containers|SliderLog', module)
         })
 
         return (
-            <div style={{padding: '20px'}}>
+            <div style={{borderStyle: 'solid', borderWidth: '20px', borderColor: 'red'}}>
                 <SliderLog
                     title='Block count'
                     findKey='sbc.blockCount'
