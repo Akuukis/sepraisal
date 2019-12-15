@@ -14,16 +14,8 @@ const styles = (theme: IMyTheme) => createStyles({
         marginTop: theme.spacing(1),
     },
 
-    content: {
-    },
-    heading: {
-        flexBasis: '33.33%',
-        flexShrink: 0,
-        fontSize: theme.typography.pxToRem(15),
-    },
-    secondaryHeading: {
-        color: theme.palette.text.secondary,
-        fontSize: theme.typography.pxToRem(15),
+    disabledSlider: {
+        color: '#9e9e9e',
     },
 })
 
@@ -110,13 +102,20 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     return (
         <Grid container justify='space-between' className={classes.root}>
             <Grid item>
-                <Typography id='range-slider'>{title}</Typography>
+                <Typography
+                    id='range-slider'
+                    style={Object.keys(query).length === 0 ? {color: theme.palette.text.disabled} : {}}
+                >
+                    {title}
+                </Typography>
             </Grid>
             <Grid item>
-                <Typography id='range-slider'>{from} {to}</Typography>
+                <Typography>{from} {to}</Typography>
             </Grid>
             <Grid item xs={12}>
                 <Slider
+                    className={Object.keys(query).length === 0 ? classes.disabledSlider : undefined}
+                    color='secondary'
                     min={min}
                     max={max}
                     step={1}
