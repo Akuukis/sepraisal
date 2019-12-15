@@ -57,7 +57,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
                     </Typography>
                     <Checkbox  title='Vanilla'                 findKey='sbc.vanilla'                   yes                   no={false} />
-                    <Checkbox  title='Has Image'               findKey='thumb.webp'                    yes={{$ne: null}}     no={null} />
                     <Checkbox  title='Printable (no subgrids)' findKey='sbc.gridCount'                 yes={{$eq: 1}}        no={{$ne: 1}} />
                     <Checkbox  title='Static Grid'             findKey='sbc.gridStatic'                yes                   no={false} />
                     <Checkbox  title='Atmosperic thrusters'    findKey='sbc.thrustAtmospheric.Forward' yes={{$exists: true}} no={{$exists: false}} />
