@@ -6,12 +6,12 @@ import { storiesOf } from '@storybook/react'
 import { action, runInAction } from 'mobx'
 import * as React from 'react'
 
-import { Aegir1 } from '../../blueprints/Aegir1'
-import { Aegir2 } from '../../blueprints/Aegir2'
-import { Aragath } from '../../blueprints/Aragath'
-import { Wyvern } from '../../blueprints/Wyvern'
-import { ProviderDecorator } from '../ProviderDecorator'
-import Theme from '../ThemeDecorator'
+import { Aegir1 } from '../../../blueprints/Aegir1'
+import { Aegir2 } from '../../../blueprints/Aegir2'
+import { Aragath } from '../../../blueprints/Aragath'
+import { Wyvern } from '../../../blueprints/Wyvern'
+import { ProviderDecorator } from '../../ProviderDecorator'
+import Theme from '../../ThemeDecorator'
 
 
 class MockCardStore extends CardStore {
@@ -30,7 +30,7 @@ class MockCardStore extends CardStore {
 
 }
 
-storiesOf('Containers|Browse', module)
+storiesOf('Containers|Browse|Filters', module)
     .addDecorator(Theme('my'))
     .addDecorator(ProviderDecorator({
         CARDS: new MockCardStore(),

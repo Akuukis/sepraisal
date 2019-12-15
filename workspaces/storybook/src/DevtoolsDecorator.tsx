@@ -1,9 +1,9 @@
-import { StoryDecorator } from '@storybook/react'
+import { DecoratorFunction } from '@storybook/addons/dist/types'
 import Devtools from 'mobx-react-devtools'
 import * as React from 'react'
 
 // tslint:disable-next-line:naming-convention - Quick React Node.
-export const DevtoolsDecorator: StoryDecorator = (storyFn, context) => (
+export const DevtoolsDecorator: DecoratorFunction<React.ReactNode> = (storyFn, context) => (
     <div>
         {storyFn()}
         {<Devtools />}

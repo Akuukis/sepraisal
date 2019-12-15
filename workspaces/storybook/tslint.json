@@ -24,8 +24,12 @@
             "@material-ui/styles",
             "react-hot-loader/root",
             "react-table/react-table.css",
-            "@sepraisal/app/lib"
+            "@sepraisal/app/lib",
+            "@storybook/addons/dist/types"
         ],
+        "no-implicit-dependencies": [true, "dev", [
+            "@storybook/addons"  // @storybook suggests to directly require only top "@storybook/core".
+        ]],
         "no-unnecessary-type-annotation": false,
         "no-unused": false,
         "no-use-before-declare": false,  // Because newspaper order - first FC, then helpers.
