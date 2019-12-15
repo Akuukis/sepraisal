@@ -1,8 +1,9 @@
+import BigNumber from 'bignumber.js'
 import { action, reaction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Slider, Typography } from '@material-ui/core'
+import { Grid, Slider, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, formatFloat, IMyTheme } from '../../../../common/'
 import { CONTEXT } from '../../../../stores'
@@ -10,6 +11,7 @@ import { CONTEXT } from '../../../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        marginTop: theme.spacing(1),
     },
 
     content: {
@@ -42,8 +44,18 @@ interface IQuery {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const {title, findKey, min, max, zeroes} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const safeMin = min === 0 ? 0 : Math.log10(min)
+    const safeMax = Math.log10(max)
 
-    const [logValue, setLogValue] = React.useState([min, max])
+    const [logValue, setLogValue] = React.useState([safeMin, safeMax])
+
+    const query: IQuery = {}
+    if(logValue[0] !== min) {
+        query.$gte = new BigNumber(Math.pow(10, logValue[0])).dp(0).toNumber()
+    }
+    if(logValue[1] !== Infinity && Math.pow(10, logValue[1]) !== max) {
+        query.$lte = logValue[1] === 0 ? 0 : new BigNumber(Math.pow(10, logValue[1])).dp(0).toNumber()
+    }
 
     const handleChange = (event, newValue) => {
         setLogValue(newValue)
@@ -54,8 +66,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         const query: IQuery = index === -1 ? {} : cardStore.find.$and[index]
 
         setLogValue([
-            query[findKey]?.$gte ? Math.log10(query[findKey].$gte) : min,
-            query[findKey]?.$lte ? Math.log10(query[findKey].$lte) : max,
+            query[findKey]?.$gte ? Math.log10(query[findKey].$gte) : safeMin,
+            query[findKey]?.$lte ? Math.log10(query[findKey].$lte) : safeMax,
         ])
     }))
 
@@ -75,10 +87,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             return
         }
 
-        const query: IQuery = {}
-        if(logValue[0] !== min) query.$gte = Math.pow(10, logValue[0])
-        if(Math.pow(10, logValue[1]) !== max) query.$lte = logValue[1] === 0 ? 0 : Math.pow(10, logValue[1])
-
         if(Object.keys(query).length === 0) {
             cardStore.setFind({$and: [
                 ...before,
@@ -95,21 +103,31 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         ]})
     })
 
+    const from = query.$gte !== undefined ? `from ${formatFloat(query.$gte)}` : ''
+    const to = query.$lte !== undefined ? `to ${formatFloat(query.$lte)}` : ''
+
     return (
-        <div className={classes.root}>
-            <Typography id='range-slider'>{title}</Typography>
-            <Slider
-                min={min === 0 ? 0 : Math.max(0, Math.log10(min))}
-                max={Math.log10(max)}
-                step={0.05}
-                value={logValue}
-                onChange={handleChange}
-                onChangeCommitted={onChangeCommitted}
-                valueLabelDisplay='auto'
-                aria-labelledby='range-slider'
-                valueLabelFormat={format}
-            />
-        </div>
+        <Grid container justify='space-between' className={classes.root}>
+            <Grid item>
+                <Typography id='range-slider'>{title}</Typography>
+            </Grid>
+            <Grid item>
+                <Typography id='range-slider'>{from} {to}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+                <Slider
+                    min={safeMin}
+                    max={safeMax}
+                    step={(safeMax - safeMin) / 100}
+                    value={logValue}
+                    onChange={handleChange}
+                    onChangeCommitted={onChangeCommitted}
+                    valueLabelDisplay='auto'
+                    aria-labelledby='range-slider'
+                    valueLabelFormat={format}
+                />
+            </Grid>
+        </Grid>
     )
 
 })) /* ============================================================================================================= */

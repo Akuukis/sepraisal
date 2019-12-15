@@ -1,8 +1,9 @@
+import BigNumber from 'bignumber.js'
 import { action, reaction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Slider, Typography } from '@material-ui/core'
+import { Grid, Slider, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, formatFloat, IMyTheme } from '../../../../common/'
 import { CONTEXT } from '../../../../stores'
@@ -10,6 +11,7 @@ import { CONTEXT } from '../../../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        marginTop: theme.spacing(1),
     },
 
     content: {
@@ -46,17 +48,23 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     const [value, setValue] = React.useState([min, max])
 
+    const query: IQuery = {}
+    if(value[0] !== min) query.$gte = new BigNumber(value[0]).dp(0).toNumber()
+    if(value[1] !== max) {
+        query.$lte = new BigNumber(value[1]).dp(0).toNumber()
+    }
+
     const handleChange = (event, newValue) => {
         setValue(newValue)
     }
 
     React.useEffect(() => reaction(() => cardStore.find.$and, ($and) => {
         const index = $and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const query: IQuery = index === -1 ? {} : cardStore.find.$and[index]
+        const found: IQuery = index === -1 ? {} : cardStore.find.$and[index]
 
         setValue([
-            query[findKey]?.$gte ? query[findKey].$gte : min,
-            query[findKey]?.$lte ? query[findKey].$lte : max,
+            found[findKey]?.$gte ? found[findKey].$gte : min,
+            found[findKey]?.$lte ? found[findKey].$lte : max,
         ])
     }))
 
@@ -96,21 +104,33 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         ]})
     })
 
+    const from = query.$gte !== undefined ? `from ${formatFloat(query.$gte)}` : ''
+    const to = query.$lte !== undefined ? `to ${formatFloat(query.$lte)}` : ''
+
     return (
-        <div className={classes.root}>
-            <Typography id='range-slider'>{title}</Typography>
-            <Slider
-                min={min}
-                max={max}
-                step={1}
-                value={value}
-                onChange={handleChange}
-                onChangeCommitted={onChangeCommitted}
-                valueLabelDisplay='auto'
-                aria-labelledby='range-slider'
-                valueLabelFormat={formatFloat}
-            />
-        </div>
+        <Grid container justify='space-between' className={classes.root}>
+            <Grid item>
+                <Typography id='range-slider'>{title}</Typography>
+            </Grid>
+            <Grid item>
+                <Typography id='range-slider'>{from} {to}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+                <Slider
+                    min={min}
+                    max={max}
+                    step={1}
+                    value={value}
+                    onChange={handleChange}
+                    onChangeCommitted={onChangeCommitted}
+                    valueLabelDisplay='auto'
+                    aria-labelledby='range-slider'
+                    valueLabelFormat={format}
+                />
+            </Grid>
+        </Grid>
     )
 
 })) /* ============================================================================================================= */
+
+const format = (sliderValue: number) => formatFloat(sliderValue, true)
