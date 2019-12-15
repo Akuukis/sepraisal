@@ -50,8 +50,8 @@ Each praised blueprint has a calculated freshness (in the given order):
 
 Crontab example
 ```sh
-# Add /usr/games/ to path because steamcmd installs itself there.
-PATH=/bin:/usr/bin:/usr/games/
+# Add /usr/games/ for steamcmd and /usr/local/bin/ for cwebp.
+PATH=/bin:/usr/bin:/usr/games/:/usr/local/bin/
 
 # Run scripts in order: info, discover, scrape, thumbnail, cache, praise.
 # If run that often, they shouldn't have much to do.

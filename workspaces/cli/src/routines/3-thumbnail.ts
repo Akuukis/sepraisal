@@ -57,6 +57,7 @@ const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, i
         webp = await thumbConvert(doc.steam._thumbName)
         if(webp === null) throw new Error()
     } catch(err) {
+        process.stderr.write(`${err}\n`)
         process.stdout.write(`?`)
 
         return
@@ -73,6 +74,7 @@ const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, i
         output('.')
         thumbnailed.set(doc._id, webp.length)
     } catch(err) {
+        process.stderr.write(`${err}\n`)
         process.stdout.write(`!`)
     }
 }
