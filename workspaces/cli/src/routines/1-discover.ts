@@ -7,7 +7,8 @@ import * as scrapeIt from 'scrape-it'
 
 
 /**
- * For first run, use `TYPE = 'totaluniquesubscribers'` and `MAX_PAGES = 1670`. It will take a while.
+ * For first run, use `TYPE = 'totaluniquesubscribers'` and `MAX_PAGES = 1670`.
+ * For second run, use `TYPE = 'mostrecent'` and `MAX_PAGES = 1670`.
  * Afterwards leave to `TYPE = 'mostrecent'` and `MAX_PAGES = 10` to run regularly.
  *
  * Notes:
