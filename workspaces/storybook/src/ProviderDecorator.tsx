@@ -1,26 +1,25 @@
 import { CONTEXT, Context } from '@sepraisal/app/lib/stores'
-import { Renderable, StoryDecorator } from '@storybook/react'
+import { DecoratorFunction } from '@storybook/addons/dist/types'
 import * as React from 'react'
 import { $Values } from 'utility-types'
 
-// tslint:disable-next-line:naming-convention - Quick React Node.
-export const ProviderWrapper = (stores: Partial<Context>, element: Renderable | Renderable[]) => {
+// tslint:disable: no-null-undefined-union - Because React.Node is.
+
+
+export const ProviderWrapper = (stores: Partial<Context>, element: React.ReactNode | React.ReactNode[]) => {
     const storesArray = Object.entries(stores) as Array<[keyof Context, $Values<Context>]>
 
-    const DescendIntoProviders = (children: Renderable | Renderable[]): Renderable => {
-        return storesArray.reduce<Renderable>((chain, [key, store]) => {
+    const DescendIntoProviders = (children: React.ReactNode | React.ReactNode[]): React.ReactNode => {
+        return storesArray.reduce<React.ReactNode>((chain, [key, store]) => {
             const Hack = CONTEXT[key].Provider
 
             return <Hack value={store as any}>{chain}</Hack> // tslint:disable-line:no-any no-unsafe-any
-        }, children as Renderable)
+        }, children as React.ReactNode)
     }
 
     return DescendIntoProviders(element)
 }
 
-// tslint:disable-next-line:naming-convention - Quick React Node.
-export const ProviderDecorator = (stores: Partial<Context>): StoryDecorator => {
-    // tslint:disable-next-line:no-any - TODO
+export const ProviderDecorator = (stores: Partial<Context>): DecoratorFunction<React.ReactNode> => {
     return (storyFn, context) => ProviderWrapper(stores, storyFn())
-
 }

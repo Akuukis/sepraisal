@@ -95,15 +95,14 @@ const genFighterPreset = (...args) =>
         // {'sbc.gridCount' : {$gte: args[8], $lte: args[9] } },
     ]})
 
+
 // tslint:disable: object-literal-sort-keys
 export const PRESET = {
-    none: {$and: [...presetUpToDate]},
-    ship: {$and: [...presetShip]},
-    // fighter50: genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
+    // fighter50:    genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
     fighter/* 80 */: genFighterPreset(103, 1197, 9053 , 80361 , 1205, 6546 , 7102 , 59263 , 0, 2),
-    // fighter95: genFighterPreset(72 , 3059, 6430 , 180955, 891 , 11889, 5065 , 129737, 0, 3),
-
-    custom: {$and: []},
+    // fighter95:    genFighterPreset(72 , 3059, 6430 , 180955, 891 , 11889, 5065 , 129737, 0, 3),
+    ship: {$and: [...presetShip]},
+    none: {$and: [...presetUpToDate]},
 }
 // tslint:enable: object-literal-sort-keys
 
@@ -118,6 +117,7 @@ interface IBrowserStoreSort {
 
 // tslint:disable-next-line: min-class-cohesion
 export class CardStore {
+
     @computed public get find(): IFind { return this._find }
     @computed public get sort() { return this._sort }
     public set sort(value: IBrowserStoreSort) {
@@ -126,14 +126,26 @@ export class CardStore {
 
     public static defaultSortOrder: -1 | 1 = -1
 
+    public static sortFindAnd($and: object[]) {
+        return [...$and].sort((a, b) => {
+            const aKey = Object.keys(a).pop()
+            const bKey = Object.keys(b).pop()
+
+            if(aKey === undefined) return -1
+            if(bKey === undefined) return 1
+
+            return aKey < bKey ? 1 : -1
+        })
+    }
+
     @observable public autoQuerry = true
     @observable public cards: ObservableMap<ICard<CardStatus.ok>> = new ObservableMap()
     @observable public cardsPerPage = 12
     @observable public count: null | number = null
 
-    @observable private _find: IFind = PRESET.none
-    @observable private _sort: IBrowserStoreSort = {subscriberCount: -1}
-    private disposers: IReactionDisposer[] = []
+    @observable protected _find: IFind = PRESET.fighter
+    @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
+    protected disposers: IReactionDisposer[] = []
 
     public constructor() {
         this.disposers.push(reaction(() => this.find, async (find) => {
@@ -201,22 +213,10 @@ export class CardStore {
         if('$and' in value && value.$and !== undefined) {
             this._find = {
                 ...this._find,
-                $and: this.sortFindAnd(value.$and),
+                $and: CardStore.sortFindAnd(value.$and),
             }
         }
         if('$text' in value && value.$text && value.$text.$search === '') this._find = {$and: [...this._find.$and]}
         if('$text' in value && value.$text && value.$text.$search !== '') this._find.$text = value.$text
-    }
-
-    public sortFindAnd($and: object[]) {
-        return [...$and].sort((a, b) => {
-            const aKey = Object.keys(a).pop()
-            const bKey = Object.keys(b).pop()
-
-            if(aKey === undefined) return -1
-            if(bKey === undefined) return 1
-
-            return aKey < bKey ? 1 : -1
-        })
     }
 }

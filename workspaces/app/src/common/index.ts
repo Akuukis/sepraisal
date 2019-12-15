@@ -48,7 +48,7 @@ export const formatDecimal = (amount: NumberAlike, dp: number = 0): string => {
  * - `499999` -> `499k`
  * - `500000` -> `0.5m`
  */
-export const formatFloat = (amount: NumberAlike): string => {
+export const formatFloat = (amount: NumberAlike, wholeNumbers = true): string => {
     const raw = new BigNumber(amount)
     let scaled: BigNumber
     let scale: string
@@ -62,12 +62,26 @@ export const formatFloat = (amount: NumberAlike): string => {
     } else if(raw.lt(500 * 1000 * 1000)) {
         scaled = raw.div(1000).div(1000)
         scale = 'M'
-    } else {
+    } else if(raw.lt(500 * 1000 * 1000 * 1000)) {
         scaled = raw.div(1000).div(1000).div(1000)
         scale = 'T'
+    } else if(raw.lt(500 * 1000 * 1000 * 1000 * 1000)) {
+        scaled = raw.div(1000).div(1000).div(1000).div(1000)
+        scale = 'P'
+    } else if(raw.lt(500 * 1000 * 1000 * 1000 * 1000 * 1000)) {
+        scaled = raw.div(1000).div(1000).div(1000).div(1000).div(1000)
+        scale = 'E'
+    } else if(raw.lt(500 * 1000 * 1000 * 1000 * 1000 * 1000 * 1000)) {
+        scaled = raw.div(1000).div(1000).div(1000).div(1000).div(1000).div(1000)
+        scale = 'Z'
+    } else {
+        scaled = raw.div(1000).div(1000).div(1000).div(1000).div(1000).div(1000).div(1000)
+        scale = 'Y'
     }
 
-    return `${scaled.toFixed(scaled.lt(10) ? 1 : 0)}${scale}`
+    return wholeNumbers
+        ? `${scaled.toFixed(scaled.lt(10) && raw.gt(10) ? 1 : 0)}${scale}`
+        : `${scaled.toFixed(scaled.lt(10) ? 1 : 0)}${scale}`
 }
 
 export const formatDuration = (seconds: number): string => {

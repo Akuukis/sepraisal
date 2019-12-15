@@ -1,5 +1,5 @@
 import { IMyTheme, MY_LIGHT_THEME } from '@sepraisal/app/lib/common/myTheme'
-import { StoryDecorator } from '@storybook/react'
+import { DecoratorFunction } from '@storybook/addons/dist/types'
 import * as React from 'react'
 
 import { createMuiTheme } from '@material-ui/core'
@@ -14,7 +14,7 @@ const darkBaseTheme = createMuiTheme({
 
 export type ThemeDecoratorTheme = 'my' | 'light' | 'dark' | object
 
-const themeDecorator = (theme: ThemeDecoratorTheme): StoryDecorator => {
+const themeDecorator = (theme: ThemeDecoratorTheme): DecoratorFunction<React.ReactNode> => {
     let currentTheme: IMyTheme
     switch(theme) {
         case('my'): {
