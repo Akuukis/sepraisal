@@ -40,7 +40,17 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const {title, findKey, min, max, zeroes} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
 
-    const [value, setValue] = React.useState([min, max])
+    const setState = () => {
+        const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
+        const found: IQuery = index === -1 ? {} : cardStore.find.$and[index]
+
+        return [
+            found[findKey]?.$gte ?? min,
+            found[findKey]?.$lte ?? max,
+        ]
+    }
+
+    const [value, setValue] = React.useState(setState())
 
     const query: IQuery = {}
     if(value[0] !== min) query.$gte = new BigNumber(value[0]).dp(0).toNumber()
@@ -53,14 +63,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         setValue(newValue)
     }
 
-    React.useEffect(() => reaction(() => cardStore.find.$and, ($and) => {
-        const index = $and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const found: IQuery = index === -1 ? {} : cardStore.find.$and[index]
-
-        setValue([
-            found[findKey]?.$gte ? found[findKey].$gte : min,
-            found[findKey]?.$lte ? found[findKey].$lte : max,
-        ])
+    React.useEffect(() => reaction(() => cardStore.find.$and, () => {
+        setValue(setState())
     }))
 
     const onChangeCommitted = action(() => {

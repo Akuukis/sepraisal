@@ -41,7 +41,17 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const safeMin = min === 0 ? 0 : Math.log10(min)
     const safeMax = Math.log10(max)
 
-    const [logValue, setLogValue] = React.useState([safeMin, safeMax])
+    const setState = () => {
+        const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
+        const found: IQuery = index === -1 ? {} : cardStore.find.$and[index]
+
+        return [
+            found[findKey]?.$gte ? Math.log10(found[findKey].$gte) : safeMin,
+            found[findKey]?.$lte ? Math.log10(found[findKey].$lte) : safeMax,
+        ]
+    }
+
+    const [logValue, setLogValue] = React.useState(setState())
 
     const query: IQuery = {}
     if(logValue[0] !== min) {
@@ -56,14 +66,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         setLogValue(newValue)
     }
 
-    React.useEffect(() => reaction(() => cardStore.find.$and, ($and) => {
-        const index = $and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const query: IQuery = index === -1 ? {} : cardStore.find.$and[index]
-
-        setLogValue([
-            query[findKey]?.$gte ? Math.log10(query[findKey].$gte) : safeMin,
-            query[findKey]?.$lte ? Math.log10(query[findKey].$lte) : safeMax,
-        ])
+    React.useEffect(() => reaction(() => cardStore.find.$and, () => {
+        setLogValue(setState())
     }))
 
     const onChangeCommitted = action(() => {
