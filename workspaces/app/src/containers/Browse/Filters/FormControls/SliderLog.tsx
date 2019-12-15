@@ -49,16 +49,15 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         setLogValue(newValue)
     }
 
-    // React.useEffect(() => reaction(() => cardStore.find.$and, ($and) => {
-    //         const index = $and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-    //         const query: IQuery = index === -1 ? {} : cardStore.find.$and[index]
+    React.useEffect(() => reaction(() => cardStore.find.$and, ($and) => {
+        const index = $and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
+        const query: IQuery = index === -1 ? {} : cardStore.find.$and[index]
 
-    //         setLogValue([
-    //             query.$gte || min,
-    //             query.$lte || max,
-    //         ])
-    //     })
-    // )
+        setLogValue([
+            query[findKey]?.$gte ? Math.log10(query[findKey].$gte) : min,
+            query[findKey]?.$lte ? Math.log10(query[findKey].$lte) : max,
+        ])
+    }))
 
     const onChangeCommitted = action(() => {
         // tslint:disable-next-line: no-non-null-assertion
