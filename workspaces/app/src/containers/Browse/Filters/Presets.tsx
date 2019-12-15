@@ -22,6 +22,8 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     content: {
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
     },
     heading: {
         flexBasis: '33.33%',

@@ -12,6 +12,8 @@ import { CONTEXT } from '../../../../stores'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         marginTop: theme.spacing(1),
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
     },
 
     disabledSlider: {
@@ -45,6 +47,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     if(value[1] !== max) {
         query.$lte = new BigNumber(value[1]).dp(0).toNumber()
     }
+    const isEnabled = Object.keys(query).length !== 0
 
     const handleChange = (event, newValue) => {
         setValue(newValue)
@@ -80,7 +83,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         if(value[0] !== min) query.$gte = value[0]
         if(value[1] !== max) query.$lte = value[1]
 
-        if(Object.keys(query).length === 0) {
+        if(!isEnabled) {
             cardStore.setFind({$and: [
                 ...before,
                 ...after,
@@ -104,7 +107,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             <Grid item>
                 <Typography
                     id='range-slider'
-                    style={Object.keys(query).length === 0 ? {color: theme.palette.text.disabled} : {}}
+                    style={!isEnabled ? {color: theme.palette.text.disabled} : {}}
                 >
                     {title}
                 </Typography>
@@ -114,8 +117,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             </Grid>
             <Grid item xs={12}>
                 <Slider
-                    className={Object.keys(query).length === 0 ? classes.disabledSlider : undefined}
-                    color='secondary'
+                    className={!isEnabled ? classes.disabledSlider : undefined}
                     min={min}
                     max={max}
                     step={1}

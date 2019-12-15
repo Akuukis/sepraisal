@@ -20,7 +20,13 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
+    button: {
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2),
+    },
     content: {
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
     },
     heading: {
         flexBasis: '33.33%',
@@ -80,11 +86,11 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 <Typography className={classes.heading}>Advanced</Typography>
                 <Typography className={classes.secondaryHeading}/>
             </ExpansionPanelSummary>
-            <ExpansionPanelDetails className={classes.content}>
-                <Button variant='contained' fullWidth>
+            <ExpansionPanelDetails className={classes.content} style={{paddingBottom: '0px'}}>
+                <Button className={classes.button} variant='contained' fullWidth>
                     Reset
                 </Button>
-                <Button variant='contained' fullWidth color='primary' disabled={!dirtyOk} onClick={applyAdvancedFilter}>
+                <Button className={classes.button} variant='contained' fullWidth color='primary' disabled={!dirtyOk} onClick={applyAdvancedFilter}>
                     Apply
                 </Button>
             </ExpansionPanelDetails>
