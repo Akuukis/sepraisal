@@ -14,7 +14,7 @@ const QUALITY = 10000  // In bytes. 3000 is the lowest that doesn't make eyes bl
 
 interface IProjection {
     _id: number,
-    steam: {_thumbName: string},
+    steam: {_thumbName: string | null},
 }
 
 const thumbnailed = new Map<number, number>()
@@ -53,14 +53,18 @@ type IWorkItem = [Collection, IProjection, number]
 const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, index: number): Promise<void> => {
 
     let webp: Buffer | null
-    try {
-        webp = await thumbConvert(doc.steam._thumbName)
-        if(webp === null) throw new Error()
-    } catch(err) {
-        process.stderr.write(`${err}\n`)
-        process.stdout.write(`?`)
+    if(doc.steam._thumbName === null) {
+        webp = null
+    } else {
+        try {
+            webp = await thumbConvert(doc.steam._thumbName)
+            if(webp === null) throw new Error()
+        } catch(err) {
+            process.stderr.write(`${err}\n`)
+            process.stdout.write(`?`)
 
-        return
+            return
+        }
     }
 
     try {
@@ -72,7 +76,7 @@ const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, i
             },
         }})
         output('.')
-        thumbnailed.set(doc._id, webp.length)
+        thumbnailed.set(doc._id, webp ? webp.length : 0)
     } catch(err) {
         process.stderr.write(`${err}\n`)
         process.stdout.write(`!`)
