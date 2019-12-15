@@ -1,6 +1,7 @@
-import Browse from '@sepraisal/app/lib/containers/Browse'
+import Filters from '@sepraisal/app/lib/containers/Browse/Filters'
 import { Card } from '@sepraisal/app/lib/models'
 import { CardStore } from '@sepraisal/app/lib/stores/CardStore'
+import { action as storyAction } from '@storybook/addon-actions'
 import { withKnobs } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import { action, runInAction } from 'mobx'
@@ -15,6 +16,12 @@ import Theme from '../../ThemeDecorator'
 
 
 class MockCardStore extends CardStore {
+    public get find() {
+        storyAction('find')()
+
+        return super.find
+    }
+
     @action public async querry(pageNo: number = 0) {
         const docs = [
             Aegir1,
@@ -28,13 +35,22 @@ class MockCardStore extends CardStore {
         })
     }
 
+    public setFind(value: Parameters<CardStore['setFind']>[0]) {
+        super.setFind(value)
+        storyAction('setFind')(JSON.stringify(super.find), super.find)
+    }
 }
 
-storiesOf('Containers|Browse|Filters', module)
+storiesOf('Containers|BrowseFilters', module)
     .addDecorator(Theme('my'))
     .addDecorator(ProviderDecorator({
         CARDS: new MockCardStore(),
     }))
     .addDecorator(withKnobs)
-    .add('Default', () =>
-        <Browse />)
+    .add('Default2', () => {
+        const toggleDrawer = storyAction('toggleDrawer')
+
+        return (
+            <Filters toggleDrawer={toggleDrawer} />
+        )
+    })

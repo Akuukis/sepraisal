@@ -95,6 +95,81 @@ const genFighterPreset = (...args) =>
         // {'sbc.gridCount' : {$gte: args[8], $lte: args[9] } },
     ]})
 
+const asdf = {
+    $and: [{
+        'sbc.vanilla': true,
+    }, {
+        'sbc.oreVolume': {
+            $gte: 7102,
+            $lte: 59263,
+        },
+    }, {
+        'sbc.gridSize': 'Small',
+    }, {
+        'sbc.blocks.Gyro/SmallBlockGyro': {
+            $exists: true,
+        },
+    }, {
+        'sbc.blockPCU': {
+            $gte: 1205,
+            $lte: 6546,
+        },
+    }, {
+        'sbc.blockMass': {
+            $gte: 9053,
+            $lte: 80361,
+        },
+    }, {
+        'sbc.blockCount': {
+            $gte: 103,
+            $lte: 1197,
+        },
+    }, {
+        'sbc._version': {
+            $eq: 6,
+        },
+    }, {
+        sbc: {
+            $exists: true,
+        },
+    }, {
+        $or: [{
+            'sbc.blocks.BatteryBlock/SmallBlockBatteryBlock': {
+                $exists: true,
+            },
+        }, {
+            'sbc.blocks.Reactor/SmallBlockSmallGenerator': {
+                $exists: true,
+            },
+        }, {
+            'sbc.blocks.Reactor/SmallBlockLargeGenerator': {
+                $exists: true,
+            },
+        }],
+    }, {
+        $or: [{
+            'sbc.blocks.Cockpit/SmallBlockCockpit': {
+                $exists: true,
+            },
+        }, {
+            'sbc.blocks.Cockpit/DBSmallBlockFighterCockpit': {
+                $exists: true,
+            },
+        }],
+    }, {
+        $or: [{
+            'sbc.blocks.SmallGatlingGun/': {
+                $exists: true,
+            },
+        }, {
+            'sbc.blocks.SmallMissileLauncher/': {
+                $exists: true,
+            },
+        }],
+    }],
+}
+
+
 // tslint:disable: object-literal-sort-keys
 export const PRESET = {
     none: {$and: [...presetUpToDate]},
@@ -118,6 +193,7 @@ interface IBrowserStoreSort {
 
 // tslint:disable-next-line: min-class-cohesion
 export class CardStore {
+
     @computed public get find(): IFind { return this._find }
     @computed public get sort() { return this._sort }
     public set sort(value: IBrowserStoreSort) {
@@ -126,12 +202,24 @@ export class CardStore {
 
     public static defaultSortOrder: -1 | 1 = -1
 
+    public static sortFindAnd($and: object[]) {
+        return [...$and].sort((a, b) => {
+            const aKey = Object.keys(a).pop()
+            const bKey = Object.keys(b).pop()
+
+            if(aKey === undefined) return -1
+            if(bKey === undefined) return 1
+
+            return aKey < bKey ? 1 : -1
+        })
+    }
+
     @observable public autoQuerry = true
     @observable public cards: ObservableMap<ICard<CardStatus.ok>> = new ObservableMap()
     @observable public cardsPerPage = 12
     @observable public count: null | number = null
 
-    @observable private _find: IFind = PRESET.none
+    @observable private _find: IFind = PRESET.fighter
     @observable private _sort: IBrowserStoreSort = {subscriberCount: -1}
     private disposers: IReactionDisposer[] = []
 
@@ -201,22 +289,10 @@ export class CardStore {
         if('$and' in value && value.$and !== undefined) {
             this._find = {
                 ...this._find,
-                $and: this.sortFindAnd(value.$and),
+                $and: CardStore.sortFindAnd(value.$and),
             }
         }
         if('$text' in value && value.$text && value.$text.$search === '') this._find = {$and: [...this._find.$and]}
         if('$text' in value && value.$text && value.$text.$search !== '') this._find.$text = value.$text
-    }
-
-    public sortFindAnd($and: object[]) {
-        return [...$and].sort((a, b) => {
-            const aKey = Object.keys(a).pop()
-            const bKey = Object.keys(b).pop()
-
-            if(aKey === undefined) return -1
-            if(bKey === undefined) return 1
-
-            return aKey < bKey ? 1 : -1
-        })
     }
 }

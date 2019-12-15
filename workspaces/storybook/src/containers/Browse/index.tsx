@@ -30,7 +30,7 @@ class MockCardStore extends CardStore {
 
 }
 
-storiesOf('Containers|Browse|index', module)
+storiesOf('Containers|Browse', module)
     .addDecorator(Theme('my'))
     .addDecorator(ProviderDecorator({
         CARDS: new MockCardStore(),

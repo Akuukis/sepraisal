@@ -14,7 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import { CONTEXT } from '../../../stores'
-import { PRESET } from '../../../stores/CardStore'
+import { CardStore, PRESET } from '../../../stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -44,8 +44,8 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
 
-    const selectedValue = JSON.stringify(cardStore.find.$and)
-    const found = Object.keys(PRESET).findIndex((key) => selectedValue === JSON.stringify(cardStore.sortFindAnd(PRESET[key].$and)))
+    const selectedValue = JSON.stringify(CardStore.sortFindAnd(cardStore.find.$and))
+    const found = Object.keys(PRESET).findIndex((key) => selectedValue === JSON.stringify(CardStore.sortFindAnd(PRESET[key].$and)))
     const selected = found !== -1 ? Object.keys(PRESET)[found] as keyof typeof PRESET : 'custom'
 
     const getPresetTitle = (id: keyof typeof PRESET) => {
