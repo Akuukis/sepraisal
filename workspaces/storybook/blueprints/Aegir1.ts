@@ -1,5 +1,6 @@
 import { Direction, GridSize, IBlueprint } from '@sepraisal/common'
-import * as moment from 'moment'
+
+const moment = require('moment')
 
 // tslint:disable max-line-length object-literal-sort-keys naming-convention no-any
 export const Aegir1: Required <IBlueprint> = {

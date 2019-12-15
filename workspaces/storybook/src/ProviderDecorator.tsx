@@ -1,5 +1,6 @@
 import { CONTEXT, Context } from '@sepraisal/app/lib/stores'
 import { DecoratorFunction } from '@storybook/addons/dist/types'
+import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types'
 import * as React from 'react'
 import { $Values } from 'utility-types'
 
@@ -20,6 +21,6 @@ export const ProviderWrapper = (stores: Partial<Context>, element: React.ReactNo
     return DescendIntoProviders(element)
 }
 
-export const ProviderDecorator = (stores: Partial<Context>): DecoratorFunction<React.ReactNode> => {
-    return (storyFn, context) => ProviderWrapper(stores, storyFn())
+export const ProviderDecorator = (stores: Partial<Context>): DecoratorFunction<StoryFnReactReturnType> => {
+    return (storyFn, context) => ProviderWrapper(stores, storyFn()) as StoryFnReactReturnType
 }

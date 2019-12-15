@@ -12,7 +12,7 @@
     "license": "GPL-3.0",
     "private": true,
     "scripts": {
-        "start": "yarn run watch",
+        "start": "yarn build && yarn run watch",
         "build": "tsc -v && tsc -b tsconfig-src.json",
         "clean": "rm -rf coverage lib tmp tsconfig-src.tsbuildinfo",
         "lint": "tslint -p tsconfig-src.json",
