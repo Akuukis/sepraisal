@@ -29,6 +29,7 @@ module.exports = ({ config, mode }) => {
                         ["@babel/plugin-proposal-decorators", { legacy: true }],
                         ["@babel/plugin-proposal-class-properties", { loose: true }],
                         ["@babel/plugin-syntax-dynamic-import"],
+                        ["@babel/plugin-proposal-optional-chaining"],
                     ],
                     presets: [
                         [

@@ -59,6 +59,7 @@ module.exports = {
                             // plugin-proposal-decorators is only needed if you're using experimental decorators in TypeScript
                             ["@babel/plugin-proposal-decorators", { legacy: true }],
                             ["@babel/plugin-proposal-class-properties", { loose: true }],
+                            ["@babel/plugin-proposal-optional-chaining"],
                             // "react-hot-loader/babel",  // Breaks RHL: https://github.com/gaearon/react-hot-loader/issues/1236
                         ]
                     }
