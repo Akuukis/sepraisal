@@ -6,7 +6,7 @@ import { Button, Grid, Paper, Typography } from '@material-ui/core'
 import IconBuild from '@material-ui/icons/Build'
 import IconSearch from '@material-ui/icons/Search'
 
-import * as banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
+import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
 import { API_URL, createSmartFC, createStyles, IMyTheme } from '../common/'
 import { ROUTES } from '../constants/routes'
 import { CONTEXT } from '../stores'

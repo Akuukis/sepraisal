@@ -2,15 +2,16 @@
 
 // for style loader
 declare module '*.jpg' {
-  const content: any;
-  export = content;
+  const content: string;
+  export default content;
 }
 declare module '*.png' {
-  const content: any;
-  export = content;
+  const content: string;
+  export default content;
 }
 declare module '*.svg' {
-  export const content: string;
+  const content: string;
+  export default content;
 }
 
 // for .sbc that are XMLs
