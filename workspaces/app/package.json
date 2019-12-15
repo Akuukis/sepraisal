@@ -50,9 +50,8 @@
         "react-dropzone": "^10.2.1",
         "react-router-dom": "^5.1.2",
         "react-table": "^6.11.4",
-        "react-vega": "^6.1.0",
-        "vega": "^5.5.3",
-        "vega-lite": "^4.0.0-beta.1"
+        "react-vega": "6.0.1",
+        "vega": "5.3.5"
     },
     "devDependencies": {
         "@babel/core": "^7.7.5",
