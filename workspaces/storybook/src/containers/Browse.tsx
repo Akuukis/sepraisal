@@ -1,7 +1,6 @@
 import Browse from '@sepraisal/app/lib/containers/Browse'
 import { Card } from '@sepraisal/app/lib/models'
 import { CardStore } from '@sepraisal/app/lib/stores/CardStore'
-import { IBlueprint } from '@sepraisal/common'
 import { withKnobs } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import { action, runInAction } from 'mobx'
@@ -17,7 +16,7 @@ import Theme from '../ThemeDecorator'
 
 class MockCardStore extends CardStore {
     @action public async querry(pageNo: number = 0) {
-        const docs: Array<Required<IBlueprint>> = [
+        const docs = [
             Aegir1,
             Aegir2,
             Aragath,
@@ -25,7 +24,7 @@ class MockCardStore extends CardStore {
         ]
 
         runInAction(() => {
-            this.cards.replace(docs.map((doc) => new Card(doc)))
+            this.cards.replace(docs.map((doc) => [doc._id, new Card(doc)]))
         })
     }
 
