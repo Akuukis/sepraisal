@@ -95,90 +95,14 @@ const genFighterPreset = (...args) =>
         // {'sbc.gridCount' : {$gte: args[8], $lte: args[9] } },
     ]})
 
-const asdf = {
-    $and: [{
-        'sbc.vanilla': true,
-    }, {
-        'sbc.oreVolume': {
-            $gte: 7102,
-            $lte: 59263,
-        },
-    }, {
-        'sbc.gridSize': 'Small',
-    }, {
-        'sbc.blocks.Gyro/SmallBlockGyro': {
-            $exists: true,
-        },
-    }, {
-        'sbc.blockPCU': {
-            $gte: 1205,
-            $lte: 6546,
-        },
-    }, {
-        'sbc.blockMass': {
-            $gte: 9053,
-            $lte: 80361,
-        },
-    }, {
-        'sbc.blockCount': {
-            $gte: 103,
-            $lte: 1197,
-        },
-    }, {
-        'sbc._version': {
-            $eq: 6,
-        },
-    }, {
-        sbc: {
-            $exists: true,
-        },
-    }, {
-        $or: [{
-            'sbc.blocks.BatteryBlock/SmallBlockBatteryBlock': {
-                $exists: true,
-            },
-        }, {
-            'sbc.blocks.Reactor/SmallBlockSmallGenerator': {
-                $exists: true,
-            },
-        }, {
-            'sbc.blocks.Reactor/SmallBlockLargeGenerator': {
-                $exists: true,
-            },
-        }],
-    }, {
-        $or: [{
-            'sbc.blocks.Cockpit/SmallBlockCockpit': {
-                $exists: true,
-            },
-        }, {
-            'sbc.blocks.Cockpit/DBSmallBlockFighterCockpit': {
-                $exists: true,
-            },
-        }],
-    }, {
-        $or: [{
-            'sbc.blocks.SmallGatlingGun/': {
-                $exists: true,
-            },
-        }, {
-            'sbc.blocks.SmallMissileLauncher/': {
-                $exists: true,
-            },
-        }],
-    }],
-}
-
 
 // tslint:disable: object-literal-sort-keys
 export const PRESET = {
-    none: {$and: [...presetUpToDate]},
-    ship: {$and: [...presetShip]},
-    // fighter50: genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
+    // fighter50:    genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
     fighter/* 80 */: genFighterPreset(103, 1197, 9053 , 80361 , 1205, 6546 , 7102 , 59263 , 0, 2),
-    // fighter95: genFighterPreset(72 , 3059, 6430 , 180955, 891 , 11889, 5065 , 129737, 0, 3),
-
-    custom: {$and: []},
+    // fighter95:    genFighterPreset(72 , 3059, 6430 , 180955, 891 , 11889, 5065 , 129737, 0, 3),
+    ship: {$and: [...presetShip]},
+    none: {$and: [...presetUpToDate]},
 }
 // tslint:enable: object-literal-sort-keys
 
