@@ -1,4 +1,4 @@
-import { action } from 'mobx'
+import { action, reaction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -49,16 +49,16 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         setLogValue(newValue)
     }
 
-    // React.useEffect(() => {
-    //     const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-    //     const query: IQuery = index === -1 ? {} : cardStore.find.$and[index]
+    // React.useEffect(() => reaction(() => cardStore.find.$and, ($and) => {
+    //         const index = $and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
+    //         const query: IQuery = index === -1 ? {} : cardStore.find.$and[index]
 
-    //     setLogValue([
-    //         query.$gte || min,
-    //         query.$lte || max,
-    //     ])
-
-    // }, [cardStore.find])
+    //         setLogValue([
+    //             query.$gte || min,
+    //             query.$lte || max,
+    //         ])
+    //     })
+    // )
 
     const onChangeCommitted = action(() => {
         // tslint:disable-next-line: no-non-null-assertion

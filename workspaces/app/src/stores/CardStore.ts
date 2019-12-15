@@ -143,9 +143,9 @@ export class CardStore {
     @observable public cardsPerPage = 12
     @observable public count: null | number = null
 
-    @observable private _find: IFind = PRESET.fighter
-    @observable private _sort: IBrowserStoreSort = {subscriberCount: -1}
-    private disposers: IReactionDisposer[] = []
+    @observable protected _find: IFind = PRESET.fighter
+    @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
+    protected disposers: IReactionDisposer[] = []
 
     public constructor() {
         this.disposers.push(reaction(() => this.find, async (find) => {
