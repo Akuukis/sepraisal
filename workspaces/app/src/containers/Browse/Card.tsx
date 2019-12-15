@@ -86,13 +86,14 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    blueprint: ICard<CardStatus.ok>
+    blueprint: ICard<CardStatus>
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const routerStore = React.useContext(CONTEXT.ROUTER)
     const {blueprint: bp} = props
+    if(!bp.steam) return null  // TODO
 
     const postedDate = `${bp.steam.postedDate.getUTCFullYear()}-${padTo2(bp.steam.postedDate.getMonth() + 1)}`
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
@@ -102,8 +103,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         <Card className={classes.root}>
             <CardMedia
                 style={{paddingTop: '56.25%'}}
-                image={bp.thumb.webp !== null ? `data:image/webp;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
-                title={bp.steam.title}
+                image={!!bp.thumb?.webp ? `data:image/webp;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
+                title={`Thumb for ${bp.id}`}
             />
             <CardHeader
                 titleTypographyProps={{noWrap: true, style: {lineHeight: '1.429em'}}}
@@ -123,14 +124,16 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 </Grid>
             </CardContent>
             <Divider />
-            <CardContent className={classes.cardContent}>
-                <Grid container spacing={0}>
-                    <KeyValueBox def={`PCU`} value={formatDecimal(bp.sbc.blockPCU)} />
-                    <KeyValueBox def={`${bp.sbc.gridSize.slice(0, 1)}-blocks`} value={formatDecimal(bp.sbc.blockCount)} />
-                    <KeyValueBox def={`ore (m\u00B3)`} value={formatDecimal(bp.sbc.oreVolume / 1000)} />
-                    <KeyValueBox def={`workhours`} value={formatDecimal((bp.sbc.blockTime + bp.sbc.componentTime + bp.sbc.ingotTime) / 60 / 60, 1)} />
-                </Grid>
-            </CardContent>
+            {!bp.sbc ? null :
+                <CardContent className={classes.cardContent}>
+                    <Grid container spacing={0}>
+                        <KeyValueBox def={`PCU`} value={formatDecimal(bp.sbc.blockPCU)} />
+                        <KeyValueBox def={`${bp.sbc.gridSize.slice(0, 1)}-blocks`} value={formatDecimal(bp.sbc.blockCount)} />
+                        <KeyValueBox def={`ore (m\u00B3)`} value={formatDecimal(bp.sbc.oreVolume / 1000)} />
+                        <KeyValueBox def={`workhours`} value={formatDecimal((bp.sbc.blockTime + bp.sbc.componentTime + bp.sbc.ingotTime) / 60 / 60, 1)} />
+                    </Grid>
+                </CardContent>
+            }
             <Grid container className={classes.overlay} direction='column' alignItems='center' justify='space-evenly'>
                 <Grid item className={classes.overlayItem}>
                     <Grid
@@ -138,7 +141,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         alignItems='center'
                         justify='center'
                         className={classes.overlayItem2}
-                        onClick={() => routerStore.goBlueprint(bp.steam.id, bp.steam.revision)}
+                        onClick={() => routerStore.goBlueprint(bp.id, bp.steam?.revision)}
                     >
                         <Grid item>
                             <Button size='large' disableRipple disableFocusRipple disableTouchRipple>
