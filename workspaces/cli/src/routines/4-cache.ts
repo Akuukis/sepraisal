@@ -12,6 +12,7 @@ import { QUERIES } from '../queries'
 import { sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
 const BATCH_SIZE = 50
+const MAX_SIZE = 20
 
 const steamLogFile = join('/', 'home', 'steam', '.steam', 'logs', 'workshop_log.txt')
 // tslint:disable-next-line: no-non-null-assertion
@@ -151,8 +152,8 @@ export const main = async () => {
         })
     console.info(`But already cached are ${docsAll.length - docsNew.length} blueprints.`)
 
-    const docs = docsNew.filter((doc) => doc.steam.sizeMB < 5)
-    console.info(`But too big (>5MB) are ${docsNew.length - docs.length} blueprints.`)
+    const docs = docsNew.filter((doc) => doc.steam.sizeMB < MAX_SIZE)
+    console.info(`But too big (>${MAX_SIZE}MB) are ${docsNew.length - docs.length} blueprints.`)
 
     console.info('Checking passwords...')
     execSync(asSteam(`steamcmd +login ${STEAM_USERNAME} +exit`), {stdio: 'inherit'})

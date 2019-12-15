@@ -6,8 +6,19 @@ import * as pad from 'pad'
 import * as scrapeIt from 'scrape-it'
 
 
+/**
+ * For first run, use `TYPE = 'totaluniquesubscribers'` and `MAX_PAGES = 1670`. It will take a while.
+ * Afterwards leave to `TYPE = 'mostrecent'` and `MAX_PAGES = 10` to run regularly.
+ *
+ * Notes:
+ * 1. Mongo free 512MB is too small for infinite blueprints. For 512MB database I recommend to
+ * regularly run only 500-700 pages of 'totaluniquesubscribers' only, and at 3kb thumbs (see 3rd script).
+ * 2. In 2019 Q4, it's 2-5 pages of new blueprint per day.
+ * 3. Note steam sorting algorithm - it works but it's not perfect!
+ */
+const TYPE = 'mostrecent'
+const MAX_PAGES = 10  // MAX is 1670 due how steam workshop works.
 const SKIP_PAGES = 0
-const MAX_PAGES = 1670  // MAX is 1670 due how steam workshop works.
 
 
 export interface IDiscoverScrapeDatum {
@@ -24,13 +35,6 @@ export interface IDiscoverScrapeData {
 
 const scrape = async (page: number): Promise<IDiscoverScrapeData> => {
 
-    /**
-     * For first run, use 'totaluniquesubscribers'. Afterwards leave to 'mostrecent' and run regularly.
-     *
-     * P.S. Mongo free 512MB is too small for infinite blueprints. For 512MB database I recommend to
-     * regularly run only 500-700 pages of 'totaluniquesubscribers' only, and at 3kb thumbs (see 3rd script).
-     */
-    const TYPE = 'mostrecent'
     const url = `https://steamcommunity.com/workshop/browse/?appid=244850&requiredtags%5B0%5D=Blueprint&actualsort=$TYPE&browsesort=${TYPE}&p=${page}`
 
     // tslint:disable-next-line:no-object-literal-type-assertion no-any no-unused no-dead-store
