@@ -1,4 +1,4 @@
-import { autorun, runInAction } from 'mobx'
+import { reaction, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -65,8 +65,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         dirtyOk = null
     }
 
-    React.useEffect(() => autorun(() => {
-        const value = JSON.stringify(cardStore.find, null, 2)
+    React.useEffect(() => reaction(() => cardStore.find, (find) => {
+        const value = JSON.stringify(find, null, 2)
         runInAction('reset-advanced-filter', () => setFindDirty(value))
     }))
 
