@@ -79,7 +79,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <Typography paragraph>
                             Browse all Steam workshop blueprints!
                         </Typography>
-                        <Typography paragraph>
+                        <Typography component='div' paragraph>
                             Features:
                             <ul>
                                 <li><strong>Filters</strong>: vanilla-ness, blocks, PCU, required ores, etc.</li>
@@ -103,7 +103,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <Typography paragraph>
                             Get in-depth analysis of the blueprint!
                         </Typography>
-                        <Typography paragraph>
+                        <Typography component='div' paragraph>
                             Features:
                             <ul>
                                 <li><strong>2D x-ray</strong>: Bad picture? View it in three projections.</li>
@@ -127,7 +127,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <Typography paragraph>
                             Compare blueprints side-to-side!
                         </Typography>
-                        <Typography paragraph>
+                        <Typography component='div' paragraph>
                             Features:
                             <ul>
                                 <li><strong>Offline blueprints</strong>: Add your offline blueprint to comparison.</li>
