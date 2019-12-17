@@ -117,6 +117,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 id='search'
                 placeholder='Search blueprints...'
                 variant='outlined'
+                value={cardStore.find.$text?.$search}
                 onChange={handleChange}
                 onKeyDown={keyPress}
                 fullWidth

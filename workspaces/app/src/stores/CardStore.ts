@@ -148,7 +148,7 @@ export class CardStore {
     protected disposers: IReactionDisposer[] = []
 
     public constructor() {
-        this.disposers.push(reaction(() => this.find, async (find) => {
+        this.disposers.push(reaction(() => this.find.$and, async (find) => {
             await this.querry()
         }))
     }
@@ -209,14 +209,14 @@ export class CardStore {
         }
     }
 
-    @action public setFind(value: Partial<IFind>) {
-        if('$and' in value && value.$and !== undefined) {
-            this._find = {
-                ...this._find,
-                $and: CardStore.sortFindAnd(value.$and),
-            }
+    @action public setFind(diff: Partial<IFind>) {
+
+        // If changed, automatically trigger query via mobx due reaction above on `this.find.$and`.
+        if('$and' in diff && diff.$and) {
+            this._find.$and = CardStore.sortFindAnd(diff.$and)
         }
-        if('$text' in value && value.$text && value.$text.$search === '') this._find = {$and: [...this._find.$and]}
-        if('$text' in value && value.$text && value.$text.$search !== '') this._find.$text = value.$text
+
+        // Doesn't automatically trigger query because there's no reaction on `this.find.$text`.
+        if('$text' in diff) this._find.$text = '$text' in diff ? diff.$text : this._find.$text
     }
 }
