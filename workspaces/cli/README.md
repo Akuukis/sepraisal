@@ -83,7 +83,7 @@ Summary of routines are at table above, and few that need more details have thei
 
 ### Script `thumbnail`
 
-Install dependencies
+Install webp
 
 ```sh
 # https://developers.google.com/speed/webp/docs/compiling
@@ -91,10 +91,15 @@ sudo apt-get install -y libjpeg-dev libpng-dev libtiff-dev libgif-dev
 wget https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz
 tar xvzf libwebp-1.0.3.tar.gz
 cd libwebp-1.0.3
-./configure
+./configure --enable-everything  # because gif2webp is not enabled by default.
 make
 sudo make install
 sudo ldconfig
+```
+
+Install imagemagick
+```
+sudo apt-get install imagemagick
 ```
 
 

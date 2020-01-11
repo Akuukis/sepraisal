@@ -46,7 +46,19 @@ export const thumbConvert = async (idPair: string) => {
         await execAsync(`curl -s '${link}' -o '${safeFilename}'`)
     }
 
-    return execAsyncBuffer(`cat ${safeFilename} | cwebp -preset default -resize 268 151 -pass 10 -mt -af -size ${QUALITY} -quiet -o - -- -`)
+    const format = await execAsync(`identify -format "%m\n" ${safeFilename} | head -n1`) as 'PNG' | 'JPG' | 'GIF'
+    switch(format) {
+        case('PNG'):
+        case('JPG'): {
+            return execAsyncBuffer(`cat ${safeFilename} | cwebp -preset default -resize 268 151 -pass 10 -mt -af -size ${QUALITY} -quiet -o - -- -`)
+        }
+        case('GIF'): {
+            return execAsyncBuffer(`cat ${safeFilename} | convert -[0] PNG:- | cwebp -preset default -resize 268 151 -pass 10 -mt -af -size ${QUALITY} -quiet -o - -- -`)
+        }
+        default: {
+            throw new Error(`Unknown image format "${format}" for ${safeFilename}`)
+        }
+    }
 }
 
 type IWorkItem = [Collection, IProjection, number]
