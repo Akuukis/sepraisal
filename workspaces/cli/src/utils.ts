@@ -1,5 +1,6 @@
 import { exec } from 'child_process'
 import { lstat, Stats } from 'fs'
+import { FilterQuery } from 'mongodb'
 import { join } from 'path'
 
 
@@ -28,3 +29,13 @@ export const THUMB_DIR = thumb_dir
 
 export const sbcName = (datum: {_id: number, steam: {revision: number}}) => `${datum._id}.${datum.steam.revision}.zip`
 export const sbcPath = (datum: {_id: number, steam: {revision: number}}) => join(SBC_DIR, sbcName(datum))
+
+export const prepareQuery = <TProjection extends object>(query: {$nor: unknown[]}) => {
+
+    if(process.argv.includes('--force')) {  // Use '--force' to ignore errored cases.
+        // tslint:disable-next-line: no-object-literal-type-assertion
+        return {...query, $nor: [...query.$nor.slice(1)]} as FilterQuery<TProjection>
+    }
+
+    return query as FilterQuery<TProjection>
+}

@@ -87,7 +87,7 @@ export namespace QUERIES_RAW {
 
 // tslint:disable: max-line-length
 export namespace QUERIES {
-    export const pendingScrapeError    = {...QUERIES_RAW.pendingScrapeError    }
+    export const pendingScrapeError    = {...QUERIES_RAW.pendingScrapeError   , $nor: [] }
     export const pendingThumbError     = {...QUERIES_RAW.pendingThumbError    , $nor: [QUERIES_RAW.pendingScrapeError] }
     export const pendingPraiseError    = {...QUERIES_RAW.pendingPraiseError   , $nor: [QUERIES_RAW.pendingScrapeError, QUERIES_RAW.pendingThumbError] }
     export const pendingClassError     = {...QUERIES_RAW.pendingClassError    , $nor: [QUERIES_RAW.pendingScrapeError, QUERIES_RAW.pendingThumbError, QUERIES_RAW.pendingPraiseError] }

@@ -9,7 +9,7 @@ import { join } from 'path'
 import { Tail } from 'tail'
 
 import { QUERIES } from '../queries'
-import { sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
+import { prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
 const BATCH_SIZE = 50
 const MAX_SIZE = 20
@@ -122,7 +122,7 @@ export const main = async () => {
     const errors: Error[] = []
 
     const docsAll = await collection
-        .find(QUERIES.pendingPraise)
+        .find(prepareQuery<IProjection>(QUERIES.pendingPraise))
         .project({
             '_id': true,
             'steam.revision': true,

@@ -6,7 +6,7 @@ import * as pad from 'pad'
 import { join } from 'path'
 
 import { QUERIES } from '../queries'
-import { execAsync, execAsyncBuffer, lstatAsync, THUMB_DIR } from '../utils'
+import { execAsync, execAsyncBuffer, lstatAsync, prepareQuery, THUMB_DIR } from '../utils'
 
 
 const QUALITY = 10000  // In bytes. 3000 is the lowest that doesn't make eyes bleed.
@@ -108,7 +108,7 @@ export const main = async () => {
     const errors: Error[] = []
 
     const docs = await collection
-        .find(QUERIES.pendingThumb)
+        .find(prepareQuery<IProjection>(QUERIES.pendingThumb))
         .project({
             '_id': true,
             'steam._thumbName': true,

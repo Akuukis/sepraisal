@@ -6,7 +6,7 @@ import * as pad from 'pad'
 import * as workerFarm from 'worker-farm'
 
 import { QUERIES } from '../queries'
-import { sbcPath } from '../utils'
+import { prepareQuery, sbcPath } from '../utils'
 
 // tslint:disable:no-unsafe-any - because `response` is not typed.
 // tslint:disable:object-literal-sort-keys member-ordering max-line-length
@@ -54,7 +54,7 @@ export const main = async () => {
     const errors: Error[] = []
 
     const query = !isDebug
-        ? QUERIES.pendingPraise
+        ? prepareQuery<IProjection>(QUERIES.pendingPraise)
         : {$or: [
             // For debug, use storybook ships.
             // tslint:disable-next-line: no-duplicate-string

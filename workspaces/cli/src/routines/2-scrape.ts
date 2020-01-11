@@ -6,6 +6,7 @@ import * as scrapeIt from 'scrape-it'
 import { Omit } from 'utility-types'
 
 import { QUERIES } from '../queries'
+import { prepareQuery } from '../utils'
 
 // tslint:disable:no-unsafe-any - because `response` is not typed.
 // tslint:disable:object-literal-sort-keys member-ordering max-line-length object-shorthand-properties-first
@@ -251,7 +252,7 @@ export const main = async () => {
     const errors: Error[] = []
 
     const docs = await collection
-        .find(QUERIES.pendingScrape)
+        .find(prepareQuery<IProjection>(QUERIES.pendingScrape))
         // .limit(1000)
         // .sort({subscriberCount: -1})
         .project({
