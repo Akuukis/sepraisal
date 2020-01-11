@@ -1,8 +1,8 @@
-import { createReadStream } from 'fs'
+import { readFileSync } from 'fs'
 import { join } from 'path'
 
 import { PraisalManager } from '../src'
-import { parseSteamArchive } from '../src/parseSteamArchive'
+import { unzipCachedSbc } from '../src/unzipCachedSbc'
 import { NewPraisalManager } from './_utils'
 
 
@@ -17,7 +17,7 @@ beforeEach(async () => {
 const testBlueprint = (title: string, archive: string) => {
     test(`should succeed to praise random small steam blueprint (${title})`, async () => {
 
-        const xml = await parseSteamArchive(createReadStream(join(FIXTURES_DIR, archive)))
+        const xml = await unzipCachedSbc(readFileSync(join(FIXTURES_DIR, archive)))
         const praisal = await sepraisal.praiseXml(xml)
         expect(praisal.toBlueprintSbc(0)).toMatchSnapshot({
             integrityPlanes: {

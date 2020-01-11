@@ -1,8 +1,7 @@
 // tslint:disable: no-submodule-imports
 import { BLOCK_GROUPS, DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
-import { PraisalManager } from '@sepraisal/praisal'
-import { parseSteamArchive } from '@sepraisal/praisal/lib/parseSteamArchive'
-import { createReadStream, readFileSync } from 'fs'
+import { PraisalManager, unzipCachedSbc } from '@sepraisal/praisal'
+import { readFileSync } from 'fs'
 import { Collection, MongoClient } from 'mongodb'
 import * as pad from 'pad'
 import { join } from 'path'
@@ -82,7 +81,7 @@ export = async (index: number, doc: IProjection, callback: (err: Error | void) =
 
     let xml: string
     try {
-        xml = await parseSteamArchive(createReadStream(sbcPath(doc)))
+        xml = await unzipCachedSbc(readFileSync(sbcPath(doc)))
     } catch(err) {
         err.type = 'read'
         console.warn(prefix(), `Reading Error: failed to open archive: ${err.message}`)

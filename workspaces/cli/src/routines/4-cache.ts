@@ -33,16 +33,14 @@ const fromSteamtoCache = (doc: IProjection) => {
     const contents = readdirSync(blueprintDir)
     if(contents.some((filename) => filename.includes('_legacy.bin'))) {
         execSync(`cp ${blueprintDir}/*_legacy.bin ${cacheFile}`)
-        execSync(asSteam(`rm -rf ${blueprintDir}`))
     } else if(contents.includes('bp.sbc')) {
         execSync(`zip ${cacheFile} ${blueprintDir}/bp.sbc`)
-        execSync(asSteam(`rm -rf ${blueprintDir}`))
     } else if(contents.includes('BP.sbc')) {
         execSync(`zip ${cacheFile} ${blueprintDir}/BP.sbc`)
-        execSync(asSteam(`rm -rf ${blueprintDir}`))
     } else {
         throw new Error(`Unrecognized mod contents: ${contents.join(', ')}`)
     }
+    execSync(asSteam(`rm -rf ${blueprintDir}`))
 }
 
 interface IProjection {
