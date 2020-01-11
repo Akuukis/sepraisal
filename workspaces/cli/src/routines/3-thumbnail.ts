@@ -46,10 +46,10 @@ export const thumbConvert = async (idPair: string) => {
         await execAsync(`curl -s '${link}' -o '${safeFilename}'`)
     }
 
-    const format = (await execAsync(`identify -format "%m\n" ${safeFilename} | head -n1`)).trim() as 'PNG' | 'JPG' | 'GIF'
+    const format = (await execAsync(`identify -format "%m\n" ${safeFilename} | head -n1`)).trim() as 'PNG' | 'JPEG' | 'GIF'
     switch(format) {
         case('PNG'):
-        case('JPG'): {
+        case('JPEG'): {
             return execAsyncBuffer(`cat ${safeFilename} | cwebp -preset default -resize 268 151 -pass 10 -mt -af -size ${QUALITY} -quiet -o - -- -`)
         }
         case('GIF'): {
