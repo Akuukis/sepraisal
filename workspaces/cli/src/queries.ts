@@ -92,25 +92,25 @@ export namespace QUERIES {
     export const pendingPraiseError    = {...QUERIES_RAW.pendingPraiseError   , $nor: [QUERIES_RAW.pendingScrapeError, QUERIES_RAW.pendingThumbError] }
     export const pendingClassError     = {...QUERIES_RAW.pendingClassError    , $nor: [QUERIES_RAW.pendingScrapeError, QUERIES_RAW.pendingThumbError, QUERIES_RAW.pendingPraiseError] }
 
-    export const pendingScrape         = {...QUERIES_RAW.pendingScrape        , $nor: [QUERIES_RAW.errors] }
-    export const pendingScrapeInitial  = {...QUERIES_RAW.pendingScrapeInitial , $nor: [QUERIES_RAW.errors] }
-    export const pendingScrapeOutdated = {...QUERIES_RAW.pendingScrapeOutdated, $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrapeInitial] }
-    export const pendingScrapeStale    = {...QUERIES_RAW.pendingScrapeStale   , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrapeInitial, QUERIES_RAW.pendingScrapeOutdated] }
+    export const pendingScrape         = {...QUERIES_RAW.pendingScrape        , $nor: [QUERIES_RAW.pendingScrapeError] }
+    export const pendingScrapeInitial  = {...QUERIES_RAW.pendingScrapeInitial , $nor: [QUERIES_RAW.pendingScrapeError] }
+    export const pendingScrapeOutdated = {...QUERIES_RAW.pendingScrapeOutdated, $nor: [QUERIES_RAW.pendingScrapeError, QUERIES_RAW.pendingScrapeInitial] }
+    export const pendingScrapeStale    = {...QUERIES_RAW.pendingScrapeStale   , $nor: [QUERIES_RAW.pendingScrapeError, QUERIES_RAW.pendingScrapeInitial, QUERIES_RAW.pendingScrapeOutdated] }
 
-    export const pendingThumb          = {...QUERIES_RAW.pendingThumb         , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape] }
-    export const pendingThumbInitial   = {...QUERIES_RAW.pendingThumbInitial  , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape] }
-    export const pendingThumbOutdated  = {...QUERIES_RAW.pendingThumbOutdated , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumbInitial] }
-    export const pendingThumbStale     = {...QUERIES_RAW.pendingThumbStale    , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumbInitial, QUERIES_RAW.pendingThumbOutdated] }
+    export const pendingThumb          = {...QUERIES_RAW.pendingThumb         , $nor: [QUERIES_RAW.pendingThumbError, QUERIES_RAW.pendingScrape] }
+    export const pendingThumbInitial   = {...QUERIES_RAW.pendingThumbInitial  , $nor: [QUERIES_RAW.pendingThumbError, QUERIES_RAW.pendingScrape] }
+    export const pendingThumbOutdated  = {...QUERIES_RAW.pendingThumbOutdated , $nor: [QUERIES_RAW.pendingThumbError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumbInitial] }
+    export const pendingThumbStale     = {...QUERIES_RAW.pendingThumbStale    , $nor: [QUERIES_RAW.pendingThumbError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumbInitial, QUERIES_RAW.pendingThumbOutdated] }
 
-    export const pendingPraise         = {...QUERIES_RAW.pendingPraise        , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb] }
-    export const pendingPraiseInitial  = {...QUERIES_RAW.pendingPraiseInitial , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb] }
-    export const pendingPraiseOutdated = {...QUERIES_RAW.pendingPraiseOutdated, $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraiseInitial] }
-    export const pendingPraiseStale    = {...QUERIES_RAW.pendingPraiseStale   , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraiseInitial, QUERIES_RAW.pendingPraiseOutdated] }
+    export const pendingPraise         = {...QUERIES_RAW.pendingPraise        , $nor: [QUERIES_RAW.pendingPraiseError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb] }
+    export const pendingPraiseInitial  = {...QUERIES_RAW.pendingPraiseInitial , $nor: [QUERIES_RAW.pendingPraiseError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb] }
+    export const pendingPraiseOutdated = {...QUERIES_RAW.pendingPraiseOutdated, $nor: [QUERIES_RAW.pendingPraiseError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraiseInitial] }
+    export const pendingPraiseStale    = {...QUERIES_RAW.pendingPraiseStale   , $nor: [QUERIES_RAW.pendingPraiseError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraiseInitial, QUERIES_RAW.pendingPraiseOutdated] }
 
-    export const pendingClass          = {...QUERIES_RAW.pendingClass         , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise] }
-    export const pendingClassInitial   = {...QUERIES_RAW.pendingClassInitial  , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise] }
-    export const pendingClassOutdated  = {...QUERIES_RAW.pendingClassOutdated , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise, QUERIES_RAW.pendingClassInitial] }
-    export const pendingClassStale     = {...QUERIES_RAW.pendingClassStale    , $nor: [QUERIES_RAW.errors, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise, QUERIES_RAW.pendingClassInitial, QUERIES_RAW.pendingClassOutdated] }
+    export const pendingClass          = {...QUERIES_RAW.pendingClass         , $nor: [QUERIES_RAW.pendingClassError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise] }
+    export const pendingClassInitial   = {...QUERIES_RAW.pendingClassInitial  , $nor: [QUERIES_RAW.pendingClassError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise] }
+    export const pendingClassOutdated  = {...QUERIES_RAW.pendingClassOutdated , $nor: [QUERIES_RAW.pendingClassError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise, QUERIES_RAW.pendingClassInitial] }
+    export const pendingClassStale     = {...QUERIES_RAW.pendingClassStale    , $nor: [QUERIES_RAW.pendingClassError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise, QUERIES_RAW.pendingClassInitial, QUERIES_RAW.pendingClassOutdated] }
     export const errors = {...QUERIES_RAW.errors}
     export const ok = {...QUERIES_RAW.ok}
 
