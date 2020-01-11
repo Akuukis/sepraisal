@@ -37,6 +37,9 @@ const fromSteamtoCache = (doc: IProjection) => {
     } else if(contents.includes('bp.sbc')) {
         execSync(`zip ${cacheFile} ${blueprintDir}/bp.sbc`)
         execSync(asSteam(`rm -rf ${blueprintDir}`))
+    } else if(contents.includes('BP.sbc')) {
+        execSync(`zip ${cacheFile} ${blueprintDir}/BP.sbc`)
+        execSync(asSteam(`rm -rf ${blueprintDir}`))
     } else {
         throw new Error(`Unrecognized mod contents: ${contents.join(', ')}`)
     }
