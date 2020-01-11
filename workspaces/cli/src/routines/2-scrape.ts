@@ -169,7 +169,7 @@ const removeRemoved = async (collection: Collection<IBlueprint>, doc: IProjectio
     const {data} = await scrapeIt<{adultGate: boolean, removed: boolean, breadcumb: string}>(url, {
         adultGate: {selector: '.adult_content_age_gate', attr: 'class', convert: (str) => str === 'adult_content_age_gate'},
         breadcumb: {selector: '.breadcrumbs > a:nth-child(1)'},
-        removed: {selector: '#message > h3:nth-child(3)', convert: (str) => str.includes('It may have been removed by the author.')},
+        removed: {selector: '#message > h3', convert: (str) => str.includes('There was a problem accessing the item. Please try again.')},
     })
 
     switch(data.breadcumb) {
