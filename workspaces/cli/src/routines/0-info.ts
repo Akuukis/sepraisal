@@ -66,15 +66,15 @@ export const main = async () => {
                 'pendingPraiseInitial',
                 'pendingPraiseOutdated',
                 'pendingPraiseStale',
-            'pendingClass',
-                'pendingClassInitial',
-                'pendingClassOutdated',
-                'pendingClassStale',
+            // 'pendingClass',
+            //     'pendingClassInitial',
+            //     'pendingClassOutdated',
+            //     'pendingClassStale',
         'errors',
             'pendingScrapeError',
             'pendingThumbError',
             'pendingPraiseError',
-            'pendingClassError',
+            // 'pendingClassError',
     ]
 
     const total = await collection.find().count()
