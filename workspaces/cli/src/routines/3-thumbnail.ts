@@ -46,7 +46,7 @@ export const thumbConvert = async (idPair: string) => {
         await execAsync(`curl -s '${link}' -o '${safeFilename}'`)
     }
 
-    const format = await execAsync(`identify -format "%m\n" ${safeFilename} | head -n1`) as 'PNG' | 'JPG' | 'GIF'
+    const format = (await execAsync(`identify -format "%m\n" ${safeFilename} | head -n1`)).trim() as 'PNG' | 'JPG' | 'GIF'
     switch(format) {
         case('PNG'):
         case('JPG'): {
