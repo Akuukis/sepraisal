@@ -13,7 +13,7 @@ export { GridSize } from '@material-ui/core/Grid'
 // tslint:enable: no-submodule-imports
 
 export const VERSION =           2
-export const API_URL = 'https://db.spaceengineerspraisal.net/hello'
+export const API_URL = '//db.spaceengineerspraisal.net/hello'
 
 
 export const padTo2 = (value: number | string) => {
