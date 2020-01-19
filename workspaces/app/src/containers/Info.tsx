@@ -1,3 +1,4 @@
+import { SERVICE_DESK_EMAIL } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -30,7 +31,13 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Typography variant='h4' gutterBottom>Support</Typography>
                     <Divider />
                     <Typography paragraph>
-                        Please create a ticket at <a href='https://gitlab.com/akuukis/sepraisal/issues'>GitLab issues</a>, thanks!
+                        Found a bug? Something is not working or is confusing?
+                    </Typography>
+                    <Typography paragraph>
+                        Please send a email to <a href={`mailto:${SERVICE_DESK_EMAIL}`}>{SERVICE_DESK_EMAIL}</a> describing it.
+                        Please attach screenshots, that helps a lot.
+                        Your email will create a issue ticket <a href='//gitlab.com/akuukis/sepraisal/issues'>here</a> to easily track and respond to it.
+                        Thank you!
                     </Typography>
                 </Paper>
             </Grid>
