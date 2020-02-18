@@ -3,7 +3,7 @@
     "name": "@sepraisal/monorepo",
     "description": "Space Engineers Praisal: Blueprint Parser & Analyzer",
     "scripts": {
-        "start": "yarn run watch:app",
+        "start": "yarn run bootstrap && yarn run build",
         "bootstrap": "yarn && lerna bootstrap",
         "build": "yarn run tsc -v && yarn run tsc -b tsconfig-src.json",
         "clean": "lerna exec --parallel -- yarn run clean",
