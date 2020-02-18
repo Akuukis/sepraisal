@@ -34,7 +34,7 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
 
     return (
-        <ExpansionPanel classes={{root: classes.root, expanded: classes.expanded}}>
+        <ExpansionPanel square={false} classes={{root: classes.root, expanded: classes.expanded}}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant='subtitle1'><strong>Q:</strong> {props.title}</Typography>
             </ExpansionPanelSummary>
