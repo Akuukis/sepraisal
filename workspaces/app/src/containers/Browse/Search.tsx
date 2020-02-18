@@ -67,11 +67,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const $search = event.target.value
-        if($search === '') {
-            cardStore.setFind({$text: undefined})
-        } else {
-            cardStore.setFind({$text: {$search}})
-        }
+        cardStore.setFind({$text: {$search}})
     }
 
     const keyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {

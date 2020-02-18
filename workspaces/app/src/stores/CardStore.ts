@@ -191,6 +191,7 @@ export class CardStore {
             const sort = encodeURIComponent(JSON.stringify(this.sort))
             const skip = 0
             const res = await fetch(`${API_URL}?find=${find}&sort=${sort}&projection=${projection}&skip=${skip}&limit=${this.cardsPerPage}`)
+            if(res.status !== 200) throw new Error(`Backend error: ${await res.text()}`)
             const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[]}
 
             // TODO: handle non-ok cards
@@ -201,11 +202,14 @@ export class CardStore {
             runInAction(() => {
                 this.count = count
                 this.cards.replace(cards)
-            })
+                })
         } catch(err) {
             console.error(err)
 
-            runInAction(() => this.cards.replace([]))
+            runInAction(() => {
+                this.count = -1
+                this.cards.replace([])
+            })
         }
     }
 

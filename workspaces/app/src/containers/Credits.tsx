@@ -39,7 +39,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Typography variant='h4' gutterBottom>Credits</Typography>
                     <Divider />
                     <Typography variant='h5'>Author</Typography>
-                    <Typography paragraph>
+                    <Typography component='div' paragraph>
                         <ul>
                             <li>Akuukis (contact me
                                 on: <a href='https://steamcommunity.com/id/akuukis'>Steam</a>
@@ -50,7 +50,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         </ul>
                     </Typography>
                     <Typography variant='h5'>Contributors</Typography>
-                    <Typography paragraph>
+                    <Typography component='div' paragraph>
                         <ul>
                             <li>kainz (<a href='https://github.com/Akuukis/spaceengineers-praisal/pull/3'>PR#3</a>)</li>
                             <li>Aleksis Zalitis (<a href='https://gitlab.com/akuukis/sepraisal/merge_requests/1'>MR!1</a>)</li>
