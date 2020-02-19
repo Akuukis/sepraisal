@@ -50,7 +50,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             const res = await fetch(`${API_URL}?find=${find}&limit=${1}&skip=${skip}&projection=${projection}`)
             const {docs} = await res.json() as {docs: [Required<IBlueprint>]}
             const doc = docs[0]
-            routerStore.push(`${ROUTES.BLUEPRINT}/${doc._id}`)
+            routerStore.goBlueprint(doc._id)
         } catch(err) {
             setStatus(STATUS.Failed)
         }
@@ -70,7 +70,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <Button
                             color='primary'
                             variant='contained'
-                            onClick={() => routerStore.push(ROUTES.BROWSE)}
+                            onClick={() => routerStore.goView(ROUTES.BROWSE)}
                             fullWidth
                         >
                             <IconSearch />
@@ -118,7 +118,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <Typography variant='h4' gutterBottom>3. Compare</Typography>
                         <Button
                             variant='contained'
-                            onClick={() => routerStore.push(ROUTES.WORKBENCH)}
+                            onClick={() => routerStore.goView(ROUTES.WORKBENCH)}
                             fullWidth
                         >
                             <IconBuild />

@@ -54,13 +54,14 @@ const piwikIsAlreadyInitialized = () => {
     return false
 }
 
-interface IPiwikTrackerOpts {
+interface IPiwikStoreOpts {
     clientTrackerName?: string,
+    enableHeartBeatTimer?: boolean,
     enableLinkTracking?: boolean,
     injectScript?: boolean,
     serverTrackerName?: string,
     siteId?: number,
-    trackErrorHandler?: PiwikTracker['trackError'],
+    trackErrorHandler?: PiwikStore['trackError'],
     trackErrors?: boolean,
     updateDocumentTitle?: boolean,
     url?: string,
@@ -68,7 +69,7 @@ interface IPiwikTrackerOpts {
 }
 
 // tslint:disable-next-line: min-class-cohesion
-export class PiwikTracker {
+export class PiwikStore {
     // tslint:disable-next-line: naming-convention
     public readonly _isShim: boolean = false
 
@@ -77,20 +78,18 @@ export class PiwikTracker {
     private updateDocumentTitle: boolean
 
     // tslint:disable-next-line: mccabe-complexity cognitive-complexity
-    public constructor(rawOpts: IPiwikTrackerOpts = {}) {
+    public constructor(rawOpts: IPiwikStoreOpts = {}) {
         const siteId = rawOpts.siteId
         const url = rawOpts.url
         const userId = rawOpts.userId
         const clientTrackerName = rawOpts.clientTrackerName ?? 'piwik.js'
         const enableLinkTracking = rawOpts.enableLinkTracking ?? true
+        const enableHeartBeatTimer = rawOpts.enableHeartBeatTimer ?? true
         const injectScript = rawOpts.injectScript ?? true
         const serverTrackerName = rawOpts.serverTrackerName ?? 'piwik.php'
-        const trackErrorHandler = rawOpts.trackErrorHandler ?? this.trackError.bind(this) as PiwikTracker['trackError']
+        const trackErrorHandler = rawOpts.trackErrorHandler ?? this.trackError.bind(this) as PiwikStore['trackError']
         const trackErrors = rawOpts.trackErrors ?? false
         this.updateDocumentTitle = rawOpts.updateDocumentTitle ?? true
-
-        // tslint:disable-next-line: no-string-literal
-        window['_paq'] = window['_paq'] || []
 
         if (trackErrors) {
             if (window.addEventListener) {
@@ -106,6 +105,9 @@ export class PiwikTracker {
         const alreadyInitialized = piwikIsAlreadyInitialized()
         if (!alreadyInitialized) {
 
+            // tslint:disable-next-line: no-string-literal
+            window['_paq'] = window['_paq'] || []
+
             if (typeof url !== 'string' || typeof siteId !== 'number' || !injectScript) {
                 // Only return warning if this is not in the test environment as it can break the Tests/CI.
                 if (getEnvironment() !== 'test') {
@@ -114,8 +116,8 @@ export class PiwikTracker {
 
                 // api shim. used for serverside rendering and misconfigured tracker instances
                 this._isShim = true
-                this.track = noop
-                this.push = noop
+                // this.track = noop
+                this.push = (arg: unknown[]) => console.debug(`PIWIK.push():`, arg)
                 this.setUserId = noop
                 this.trackError = noop
 
@@ -144,6 +146,10 @@ export class PiwikTracker {
 
         if (enableLinkTracking) {
             this.push(['enableLinkTracking'])
+        }
+
+        if (enableHeartBeatTimer) {
+            this.push(['enableHeartBeatTimer'])
         }
 
     }

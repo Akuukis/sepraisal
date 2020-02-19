@@ -36,7 +36,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const h = (event: React.MouseEvent) => {
         // tslint:disable-next-line: no-non-null-assertion
         const path = event.currentTarget.getAttribute('value')!
-        routerStore.push(path)
+        routerStore.goView(path)
     }
 
     return (
