@@ -13,7 +13,11 @@ import RouterStore from './stores/RouterStore'
 configure({ enforceActions: 'always' })
 
 // prepare MobX stores
-const piwikStore = new PiwikStore()
+const piwikStore = new PiwikStore({
+    // TODO: Do not hardcode this.
+    siteId: 1,
+    url: '//kalvis.lv/piwik/',
+})
 const routerStore = new RouterStore(piwikStore)
 
 render((
