@@ -67,7 +67,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             'custom-filter',
             findKey,
             // tslint:disable-next-line: no-non-null-assertion
-            NEXT_STATE.get(checked)!,
+            JSON.stringify(NEXT_STATE.get(checked)!),
         ])
         cardStore.setFind({$and: [
             ...cardStore.find.$and.slice(0, Math.max(0, index)),

@@ -38,6 +38,7 @@ interface IQuery {
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const {title, findKey, min, max, zeroes} = props
+    const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     const setState = () => {
@@ -74,6 +75,14 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         const after = cardStore.find.$and.slice(index + 1, cardStore.find.$and.length)
 
         if(zeroes !== undefined && value[0] === 0 && value[1] === 0) {
+
+            piwikStore.push([
+                'event',
+                'custom-filter',
+                findKey,
+                JSON.stringify(zeroes),
+            ])
+
             cardStore.setFind({$and: [
                 ...before,
                 {[findKey]: zeroes},
@@ -88,6 +97,14 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         if(value[1] !== max) query.$lte = value[1]
 
         if(!isEnabled) {
+
+            piwikStore.push([
+                'event',
+                'custom-filter',
+                findKey,
+                JSON.stringify(null),
+            ])
+
             cardStore.setFind({$and: [
                 ...before,
                 ...after,
@@ -95,6 +112,14 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
             return
         }
+
+
+        piwikStore.push([
+            'event',
+            'custom-filter',
+            findKey,
+            JSON.stringify(`${query.$gte} - ${query.$lte}`),
+        ])
 
         cardStore.setFind({$and: [
             ...before,
