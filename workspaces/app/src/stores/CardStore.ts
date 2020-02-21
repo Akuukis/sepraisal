@@ -115,6 +115,26 @@ interface IBrowserStoreSort {
     [field: string]: -1 | 1
 }
 
+const sortFindAnd = ($and: object[]) => {
+    const clone = [...$and]
+
+    return clone.sort((a, b) => {
+        const aKey = Object.keys(a).pop()
+        const bKey = Object.keys(b).pop()
+
+        if(aKey === undefined) return -1
+        if(bKey === undefined) return 1
+
+        return aKey < bKey ? 1 : -1
+    })
+}
+
+const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
+    fighter: JSON.stringify(sortFindAnd(PRESET.fighter.$and)),
+    none: JSON.stringify(sortFindAnd(PRESET.none.$and)),
+    ship: JSON.stringify(sortFindAnd(PRESET.ship.$and)),
+}
+
 // tslint:disable-next-line: min-class-cohesion
 export class CardStore {
 
@@ -125,18 +145,6 @@ export class CardStore {
     }
 
     public static defaultSortOrder: -1 | 1 = -1
-
-    public static sortFindAnd($and: object[]) {
-        return [...$and].sort((a, b) => {
-            const aKey = Object.keys(a).pop()
-            const bKey = Object.keys(b).pop()
-
-            if(aKey === undefined) return -1
-            if(bKey === undefined) return 1
-
-            return aKey < bKey ? 1 : -1
-        })
-    }
 
     @observable public autoQuerry = true
     @observable public cards: ObservableMap<ICard<CardStatus.ok>> = new ObservableMap()
@@ -217,10 +225,18 @@ export class CardStore {
 
         // If changed, automatically trigger query via mobx due reaction above on `this.find.$and`.
         if('$and' in diff && diff.$and) {
-            this._find.$and = CardStore.sortFindAnd(diff.$and)
+            this._find.$and = sortFindAnd(diff.$and)
         }
 
         // Doesn't automatically trigger query because there's no reaction on `this.find.$text`.
         if('$text' in diff) this._find.$text = '$text' in diff ? diff.$text : this._find.$text
+    }
+
+    @computed public get selectedPreset() {
+        const selectedValue = JSON.stringify(sortFindAnd(this.find.$and))
+        const foundPreset = (Object.keys(PRESET) as Array<keyof typeof PRESET>)
+            .find((key) => selectedValue === PRESET_STRINGIFIED[key])
+
+        return foundPreset ?? 'custom'
     }
 }

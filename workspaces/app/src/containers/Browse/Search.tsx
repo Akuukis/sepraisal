@@ -80,7 +80,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             piwikStore.push([
                 'trackSiteSearch',
                 cardStore.find.$text?.$search,
-                false,  // TODO: preset
+                cardStore.selectedPreset,
                 cardStore.count,
             ])
         } catch(err) {
