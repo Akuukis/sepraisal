@@ -199,7 +199,7 @@ export class CardStore {
             runInAction(() => this.cards.merge(cards))
 
             this.piwikStore.push([
-                'event',
+                'trackEvent',
                 'load-time',
                 this.selectedPreset,
                 this.selectedPreset !== 'custom' ? undefined : this.findStringified,
@@ -240,7 +240,7 @@ export class CardStore {
             })
 
             // this.piwikStore.push([
-            //     'event',
+            //     'trackEvent',
             //     'selected-preset',
             //     this.selectedPreset,
             //     this.selectedPreset !== 'custom' ? undefined : this.findStringified,
@@ -253,7 +253,7 @@ export class CardStore {
             //         // tslint:disable-next-line: no-non-null-assertion
             //         const [filterName, filterValue] = Object.entries(filter).shift()!
             //         this.piwikStore.push([
-            //             'event',
+            //             'trackEvent',
             //             'custom-filter',
             //             filterName,
             //             JSON.stringify(filterValue),
@@ -271,7 +271,7 @@ export class CardStore {
             }
 
             this.piwikStore.push([
-                'event',
+                'trackEvent',
                 'load-time',
                 this.selectedPreset,
                 this.selectedPreset !== 'custom' ? undefined : this.findStringified,

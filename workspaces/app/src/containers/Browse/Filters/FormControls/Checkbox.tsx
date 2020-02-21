@@ -63,7 +63,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     const toggleChecked = action(() => {
         piwikStore.push([
-            'event',
+            'trackEvent',
             'custom-filter',
             findKey,
             // tslint:disable-next-line: no-non-null-assertion

@@ -80,7 +80,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         if(zeroes !== undefined && logValue[0] === 0 && logValue[1] === 0) {
 
             piwikStore.push([
-                'event',
+                'trackEvent',
                 'custom-filter',
                 findKey,
                 String(zeroes),
@@ -98,7 +98,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         if(!isEnabled) {
 
             piwikStore.push([
-                'event',
+                'trackEvent',
                 'custom-filter',
                 findKey,
                 JSON.stringify(null),
@@ -114,7 +114,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
 
         piwikStore.push([
-            'event',
+            'trackEvent',
             'custom-filter',
             findKey,
             `${query.$gte} to ${query.$lte}`,
