@@ -36,7 +36,6 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const {toggleDrawer} = props
     const [anchor, setAnchor] = React.useState<HTMLElement | null>(null)
@@ -77,12 +76,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         event.preventDefault()
         try {
             await cardStore.querry()
-            piwikStore.push([
-                'trackSiteSearch',
-                cardStore.find.$text?.$search,
-                cardStore.selectedPreset,
-                cardStore.count,
-            ])
         } catch(err) {
             console.error(err)
         }

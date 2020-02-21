@@ -3,6 +3,7 @@ import { action, computed, IReactionDisposer, observable, reaction, runInAction 
 
 import { API_URL } from '../common'
 import { Card, CardStatus, IBpProjectionCard, ICard } from '../models'
+import { PiwikStore } from './PiwikStore'
 
 
 // tslint:disable-next-line: naming-convention
@@ -139,12 +140,24 @@ const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
 export class CardStore {
 
     @computed public get find(): IFind { return this._find }
+
+    @computed private get findStringified() {
+        return JSON.stringify(sortFindAnd(this.find.$and))
+    }
+
+    @computed public get selectedPreset() {
+        const foundPreset = (Object.keys(PRESET) as Array<keyof typeof PRESET>)
+            .find((key) => this.findStringified === PRESET_STRINGIFIED[key])
+
+        return foundPreset ?? 'custom'
+    }
     @computed public get sort() { return this._sort }
     public set sort(value: IBrowserStoreSort) {
         this._sort = value
     }
 
     public static defaultSortOrder: -1 | 1 = -1
+    public static sortFindAnd = sortFindAnd
 
     @observable public autoQuerry = true
     @observable public cards: ObservableMap<ICard<CardStatus.ok>> = new ObservableMap()
@@ -154,8 +167,10 @@ export class CardStore {
     @observable protected _find: IFind = PRESET.fighter
     @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
     protected disposers: IReactionDisposer[] = []
+    private piwikStore: PiwikStore
 
-    public constructor() {
+    public constructor(piwikStore: PiwikStore) {
+        this.piwikStore = piwikStore
         this.disposers.push(reaction(() => this.find.$and, async (find) => {
             await this.querry()
         }))
@@ -169,6 +184,8 @@ export class CardStore {
         const skip = this.cards.size
         const limit = this.cardsPerPage
         try {
+            const timer = Date.now()
+
             const find = encodeURIComponent(JSON.stringify(this.find))
             const sort = encodeURIComponent(JSON.stringify(this.sort))
             const res = await fetch(`${API_URL}?find=${find}&sort=${sort}&projection=${projection}&skip=${skip}&limit=${limit}`)
@@ -181,6 +198,14 @@ export class CardStore {
 
             runInAction(() => this.cards.merge(cards))
 
+            this.piwikStore.push([
+                'event',
+                'load-time',
+                this.selectedPreset,
+                this.selectedPreset !== 'custom' ? undefined : this.findStringified,
+                (Date.now() - timer) / 1000,
+            ])
+
             return {count, limit, skip}
         } catch(err) {
             console.error(err)
@@ -191,6 +216,8 @@ export class CardStore {
 
     @action public async querry() {
         try {
+            const timer = Date.now()
+
             runInAction(() => {
                 this.count = null
                 this.cards.replace([])
@@ -210,7 +237,46 @@ export class CardStore {
             runInAction(() => {
                 this.count = count
                 this.cards.replace(cards)
-                })
+            })
+
+            // this.piwikStore.push([
+            //     'event',
+            //     'selected-preset',
+            //     this.selectedPreset,
+            //     this.selectedPreset !== 'custom' ? undefined : this.findStringified,
+            //     this.count,
+            // ])
+
+            // tslint:disable-next-line: no-commented-code
+            // if(this.selectedPreset === 'custom') {
+            //     for(const filter of this.find.$and) {
+            //         // tslint:disable-next-line: no-non-null-assertion
+            //         const [filterName, filterValue] = Object.entries(filter).shift()!
+            //         this.piwikStore.push([
+            //             'event',
+            //             'custom-filter',
+            //             filterName,
+            //             JSON.stringify(filterValue),
+            //         ])
+            //     }
+            // }
+
+            if(typeof this.find.$text?.$search === 'string') {
+                this.piwikStore.push([
+                    'trackSiteSearch',
+                    this.find.$text?.$search,
+                    this.selectedPreset,
+                    this.count,
+                ])
+            }
+
+            this.piwikStore.push([
+                'event',
+                'load-time',
+                this.selectedPreset,
+                this.selectedPreset !== 'custom' ? undefined : this.findStringified,
+                (Date.now() - timer) / 1000,
+            ])
         } catch(err) {
             console.error(err)
 
@@ -230,13 +296,5 @@ export class CardStore {
 
         // Doesn't automatically trigger query because there's no reaction on `this.find.$text`.
         if('$text' in diff) this._find.$text = '$text' in diff ? diff.$text : this._find.$text
-    }
-
-    @computed public get selectedPreset() {
-        const selectedValue = JSON.stringify(sortFindAnd(this.find.$and))
-        const foundPreset = (Object.keys(PRESET) as Array<keyof typeof PRESET>)
-            .find((key) => selectedValue === PRESET_STRINGIFIED[key])
-
-        return foundPreset ?? 'custom'
     }
 }
