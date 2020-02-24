@@ -31,9 +31,9 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     return (
         <Grid container justify='center' spacing={2} className={classes.root}>
             {[...cardStore.cards.values()]
-                .map((card) => (
+                .map((card, i) => (
                     <Grid item className={classes.cardItem} key={card.id}>
-                        <PageCard blueprint={card} />
+                        <PageCard blueprint={card} index={props.index * 12 + i} />
                     </Grid>
                 ))}
         </Grid>
