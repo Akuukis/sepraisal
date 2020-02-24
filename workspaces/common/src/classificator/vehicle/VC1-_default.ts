@@ -3,26 +3,30 @@ import { AbstractBpClass } from '../Class'
 import { Vehicle } from './vehicle'
 
 export class VC1 extends AbstractBpClass<'V1', Vehicle['title']> {
-    public readonly criteriaToFind = [
-        {gridSize: 'Small' },
-        {blocksSmartUnique: 'Gyro/SmallBlockGyro'},
-        {$or: [
-            {blocksSmartUnique: 'BatteryBlock/SmallBlockBatteryBlock'},
-            {blocksSmartUnique: 'Reactor/SmallBlockSmallGenerator'},
-            {blocksSmartUnique: 'Reactor/SmallBlockLargeGenerator'},
-        ]},
-        {$or: [
-            {blocksSmartUnique: 'Cockpit/SmallBlockCockpit'},
-            {blocksSmartUnique: 'Cockpit/DBSmallBlockFighterCockpit'},
-        ]},
-        {$or: [
-            {blocksSmartUnique: 'SmallGatlingGun/'},
-            {blocksSmartUnique: 'SmallMissileLauncher/'},
-        ]},
-    ]
-    public readonly criteriaToTrain = [
-        ...this.criteriaToFind,
-    ]
+    public readonly criteriaToFind = {
+        $and: [
+            {'sbc.gridSize': 'Small' },
+            {'sbc.blocks.Gyro/SmallBlockGyro': {$exists: true}},
+            {$or: [
+                {'sbc.blocks.BatteryBlock/SmallBlockBatteryBlock': {$exists: true}},
+                {'sbc.blocks.Reactor/SmallBlockSmallGenerator': {$exists: true}},
+                {'sbc.blocks.Reactor/SmallBlockLargeGenerator': {$exists: true}},
+            ]},
+            {$or: [
+                {'sbc.blocks.Cockpit/SmallBlockCockpit': {$exists: true}},
+                {'sbc.blocks.Cockpit/DBSmallBlockFighterCockpit': {$exists: true}},
+            ]},
+            {$or: [
+                {'sbc.blocks.SmallGatlingGun/': {$exists: true}},
+                {'sbc.blocks.SmallMissileLauncher/': {$exists: true}},
+            ]},
+        ],
+    }
+    public readonly criteriaToTrain = {
+        $and: [
+            ...this.criteriaToFind.$and,
+        ],
+    }
     public readonly distributions: Array<keyof IBlueprint.ISbc> = [
     ]
 

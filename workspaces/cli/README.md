@@ -127,7 +127,13 @@ There's 3 things
 
 The trick is how to call R from Javascript, and there OpenCPU comes to the rescue. It basically provides REST API on top of R, and Javascript will just query the endpoints.
 
-#### 1. Install OpenCPU
+#### 1. Install Docker
+
+For Ubuntu [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+
+TODO
+
+#### 2. Install OpenCPU
 
 Links: [Download](https://www.opencpu.org/download.html) and [API](https://www.opencpu.org/api.html)
 
