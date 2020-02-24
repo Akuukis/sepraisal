@@ -3,6 +3,7 @@ import { action, computed, IReactionDisposer, observable, reaction, runInAction 
 
 import { API_URL } from '../common'
 import { Card, CardStatus, IBpProjectionCard, ICard } from '../models'
+import { PiwikStore } from './PiwikStore'
 
 
 // tslint:disable-next-line: naming-convention
@@ -115,28 +116,48 @@ interface IBrowserStoreSort {
     [field: string]: -1 | 1
 }
 
+const sortFindAnd = ($and: object[]) => {
+    const clone = [...$and]
+
+    return clone.sort((a, b) => {
+        const aKey = Object.keys(a).pop()
+        const bKey = Object.keys(b).pop()
+
+        if(aKey === undefined) return -1
+        if(bKey === undefined) return 1
+
+        return aKey < bKey ? 1 : -1
+    })
+}
+
+const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
+    fighter: JSON.stringify(sortFindAnd(PRESET.fighter.$and)),
+    none: JSON.stringify(sortFindAnd(PRESET.none.$and)),
+    ship: JSON.stringify(sortFindAnd(PRESET.ship.$and)),
+}
+
 // tslint:disable-next-line: min-class-cohesion
 export class CardStore {
 
     @computed public get find(): IFind { return this._find }
+
+    @computed private get findStringified() {
+        return JSON.stringify(sortFindAnd(this.find.$and))
+    }
+
+    @computed public get selectedPreset() {
+        const foundPreset = (Object.keys(PRESET) as Array<keyof typeof PRESET>)
+            .find((key) => this.findStringified === PRESET_STRINGIFIED[key])
+
+        return foundPreset ?? 'custom'
+    }
     @computed public get sort() { return this._sort }
     public set sort(value: IBrowserStoreSort) {
         this._sort = value
     }
 
     public static defaultSortOrder: -1 | 1 = -1
-
-    public static sortFindAnd($and: object[]) {
-        return [...$and].sort((a, b) => {
-            const aKey = Object.keys(a).pop()
-            const bKey = Object.keys(b).pop()
-
-            if(aKey === undefined) return -1
-            if(bKey === undefined) return 1
-
-            return aKey < bKey ? 1 : -1
-        })
-    }
+    public static sortFindAnd = sortFindAnd
 
     @observable public autoQuerry = true
     @observable public cards: ObservableMap<ICard<CardStatus.ok>> = new ObservableMap()
@@ -146,8 +167,10 @@ export class CardStore {
     @observable protected _find: IFind = PRESET.fighter
     @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
     protected disposers: IReactionDisposer[] = []
+    private piwikStore: PiwikStore
 
-    public constructor() {
+    public constructor(piwikStore: PiwikStore) {
+        this.piwikStore = piwikStore
         this.disposers.push(reaction(() => this.find.$and, async (find) => {
             await this.querry()
         }))
@@ -161,6 +184,8 @@ export class CardStore {
         const skip = this.cards.size
         const limit = this.cardsPerPage
         try {
+            const timer = Date.now()
+
             const find = encodeURIComponent(JSON.stringify(this.find))
             const sort = encodeURIComponent(JSON.stringify(this.sort))
             const res = await fetch(`${API_URL}?find=${find}&sort=${sort}&projection=${projection}&skip=${skip}&limit=${limit}`)
@@ -173,6 +198,14 @@ export class CardStore {
 
             runInAction(() => this.cards.merge(cards))
 
+            this.piwikStore.push([
+                'trackEvent',
+                'load-time',
+                this.selectedPreset,
+                this.selectedPreset !== 'custom' ? undefined : this.findStringified,
+                (Date.now() - timer) / 1000,
+            ])
+
             return {count, limit, skip}
         } catch(err) {
             console.error(err)
@@ -183,6 +216,8 @@ export class CardStore {
 
     @action public async querry() {
         try {
+            const timer = Date.now()
+
             runInAction(() => {
                 this.count = null
                 this.cards.replace([])
@@ -202,7 +237,46 @@ export class CardStore {
             runInAction(() => {
                 this.count = count
                 this.cards.replace(cards)
-                })
+            })
+
+            // this.piwikStore.push([
+            //     'trackEvent',
+            //     'selected-preset',
+            //     this.selectedPreset,
+            //     this.selectedPreset !== 'custom' ? undefined : this.findStringified,
+            //     this.count,
+            // ])
+
+            // tslint:disable-next-line: no-commented-code
+            // if(this.selectedPreset === 'custom') {
+            //     for(const filter of this.find.$and) {
+            //         // tslint:disable-next-line: no-non-null-assertion
+            //         const [filterName, filterValue] = Object.entries(filter).shift()!
+            //         this.piwikStore.push([
+            //             'trackEvent',
+            //             'custom-filter',
+            //             filterName,
+            //             JSON.stringify(filterValue),
+            //         ])
+            //     }
+            // }
+
+            if(typeof this.find.$text?.$search === 'string') {
+                this.piwikStore.push([
+                    'trackSiteSearch',
+                    this.find.$text?.$search,
+                    this.selectedPreset,
+                    this.count,
+                ])
+            }
+
+            this.piwikStore.push([
+                'trackEvent',
+                'load-time',
+                this.selectedPreset,
+                this.selectedPreset !== 'custom' ? undefined : this.findStringified,
+                (Date.now() - timer) / 1000,
+            ])
         } catch(err) {
             console.error(err)
 
@@ -217,7 +291,7 @@ export class CardStore {
 
         // If changed, automatically trigger query via mobx due reaction above on `this.find.$and`.
         if('$and' in diff && diff.$and) {
-            this._find.$and = CardStore.sortFindAnd(diff.$and)
+            this._find.$and = sortFindAnd(diff.$and)
         }
 
         // Doesn't automatically trigger query because there's no reaction on `this.find.$text`.

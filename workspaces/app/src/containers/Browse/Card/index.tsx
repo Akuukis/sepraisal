@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import { Button, Card, Divider, Grid, Typography } from '@material-ui/core'
 import IconSearch from '@material-ui/icons/Search'
 
-import { createSmartFC, createStyles, IMyTheme, padTo2, SE_COLORS } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../common/'
 import Steam from '../../../components/icons/Steam'
 import { CardStatus, ICard } from '../../../models/Card'
 import { CONTEXT } from '../../../stores'
@@ -19,8 +19,8 @@ const styles = (theme: IMyTheme) => createStyles({
         '&:hover $overlay': {
             opacity: 1,
         },
-        backgroundColor: SE_COLORS.white,
-        position: 'relative',
+        'backgroundColor': SE_COLORS.white,
+        'position': 'relative',
     },
     cardContent: {
         paddingBottom: theme.spacing(1),
@@ -45,12 +45,12 @@ const styles = (theme: IMyTheme) => createStyles({
         '&:hover': {
             borderColor: SE_COLORS.black,
         },
-        borderColor: SE_COLORS.grey_dark,
-        borderStyle: `dashed`,
-        borderWidth: theme.spacing(1),
-        height: `calc(50% - ${theme.spacing(1)}px)`,
-        padding: theme.spacing(1),
-        width: `calc(100% - ${theme.spacing(1)}px)`,
+        'borderColor': SE_COLORS.grey_dark,
+        'borderStyle': `dashed`,
+        'borderWidth': theme.spacing(1),
+        'height': `calc(50% - ${theme.spacing(1)}px)`,
+        'padding': theme.spacing(1),
+        'width': `calc(100% - ${theme.spacing(1)}px)`,
     },
     overlayItem2: {
         cursor: 'pointer',
@@ -62,12 +62,36 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     blueprint: ICard<CardStatus>
+    index: number
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const routerStore = React.useContext(CONTEXT.ROUTER)
-    const {blueprint: bp} = props
+    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const {blueprint: bp, index} = props
+
+    const goAnalysis = () => {
+        piwikStore.push([
+            'trackEvent',
+            'browse',
+            'click-analysis',
+            bp.id,
+            index,
+        ])
+        routerStore.goBlueprint(bp.id, bp.steam?.revision)
+    }
+
+    const goSteam = () => {
+        piwikStore.push([
+            'trackEvent',
+            'browse',
+            'click-steam',
+            bp.id,
+            index,
+        ])
+        window.open(`https://steamcommunity.com/sharedfiles/filedetails/?id=${bp.id}`)
+    }
 
     return (
         <Card className={classes.root}>
@@ -84,7 +108,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         alignItems='center'
                         justify='center'
                         className={classes.overlayItem2}
-                        onClick={() => routerStore.goBlueprint(bp.id, bp.steam?.revision)}
+                        onClick={goAnalysis}
                     >
                         <Grid item>
                             <Button size='large' disableRipple disableFocusRipple disableTouchRipple>
@@ -100,7 +124,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         alignItems='center'
                         justify='center'
                         className={classes.overlayItem2}
-                        onClick={() => window.open(`https://steamcommunity.com/sharedfiles/filedetails/?id=${bp.id}`)}
+                        onClick={goSteam}
                     >
                         <Grid item>
                             <Button size='large' disableRipple disableFocusRipple disableTouchRipple>

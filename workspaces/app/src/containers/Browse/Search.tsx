@@ -70,10 +70,14 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         cardStore.setFind({$text: {$search}})
     }
 
-    const keyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if(event.key === 'Enter') {
-            event.preventDefault()
-            cardStore.querry().catch((err) => console.error(err))
+    const keyPress = async (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if(event.key !== 'Enter') return
+
+        event.preventDefault()
+        try {
+            await cardStore.querry()
+        } catch(err) {
+            console.error(err)
         }
     }
 
@@ -111,7 +115,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         <Paper className={classes.root}>
             <TextField
                 id='search'
-                placeholder='Search blueprints...'
+                placeholder='Search by id, title, author, collection, or any keyword in description...'
                 variant='outlined'
                 value={cardStore.find.$text?.$search}
                 onChange={handleChange}

@@ -14,7 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import { CONTEXT } from '../../../stores'
-import { CardStore, PRESET } from '../../../stores/CardStore'
+import { PRESET } from '../../../stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -39,16 +39,13 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     expanded: boolean
+    // tslint:disable-next-line: prefer-method-signature
     onChange: () => void
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
-
-    const selectedValue = JSON.stringify(CardStore.sortFindAnd(cardStore.find.$and))
-    const found = Object.keys(PRESET).findIndex((key) => selectedValue === JSON.stringify(CardStore.sortFindAnd(PRESET[key].$and)))
-    const selected = found !== -1 ? Object.keys(PRESET)[found] as keyof typeof PRESET : 'custom'
 
     const getPresetTitle = (id: keyof typeof PRESET | 'custom') => {
         switch(id) {
@@ -68,7 +65,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         (
             <ListItem
                 button
-                selected={selected === id}
+                selected={cardStore.selectedPreset === id}
                 onClick={setFind}
                 disabled={id === 'custom'}
                 key={id}
@@ -83,7 +80,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         <ExpansionPanel className={classes.root} expanded={props.expanded} onChange={props.onChange}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>Presets</Typography>
-                <Typography className={classes.secondaryHeading}>{getPresetTitle(selected)}</Typography>
+                <Typography className={classes.secondaryHeading}>{getPresetTitle(cardStore.selectedPreset)}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content}>
                 <List style={{width: '100%'}}>

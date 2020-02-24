@@ -41,7 +41,7 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
-    const h = (event: React.MouseEvent) => routerStore.push(ROUTES.HOME)
+    const h = (event: React.MouseEvent) => routerStore.goView(ROUTES.HOME)
 
     return (
         <AppBar elevation={0} className={classes.root}>

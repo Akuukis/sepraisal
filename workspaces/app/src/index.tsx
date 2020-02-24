@@ -6,20 +6,28 @@ import { render } from 'react-dom'
 
 import routes from './routes'
 import { CONTEXT } from './stores'
+import { PiwikStore } from './stores/PiwikStore'
 import RouterStore from './stores/RouterStore'
 
 // enable MobX strict mode
 configure({ enforceActions: 'always' })
 
 // prepare MobX stores
-const routerStore = new RouterStore()
+const piwikStore = new PiwikStore({
+    // TODO: Do not hardcode this.
+    siteId: 1,
+    url: '//kalvis.lv/piwik/',
+})
+const routerStore = new RouterStore(piwikStore)
 
 render((
+        <CONTEXT.PIWIK.Provider value={piwikStore}>
         <CONTEXT.ROUTER.Provider value={routerStore}>
 
         {routes}
 
         </CONTEXT.ROUTER.Provider>
+        </CONTEXT.PIWIK.Provider>
     ),
     document.getElementById('root'),
 )

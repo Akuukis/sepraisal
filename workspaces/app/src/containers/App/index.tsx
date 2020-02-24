@@ -50,16 +50,16 @@ const styles = (theme: IMyTheme) => createStyles({
         '@media (min-width: 600px)': {
             top: 64,
         },
-        background: '#f0f0f0',
-        fontFamily: '"Roboto", Helvetica, Arial, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontWeight: 300,
-        height: '100%',
-        left: 0,
-        minWidth: '230px',
-        overflow: 'hidden',
-        position: 'fixed',
-        width: '100%',
+        'background': '#f0f0f0',
+        'fontFamily': '"Roboto", Helvetica, Arial, sans-serif',
+        'fontSmoothing': 'antialiased',
+        'fontWeight': 300,
+        'height': '100%',
+        'left': 0,
+        'minWidth': '230px',
+        'overflow': 'hidden',
+        'position': 'fixed',
+        'width': '100%',
     },
     content: {
         '@media (min-width: 0px)': {
@@ -68,9 +68,9 @@ const styles = (theme: IMyTheme) => createStyles({
         '@media (min-width: 600px)': {
             height: 'calc(100% - 64px)',
         },
-        backgroundColor: SE_COLORS.grey,
-        overflowX: 'hidden',
-        overflowY: 'visible',
+        'backgroundColor': SE_COLORS.grey,
+        'overflowX': 'hidden',
+        'overflowY': 'visible',
     },
 })
 
@@ -80,8 +80,9 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+    const piwikStore = React.useContext(CONTEXT.PIWIK)
     const [blueprintStore] = React.useState(() => new BlueprintStore())
-    const [cardStore] = React.useState(() => new CardStore())
+    const [cardStore] = React.useState(() => new CardStore(piwikStore))
     const [praisalManager] = React.useState(() => new PraisalManager())
     const [state, setState] = React.useState<ASYNC_STATE>(ASYNC_STATE.Idle)
 

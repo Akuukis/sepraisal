@@ -34,7 +34,7 @@ export const prepareQuery = <TProjection extends object>(query: {$nor: unknown[]
 
     if(process.argv.includes('--force')) {  // Use '--force' to ignore errored cases.
         // tslint:disable-next-line: no-object-literal-type-assertion
-        return {...query, $nor: [...query.$nor.slice(1)]} as FilterQuery<TProjection>
+        return {...query, $nor: query.$nor.slice(1)} as FilterQuery<TProjection>
     }
 
     return query as FilterQuery<TProjection>

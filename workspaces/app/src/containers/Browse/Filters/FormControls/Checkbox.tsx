@@ -33,10 +33,23 @@ interface IProps {
     yes: unknown,
 }
 
+const NEXT_STATE = new Map([
+    // from -> to
+    [null, true],
+    [true, false],
+    [false, null],
+])
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const {title, findKey, yes, no} = props
+    const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
+
+    const values = new Map([
+        [null, []],
+        [true, [{[findKey]: yes}]],
+        [false, [{[findKey]: no}]],
+    ])
 
     let checked: null | boolean
     // tslint:disable-next-line: no-non-null-assertion - TODO review.
@@ -47,24 +60,21 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         const item = cardStore.find.$and[index]
         checked = JSON.stringify(item[findKey]) === JSON.stringify(yes)
     }
-    const toggleChecked = action((_, value: boolean) => {
-        if(checked === false) {
-            cardStore.setFind({$and: [
-                ...cardStore.find.$and.slice(0, index),
-                ...cardStore.find.$and.slice(index + 1, cardStore.find.$and.length),
-            ]})
-        } else if(value) {
-            cardStore.setFind({$and: [
-                ...cardStore.find.$and,
-                {[findKey]: yes},
-            ]})
-        } else {
-            cardStore.setFind({$and: [
-                ...cardStore.find.$and.slice(0, index),
-                {[findKey]: no},
-                ...cardStore.find.$and.slice(index + 1, cardStore.find.$and.length),
-            ]})
-        }
+
+    const toggleChecked = action(() => {
+        piwikStore.push([
+            'trackEvent',
+            'custom-filter',
+            findKey,
+            // tslint:disable-next-line: no-non-null-assertion
+            JSON.stringify(NEXT_STATE.get(checked)!),
+        ])
+        cardStore.setFind({$and: [
+            ...cardStore.find.$and.slice(0, Math.max(0, index)),
+            // tslint:disable-next-line: no-non-null-assertion
+            ...values.get(NEXT_STATE.get(checked)!)!,
+            ...cardStore.find.$and.slice(index + 1, cardStore.find.$and.length),
+        ]})
     })
 
     return (
