@@ -4,6 +4,7 @@ import { action, computed, IReactionDisposer, observable, reaction, runInAction 
 import { API_URL } from '../common'
 import { Card, CardStatus, IBpProjectionCard, ICard } from '../models'
 import { PiwikStore } from './PiwikStore'
+import { IFind } from '@sepraisal/common/lib/classificator/Class'
 
 
 // tslint:disable-next-line: naming-convention
@@ -106,11 +107,6 @@ export const PRESET = {
     none: {$and: [...presetUpToDate]},
 }
 // tslint:enable: object-literal-sort-keys
-
-interface IFind {
-    $and: Array<{}>,
-    $text?: {$search: string},
-}
 
 interface IBrowserStoreSort {
     [field: string]: -1 | 1
