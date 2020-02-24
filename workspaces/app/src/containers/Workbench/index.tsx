@@ -52,6 +52,7 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+    const piwikStore = React.useContext(CONTEXT.PIWIK)
     const [selected] = React.useState(() => observable([] as string[]))
     const [open, setOpen] = React.useState(true)
 
@@ -62,29 +63,48 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     const onDrop = React.useCallback(async (acceptedFiles, rejectedFiles) => {
         for(const file of acceptedFiles) {
-            const reader = new FileReader()
-            const xml = await new Promise((resolve: (res: string) => void, reject) => {
-                reader.onload = (event) => {
-                        // tslint:disable-next-line: no-any - TODO fix typings
-                        const {result}: any = event.target
-                        try {
-                            const out = Pako.inflate(result, {to: 'string'})
-                            resolve(out)
-                        } catch(error) {
-                            console.error(`inflate failed ${error}`)
-                            const out = result.toString('utf-8')
-                            resolve(out)
-                        }
-                }
-                reader.onabort = reject
-                reader.onerror = reject
-                reader.readAsText(file)
-            })
+            try {
+                const reader = new FileReader()
+                const xml = await new Promise((resolve: (res: string) => void, reject) => {
+                    reader.onload = (event) => {
+                            // tslint:disable-next-line: no-any - TODO fix typings
+                            const {result}: any = event.target
+                            try {
+                                const out = Pako.inflate(result, {to: 'string'})
+                                resolve(out)
+                            } catch(error) {
+                                console.error(`inflate failed ${error}`)
+                                const out = result.toString('utf-8')
+                                resolve(out)
+                            }
+                    }
+                    reader.onabort = reject
+                    reader.onerror = reject
+                    reader.readAsText(file)
+                })
 
-            const title = blueprintStore.setUpload(await praisalManager.praiseXml(xml))
-            runInAction(() => {
-                selected.push(title)
-            })
+                const title = blueprintStore.setUpload(await praisalManager.praiseXml(xml))
+                runInAction(() => {
+                    selected.push(title)
+                })
+                piwikStore.push([
+                    'trackEvent',
+                    'workshop',
+                    'upload-successful',
+                    title,
+                    undefined,
+                ])
+
+            } catch(err) {
+                piwikStore.push([
+                    'trackEvent',
+                    'workshop',
+                    'upload-failed',
+                    err.message,
+                    undefined,
+                ])
+
+            }
         }
     }, [])
 

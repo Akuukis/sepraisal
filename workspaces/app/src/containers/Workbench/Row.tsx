@@ -14,7 +14,7 @@ const styles = (theme: IMyTheme) => createStyles({
         '&:hover': {
             background: theme.palette.primary.main,
         },
-        background: theme.palette.primary.main,
+        'background': theme.palette.primary.main,
     },
 })
 
@@ -28,6 +28,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
+    const piwikStore = React.useContext(CONTEXT.PIWIK)
 
     const {id, title, selected} = props
     const index = selected.indexOf(id)
@@ -35,11 +36,32 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const handleToggle = () => {
         if(index === -1) {
             runInAction(() => selected.push(id))
+            piwikStore.push([
+                'trackEvent',
+                'workshop',
+                id === title ? 'select-upload' : 'select-recent',
+                id,
+                undefined,
+            ])
         } else {
+            piwikStore.push([
+                'trackEvent',
+                'workshop',
+                id === title ? 'deselect-upload' : 'deselect-recent',
+                id,
+                undefined,
+            ])
             runInAction(() => selected.remove(id))
         }
     }
     const handleDelete = () => {
+        piwikStore.push([
+            'trackEvent',
+            'workshop',
+            id === title ? 'delete-upload' : 'delete-recent',
+            id,
+            undefined,
+        ])
         runInAction(() => {
             selected.remove(id)
             if(blueprintStore.uploads.has(id)) {
