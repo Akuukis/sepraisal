@@ -84,9 +84,9 @@ const runMyScript = async (csvPath: string, vars: IScriptVariables) => {
 const toCacheName = (clas: string) => join('tmp', `${clas}-sample.csv`)
 
 export const main = async () => {
-    let client: null | MongoClient = null
+    // let client: null | MongoClient = null
     try {
-        client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
+        // client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
         console.info('Connected successfully to server.')
         // const db = client.db(DB_NAME)
         // const collection = db.collection<IBlueprint>('blueprints')
@@ -159,10 +159,8 @@ export const main = async () => {
                 // break
             }
         }
-    } catch(err) {
-        throw err
     } finally {
-        if(client !== null) client.close()
+        // if(client !== null) await client.close()
     }
 
 }
