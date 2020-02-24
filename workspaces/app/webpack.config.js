@@ -69,6 +69,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(IS_PRODUCTION ? 'production' : 'development'),
+        }),
         new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json'), tsconfig: 'tsconfig-src.json'}),
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({template: path.join('static', 'index.html') }),
