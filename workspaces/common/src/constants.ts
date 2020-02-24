@@ -3,6 +3,7 @@ export const VERSION =           2
 export const DB_URL = String(process.env.db_url)
 export const DB_NAME = 'default'
 
+export const API_URL = 'https://db.spaceengineerspraisal.net/hello'
 export const SERVICE_DESK_EMAIL = 'incoming+akuukis-sepraisal-7683681-issue-@incoming.gitlab.com'
 export const MATOMO_PARAMS = {
     // TODO: Do not hardcode this.

@@ -2,6 +2,7 @@
 import { BigNumber as BN } from 'bignumber.js'
 import * as pad from 'pad'
 import { PromiseType } from 'utility-types'
+import { API_URL } from './constants'
 
 // tslint:disable:no-void-expression id-length
 
@@ -53,3 +54,28 @@ export const mapToRecord = <TKey extends string | number | symbol, TValue extend
 }
 
 export const noop = (): void => {/* */}
+
+const toSafeString = (obj: unknown): string => encodeURIComponent(JSON.stringify(obj))
+// tslint:disable-next-line: max-func-args
+export const getApiUrl = (
+        find: object,
+        projection: object,
+        sort?: object,
+        limit?: number,
+        skip?: number,
+    ) => {
+
+    const urlParts = [
+            API_URL,
+            `?`,
+            `find=${toSafeString(find)}`,
+            `&projection=${toSafeString(projection)}`,
+            sort !== undefined ? `&sort=${toSafeString(sort)}` : null,
+            skip !== undefined ? `&skip=${toSafeString(skip)}` : null,
+            limit !== undefined ? `&limit=${toSafeString(limit)}` : null,
+        ]
+        .filter((part) => typeof part === 'string')
+    
+    return urlParts.join('')
+
+}

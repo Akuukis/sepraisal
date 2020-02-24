@@ -1,4 +1,4 @@
-import { IBlueprint } from '@sepraisal/common'
+import { IBlueprint, getApiUrl } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -7,7 +7,7 @@ import IconBuild from '@material-ui/icons/Build'
 import IconSearch from '@material-ui/icons/Search'
 
 import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
-import { API_URL, createSmartFC, createStyles, IMyTheme } from '../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../common/'
 import { ROUTES } from '../constants/routes'
 import { CONTEXT } from '../stores'
 import { PRESET } from '../stores/CardStore'
@@ -39,15 +39,12 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
     const [status, setStatus] = React.useState<typeof STATUS[keyof typeof STATUS]>(STATUS.Idle)
-    const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(null)
 
     const getRandom = async () => {
         setStatus(STATUS.Loading)
         try {
-            const projection = encodeURIComponent(JSON.stringify({}))
-            const find = encodeURIComponent(JSON.stringify(PRESET.none))
-            const skip = Math.floor(Math.random() * 1000)
-            const res = await fetch(`${API_URL}?find=${find}&limit=${1}&skip=${skip}&projection=${projection}`)
+            const skip = Math.floor(Math.random() * 90000)  // Random blueprint out of first 90k blueprints.
+            const res = await fetch(getApiUrl(PRESET.none, {}, undefined, 1, skip))
             const {docs} = await res.json() as {docs: [Required<IBlueprint>]}
             const doc = docs[0]
             routerStore.goBlueprint(doc._id)

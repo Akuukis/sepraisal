@@ -4,8 +4,7 @@ import { MongoClient } from 'mongodb'
 import fetch from 'node-fetch'
 import { join } from 'path'
 
-import { CLASSES, DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
-import { IBpProjectionCard } from '@sepraisal/app/lib/models'
+import { CLASSES, DB_NAME, DB_URL, IBlueprint, getApiUrl } from '@sepraisal/common'
 
 export const API_URL = 'https://db.spaceengineerspraisal.net/hello'
 const HOST = 'http://localhost:8004/ocpu/'
@@ -113,14 +112,12 @@ export const main = async () => {
                         return dict
                     },      Object.create(null) as {})
 
-                const find = encodeURIComponent(JSON.stringify(group.criteriaToTrain))
-                const projectionString = encodeURIComponent(JSON.stringify(projection))
-                const docs: IBpProjectionCard[] = []
+                const docs: IBlueprint[] = []
 
                 let page = 0
                 while(page >= 0) {
-                    const res = await fetch(`${API_URL}?find=${find}&projection=${projectionString}&skip=${String(page * 100)}&limit=100`)
-                    const {count, docs: docsPage} = await res.json() as {count: number, docs: IBpProjectionCard[] }
+                    const res = await fetch(getApiUrl(group.criteriaToTrain, projection, undefined, 100, page * 100))
+                    const {docs: docsPage} = await res.json() as {count: number, docs: IBlueprint[] }
                     docs.push(...docsPage)
                     page += 1
 
