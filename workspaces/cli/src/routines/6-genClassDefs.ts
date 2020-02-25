@@ -23,6 +23,8 @@ const prepareScript = (filename: string, vars: IScriptVariables) => {
         .replace(/__class__/g, vars.class)
         .replace(/__subclass__/g, vars.subclass)
 
+    if(script.includes('"')) throw new Error('Do NOT use double-quotes in R script!')
+
     return escape(script)
         .replace(/\+/g, '%2B')
         .replace(/%0A/g, '\\n')
@@ -54,21 +56,23 @@ const runR = async (pathScript: string, vars: IScriptVariables) => {
         },
         method: 'POST',
     })).text()
+    if(result1.includes('Unparsable argument')) throw new Error('Unparsable argument')
     const match1 = result1.match(/tmp\/(\w+)/)
     if(!match1) throw new Error(result1)
     const id1 = match1[1]
 
     const result2 = await (await fetch(`${HOST}tmp/${id1}/files/script.r`, {method: 'POST'})).text()
-    const match = result2.match(/tmp\/(\w+)/)
-    if(!match) throw new Error(result2)
-    const id = match[1]
-    const url = `${HOST}tmp/${id}`
+    const match2 = result2.match(/tmp\/(\w+)/)
+    if(!match2) throw new Error(result2)
+    const id2 = match2[1]
+    const url = `${HOST}tmp/${id2}`
 
     return {
-        id,
+        id: id2,
 
-        chart: async () => (await fetch(`${url}/graphics/11/png?width=1500&height=500`)).buffer(),
+        chart: async () => (await fetch(`${url}/graphics/${12}/png?width=1500&height=500`)).buffer(),
         console: async () => (await fetch(`${url}/console/text`)).text(),
+        get: async (varName: string) => (await fetch(`${url}/R/${varName}/print`)).text(),
         p: async () => Number((await (await fetch(`${url}/R/test/text`)).text()).split('\n')[2]),
         test: async () => (await fetch(`${url}/R/legend/text`)).text(),
     }
@@ -151,8 +155,10 @@ export const main = async () => {
 
             for(const field of distributions) {
                 const results = await runR(join(__dirname, '..', 'r', 'test.r'), {csv, field, class: groupName, subclass: 'no-subclass'})
-                const path = join('tmp', `${groupName}-${field}-${((await results.p()) * 100).toFixed(2)}%.png`)
-                console.info(path)
+                // console.log(await results.get('buckets'))
+                // console.log(await results.get('null.probs'))
+                const path = join('tmp', `${groupName}-${field}.png`)
+                console.info(`${path}-${((await results.p()) * 100).toFixed(2)}%`)
                 // console.log(await results.console())
                 // console.log(`${groupName}-${field}-${p.toFixed(2)}%.png`)
                 writeFileSync(path, await results.chart())
