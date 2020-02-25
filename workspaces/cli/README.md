@@ -144,16 +144,12 @@ docker run --name ocpu -t -p 8004:8004 opencpu/rstudio
 
 # Install packages in R.
 docker exec -i -t ocpu /bin/bash
-R
-```
-
-```R
-install.packages('zoo')
-install.packages('MASS')
-install.packages('fitdistrplus')
-install.packages('logitnorm')
-install.packages('extraDistr')
-install.packages('invgamma')
+R -e "install.packages('zoo')"
+R -e "install.packages('MASS')"
+R -e "install.packages('fitdistrplus')"
+R -e "install.packages('logitnorm')"
+R -e "install.packages('extraDistr')"
+R -e "install.packages('invgamma')"
 ```
 
 ```sh
