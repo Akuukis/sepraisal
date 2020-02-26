@@ -13,6 +13,7 @@ characteristic = '__field__'
 data = read.csv(file='/tmp/ocpu-store/__CSV__', header=TRUE, sep=',')[[characteristic]]
 
 fit = fitdistr(x=data, dinvgamma, list(shape=1, rate=1), lower=0.01)
+# fit = fitdist(data, dinvgamma, method = 'mle', start = list(shape=2, rate=1000))
 
 
 GetMeanToModeCorrection = function(d, quantile) {
@@ -45,7 +46,7 @@ buckets = hist(dataTruncated, breaks=breakCountMax, right=FALSE, plot=FALSE)
 
 
 distline.step = (buckets$breaks[2] - buckets$breaks[1])
-distline.x = seq(min(buckets$breaks) + distline.step/2, max(buckets$breaks) - distline.step/2, distline.step / 10)
+distline.x = seq(min(buckets$breaks) + distline.step/2, max(buckets$breaks) - distline.step/2, distline.step / 100)
 distline.y = dinvgamma(distline.x, shape=fit$estimate['shape'], rate=fit$estimate['rate'])*length(data)*distline.step
 mode = distline.x[match(max(distline.y), distline.y)]
 
