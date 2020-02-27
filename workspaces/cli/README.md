@@ -148,7 +148,6 @@ R -e "install.packages('zoo')"
 R -e "install.packages('MASS')"
 R -e "install.packages('fitdistrplus')"
 R -e "install.packages('logitnorm')"
-R -e "install.packages('extraDistr')"
 R -e "install.packages('invgamma')"
 ```
 

@@ -2,7 +2,6 @@ library(zoo)
 library(MASS)
 library(fitdistrplus)
 library(logitnorm)
-library(extraDistr)
 library(invgamma)
 
 
@@ -51,11 +50,11 @@ distline.y = dinvgamma(distline.x, shape=fit$estimate['shape'], rate=fit$estimat
 mode = distline.x[match(max(distline.y), distline.y)]
 
 null.probs = dinvgamma(buckets$mids, shape=fit$estimate['shape'], rate=fit$estimate['rate'])*length(data)*distline.step
-test = chisq.test(buckets$counts, null.probs, rescale.p=TRUE)
+test = chisq.test(buckets$counts, p=null.probs, rescale.p=TRUE)
 
 legend = list(
     Data = paste(length(data), 'blueprints (vanilla, subscribers > 100)'),
-    Model = paste('Inv.Gamma Dist. (shape=',round(fit$estimate['shape'], 2),', rate=',round(fit$estimate['rate']), '), p=', round(test$p.value * 100, 1), '%'),
+    Model = paste('Inv.Gamma Dist. (shape=',round(fit$estimate['shape'], 2),', rate=',round(fit$estimate['rate']), ')'),
     at05 = paste('95% sector: ', round(quantile$xleft05), ' - ', round(quantile$xright05), ' ( width=',round(quantile$xright05-quantile$xleft05), ')'),
     at20 = paste('80% sector: ', round(quantile$xleft20), ' - ', round(quantile$xright20), ' ( width=',round(quantile$xright20-quantile$xleft20), ')'),
     at50 = paste('50% sector: ', round(quantile$xleft50), ' - ', round(quantile$xright50), ' ( width=',round(quantile$xright50-quantile$xleft50), ')'),
