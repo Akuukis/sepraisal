@@ -127,7 +127,13 @@ There's 3 things
 
 The trick is how to call R from Javascript, and there OpenCPU comes to the rescue. It basically provides REST API on top of R, and Javascript will just query the endpoints.
 
-#### 1. Install OpenCPU
+#### 1. Install Docker
+
+For Ubuntu [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/).
+
+TODO
+
+#### 2. Install OpenCPU
 
 Links: [Download](https://www.opencpu.org/download.html) and [API](https://www.opencpu.org/api.html)
 
@@ -138,16 +144,11 @@ docker run --name ocpu -t -p 8004:8004 opencpu/rstudio
 
 # Install packages in R.
 docker exec -i -t ocpu /bin/bash
-R
-```
-
-```R
-install.packages('zoo')
-install.packages('MASS')
-install.packages('fitdistrplus')
-install.packages('logitnorm')
-install.packages('extraDistr')
-install.packages('invgamma')
+R -e "install.packages('zoo')"
+R -e "install.packages('MASS')"
+R -e "install.packages('fitdistrplus')"
+R -e "install.packages('logitnorm')"
+R -e "install.packages('invgamma')"
 ```
 
 ```sh

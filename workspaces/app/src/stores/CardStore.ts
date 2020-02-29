@@ -1,9 +1,9 @@
-import { IBlueprint, ObservableMap } from '@sepraisal/common'
+import { IBlueprint, ObservableMap, getApiUrl } from '@sepraisal/common'
 import { action, computed, IReactionDisposer, observable, reaction, runInAction } from 'mobx'
 
-import { API_URL } from '../common'
 import { Card, CardStatus, IBpProjectionCard, ICard } from '../models'
 import { PiwikStore } from './PiwikStore'
+import { IFind } from '@sepraisal/common/lib/classificator/Class'
 
 
 // tslint:disable-next-line: naming-convention
@@ -107,11 +107,6 @@ export const PRESET = {
 }
 // tslint:enable: object-literal-sort-keys
 
-interface IFind {
-    $and: Array<{}>,
-    $text?: {$search: string},
-}
-
 interface IBrowserStoreSort {
     [field: string]: -1 | 1
 }
@@ -186,9 +181,7 @@ export class CardStore {
         try {
             const timer = Date.now()
 
-            const find = encodeURIComponent(JSON.stringify(this.find))
-            const sort = encodeURIComponent(JSON.stringify(this.sort))
-            const res = await fetch(`${API_URL}?find=${find}&sort=${sort}&projection=${projection}&skip=${skip}&limit=${limit}`)
+            const res = await fetch(getApiUrl(this.find, cardProjection, this.sort, limit, skip))
             const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[] }
 
             // TODO: handle non-ok cards
@@ -222,10 +215,8 @@ export class CardStore {
                 this.count = null
                 this.cards.replace([])
             })
-            const find = encodeURIComponent(JSON.stringify(this.find))
-            const sort = encodeURIComponent(JSON.stringify(this.sort))
-            const skip = 0
-            const res = await fetch(`${API_URL}?find=${find}&sort=${sort}&projection=${projection}&skip=${skip}&limit=${this.cardsPerPage}`)
+
+            const res = await fetch(getApiUrl(this.find, cardProjection, this.sort, this.cardsPerPage))
             if(res.status !== 200) throw new Error(`Backend error: ${await res.text()}`)
             const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[]}
 

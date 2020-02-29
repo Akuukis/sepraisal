@@ -1,10 +1,10 @@
-import { IBlueprint } from '@sepraisal/common'
+import { API_URL, IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Grid, Typography } from '@material-ui/core'
 
-import { API_URL, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
 import { CONTEXT } from '../../stores'
 import AnalysisColumn from './Column'
 

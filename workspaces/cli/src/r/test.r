@@ -2,7 +2,6 @@ library(zoo)
 library(MASS)
 library(fitdistrplus)
 library(logitnorm)
-library(extraDistr)
 library(invgamma)
 
 
@@ -13,6 +12,7 @@ characteristic = '__field__'
 data = read.csv(file='/tmp/ocpu-store/__CSV__', header=TRUE, sep=',')[[characteristic]]
 
 fit = fitdistr(x=data, dinvgamma, list(shape=1, rate=1), lower=0.01)
+# fit = fitdist(data, dinvgamma, method = 'mle', start = list(shape=2, rate=1000))
 
 
 GetMeanToModeCorrection = function(d, quantile) {
@@ -45,21 +45,16 @@ buckets = hist(dataTruncated, breaks=breakCountMax, right=FALSE, plot=FALSE)
 
 
 distline.step = (buckets$breaks[2] - buckets$breaks[1])
-distline.x = seq(min(buckets$breaks) + distline.step/2, max(buckets$breaks) - distline.step/2, distline.step / 10)
+distline.x = seq(min(buckets$breaks) + distline.step/2, max(buckets$breaks) - distline.step/2, distline.step / 100)
 distline.y = dinvgamma(distline.x, shape=fit$estimate['shape'], rate=fit$estimate['rate'])*length(data)*distline.step
 mode = distline.x[match(max(distline.y), distline.y)]
 
-
-distToHist = function(pdist) {
-    return(rollapply(pdist, 2, function(x) x[2]-x[1]))
-}
-null.probs = distToHist(pinvgamma(buckets$breaks, shape=fit$estimate['shape'], rate=fit$estimate['rate'])) * length(dataTruncated)
-test = chisq.test(buckets$counts, null.probs, rescale.p=TRUE)
-
+null.probs = dinvgamma(buckets$mids, shape=fit$estimate['shape'], rate=fit$estimate['rate'])*length(data)*distline.step
+test = chisq.test(buckets$counts, p=null.probs, rescale.p=TRUE)
 
 legend = list(
     Data = paste(length(data), 'blueprints (vanilla, subscribers > 100)'),
-    Model = paste('Inv.Gamma Dist. (shape=',round(fit$estimate['shape'], 2),', rate=',round(fit$estimate['rate']), '), p=', round(test$p.value *100, 1), '%'),
+    Model = paste('Inv.Gamma Dist. (shape=',round(fit$estimate['shape'], 2),', rate=',round(fit$estimate['rate']), ')'),
     at05 = paste('95% sector: ', round(quantile$xleft05), ' - ', round(quantile$xright05), ' ( width=',round(quantile$xright05-quantile$xleft05), ')'),
     at20 = paste('80% sector: ', round(quantile$xleft20), ' - ', round(quantile$xright20), ' ( width=',round(quantile$xright20-quantile$xleft20), ')'),
     at50 = paste('50% sector: ', round(quantile$xleft50), ' - ', round(quantile$xright50), ' ( width=',round(quantile$xright50-quantile$xleft50), ')'),
@@ -69,6 +64,7 @@ legend = list(
 par(mfrow = c(1, 1))
 ylim = max(c(max(distline.y), max(buckets$counts)))
 hist(dataTruncated, breaks=breakCountMax, col='grey', xlim=c(0, cdf98), xlab=characteristic, ylim=c(0, ylim), main=paste('', class, '(', round(mode), characteristic, ')'))
+lines(x=buckets$mids, y=null.probs, col='blue', type='p')
 lines(x=distline.x, y=distline.y, col='blue', lwd=3)
 # lines(x=buckets$breaks[buckets$breaks > buckets$breaks[1]] - (buckets$breaks[2] - buckets$breaks[1])/2, y=buckets$counts, col='yellow', lwd=5)
 # lines(x=buckets$breaks[buckets$breaks > buckets$breaks[1]] - (buckets$breaks[2] - buckets$breaks[1])/2, y=null.probs, col='red', lwd=5)

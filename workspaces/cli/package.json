@@ -30,8 +30,10 @@
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
         "@sepraisal/praisal": "^0.0.1",
+        "form-data": "^3.0.0",
         "moment": "^2.24.0",
         "mongodb": "^3.4.0",
+        "node-fetch": "^2.6.0",
         "pad": "^3.2.0",
         "scrape-it": "^5.2.0",
         "tail": "^2.0.3",
@@ -39,9 +41,10 @@
         "worker-farm": "^1.7.0"
     },
     "devDependencies": {
-        "@types/node": ">= 10",
         "@types/cheerio": "^0.22.15",
         "@types/mongodb": "^3.3.12",
+        "@types/node": ">= 10",
+        "@types/node-fetch": "^2.5.4",
         "@types/tail": "^2.0.0"
     }
 }
