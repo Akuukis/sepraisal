@@ -20,10 +20,11 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     banner: {
-        backgroundImage: `url('${banner}')`,
-        backgroundPositionY: `45%`,
-        backgroundSize: `cover`,
+        borderRadius: theme.spacing(1),
+        display: 'block',
         height: theme.spacing(50),
+        objectFit: 'cover',
+        width: '100%',
     },
     content: {
         padding: '0.5em',
@@ -57,7 +58,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         <>
             <Grid container spacing={2} justify='center' className={classes.root} style={{paddingBottom: 0}}>
                 <Grid item xs={12} lg={9}>
-                    <Paper className={classes.banner} />
+                    <img src={banner} className={classes.banner} />
                 </Grid>
             </Grid>
             <Grid container spacing={2} justify='center' className={classes.root}>
