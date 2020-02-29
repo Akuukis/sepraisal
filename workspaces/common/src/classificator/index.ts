@@ -19,4 +19,5 @@ export const CLASSES = {
     vehicleClass1,
 }
 
+export { IFind } from './Class'
 export type ClassName = typeof CLASSES extends Record<keyof typeof CLASSES, AbstractBpClass<infer T>> ? T : never

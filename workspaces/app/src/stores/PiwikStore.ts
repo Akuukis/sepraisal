@@ -1,3 +1,4 @@
+import { computed } from 'mobx'
 import { join } from 'path'
 
 
@@ -72,6 +73,12 @@ interface IPiwikStoreOpts {
 export class PiwikStore {
     // tslint:disable-next-line: naming-convention
     public readonly _isShim: boolean = false
+    @computed public get isLoaded(): boolean {
+        // This store sets `_paq` as simple Array.
+        // Injected Piwik code will replace it with specialized class which is not Array.
+        // TODO: Distinguish between "not yet loaded" vs "blocked by adblock".
+        return !Array.isArray(window._paq)
+    }
 
     private listeners: Array<() => void> = []
     private previousPath = ''
@@ -156,6 +163,23 @@ export class PiwikStore {
 
     public deconstructor() {
         this.listeners.forEach((listener) => listener())
+    }
+
+    public async getVisitorId(): Promise<string | null> {
+        if(this._isShim) return 'localdevelopment'
+        if(!this.isLoaded) return null
+
+        return new Promise<string>((resolve, reject) => {
+            // tslint:disable-next-line: no-any
+            this.push([ function(this: any) {
+                try {
+                    // tslint:disable-next-line: no-unsafe-any
+                    resolve(this.getVisitorId())
+                } catch(err) {
+                    reject(err)
+                }
+            }])
+        })
     }
 
     /*
