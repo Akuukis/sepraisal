@@ -16,6 +16,12 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: '0.5em',
     },
 
+    chart: {
+        marginBottom: theme.spacing(4),
+        marginLeft: theme.spacing(-8),
+        marginRight: theme.spacing(-8),
+        width: `calc(100% + ${theme.spacing(16)}px)`,
+    },
     content: {
         padding: '0.5em',
     },
@@ -144,15 +150,7 @@ export default hot(createSmartFC(styles)<IProps>(({ children, classes, theme, ..
                     </ol>
                     There's quite a lot statistics involved, but here's a nice chart on how many block count has "VC2 Fighter":
                 </Typography>
-                <Paper elevation={0} style={{
-                    backgroundImage: `url('${imageFighterBlockCount}')`,
-                    backgroundPositionY: `33%`,
-                    backgroundSize: `cover`,
-                    height: theme.spacing(50),
-                    marginLeft: theme.spacing(-8),
-                    marginRight: theme.spacing(-8),
-                    marginBottom: theme.spacing(4),
-                }}/>
+                <img src={imageFighterBlockCount} className={classes.chart} />
                 <Typography paragraph>
                     The bars are frequency of block count amount and the blue line shows an approximated model of the results.
                     The colors show zones of "typicality".
@@ -165,33 +163,9 @@ export default hot(createSmartFC(styles)<IProps>(({ children, classes, theme, ..
                 <Typography paragraph>
                     Here's the rest of "VC2 Fighter" charts for mass, PCU and required ore volume:
                 </Typography>
-                <Paper elevation={0} style={{
-                    backgroundImage: `url('${imageFighterBlockMass}')`,
-                    backgroundPositionY: `33%`,
-                    backgroundSize: `cover`,
-                    height: theme.spacing(50),
-                    marginLeft: theme.spacing(-8),
-                    marginRight: theme.spacing(-8),
-                    marginBottom: theme.spacing(4),
-                }}/>
-                <Paper elevation={0} style={{
-                    backgroundImage: `url('${imageFighterBlockPCU}')`,
-                    backgroundPositionY: `33%`,
-                    backgroundSize: `cover`,
-                    height: theme.spacing(50),
-                    marginLeft: theme.spacing(-8),
-                    marginRight: theme.spacing(-8),
-                    marginBottom: theme.spacing(4),
-                }}/>
-                <Paper elevation={0} style={{
-                    backgroundImage: `url('${imageFighterOreVolume}')`,
-                    backgroundPositionY: `33%`,
-                    backgroundSize: `cover`,
-                    height: theme.spacing(50),
-                    marginLeft: theme.spacing(-8),
-                    marginRight: theme.spacing(-8),
-                    marginBottom: theme.spacing(4),
-                }}/>
+                <img src={imageFighterBlockMass} className={classes.chart} />
+                <img src={imageFighterBlockPCU} className={classes.chart} />
+                <img src={imageFighterOreVolume} className={classes.chart} />
             </FaqItem>
             <FaqItem title='How much blueprints does SE-Praisal have?'>
                 <Typography paragraph>
