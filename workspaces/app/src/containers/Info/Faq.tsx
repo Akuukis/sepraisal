@@ -154,11 +154,13 @@ export default hot(createSmartFC(styles)<IProps>(({ children, classes, theme, ..
                     marginBottom: theme.spacing(4),
                 }}/>
                 <Typography paragraph>
-                    In the chart the bars are frequency of block count amount, and the blue line show values of an approximated model for those results.
-                    The zones are colored as follows: 1 out of 2 blueprints falls in green, and 4 out of 5 blueprints falls in green or yellow zone.
-                    But only 15% falls in red zone, 3% in grey zone, and 2% are off the chart.
-                    Therefore, green and yellow zones pass criteria, but red and grey doesn't.
-                    According to this chart blueprints with 103 to 1,197 blocks will pass block count criteria for "VC2 Fighter".
+                    The bars are frequency of block count amount and the blue line shows an approximated model of the results.
+                    The colors show zones of "typicality".
+                    For example, blueprints in green area (135 to 554 blocks) are the most typical ones
+                        - half of blueprints are in this area.
+                    <strong> 4 out of 5 blueprints are in green and yellow area (103 to 1,197 blocks).
+                    They are typical enough to be considered "VC2 Fighter"</strong>.
+                    The remaining 15% falls in red zone, 3% in grey zone, and 2% are off the chart.
                 </Typography>
                 <Typography paragraph>
                     Here's the rest of "VC2 Fighter" charts for mass, PCU and required ore volume:
