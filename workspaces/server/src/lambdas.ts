@@ -1,11 +1,15 @@
 import { DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
-import { APIGatewayProxyHandler } from 'aws-lambda'
+import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda'
 import { MongoClient } from 'mongodb'
 
-import { flattenProjection } from './common'
+import { flattenProjection, track } from './common'
 
 
-export const hello: APIGatewayProxyHandler = async (event) => {
+export const hello: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent) => {
+
+    // tslint:disable-next-line: no-floating-promises
+    track(event)
+
     try {
         const params = event.queryStringParameters ? event.queryStringParameters : {}
 
