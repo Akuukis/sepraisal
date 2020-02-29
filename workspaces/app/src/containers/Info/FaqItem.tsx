@@ -61,9 +61,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             square={false}
             expanded={open}
             classes={{root: classes.root, expanded: classes.expanded}}
-            onClick={handleClick}
         >
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <ExpansionPanelSummary onClick={handleClick} expandIcon={<ExpandMoreIcon />}>
                 <Typography variant='subtitle1'><strong>Q:</strong> {title}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content}>
