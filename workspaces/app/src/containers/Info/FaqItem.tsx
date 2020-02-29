@@ -23,12 +23,13 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
+    no: number
     title: string
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const {title} = props
+    const {no, title} = props
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const [openedOn, setOpenedOn] = React.useState<null | number>(null)
     const [open, setOpen] = React.useState(false)
@@ -63,7 +64,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             classes={{root: classes.root, expanded: classes.expanded}}
         >
             <ExpansionPanelSummary onClick={handleClick} expandIcon={<ExpandMoreIcon />}>
-                <Typography variant='subtitle1'><strong>Q:</strong> {title}</Typography>
+                <Typography variant='subtitle1'><strong>Q{no}:</strong> {title}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content}>
                 {children}
