@@ -1,4 +1,4 @@
-import Credits from '@sepraisal/app/lib/containers/Credits'
+import Info from '@sepraisal/app/lib/containers/Info'
 import { withKnobs } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
@@ -10,5 +10,5 @@ storiesOf('Containers|Credits', module)
     .addDecorator(Theme('my'))
     .addDecorator(withKnobs)
     .add('Default', () => {
-        return <Credits />
+        return <Info />
     })
