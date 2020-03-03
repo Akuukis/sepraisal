@@ -12,6 +12,7 @@ import { Button } from '@material-ui/core'
 
 import { ProviderDecorator } from '../../ProviderDecorator'
 import Theme from '../../ThemeDecorator'
+import { PiwikStore } from '@sepraisal/app/lib/stores/PiwikStore'
 
 
 class MockCardStore extends CardStore {
@@ -32,7 +33,7 @@ class MockCardStore extends CardStore {
 storiesOf('Containers|SliderLog', module)
     .addDecorator(Theme('my'))
     .addDecorator(ProviderDecorator({
-        CARDS: new MockCardStore(),
+        CARDS: new MockCardStore({} as PiwikStore),
     }))
     .addDecorator(withKnobs)
     .add('Default2', () => {
