@@ -6,7 +6,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 
 
 const sourcePath = path.join(__dirname, './src');
-const IS_PRODUCTION = process.argv.indexOf('--production') >= 0;
+const IS_PRODUCTION = process.argv.indexOf('production') >= 0;
 
 
 module.exports = {
