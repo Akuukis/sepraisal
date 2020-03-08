@@ -5,6 +5,7 @@ import fetch from 'node-fetch'
 import { join } from 'path'
 
 import { CLASSES, DB_NAME, DB_URL, IBlueprint, getApiUrl } from '@sepraisal/common'
+import { lstatAsync } from '../utils'
 
 export const API_URL = 'https://db.spaceengineerspraisal.net/hello'
 const HOST = 'http://localhost:8004/ocpu/'
@@ -102,10 +103,11 @@ export const main = async () => {
                 console.info(`Skipping class definitions for "${groupName}" due missing distributions.`)
                 continue
             }
-            
-            console.info(`Generating class definitions for "${groupName}"..`)
 
-            if(true) {
+            console.info(`Generating class definitions for "${groupName}"..`)
+            const cachefile = toCacheName(groupName)
+
+            if(!(await lstatAsync(cachefile))) {
                 process.stdout.write(`- Fetching training sample.. `)
                 const distributionsPrefixed = group.distributions.map((dist) => `sbc.${dist}`)
 
@@ -136,7 +138,7 @@ export const main = async () => {
                 //     .toArray())
 
                 if(docs.length < 100) throw new Error(`Found insufficient blueprints for the training set: ${docs.length}`)
-                    
+
                 console.info(`\n- Found ${docs.length} samples.`)
 
                 const lines = docs.map((doc) => distributions.map((field) => doc.sbc![field]))
@@ -146,12 +148,12 @@ export const main = async () => {
                         ...lines,
                     ].join('\n')
 
-                writeFileSync(toCacheName(groupName), dataAsCsv)
+                writeFileSync(cachefile, dataAsCsv)
                 console.info(`- Cached the dataset.`)
             } else {
                 console.info(`- Found cached dataset.`)
             }
-            const csv = await uploadCsv(toCacheName(groupName))
+            const csv = await uploadCsv(cachefile)
 
             for(const field of distributions) {
                 const results = await runR(join(__dirname, '..', 'r', 'test.r'), {csv, field, class: groupName, subclass: 'no-subclass'})
