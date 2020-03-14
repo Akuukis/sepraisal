@@ -27,7 +27,7 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const {id, steam} = props
 
-    const avatarTitle = steam?.author.title.slice(0, 2) ?? '??'
+    const avatarTitle = steam?.author.title?.slice(0, 2) ?? '??'
     const title = steam?.title ?? String(id)
     const subheader = steam !== null
         ? (steam.collections.length > 0 ? steam.collections[0].title : '-')
