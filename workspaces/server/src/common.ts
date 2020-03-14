@@ -25,16 +25,17 @@ export const track = async (event: APIGatewayProxyEvent) => {
         `apiv=1`,
         `rec=1`,
         `idsite=${MATOMO_PARAMS.siteId}`,
-        `action_name=Server`,
-        `url=db.spaceengineerspraisal.net`,
-        // `_id=${event.pathParameters?.pk_vid ?? hash}`,
+        `e_c=api`,
+        `e_a=querry`,
+        `e_n=${encodeURIComponent(event.queryStringParameters!.find)}`,
+        event.queryStringParameters!.pk_vid ? `_id=${event.queryStringParameters!.pk_vid}` : undefined,
         `rand=${Math.random()}`,
-    ]
+    ].filter((part)=>part !== undefined)
 
     // if('Origin' in event.headers) params.push(`???=${event.headers.Origin}`)
-    if('Referrer' in event.headers) params.push(`urlref=${event.headers.Referrer}`)
-    if('User-Agent' in event.headers) params.push(`ua=${event.headers['User-Agent']}`)
-    if('Accept-Language' in event.headers) params.push(`ua=${event.headers['Accept-Language']}`)
+    if('referrer' in event.headers) params.push(`urlref=${encodeURIComponent(event.headers.referrer)}`)
+    if('user-agent' in event.headers) params.push(`ua=${encodeURIComponent(event.headers['user-agent'])}`)
+    if('accept-language' in event.headers) params.push(`ua=${encodeURIComponent(event.headers['accept-language'])}`)
 
-    return fetch(`https:${MATOMO_PARAMS.url}?${params.join('&')}`)
+    return fetch(`https:${MATOMO_PARAMS.url}/matomo.php?${params.join('&')}`)
 }
