@@ -24,7 +24,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const {bp} = props
 
     const author = 'steam' in bp && bp.steam !== undefined
-        ? bp.steam.author.title.slice(0, 2)
+        ? (bp.steam.author.title?.slice(0, 2) ?? bp.steam.author.id)
         : '<>'
 
     const title = 'steam' in bp && bp.steam !== undefined
