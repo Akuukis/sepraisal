@@ -3,9 +3,10 @@ import * as moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Card, CardContent, CardMedia, Divider, Grid, Typography } from '@material-ui/core'
+import { Button, Card, CardContent, CardMedia, Divider, Grid, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, GridSize, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, formatDecimal, GridSize, IMyTheme, linkBp } from '../../common/'
+import Steam from '../../components/icons/Steam'
 import KeyValueBox from '../../components/KeyValueBox'
 
 
@@ -60,23 +61,19 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                                 <Divider />
                             </Grid>
                             <Grid item xs={12} sm={6}>
-                                <CardContent className={classes.cardContent}>
-                                    <Typography component='span' className={classes.inline} variant='caption'>
-                                        {`Author: `}
-                                    </Typography>
-                                    <Typography component='span' className={classes.inline} variant='body1'>
-                                        {bp.steam.author.title}
-                                    </Typography>
-                                </CardContent>
+                                <Button size='medium' disableRipple disableFocusRipple disableTouchRipple href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
+                                    <Steam />
+                                    <Typography variant='body1'>{'Subscribe'}</Typography>
+                                </Button>
                                 <Divider />
                             </Grid>
                         </Grid>
                         <CardContent className={classes.cardContent}>
                             <Grid container spacing={0}>
-                                {<KeyValueBox def={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />}
+                            {<KeyValueBox def={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />}
+                            {<KeyValueBox def={starsDef} value={starsValue} />}
                                 {<KeyValueBox def={`views`} value={formatDecimal(bp.steam.visitorCount)} />}
                                 {<KeyValueBox def={`comments`} value={formatDecimal(bp.steam.commentCount)} />}
-                                {<KeyValueBox def={starsDef} value={starsValue} />}
                             </Grid>
                         </CardContent>
                         <Divider />

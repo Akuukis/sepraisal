@@ -3,10 +3,9 @@ import { hot } from 'react-hot-loader/root'
 
 import { CardContent, Grid } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2, SE_COLORS } from '../../../common/'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from '../../../common/'
 import KeyValueBox from '../../../components/KeyValueBox'
 import { CardStatus, ICard } from '../../../models/Card'
-import { CONTEXT } from '../../../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -41,8 +40,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         <CardContent className={classes.root}>
             <Grid container spacing={0} alignItems='center'>
                 <KeyValueBox def='subscribers' value={formatDecimal(steam.subscriberCount)} />
-                <KeyValueBox def='posted' value={postedDate} />
                 <KeyValueBox def={starsDef} value={starsValue} />
+                <KeyValueBox def='posted' value={postedDate} />
                 <KeyValueBox def='author' value={steam.author.title} />
             </Grid>
         </CardContent>
