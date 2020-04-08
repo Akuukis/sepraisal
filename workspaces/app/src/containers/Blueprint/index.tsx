@@ -66,12 +66,12 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     }
 
     return (
-      <Grid container spacing={2} style={{padding: '8px'}}>
-        <AnalysisColumn
-            width={maxWidth}
-            bp={blueprint}
-        />
-      </Grid>
+        <Grid container spacing={2} justify='center' style={{padding: '8px'}}>
+            <AnalysisColumn
+                width={maxWidth}
+                bp={blueprint}
+            />
+        </Grid>
     )
 })) /* ============================================================================================================= */
 

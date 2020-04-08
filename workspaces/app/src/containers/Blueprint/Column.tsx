@@ -16,7 +16,12 @@ import RowWorkshop from './RowWorkshop'
 
 
 const styles = (theme: IMyTheme) => createStyles({
-    root: {},
+    root: {
+        maxWidth: theme.spacing(1) * 2 + 536,
+        [theme.breakpoints.up('lg')]: {
+            maxWidth: (theme.spacing(1) * 2 + 536) * 2,
+        },
+    },
 
     error: {
         backgroundColor: theme.palette.error.light,
