@@ -26,6 +26,7 @@ interface IProps {
     findKey: string,
     max: number,
     min: number,
+    operator?: string,
     step?: number,
     title: string,
     zeroes?: object
@@ -37,7 +38,9 @@ interface IQuery {
 }
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const {title, findKey, min, max, zeroes} = props
+    const {title, findKey, operator, min, max, step: stepRaw, zeroes} = props
+    const step = stepRaw ?? 1
+
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
 
@@ -46,8 +49,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         const found: IQuery = index === -1 ? {} : cardStore.find.$and[index]
 
         return [
-            found[findKey]?.$gte ?? min,
-            found[findKey]?.$lte ?? max,
+            (operator ? found[findKey]?.operator?.$gte : found[findKey]?.$gte) ?? min,
+            (operator ? found[findKey]?.operator?.$lte : found[findKey]?.$lte) ?? max,
         ]
     }
 
@@ -59,6 +62,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         query.$lte = new BigNumber(value[1]).dp(0).toNumber()
     }
     const isEnabled = Object.keys(query).length !== 0
+
+    const format = (sliderValue: number) => formatFloat(sliderValue, step >= 1)
 
     const handleChange = (event, newValue) => {
         setValue(newValue)
@@ -85,7 +90,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
             cardStore.setFind({$and: [
                 ...before,
-                {[findKey]: zeroes},
+                {[findKey]: operator ? {[operator]: zeroes} : zeroes},
                 ...after,
             ]})
 
@@ -123,13 +128,13 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
         cardStore.setFind({$and: [
             ...before,
-            {[findKey]: query},
+            {[findKey]: operator ? {[operator]: query} : query},
             ...after,
         ]})
     })
 
-    const from = query.$gte !== undefined ? `from ${formatFloat(query.$gte)}` : ''
-    const to = query.$lte !== undefined ? `to ${formatFloat(query.$lte)}` : ''
+    const from = query.$gte !== undefined ? `from ${format(query.$gte)}` : ''
+    const to = query.$lte !== undefined ? `to ${format(query.$lte)}` : ''
 
     return (
         <Grid container justify='space-between' className={classes.root}>
@@ -149,7 +154,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     className={!isEnabled ? classes.disabledSlider : undefined}
                     min={min}
                     max={max}
-                    step={1}
+                    step={step}
                     value={value}
                     onChange={handleChange}
                     onChangeCommitted={onChangeCommitted}
@@ -163,4 +168,3 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
 })) /* ============================================================================================================= */
 
-const format = (sliderValue: number) => formatFloat(sliderValue, true)
