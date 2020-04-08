@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader/root'
 import { AppBar, Avatar, Grid, IconButton, Toolbar, Typography } from '@material-ui/core'
 import IconMoreVert from '@material-ui/icons/MoreVert'
 
-import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, GridSize, IMyTheme, linkAuthor, linkBp } from '../../common/'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -24,11 +24,17 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const {bp} = props
 
     const author = 'steam' in bp && bp.steam !== undefined
-        ? (bp.steam.author.title?.slice(0, 2) ?? bp.steam.author.id)
+        ?
+            (<a href={linkAuthor(bp.steam.author.id)} target='_blank' rel='noreferrer noopener'>
+                {bp.steam.author.title?.slice(0, 2) ?? bp.steam.author.id}
+            </a>)
         : '<>'
 
     const title = 'steam' in bp && bp.steam !== undefined
-        ? bp.steam.title
+        ?
+            (<a href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
+                {bp.steam.title}
+            </a>)
         : bp.sbc.gridTitle
 
     return (
