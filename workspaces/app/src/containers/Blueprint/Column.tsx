@@ -8,6 +8,7 @@ import { StyledComponentProps } from '@material-ui/core/styles'
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import RowBlocks from './RowBlocks'
 import RowComponents from './RowComponents'
+import RowExport from './RowExport'
 import RowHeader from './RowHeader'
 import RowIngotsOres from './RowIngotsOres'
 import RowIntegrity from './RowIntegrity'
@@ -61,6 +62,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             {renderBox([RowHeader          as Row], true)}
             {'steam' in props.bp ? renderBox([RowWorkshop        as Row]) : null}
             {renderBox([RowIntegrity       as Row, RowMobility        as Row])}
+            {renderBox([RowExport          as Row])}
             {renderBox([RowBlocks          as Row])}
             {renderBox([RowComponents      as Row, RowIngotsOres      as Row])}
         </Grid>
