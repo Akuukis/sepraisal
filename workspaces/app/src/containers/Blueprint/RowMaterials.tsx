@@ -2,7 +2,7 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Card, CardContent, Divider, Grid, InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
+import { Card, CardContent, Grid, InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
@@ -14,25 +14,27 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     card: {
+        height: `${151 * 4}px`,
     },
     cardContent: {
-        padding: `${theme.spacing(2)}px`,
+        flexBasis: '0px',
+        flexGrow: 1,
+        flexShrink: 1,
+        overflow: 'hidden',
     },
-    cell: {
-        width: '268px',
+    headerContent: {
+        flex: 'none',
+        height: '40px',
+        // borderBottom: '1px solid',
+        // borderStyle: theme.palette.background.default,
     },
-    corner: {
-        backgroundColor: theme.palette.primary.light,
-    },
-    inline: {
-        display: 'inline',
-    },
-    line: {
-        fontFamily: '"Roboto Mono", Roboto',
-    },
-    tab: {
-        minWidth: theme.spacing(30),
-        padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+    headerItem: {
+        '&:first-child': {
+            alignSelf: 'stretch',
+            backgroundColor: theme.palette.primary.light,
+            padding: `${theme.spacing(2)}px`,
+        },
+        padding: `0px ${theme.spacing(2)}px`,
     },
 })
 
@@ -91,13 +93,11 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         }
 
         return (
-            <Grid item style={{flex: '1 1 0', overflow: 'hidden'}}>
-                <Table
-                    columns={Object.keys(combinedTitles)}
-                    headers={combinedTitles}
-                    data={reqs}
-                />
-            </Grid>
+            <Table
+                columns={Object.keys(combinedTitles)}
+                headers={combinedTitles}
+                data={reqs}
+            />
         )
     }
     const formatALCD2Inv = (reqs: IRequirement[]): string => {
@@ -123,7 +123,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     const wrapText = (formatter: (reqs: IRequirement[]) => string) => (ids: IRequirement[]): React.ReactNode => {
         return (
-            <CardContent className={classes.cardContent} role='tabpanel' style={{overflowY: 'scroll', height: `${151 * 3}px`}}>
+            <CardContent role='tabpanel' style={{overflowY: 'scroll', height: `${151 * 3}px`}}>
                 <Typography component='pre' variant='body2'>
                     {formatter(ids)}
                 </Typography>
@@ -168,16 +168,13 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     return (
         <Grid item xs={props.width}>
             <Card square className={classes.card}>
-                <Grid container>
-                    <Grid item xs={12} sm={6} className={classes.cell}>
-                        <Grid container spacing={0} alignItems='center'>
-                            <Grid item xs={6} className={classes.corner}>
-                                <CardContent className={classes.cardContent}>
-                                    <Typography variant='body1'>{`MATERIALS`}</Typography>
-                                </CardContent>
-                                <Divider />
+                <Grid container direction='column' alignItems='stretch' style={{height: '100%', flexWrap: 'nowrap'}}>
+                    <Grid item xs={12} className={classes.headerContent}>
+                        <Grid container spacing={0} alignItems='center' style={{height: '100%'}}>
+                            <Grid item xs={6} sm={3} className={classes.headerItem}>
+                                <Typography variant='body1'>{`MATERIALS`}</Typography>
                             </Grid>
-                            <Grid item xs={6} style={{padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`}}>
+                            <Grid item xs={6} sm={3} className={classes.headerItem}>
                                 <TextField
                                     select
                                     value={syntax}
@@ -191,11 +188,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                                     <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
                                 </TextField>
                             </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={12} sm={6} className={classes.cell}>
-                        <Grid container spacing={0} alignItems='center'>
-                            <Grid item xs={6} style={{padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`}}>
+                            <Grid item xs={6} sm={3} className={classes.headerItem}>
                                 <TextField
                                     select
                                     value={type}
@@ -207,7 +200,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                                     <MenuItem value='ore'>Ores</MenuItem>
                                 </TextField>
                             </Grid>
-                            <Grid item xs={6} style={{padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`}}>
+                            <Grid item xs={6} sm={3} className={classes.headerItem}>
                                 <TextField
                                     id='copies'
                                     type='number'
@@ -224,7 +217,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={12} className={classes.cell}>
+                    <Grid item xs={12} sm={12} className={classes.cardContent}>
                         {getContent()}
                     </Grid>
                 </Grid>
