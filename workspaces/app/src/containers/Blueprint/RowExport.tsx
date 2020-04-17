@@ -2,21 +2,10 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import {
-    AppBar,
-    Card,
-    CardContent,
-    Divider,
-    Grid,
-    InputAdornment,
-    MenuItem,
-    Tab,
-    Tabs,
-    TextField,
-    Typography,
-} from '@material-ui/core'
+import { Card, CardContent, Divider, Grid, InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
+import Table from '../../components/Table'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -27,8 +16,7 @@ const styles = (theme: IMyTheme) => createStyles({
     card: {
     },
     cardContent: {
-        paddingBottom: 8,
-        paddingTop: 8,
+        padding: `${theme.spacing(2)}px`,
     },
     cell: {
         width: '268px',
@@ -49,6 +37,8 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 type Type = 'component' | 'ingot' | 'ore'
+type Syntax = 'list' | 'aLcdInv' | 'aLcdMissing' | 'iimLCD' | 'iimCargo'
+
 interface IRequirement {
     amount: number
     blockType: string
@@ -61,12 +51,12 @@ interface IProps {
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const sbc = props.bp.sbc
-    const [tab, setTab] = React.useState(0)
+    const [syntax, setSyntax] = React.useState<Syntax>('list')
     const [copies, setCopies] = React.useState(1)
     const [type, setType] = React.useState<Type>('component')
 
-    const handleTab = (event: unknown, newValue: number) => {
-        setTab(newValue)
+    const handleSyntax = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSyntax(event.target.value as Syntax)
     }
     const handleType = (event: React.ChangeEvent<HTMLInputElement>) => {
         setType(event.target.value as Type)
@@ -84,50 +74,84 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     const getIngots = (): IRequirement[] => {
         return Object.entries(sbc.ingots)
-            .map(([blockType, amount]) => ({blockType, amount}))
+            .map(([blockType, amount]) => ({blockType, amount: amount * copies}))
             .sort((a, b) => b.amount - a.amount)
     }
 
     const getOres = (): IRequirement[] => {
         return Object.entries(sbc.ores)
-            .map(([blockType, amount]) => ({blockType, amount}))
+            .map(([blockType, amount]) => ({blockType, amount: amount * copies}))
             .sort((a, b) => b.amount - a.amount)
     }
 
-    const formatALCD2Inv = (reqs: IRequirement[]): React.ReactNode[] => {
+    const formatList = (reqs: IRequirement[]): React.ReactNode => {
+        const combinedTitles = {
+            amount: 'Amount',
+            blockType: 'Type',
+        }
+
+        return (
+            <Grid item style={{flex: '1 1 0', overflow: 'hidden'}}>
+                <Table
+                    columns={Object.keys(combinedTitles)}
+                    headers={combinedTitles}
+                    data={reqs}
+                />
+            </Grid>
+        )
+    }
+    const formatALCD2Inv = (reqs: IRequirement[]): string => {
         return reqs
             .map(({blockType, amount}) => `InvList * +${blockType}:${amount}`)
+            .join('\n')
     }
-    const formatALCD2Missing = (reqs: IRequirement[]): React.ReactNode[] => {
+    const formatALCD2Missing = (reqs: IRequirement[]): string => {
         return reqs
             .map(({blockType, amount}) => `MissingList * +${blockType}:${amount}`)
+            .join('\n')
     }
-    const formatIIMLcd = (reqs: IRequirement[]): React.ReactNode[] => {
+    const formatIIMLcd = (reqs: IRequirement[]): string => {
         return reqs
             .map(({blockType, amount}) => `${blockType} ${amount} noHeading singleLine`)
+            .join('\n')
     }
-    const formatIIMCargo = (reqs: IRequirement[]): React.ReactNode[] => {
+    const formatIIMCargo = (reqs: IRequirement[]): string => {
         return reqs
             .map(({blockType, amount}) => `${blockType}=+${amount}`)
+            .join('\n')
     }
 
-    const getText = (): React.ReactNode[] => {
-        let format: (ids: IRequirement[]) => React.ReactNode[]
-        switch(tab) {
-            case 0: {
-                format = formatALCD2Inv
+    const wrapText = (formatter: (reqs: IRequirement[]) => string) => (ids: IRequirement[]): React.ReactNode => {
+        return (
+            <CardContent className={classes.cardContent} role='tabpanel' style={{overflowY: 'scroll', height: `${151 * 3}px`}}>
+                <Typography component='pre' variant='body2'>
+                    {formatter(ids)}
+                </Typography>
+            </CardContent>
+        )
+    }
+
+    const getContent = (): React.ReactNode => {
+        let format: (ids: IRequirement[]) => React.ReactNode
+        switch(syntax) {
+            case 'list': {
+                format = formatList
                 break
             }
-            case 1: {
-                format = formatALCD2Missing
+            case 'aLcdInv': {
+                format = wrapText(formatALCD2Inv)
                 break
             }
-            case 2: {
-                format = formatIIMLcd
+            case 'aLcdMissing': {
+                format = wrapText(formatALCD2Missing)
                 break
             }
-            case 3: {
-                format = formatIIMCargo
+            case 'iimLCD': {
+                format = wrapText(formatIIMLcd)
+                break
+            }
+            case 'iimCargo': {
+                format = wrapText(formatIIMCargo)
                 break
             }
             default: throw new Error('Catch me')
@@ -147,13 +171,30 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 <Grid container>
                     <Grid item xs={12} sm={6} className={classes.cell}>
                         <Grid container spacing={0} alignItems='center'>
-                            <Grid item xs={12} sm={6} className={classes.corner}>
+                            <Grid item xs={6} className={classes.corner}>
                                 <CardContent className={classes.cardContent}>
                                     <Typography variant='body1'>{`EXPORT`}</Typography>
                                 </CardContent>
                                 <Divider />
                             </Grid>
-                            <Grid item xs={12} sm={6} style={{padding: theme.spacing(1)}}>
+                            <Grid item xs={6} style={{padding: theme.spacing(1)}}>
+                                <TextField
+                                    select
+                                    value={syntax}
+                                    onChange={handleSyntax}
+                                >
+                                    <MenuItem value='list'>List</MenuItem>
+                                    <MenuItem value='aLcdInv'>aLCD2 Inventory</MenuItem>
+                                    <MenuItem value='aLcdMissing'>aLCD2 Missing</MenuItem>
+                                    <MenuItem value='iimLCD'>IIM LCD</MenuItem>
+                                    <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
+                                </TextField>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={12} sm={6} className={classes.cell}>
+                        <Grid container spacing={0} alignItems='center'>
+                            <Grid item xs={6} style={{padding: theme.spacing(1)}}>
                                 <TextField
                                     select
                                     value={type}
@@ -164,11 +205,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                                     <MenuItem value='ore'>Ores</MenuItem>
                                 </TextField>
                             </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={12} sm={6} className={classes.cell}>
-                        <Grid container spacing={0} alignItems='center'>
-                            <Grid item xs={12} sm={6} />
                             <Grid item xs={12} sm={6}>
                                 <CardContent className={classes.cardContent}>
                                     <TextField
@@ -176,6 +212,9 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                                         type='number'
                                         value={copies}
                                         onChange={handleK}
+                                        inputProps={{
+                                            style: {padding: `${theme.spacing(0.5)}px ${theme.spacing(1)}px`},
+                                        }}
                                         InputProps={{
                                             endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
                                         }}
@@ -186,26 +225,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         </Grid>
                     </Grid>
                     <Grid item xs={12} sm={12} className={classes.cell}>
-                        <AppBar position='static' color='default'>
-                            <Tabs
-                                value={tab}
-                                onChange={handleTab}
-                                indicatorColor='primary'
-                                textColor='primary'
-                                variant='scrollable'
-                                scrollButtons='auto'
-                            >
-                                <Tab className={classes.tab} label='aLCD2 Inventory' />
-                                <Tab className={classes.tab} label='aLCD2 Missing' />
-                                <Tab className={classes.tab} label='IIM LCD' />
-                                <Tab className={classes.tab} label='IIM Cargo' />
-                            </Tabs>
-                        </AppBar>
-                        <CardContent className={classes.cardContent} role='tabpanel' style={{overflowY: 'scroll', height: `${151 * 3}px`}}>
-                            <Typography component='pre' variant='body2'>
-                                {getText().join('\n')}
-                            </Typography>
-                        </CardContent>
+                        {getContent()}
                     </Grid>
                 </Grid>
             </Card>
