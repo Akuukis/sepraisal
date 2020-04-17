@@ -173,15 +173,16 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <Grid container spacing={0} alignItems='center'>
                             <Grid item xs={6} className={classes.corner}>
                                 <CardContent className={classes.cardContent}>
-                                    <Typography variant='body1'>{`EXPORT`}</Typography>
+                                    <Typography variant='body1'>{`MATERIALS`}</Typography>
                                 </CardContent>
                                 <Divider />
                             </Grid>
-                            <Grid item xs={6} style={{padding: theme.spacing(1)}}>
+                            <Grid item xs={6} style={{padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`}}>
                                 <TextField
                                     select
                                     value={syntax}
                                     onChange={handleSyntax}
+                                    fullWidth
                                 >
                                     <MenuItem value='list'>List</MenuItem>
                                     <MenuItem value='aLcdInv'>aLCD2 Inventory</MenuItem>
@@ -194,33 +195,32 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     </Grid>
                     <Grid item xs={12} sm={6} className={classes.cell}>
                         <Grid container spacing={0} alignItems='center'>
-                            <Grid item xs={6} style={{padding: theme.spacing(1)}}>
+                            <Grid item xs={6} style={{padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`}}>
                                 <TextField
                                     select
                                     value={type}
                                     onChange={handleType}
+                                    fullWidth
                                 >
                                     <MenuItem value='component'>Compoments</MenuItem>
                                     <MenuItem value='ingot'>Ingots</MenuItem>
                                     <MenuItem value='ore'>Ores</MenuItem>
                                 </TextField>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <CardContent className={classes.cardContent}>
-                                    <TextField
-                                        id='copies'
-                                        type='number'
-                                        value={copies}
-                                        onChange={handleK}
-                                        inputProps={{
-                                            style: {padding: `${theme.spacing(0.5)}px ${theme.spacing(1)}px`},
-                                        }}
-                                        InputProps={{
-                                            endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
-                                        }}
-                                    />
-                                </CardContent>
-                                <Divider />
+                            <Grid item xs={6} style={{padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`}}>
+                                <TextField
+                                    id='copies'
+                                    type='number'
+                                    value={copies}
+                                    onChange={handleK}
+                                    fullWidth
+                                    inputProps={{
+                                        style: {textAlign: 'center'},
+                                    }}
+                                    InputProps={{
+                                        endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
+                                    }}
+                                />
                             </Grid>
                         </Grid>
                     </Grid>

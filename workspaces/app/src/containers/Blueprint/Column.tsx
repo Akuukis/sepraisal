@@ -7,9 +7,9 @@ import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import RowBlocks from './RowBlocks'
-import RowExport from './RowExport'
 import RowHeader from './RowHeader'
 import RowIntegrity from './RowIntegrity'
+import RowMaterials from './RowMaterials'
 import RowMobility from './RowMobility'
 import RowWorkshop from './RowWorkshop'
 
@@ -60,7 +60,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             {renderBox([RowHeader          as Row], true)}
             {'steam' in props.bp ? renderBox([RowWorkshop        as Row]) : null}
             {renderBox([RowIntegrity       as Row, RowMobility        as Row])}
-            {renderBox([RowExport          as Row])}
+            {renderBox([RowMaterials          as Row])}
             {renderBox([RowBlocks          as Row])}
         </Grid>
     )
