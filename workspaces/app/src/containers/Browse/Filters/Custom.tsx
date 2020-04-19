@@ -16,6 +16,7 @@ import Checkbox from './FormControls/Checkbox'
 import Slider from './FormControls/Slider'
 import SliderLog from './FormControls/SliderLog'
 import { CONTEXT } from '../../../stores'
+import { CardStore } from '../../../stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -44,11 +45,14 @@ const styles = (theme: IMyTheme) => createStyles({
     heading: {
         flexBasis: '33.33%',
         flexShrink: 0,
-        fontSize: theme.typography.pxToRem(15),
+        lineHeight: 1,
+        fontSize: theme.typography.pxToRem(16),
     },
     secondaryHeading: {
-        color: theme.palette.text.secondary,
-        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.primary.main,
+        fontWeight: 500,
+        lineHeight: 1,
+        fontSize: theme.typography.pxToRem(16),
     },
 })
 
@@ -64,9 +68,9 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     return (
         <ExpansionPanel classes={{root: classes.root, expanded: classes.expanded}} expanded={props.expanded} onChange={props.onChange}>
-            <ExpansionPanelSummary className={cardStore.selectedPreset === 'custom' ? classes.expansionPanelSummaryHighlight : undefined} expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading}>Custom</Typography>
-                <Typography className={classes.secondaryHeading}/>
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading} variant='h3'>Custom</Typography>
+                <Typography component='span' className={classes.secondaryHeading}>{getTitle(cardStore)}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content}>
                 <Typography color='textSecondary' variant='caption'>
@@ -112,3 +116,11 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         </ExpansionPanel>
     )
 })) /* ============================================================================================================= */
+
+const getTitle = (cardStore: CardStore) => {
+    if(cardStore.selectedPreset !== 'custom') return ''
+
+    const criteriaAmount = cardStore.find.$and.length - 2
+
+    return `${criteriaAmount} criteria selected`
+}

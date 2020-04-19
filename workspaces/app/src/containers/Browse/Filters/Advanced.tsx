@@ -34,7 +34,8 @@ const styles = (theme: IMyTheme) => createStyles({
     heading: {
         flexBasis: '33.33%',
         flexShrink: 0,
-        fontSize: theme.typography.pxToRem(15),
+        lineHeight: 1,
+        fontSize: theme.typography.pxToRem(16),
     },
     monospaceBox: {
         backgroundColor: '#E8E8E8',
@@ -86,8 +87,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     return (
         <ExpansionPanel classes={{root: classes.root, expanded: classes.expanded}} expanded={props.expanded} onChange={props.onChange}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading}>Advanced</Typography>
-                <Typography className={classes.secondaryHeading}/>
+                <Typography className={classes.heading} variant='h3'>Advanced</Typography>
+                <Typography component='span' className={classes.secondaryHeading} />
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content} style={{paddingBottom: '0px'}}>
                 <Button className={classes.button} variant='contained' fullWidth>

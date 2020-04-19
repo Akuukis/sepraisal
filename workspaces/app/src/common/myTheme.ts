@@ -27,7 +27,7 @@ export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
             ...red,
             main: SE_COLORS.blue,
             dark:'#12528b',  // 2 darker.
-            light: '#5c94c6',  // 3 lighter.
+            light: '#a2c2de',  // 6 lighter.
         },
         secondary: {
             ...green,
@@ -38,6 +38,9 @@ export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
     },
     spacing: 4,
     typography: {
+        h3: {
+            fontWeight: 500,
+        },
         h6: {
             fontWeight: 400,
             color: defaultTheme.palette.text.primary,

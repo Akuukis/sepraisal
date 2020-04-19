@@ -28,17 +28,17 @@ const styles = (theme: IMyTheme) => createStyles({
     expanded: {
         margin: '0 !important',
     },
-    expansionPanelSummaryHighlight: {
-        background: theme.palette.secondary.light,
-    },
     heading: {
         flexBasis: '33.33%',
         flexShrink: 0,
-        fontSize: theme.typography.pxToRem(15),
+        lineHeight: 1,
+        fontSize: theme.typography.pxToRem(16),
     },
     secondaryHeading: {
-        color: theme.palette.text.secondary,
-        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.primary.main,
+        fontWeight: 500,
+        lineHeight: 1,
+        fontSize: theme.typography.pxToRem(16),
     },
 })
 
@@ -52,8 +52,6 @@ interface IProps {
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
-
-    const presetTitle = getPresetTitle(cardStore.selectedPreset)
 
     const setFind = (event: React.MouseEvent<HTMLElement>) => {
         const id = event.currentTarget.getAttribute('value') as keyof typeof PRESET
@@ -71,16 +69,16 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 // tslint:disable-next-line: no-any
                 {...{value: id} as any}
             >
-                <ListItemText primary={getPresetTitle(id)} />
+                <ListItemText primary={getTitle(id)} />
             </ListItem>
         )
 
 
     return (
         <ExpansionPanel classes={{root: classes.root, expanded: classes.expanded}} expanded={props.expanded} onChange={props.onChange}>
-            <ExpansionPanelSummary className={cardStore.selectedPreset !== 'custom' ? classes.expansionPanelSummaryHighlight : undefined} expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading}>Presets</Typography>
-                <Typography className={classes.secondaryHeading}>{presetTitle}</Typography>
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography className={classes.heading} variant='h3'>Presets</Typography>
+                <Typography component='span' className={classes.secondaryHeading}>{getTitle(cardStore.selectedPreset)}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content}>
                 <List style={{width: '100%'}}>
@@ -91,7 +89,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     )
 })) /* ============================================================================================================= */
 
-const getPresetTitle = (id: keyof typeof PRESET | 'custom') => {
+const getTitle = (id: keyof typeof PRESET | 'custom') => {
     switch(id) {
         case 'none': return 'None'
         case 'ship': return 'Any ship, vanilla.'
