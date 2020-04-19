@@ -40,6 +40,20 @@ const styles = (theme: IMyTheme) => createStyles({
         lineHeight: 1,
         fontSize: theme.typography.pxToRem(16),
     },
+    list: {
+        width: '100%',
+    },
+    listItem: {
+        '&:hover': {
+            backgroundColor: `#e7eff6 !important`,  // 9 times lighter.
+        }
+    },
+    listItemSelected: {
+        '&:hover': {
+            backgroundColor: `${theme.palette.primary.light} !important`,
+        },
+        backgroundColor: `${theme.palette.primary.light} !important`,
+    },
 })
 
 
@@ -61,6 +75,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const renderPreset = (id: keyof typeof PRESET | 'custom') =>
         (
             <ListItem
+                classes={{root: classes.listItem, selected: classes.listItemSelected}}
                 button
                 selected={cardStore.selectedPreset === id}
                 onClick={setFind}
@@ -81,7 +96,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 <Typography component='span' className={classes.secondaryHeading}>{getTitle(cardStore.selectedPreset)}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content}>
-                <List style={{width: '100%'}}>
+                <List className={classes.list}>
                     {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
                 </List>
             </ExpansionPanelDetails>
