@@ -16,7 +16,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     column: {
-        minWidth: theme.spacing(1) * 1 + 536,
+        width: theme.spacing(1) * 1 + 536,
     },
 })
 
