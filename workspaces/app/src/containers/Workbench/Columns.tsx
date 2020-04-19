@@ -16,6 +16,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     column: {
+        minWidth: theme.spacing(1) * 1 + 536,
         width: theme.spacing(1) * 1 + 536,
     },
 })
@@ -41,7 +42,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     ))
 
     return (
-        <Grid container spacing={2} className={classes.root}>
+        <Grid container spacing={2} justify='flex-start' className={classes.root}>
             {columns}
         </Grid>
     )
