@@ -129,7 +129,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <Grid item>
                             <Button size='large' disableRipple disableFocusRipple disableTouchRipple>
                                 <Steam />
-                                <Typography variant='button'>{'Blueprint'}</Typography>
+                                <Typography variant='button'>{'Subscribe'}</Typography>
                             </Button>
                         </Grid>
                     </Grid>
