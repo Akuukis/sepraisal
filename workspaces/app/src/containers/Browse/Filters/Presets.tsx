@@ -25,6 +25,9 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
     },
+    expanded: {
+        margin: '0 !important',
+    },
     expansionPanelSummaryHighlight: {
         background: theme.palette.secondary.light,
     },
@@ -74,7 +77,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
 
     return (
-        <ExpansionPanel className={classes.root} expanded={props.expanded} onChange={props.onChange}>
+        <ExpansionPanel classes={{root: classes.root, expanded: classes.expanded}} expanded={props.expanded} onChange={props.onChange}>
             <ExpansionPanelSummary className={cardStore.selectedPreset !== 'custom' ? classes.expansionPanelSummaryHighlight : undefined} expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>Presets</Typography>
                 <Typography className={classes.secondaryHeading}>{presetTitle}</Typography>
