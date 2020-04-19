@@ -1,6 +1,6 @@
 import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
-import { hot } from 'react-hot-loader/root'
+import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
 
 import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
@@ -40,7 +40,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default cold(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const {bp} = props
 
     const {top, front, side} = bp.sbc.integrityPlanes

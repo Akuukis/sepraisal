@@ -159,7 +159,7 @@ export class CardStore {
     @observable public cardsPerPage = 12
     @observable public count: null | number = null
 
-    @observable protected _find: IFind = PRESET.fighter
+    @observable protected _find: IFind = PRESET.none
     @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
     protected disposers: IReactionDisposer[] = []
     private piwikStore: PiwikStore

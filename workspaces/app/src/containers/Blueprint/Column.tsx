@@ -7,16 +7,20 @@ import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import RowBlocks from './RowBlocks'
-import RowComponents from './RowComponents'
 import RowHeader from './RowHeader'
-import RowIngotsOres from './RowIngotsOres'
 import RowIntegrity from './RowIntegrity'
+import RowMaterials from './RowMaterials'
 import RowMobility from './RowMobility'
 import RowWorkshop from './RowWorkshop'
 
 
 const styles = (theme: IMyTheme) => createStyles({
-    root: {},
+    root: {
+        maxWidth: theme.spacing(1) * 2 + 536,
+        [theme.breakpoints.up('lg')]: {
+            maxWidth: (theme.spacing(1) * 2 + 536) * 2,
+        },
+    },
 
     error: {
         backgroundColor: theme.palette.error.light,
@@ -56,8 +60,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             {renderBox([RowHeader          as Row], true)}
             {'steam' in props.bp ? renderBox([RowWorkshop        as Row]) : null}
             {renderBox([RowIntegrity       as Row, RowMobility        as Row])}
+            {renderBox([RowMaterials          as Row])}
             {renderBox([RowBlocks          as Row])}
-            {renderBox([RowComponents      as Row, RowIngotsOres      as Row])}
         </Grid>
     )
 })) /* ============================================================================================================= */

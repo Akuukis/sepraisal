@@ -117,7 +117,7 @@ export class PiwikStore {
                 // api shim. used for serverside rendering and misconfigured tracker instances
                 this._isShim = true
                 // this.track = noop
-                this.push = (arg: unknown[]) => console.debug(`PIWIK.push():`, arg)
+                this.push = (arg) => console.debug(`PIWIK.push():`, arg)
                 this.setUserId = noop
                 this.trackError = noop
 

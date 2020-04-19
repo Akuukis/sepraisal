@@ -67,27 +67,30 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 </FormGroup>
                 <FormGroup>
                     <FormLabel component='legend' style={{textAlign: 'right'}}>by Steam Workshop</FormLabel>
-                    <Slider    title='Steam stars'             findKey='steam.ratingStars'            min={0} max={5} zeroes={{$exists: false}} />
-                    <SliderLog title='Steam subscribers'       findKey='steam.subscriberCount'        min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
-                    <SliderLog title='File size'               findKey='steam.sizeMB'                 min={0} max={Math.pow(10, 3)} zeroes={{$exists: false}} />
+                    <Slider    title='Steam stars'             findKey='steam.ratingStars'            min={0} max={5} />
+                    <SliderLog title='Steam subscribers'       findKey='steam.subscriberCount'        min={0} max={Math.pow(10, 5)} />
+                    <Slider    title='File size (MB)'          findKey='steam.sizeMB'                 min={0} max={Math.pow(10, 2)} step={0.1} />
                 </FormGroup>
                 <FormGroup>
                     <FormLabel component='legend' style={{textAlign: 'right'}}>by Size</FormLabel>
-                    <Checkbox  title='Large Grid'              findKey='sbc.gridSize'                 yes={{$eq: 'Large'}}        no={{$eq: 'Small'}} />
-                    <SliderLog title='PCU'                     findKey='sbc.blockPCU'                 min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
-                    <SliderLog title='Block count'             findKey='sbc.blockCount'               min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
-                    <SliderLog title='Mass'                    findKey='sbc.blockMass'                min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-                    <SliderLog title='Spent ore volume'        findKey='sbc.oreVolume'                min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <Checkbox  title='Large Grid'                  findKey='sbc.gridSize'                 yes={{$eq: 'Large'}}        no={{$eq: 'Small'}} />
+                    <SliderLog title='PCU'                         findKey='sbc.blockPCU'                 min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
+                    <SliderLog title='Block count'                 findKey='sbc.blockCount'               min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
+                    <SliderLog title='Mass (kg)'                   findKey='sbc.blockMass'                min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <SliderLog title={'Spent total ore (m\u00B3)'} findKey='sbc.oreVolume'                min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <Slider    title='Length (m)' operator='$size' findKey='sbc.integrityPlanes.front'    min={0} max={100} step={0.5} />
+                    <Slider    title='Width (m)'  operator='$size' findKey='sbc.integrityPlanes.top'      min={0} max={100} step={0.5} />
+                    <Slider    title='Height (m)' operator='$size' findKey='sbc.integrityPlanes.side'     min={0} max={100} step={0.5} />
                 </FormGroup>
                 <FormGroup>
                     <FormLabel component='legend' style={{textAlign: 'right'}}>by Cost</FormLabel>
-                    <SliderLog title='Iron Ore'              findKey='sbc.ores.Iron'                 min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-                    <SliderLog title='Nickel Ore'            findKey='sbc.ores.Nickel'               min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-                    <SliderLog title='Silicon Ore'           findKey='sbc.ores.Silicon'              min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-                    <SliderLog title='Cobalt Ore'            findKey='sbc.ores.Cobalt'               min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-                    <SliderLog title='Silver Ore'            findKey='sbc.ores.Silver'               min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-                    <SliderLog title='Gold Ore'              findKey='sbc.ores.Gold'                 min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-                    <SliderLog title='Platinum Ore'          findKey='sbc.ores.Iron'                 min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <SliderLog title={'Iron Ore (m\u00B3)'}              findKey='sbc.ores.Iron'                 min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <SliderLog title={'Nickel Ore (m\u00B3)'}            findKey='sbc.ores.Nickel'               min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <SliderLog title={'Silicon Ore (m\u00B3)'}           findKey='sbc.ores.Silicon'              min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <SliderLog title={'Cobalt Ore (m\u00B3)'}            findKey='sbc.ores.Cobalt'               min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <SliderLog title={'Silver Ore (m\u00B3)'}            findKey='sbc.ores.Silver'               min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <SliderLog title={'Gold Ore (m\u00B3)'}              findKey='sbc.ores.Gold'                 min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+                    <SliderLog title={'Platinum Ore (m\u00B3)'}          findKey='sbc.ores.Iron'                 min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
                 </FormGroup>
             </ExpansionPanelDetails>
         </ExpansionPanel>

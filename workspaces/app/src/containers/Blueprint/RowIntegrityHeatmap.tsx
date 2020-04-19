@@ -1,6 +1,6 @@
 import { noop } from '@sepraisal/common'
 import * as React from 'react'
-import { hot } from 'react-hot-loader/root'
+import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
 
 import { Card, Grid } from '@material-ui/core'
@@ -31,7 +31,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default cold(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     // const [svg, setSvg] = React.useState(<svg />)
 
     // useAsyncEffectOnce(async () => {

@@ -127,3 +127,6 @@ export type ASYNC_STATE =
     | typeof ASYNC_STATE['Error']
 
 export const DUD_URL = 'javascript:;'
+
+export const linkBp = (id: number) => `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`
+export const linkAuthor = (id: string | number) => `https://steamcommunity.com/id/${id}/myworkshopfiles/?appid=24485`
