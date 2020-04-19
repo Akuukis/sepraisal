@@ -31,7 +31,7 @@ const styles = (theme: IMyTheme) => createStyles({
     headerItem: {
         '&:first-child': {
             alignSelf: 'stretch',
-            backgroundColor: theme.palette.primary.light,
+            backgroundColor: theme.palette.secondary.main,
             padding: `${theme.spacing(2)}px`,
         },
         padding: `0px ${theme.spacing(2)}px`,
