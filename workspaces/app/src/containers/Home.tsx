@@ -80,7 +80,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             <Typography variant='button'>{'Browse'}</Typography>
                         </Button>
                         <Typography paragraph>
-                            Browse all Steam workshop blueprints!
+                            Browse all Steam workshop blueprints.
                         </Typography>
                         <Typography component='div' paragraph>
                             <ul>
@@ -105,7 +105,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             <Typography variant='button'>{'Analyse Random'}</Typography>
                         </Button>
                         <Typography paragraph>
-                            Get in-depth analysis of the blueprint!
+                            Get in-depth analysis of the blueprint.
                         </Typography>
                         <Typography component='div' paragraph>
                             <ul>
@@ -130,7 +130,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             <Typography variant='button'>{'Compare'}</Typography>
                         </Button>
                         <Typography paragraph>
-                            Compare blueprints side-to-side!
+                            Compare blueprints side-to-side.
                         </Typography>
                         <Typography component='div' paragraph>
                             <ul>
