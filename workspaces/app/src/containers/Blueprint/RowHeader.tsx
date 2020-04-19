@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { AppBar, Avatar, Grid, IconButton, Toolbar, Typography } from '@material-ui/core'
 import IconMoreVert from '@material-ui/icons/MoreVert'
+import IconClose from '@material-ui/icons/Close'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme, linkAuthor, linkBp } from '../../common/'
 
@@ -11,6 +12,14 @@ import { createSmartFC, createStyles, GridSize, IMyTheme, linkAuthor, linkBp } f
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
+    header: {
+        '&:visited': {
+            color: theme.palette.secondary.main,
+        },
+        '&:link': {
+            color: 'white',
+        },
+    }
 })
 
 
@@ -32,27 +41,26 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     const title = 'steam' in bp && bp.steam !== undefined
         ?
-            (<a href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
+            (<a href={linkBp(bp.steam.id)} className={classes.header} target='_blank' rel='noreferrer noopener'>
                 {bp.steam.title}
             </a>)
         : bp.sbc.gridTitle
-
     return (
         <Grid item xs={props.width} className={classes.root}>
-            <AppBar position='static' color='secondary'>
+            <AppBar position='static'>
                 <Toolbar>
                     <Avatar style={{marginRight: '0.5em'}}>
                         {author}
                     </Avatar>
                     {/* <IconButton color='contrast' aria-label='Menu'>
-                    <IconMenu />
+                        <IconMoreVert />
                     </IconButton> */}
                     <Typography variant='h6' color='inherit' style={{flex: 1}}>
                         {title}
                     </Typography>
-                    <IconButton color='secondary' aria-label='remove'>
-                        <IconMoreVert />
-                    </IconButton>
+                    {/* <IconButton color='inherit' aria-label='remove'>
+                        <IconClose />
+                    </IconButton> TODO: Add Close for Compare view. */}
                 </Toolbar>
             </AppBar>
         </Grid>
