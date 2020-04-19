@@ -18,6 +18,8 @@ export const SE_COLORS = {
 export interface IMyTheme extends Theme {
 }
 
+const defaultTheme = createMuiTheme()
+
 // www.color-hex.com/color
 export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
     palette: {
@@ -36,5 +38,9 @@ export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
     },
     spacing: 4,
     typography: {
+        h6: {
+            fontWeight: 400,
+            color: defaultTheme.palette.text.primary,
+        }
     },
 })

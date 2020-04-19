@@ -21,6 +21,14 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
+    title: {
+        // '&:first-child': {
+        //     marginTop: theme.spacing(0),
+        // },
+        ...theme.typography.h6,
+        marginTop: theme.spacing(8),
+        textAlign: 'center',
+    },
     content: {
         flexDirection: 'column',
         paddingLeft: theme.spacing(2),
@@ -53,11 +61,11 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 <Typography className={classes.secondaryHeading}/>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content}>
+                <Typography color='textSecondary' variant='caption'>
+                    [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
+                </Typography>
                 <FormGroup>
-                    <FormLabel component='legend' style={{textAlign: 'right'}}>by Basics</FormLabel>
-                    <Typography color='textSecondary' variant='caption'>
-                        [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
-                    </Typography>
+                    <FormLabel className={classes.title} component='legend'>by Basics</FormLabel>
                     <Checkbox  title='Vanilla'                 findKey='sbc.vanilla'                   yes                   no={false} />
                     <Checkbox  title='Printable (no subgrids)' findKey='sbc.gridCount'                 yes={{$eq: 1}}        no={{$ne: 1}} />
                     <Checkbox  title='Static Grid'             findKey='sbc.gridStatic'                yes                   no={false} />
@@ -66,13 +74,13 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Checkbox  title='Hydrogen thrusters'      findKey='sbc.thrustHydrogen.Forward'    yes={{$exists: true}} no={{$exists: false}} />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel component='legend' style={{textAlign: 'right'}}>by Steam Workshop</FormLabel>
+                    <FormLabel className={classes.title} component='legend'>by Steam Workshop</FormLabel>
                     <Slider    title='Steam stars'             findKey='steam.ratingStars'            min={0} max={5} />
                     <SliderLog title='Steam subscribers'       findKey='steam.subscriberCount'        min={0} max={Math.pow(10, 5)} />
                     <Slider    title='File size (MB)'          findKey='steam.sizeMB'                 min={0} max={Math.pow(10, 2)} step={0.1} />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel component='legend' style={{textAlign: 'right'}}>by Size</FormLabel>
+                    <FormLabel className={classes.title} component='legend'>by Size</FormLabel>
                     <Checkbox  title='Large Grid'                  findKey='sbc.gridSize'                 yes={{$eq: 'Large'}}        no={{$eq: 'Small'}} />
                     <SliderLog title='PCU'                         findKey='sbc.blockPCU'                 min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
                     <SliderLog title='Block count'                 findKey='sbc.blockCount'               min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
@@ -83,7 +91,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Slider    title='Height (m)' operator='$size' findKey='sbc.integrityPlanes.side'     min={0} max={100} step={0.5} />
                 </FormGroup>
                 <FormGroup>
-                    <FormLabel component='legend' style={{textAlign: 'right'}}>by Cost</FormLabel>
+                    <FormLabel className={classes.title} component='legend'>by Cost</FormLabel>
                     <SliderLog title={'Iron Ore (m\u00B3)'}              findKey='sbc.ores.Iron'                 min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
                     <SliderLog title={'Nickel Ore (m\u00B3)'}            findKey='sbc.ores.Nickel'               min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
                     <SliderLog title={'Silicon Ore (m\u00B3)'}           findKey='sbc.ores.Silicon'              min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
