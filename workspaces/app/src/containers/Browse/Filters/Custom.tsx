@@ -15,6 +15,7 @@ import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import Checkbox from './FormControls/Checkbox'
 import Slider from './FormControls/Slider'
 import SliderLog from './FormControls/SliderLog'
+import { CONTEXT } from '../../../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -34,6 +35,9 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
     },
+    expansionPanelSummaryHighlight: {
+        background: theme.palette.secondary.light,
+    },
     heading: {
         flexBasis: '33.33%',
         flexShrink: 0,
@@ -52,11 +56,12 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) =>
+export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+    const cardStore = React.useContext(CONTEXT.CARDS)
 
-    (
+    return (
         <ExpansionPanel className={classes.root} expanded={props.expanded} onChange={props.onChange}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <ExpansionPanelSummary className={cardStore.selectedPreset === 'custom' ? classes.expansionPanelSummaryHighlight : undefined} expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>Custom</Typography>
                 <Typography className={classes.secondaryHeading}/>
             </ExpansionPanelSummary>
@@ -102,4 +107,5 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 </FormGroup>
             </ExpansionPanelDetails>
         </ExpansionPanel>
-    ))) /* ============================================================================================================= */
+    )
+})) /* ============================================================================================================= */

@@ -25,6 +25,9 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
     },
+    expansionPanelSummaryHighlight: {
+        background: theme.palette.secondary.light,
+    },
     heading: {
         flexBasis: '33.33%',
         flexShrink: 0,
@@ -47,14 +50,7 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
 
-    const getPresetTitle = (id: keyof typeof PRESET | 'custom') => {
-        switch(id) {
-            case 'none': return 'None'
-            case 'ship': return 'Any ship, vanilla.'
-            case 'fighter': return 'Fighter, vanilla.'
-            default: return 'Custom filter, see below.'
-        }
-    }
+    const presetTitle = getPresetTitle(cardStore.selectedPreset)
 
     const setFind = (event: React.MouseEvent<HTMLElement>) => {
         const id = event.currentTarget.getAttribute('value') as keyof typeof PRESET
@@ -76,11 +72,12 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             </ListItem>
         )
 
+
     return (
         <ExpansionPanel className={classes.root} expanded={props.expanded} onChange={props.onChange}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <ExpansionPanelSummary className={cardStore.selectedPreset !== 'custom' ? classes.expansionPanelSummaryHighlight : undefined} expandIcon={<ExpandMoreIcon />}>
                 <Typography className={classes.heading}>Presets</Typography>
-                <Typography className={classes.secondaryHeading}>{getPresetTitle(cardStore.selectedPreset)}</Typography>
+                <Typography className={classes.secondaryHeading}>{presetTitle}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className={classes.content}>
                 <List style={{width: '100%'}}>
@@ -90,3 +87,12 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         </ExpansionPanel>
     )
 })) /* ============================================================================================================= */
+
+const getPresetTitle = (id: keyof typeof PRESET | 'custom') => {
+    switch(id) {
+        case 'none': return 'None'
+        case 'ship': return 'Any ship, vanilla.'
+        case 'fighter': return 'Fighter, vanilla.'
+        default: return ''
+    }
+}
