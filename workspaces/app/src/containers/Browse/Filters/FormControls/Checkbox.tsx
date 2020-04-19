@@ -11,6 +11,12 @@ import { CONTEXT } from '../../../../stores'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
+    checkboxRoot: {
+        color: theme.palette.primary.main,
+    },
+    checkboxIndeterminate: {
+        color: theme.palette.text.secondary,
+    },
 })
 
 
@@ -69,7 +75,11 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         <FormControlLabel
             control={
                 <Checkbox
-                    color='primary'
+                    classes={{
+                        root: classes.checkboxRoot,
+                        indeterminate: classes.checkboxIndeterminate,
+                    }}
+                    color='primary'  // Applies when checked.
                     checked={checked === true}
                     onChange={toggleChecked}
                     value={findKey}
