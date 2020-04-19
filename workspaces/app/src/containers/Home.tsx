@@ -29,6 +29,10 @@ const styles = (theme: IMyTheme) => createStyles({
     content: {
         padding: '0.5em',
     },
+    button: {
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(8),
+    }
 })
 
 
@@ -66,6 +70,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Paper className={classes.content}>
                         <Typography variant='h4' gutterBottom>1. Browse</Typography>
                         <Button
+                            className={classes.button}
                             color='primary'
                             variant='contained'
                             onClick={() => routerStore.goView(ROUTES.BROWSE)}
@@ -78,7 +83,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             Browse all Steam workshop blueprints!
                         </Typography>
                         <Typography component='div' paragraph>
-                            Features:
                             <ul>
                                 <li><strong>Filters</strong>: vanilla-ness, blocks, PCU, required ores, etc.</li>
                                 <li><strong>Text search</strong>: narrow down by title, author, etc.</li>
@@ -91,18 +95,19 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Paper className={classes.content}>
                         <Typography variant='h4' gutterBottom>2. Analyse</Typography>
                         <Button
-                            variant='contained'
+                            className={classes.button}
+                            color='primary'
+                            variant='outlined'
                             onClick={getRandom}
                             fullWidth
                         >
                             <IconSearch />
-                            <Typography variant='button'>{'Random Blueprint'}</Typography>
+                            <Typography variant='button'>{'Analyse Random'}</Typography>
                         </Button>
                         <Typography paragraph>
                             Get in-depth analysis of the blueprint!
                         </Typography>
                         <Typography component='div' paragraph>
-                            Features:
                             <ul>
                                 <li><strong>2D x-ray</strong>: Bad picture? View it in three projections.</li>
                                 <li><strong>Costs</strong>: list all required components, ingots and ores.</li>
@@ -115,20 +120,21 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Paper className={classes.content}>
                         <Typography variant='h4' gutterBottom>3. Compare</Typography>
                         <Button
-                            variant='contained'
+                            className={classes.button}
+                            color='primary'
+                            variant='outlined'
                             onClick={() => routerStore.goView(ROUTES.WORKBENCH)}
                             fullWidth
                         >
                             <IconBuild />
-                            <Typography variant='button'>{'Compare view'}</Typography>
+                            <Typography variant='button'>{'Compare'}</Typography>
                         </Button>
                         <Typography paragraph>
                             Compare blueprints side-to-side!
                         </Typography>
                         <Typography component='div' paragraph>
-                            Features:
                             <ul>
-                                <li><strong>Offline blueprints</strong>: Add your offline blueprint to comparison.</li>
+                                <li><strong>Offline blueprints</strong>: Upload your own blueprint.</li>
                                 <li><strong>Recent</strong>: Easy access to recently viewed blueprints.</li>
                                 <li><strong>Unlimited</strong>: Compare as many blueprints as you can.</li>
                             </ul>
