@@ -69,11 +69,27 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     ))}
                 </List>
             </MyExpansionPanel>
+            <MyExpansionPanel title='Favorites' subtitle={`${blueprintStore.favorites.size} blueprints`} defaultExpanded>
+                <List dense className={classes.list}>
+                    <ListItem key='0'>
+                        <Typography color='textSecondary' variant='body2' align='center'>
+                            Favorite blueprints and they will show up here.
+                        </Typography>
+                    </ListItem>
+                    {[...blueprintStore.favorites].map<JSX.Element>(([key, blueprint]) => (
+                            <SelectorRow
+                                key={key}
+                                id={key}
+                                title={`${blueprint.steam.title}, v${blueprint.steam.revision}`}
+                            />
+                        ))}
+                </List>
+            </MyExpansionPanel>
             <MyExpansionPanel title='Recent' subtitle={`${blueprintStore.recent.size} blueprints`} defaultExpanded>
                 <List dense className={classes.list}>
                     <ListItem key='0'>
                         <Typography color='textSecondary' variant='body2' align='center'>
-                            Browse and blueprints will show up here.
+                            Recently viewed blueprints will show up here.
                         </Typography>
                     </ListItem>
                     {[...blueprintStore.recent].map<JSX.Element>(([key, blueprint]) => (
