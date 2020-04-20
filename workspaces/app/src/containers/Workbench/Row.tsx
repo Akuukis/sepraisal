@@ -7,6 +7,7 @@ import IconDeleteForever from '@material-ui/icons/DeleteForever'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { CONTEXT } from '../../stores'
+import Favorite from '../../components/Favorite'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {},
@@ -79,6 +80,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 primary={title}
             />
             <ListItemSecondaryAction>
+                <Favorite id={typeof id === 'number' ? id : undefined} />
                 <IconButton size='small' onClick={handleDelete} ><IconDeleteForever /></IconButton>
             </ListItemSecondaryAction>
         </ListItem>

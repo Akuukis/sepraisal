@@ -4,9 +4,10 @@ import { hot } from 'react-hot-loader/root'
 
 import { AppBar, Avatar, Grid, IconButton, Toolbar, Typography } from '@material-ui/core'
 import IconMoreVert from '@material-ui/icons/MoreVert'
-import IconClose from '@material-ui/icons/Close'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme, linkAuthor, linkBp } from '../../common/'
+import { CONTEXT } from '../../stores'
+import Favorite from '../../components/Favorite'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -58,6 +59,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Typography variant='h6' color='inherit' style={{flex: 1}}>
                         {title}
                     </Typography>
+                    <Favorite id={bp._id} />
                     {/* <IconButton color='inherit' aria-label='remove'>
                         <IconClose />
                     </IconButton> TODO: Add Close for Compare view. */}
@@ -85,6 +87,7 @@ type ProjectionCardSbc =
     | 'gridTitle'
 
 interface IBpProjectionRow {
+    _id?: number
     sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]}
     steam?: {[key in keyof Pick<IBlueprint.ISteam, ProjectionCardSteam>]: IBlueprint.ISteam[key]}
 }
