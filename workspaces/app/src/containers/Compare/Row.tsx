@@ -1,11 +1,11 @@
-import { IObservableArray, runInAction } from 'mobx'
+import { runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { IconButton, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
 import IconDeleteForever from '@material-ui/icons/DeleteForever'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
 import FavoriteButton from '../../components/FavoriteButton'
 

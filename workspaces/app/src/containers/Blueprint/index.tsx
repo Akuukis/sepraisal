@@ -6,7 +6,7 @@ import { Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
 import { CONTEXT } from '../../stores'
-import AnalysisColumn from './Column'
+import Analysis from '../../components/Analysis'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -63,7 +63,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     return (
         <Grid container spacing={2} justify='center' style={{padding: '8px'}}>
-            <AnalysisColumn
+            <Analysis
                 width={maxWidth}
                 bp={blueprint}
             />
