@@ -18,20 +18,26 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingBottom: theme.spacing(1),
         paddingTop: theme.spacing(1),
     },
+
+    padded: {
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1),
+    }
 })
 
 
 export interface IProps extends GridProps {
+    padded?: boolean
     wide?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {className, wide, ...otherProps} = props
+    const {className, padded, wide, ...otherProps} = props
 
     return (
         <Grid
-            className={classnames(classes.root, className)}
+            className={classnames(classes.root, padded && classes.padded, className)}
 
             item
             {...(wide ? {xs: 12, sm: 6} : {xs: 6, sm: 3})}

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 import classnames from 'classnames'
 
-import { Grid, GridProps, Paper } from '@material-ui/core'
+import { Grid, GridProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../common'
 

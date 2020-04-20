@@ -2,10 +2,10 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 import classnames from 'classnames'
 
-import { Grid, Typography, GridProps } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import CenterCell from './CenterCell'
+import CenterCell, {IProps as ICenterCellProps} from './CenterCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -20,7 +20,7 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps extends GridProps {
+interface IProps extends ICenterCellProps {
     title: string
 }
 

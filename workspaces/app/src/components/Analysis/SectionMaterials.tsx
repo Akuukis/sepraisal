@@ -6,36 +6,36 @@ import { Card, CardContent, Grid, InputAdornment, MenuItem, TextField, Typograph
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
+import CenterCell from '../Cell/CenterCell'
+import MySection from '../MySection'
+import MyBox from '../MyBox'
+import MyRow from '../MyRow'
+import HeaderCell from '../Cell/HeaderCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
     },
 
-    card: {
-        height: `${151 * 4}px`,
+    content: {
+        height: `calc(${151 * 3 - 50}px - ${theme.spacing(4)}px)`,
+        overflowX: 'hidden',
+        overflowY: 'hidden',
     },
-    cardContent: {
-        flexBasis: '0px',
-        flexGrow: 1,
-        flexShrink: 1,
-        overflow: 'hidden',
+
+    contentText: {
+        paddingBottom: theme.spacing(2),
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
+        paddingTop: theme.spacing(2),
+        width: '100%',
+        overflowY: 'scroll',
     },
-    headerContent: {
-        flex: 'none',
-        height: '40px',
-        // borderBottom: '1px solid',
-        // borderStyle: theme.palette.background.default,
+
+    contentTable: {
+        width: '100%',
     },
-    headerItem: {
-        '&:first-child': {
-            alignSelf: 'stretch',
-            backgroundColor: theme.palette.secondary.main,
-            padding: `${theme.spacing(2)}px`,
-        },
-        padding: `0px ${theme.spacing(2)}px`,
-    },
+
 })
 
 type Type = 'component' | 'ingot' | 'ore'
@@ -94,6 +94,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         return (
             <Table
+                className={classes.contentTable}
                 columns={Object.keys(combinedTitles)}
                 headers={combinedTitles}
                 data={reqs}
@@ -123,11 +124,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const wrapText = (formatter: (reqs: IRequirement[]) => string) => (ids: IRequirement[]): React.ReactNode => {
         return (
-            <CardContent role='tabpanel' style={{overflowY: 'scroll', height: `${151 * 3}px`}}>
-                <Typography component='pre' variant='body2'>
-                    {formatter(ids)}
-                </Typography>
-            </CardContent>
+            <Typography className={classes.contentText} component='pre' variant='body2'>
+                {formatter(ids)}
+            </Typography>
         )
     }
 
@@ -166,63 +165,61 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <Grid item xs={props.width}>
-            <Card square className={classes.card}>
-                <Grid container direction='column' alignItems='stretch' style={{height: '100%', flexWrap: 'nowrap'}}>
-                    <Grid item xs={12} className={classes.headerContent}>
-                        <Grid container spacing={0} alignItems='center' style={{height: '100%'}}>
-                            <Grid item xs={6} sm={3} className={classes.headerItem}>
-                                <Typography variant='body1'>{`MATERIALS`}</Typography>
-                            </Grid>
-                            <Grid item xs={6} sm={3} className={classes.headerItem}>
-                                <TextField
-                                    select
-                                    value={syntax}
-                                    onChange={handleSyntax}
-                                    fullWidth
-                                >
-                                    <MenuItem value='list'>List</MenuItem>
-                                    <MenuItem value='aLcdInv'>aLCD2 Inventory</MenuItem>
-                                    <MenuItem value='aLcdMissing'>aLCD2 Missing</MenuItem>
-                                    <MenuItem value='iimLCD'>IIM LCD</MenuItem>
-                                    <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
-                                </TextField>
-                            </Grid>
-                            <Grid item xs={6} sm={3} className={classes.headerItem}>
-                                <TextField
-                                    select
-                                    value={type}
-                                    onChange={handleType}
-                                    fullWidth
-                                >
-                                    <MenuItem value='component'>Compoments</MenuItem>
-                                    <MenuItem value='ingot'>Ingots</MenuItem>
-                                    <MenuItem value='ore'>Ores</MenuItem>
-                                </TextField>
-                            </Grid>
-                            <Grid item xs={6} sm={3} className={classes.headerItem}>
-                                <TextField
-                                    id='copies'
-                                    type='number'
-                                    value={copies}
-                                    onChange={handleK}
-                                    fullWidth
-                                    inputProps={{
-                                        style: {textAlign: 'center'},
-                                    }}
-                                    InputProps={{
-                                        endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
-                                    }}
-                                />
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={12} sm={12} className={classes.cardContent}>
-                        {getContent()}
-                    </Grid>
-                </Grid>
-            </Card>
-        </Grid>
+        <MySection className={classes.root}>
+            <MyBox>
+                <MyRow>
+                    <HeaderCell wide title='MATERIALS' />
+                    <CenterCell wide padded>
+                        <TextField
+                            select
+                            value={syntax}
+                            onChange={handleSyntax}
+                            fullWidth
+                        >
+                            <MenuItem value='list'>List</MenuItem>
+                            <MenuItem value='aLcdInv'>aLCD2 Inventory</MenuItem>
+                            <MenuItem value='aLcdMissing'>aLCD2 Missing</MenuItem>
+                            <MenuItem value='iimLCD'>IIM LCD</MenuItem>
+                            <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
+                        </TextField>
+                    </CenterCell>
+                </MyRow>
+            </MyBox>
+            <MyBox>
+                <MyRow>
+                    <CenterCell wide padded>
+                        <TextField
+                            select
+                            value={type}
+                            onChange={handleType}
+                            fullWidth
+                        >
+                            <MenuItem value='component'>Compoments</MenuItem>
+                            <MenuItem value='ingot'>Ingots</MenuItem>
+                            <MenuItem value='ore'>Ores</MenuItem>
+                        </TextField>
+                    </CenterCell>
+                    <CenterCell wide padded>
+                        <TextField
+                            id='copies'
+                            type='number'
+                            value={copies}
+                            onChange={handleK}
+                            fullWidth
+                            inputProps={{
+                                style: {textAlign: 'center'},
+                            }}
+                            InputProps={{
+                                endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
+                            }}
+                        />
+                    </CenterCell>
+                </MyRow>
+            </MyBox>
+            <MyBox wide className={classes.content}>
+                {getContent()}
+            </MyBox>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 
