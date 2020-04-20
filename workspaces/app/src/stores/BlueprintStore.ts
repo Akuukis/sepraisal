@@ -66,7 +66,7 @@ export class BlueprintStore {
     }
 
     @action public deleteFavorite(id: number) {
-        this.recent.delete(id)
+        this.favorites.delete(id)
         localStorage.removeItem(`favorite/${id}`)
     }
 
