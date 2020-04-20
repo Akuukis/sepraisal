@@ -2,7 +2,7 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Card, CardContent, Grid, InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
+import { InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
