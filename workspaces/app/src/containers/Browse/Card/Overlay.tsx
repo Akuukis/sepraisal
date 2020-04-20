@@ -8,7 +8,7 @@ import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../commo
 import { CardStatus, ICard } from '../../../models/Card'
 import { CONTEXT } from '../../../stores'
 import OverlayItem from './OverlayItem'
-import Favorite from '../../../components/Favorite'
+import FavoriteButton from '../../../components/FavoriteButton'
 import Steam from '../../../components/icons/Steam'
 
 
@@ -115,7 +115,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             </OverlayItem>
             <Grid container className={classes.subgroup} direction='column'>
                 <OverlayItem isHover={hover} classes={{containerOnHover: classes.itemFavorite}}>
-                    <Favorite id={bp.id} />
+                    <FavoriteButton id={bp.id} />
                 </OverlayItem>
                 <OverlayItem isHover={hover} classes={{containerOnHover: classes.itemCompare}}>
                     <IconSearch />

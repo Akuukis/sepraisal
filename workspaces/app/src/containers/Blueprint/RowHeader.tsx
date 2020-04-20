@@ -7,7 +7,7 @@ import IconMoreVert from '@material-ui/icons/MoreVert'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme, linkAuthor, linkBp } from '../../common/'
 import { CONTEXT } from '../../stores'
-import Favorite from '../../components/Favorite'
+import FavoriteButton from '../../components/FavoriteButton'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -59,7 +59,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Typography variant='h6' color='inherit' style={{flex: 1}}>
                         {title}
                     </Typography>
-                    <Favorite id={bp._id} />
+                    <FavoriteButton id={bp._id} />
                     {/* <IconButton color='inherit' aria-label='remove'>
                         <IconClose />
                     </IconButton> TODO: Add Close for Compare view. */}
