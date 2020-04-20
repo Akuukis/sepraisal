@@ -3,13 +3,12 @@ import * as moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
+import HeaderCell from '../Cell/HeaderCell'
+import MyBox from '../MyBox'
 import MyRow from '../MyRow'
 import MySection from '../MySection'
-import MyBox from '../MyBox'
-import HeaderCell from '../Cell/HeaderCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({

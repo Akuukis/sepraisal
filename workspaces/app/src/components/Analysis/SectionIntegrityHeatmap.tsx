@@ -3,8 +3,6 @@ import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
 
-import { Card, Grid } from '@material-ui/core'
-
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import { vegaSpecHeatmap } from '../../common/vega'
 import MyBox from '../MyBox'

@@ -2,15 +2,11 @@ import { autorun, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import {
-    Button,
-    TextField,
-    Grid,
-} from '@material-ui/core'
+import { Button, Grid, TextField } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
-import { CONTEXT } from '../../../stores'
 import MyExpansionPanel from '../../../components/MyExpansionPanel'
+import { CONTEXT } from '../../../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({

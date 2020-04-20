@@ -1,11 +1,11 @@
+import classnames from 'classnames'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
-import classnames from 'classnames'
 
 import { Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import CenterCell, {IProps as ICenterCellProps} from './CenterCell'
+import CenterCell, { IProps as ICenterCellProps } from './CenterCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({

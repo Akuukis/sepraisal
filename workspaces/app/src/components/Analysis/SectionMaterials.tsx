@@ -7,10 +7,10 @@ import { InputAdornment, MenuItem, TextField, Typography } from '@material-ui/co
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import CenterCell from '../Cell/CenterCell'
-import MySection from '../MySection'
+import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyRow from '../MyRow'
-import HeaderCell from '../Cell/HeaderCell'
+import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({

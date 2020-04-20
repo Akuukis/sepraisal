@@ -5,8 +5,6 @@ import { IconButton, Typography } from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
-import { CONTEXT } from '../../../stores'
-import { PRESET } from '../../../stores/CardStore'
 import Advanced from './Advanced'
 import Custom from './Custom'
 import Presets from './Presets'

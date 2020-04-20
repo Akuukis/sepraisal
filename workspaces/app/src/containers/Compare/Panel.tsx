@@ -1,20 +1,13 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import {
-    Divider,
-    IconButton,
-    Link,
-    List,
-    ListItem,
-    Typography,
-} from '@material-ui/core'
+import { Divider, IconButton, Link, List, ListItem, Typography } from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
 
 import { createSmartFC, createStyles, DUD_URL as NOOP_URL, IMyTheme } from '../../common'
+import MyExpansionPanel from '../../components/MyExpansionPanel'
 import { CONTEXT } from '../../stores'
 import SelectorRow from './Row'
-import MyExpansionPanel from '../../components/MyExpansionPanel'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {

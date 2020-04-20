@@ -4,9 +4,9 @@ import { hot } from 'react-hot-loader/root'
 import {
     ExpansionPanel,
     ExpansionPanelDetails,
+    ExpansionPanelProps,
     ExpansionPanelSummary,
     Typography,
-    ExpansionPanelProps,
 } from '@material-ui/core'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 

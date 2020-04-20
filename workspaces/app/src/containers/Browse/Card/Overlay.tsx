@@ -5,12 +5,12 @@ import { Grid, Typography } from '@material-ui/core'
 import IconSearch from '@material-ui/icons/Search'
 
 import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../common/'
+import CompareButton from '../../../components/CompareButton'
+import FavoriteButton from '../../../components/FavoriteButton'
+import Steam from '../../../components/icons/Steam'
 import { CardStatus, ICard } from '../../../models/Card'
 import { CONTEXT } from '../../../stores'
 import OverlayItem from './OverlayItem'
-import FavoriteButton from '../../../components/FavoriteButton'
-import Steam from '../../../components/icons/Steam'
-import CompareButton from '../../../components/CompareButton'
 
 
 const styles = (theme: IMyTheme) => createStyles({

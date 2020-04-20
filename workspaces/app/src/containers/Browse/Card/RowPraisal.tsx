@@ -1,12 +1,10 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { CardContent, Grid } from '@material-ui/core'
-
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../../common/'
 import ValueCell from '../../../components/Cell/ValueCell'
-import { CardStatus, ICard } from '../../../models/Card'
 import MyRow from '../../../components/MyRow'
+import { CardStatus, ICard } from '../../../models/Card'
 
 
 const styles = (theme: IMyTheme) => createStyles({

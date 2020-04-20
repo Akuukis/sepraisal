@@ -1,6 +1,6 @@
+import classnames from 'classnames'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
-import classnames from 'classnames'
 
 import { Grid, GridProps } from '@material-ui/core'
 

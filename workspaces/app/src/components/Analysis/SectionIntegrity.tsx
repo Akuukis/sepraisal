@@ -3,16 +3,14 @@ import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
 
-import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
-
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import { vegaSpecHeatmapLegend } from '../../common/vega'
 import ValueCell from '../../components/Cell/ValueCell'
-import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
-import MyRow from '../MyRow'
 import HeaderCell from '../Cell/HeaderCell'
-import MySection from '../MySection'
 import MyBox from '../MyBox'
+import MyRow from '../MyRow'
+import MySection from '../MySection'
+import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
 
 
 const styles = (theme: IMyTheme) => createStyles({

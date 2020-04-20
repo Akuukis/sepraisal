@@ -1,19 +1,15 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import {
-    FormGroup,
-    FormLabel,
-    Typography,
-} from '@material-ui/core'
+import { FormGroup, FormLabel, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
+import MyExpansionPanel from '../../../components/MyExpansionPanel'
+import { CONTEXT } from '../../../stores'
+import { CardStore } from '../../../stores/CardStore'
 import Checkbox from './FormControls/Checkbox'
 import Slider from './FormControls/Slider'
 import SliderLog from './FormControls/SliderLog'
-import { CONTEXT } from '../../../stores'
-import { CardStore } from '../../../stores/CardStore'
-import MyExpansionPanel from '../../../components/MyExpansionPanel'
 
 
 const styles = (theme: IMyTheme) => createStyles({

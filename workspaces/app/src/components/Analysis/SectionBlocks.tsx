@@ -2,13 +2,13 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
-import MySection from '../MySection'
+import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyRow from '../MyRow'
-import HeaderCell from '../Cell/HeaderCell'
+import MySection from '../MySection'
+
 
 
 const styles = (theme: IMyTheme) => createStyles({

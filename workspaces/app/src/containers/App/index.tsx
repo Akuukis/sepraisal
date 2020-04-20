@@ -39,8 +39,8 @@ import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { CONTEXT } from '../../stores'
 import { BlueprintStore } from '../../stores/BlueprintStore'
 import { CardStore } from '../../stores/CardStore'
-import Topbar from './Topbar'
 import { SelectionStore } from '../../stores/SelectionStore'
+import Topbar from './Topbar'
 
 
 const styles = (theme: IMyTheme) => createStyles({

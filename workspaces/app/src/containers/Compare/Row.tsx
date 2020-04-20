@@ -6,8 +6,8 @@ import { IconButton, ListItem, ListItemSecondaryAction, ListItemText } from '@ma
 import IconDeleteForever from '@material-ui/icons/DeleteForever'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
-import { CONTEXT } from '../../stores'
 import FavoriteButton from '../../components/FavoriteButton'
+import { CONTEXT } from '../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {},

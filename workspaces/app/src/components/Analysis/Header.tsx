@@ -2,11 +2,9 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { AppBar, Avatar, Grid, IconButton, Toolbar, Typography } from '@material-ui/core'
-import IconMoreVert from '@material-ui/icons/MoreVert'
+import { AppBar, Avatar, Grid, Toolbar, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme, linkAuthor, linkBp } from '../../common/'
-import { CONTEXT } from '../../stores'
 import FavoriteButton from '../../components/FavoriteButton'
 
 

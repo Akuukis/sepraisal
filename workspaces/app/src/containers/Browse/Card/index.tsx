@@ -1,18 +1,15 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Button, Card, Divider, Grid, Typography } from '@material-ui/core'
-import IconSearch from '@material-ui/icons/Search'
+import { Card, Divider } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../common/'
-import Steam from '../../../components/icons/Steam'
 import { CardStatus, ICard } from '../../../models/Card'
-import { CONTEXT } from '../../../stores'
+import Overlay from './Overlay'
 import RowHeader from './RowHeader'
 import RowPraisal from './RowPraisal'
 import RowSteam from './RowSteam'
 import Thumb from './Thumb'
-import Overlay from './Overlay'
 
 
 const styles = (theme: IMyTheme) => createStyles({

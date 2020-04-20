@@ -3,8 +3,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from '../../../common/'
 import ValueCell from '../../../components/Cell/ValueCell'
-import { CardStatus, ICard } from '../../../models/Card'
 import MyRow from '../../../components/MyRow'
+import { CardStatus, ICard } from '../../../models/Card'
 
 
 const styles = (theme: IMyTheme) => createStyles({

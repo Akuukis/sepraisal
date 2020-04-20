@@ -5,8 +5,8 @@ import { hot } from 'react-hot-loader/root'
 import { Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
-import { CONTEXT } from '../../stores'
 import Analysis from '../../components/Analysis'
+import { CONTEXT } from '../../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({

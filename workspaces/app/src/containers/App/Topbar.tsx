@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { AppBar, Button, Toolbar, Typography, Badge } from '@material-ui/core'
+import { AppBar, Badge, Button, Toolbar, Typography } from '@material-ui/core'
 import IconBuild from '@material-ui/icons/Build'
 import IconInfo from '@material-ui/icons/Info'
 import IconSearch from '@material-ui/icons/Search'
