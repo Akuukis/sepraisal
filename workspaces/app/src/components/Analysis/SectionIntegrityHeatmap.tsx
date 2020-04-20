@@ -7,15 +7,12 @@ import { Card, Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import { vegaSpecHeatmap } from '../../common/vega'
+import MyBox from '../MyBox'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        width: '268px',
-    },
-
-    card: {
-        height: '151px',
+        height: 151,
     },
 })
 
@@ -45,21 +42,19 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     // })
 
     return (
-        <Grid item xs={12} sm={6} className={classes.root}>
-            <Card square className={classes.card} elevation={0}>
-                <Vega
-                    data={{
-                        integrity0: props.plane.map((line) => ({data: line})),
-                        max: {
-                            value: Math.sqrt(props.maxValues.value),
-                            x: props.maxValues.x,
-                            y: props.maxValues.y,
-                        },
-                    }}
-                    spec={vegaSpecHeatmap}
-                    onSignalHover={noop}
-                />
-            </Card>
-        </Grid>
+        <MyBox className={classes.root}>
+            <Vega
+                data={{
+                    integrity0: props.plane.map((line) => ({data: line})),
+                    max: {
+                        value: Math.sqrt(props.maxValues.value),
+                        x: props.maxValues.x,
+                        y: props.maxValues.y,
+                    },
+                }}
+                spec={vegaSpecHeatmap}
+                onSignalHover={noop}
+            />
+        </MyBox>
     )
 })) /* ============================================================================================================= */

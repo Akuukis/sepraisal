@@ -9,12 +9,7 @@ import { createSmartFC, createStyles, IMyTheme } from '../common'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        width: `${268}px`,
     },
-
-    wide: {
-        width: `${268 * 2}px`,
-    }
 })
 
 
@@ -28,11 +23,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid
+            className={classnames(classes.root, className)}
+
+            item
+            {...(wide ? {xs: 12} : {xs: 12, sm: 6})}
+
             container
-            className={classnames(classes.root, wide && classes.wide, className)}
             spacing={0}
             justify='space-between'
             alignItems='stretch'
+
             {...otherProps}
         >
             {children}

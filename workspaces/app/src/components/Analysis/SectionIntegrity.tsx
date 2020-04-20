@@ -10,27 +10,13 @@ import { vegaSpecHeatmapLegend } from '../../common/vega'
 import ValueCell from '../../components/Cell/ValueCell'
 import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
 import MyRow from '../MyRow'
+import HeaderCell from '../Cell/HeaderCell'
+import MySection from '../MySection'
+import MyBox from '../MyBox'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
-    },
-
-    card: {
-    },
-    cardContent: {
-        paddingBottom: 8,
-        paddingTop: 8,
-    },
-    cell: {
-        width: '268px',
-    },
-    corner: {
-        backgroundColor: theme.palette.secondary.main,
-    },
-    inline: {
-        display: 'inline',
     },
 })
 
@@ -55,47 +41,35 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
 
     const blockSize = bp.sbc.gridSize === 'Small' ? 0.5 : 2.5
 
+    // TODO: Simplify Legend & MyBox-es.
     return (
-        <Grid item xs={props.width}>
-            <Card square className={classes.card}>
-                <Grid container>
-                    <Grid item xs={12} sm={6} className={classes.cell}>
-                        <Grid container justify='space-between'>
-                            <Grid item xs={9}>
-                                <Grid container spacing={0}>
-                                    <Grid item xs={12} sm={9} className={classes.corner}>
-                                        <CardContent className={classes.cardContent}>
-                                            <Typography variant='body1'>{`INTEGRITY`}</Typography>
-                                        </CardContent>
-                                        <Divider />
-                                    </Grid>
-                                </Grid>
-                                <MyRow>
-                                    <ValueCell xs={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />
-                                    <ValueCell xs={4} label={`grid size`} value={bp.sbc.gridSize} />
-                                </MyRow>
-                                <MyRow>
-                                    <ValueCell xs={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />
-                                    <ValueCell xs={4} label={`width (m)`} value={`${top.length * blockSize}`} />
-                                    <ValueCell xs={4} label={`height (m)`} value={`${side.length * blockSize}`} />
-                                </MyRow>
-                            </Grid>
-                            <Grid item style={{height: 151}}>
-                                <Vega
-                                    data={{
-                                        domain: {max: Math.sqrt(maxValues.value)},
-                                    }}
-                                    spec={vegaSpecHeatmapLegend}
-                                />
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={top} />
-                    <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={front} />
-                    <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={side} />
-                </Grid>
-            </Card>
-        </Grid>
+        <MySection className={classes.root}>
+            <MyBox xs style={{maxWidth: 67 * 3}}>
+                <MyRow>
+                    <HeaderCell title='INTEGRITY' xs={12} sm={8} />
+                </MyRow>
+                <MyRow>
+                    <ValueCell xs={8} sm={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />
+                    <ValueCell xs={4} sm={4} label={`grid size`} value={bp.sbc.gridSize} />
+                </MyRow>
+                <MyRow>
+                    <ValueCell xs={4} sm={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />
+                    <ValueCell xs={4} sm={4} label={`width (m)`} value={`${top.length * blockSize}`} />
+                    <ValueCell xs={4} sm={4} label={`height (m)`} value={`${side.length * blockSize}`} />
+                </MyRow>
+            </MyBox>
+            <MyBox xs style={{maxWidth: 67 * 1, height: 151}}>
+                <Vega
+                    data={{
+                        domain: {max: Math.sqrt(maxValues.value)},
+                    }}
+                    spec={vegaSpecHeatmapLegend}
+                />
+            </MyBox>
+            <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={top} />
+            <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={front} />
+            <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={side} />
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

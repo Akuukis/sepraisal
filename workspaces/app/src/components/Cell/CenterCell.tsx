@@ -31,12 +31,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid
-            item
-            container
-            {...(wide ? {xs: 12, sm: 6} : {xs: 6, sm: 3})}
             className={classnames(classes.root, className)}
+
+            item
+            {...(wide ? {xs: 12, sm: 6} : {xs: 6, sm: 3})}
+
+            container
             justify='center'
             alignItems='center'
+
             {...otherProps}
         >
             {children}
