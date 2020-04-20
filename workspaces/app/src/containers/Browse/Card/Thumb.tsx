@@ -9,7 +9,7 @@ import { CardStatus, ICard } from '../../../models/Card'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        paddingTop: '56.25%',
+        paddingTop: '56.34%',
     },
 })
 
