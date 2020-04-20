@@ -76,17 +76,24 @@ export class BlueprintStore {
     }
 
     @action public setRecent(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
-        localStorage.setItem(`recent/${blueprint._id}`, JSON.stringify(blueprint))
-        this.recent.set(blueprint._id, blueprint)
+        const id = blueprint._id
 
-        return blueprint._id
+        localStorage.setItem(`recent/${id}`, JSON.stringify(blueprint))
+        this.recent.set(id, blueprint)
+
+        if(this.favorites.has(id)) this.deleteFavorite(id)
+
+        return id
     }
 
     @action public setFavorite(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
-        localStorage.setItem(`favorite/${blueprint._id}`, JSON.stringify(blueprint))
-        this.favorites.set(blueprint._id, blueprint)
+        const id = blueprint._id
+        localStorage.setItem(`favorite/${id}`, JSON.stringify(blueprint))
+        this.favorites.set(id, blueprint)
 
-        return blueprint._id
+        if(this.recent.has(id)) this.deleteRecent(id)
+
+        return id
     }
 
     @action public setUpload(praisal: Praisal) {
