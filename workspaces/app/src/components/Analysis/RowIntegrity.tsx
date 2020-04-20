@@ -71,16 +71,16 @@ export default cold(createSmartFC(styles)<IProps>(({children, classes, theme, ..
                                 </Grid>
                                 <CardContent className={classes.cardContent}>
                                     <Grid container spacing={0}>
-                                        {<KeyValueBox width={8} def={`Total Integrity`} value={bp.sbc.blockIntegrity} />}
-                                        {<KeyValueBox width={4} def={`grid size`} value={bp.sbc.gridSize} />}
+                                        {<KeyValueBox xs={8} def={`Total Integrity`} value={bp.sbc.blockIntegrity} />}
+                                        {<KeyValueBox xs={4} def={`grid size`} value={bp.sbc.gridSize} />}
                                     </Grid>
                                 </CardContent>
                                 <Divider />
                                 <CardContent className={classes.cardContent}>
                                     <Grid container spacing={0}>
-                                        {<KeyValueBox width={4} def={`length (m)`} value={`${top[0].length * blockSize}`} />}
-                                        {<KeyValueBox width={4} def={`width (m)`} value={`${top.length * blockSize}`} />}
-                                        {<KeyValueBox width={4} def={`height (m)`} value={`${side.length * blockSize}`} />}
+                                        {<KeyValueBox xs={4} def={`length (m)`} value={`${top[0].length * blockSize}`} />}
+                                        {<KeyValueBox xs={4} def={`width (m)`} value={`${top.length * blockSize}`} />}
+                                        {<KeyValueBox xs={4} def={`height (m)`} value={`${side.length * blockSize}`} />}
                                     </Grid>
                                 </CardContent>
                                 <Divider />

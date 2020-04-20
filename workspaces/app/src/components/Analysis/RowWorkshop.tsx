@@ -70,8 +70,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         </Grid>
                         <CardContent className={classes.cardContent}>
                             <Grid container spacing={0}>
-                            {<KeyValueBox def={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />}
-                            {<KeyValueBox def={starsDef} value={starsValue} />}
+                                {<KeyValueBox def={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />}
+                                {<KeyValueBox def={starsDef} value={starsValue} />}
                                 {<KeyValueBox def={`views`} value={formatDecimal(bp.steam.visitorCount)} />}
                                 {<KeyValueBox def={`comments`} value={formatDecimal(bp.steam.commentCount)} />}
                             </Grid>
@@ -81,7 +81,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             <Grid container spacing={0}>
                                 {<KeyValueBox def={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />}
                                 {<KeyValueBox def={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />}
-                                {<KeyValueBox def={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title} width={6} />}
+                                {<KeyValueBox def={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title} xs={6} />}
                             </Grid>
                         </CardContent>
                         <Divider />

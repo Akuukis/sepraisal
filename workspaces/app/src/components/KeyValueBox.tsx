@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Typography, GridProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../common/'
 
@@ -9,36 +9,28 @@ import { createSmartFC, createStyles, IMyTheme } from '../common/'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
-
-    key: {
-        fontSize: '.67rem',
-    },
-    value: {
-        fontStretch: 'condensed',
-    },
 })
 
 
-interface IProps {
-    def: string | number
-    value: string | number
-    // tslint:disable-next-line: max-union-size
-    width?: 8 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 9 | 10 | 11 | 12
+interface IProps extends GridProps {
+    def?: string | number
+    value?: string | number
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const def = 'def' in props ? String(props.def) : '\u00A0'
-    const value = 'value' in props ? String(props.value) : '\u00A0'
-    const width = 'width' in props ? props.width : 3
+    const {def: defProps, value: valueProps, ...otherProps} = props
+    const def = defProps !== undefined ? String(defProps) : '\u00A0'
+    const value = valueProps !== undefined ? String(valueProps) : '\u00A0'
 
     return (
-        <Grid item xs={width} className={classes.root}>
+        <Grid item className={classes.root} {...otherProps}>
             <Typography
                 noWrap
+                display='block'
                 variant='subtitle2'
+                component='em'
                 align='center'
-                className={classes.value}
             >
                 {value}
             </Typography>
@@ -46,9 +38,9 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 noWrap
                 align='center'
                 variant='caption'
-                component='p'
+                component='label'
                 color='textSecondary'
-                className={classes.key}
+                display='block'
             >
                 {def}
             </Typography>
