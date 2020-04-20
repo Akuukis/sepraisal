@@ -40,6 +40,7 @@ import { CONTEXT } from '../../stores'
 import { BlueprintStore } from '../../stores/BlueprintStore'
 import { CardStore } from '../../stores/CardStore'
 import Topbar from './Topbar'
+import { SelectionStore } from '../../stores/SelectionStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -82,6 +83,7 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const [blueprintStore] = React.useState(() => new BlueprintStore())
+    const [selectionStore] = React.useState(() => new SelectionStore())
     const [cardStore] = React.useState(() => new CardStore(piwikStore))
     const [praisalManager] = React.useState(() => new PraisalManager())
     const [state, setState] = React.useState<ASYNC_STATE>(ASYNC_STATE.Idle)
@@ -135,6 +137,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     if(state === ASYNC_STATE.Idle || state === ASYNC_STATE.Doing) {
         return (
+            <CONTEXT.SELECTION.Provider value={selectionStore}>
+
             <ThemeProvider theme={MY_LIGHT_THEME}>
                 <Paper className={classes.app} square>
                     <Topbar/>
@@ -143,11 +147,15 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     </Paper>
                 </Paper>
             </ThemeProvider>
+
+            </CONTEXT.SELECTION.Provider>
         )
     }
 
     if(state === ASYNC_STATE.Error) {
         return (
+            <CONTEXT.SELECTION.Provider value={selectionStore}>
+
             <ThemeProvider theme={MY_LIGHT_THEME}>
                 <Paper className={classes.app} square>
                     <Topbar/>
@@ -156,6 +164,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     </Paper>
                 </Paper>
             </ThemeProvider>
+
+            </CONTEXT.SELECTION.Provider>
         )
     }
 
@@ -163,6 +173,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         <CONTEXT.BLUEPRINTS.Provider value={blueprintStore}>
         <CONTEXT.CARDS.Provider value={cardStore}>
         <CONTEXT.PRAISAL_MANAGER.Provider value={praisalManager}>
+        <CONTEXT.SELECTION.Provider value={selectionStore}>
 
         <ThemeProvider theme={MY_LIGHT_THEME}>
             <Paper className={classes.app} square>
@@ -173,6 +184,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             </Paper>
         </ThemeProvider>
 
+        </CONTEXT.SELECTION.Provider>
         </CONTEXT.PRAISAL_MANAGER.Provider>
         </CONTEXT.CARDS.Provider>
         </CONTEXT.BLUEPRINTS.Provider>

@@ -53,7 +53,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const piwikStore = React.useContext(CONTEXT.PIWIK)
-    const [selected] = React.useState(() => observable([] as string[]))
+    const selectionStore = React.useContext(CONTEXT.SELECTION)
     const [open, setOpen] = React.useState(true)
 
     const toggleDrawer = () => setOpen(!open)
@@ -85,7 +85,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
                 const title = blueprintStore.setUpload(await praisalManager.praiseXml(xml))
                 runInAction(() => {
-                    selected.push(title)
+                    selectionStore.selected.push(title)
                 })
                 piwikStore.push([
                     'trackEvent',
@@ -121,10 +121,10 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 open={open}
                 classes={{paper: classes.drawerPaper}}
             >
-                <Panel toggleDrawer={toggleDrawer} selected={selected} browseFiles={browseFiles} />
+                <Panel toggleDrawer={toggleDrawer} browseFiles={browseFiles} />
             </Drawer>
             {isDragActive ? <SelectorDnDOverlay /> :  null}
-            <Columns selected={selected} />
+            <Columns />
         </Paper>
     )
 })) /* ============================================================================================================= */
