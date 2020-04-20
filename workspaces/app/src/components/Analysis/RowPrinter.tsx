@@ -7,6 +7,7 @@ import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import ValueWithLabel from '../../components/ValueWithLabel'
+import MyRow from '../MyRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -94,24 +95,18 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             </Typography>
                         </CardContent>
                         <Divider />
-                        <CardContent className={classes.cardContent}>
-                            <Grid container spacing={0}>
-                                {<ValueWithLabel label={`(m/s\u00B2)`} value={`Atmo:`} />}
-                                {<ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />}
-                                {<ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />}
-                                {<ValueWithLabel label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />}
-                            </Grid>
-                        </CardContent>
-                        <Divider />
-                        <CardContent className={classes.cardContent}>
-                            <Grid container spacing={0}>
-                                {<ValueWithLabel label={`(m/s\u00B2)`} value={`Ion:`} />}
-                                {<ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />}
-                                {<ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />}
-                                {<ValueWithLabel label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />}
-                            </Grid>
-                        </CardContent>
-                        <Divider />
+                        <MyRow>
+                            <ValueWithLabel label={`(m/s\u00B2)`} value={`Atmo:`} />
+                            <ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
+                            <ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />
+                            <ValueWithLabel label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />
+                        </MyRow>
+                        <MyRow>
+                            <ValueWithLabel label={`(m/s\u00B2)`} value={`Ion:`} />
+                            <ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
+                            <ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />
+                            <ValueWithLabel label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />
+                        </MyRow>
                     </Grid>
                 </Grid>
             </Card>

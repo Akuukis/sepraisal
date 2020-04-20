@@ -6,14 +6,11 @@ import { CardContent, Grid } from '@material-ui/core'
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../../common/'
 import ValueWithLabel from '../../../components/ValueWithLabel'
 import { CardStatus, ICard } from '../../../models/Card'
+import MyRow from '../../../components/MyRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        paddingBottom: theme.spacing(1),
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        paddingTop: theme.spacing(1),
     },
 })
 
@@ -34,20 +31,18 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     const pcu = formatDecimal(sbc.blockPCU)
     const grid = {
-        def: `${sbc.gridSize.slice(0, 1)}-blocks`,
+        label: `${sbc.gridSize.slice(0, 1)}-blocks`,
         value: formatDecimal(sbc.blockCount),
     }
     const ore = formatDecimal(sbc.oreVolume / 1000)
     const workhours = formatDecimal((sbc.blockTime + sbc.componentTime + sbc.ingotTime) / 60 / 60, 1)
 
     return (
-        <CardContent className={classes.root}>
-            <Grid container spacing={0}>
-                <ValueWithLabel label={`PCU`} value={pcu} />
-                <ValueWithLabel {...grid} />
-                <ValueWithLabel label={`ore (m\u00B3)`} value={ore} />
-                <ValueWithLabel label={`workhours`} value={workhours} />
-            </Grid>
-        </CardContent>
+        <MyRow className={classes.root}>
+            <ValueWithLabel label={`PCU`} value={pcu} />
+            <ValueWithLabel {...grid} />
+            <ValueWithLabel label={`ore (m\u00B3)`} value={ore} />
+            <ValueWithLabel label={`workhours`} value={workhours} />
+        </MyRow>
     )
 })) /* ============================================================================================================= */

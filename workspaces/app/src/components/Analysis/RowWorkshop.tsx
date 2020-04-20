@@ -8,6 +8,7 @@ import { Button, Card, CardContent, CardMedia, Divider, Grid, Typography } from 
 import { createSmartFC, createStyles, formatDecimal, GridSize, IMyTheme, linkBp } from '../../common/'
 import Steam from '../../components/icons/Steam'
 import ValueWithLabel from '../../components/ValueWithLabel'
+import MyRow from '../MyRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -68,23 +69,17 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                                 <Divider />
                             </Grid>
                         </Grid>
-                        <CardContent className={classes.cardContent}>
-                            <Grid container spacing={0}>
-                                {<ValueWithLabel label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />}
-                                {<ValueWithLabel label={starsDef} value={starsValue} />}
-                                {<ValueWithLabel label={`views`} value={formatDecimal(bp.steam.visitorCount)} />}
-                                {<ValueWithLabel label={`comments`} value={formatDecimal(bp.steam.commentCount)} />}
-                            </Grid>
-                        </CardContent>
-                        <Divider />
-                        <CardContent className={classes.cardContent}>
-                            <Grid container spacing={0}>
-                                {<ValueWithLabel label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />}
-                                {<ValueWithLabel label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />}
-                                {<ValueWithLabel label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title} xs={6} />}
-                            </Grid>
-                        </CardContent>
-                        <Divider />
+                        <MyRow>
+                            <ValueWithLabel label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
+                            <ValueWithLabel label={starsDef} value={starsValue} />
+                            <ValueWithLabel label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
+                            <ValueWithLabel label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
+                        </MyRow>
+                        <MyRow>
+                            <ValueWithLabel label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
+                            <ValueWithLabel label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
+                            <ValueWithLabel label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title} xs={6} />
+                        </MyRow>
                     </Grid>
                     <Grid item xs={12} sm={6} className={classes.cell}>
                         <CardMedia

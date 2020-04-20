@@ -1,19 +1,14 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { CardContent, Grid } from '@material-ui/core'
-
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from '../../../common/'
 import ValueWithLabel from '../../../components/ValueWithLabel'
 import { CardStatus, ICard } from '../../../models/Card'
+import MyRow from '../../../components/MyRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        paddingBottom: theme.spacing(1),
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        paddingTop: theme.spacing(1),
     },
 })
 
@@ -37,13 +32,11 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const starsDef = steam.ratingStars === null ? 'few ratings' : `${steam.ratingCount}`
 
     return (
-        <CardContent className={classes.root}>
-            <Grid container spacing={0} alignItems='center'>
-                <ValueWithLabel label='subscribers' value={formatDecimal(steam.subscriberCount)} />
-                <ValueWithLabel label={starsDef} value={starsValue} />
-                <ValueWithLabel label='posted' value={postedDate} />
-                <ValueWithLabel label='author' value={steam.author.title} />
-            </Grid>
-        </CardContent>
+        <MyRow className={classes.root}>
+            <ValueWithLabel label='subscribers' value={formatDecimal(steam.subscriberCount)} />
+            <ValueWithLabel label={starsDef} value={starsValue} />
+            <ValueWithLabel label='posted' value={postedDate} />
+            <ValueWithLabel label='author' value={steam.author.title} />
+        </MyRow>
     )
 })) /* ============================================================================================================= */

@@ -9,6 +9,7 @@ import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import { vegaSpecHeatmapLegend } from '../../common/vega'
 import ValueWithLabel from '../../components/ValueWithLabel'
 import RowIntegrityHeatmap from './RowIntegrityHeatmap'
+import MyRow from '../MyRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -69,21 +70,15 @@ export default cold(createSmartFC(styles)<IProps>(({children, classes, theme, ..
                                         <Divider />
                                     </Grid>
                                 </Grid>
-                                <CardContent className={classes.cardContent}>
-                                    <Grid container spacing={0}>
-                                        {<ValueWithLabel xs={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />}
-                                        {<ValueWithLabel xs={4} label={`grid size`} value={bp.sbc.gridSize} />}
-                                    </Grid>
-                                </CardContent>
-                                <Divider />
-                                <CardContent className={classes.cardContent}>
-                                    <Grid container spacing={0}>
-                                        {<ValueWithLabel xs={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />}
-                                        {<ValueWithLabel xs={4} label={`width (m)`} value={`${top.length * blockSize}`} />}
-                                        {<ValueWithLabel xs={4} label={`height (m)`} value={`${side.length * blockSize}`} />}
-                                    </Grid>
-                                </CardContent>
-                                <Divider />
+                                <MyRow>
+                                    <ValueWithLabel xs={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />
+                                    <ValueWithLabel xs={4} label={`grid size`} value={bp.sbc.gridSize} />
+                                </MyRow>
+                                <MyRow>
+                                    <ValueWithLabel xs={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />
+                                    <ValueWithLabel xs={4} label={`width (m)`} value={`${top.length * blockSize}`} />
+                                    <ValueWithLabel xs={4} label={`height (m)`} value={`${side.length * blockSize}`} />
+                                </MyRow>
                             </Grid>
                             <Grid item style={{height: 151}}>
                                 <Vega
