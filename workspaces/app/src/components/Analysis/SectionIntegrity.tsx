@@ -8,7 +8,7 @@ import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import { vegaSpecHeatmapLegend } from '../../common/vega'
 import ValueCell from '../../components/Cell/ValueCell'
-import RowIntegrityHeatmap from './RowIntegrityHeatmap'
+import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
 import MyRow from '../MyRow'
 
 
@@ -90,9 +90,9 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                             </Grid>
                         </Grid>
                     </Grid>
-                    <RowIntegrityHeatmap width={6} maxValues={maxValues} plane={top} />
-                    <RowIntegrityHeatmap width={6} maxValues={maxValues} plane={front} />
-                    <RowIntegrityHeatmap width={6} maxValues={maxValues} plane={side} />
+                    <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={top} />
+                    <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={front} />
+                    <SectionIntegrityHeatmap width={6} maxValues={maxValues} plane={side} />
                 </Grid>
             </Card>
         </Grid>
