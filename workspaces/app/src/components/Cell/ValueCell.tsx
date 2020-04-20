@@ -2,10 +2,10 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 import classnames from 'classnames'
 
-import { Grid, Typography, GridProps } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import MyCell from './MyCell'
+import CenterCell, {IProps as ICenterCellProps} from './CenterCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -23,23 +23,21 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps extends GridProps {
+interface IProps extends ICenterCellProps {
     label?: string | number
     value?: string | number
-    wide?: boolean
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const {label, value, wide, className, ...otherProps} = props
+    const {label, value, className, ...otherProps} = props
     const labelFormatted = label !== undefined ? String(label) : '\u00A0'
     const valueFormatted = value !== undefined ? String(value) : '\u00A0'
 
     return (
-        <MyCell
+        <CenterCell
             direction='column'
             className={classnames(classes.root, className)}
-            {...(wide ? {xs: 12, sm: 6} : {})}
             {...otherProps}
         >
             <Typography
@@ -63,6 +61,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             >
                 {labelFormatted}
             </Typography>
-        </MyCell>
+        </CenterCell>
     )
 })) /* ============================================================================================================= */

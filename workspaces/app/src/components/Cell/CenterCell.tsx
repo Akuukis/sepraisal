@@ -21,19 +21,19 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps extends GridProps {
+export interface IProps extends GridProps {
+    wide?: boolean
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const {className, ...otherProps} = props
+    const {className, wide, ...otherProps} = props
 
     return (
         <Grid
             item
             container
-            xs={6}
-            sm={3}
+            {...(wide ? {xs: 12, sm: 6} : {xs: 6, sm: 3})}
             className={classnames(classes.root, className)}
             justify='center'
             alignItems='center'

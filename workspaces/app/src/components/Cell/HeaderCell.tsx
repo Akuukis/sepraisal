@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import { Grid, Typography, GridProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import MyCell from './MyCell'
+import CenterCell from './CenterCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -28,7 +28,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const {title,  className, ...otherProps} = props
 
     return (
-        <MyCell
+        <CenterCell
             className={classnames(classes.root, className)}
             {...otherProps}
         >
@@ -40,6 +40,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             >
                 {title}
             </Typography>
-        </MyCell>
+        </CenterCell>
     )
 })) /* ============================================================================================================= */

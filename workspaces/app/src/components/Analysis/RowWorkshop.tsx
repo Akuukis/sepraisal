@@ -10,6 +10,7 @@ import Steam from '../../components/icons/Steam'
 import ValueCell from '../../components/Cell/ValueCell'
 import MyRow from '../MyRow'
 import HeaderCell from '../Cell/HeaderCell'
+import CenterCell from '../Cell/CenterCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -54,12 +55,12 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <Grid item xs={12} sm={6} className={classes.cell}>
                         <MyRow>
                             <HeaderCell title='WORKSHOP' xs={12} sm={6} />
-                            <Grid item xs={12} sm={6}>
-                                <Button size='medium' disableRipple disableFocusRipple disableTouchRipple href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
+                            <CenterCell wide>
+                                <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
                                     <Steam />
                                     <Typography variant='body1'>{'Subscribe'}</Typography>
                                 </Button>
-                            </Grid>
+                            </CenterCell>
                         </MyRow>
                         <MyRow>
                             <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
