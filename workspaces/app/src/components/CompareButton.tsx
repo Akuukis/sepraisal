@@ -1,47 +1,43 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton } from '@material-ui/core'
-import IconFavorite from '@material-ui/icons/Favorite'
-import IconFavoriteBorder from '@material-ui/icons/FavoriteBorder'
+import { IconButton, IconButtonProps } from '@material-ui/core'
+import IconAssessment from '@material-ui/icons/Assessment'
+import IconAssessmentOutlined from '@material-ui/icons/AssessmentOutlined'
 
 import { createSmartFC, createStyles, IMyTheme } from '../common/'
 import { CONTEXT } from '../stores'
+import { action } from 'mobx'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        color: theme.palette.secondary.main,
+        color: theme.palette.primary.main,
     },
 })
 
 
 interface IProps {
-    id: number | undefined
+    id: number | string
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const {id} = props
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
+    const selectionStore = React.useContext(CONTEXT.SELECTION)
 
-    // Don't favorite uploads - they are already in seperate list.
-    if(!id) {
-        return null
-    }
-
-    const favorited = blueprintStore.favorites.has(id)
-    const handleToggle = () => {
+    const favorited = selectionStore.selected.includes(id)
+    const handleToggle = action(`CompareButton<${JSON.stringify(id)}>`, () => {
         if(favorited) {
-            blueprintStore.setRecent(blueprintStore.getSomething(id))
+            selectionStore.selected.remove(id)
         } else {
-            blueprintStore.setFavorite(blueprintStore.getSomething(id))
+            selectionStore.selected.push(id)
         }
-    }
+    })
 
     return (
         <IconButton className={classes.root} size='small' color='inherit' aria-label='favorite' onClick={handleToggle}>
-            {favorited ? <IconFavorite /> : <IconFavoriteBorder />}
+            {favorited ? <IconAssessment /> : <IconAssessmentOutlined />}
         </IconButton>
     )
 })) /* ============================================================================================================= */

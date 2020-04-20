@@ -10,6 +10,7 @@ import { CONTEXT } from '../../../stores'
 import OverlayItem from './OverlayItem'
 import FavoriteButton from '../../../components/FavoriteButton'
 import Steam from '../../../components/icons/Steam'
+import CompareButton from '../../../components/CompareButton'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -45,10 +46,8 @@ const styles = (theme: IMyTheme) => createStyles({
 
     itemCompare: {
         borderColor: `#0000`,
-        color: `${theme.palette.primary.main}80`,
         '&:hover': {
             borderColor: `#0000`,
-            color: theme.palette.primary.main,
         },
     },
 
@@ -118,7 +117,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     <FavoriteButton id={bp.id} />
                 </OverlayItem>
                 <OverlayItem isHover={hover} classes={{containerOnHover: classes.itemCompare}}>
-                    <IconSearch />
+                    <CompareButton id={bp.id} />
                 </OverlayItem>
                 <OverlayItem isHover={hover} onClick={goSteam} classes={{containerOnHover: classes.itemSubscribe}}>
                     <Steam />
