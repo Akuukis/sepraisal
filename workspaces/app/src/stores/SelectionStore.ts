@@ -3,5 +3,5 @@ import { IBlueprint, RequiredSome } from '@sepraisal/common';
 
 export class SelectionStore {
     // public readonly selected: IObservableArray<RequiredSome<IBlueprint, "sbc">> = observable([])
-    public readonly selected: IObservableArray<string> = observable([])
+    public readonly selected: IObservableArray<string | number> = observable([])
 }

@@ -5,8 +5,8 @@ import * as moment from 'moment'
 
 // tslint:disable-next-line: min-class-cohesion
 export class BlueprintStore {
-    public readonly recent = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>>()
-    public readonly favorites = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>>()
+    public readonly recent = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>, number>()
+    public readonly favorites = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>, number>()
     public readonly uploads = new ObservableMap<RequiredSome<IBlueprint, 'sbc'>>()
 
     public constructor() {
@@ -18,10 +18,10 @@ export class BlueprintStore {
                 if(value === null) continue
 
                 if(key.slice(0, `recent/`.length) === 'recent/') {
-                    this.recent.set(key.slice(`recent/`.length), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
+                    this.recent.set(Number(key.slice(`recent/`.length)), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
                 }
                 if(key.slice(0, `favorite/`.length) === 'favorite/') {
-                    this.favorites.set(key.slice(`favorite/`.length), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
+                    this.favorites.set(Number(key.slice(`favorite/`.length)), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
                 }
                 if(key.slice(0, `upload/`.length) === 'upload/') {
                     this.uploads.set(key.slice(`upload/`.length), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc'>)
@@ -30,14 +30,44 @@ export class BlueprintStore {
         })
     }
 
-    @action public deleteRecent(title: string) {
-        this.recent.delete(title)
-        localStorage.removeItem(`recent/${title}`)
+    public deleteSomething(idOrTitle: number | string): boolean {
+        if(typeof idOrTitle === 'string') {
+            return this.uploads.delete(idOrTitle)
+        } else {
+            const favorite = this.favorites.delete(idOrTitle)
+            const recent = this.favorites.delete(idOrTitle)
+            return favorite || recent
+        }
     }
 
-    @action public deleteFavorite(title: string) {
-        this.recent.delete(title)
-        localStorage.removeItem(`favorite/${title}`)
+    public getSomething(id: number): RequiredSome<IBlueprint, 'sbc' | 'steam'>
+    public getSomething(title: string): RequiredSome<IBlueprint, 'sbc'>
+    public getSomething(idOrTitle: number | string): RequiredSome<IBlueprint, 'sbc' | 'steam'> | RequiredSome<IBlueprint, 'sbc'>
+    public getSomething(idOrTitle: number | string) {
+        if(typeof idOrTitle === 'string') {
+            const upload = this.uploads.get(idOrTitle)
+            if(upload) return upload
+
+            throw new Error(`No Upload titled "${idOrTitle}"`)
+        } else {
+            const favorite = this.favorites.get(idOrTitle)
+            if(favorite) return favorite
+
+            const recent = this.recent.get(idOrTitle)
+            if(recent) return recent
+
+            throw new Error(`No Favorite nor Recent with id "${idOrTitle}"`)
+        }
+    }
+
+    @action public deleteRecent(id: number) {
+        this.recent.delete(id)
+        localStorage.removeItem(`recent/${id}`)
+    }
+
+    @action public deleteFavorite(id: number) {
+        this.recent.delete(id)
+        localStorage.removeItem(`favorite/${id}`)
     }
 
     @action public deleteUpload(title: string) {
@@ -46,19 +76,17 @@ export class BlueprintStore {
     }
 
     @action public setRecent(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
-        const title = `${blueprint._id}-${blueprint.steam.revision}`
-        localStorage.setItem(`recent/${title}`, JSON.stringify(blueprint))
-        this.recent.set(title, blueprint)
+        localStorage.setItem(`recent/${blueprint._id}`, JSON.stringify(blueprint))
+        this.recent.set(blueprint._id, blueprint)
 
-        return title
+        return blueprint._id
     }
 
     @action public setFavorite(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
-        const title = `${blueprint._id}-${blueprint.steam.revision}`
-        localStorage.setItem(`favorite/${title}`, JSON.stringify(blueprint))
-        this.favorites.set(title, blueprint)
+        localStorage.setItem(`favorite/${blueprint._id}`, JSON.stringify(blueprint))
+        this.favorites.set(blueprint._id, blueprint)
 
-        return title
+        return blueprint._id
     }
 
     @action public setUpload(praisal: Praisal) {

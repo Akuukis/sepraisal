@@ -30,18 +30,15 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     useAsyncEffectOnce(async () => {
         setStatus(STATUS.Loading)
         // tslint:disable-next-line: naming-convention
-        const idMaybeVersion = routerStore.location.pathname.split('?')[0].split('/').pop() as string
-        if(idMaybeVersion.includes('-')) {
-            const cached = blueprintStore.recent.get(idMaybeVersion)
-            if(cached) {
-                setBlueprint(cached)
-                setStatus(STATUS.Loaded)
+        const id = Number(routerStore.location.pathname.split('?')[0].split('/').pop() as string)
+        console.log(routerStore.location.pathname.split('?')[0].split('/').pop(), id)
+        const cached = blueprintStore.recent.get(id)
+        if(cached) {
+            setBlueprint(cached)
+            setStatus(STATUS.Loaded)
 
-                return
-            }
+            return
         }
-
-        const id = Number(idMaybeVersion.split('-').shift())
 
         try {
             const find = encodeURIComponent(JSON.stringify({_id: id}))
@@ -52,7 +49,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 setStatus(STATUS.Failed)
             } else {
                 blueprintStore.setRecent(doc)
-                routerStore.replace(`${routerStore.location.pathname}-${doc.steam.revision}`)
                 setBlueprint(doc)
                 setStatus(STATUS.Loaded)
             }

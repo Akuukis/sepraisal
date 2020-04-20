@@ -20,7 +20,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    id: string
+    id: string | number
     title: string
 }
 
@@ -64,12 +64,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         ])
         runInAction(() => {
             selectionStore.selected.remove(id)
-            if(blueprintStore.uploads.has(id)) {
-                blueprintStore.deleteUpload(id)
-            }
-            if(blueprintStore.recent.has(id)) {
-                blueprintStore.deleteRecent(id)
-            }
+            blueprintStore.deleteSomething(id)
         })
     }
 

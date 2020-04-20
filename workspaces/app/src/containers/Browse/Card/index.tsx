@@ -86,7 +86,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             bp.id,
             index,
         ])
-        routerStore.goBlueprint(bp.id, bp.steam?.revision)
+        routerStore.goBlueprint(bp.id)
     }
 
     const goSteam = () => {

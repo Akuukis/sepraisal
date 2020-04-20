@@ -13,11 +13,11 @@ export class RouterStore extends BaseRouterStore {
         this.history = syncHistoryWithStore(createHashHistory(), this)
     }
 
-    public goBlueprint(id: number, revision?: number) {
+    public goBlueprint(id: number) {
         const path = `${ROUTES.BLUEPRINT}/${id}`
 
         this.piwikStore.track({path})
-        this.push(revision === undefined ? path : `${path}-${revision}`)
+        this.push(path)
     }
 
     public goView(path: string): void {

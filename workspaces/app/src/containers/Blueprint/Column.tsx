@@ -39,6 +39,7 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+    const {bp, width} = props
 
     // @computed get anyError() {
     //     const { analysis } = props;
@@ -51,14 +52,14 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const renderBox = (AnalysisRows: Row[], header = false) =>
         (
             <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
-                {AnalysisRows.map((AnalysisRow, i) => (<AnalysisRow key={i} width={props.width} bp={props.bp} />))}
+                {AnalysisRows.map((AnalysisRow, i) => (<AnalysisRow key={i} width={width} bp={bp} />))}
             </Grid>
         )
 
     return (
         <Grid className={classes.root} container justify='center'>
             {renderBox([RowHeader          as Row], true)}
-            {'steam' in props.bp ? renderBox([RowWorkshop        as Row]) : null}
+            {'steam' in bp ? renderBox([RowWorkshop        as Row]) : null}
             {renderBox([RowIntegrity       as Row, RowMobility        as Row])}
             {renderBox([RowMaterials          as Row])}
             {renderBox([RowBlocks          as Row])}
