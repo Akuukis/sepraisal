@@ -3,32 +3,17 @@ import * as moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import MyRow from '../MyRow'
+import MySection from '../MySection'
+import MyBox from '../MyBox'
+import HeaderCell from '../Cell/HeaderCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
-    },
-
-    card: {
-    },
-    cardContent: {
-        paddingBottom: 8,
-        paddingTop: 8,
-    },
-    cell: {
-        width: '268px',
-    },
-    corner: {
-        backgroundColor: theme.palette.secondary.main,
-    },
-    inline: {
-        display: 'inline',
     },
 })
 
@@ -43,68 +28,43 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const sbc = props.bp.sbc
 
     return (
-        <Grid item xs={props.width}>
-            <Card square className={classes.card}>
-                <Grid container>
-                    <Grid item xs={12} sm={6} className={classes.cell}>
-                        <Grid container spacing={0}>
-                            <Grid item xs={12} sm={6} className={classes.corner}>
-                                <CardContent className={classes.cardContent}>
-                                    <Typography variant='body1'>{`MOBILITY`}</Typography>
-                                </CardContent>
-                                <Divider />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <CardContent className={classes.cardContent}>
-                                    <Typography noWrap component='span' className={classes.inline} variant='caption' color='textSecondary'>
-                                        {`Grid type: `}
-                                    </Typography>
-                                    <Typography noWrap component='span' className={classes.inline} variant='body1'>
-                                        {sbc.gridStatic ? `Static` : `Vehicle`}
-                                    </Typography>
-                                </CardContent>
-                                <Divider />
-                            </Grid>
-                        </Grid>
-                        <MyRow>
-                            <ValueCell label={`mass (t)`} value={`${(sbc.blockMass / 1000).toFixed(0)} k`} />
-                            <ValueCell label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
-                            <ValueCell label={`j.drives`} value={`${'JumpDrive/LargeJumpDrive' in sbc.blocks ? sbc.blocks['JumpDrive/LargeJumpDrive'] : '-'}`} />
-                            <ValueCell label={`t.vel. (m/s)`} value={`${terminalVelocity(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
-                        </MyRow>
-                        <MyRow>
-                            <ValueCell label={`(m/s\u00B2)`} value={`Hydro:`} />
-                            <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />
-                            <ValueCell label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 2)} />
-                            <ValueCell label={`fuel\u2009(min)`} value={hydroFuel(sbc.gridSize, sbc.blocks, sbc.thrustHydrogen)} />
-                        </MyRow>
-                    </Grid>
-                    <Grid item xs={12} sm={6} className={classes.cell}>
-                        <CardContent className={classes.cardContent}>
-                            <Typography noWrap component='span' className={classes.inline} variant='caption' color='textSecondary'>
-                                {`Wheels: `}
-                            </Typography>
-                            <Typography noWrap component='span' className={classes.inline} variant='body1'>
-                                {wheeled(sbc.blocks)}
-                            </Typography>
-                        </CardContent>
-                        <Divider />
-                        <MyRow>
-                            <ValueCell label={`(m/s\u00B2)`} value={`Atmo:`} />
-                            <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
-                            <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />
-                            <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />
-                        </MyRow>
-                        <MyRow>
-                            <ValueCell label={`(m/s\u00B2)`} value={`Ion:`} />
-                            <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
-                            <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />
-                            <ValueCell label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />
-                        </MyRow>
-                    </Grid>
-                </Grid>
-            </Card>
-        </Grid>
+        <MySection className={classes.root}>
+            <MyBox wide>
+                <MyRow>
+                    <HeaderCell title='MOBILITY' />
+                    <ValueCell label={`Grid Type`} value={sbc.gridStatic ? `Static` : `Vehicle`} />
+                    <ValueCell wide label={`Wheels`} value={wheeled(sbc.blocks)} />
+                </MyRow>
+            </MyBox>
+            <MyBox>
+                <MyRow>
+                    <ValueCell label={`mass (t)`} value={`${(sbc.blockMass / 1000).toFixed(0)} k`} />
+                    <ValueCell label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
+                    <ValueCell label={`j.drives`} value={`${'JumpDrive/LargeJumpDrive' in sbc.blocks ? sbc.blocks['JumpDrive/LargeJumpDrive'] : '-'}`} />
+                    <ValueCell label={`t.vel. (m/s)`} value={`${terminalVelocity(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
+                </MyRow>
+                <MyRow>
+                    <ValueCell label={`(m/s\u00B2)`} value={`Hydro:`} />
+                    <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />
+                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 2)} />
+                    <ValueCell label={`fuel\u2009(min)`} value={hydroFuel(sbc.gridSize, sbc.blocks, sbc.thrustHydrogen)} />
+                </MyRow>
+            </MyBox>
+            <MyBox>
+                <MyRow>
+                    <ValueCell label={`(m/s\u00B2)`} value={`Atmo:`} />
+                    <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
+                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />
+                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />
+                </MyRow>
+                <MyRow>
+                    <ValueCell label={`(m/s\u00B2)`} value={`Ion:`} />
+                    <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
+                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />
+                    <ValueCell label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />
+                </MyRow>
+            </MyBox>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 
