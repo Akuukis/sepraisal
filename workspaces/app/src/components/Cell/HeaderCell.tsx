@@ -11,6 +11,7 @@ import CenterCell from './CenterCell'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         backgroundColor: theme.palette.secondary.main,
+        borderTopLeftRadius: `${theme.spacing(1)}px`,
     },
 
     title: {

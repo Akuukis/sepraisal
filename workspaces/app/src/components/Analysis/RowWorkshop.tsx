@@ -19,6 +19,12 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
+    thumb: {
+        paddingTop: '56.3444%',  // = 268 / 151
+        width: '100%',
+        borderTopRightRadius: `${theme.spacing(1)}px`,
+    },
+
     description: {
         paddingBottom: theme.spacing(2),
         paddingLeft: theme.spacing(2),
@@ -31,6 +37,8 @@ const styles = (theme: IMyTheme) => createStyles({
         height: `calc(${151 * 2}px - ${theme.spacing(4)}px)`,
         overflowX: 'hidden',
         overflowY: 'scroll',
+        borderBottomLeftRadius: `${theme.spacing(1)}px`,
+        borderBottomRightRadius: `${theme.spacing(1)}px`,
     },
 })
 
@@ -49,42 +57,40 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
 
     return (
-        <Grid item xs={props.width} className={classes.root}>
-            <MySection>
-                <MyBox>
-                    <MyRow>
-                        <HeaderCell title='WORKSHOP' xs={12} sm={6} />
-                        <CenterCell wide>
-                            <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
-                                <Steam />
-                                <Typography variant='body1'>{'Subscribe'}</Typography>
-                            </Button>
-                        </CenterCell>
-                    </MyRow>
-                    <MyRow>
-                        <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
-                        <ValueCell label={starsDef} value={starsValue} />
-                        <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
-                        <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
-                    </MyRow>
-                    <MyRow>
-                        <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
-                        <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
-                        <ValueCell wide label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title}/>
-                    </MyRow>
-                </MyBox>
-                <MyBox>
-                    <CardMedia
-                        style={{paddingTop: '56.3444%', width: '100%'}}
-                        image={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
-                        title={bp.steam.title}
-                    />
-                </MyBox>
-                <MyBox wide>
-                    <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
-                </MyBox>
-            </MySection>
-        </Grid>
+        <MySection className={classes.root}>
+            <MyBox>
+                <MyRow>
+                    <HeaderCell title='WORKSHOP' xs={12} sm={6} />
+                    <CenterCell wide>
+                        <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
+                            <Steam />
+                            <Typography variant='body1'>{'Subscribe'}</Typography>
+                        </Button>
+                    </CenterCell>
+                </MyRow>
+                <MyRow>
+                    <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
+                    <ValueCell label={starsDef} value={starsValue} />
+                    <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
+                    <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
+                </MyRow>
+                <MyRow>
+                    <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
+                    <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
+                    <ValueCell wide label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title}/>
+                </MyRow>
+            </MyBox>
+            <MyBox>
+                <CardMedia
+                    className={classes.thumb}
+                    image={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
+                    title={bp.steam.title}
+                />
+            </MyBox>
+            <MyBox wide>
+                <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
+            </MyBox>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

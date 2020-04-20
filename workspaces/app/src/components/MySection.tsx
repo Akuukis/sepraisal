@@ -9,10 +9,9 @@ import { createSmartFC, createStyles, IMyTheme } from '../common'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        backgroundColor: theme.palette.background.paper,
+        borderRadius: `${theme.spacing(1)}px`,
         width: `${268 * 2}px`,
-    },
-
-    container: {
     },
 })
 
@@ -25,17 +24,16 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const {className, ...otherProps} = props
 
     return (
-        <Paper className={classnames(classes.root, className)}>
-            <Grid
-                container
-                className={classes.container}
-                spacing={0}
-                justify='space-between'
-                alignItems='stretch'
-                {...otherProps}
-            >
-                {children}
-            </Grid>
-        </Paper>
+        <Grid
+            item
+            container
+            className={classes.root}
+            spacing={0}
+            justify='space-between'
+            alignItems='stretch'
+            {...otherProps}
+        >
+            {children}
+        </Grid>
     )
 })) /* ============================================================================================================= */
