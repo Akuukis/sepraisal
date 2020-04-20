@@ -4,9 +4,6 @@ import { hot } from 'react-hot-loader/root'
 
 import {
     Divider,
-    ExpansionPanel,
-    ExpansionPanelDetails,
-    ExpansionPanelSummary,
     IconButton,
     Link,
     List,
@@ -14,11 +11,11 @@ import {
     Typography,
 } from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, DUD_URL as NOOP_URL, IMyTheme } from '../../common/'
 import { CONTEXT } from '../../stores'
 import SelectorRow from './Row'
+import MyExpansionPanel from '../../components/MyExpansionPanel'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -33,17 +30,9 @@ const styles = (theme: IMyTheme) => createStyles({
         right: theme.spacing(1),
         top: theme.spacing(1),
     },
-    content: {
-    },
-    heading: {
-        flexBasis: '33.33%',
-        flexShrink: 0,
-        fontSize: theme.typography.pxToRem(15),
-    },
-    secondaryHeading: {
-        color: theme.palette.text.secondary,
-        fontSize: theme.typography.pxToRem(15),
-    },
+    list: {
+        width: '100%',
+    }
 })
 
 
@@ -65,52 +54,40 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 <CloseIcon />
             </IconButton>
             <Divider />
-            <ExpansionPanel defaultExpanded>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography className={classes.heading}>Uploads</Typography>
-                    <Typography className={classes.secondaryHeading}>{`${blueprintStore.uploads.size} blueprints`}</Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails className={classes.content}>
-                    <List dense style={{width: '100%'}}>
-                        <ListItem key='0'>
-                            <Typography color='textSecondary' variant='body2' align='center'>
-                                "Drag and drop" or&nbsp;<Link href={NOOP_URL} variant='body1' onClick={browseFiles}>upload</Link>&nbsp; (sbc only).
-                            </Typography>
-                        </ListItem>
-                        {[...blueprintStore.uploads].map<JSX.Element>(([key]) => (
+            <MyExpansionPanel title='Uploads' subtitle={`${blueprintStore.uploads.size} blueprints`} defaultExpanded>
+                <List dense className={classes.list}>
+                    <ListItem key='0'>
+                        <Typography color='textSecondary' variant='body2' align='center'>
+                            "Drag and drop" or&nbsp;<Link href={NOOP_URL} variant='body1' onClick={browseFiles}>upload</Link>&nbsp; (sbc only).
+                        </Typography>
+                    </ListItem>
+                    {[...blueprintStore.uploads].map<JSX.Element>(([key]) => (
+                        <SelectorRow
+                            key={key}
+                            id={key}
+                            title={key}
+                            selected={props.selected}
+                        />
+                    ))}
+                </List>
+            </MyExpansionPanel>
+            <MyExpansionPanel title='Recent' subtitle={`${blueprintStore.recent.size} blueprints`} defaultExpanded>
+                <List dense className={classes.list}>
+                    <ListItem key='0'>
+                        <Typography color='textSecondary' variant='body2' align='center'>
+                            Browse and blueprints will show up here.
+                        </Typography>
+                    </ListItem>
+                    {[...blueprintStore.recent].map<JSX.Element>(([key, blueprint]) => (
                             <SelectorRow
                                 key={key}
                                 id={key}
-                                title={key}
                                 selected={props.selected}
+                                title={`${blueprint.steam.title}, v${blueprint.steam.revision}`}
                             />
                         ))}
-                    </List>
-                </ExpansionPanelDetails>
-            </ExpansionPanel>
-            <ExpansionPanel defaultExpanded>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography className={classes.heading}>Recent</Typography>
-                    <Typography className={classes.secondaryHeading}>{`${blueprintStore.recent.size} blueprints`}</Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails className={classes.content}>
-                    <List dense style={{width: '100%'}}>
-                        <ListItem key='0'>
-                            <Typography color='textSecondary' variant='body2' align='center'>
-                                Browse and blueprints will show up here.
-                            </Typography>
-                        </ListItem>
-                        {[...blueprintStore.recent].map<JSX.Element>(([key, blueprint]) => (
-                                <SelectorRow
-                                    key={key}
-                                    id={key}
-                                    selected={props.selected}
-                                    title={`${blueprint.steam.title}, v${blueprint.steam.revision}`}
-                                />
-                            ))}
-                    </List>
-                </ExpansionPanelDetails>
-            </ExpansionPanel>
+                </List>
+            </MyExpansionPanel>
         </div>
     )
 })) /* ============================================================================================================= */

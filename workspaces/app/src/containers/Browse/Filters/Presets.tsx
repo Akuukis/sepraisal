@@ -2,44 +2,21 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import {
-    ExpansionPanel,
-    ExpansionPanelDetails,
-    ExpansionPanelSummary,
     List,
     ListItem,
     ListItemText,
-    Typography,
 } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import { CONTEXT } from '../../../stores'
 import { PRESET } from '../../../stores/CardStore'
+import MyExpansionPanel from '../../../components/MyExpansionPanel'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    content: {
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-    },
-    expanded: {
-        margin: '0 !important',
-    },
-    heading: {
-        flexBasis: '33.33%',
-        flexShrink: 0,
-        lineHeight: 1,
-        fontSize: theme.typography.pxToRem(16),
-    },
-    secondaryHeading: {
-        color: theme.palette.primary.main,
-        fontWeight: 500,
-        lineHeight: 1,
-        fontSize: theme.typography.pxToRem(16),
-    },
     list: {
         width: '100%',
     },
@@ -65,6 +42,7 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+    const {expanded, onChange} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     const setFind = (event: React.MouseEvent<HTMLElement>) => {
@@ -90,17 +68,11 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
 
     return (
-        <ExpansionPanel classes={{root: classes.root, expanded: classes.expanded}} expanded={props.expanded} onChange={props.onChange}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading} variant='h3'>Presets</Typography>
-                <Typography component='span' className={classes.secondaryHeading}>{getTitle(cardStore.selectedPreset)}</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className={classes.content}>
-                <List className={classes.list}>
-                    {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
-                </List>
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
+        <MyExpansionPanel title='Presets' subtitle={getTitle(cardStore.selectedPreset)} expanded={expanded} onChange={onChange}>
+            <List className={classes.list}>
+                {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
+            </List>
+        </MyExpansionPanel>
     )
 })) /* ============================================================================================================= */
 
