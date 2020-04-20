@@ -22,6 +22,12 @@ const styles = (theme: IMyTheme) => createStyles({
         'backgroundColor': SE_COLORS.white,
         'position': 'relative',
     },
+
+    button: {
+        '&:hover': {
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+        },
+    },
     cardContent: {
         paddingBottom: theme.spacing(1),
         paddingLeft: theme.spacing(2),
@@ -111,7 +117,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         onClick={goAnalysis}
                     >
                         <Grid item>
-                            <Button size='large' disableRipple disableFocusRipple disableTouchRipple>
+                            <Button className={classes.button} size='large' disableRipple disableFocusRipple disableTouchRipple>
                                 <IconSearch />
                                 <Typography variant='button'>{'Analysis'}</Typography>
                             </Button>
@@ -127,7 +133,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         onClick={goSteam}
                     >
                         <Grid item>
-                            <Button size='large' disableRipple disableFocusRipple disableTouchRipple>
+                            <Button className={classes.button} size='large' disableRipple disableFocusRipple disableTouchRipple>
                                 <Steam />
                                 <Typography variant='button'>{'Subscribe'}</Typography>
                             </Button>
