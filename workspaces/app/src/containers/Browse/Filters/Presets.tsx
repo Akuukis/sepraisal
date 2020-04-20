@@ -2,37 +2,34 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import {
-    ExpansionPanel,
-    ExpansionPanelDetails,
-    ExpansionPanelSummary,
     List,
     ListItem,
     ListItemText,
-    Typography,
 } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import { CONTEXT } from '../../../stores'
 import { PRESET } from '../../../stores/CardStore'
+import MyExpansionPanel from '../../../components/MyExpansionPanel'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    content: {
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
+    list: {
+        width: '100%',
     },
-    heading: {
-        flexBasis: '33.33%',
-        flexShrink: 0,
-        fontSize: theme.typography.pxToRem(15),
+    listItem: {
+        '&:hover': {
+            backgroundColor: `#e7eff6 !important`,  // 9 times lighter.
+        }
     },
-    secondaryHeading: {
-        color: theme.palette.text.secondary,
-        fontSize: theme.typography.pxToRem(15),
+    listItemSelected: {
+        '&:hover': {
+            backgroundColor: `${theme.palette.primary.light} !important`,
+        },
+        backgroundColor: `${theme.palette.primary.light} !important`,
     },
 })
 
@@ -45,16 +42,8 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+    const {expanded, onChange} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
-
-    const getPresetTitle = (id: keyof typeof PRESET | 'custom') => {
-        switch(id) {
-            case 'none': return 'None'
-            case 'ship': return 'Any ship, vanilla.'
-            case 'fighter': return 'Fighter, vanilla.'
-            default: return 'Custom filter, see below.'
-        }
-    }
 
     const setFind = (event: React.MouseEvent<HTMLElement>) => {
         const id = event.currentTarget.getAttribute('value') as keyof typeof PRESET
@@ -64,6 +53,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const renderPreset = (id: keyof typeof PRESET | 'custom') =>
         (
             <ListItem
+                classes={{root: classes.listItem, selected: classes.listItemSelected}}
                 button
                 selected={cardStore.selectedPreset === id}
                 onClick={setFind}
@@ -72,21 +62,25 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 // tslint:disable-next-line: no-any
                 {...{value: id} as any}
             >
-                <ListItemText primary={getPresetTitle(id)} />
+                <ListItemText primary={getTitle(id)} />
             </ListItem>
         )
 
+
     return (
-        <ExpansionPanel className={classes.root} expanded={props.expanded} onChange={props.onChange}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading}>Presets</Typography>
-                <Typography className={classes.secondaryHeading}>{getPresetTitle(cardStore.selectedPreset)}</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className={classes.content}>
-                <List style={{width: '100%'}}>
-                    {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
-                </List>
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
+        <MyExpansionPanel title='Presets' subtitle={getTitle(cardStore.selectedPreset)} expanded={expanded} onChange={onChange}>
+            <List className={classes.list}>
+                {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
+            </List>
+        </MyExpansionPanel>
     )
 })) /* ============================================================================================================= */
+
+const getTitle = (id: keyof typeof PRESET | 'custom') => {
+    switch(id) {
+        case 'none': return 'None'
+        case 'ship': return 'Any ship, vanilla.'
+        case 'fighter': return 'Fighter, vanilla.'
+        default: return ''
+    }
+}

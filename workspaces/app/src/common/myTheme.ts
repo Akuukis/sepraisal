@@ -4,12 +4,13 @@ import { green, purple, red } from '@material-ui/core/colors'
 // Official Space Engineers colors (https://blog.marekrosa.org/2017/09/my-vision-for-visual-style-of-space.html)
 export const SE_COLORS = {
     black: '#111111',
-    blue: '#1767ae',
-    green: '#417e3b',
     grey: '#b6bab9',
     grey_dark: '#686868',
-    red: '#c01118',
     white: '#efefef',
+
+    blue: '#1767ae',
+    green: '#417e3b',
+    red: '#c01118',
     yellow: '#f5bf2b',
 }
 
@@ -17,22 +18,32 @@ export const SE_COLORS = {
 export interface IMyTheme extends Theme {
 }
 
+const defaultTheme = createMuiTheme()
+
+// www.color-hex.com/color
 export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
     palette: {
-        error: red,
-        grey: {
-            500: SE_COLORS.grey,
-        },
         primary: {
-            ...purple,
-            500: SE_COLORS.blue,
+            ...red,
+            main: SE_COLORS.blue,
+            dark:'#12528b',  // 2 darker.
+            light: '#a2c2de',  // 6 lighter.
         },
         secondary: {
             ...green,
-            A400: '#00e677',
+            main: SE_COLORS.yellow,
+            dark: '#c49822',  // 2 darker.
+            light: '#fbe5aa',  // 6 lighter.
         },
     },
     spacing: 4,
     typography: {
+        h3: {
+            fontWeight: 500,
+        },
+        h6: {
+            fontWeight: 400,
+            color: defaultTheme.palette.text.primary,
+        }
     },
 })

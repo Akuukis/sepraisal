@@ -12,9 +12,9 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {},
     selected: {
         '&:hover': {
-            background: theme.palette.primary.main,
+            background: theme.palette.secondary.light,
         },
-        'background': theme.palette.primary.main,
+        'background': theme.palette.secondary.light,
     },
 })
 

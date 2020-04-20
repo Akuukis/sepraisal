@@ -26,7 +26,7 @@ const styles = (theme: IMyTheme) => createStyles({
         width: '268px',
     },
     corner: {
-        backgroundColor: theme.palette.primary.light,
+        backgroundColor: theme.palette.secondary.main,
     },
     inline: {
         display: 'inline',

@@ -4,34 +4,21 @@ import { hot } from 'react-hot-loader/root'
 
 import {
     Button,
-    ExpansionPanel,
-    ExpansionPanelDetails,
-    ExpansionPanelSummary,
     TextField,
-    Typography,
+    Grid,
 } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import { CONTEXT } from '../../../stores'
+import MyExpansionPanel from '../../../components/MyExpansionPanel'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    button: {
-        marginLeft: theme.spacing(2),
-        marginRight: theme.spacing(2),
-    },
-    content: {
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-    },
-    heading: {
-        flexBasis: '33.33%',
-        flexShrink: 0,
-        fontSize: theme.typography.pxToRem(15),
+    textField: {
+        margin: 0,
     },
     monospaceBox: {
         backgroundColor: '#E8E8E8',
@@ -39,10 +26,6 @@ const styles = (theme: IMyTheme) => createStyles({
         fontSize: '0.8rem',
         padding: '0px 0px 0px 0.5em',
         resize: 'vertical',
-    },
-    secondaryHeading: {
-        color: theme.palette.text.secondary,
-        fontSize: theme.typography.pxToRem(15),
     },
 })
 
@@ -81,34 +64,37 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     }
 
     return (
-        <ExpansionPanel className={classes.root} expanded={expanded} onChange={onChange}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography className={classes.heading}>Advanced</Typography>
-                <Typography className={classes.secondaryHeading}/>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className={classes.content} style={{paddingBottom: '0px'}}>
-                <Button className={classes.button} variant='contained' fullWidth>
-                    Reset
-                </Button>
-                <Button className={classes.button} variant='contained' fullWidth color='primary' disabled={!dirtyOk} onClick={applyAdvancedFilter}>
-                    Apply
-                </Button>
-            </ExpansionPanelDetails>
-            <ExpansionPanelDetails className={classes.content}>
-                <TextField
-                    id='outlined-multiline-flexible'
-                    multiline
-                    rows='12'
-                    value={findDirty}
-                    onChange={handleRawFind}
-                    margin='normal'
-                    helperText={<span>Query for ".find()". Learn more at <a href='https://docs.mongodb.com/manual/tutorial/query-documents/'>MongoDB docs</a>.</span>}
-                    variant='outlined'
-                    error={dirtyOk === null}
-                    fullWidth
-                    InputProps={{className: classes.monospaceBox}}
-                />
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
+        <MyExpansionPanel title='Advanced' subtitle='' expanded={expanded} onChange={onChange}>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <Button variant='contained' fullWidth>
+                        Reset
+                    </Button>
+                </Grid>
+                <Grid item xs={6}>
+                    <Button variant='contained' fullWidth color='primary' disabled={!dirtyOk} onClick={applyAdvancedFilter}>
+                        Apply
+                    </Button>
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        className={classes.textField}
+                        id='outlined-multiline-flexible'
+                        multiline
+                        rows='12'
+                        value={findDirty}
+                        onChange={handleRawFind}
+                        margin='normal'
+                        helperText={helperText}
+                        variant='outlined'
+                        error={dirtyOk === null}
+                        fullWidth
+                        InputProps={{className: classes.monospaceBox}}
+                    />
+                </Grid>
+            </Grid>
+        </MyExpansionPanel>
     )
 })) /* ============================================================================================================= */
+
+const helperText = (<span>Query for ".find()". Learn more at <a href='https://docs.mongodb.com/manual/tutorial/query-documents/'>MongoDB docs</a>.</span>)
