@@ -13,13 +13,13 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps extends GridProps {
-    def?: string | number
+    label?: string | number
     value?: string | number
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const {def: defProps, value: valueProps, ...otherProps} = props
+    const {label: defProps, value: valueProps, ...otherProps} = props
     const def = defProps !== undefined ? String(defProps) : '\u00A0'
     const value = valueProps !== undefined ? String(valueProps) : '\u00A0'
 

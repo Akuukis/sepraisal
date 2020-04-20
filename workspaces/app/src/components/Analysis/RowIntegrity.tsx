@@ -7,7 +7,7 @@ import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import { vegaSpecHeatmapLegend } from '../../common/vega'
-import KeyValueBox from '../../components/KeyValueBox'
+import ValueWithLabel from '../../components/ValueWithLabel'
 import RowIntegrityHeatmap from './RowIntegrityHeatmap'
 
 
@@ -71,16 +71,16 @@ export default cold(createSmartFC(styles)<IProps>(({children, classes, theme, ..
                                 </Grid>
                                 <CardContent className={classes.cardContent}>
                                     <Grid container spacing={0}>
-                                        {<KeyValueBox xs={8} def={`Total Integrity`} value={bp.sbc.blockIntegrity} />}
-                                        {<KeyValueBox xs={4} def={`grid size`} value={bp.sbc.gridSize} />}
+                                        {<ValueWithLabel xs={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />}
+                                        {<ValueWithLabel xs={4} label={`grid size`} value={bp.sbc.gridSize} />}
                                     </Grid>
                                 </CardContent>
                                 <Divider />
                                 <CardContent className={classes.cardContent}>
                                     <Grid container spacing={0}>
-                                        {<KeyValueBox xs={4} def={`length (m)`} value={`${top[0].length * blockSize}`} />}
-                                        {<KeyValueBox xs={4} def={`width (m)`} value={`${top.length * blockSize}`} />}
-                                        {<KeyValueBox xs={4} def={`height (m)`} value={`${side.length * blockSize}`} />}
+                                        {<ValueWithLabel xs={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />}
+                                        {<ValueWithLabel xs={4} label={`width (m)`} value={`${top.length * blockSize}`} />}
+                                        {<ValueWithLabel xs={4} label={`height (m)`} value={`${side.length * blockSize}`} />}
                                     </Grid>
                                 </CardContent>
                                 <Divider />

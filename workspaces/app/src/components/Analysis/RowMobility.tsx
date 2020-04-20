@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader/root'
 import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
-import KeyValueBox from '../../components/KeyValueBox'
+import ValueWithLabel from '../../components/ValueWithLabel'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -67,19 +67,19 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         </Grid>
                         <CardContent className={classes.cardContent}>
                             <Grid container spacing={0}>
-                                {<KeyValueBox def={`mass (t)`} value={`${(sbc.blockMass / 1000).toFixed(0)} k`} />}
-                                {<KeyValueBox def={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />}
-                                {<KeyValueBox def={`j.drives`} value={`${'JumpDrive/LargeJumpDrive' in sbc.blocks ? sbc.blocks['JumpDrive/LargeJumpDrive'] : '-'}`} />}
-                                {<KeyValueBox def={`t.vel. (m/s)`} value={`${terminalVelocity(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />}
+                                {<ValueWithLabel label={`mass (t)`} value={`${(sbc.blockMass / 1000).toFixed(0)} k`} />}
+                                {<ValueWithLabel label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />}
+                                {<ValueWithLabel label={`j.drives`} value={`${'JumpDrive/LargeJumpDrive' in sbc.blocks ? sbc.blocks['JumpDrive/LargeJumpDrive'] : '-'}`} />}
+                                {<ValueWithLabel label={`t.vel. (m/s)`} value={`${terminalVelocity(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />}
                             </Grid>
                         </CardContent>
                         <Divider />
                         <CardContent className={classes.cardContent}>
                             <Grid container spacing={0}>
-                                {<KeyValueBox def={`(m/s\u00B2)`} value={`Hydro:`} />}
-                                {<KeyValueBox def={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />}
-                                {<KeyValueBox def={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 2)} />}
-                                {<KeyValueBox def={`fuel\u2009(min)`} value={hydroFuel(sbc.gridSize, sbc.blocks, sbc.thrustHydrogen)} />}
+                                {<ValueWithLabel label={`(m/s\u00B2)`} value={`Hydro:`} />}
+                                {<ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />}
+                                {<ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 2)} />}
+                                {<ValueWithLabel label={`fuel\u2009(min)`} value={hydroFuel(sbc.gridSize, sbc.blocks, sbc.thrustHydrogen)} />}
                             </Grid>
                         </CardContent>
                         <Divider />
@@ -96,19 +96,19 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <Divider />
                         <CardContent className={classes.cardContent}>
                             <Grid container spacing={0}>
-                                {<KeyValueBox def={`(m/s\u00B2)`} value={`Atmo:`} />}
-                                {<KeyValueBox def={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />}
-                                {<KeyValueBox def={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />}
-                                {<KeyValueBox def={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />}
+                                {<ValueWithLabel label={`(m/s\u00B2)`} value={`Atmo:`} />}
+                                {<ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />}
+                                {<ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />}
+                                {<ValueWithLabel label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />}
                             </Grid>
                         </CardContent>
                         <Divider />
                         <CardContent className={classes.cardContent}>
                             <Grid container spacing={0}>
-                                {<KeyValueBox def={`(m/s\u00B2)`} value={`Ion:`} />}
-                                {<KeyValueBox def={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />}
-                                {<KeyValueBox def={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />}
-                                {<KeyValueBox def={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />}
+                                {<ValueWithLabel label={`(m/s\u00B2)`} value={`Ion:`} />}
+                                {<ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />}
+                                {<ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />}
+                                {<ValueWithLabel label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />}
                             </Grid>
                         </CardContent>
                         <Divider />
