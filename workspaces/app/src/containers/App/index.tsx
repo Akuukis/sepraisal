@@ -137,6 +137,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
 
     if(state === ASYNC_STATE.Idle || state === ASYNC_STATE.Doing) {
         return (
+            <CONTEXT.SELECTION.Provider value={selectionStore}>
+
             <ThemeProvider theme={MY_LIGHT_THEME}>
                 <Paper className={classes.app} square>
                     <Topbar/>
@@ -145,11 +147,15 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     </Paper>
                 </Paper>
             </ThemeProvider>
+
+            </CONTEXT.SELECTION.Provider>
         )
     }
 
     if(state === ASYNC_STATE.Error) {
         return (
+            <CONTEXT.SELECTION.Provider value={selectionStore}>
+
             <ThemeProvider theme={MY_LIGHT_THEME}>
                 <Paper className={classes.app} square>
                     <Topbar/>
@@ -158,6 +164,8 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                     </Paper>
                 </Paper>
             </ThemeProvider>
+
+            </CONTEXT.SELECTION.Provider>
         )
     }
 
