@@ -13,9 +13,11 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     value: {
+        maxWidth: '100%',
     },
 
     label: {
+        maxWidth: '100%',
         textOverflow: 'clip',
     },
 })
@@ -24,16 +26,22 @@ const styles = (theme: IMyTheme) => createStyles({
 interface IProps extends GridProps {
     label?: string | number
     value?: string | number
+    wide?: boolean
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const {label: defProps, value: valueProps, className, ...otherProps} = props
-    const label = defProps !== undefined ? String(defProps) : '\u00A0'
-    const value = valueProps !== undefined ? String(valueProps) : '\u00A0'
+    const {label, value, wide, className, ...otherProps} = props
+    const labelFormatted = label !== undefined ? String(label) : '\u00A0'
+    const valueFormatted = value !== undefined ? String(value) : '\u00A0'
 
     return (
-        <MyCell className={classnames(classes.root, className)} {...otherProps}>
+        <MyCell
+            direction='column'
+            className={classnames(classes.root, className)}
+            {...(wide ? {xs: 12, sm: 6} : {})}
+            {...otherProps}
+        >
             <Typography
                 className={classes.value}
                 noWrap
@@ -42,7 +50,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 component='em'
                 align='center'
             >
-                {value}
+                {valueFormatted}
             </Typography>
             <Typography
                 className={classes.label}
@@ -53,7 +61,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 color='textSecondary'
                 display='block'
             >
-                {label}
+                {labelFormatted}
             </Typography>
         </MyCell>
     )

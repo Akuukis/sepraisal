@@ -70,7 +70,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         <MyRow>
                             <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
                             <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
-                            <ValueCell label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title} xs={6} />
+                            <ValueCell wide label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title}/>
                         </MyRow>
                     </Grid>
                     <Grid item xs={12} sm={6} className={classes.cell}>
