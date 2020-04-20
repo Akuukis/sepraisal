@@ -37,7 +37,7 @@ interface IQuery {
     $lte?: number,
 }
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title, findKey, operator, min, max, step: stepRaw, zeroes} = props
     const step = stepRaw ?? 1
 

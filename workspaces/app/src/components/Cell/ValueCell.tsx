@@ -29,7 +29,7 @@ interface IProps extends ICenterCellProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {label, value, className, ...otherProps} = props
     const labelFormatted = label !== undefined ? String(label) : '\u00A0'
     const valueFormatted = value !== undefined ? String(value) : '\u00A0'

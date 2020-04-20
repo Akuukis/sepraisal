@@ -34,7 +34,7 @@ const NEXT_STATE = new Map([
     [false, null],
 ])
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title, findKey, yes, no} = props
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)

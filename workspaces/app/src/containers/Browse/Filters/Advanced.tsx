@@ -36,7 +36,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {expanded, onChange} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const [findDirty, setFindDirty] = React.useState('')

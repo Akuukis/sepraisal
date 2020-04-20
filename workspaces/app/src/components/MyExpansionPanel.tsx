@@ -46,7 +46,7 @@ interface IProps extends Omit<ExpansionPanelProps, 'title'> {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const { title, subtitle, ...otherProps } = props
 
     return (

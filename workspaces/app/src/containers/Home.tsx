@@ -40,7 +40,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
     const [status, setStatus] = React.useState<typeof STATUS[keyof typeof STATUS]>(STATUS.Idle)

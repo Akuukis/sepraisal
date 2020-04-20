@@ -51,7 +51,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const sbc = props.bp.sbc
     const [syntax, setSyntax] = React.useState<Syntax>('list')
     const [copies, setCopies] = React.useState(1)

@@ -44,7 +44,7 @@ interface IProps<TDatum extends {} = {}> {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, ...props}) => {
     const [pages, setPages] = React.useState<number>(0)
     const [loading, setLoading] = React.useState<boolean>(true)
     const [selectAll, setSelectAll] = React.useState<number>(0)

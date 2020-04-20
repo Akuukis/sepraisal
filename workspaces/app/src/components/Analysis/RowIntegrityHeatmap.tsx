@@ -31,7 +31,7 @@ interface IProps {
 }
 
 
-export default cold(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default cold(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     // const [svg, setSvg] = React.useState(<svg />)
 
     // useAsyncEffectOnce(async () => {

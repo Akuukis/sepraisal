@@ -24,7 +24,7 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     return (
         <div className={classes.root}>
             <Typography variant='h3' style={{color: '#fff'}} align='center'>Drop files...</Typography>

@@ -32,7 +32,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {toggleDrawer} = props
 
     const [expanded, setExpanded] = React.useState<typeof Pages[keyof typeof Pages] | null>(Pages.Presets)

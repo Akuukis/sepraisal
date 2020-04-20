@@ -28,6 +28,9 @@ module.exports = {
             'react-dom': '@hot-loader/react-dom'
         },
     },
+    node: {
+        __filename: true,  // To simplify makeStyles naming.
+    },
     module: {
         rules: [
             { test: /\.css$/, loaders: [ 'style-loader', 'css-loader' ] },

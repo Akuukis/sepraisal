@@ -25,7 +25,7 @@ interface IProps extends GridProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title,  className, ...otherProps} = props
 
     return (
