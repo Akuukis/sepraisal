@@ -24,7 +24,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {id, steam} = props
 
     const avatarTitle = steam?.author.title?.slice(0, 2) ?? '??'

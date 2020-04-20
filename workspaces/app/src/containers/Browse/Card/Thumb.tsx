@@ -9,7 +9,7 @@ import { CardStatus, ICard } from '../../../models/Card'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        paddingTop: '56.25%',
+        paddingTop: '56.34%',
     },
 })
 
@@ -20,7 +20,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {id, thumb} = props
 
     const image = (thumb && thumb.webp)

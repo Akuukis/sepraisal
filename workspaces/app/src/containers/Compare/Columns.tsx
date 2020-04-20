@@ -1,13 +1,11 @@
-import { IBlueprint, RequiredSome } from '@sepraisal/common'
-import { IObservableArray } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Grid } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
-import AnalysisColumn from '../Blueprint/Column'
+import Analysis from '../../components/Analysis'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -26,7 +24,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
@@ -34,7 +32,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
         // tslint:disable-next-line: no-non-null-assertion
         .map((key) => [key, blueprintStore.getSomething(key)] as const)
         .map(([key, blueprint]) => (
-            <AnalysisColumn
+            <Analysis
                 width={12}
                 classes={{root: classes.column}}
                 key={key}

@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import { FC } from 'react'
 import { DeepPartial } from 'utility-types'
+import { basename } from 'path'
 
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Styles } from '@material-ui/styles/withStyles'
@@ -13,10 +14,12 @@ import { IMyTheme } from './myTheme'
 
 export const createSmartFC = <TClasses extends string>(
         styles: Styles<IMyTheme, {}, TClasses>,
+        filepath?: string,
     ) => <TProps extends object>(
         fc: FunctionComponent<TProps, TClasses>,
     ) => {
-        const useStyles = makeStyles(styles)
+        const name = filepath && basename(filepath, '.tsx')
+        const useStyles = makeStyles(styles, {name})
         const wrapperFC = (props: TProps) => {
             const theme = useTheme<IMyTheme>()
             const classes = useStyles(props)

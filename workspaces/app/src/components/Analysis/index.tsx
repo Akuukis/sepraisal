@@ -6,12 +6,12 @@ import { Grid } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
-import RowBlocks from './RowBlocks'
-import RowHeader from './RowHeader'
-import RowIntegrity from './RowIntegrity'
-import RowMaterials from './RowMaterials'
-import RowMobility from './RowMobility'
-import RowWorkshop from './RowWorkshop'
+import SectionBlocks from './SectionBlocks'
+import Header from './Header'
+import SectionIntegrity from './SectionIntegrity'
+import SectionMaterials from './SectionMaterials'
+import SectionMobility from './SectionMobility'
+import SectionWorkshop from './SectionWorkshop'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -29,6 +29,9 @@ const styles = (theme: IMyTheme) => createStyles({
         maxWidth: theme.spacing(1) * 2 + 536,
         padding: theme.spacing(1),
     },
+    headerItem: {
+        width: '100%',
+    }
 })
 
 
@@ -38,7 +41,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {bp, width} = props
 
     // @computed get anyError() {
@@ -49,20 +52,20 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     //         || analysis.oreErrors.length > 0
     // }
 
-    const renderBox = (AnalysisRows: Row[], header = false) =>
+    const renderBox = (AnalysisSections: Section[], header = false) =>
         (
             <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
-                {AnalysisRows.map((AnalysisRow, i) => (<AnalysisRow key={i} width={width} bp={bp} />))}
+                {AnalysisSections.map((AnalysisSection, i) => (<AnalysisSection key={i} width={width} bp={bp} />))}
             </Grid>
         )
 
     return (
-        <Grid className={classes.root} container justify='center'>
-            {renderBox([RowHeader          as Row], true)}
-            {'steam' in bp ? renderBox([RowWorkshop        as Row]) : null}
-            {renderBox([RowIntegrity       as Row, RowMobility        as Row])}
-            {renderBox([RowMaterials          as Row])}
-            {renderBox([RowBlocks          as Row])}
+        <Grid component='article' className={classes.root} container justify='center'>
+            {renderBox([Header          as Section], true)}
+            {'steam' in bp ? renderBox([SectionWorkshop        as Section]) : null}
+            {renderBox([SectionIntegrity       as Section, SectionMobility        as Section])}
+            {renderBox([SectionMaterials          as Section])}
+            {renderBox([SectionBlocks          as Section])}
         </Grid>
     )
 })) /* ============================================================================================================= */
@@ -76,4 +79,4 @@ interface IBpProjection {
     thumb?: Partial<IBlueprint.IThumb>,
 }
 
-type Row = React.ComponentType<IProps & StyledComponentProps<'root'>>
+type Section = React.ComponentType<IProps & StyledComponentProps<'root'>>

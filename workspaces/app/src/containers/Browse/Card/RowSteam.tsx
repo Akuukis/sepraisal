@@ -1,19 +1,14 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { CardContent, Grid } from '@material-ui/core'
-
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from '../../../common/'
-import KeyValueBox from '../../../components/KeyValueBox'
+import ValueCell from '../../../components/Cell/ValueCell'
 import { CardStatus, ICard } from '../../../models/Card'
+import MyRow from '../../../components/MyRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        paddingBottom: theme.spacing(1),
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        paddingTop: theme.spacing(1),
     },
 })
 
@@ -24,7 +19,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {id, steam} = props
 
     if(!steam) {
@@ -37,13 +32,11 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     const starsDef = steam.ratingStars === null ? 'few ratings' : `${steam.ratingCount}`
 
     return (
-        <CardContent className={classes.root}>
-            <Grid container spacing={0} alignItems='center'>
-                <KeyValueBox def='subscribers' value={formatDecimal(steam.subscriberCount)} />
-                <KeyValueBox def={starsDef} value={starsValue} />
-                <KeyValueBox def='posted' value={postedDate} />
-                <KeyValueBox def='author' value={steam.author.title} />
-            </Grid>
-        </CardContent>
+        <MyRow className={classes.root}>
+            <ValueCell label='subscribers' value={formatDecimal(steam.subscriberCount)} />
+            <ValueCell label={starsDef} value={starsValue} />
+            <ValueCell label='posted' value={postedDate} />
+            <ValueCell label='author' value={steam.author.title} />
+        </MyRow>
     )
 })) /* ============================================================================================================= */

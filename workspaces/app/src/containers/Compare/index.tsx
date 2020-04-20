@@ -1,6 +1,6 @@
 import { noop } from '@sepraisal/common'
 import classNames from 'classnames'
-import { observable, runInAction } from 'mobx'
+import { runInAction } from 'mobx'
 import * as Pako from 'pako'
 import * as React from 'react'
 import { useDropzone } from 'react-dropzone'
@@ -8,7 +8,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Drawer, Paper } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
 import Columns from './Columns'
 import SelectorDnDOverlay from './DnDOverlay'
@@ -51,7 +51,7 @@ interface IProps {
 }
 
 
-export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
     const [open, setOpen] = React.useState(true)

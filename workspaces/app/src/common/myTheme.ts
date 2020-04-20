@@ -44,6 +44,15 @@ export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
         h6: {
             fontWeight: 400,
             color: defaultTheme.palette.text.primary,
-        }
+        },
+        subtitle1: {  // Usually with `strong` element.
+        },
+        subtitle2: {  // Usually with `em` element.
+            fontStyle: 'normal',
+            fontStretch: 'condensed',
+        },
+        caption: {  // Usually with `label` element.
+            fontSize: '0.675rem',
+        },
     },
 })
