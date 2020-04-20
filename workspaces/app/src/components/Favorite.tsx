@@ -40,7 +40,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
     }
 
     return (
-        <IconButton className={classes.root} size='medium' color='secondary' aria-label='favorite' onClick={handleToggle}>
+        <IconButton className={classes.root} size='small' color='secondary' aria-label='favorite' onClick={handleToggle}>
             {favorited ? <IconFavorite /> : <IconFavoriteBorder />}
         </IconButton>
     )
