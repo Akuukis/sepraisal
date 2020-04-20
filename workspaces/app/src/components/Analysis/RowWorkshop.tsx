@@ -7,8 +7,9 @@ import { Button, Card, CardContent, CardMedia, Divider, Grid, Typography } from 
 
 import { createSmartFC, createStyles, formatDecimal, GridSize, IMyTheme, linkBp } from '../../common/'
 import Steam from '../../components/icons/Steam'
-import ValueWithLabel from '../../components/ValueWithLabel'
+import ValueCell from '../../components/Cell/ValueCell'
 import MyRow from '../MyRow'
+import HeaderCell from '../Cell/HeaderCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -26,9 +27,6 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     cell: {
         width: '268px',
-    },
-    corner: {
-        backgroundColor: theme.palette.secondary.main,
     },
     inline: {
         display: 'inline',
@@ -54,31 +52,25 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             <Card square className={classes.card}>
                 <Grid container>
                     <Grid item xs={12} sm={6} className={classes.cell}>
-                        <Grid container spacing={0}>
-                            <Grid item xs={12} sm={6} className={classes.corner}>
-                                <CardContent className={classes.cardContent}>
-                                    <Typography variant='body1'>{`WORKSHOP`}</Typography>
-                                </CardContent>
-                                <Divider />
-                            </Grid>
+                        <MyRow>
+                            <HeaderCell title='WORKSHOP' xs={12} sm={6} />
                             <Grid item xs={12} sm={6}>
                                 <Button size='medium' disableRipple disableFocusRipple disableTouchRipple href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
                                     <Steam />
                                     <Typography variant='body1'>{'Subscribe'}</Typography>
                                 </Button>
-                                <Divider />
                             </Grid>
-                        </Grid>
-                        <MyRow>
-                            <ValueWithLabel label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
-                            <ValueWithLabel label={starsDef} value={starsValue} />
-                            <ValueWithLabel label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
-                            <ValueWithLabel label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
                         </MyRow>
                         <MyRow>
-                            <ValueWithLabel label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
-                            <ValueWithLabel label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
-                            <ValueWithLabel label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title} xs={6} />
+                            <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
+                            <ValueCell label={starsDef} value={starsValue} />
+                            <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
+                            <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
+                        </MyRow>
+                        <MyRow>
+                            <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
+                            <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
+                            <ValueCell label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title} xs={6} />
                         </MyRow>
                     </Grid>
                     <Grid item xs={12} sm={6} className={classes.cell}>

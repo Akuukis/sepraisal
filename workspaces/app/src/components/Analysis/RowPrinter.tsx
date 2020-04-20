@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader/root'
 import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
-import ValueWithLabel from '../../components/ValueWithLabel'
+import ValueCell from '../../components/Cell/ValueCell'
 import MyRow from '../MyRow'
 
 
@@ -68,19 +68,19 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         </Grid>
                         <CardContent className={classes.cardContent}>
                             <Grid container spacing={0}>
-                                {<ValueWithLabel label={`mass (t)`} value={`${(sbc.blockMass / 1000).toFixed(0)} k`} />}
-                                {<ValueWithLabel label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />}
-                                {<ValueWithLabel label={`j.drives`} value={`${'JumpDrive/LargeJumpDrive' in sbc.blocks ? sbc.blocks['JumpDrive/LargeJumpDrive'] : '-'}`} />}
-                                {<ValueWithLabel label={`t.vel. (m/s)`} value={`${terminalVelocity(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />}
+                                {<ValueCell label={`mass (t)`} value={`${(sbc.blockMass / 1000).toFixed(0)} k`} />}
+                                {<ValueCell label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />}
+                                {<ValueCell label={`j.drives`} value={`${'JumpDrive/LargeJumpDrive' in sbc.blocks ? sbc.blocks['JumpDrive/LargeJumpDrive'] : '-'}`} />}
+                                {<ValueCell label={`t.vel. (m/s)`} value={`${terminalVelocity(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />}
                             </Grid>
                         </CardContent>
                         <Divider />
                         <CardContent className={classes.cardContent}>
                             <Grid container spacing={0}>
-                                {<ValueWithLabel label={`(m/s\u00B2)`} value={`Hydro:`} />}
-                                {<ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />}
-                                {<ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 2)} />}
-                                {<ValueWithLabel label={`fuel\u2009(min)`} value={hydroFuel(sbc.gridSize, sbc.blocks, sbc.thrustHydrogen)} />}
+                                {<ValueCell label={`(m/s\u00B2)`} value={`Hydro:`} />}
+                                {<ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />}
+                                {<ValueCell label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 2)} />}
+                                {<ValueCell label={`fuel\u2009(min)`} value={hydroFuel(sbc.gridSize, sbc.blocks, sbc.thrustHydrogen)} />}
                             </Grid>
                         </CardContent>
                         <Divider />
@@ -96,16 +96,16 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                         </CardContent>
                         <Divider />
                         <MyRow>
-                            <ValueWithLabel label={`(m/s\u00B2)`} value={`Atmo:`} />
-                            <ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
-                            <ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />
-                            <ValueWithLabel label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />
+                            <ValueCell label={`(m/s\u00B2)`} value={`Atmo:`} />
+                            <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
+                            <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />
+                            <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />
                         </MyRow>
                         <MyRow>
-                            <ValueWithLabel label={`(m/s\u00B2)`} value={`Ion:`} />
-                            <ValueWithLabel label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
-                            <ValueWithLabel label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />
-                            <ValueWithLabel label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />
+                            <ValueCell label={`(m/s\u00B2)`} value={`Ion:`} />
+                            <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
+                            <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />
+                            <ValueCell label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />
                         </MyRow>
                     </Grid>
                 </Grid>

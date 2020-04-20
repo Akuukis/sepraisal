@@ -1,21 +1,15 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import classnames from 'classnames'
 
 import { Grid, Typography, GridProps } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import MyCell from './MyCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        '&:first-child': {
-            paddingLeft: theme.spacing(2),
-        },
-        '&:last-child': {
-            paddingRight: theme.spacing(2),
-        },
-        paddingBottom: theme.spacing(1),
-        paddingTop: theme.spacing(1),
     },
 
     value: {
@@ -34,12 +28,12 @@ interface IProps extends GridProps {
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
-    const {label: defProps, value: valueProps, ...otherProps} = props
+    const {label: defProps, value: valueProps, className, ...otherProps} = props
     const label = defProps !== undefined ? String(defProps) : '\u00A0'
     const value = valueProps !== undefined ? String(valueProps) : '\u00A0'
 
     return (
-        <Grid item className={classes.root} xs={3} {...otherProps}>
+        <MyCell className={classnames(classes.root, className)} {...otherProps}>
             <Typography
                 className={classes.value}
                 noWrap
@@ -61,6 +55,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             >
                 {label}
             </Typography>
-        </Grid>
+        </MyCell>
     )
 })) /* ============================================================================================================= */

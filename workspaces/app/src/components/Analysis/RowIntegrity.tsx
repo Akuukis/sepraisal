@@ -7,7 +7,7 @@ import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import { vegaSpecHeatmapLegend } from '../../common/vega'
-import ValueWithLabel from '../../components/ValueWithLabel'
+import ValueCell from '../../components/Cell/ValueCell'
 import RowIntegrityHeatmap from './RowIntegrityHeatmap'
 import MyRow from '../MyRow'
 
@@ -71,13 +71,13 @@ export default cold(createSmartFC(styles)<IProps>(({children, classes, theme, ..
                                     </Grid>
                                 </Grid>
                                 <MyRow>
-                                    <ValueWithLabel xs={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />
-                                    <ValueWithLabel xs={4} label={`grid size`} value={bp.sbc.gridSize} />
+                                    <ValueCell xs={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />
+                                    <ValueCell xs={4} label={`grid size`} value={bp.sbc.gridSize} />
                                 </MyRow>
                                 <MyRow>
-                                    <ValueWithLabel xs={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />
-                                    <ValueWithLabel xs={4} label={`width (m)`} value={`${top.length * blockSize}`} />
-                                    <ValueWithLabel xs={4} label={`height (m)`} value={`${side.length * blockSize}`} />
+                                    <ValueCell xs={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />
+                                    <ValueCell xs={4} label={`width (m)`} value={`${top.length * blockSize}`} />
+                                    <ValueCell xs={4} label={`height (m)`} value={`${side.length * blockSize}`} />
                                 </MyRow>
                             </Grid>
                             <Grid item style={{height: 151}}>
