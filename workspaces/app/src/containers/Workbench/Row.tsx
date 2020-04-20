@@ -21,7 +21,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     id: string
-    selected: IObservableArray<string>
     title: string
 }
 
@@ -29,13 +28,14 @@ interface IProps {
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const selectionStore = React.useContext(CONTEXT.SELECTION)
 
-    const {id, title, selected} = props
-    const index = selected.indexOf(id)
+    const {id, title} = props
+    const index = selectionStore.selected.indexOf(id)
 
     const handleToggle = () => {
         if(index === -1) {
-            runInAction(() => selected.push(id))
+            runInAction(() => selectionStore.selected.push(id))
             piwikStore.push([
                 'trackEvent',
                 'workshop',
@@ -51,7 +51,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 id,
                 undefined,
             ])
-            runInAction(() => selected.remove(id))
+            runInAction(() => selectionStore.selected.remove(id))
         }
     }
     const handleDelete = () => {
@@ -63,7 +63,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             undefined,
         ])
         runInAction(() => {
-            selected.remove(id)
+            selectionStore.selected.remove(id)
             if(blueprintStore.uploads.has(id)) {
                 blueprintStore.deleteUpload(id)
             }

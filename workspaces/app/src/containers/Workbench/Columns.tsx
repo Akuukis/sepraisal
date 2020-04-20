@@ -23,13 +23,14 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    selected: IObservableArray<string>
 }
 
 
 export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const columns = [...props.selected]
+    const selectionStore = React.useContext(CONTEXT.SELECTION)
+
+    const columns = [...selectionStore.selected]
         // tslint:disable-next-line: no-non-null-assertion
         .map<[string, IBlueprint]>((key) => [key, blueprintStore.uploads.has(key) ? blueprintStore.uploads.get(key)! : blueprintStore.recent.get(key)!])
         .map(([key, blueprint]) => (

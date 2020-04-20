@@ -37,7 +37,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    selected: IObservableArray<string>
     browseFiles(): void
     toggleDrawer(): void
 }
@@ -66,7 +65,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             key={key}
                             id={key}
                             title={key}
-                            selected={props.selected}
                         />
                     ))}
                 </List>
@@ -82,7 +80,6 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             <SelectorRow
                                 key={key}
                                 id={key}
-                                selected={props.selected}
                                 title={`${blueprint.steam.title}, v${blueprint.steam.revision}`}
                             />
                         ))}
