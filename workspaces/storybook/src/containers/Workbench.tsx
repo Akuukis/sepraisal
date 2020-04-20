@@ -1,4 +1,4 @@
-import Workbench from '@sepraisal/app/lib/containers/Workbench'
+import Compare from 'workspaces/app/lib/containers/Compare'
 import { withKnobs } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
@@ -22,12 +22,12 @@ class MockBlueprintStore extends BlueprintStore {
     }
 }
 
-storiesOf('Containers|Workbench', module)
+storiesOf('Containers|Compare', module)
     .addDecorator(Theme('my'))
     .addDecorator(withKnobs)
     .addDecorator(ProviderDecorator({
         BLUEPRINTS: new MockBlueprintStore(),
     }))
     .add('Default', () => {
-        return <Workbench />
+        return <Compare />
     })

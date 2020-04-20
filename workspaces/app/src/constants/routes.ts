@@ -2,6 +2,6 @@ export enum ROUTES {
   HOME = '/',
   BLUEPRINT = '/bp',
   BROWSE = '/browse',
-  WORKBENCH = '/workbench',
+  COMPARE = '/compare',
   INFO = '/info',
 }

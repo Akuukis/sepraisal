@@ -123,7 +123,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                             className={classes.button}
                             color='primary'
                             variant='outlined'
-                            onClick={() => routerStore.goView(ROUTES.WORKBENCH)}
+                            onClick={() => routerStore.goView(ROUTES.COMPARE)}
                             fullWidth
                         >
                             <IconBuild />

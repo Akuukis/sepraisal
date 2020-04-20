@@ -63,7 +63,7 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
                 <div style={{flex: 1}} />
                 <TopbarButton route={ROUTES.BROWSE} icon={<IconSearch/>} title='Browse' />
                 <Badge classes={{badge: classes.badge}} badgeContent={selectionStore.selected.length} color="secondary">
-                    <TopbarButton route={ROUTES.WORKBENCH} icon={<IconBuild/>} title='Compare' />
+                    <TopbarButton route={ROUTES.COMPARE} icon={<IconBuild/>} title='Compare' />
                 </Badge>
                 <TopbarButton route={ROUTES.INFO} icon={<IconInfo/>} title='Info' />
             </Toolbar>
