@@ -27,6 +27,7 @@ const styles = (theme: IMyTheme) => createStyles({
         '&:hover': {
             backgroundColor: 'rgba(0, 0, 0, 0)',
         },
+        color: 'inherit',
     },
     cardContent: {
         paddingBottom: theme.spacing(1),
@@ -35,7 +36,7 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingTop: theme.spacing(1),
     },
     overlay: {
-        backgroundColor: `${SE_COLORS.grey}D0`,
+        backgroundColor: `${SE_COLORS.grey}80`,
         bottom: 0,
         height: '100%',
         left: 0,
@@ -49,19 +50,19 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     overlayItem: {
         '&:hover': {
-            borderColor: SE_COLORS.black,
+            opacity: 1,
+            color: theme.palette.text.primary,
         },
-        'borderColor': SE_COLORS.grey_dark,
-        'borderStyle': `dashed`,
-        'borderWidth': theme.spacing(1),
-        'height': `calc(50% - ${theme.spacing(1)}px)`,
-        'padding': theme.spacing(1),
-        'width': `calc(100% - ${theme.spacing(1)}px)`,
-    },
-    overlayItem2: {
-        cursor: 'pointer',
-        height: `calc(100% - ${theme.spacing(1)}px)`,
+        opacity: 0.4,
+        color: '#0000',
+        backgroundColor: `${theme.palette.secondary.main}D0`,
+        borderColor: SE_COLORS.black,
+        borderStyle: `dashed`,
+        borderWidth: theme.spacing(1),
+        height: `calc(50% - ${theme.spacing(1)}px)`,
+        padding: theme.spacing(1),
         width: `calc(100% - ${theme.spacing(1)}px)`,
+        cursor: 'pointer',
     },
 })
 
@@ -108,36 +109,34 @@ export default hot(createSmartFC(styles)<IProps>(({children, classes, theme, ...
             <Divider />
             <RowPraisal classes={{root: classes.cardContent}} id={bp.id} sbc={bp.sbc} />
             <Grid container className={classes.overlay} direction='column' alignItems='center' justify='space-evenly'>
-                <Grid item className={classes.overlayItem}>
-                    <Grid
-                        container
-                        alignItems='center'
-                        justify='center'
-                        className={classes.overlayItem2}
-                        onClick={goAnalysis}
-                    >
-                        <Grid item>
-                            <Button className={classes.button} size='large' disableRipple disableFocusRipple disableTouchRipple>
-                                <IconSearch />
-                                <Typography variant='button'>{'Analysis'}</Typography>
-                            </Button>
-                        </Grid>
+                <Grid
+                    container
+                    item
+                    className={classes.overlayItem}
+                    alignItems='center'
+                    justify='center'
+                    onClick={goAnalysis}
+                >
+                    <Grid item>
+                        <Button className={classes.button} size='large' disableRipple disableFocusRipple disableTouchRipple>
+                            <IconSearch />
+                            <Typography variant='button'>{'Analysis'}</Typography>
+                        </Button>
                     </Grid>
                 </Grid>
-                <Grid item className={classes.overlayItem}>
-                    <Grid
-                        container
-                        alignItems='center'
-                        justify='center'
-                        className={classes.overlayItem2}
-                        onClick={goSteam}
-                    >
-                        <Grid item>
-                            <Button className={classes.button} size='large' disableRipple disableFocusRipple disableTouchRipple>
-                                <Steam />
-                                <Typography variant='button'>{'Subscribe'}</Typography>
-                            </Button>
-                        </Grid>
+                <Grid
+                    container
+                    item
+                    className={classes.overlayItem}
+                    alignItems='center'
+                    justify='center'
+                    onClick={goSteam}
+                >
+                    <Grid item>
+                        <Button className={classes.button} size='large' disableRipple disableFocusRipple disableTouchRipple>
+                            <Steam />
+                            <Typography variant='button'>{'Subscribe'}</Typography>
+                        </Button>
                     </Grid>
                 </Grid>
             </Grid>
