@@ -3,8 +3,10 @@ import * as moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
+import { formatDecimal } from '../../common'
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
+import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyRow from '../MyRow'
@@ -14,6 +16,12 @@ import MySection from '../MySection'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
+
+    slider: {
+        alignSelf: 'flex-start',
+        marginTop: -theme.spacing(1),
+        marginButtom: 0,
+    }
 })
 
 
@@ -26,41 +34,107 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const sbc = props.bp.sbc
 
+    const jumpDrives = sbc.blocks['JumpDrive/LargeJumpDrive'] ?? 0
+    const parachutes = (sbc.blocks['Parachute/LgParachute'] ?? 0) + (sbc.blocks['Parachute/SmParachute'] ?? 0)
+
+    const mass = sbc.blockMass
+
+    const reqParachutesForSlow = getRequiredParachutes(5, mass, sbc.gridSize)
+    const reqParachutesForFast = getRequiredParachutes(10, mass, sbc.gridSize)
+
+    // const marks = [
+    //     {
+    //         value: 0,
+    //         label: '0°C',
+    //     },
+    //     {
+    //         value: 20,
+    //         label: '20°C',
+    //     },
+    //     {
+    //         value: 37,
+    //         label: '37°C',
+    //     },
+    //     {
+    //         value: 100,
+    //         label: '100°C',
+    //     },
+    // ]
+    // const valuetext = (value: number) => `${value}°C`
+
     return (
         <MySection className={classes.root}>
             <MyBox wide>
                 <MyRow>
                     <HeaderCell title='MOBILITY' />
-                    <ValueCell label={`Grid Type`} value={sbc.gridStatic ? `Static` : `Vehicle`} />
-                    <ValueCell wide label={`Wheels`} value={wheeled(sbc.blocks)} />
+                    <ValueCell label={`dry mass (kg)`} value={`${formatDecimal(sbc.blockMass)}`} />
+                    {/* <ValueCell label={`Grid Type`} value={sbc.gridStatic ? `Static` : `Vehicle`} /> */}
+                    <CenterCell wide padded>
+                        {/* <Slider
+                            defaultValue={20}
+                            getAriaValueText={valuetext}
+                            aria-labelledby="discrete-slider-custom"
+                            step={10}
+                            valueLabelDisplay="auto"
+                            marks={marks}
+                        /> */}
+                    </CenterCell>
                 </MyRow>
             </MyBox>
-            <MyBox>
-                <MyRow>
-                    <ValueCell label={`mass (t)`} value={`${(sbc.blockMass / 1000).toFixed(0)} k`} />
+            <MyBox wide>
+                <MyRow sm={6}>
+                    <ValueCell label={`Wheels`} value={wheeled(sbc.blocks)} />
                     <ValueCell label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
-                    <ValueCell label={`j.drives`} value={`${'JumpDrive/LargeJumpDrive' in sbc.blocks ? sbc.blocks['JumpDrive/LargeJumpDrive'] : '-'}`} />
-                    <ValueCell label={`t.vel. (m/s)`} value={`${terminalVelocity(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
+                    <ValueCell label={`j.drives`} value={jumpDrives || '-'} />
+                    <ValueCell label={`j.dist (km)`} value={jumpDistance(mass, jumpDrives)} />
                 </MyRow>
-                <MyRow>
-                    <ValueCell label={`(m/s\u00B2)`} value={`Hydro:`} />
-                    <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />
-                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 2)} />
-                    <ValueCell label={`fuel\u2009(min)`} value={hydroFuel(sbc.gridSize, sbc.blocks, sbc.thrustHydrogen)} />
+                <MyRow sm={6}>
+                    <ValueCell label={`t. velocity`} value={`${terminalVelocity(sbc.blockMass, sbc.blocks)} m/s`} />
+                    <ValueCell label={`parachutes`} value={parachutes || '-'} />
+                    <ValueCell label={`req. 10m/s`} value={reqParachutesForFast} />
+                    <ValueCell label={`req. 5m/s`} value={reqParachutesForSlow} />
                 </MyRow>
             </MyBox>
-            <MyBox>
-                <MyRow>
+            <MyBox wide>
+                <MyRow sm={6}>
                     <ValueCell label={`(m/s\u00B2)`} value={`Atmo:`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
-                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />
-                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />
+                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 1)} />
+                    <ValueCell label={`backward`} value={speedToFixed(sbc.thrustAtmospheric.Backward, sbc.blockMass, 1)} />
                 </MyRow>
-                <MyRow>
+                <MyRow sm={6}>
+                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 1)} />
+                    <ValueCell label={`downward`} value={speedToFixed(sbc.thrustAtmospheric.Down, sbc.blockMass, 1)} />
+                    <ValueCell label={`left`} value={speedToFixed(sbc.thrustAtmospheric.Left, sbc.blockMass, 1)} />
+                    <ValueCell label={`right`} value={speedToFixed(sbc.thrustAtmospheric.Right, sbc.blockMass, 1)} />
+                </MyRow>
+            </MyBox>
+            <MyBox wide>
+                <MyRow sm={6}>
+                    <ValueCell label={`(m/s\u00B2)`} value={`Hydro:`} />
+                    <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />
+                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 1)} />
+                    <ValueCell label={`backward`} value={speedToFixed(sbc.thrustHydrogen.Backward, sbc.blockMass, 1)} />
+                </MyRow>
+                <MyRow sm={6}>
+                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustHydrogen.Up, sbc.blockMass, 1)} />
+                    <ValueCell label={`downward`} value={speedToFixed(sbc.thrustHydrogen.Down, sbc.blockMass, 1)} />
+                    <ValueCell label={`left`} value={speedToFixed(sbc.thrustHydrogen.Left, sbc.blockMass, 1)} />
+                    <ValueCell label={`right`} value={speedToFixed(sbc.thrustHydrogen.Right, sbc.blockMass, 1)} />
+                </MyRow>
+            </MyBox>
+            <MyBox wide>
+                <MyRow sm={6}>
                     <ValueCell label={`(m/s\u00B2)`} value={`Ion:`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
-                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />
-                    <ValueCell label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />
+                    <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 1)} />
+                    <ValueCell label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 1)} />
+                </MyRow>
+                <MyRow sm={6}>
+                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustIon.Up, sbc.blockMass, 1)} />
+                    <ValueCell label={`downward`} value={speedToFixed(sbc.thrustIon.Down, sbc.blockMass, 1)} />
+                    <ValueCell label={`left`} value={speedToFixed(sbc.thrustIon.Left, sbc.blockMass, 1)} />
+                    <ValueCell label={`right`} value={speedToFixed(sbc.thrustIon.Right, sbc.blockMass, 1)} />
                 </MyRow>
             </MyBox>
         </MySection>
@@ -109,10 +183,10 @@ const gyros = (mass: number, gridSize: GridSize, blocks: Partial<Record<string, 
     return result
 }
 
-const terminalVelocity = (mass: number, gridSize: GridSize, blocks: {'Parachute/LgParachute'?: number, 'Parachute/SmParachute'?: number}, toFixed: number = 2) => {
-    const blockSize = gridSize === 'Small' ? 0.5 : 2.5
-    const hatches = blocks[gridSize === 'Small' ? 'Parachute/SmParachute' : 'Parachute/LgParachute']
-    if(hatches === undefined || hatches === 0) return '-'
+const terminalVelocity = (mass: number, blocks: {'Parachute/LgParachute'?: number, 'Parachute/SmParachute'?: number}, toFixed: number = 1) => {
+    const largeHatches = blocks['Parachute/LgParachute'] ?? 0
+    const smallHatches = blocks['Parachute/SmParachute'] ?? 0
+    if(largeHatches === 0 && smallHatches === 0) return '-'
 
     const RADMULT = 8  // radius multiplier
     const REEFLEVEL = 0.6  // reefing level
@@ -122,15 +196,22 @@ const terminalVelocity = (mass: number, gridSize: GridSize, blocks: {'Parachute/
     const GRAVITY = 9.81 // (we'll say this is an Earth-like planet)
     const ATM = 0.85 // (avoid using 1.0 - 0.85 gives a more conservative result)
 
-    const diameter = (Math.log(((ATM - REEFLEVEL) * 10) - 0.99) + 5) * RADMULT * blockSize
+    const diameterLarge = (Math.log(((ATM - REEFLEVEL) * 10) - 0.99) + 5) * RADMULT * 2.5
         // = (log((10*(0.85-0.6))-0.99)+5)*8*2.5
         // = 103.6
 
-    const area = Math.PI * Math.pow(diameter / 2, 2)
-        // = 8,429.6
+    const areaLarge = Math.PI * Math.pow(diameterLarge / 2, 2) * largeHatches
+        // = 8,429.6 *10
+        // = 84,296
 
-    const result = Math.sqrt((mass * GRAVITY) / (area * CD * hatches * ATM * 1.225 * 2.5))
-        // = squareroot((2927310*9.81)/(8429.6*1.0*10*0.85*1.225*2.5))
+    const diameterSmall = (Math.log(((ATM - REEFLEVEL) * 10) - 0.99) + 5) * RADMULT * 0.5
+    const areaSmall = Math.PI * Math.pow(diameterSmall / 2, 2) * smallHatches
+
+    const area = areaLarge + areaSmall
+
+
+    const result = Math.sqrt((mass * GRAVITY) / (area * CD * ATM * 1.225 * 2.5))
+        // = squareroot((2927310*9.81)/(84296*1.0*0.85*1.225*2.5))
         // = 11.4 m/s
 
     return result.toFixed(toFixed)
@@ -142,16 +223,28 @@ const wheeled = (blocks: Record<string, number>) => {
     const x3 = entries.filter(([cube]) => cube.includes('Suspension3x3')).reduce((sum, [, count]) => sum + count, 0)
     const x5 = entries.filter(([cube]) => cube.includes('Suspension5x5')).reduce((sum, [, count]) => sum + count, 0)
 
-    if(x1 + x3 + x5 === 0) return 'No'
+    if(x1 + x3 + x5 === 0) return '-'
 
     return [
-            'Yes ',
             x1 === 0 ? undefined : `${x1} small`,
             x3 === 0 ? undefined : `${x3} medium`,
             x5 === 0 ? undefined : `${x5} large`,
         ]
         .filter((val) => val !== undefined)
         .join(', ')
+}
+
+const getRequiredParachutes = (targetVelocity: number, mass: number, gridSize: GridSize) => {
+    const parachuteGridSize = gridSize === GridSize.Small
+    let amount = 0
+    let currentVelocity = Number.POSITIVE_INFINITY
+    do {
+        amount = amount + 1
+        currentVelocity = Number(terminalVelocity(mass, {[parachuteGridSize ? 'Parachute/SmParachute' : 'Parachute/LgParachute' ]: amount}))
+
+    } while (currentVelocity > targetVelocity)
+
+    return amount
 }
 
 // tslint:disable-next-line: mccabe-complexity
@@ -175,4 +268,21 @@ const hydroFuel = (gridSize: GridSize, blocks: Partial<Record<string, number>>, 
     const time = total / consumption
 
     return moment.utc(time * 1000).format('mm:ss')
+}
+
+const jumpDistance = (mass: number, jumpDrives: number) => {
+    const maxDistance = 2000
+    const maxMass = 1250000
+
+    if(jumpDrives === 0) return '-'
+
+    if(maxMass * jumpDrives > mass) {
+        return Math.floor(maxDistance * jumpDrives)
+    } else {
+        return Math.floor(maxDistance * jumpDrives * (maxMass / mass))
+    }
+}
+
+const dryMass = (bp: IBpProjectionRow) => {
+    return bp.sbc.blockMass
 }
