@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkAuthor, linkBp, linkCollection } from '../../common/'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkAuthor, linkCollection } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
@@ -55,11 +55,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const collections = bp.steam.collections.map((collection) => (
         (<Link href={linkCollection(collection.id)} target='_blank' rel='noreferrer noopener' variant='body2'>
             {collection.title ?? collection.id}
-        </Link>)
-    ))
-    const mods = bp.steam.mods.map((mod) => (
-        (<Link href={linkBp(mod.id as number)} target='_blank' rel='noreferrer noopener' variant='body2'>
-            {mod.title ?? mod.id}
         </Link>)
     ))
     const author = (<Link href={linkAuthor(bp.steam.author.id)} target='_blank' rel='noreferrer noopener' variant='body1'>
@@ -113,17 +108,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </MyBoxGroup>
             <MyBoxGroup height={1} width={3}>
                 <MyBox width={3}>
-                    <ValueCell label={`if any`} value={'Collections:'}/>
+                    <ValueCell label={`if any`} value={'Collections:'} alignItems='flex-end'/>
                     <CenterCell width={2} direction='column' justify='flex-start' alignItems='flex-start'>
                         {collections}
-                    </CenterCell>
-                </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={1} width={6}>
-                <MyBox width={6}>
-                    <ValueCell label={`listed dep.`} value={'Mods:'}/>
-                    <CenterCell width={5} direction='column' justify='flex-start' alignItems='flex-start'>
-                        {mods}
                     </CenterCell>
                 </MyBox>
             </MyBoxGroup>

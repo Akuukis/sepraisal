@@ -11,6 +11,7 @@ import { CONTEXT } from '../../stores'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         overflowY: 'auto',
+        overflowX: 'hidden',
         maxHeight: '100%',
     },
 

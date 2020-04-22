@@ -12,6 +12,7 @@ import SectionDefensive from './SectionDefensive'
 import SectionIntegrity from './SectionIntegrity'
 import SectionMaterials from './SectionMaterials'
 import SectionMobility from './SectionMobility'
+import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
 import SectionWorkshop from './SectionWorkshop'
 
@@ -65,6 +66,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {renderBox([Header          as Section], true)}
             {'steam' in bp ? renderBox([SectionWorkshop        as Section]) : null}
             {renderBox([SectionIntegrity       as Section])}
+            {renderBox([SectionMods          as Section])}
             {renderBox([SectionMobility        as Section])}
             {renderBox([SectionOffensive        as Section])}
             {renderBox([SectionDefensive        as Section])}
