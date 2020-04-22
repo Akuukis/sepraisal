@@ -10,13 +10,14 @@ import Header from './Header'
 import SectionAutomation from './SectionAutomation'
 import SectionBlocks from './SectionBlocks'
 import SectionDefensive from './SectionDefensive'
+import SectionElectricity from './SectionElectricity'
 import SectionIntegrity from './SectionIntegrity'
 import SectionMaterials from './SectionMaterials'
 import SectionMobility from './SectionMobility'
 import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
+import SectionUtils from './SectionUtils'
 import SectionWorkshop from './SectionWorkshop'
-
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -67,6 +68,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {renderBox([Header          as Section], true)}
             {'steam' in bp ? renderBox([SectionWorkshop        as Section]) : null}
             {renderBox([SectionIntegrity       as Section])}
+            {renderBox([SectionElectricity          as Section])}
+            {renderBox([SectionUtils          as Section])}
             {renderBox([SectionMods          as Section])}
             {renderBox([SectionAutomation          as Section])}
             {renderBox([SectionMobility        as Section])}

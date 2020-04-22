@@ -27,6 +27,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const progBlocks = (sbc.blocks['MyProgrammableBlock/LargeProgrammableBlock'] ?? 0) + (sbc.blocks['ProgrammableBlock/SmallProgrammableBlock'] ?? 0)
     const sensors = (sbc.blocks['SensorBlock/LargeBlockSensor'] ?? 0) + (sbc.blocks['SensorBlock/SmallBlockSensor'] ?? 0)
     const timers = (sbc.blocks['TimerBlock/TimerBlockLarge'] ?? 0) + (sbc.blocks['TimerBlock/TimerBlockSmall'] ?? 0)
+
+    const projectors = (sbc.blocks['MyObjectBuilder_Projector/LargeProjector'] ?? 0) + (sbc.blocks['MyObjectBuilder_Projector/SmallProjector'] ?? 0)
+    const soundBlocks = (sbc.blocks['SoundBlock/SmallBlockSoundBlock'] ?? 0) + (sbc.blocks['SoundBlock/LargeBlockSoundBlock'] ?? 0)
+    const buttons = (sbc.blocks['ButtonPanel/ButtonPanelLarge'] ?? 0) + (sbc.blocks['ButtonPanel/ButtonPanelSmall'] ?? 0)
+    const sorters = (sbc.blocks['ConveyorSorter/LargeBlockConveyorSorter'] ?? 0)
+        + (sbc.blocks['ConveyorSorter/MediumBlockConveyorSorter'] ?? 0)
+        + (sbc.blocks['ConveyorSorter/SmallBlockConveyorSorter'] ?? 0)
+
     const lcds = 0
         + (sbc.blocks["TextPanel/SmallTextPanel"] ?? 0)
         + (sbc.blocks["TextPanel/SmallLCDPanelWide"] ?? 0)
@@ -49,18 +57,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MySection className={classes.root}>
-            <MyBoxGroup width={6}>
+            <MyBoxGroup height={2} width={6}>
                 <MyBox width={2} header>
                     <HeaderCell title='AUTOMATION' />
                 </MyBox>
-                <MyBox>
+                <MyBox width={2}>
                     <ValueCell label={`prog.blocks`} value={progBlocks || '-'} />
                 </MyBox>
-                <MyBox width={2}>
+                <MyBox width={3}>
                     <ValueCell label={`sensors`} value={sensors || '-'} />
                     <ValueCell label={`timers`} value={timers || '-'} />
+                    <ValueCell label={`sorters`} value={sorters || '-'} />
                 </MyBox>
-                <MyBox>
+                <MyBox width={3}>
+                    <ValueCell label={`buttons`} value={lcds || '-'} />
+                    <ValueCell label={`soundBlocks`} value={lcds || '-'} />
                     <ValueCell label={`LCDs`} value={lcds || '-'} />
                 </MyBox>
             </MyBoxGroup>
