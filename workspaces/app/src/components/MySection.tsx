@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader/root'
 import { Grid, GridProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../common'
+import { CONTEXT } from '../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -35,7 +36,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             justify='space-between'
             {...otherProps}
         >
-            {children}
+            <CONTEXT.PARENT_COLUMNS.Provider value={12}>
+                {children}
+            </CONTEXT.PARENT_COLUMNS.Provider>
         </Grid>
     )
 })) /* ============================================================================================================= */

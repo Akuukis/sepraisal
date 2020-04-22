@@ -22,6 +22,8 @@ export const padTo2 = (value: number | string) => {
     return string
 }
 
+export type GridSizeColumns = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+
 type NumberAlike = string | number | BigNumber
 /**
  * Always give a valid number, and never ever give more than 4 decimals.

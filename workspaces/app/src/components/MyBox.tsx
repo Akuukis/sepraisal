@@ -4,11 +4,14 @@ import { hot } from 'react-hot-loader/root'
 
 import { Grid, GridProps } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../common'
+import { createSmartFC, createStyles, GridSizeColumns, IMyTheme } from '../common'
+import { CONTEXT } from '../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        minHeight: theme.shape.boxHeight,
+        maxHeight: '100%',
     },
 
     paper: {
@@ -17,6 +20,8 @@ const styles = (theme: IMyTheme) => createStyles({
         color: theme.palette.text.primary,
         boxShadow: theme.shadows[theme.spacing(1)/2],
         transition: theme.transitions.create('box-shadow'),
+        borderRadius: theme.shape.borderRadius,
+        overflow: 'hidden',
     },
     h5Root: {
         // backgroundColor: theme.palette.secondary.main,
@@ -30,20 +35,23 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps extends GridProps {
     header?: boolean
-    size?: 1 | 2 | 3 | 4 | 5 | 6
+    width?: (1 | 2 | 3 | 4 | 5 | 6) | (1.5 | 4.5) | (1.2 | 2.4 | 3.6 | 4.8)
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {className, header, size, ...otherProps} = props
-    const sizeOrDefault = (size ? size * 2 : 2) as 2 | 4 | 6 | 8 | 10 | 12
+    const {className, header, width, ...otherProps} = props
+    const widthOrDefault = width ?? 1
+
+    const parentColumns = React.useContext(CONTEXT.PARENT_COLUMNS)
+    const columns = Math.round(widthOrDefault * 2 * 12 / parentColumns) as GridSizeColumns
 
     return (
         <Grid
             className={classnames(classes.root, header && classes.h5Root, className)}
 
             item
-            xs={sizeOrDefault}
+            xs={columns}
 
             {...otherProps}
         >
@@ -54,7 +62,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 justify='space-between'
                 alignItems='stretch'
             >
-                {children}
+                <CONTEXT.PARENT_COLUMNS.Provider value={parentColumns/12 * columns as GridSizeColumns}>
+                    {children}
+                </CONTEXT.PARENT_COLUMNS.Provider>
             </Grid>
         </Grid>
     )

@@ -1,5 +1,5 @@
-import { createMuiTheme, Theme } from '@material-ui/core'
-import { green, purple, red } from '@material-ui/core/colors'
+import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core'
+import { green, red } from '@material-ui/core/colors'
 
 // Official Space Engineers colors (https://blog.marekrosa.org/2017/09/my-vision-for-visual-style-of-space.html)
 export const SE_COLORS = {
@@ -16,12 +16,25 @@ export const SE_COLORS = {
 
 
 export interface IMyTheme extends Theme {
+    shape: Theme['shape'] & {
+        boxHeight: number,
+    }
+}
+
+interface IMyThemeOptions extends ThemeOptions {
+    shape?: Theme['shape'] & {
+        boxHeight: number,
+    }
 }
 
 const defaultTheme = createMuiTheme()
 
 // www.color-hex.com/color
-export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
+export const MY_LIGHT_THEME = createMuiTheme({
+    shape: {
+        ...defaultTheme.shape,
+        boxHeight: 50,
+    },
     palette: {
         primary: {
             ...red,
@@ -55,4 +68,4 @@ export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
             fontSize: '0.675rem',
         },
     },
-})
+} as IMyThemeOptions) as IMyTheme

@@ -3,9 +3,8 @@ import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
 
-import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { vegaSpecHeatmap } from '../../common/vega'
-import MyBox from '../MyBox'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -22,7 +21,6 @@ interface IProps {
         y: number,
     }
     plane: number[][]
-    width: GridSize
 }
 
 
@@ -40,19 +38,17 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     // })
 
     return (
-        <MyBox className={classes.root}>
-            <Vega
-                data={{
-                    integrity0: props.plane.map((line) => ({data: line})),
-                    max: {
-                        value: Math.sqrt(props.maxValues.value),
-                        x: props.maxValues.x,
-                        y: props.maxValues.y,
-                    },
-                }}
-                spec={vegaSpecHeatmap}
-                onSignalHover={noop}
-            />
-        </MyBox>
+        <Vega
+            data={{
+                integrity0: props.plane.map((line) => ({data: line})),
+                max: {
+                    value: Math.sqrt(props.maxValues.value),
+                    x: props.maxValues.x,
+                    y: props.maxValues.y,
+                },
+            }}
+            spec={vegaSpecHeatmap}
+            onSignalHover={noop}
+        />
     )
 })) /* ============================================================================================================= */

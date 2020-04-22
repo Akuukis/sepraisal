@@ -1,12 +1,12 @@
 import { PraisalManager } from '@sepraisal/praisal'
 import { createContext } from 'react'
 
+import { GridSizeColumns } from '../common'
 import { BlueprintStore } from './BlueprintStore'
 import { CardStore } from './CardStore'
 import { PiwikStore } from './PiwikStore'
 import { RouterStore } from './RouterStore'
 import { SelectionStore } from './SelectionStore'
-
 
 // tslint:disable: no-any
 export const CONTEXT = {
@@ -16,6 +16,7 @@ export const CONTEXT = {
     PRAISAL_MANAGER: createContext<PraisalManager>(null as any),
     ROUTER: createContext<RouterStore>(null as any),
     SELECTION: createContext<SelectionStore>(null as any),
+    PARENT_COLUMNS: createContext<GridSizeColumns>(12),
 }
 
 export type Context = {

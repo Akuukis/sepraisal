@@ -6,7 +6,6 @@ import { hot } from 'react-hot-loader/root'
 import { formatDecimal } from '../../common'
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
@@ -66,36 +65,36 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <MySection className={classes.root}>
             <MyBoxGroup>
-                <MyBox header size={2}>
+                <MyBox header width={2}>
                     <HeaderCell title='MOBILITY' />
                 </MyBox>
                 <MyBox>
-                    <ValueCell triple label={`dry mass (kg)`} value={`${formatDecimal(sbc.blockMass)}`} />
+                    <ValueCell label={`dry mass (kg)`} value={`${formatDecimal(sbc.blockMass)}`} />
                     {/* <ValueCell label={`Grid Type`} value={sbc.gridStatic ? `Static` : `Vehicle`} /> */}
                 </MyBox>
-                <MyBox size={3}>
-                    <CenterCell triple padded>
-                        <ValueCell label={`Wheels`} value={wheeled(sbc.blocks)} />
-                        {/* <Slider
+                <MyBox width={3}>
+                    <ValueCell width={3} label={`Wheels`} value={wheeled(sbc.blocks)} />
+                    {/* <CenterCell padded>
+                        <Slider
                             defaultValue={20}
                             getAriaValueText={valuetext}
                             aria-labelledby="discrete-slider-custom"
                             step={10}
                             valueLabelDisplay="auto"
                             marks={marks}
-                        /> */}
-                    </CenterCell>
+                        />
+                    </CenterCell> */}
                 </MyBox>
             </MyBoxGroup>
             <MyBoxGroup height={3} width={3}>
-                <MyBox size={2}>
-                    <ValueCell triple label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
+                <MyBox>
+                    <ValueCell label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
                 </MyBox>
-                <MyBox size={4}>
+                <MyBox width={2}>
                     <ValueCell sm={6} label={`j.drives`} value={jumpDrives || '-'} />
                     <ValueCell sm={6} label={`j.dist (km)`} value={jumpDistance(mass, jumpDrives)} />
                 </MyBox>
-                <MyBox size={6}>
+                <MyBox width={3}>
                     <ValueCell label={`(m/s\u00B2)`} value={`Parachutes:`} />
                     <ValueCell label={`amount`} value={parachutes || '-'} />
                     <ValueCell label={`t. velocity`} value={`${terminalVelocity(sbc.blockMass, sbc.blocks)} m/s`} />
@@ -105,8 +104,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </MyBox>
             </MyBoxGroup>
             <MyBoxGroup height={3} width={3}>
-                <MyBox size={6}>
-                    <ValueCell double label={`(m/s\u00B2)`} value={`Atmo:`} />
+                <MyBox width={3}>
+                    <ValueCell width={2} label={`(m/s\u00B2)`} value={`Atmo:`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
                     <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 1)} />
@@ -117,8 +116,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </MyBox>
             </MyBoxGroup>
             <MyBoxGroup height={3} width={3}>
-                <MyBox size={6}>
-                    <ValueCell double label={`(m/s\u00B2)`} value={`Hydro:`} />
+                <MyBox width={3}>
+                    <ValueCell width={2} label={`(m/s\u00B2)`} value={`Hydro:`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />
                     <ValueCell label={`upward`} value={speedToFixed(sbc.thrustHydrogen.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 1)} />
@@ -129,8 +128,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </MyBox>
             </MyBoxGroup>
             <MyBoxGroup height={3} width={3}>
-                <MyBox size={6}>
-                    <ValueCell double label={`(m/s\u00B2)`} value={`Ion:`} />
+                <MyBox width={3}>
+                    <ValueCell width={2} label={`(m/s\u00B2)`} value={`Ion:`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
                     <ValueCell label={`upward`} value={speedToFixed(sbc.thrustIon.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 1)} />

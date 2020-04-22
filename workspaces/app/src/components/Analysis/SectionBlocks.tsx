@@ -6,6 +6,7 @@ import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
+import MyBoxGroup from '../MyBoxGroup'
 import MySection from '../MySection'
 
 
@@ -14,11 +15,6 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    content: {
-        height: `calc(${151 * 3 - 50}px - ${theme.spacing(4)}px)`,
-        overflowX: 'hidden',
-        overflowY: 'hidden',
-    },
     contentTable: {
         width: '100%',
     },
@@ -40,19 +36,23 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MySection className={classes.root}>
-            <MyBox>
-                <HeaderCell triple title='BLOCKS' />
-            </MyBox>
-            <MyBox>
-            </MyBox>
-            <MyBox className={classes.content}>
-                <Table
-                    className={classes.contentTable}
-                    columns={Object.keys(datumTitles)}
-                    headers={datumTitles}
-                    data={blocks}
-                />
-            </MyBox>
+            <MyBoxGroup>
+                <MyBox width={2} header>
+                    <HeaderCell title='BLOCKS' />
+                </MyBox>
+                <MyBox>
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={8}>
+                <MyBox width={6}>
+                    <Table
+                        className={classes.contentTable}
+                        columns={Object.keys(datumTitles)}
+                        headers={datumTitles}
+                        data={blocks}
+                    />
+                </MyBox>
+            </MyBoxGroup>
         </MySection>
     )
 })) /* ============================================================================================================= */

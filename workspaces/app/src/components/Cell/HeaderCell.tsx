@@ -29,7 +29,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <CenterCell
             className={classnames(classes.root, className)}
-            double
+            width={2}
             {...otherProps}
         >
             <Typography
