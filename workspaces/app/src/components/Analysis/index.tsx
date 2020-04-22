@@ -11,6 +11,7 @@ import SectionBlocks from './SectionBlocks'
 import SectionIntegrity from './SectionIntegrity'
 import SectionMaterials from './SectionMaterials'
 import SectionMobility from './SectionMobility'
+import SectionOffense from './SectionOffense'
 import SectionWorkshop from './SectionWorkshop'
 
 
@@ -63,7 +64,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <Grid component='article' className={classes.root} container justify='center'>
             {renderBox([Header          as Section], true)}
             {'steam' in bp ? renderBox([SectionWorkshop        as Section]) : null}
-            {renderBox([SectionIntegrity       as Section, SectionMobility        as Section])}
+            {renderBox([SectionIntegrity       as Section])}
+            {renderBox([SectionMobility        as Section])}
+            {renderBox([SectionOffense        as Section])}
             {renderBox([SectionMaterials          as Section])}
             {renderBox([SectionBlocks          as Section])}
         </Grid>
