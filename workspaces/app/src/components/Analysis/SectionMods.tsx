@@ -38,7 +38,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     const mods = bp.steam.mods.map((mod) => (
-        (<div>- <Link href={linkBp(mod.id as number)} target='_blank' rel='noreferrer noopener' variant='body2'>
+        (<div>- <Link href={linkBp(mod.id as number)} target='_blank' rel='noreferrer noopener' variant='body2' noWrap>
             {mod.title ?? mod.id}
         </Link></div>)
     ))

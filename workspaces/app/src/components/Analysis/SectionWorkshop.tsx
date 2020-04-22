@@ -53,7 +53,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
     const collections = bp.steam.collections.map((collection) => (
-        (<Link href={linkCollection(collection.id)} target='_blank' rel='noreferrer noopener' variant='body2'>
+        (<Link href={linkCollection(collection.id)} target='_blank' rel='noreferrer noopener' variant='body2' noWrap>
             {collection.title ?? collection.id}
         </Link>)
     ))
@@ -109,7 +109,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <MyBoxGroup height={1} width={3}>
                 <MyBox width={3}>
                     <ValueCell label={`if any`} value={'Collections:'} alignItems='flex-end'/>
-                    <CenterCell width={2} direction='column' justify='flex-start' alignItems='flex-start'>
+                    <CenterCell width={2} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
                         {collections}
                     </CenterCell>
                 </MyBox>
