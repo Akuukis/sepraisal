@@ -8,6 +8,7 @@ import { StyledComponentProps } from '@material-ui/core/styles'
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Header from './Header'
 import SectionBlocks from './SectionBlocks'
+import SectionDefensive from './SectionDefensive'
 import SectionIntegrity from './SectionIntegrity'
 import SectionMaterials from './SectionMaterials'
 import SectionMobility from './SectionMobility'
@@ -66,6 +67,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {renderBox([SectionIntegrity       as Section])}
             {renderBox([SectionMobility        as Section])}
             {renderBox([SectionOffensive        as Section])}
+            {renderBox([SectionDefensive        as Section])}
             {renderBox([SectionMaterials          as Section])}
             {renderBox([SectionBlocks          as Section])}
         </Grid>
