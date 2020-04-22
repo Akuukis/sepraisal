@@ -28,6 +28,7 @@ const styles = (theme: IMyTheme) => createStyles({
         borderTopLeftRadius: `${theme.spacing(1)}px`,
     },
     h5Paper: {
+        backgroundColor: 'unset',
         boxShadow: theme.shadows[0],
     },
 })

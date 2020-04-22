@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Card, Divider } from '@material-ui/core'
+import { Card } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../common/'
 import { CardStatus, ICard } from '../../../models/Card'
@@ -40,9 +40,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <Card className={classes.root}>
             <Thumb id={bp.id} thumb={bp.thumb} />
             <RowHeader id={bp.id} steam={bp.steam} />
-            <Divider />
             <RowSteam classes={{root: classes.cardContent}} id={bp.id} steam={bp.steam} />
-            <Divider />
             <RowPraisal classes={{root: classes.cardContent}} id={bp.id} sbc={bp.sbc} />
             <Overlay blueprint={bp} index={index} />
         </Card>

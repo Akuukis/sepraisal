@@ -1,19 +1,23 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Avatar, CardHeader } from '@material-ui/core'
+import { Avatar } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
+import CenterCell from '../../../components/Cell/CenterCell'
+import ValueCell from '../../../components/Cell/ValueCell'
+import MyBox from '../../../components/MyBox'
+import MyBoxGroup from '../../../components/MyBoxGroup'
 import { CardStatus, ICard } from '../../../models/Card'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         minWidth: '0px',  // Shrink if name too long.
-        paddingBottom: theme.spacing(2),
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(1),
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1),
+        paddingTop: theme.spacing(1),
     },
 })
 
@@ -34,13 +38,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         : 'Analysis in progress...'
 
     return (
-        <CardHeader
-            className={classes.root}
-            titleTypographyProps={{noWrap: true, style: {lineHeight: '1.429em'}}}
-            subheaderTypographyProps={{noWrap: true, style: {lineHeight: '1.429em'}}}
-            avatar={<Avatar>{avatarTitle}</Avatar>}
-            title={title}
-            subheader={subheader}
-        />
+        <MyBoxGroup width={6}>
+            <MyBox width={6} header>
+                <CenterCell width={1.5}>
+                    <Avatar>{avatarTitle}</Avatar>
+                </CenterCell>
+                <ValueCell width={4.5} label={subheader} value={title} alignItems='flex-start' />
+            </MyBox>
+        </MyBoxGroup>
     )
 })) /* ============================================================================================================= */
