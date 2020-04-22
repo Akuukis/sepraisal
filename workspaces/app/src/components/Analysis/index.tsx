@@ -7,6 +7,7 @@ import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Header from './Header'
+import SectionAutomation from './SectionAutomation'
 import SectionBlocks from './SectionBlocks'
 import SectionDefensive from './SectionDefensive'
 import SectionIntegrity from './SectionIntegrity'
@@ -67,6 +68,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {'steam' in bp ? renderBox([SectionWorkshop        as Section]) : null}
             {renderBox([SectionIntegrity       as Section])}
             {renderBox([SectionMods          as Section])}
+            {renderBox([SectionAutomation          as Section])}
             {renderBox([SectionMobility        as Section])}
             {renderBox([SectionOffensive        as Section])}
             {renderBox([SectionDefensive        as Section])}
