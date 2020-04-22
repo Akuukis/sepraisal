@@ -12,7 +12,7 @@ import { CONTEXT } from '../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        color: theme.palette.primary.main,
+        color: theme.palette.success.main,
     },
 })
 
