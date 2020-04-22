@@ -1,8 +1,9 @@
+import classnames from 'classnames'
 import { action } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton } from '@material-ui/core'
+import { IconButton, IconButtonProps } from '@material-ui/core'
 import IconAssessment from '@material-ui/icons/Assessment'
 import IconAssessmentOutlined from '@material-ui/icons/AssessmentOutlined'
 
@@ -14,16 +15,21 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         color: theme.palette.success.main,
     },
+
+    on: {
+    },
+    off: {
+    },
 })
 
 
-interface IProps {
+interface IProps extends Omit<IconButtonProps, 'id'> {
     id: number | string
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {id} = props
+    const {id, ...otherProps} = props
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
     const favorited = selectionStore.selected.includes(id)
@@ -36,7 +42,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     })
 
     return (
-        <IconButton className={classes.root} size='small' color='inherit' aria-label='favorite' onClick={handleToggle}>
+        <IconButton
+            className={classnames(classes.root, favorited ? classes.on : classes.off)}
+            size='small'
+            color='inherit'
+            aria-label='favorite'
+            onClick={handleToggle}
+            {...otherProps}
+        >
             {favorited ? <IconAssessment /> : <IconAssessmentOutlined />}
         </IconButton>
     )
