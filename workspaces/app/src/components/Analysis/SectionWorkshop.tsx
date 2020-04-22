@@ -3,11 +3,19 @@ import * as moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Button, Link, Typography } from '@material-ui/core'
+import { Link, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, GridSize, IMyTheme, linkBp, linkCollection } from '../../common/'
+import {
+    createSmartFC,
+    createStyles,
+    formatDecimal,
+    GridSize,
+    IMyTheme,
+    linkAuthor,
+    linkBp,
+    linkCollection,
+} from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import Steam from '../../components/icons/Steam'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
@@ -59,6 +67,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {collection.title ?? collection.id}
         </Link>)
     ))
+    const mods = bp.steam.mods.map((mod) => (
+        (<Link href={linkBp(mod.id as number)} target='_blank' rel='noreferrer noopener' variant='body2'>
+            {mod.title ?? mod.id}
+        </Link>)
+    ))
+    const author = (<Link href={linkAuthor(bp.steam.author.id)} target='_blank' rel='noreferrer noopener' variant='body1'>
+            {bp.steam.author.title ?? bp.steam.author.id}
+        </Link>)
 
     return (
         <MySection className={classes.root}>
@@ -67,12 +83,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <HeaderCell title='WORKSHOP' />
                 </MyBox>
                 <MyBox width={1.5}>
-                    <CenterCell width={1.5}>
+                    <ValueCell width={1.5} label={`author`} value={author}/>
+                    {/* <CenterCell width={1.5}>
                         <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
                             <Steam />
                             <Typography variant='body1'>{'Subscribe'}</Typography>
                         </Button>
-                    </CenterCell>
+                    </CenterCell> */}
                 </MyBox>
                 <MyBox width={3}>
                     <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
@@ -97,12 +114,26 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     />
                 </MyBox>
             </MyBoxGroup>
+            <MyBoxGroup height={1} width={3}>
+                <MyBox width={3}>
+                    <ValueCell label={`version`} value={bp.steam.revision}/>
+                    <ValueCell label={`size (MB)`} value={bp.steam.sizeMB}/>
+                    <ValueCell label={`favorites`} value={bp.steam.favoriteCount}/>
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={1} width={3}>
+                <MyBox width={3}>
+                    <ValueCell label={`if any`} value={'Collections:'}/>
+                    <CenterCell width={2} direction='column' justify='flex-start' alignItems='flex-start'>
+                        {collections}
+                    </CenterCell>
+                </MyBox>
+            </MyBoxGroup>
             <MyBoxGroup height={1} width={6}>
                 <MyBox width={6}>
-                    <ValueCell label={`if any`} value={'Collections:'}/>
+                    <ValueCell label={`listed dep.`} value={'Mods:'}/>
                     <CenterCell width={5} direction='column' justify='flex-start' alignItems='flex-start'>
-                        {collections}
-                        {collections}
+                        {mods}
                     </CenterCell>
                 </MyBox>
             </MyBoxGroup>
@@ -120,7 +151,10 @@ type ProjectionCardSteam =
     | 'author'
     | 'collections'
     | 'commentCount'
+    | 'favoriteCount'
     | 'description'
+    | 'revision'
+    | 'mods'
     | 'id'
     | 'popularity'
     | 'postedDate'
@@ -128,6 +162,7 @@ type ProjectionCardSteam =
     | 'ratingCount'
     | 'subscriberCount'
     | 'title'
+    | 'sizeMB'
     | 'updatedDate'
     | 'visitorCount'
 
