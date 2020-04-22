@@ -48,7 +48,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <MySection className={classes.root}>
             <MyBoxGroup height={2} width={2}>
                 <MyBox width={2} header>
-                    <HeaderCell title='OFFENCE' />
+                    <HeaderCell title='OFFENSIVE' />
                 </MyBox>
                 <MyBox width={2}>
                     <ValueCell label={`warheads`} value={(warheads.small + warheads.large) || '-'} />
