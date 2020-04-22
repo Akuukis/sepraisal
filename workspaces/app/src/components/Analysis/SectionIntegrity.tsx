@@ -42,7 +42,7 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     return (
         <MySection className={classes.root}>
             <MyBoxGroup height={3} width={2}>
-                <MyBox width={2} header>
+                <MyBox width={2} flat>
                     <HeaderCell title='INTEGRITY'/>
                 </MyBox>
                 <MyBox width={2}>

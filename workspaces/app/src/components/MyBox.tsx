@@ -35,13 +35,13 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps extends GridProps {
-    header?: boolean
+    flat?: boolean
     width?: (1 | 2 | 3 | 4 | 5 | 6) | (1.5 | 4.5) | (1.2 | 2.4 | 3.6 | 4.8)
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {className, header, width, ...otherProps} = props
+    const {className, flat: header, width, ...otherProps} = props
     const widthOrDefault = width ?? 1
 
     const parentColumns = React.useContext(CONTEXT.PARENT_COLUMNS)
