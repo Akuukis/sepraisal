@@ -62,17 +62,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <HeaderCell title='AUTOMATION' />
                 </MyBox>
                 <MyBox width={2}>
-                    <ValueCell label={`prog.blocks`} value={progBlocks || '-'} />
+                    <ValueCell width={2} label={`prog.blocks`} value={progBlocks || '-'} />
+                </MyBox>
+                <MyBox width={2}>
+                    <ValueCell label={`projectors`} value={projectors || '-'} />
+                </MyBox>
+                <MyBox width={3}>
+                    <ValueCell label={`LCDs`} value={lcds || '-'} />
+                    <ValueCell label={`buttons`} value={buttons || '-'} />
+                    <ValueCell label={`soundBlocks`} value={soundBlocks || '-'} />
                 </MyBox>
                 <MyBox width={3}>
                     <ValueCell label={`sensors`} value={sensors || '-'} />
                     <ValueCell label={`timers`} value={timers || '-'} />
                     <ValueCell label={`sorters`} value={sorters || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`buttons`} value={lcds || '-'} />
-                    <ValueCell label={`soundBlocks`} value={lcds || '-'} />
-                    <ValueCell label={`LCDs`} value={lcds || '-'} />
                 </MyBox>
             </MyBoxGroup>
         </MySection>
