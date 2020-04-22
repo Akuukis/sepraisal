@@ -11,7 +11,6 @@ import Steam from '../../components/icons/Steam'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyRow from '../MyRow'
 import MySection from '../MySection'
 
 
@@ -59,26 +58,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <MySection className={classes.root}>
             <MyBox>
-                <MyRow>
-                    <HeaderCell title='WORKSHOP' xs={12} sm={6} />
-                    <CenterCell wide>
-                        <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
-                            <Steam />
-                            <Typography variant='body1'>{'Subscribe'}</Typography>
-                        </Button>
-                    </CenterCell>
-                </MyRow>
-                <MyRow>
-                    <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
-                    <ValueCell label={starsDef} value={starsValue} />
-                    <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
-                    <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
-                </MyRow>
-                <MyRow>
-                    <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
-                    <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
-                    <ValueCell wide label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title}/>
-                </MyRow>
+                <HeaderCell title='WORKSHOP' xs={12} sm={6} />
+                <CenterCell triple>
+                    <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
+                        <Steam />
+                        <Typography variant='body1'>{'Subscribe'}</Typography>
+                    </Button>
+                </CenterCell>
+                <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
+                <ValueCell label={starsDef} value={starsValue} />
+                <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
+                <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
+                <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
+                <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
+                <ValueCell triple label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title}/>
             </MyBox>
             <MyBox>
                 <CardMedia
@@ -87,7 +80,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     title={bp.steam.title}
                 />
             </MyBox>
-            <MyBox wide>
+            <MyBox>
                 <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
             </MyBox>
         </MySection>

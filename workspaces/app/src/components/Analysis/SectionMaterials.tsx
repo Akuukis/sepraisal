@@ -9,7 +9,6 @@ import Table from '../../components/Table'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyRow from '../MyRow'
 import MySection from '../MySection'
 
 
@@ -167,56 +166,52 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <MySection className={classes.root}>
             <MyBox>
-                <MyRow>
-                    <HeaderCell wide title='MATERIALS' />
-                    <CenterCell wide padded>
-                        <TextField
-                            select
-                            value={syntax}
-                            onChange={handleSyntax}
-                            fullWidth
-                        >
-                            <MenuItem value='list'>List</MenuItem>
-                            <MenuItem value='aLcdInv'>aLCD2 Inventory</MenuItem>
-                            <MenuItem value='aLcdMissing'>aLCD2 Missing</MenuItem>
-                            <MenuItem value='iimLCD'>IIM LCD</MenuItem>
-                            <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
-                        </TextField>
-                    </CenterCell>
-                </MyRow>
+                <HeaderCell triple title='MATERIALS' />
+                <CenterCell triple padded>
+                    <TextField
+                        select
+                        value={syntax}
+                        onChange={handleSyntax}
+                        fullWidth
+                    >
+                        <MenuItem value='list'>List</MenuItem>
+                        <MenuItem value='aLcdInv'>aLCD2 Inventory</MenuItem>
+                        <MenuItem value='aLcdMissing'>aLCD2 Missing</MenuItem>
+                        <MenuItem value='iimLCD'>IIM LCD</MenuItem>
+                        <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
+                    </TextField>
+                </CenterCell>
             </MyBox>
             <MyBox>
-                <MyRow>
-                    <CenterCell wide padded>
-                        <TextField
-                            select
-                            value={type}
-                            onChange={handleType}
-                            fullWidth
-                        >
-                            <MenuItem value='component'>Compoments</MenuItem>
-                            <MenuItem value='ingot'>Ingots</MenuItem>
-                            <MenuItem value='ore'>Ores</MenuItem>
-                        </TextField>
-                    </CenterCell>
-                    <CenterCell wide padded>
-                        <TextField
-                            id='copies'
-                            type='number'
-                            value={copies}
-                            onChange={handleK}
-                            fullWidth
-                            inputProps={{
-                                style: {textAlign: 'center'},
-                            }}
-                            InputProps={{
-                                endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
-                            }}
-                        />
-                    </CenterCell>
-                </MyRow>
+                <CenterCell triple padded>
+                    <TextField
+                        select
+                        value={type}
+                        onChange={handleType}
+                        fullWidth
+                    >
+                        <MenuItem value='component'>Compoments</MenuItem>
+                        <MenuItem value='ingot'>Ingots</MenuItem>
+                        <MenuItem value='ore'>Ores</MenuItem>
+                    </TextField>
+                </CenterCell>
+                <CenterCell triple padded>
+                    <TextField
+                        id='copies'
+                        type='number'
+                        value={copies}
+                        onChange={handleK}
+                        fullWidth
+                        inputProps={{
+                            style: {textAlign: 'center'},
+                        }}
+                        InputProps={{
+                            endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
+                        }}
+                    />
+                </CenterCell>
             </MyBox>
-            <MyBox wide className={classes.content}>
+            <MyBox className={classes.content}>
                 {getContent()}
             </MyBox>
         </MySection>

@@ -7,7 +7,6 @@ import { Card, CardContent, Divider, Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import MyRow from '../MyRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -95,18 +94,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             </Typography>
                         </CardContent>
                         <Divider />
-                        <MyRow>
-                            <ValueCell label={`(m/s\u00B2)`} value={`Atmo:`} />
-                            <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
-                            <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />
-                            <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />
-                        </MyRow>
-                        <MyRow>
-                            <ValueCell label={`(m/s\u00B2)`} value={`Ion:`} />
-                            <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
-                            <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />
-                            <ValueCell label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />
-                        </MyRow>
+                        <ValueCell label={`(m/s\u00B2)`} value={`Atmo:`} />
+                        <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
+                        <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 2)} />
+                        <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 2)} />
+                        <ValueCell label={`(m/s\u00B2)`} value={`Ion:`} />
+                        <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
+                        <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 2)} />
+                        <ValueCell label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 2)} />
                     </Grid>
                 </Grid>
             </Card>

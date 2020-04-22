@@ -6,7 +6,6 @@ import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyRow from '../MyRow'
 import MySection from '../MySection'
 
 
@@ -42,13 +41,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <MySection className={classes.root}>
             <MyBox>
-                <MyRow>
-                    <HeaderCell wide title='BLOCKS' />
-                </MyRow>
+                <HeaderCell triple title='BLOCKS' />
             </MyBox>
             <MyBox>
             </MyBox>
-            <MyBox wide className={classes.content}>
+            <MyBox className={classes.content}>
                 <Table
                     className={classes.contentTable}
                     columns={Object.keys(datumTitles)}

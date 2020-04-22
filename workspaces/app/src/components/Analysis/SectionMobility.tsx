@@ -9,7 +9,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyRow from '../MyRow'
+import MyBoxGroup from '../MyBoxGroup'
 import MySection from '../MySection'
 
 
@@ -40,7 +40,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const mass = sbc.blockMass
 
     const reqParachutesForSlow = getRequiredParachutes(5, mass, sbc.gridSize)
-    const reqParachutesForFast = getRequiredParachutes(10, mass, sbc.gridSize)
+    const reqParachutesForMedium = getRequiredParachutes(10, mass, sbc.gridSize)
+    const reqParachutesForFast = getRequiredParachutes(15, mass, sbc.gridSize)
 
     // const marks = [
     //     {
@@ -64,12 +65,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MySection className={classes.root}>
-            <MyBox wide>
-                <MyRow>
+            <MyBoxGroup>
+                <MyBox header size={2}>
                     <HeaderCell title='MOBILITY' />
-                    <ValueCell label={`dry mass (kg)`} value={`${formatDecimal(sbc.blockMass)}`} />
+                </MyBox>
+                <MyBox>
+                    <ValueCell triple label={`dry mass (kg)`} value={`${formatDecimal(sbc.blockMass)}`} />
                     {/* <ValueCell label={`Grid Type`} value={sbc.gridStatic ? `Static` : `Vehicle`} /> */}
-                    <CenterCell wide padded>
+                </MyBox>
+                <MyBox size={3}>
+                    <CenterCell triple padded>
+                        <ValueCell label={`Wheels`} value={wheeled(sbc.blocks)} />
                         {/* <Slider
                             defaultValue={20}
                             getAriaValueText={valuetext}
@@ -79,64 +85,61 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             marks={marks}
                         /> */}
                     </CenterCell>
-                </MyRow>
-            </MyBox>
-            <MyBox wide>
-                <MyRow sm={6}>
-                    <ValueCell label={`Wheels`} value={wheeled(sbc.blocks)} />
-                    <ValueCell label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
-                    <ValueCell label={`j.drives`} value={jumpDrives || '-'} />
-                    <ValueCell label={`j.dist (km)`} value={jumpDistance(mass, jumpDrives)} />
-                </MyRow>
-                <MyRow sm={6}>
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={3} width={3}>
+                <MyBox size={2}>
+                    <ValueCell triple label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
+                </MyBox>
+                <MyBox size={4}>
+                    <ValueCell sm={6} label={`j.drives`} value={jumpDrives || '-'} />
+                    <ValueCell sm={6} label={`j.dist (km)`} value={jumpDistance(mass, jumpDrives)} />
+                </MyBox>
+                <MyBox size={6}>
+                    <ValueCell label={`(m/s\u00B2)`} value={`Parachutes:`} />
+                    <ValueCell label={`amount`} value={parachutes || '-'} />
                     <ValueCell label={`t. velocity`} value={`${terminalVelocity(sbc.blockMass, sbc.blocks)} m/s`} />
-                    <ValueCell label={`parachutes`} value={parachutes || '-'} />
-                    <ValueCell label={`req. 10m/s`} value={reqParachutesForFast} />
+                    <ValueCell label={`req. 15m/s`} value={reqParachutesForFast} />
+                    <ValueCell label={`req. 10m/s`} value={reqParachutesForMedium} />
                     <ValueCell label={`req. 5m/s`} value={reqParachutesForSlow} />
-                </MyRow>
-            </MyBox>
-            <MyBox wide>
-                <MyRow sm={6}>
-                    <ValueCell label={`(m/s\u00B2)`} value={`Atmo:`} />
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={3} width={3}>
+                <MyBox size={6}>
+                    <ValueCell double label={`(m/s\u00B2)`} value={`Atmo:`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
+                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 1)} />
                     <ValueCell label={`backward`} value={speedToFixed(sbc.thrustAtmospheric.Backward, sbc.blockMass, 1)} />
-                </MyRow>
-                <MyRow sm={6}>
-                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`downward`} value={speedToFixed(sbc.thrustAtmospheric.Down, sbc.blockMass, 1)} />
                     <ValueCell label={`left`} value={speedToFixed(sbc.thrustAtmospheric.Left, sbc.blockMass, 1)} />
                     <ValueCell label={`right`} value={speedToFixed(sbc.thrustAtmospheric.Right, sbc.blockMass, 1)} />
-                </MyRow>
-            </MyBox>
-            <MyBox wide>
-                <MyRow sm={6}>
-                    <ValueCell label={`(m/s\u00B2)`} value={`Hydro:`} />
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={3} width={3}>
+                <MyBox size={6}>
+                    <ValueCell double label={`(m/s\u00B2)`} value={`Hydro:`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />
+                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustHydrogen.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 1)} />
                     <ValueCell label={`backward`} value={speedToFixed(sbc.thrustHydrogen.Backward, sbc.blockMass, 1)} />
-                </MyRow>
-                <MyRow sm={6}>
-                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustHydrogen.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`downward`} value={speedToFixed(sbc.thrustHydrogen.Down, sbc.blockMass, 1)} />
                     <ValueCell label={`left`} value={speedToFixed(sbc.thrustHydrogen.Left, sbc.blockMass, 1)} />
                     <ValueCell label={`right`} value={speedToFixed(sbc.thrustHydrogen.Right, sbc.blockMass, 1)} />
-                </MyRow>
-            </MyBox>
-            <MyBox wide>
-                <MyRow sm={6}>
-                    <ValueCell label={`(m/s\u00B2)`} value={`Ion:`} />
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={3} width={3}>
+                <MyBox size={6}>
+                    <ValueCell double label={`(m/s\u00B2)`} value={`Ion:`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
+                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustIon.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 1)} />
                     <ValueCell label={`backward`} value={speedToFixed(sbc.thrustIon.Backward, sbc.blockMass, 1)} />
-                </MyRow>
-                <MyRow sm={6}>
-                    <ValueCell label={`upward`} value={speedToFixed(sbc.thrustIon.Up, sbc.blockMass, 1)} />
                     <ValueCell label={`downward`} value={speedToFixed(sbc.thrustIon.Down, sbc.blockMass, 1)} />
                     <ValueCell label={`left`} value={speedToFixed(sbc.thrustIon.Left, sbc.blockMass, 1)} />
                     <ValueCell label={`right`} value={speedToFixed(sbc.thrustIon.Right, sbc.blockMass, 1)} />
-                </MyRow>
-            </MyBox>
+                </MyBox>
+            </MyBoxGroup>
         </MySection>
     )
 })) /* ============================================================================================================= */

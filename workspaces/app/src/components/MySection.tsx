@@ -25,13 +25,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid
-            component='section'
-            item
-            container
             className={classnames(classes.root, className)}
+            component='section'
+
+            item
+
+            container
             spacing={0}
             justify='space-between'
-            alignItems='stretch'
             {...otherProps}
         >
             {children}

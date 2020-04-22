@@ -10,8 +10,6 @@ import CenterCell, { IProps as ICenterCellProps } from './CenterCell'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: theme.palette.secondary.main,
-        borderTopLeftRadius: `${theme.spacing(1)}px`,
     },
 
     title: {
@@ -31,6 +29,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <CenterCell
             className={classnames(classes.root, className)}
+            double
             {...otherProps}
         >
             <Typography

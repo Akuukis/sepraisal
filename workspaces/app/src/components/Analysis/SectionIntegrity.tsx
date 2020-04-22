@@ -8,7 +8,6 @@ import { vegaSpecHeatmapLegend } from '../../common/vega'
 import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyRow from '../MyRow'
 import MySection from '../MySection'
 import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
 
@@ -43,18 +42,12 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     return (
         <MySection className={classes.root}>
             <MyBox xs style={{maxWidth: 67 * 3}}>
-                <MyRow>
-                    <HeaderCell title='INTEGRITY' xs={12} sm={8} />
-                </MyRow>
-                <MyRow>
-                    <ValueCell xs={8} sm={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />
-                    <ValueCell xs={4} sm={4} label={`grid size`} value={bp.sbc.gridSize} />
-                </MyRow>
-                <MyRow>
-                    <ValueCell xs={4} sm={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />
-                    <ValueCell xs={4} sm={4} label={`width (m)`} value={`${top.length * blockSize}`} />
-                    <ValueCell xs={4} sm={4} label={`height (m)`} value={`${side.length * blockSize}`} />
-                </MyRow>
+                <HeaderCell title='INTEGRITY' xs={12} sm={8} />
+                <ValueCell xs={8} sm={8} label={`Total Integrity`} value={bp.sbc.blockIntegrity} />
+                <ValueCell xs={4} sm={4} label={`grid size`} value={bp.sbc.gridSize} />
+                <ValueCell xs={4} sm={4} label={`length (m)`} value={`${top[0].length * blockSize}`} />
+                <ValueCell xs={4} sm={4} label={`width (m)`} value={`${top.length * blockSize}`} />
+                <ValueCell xs={4} sm={4} label={`height (m)`} value={`${side.length * blockSize}`} />
             </MyBox>
             <MyBox xs style={{maxWidth: 67 * 1, height: 151}}>
                 <Vega

@@ -3,7 +3,6 @@ import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from '../../../common/'
 import ValueCell from '../../../components/Cell/ValueCell'
-import MyRow from '../../../components/MyRow'
 import { CardStatus, ICard } from '../../../models/Card'
 
 
@@ -32,11 +31,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const starsDef = steam.ratingStars === null ? 'few ratings' : `${steam.ratingCount}`
 
     return (
-        <MyRow className={classes.root}>
+        <>
             <ValueCell label='subscribers' value={formatDecimal(steam.subscriberCount)} />
             <ValueCell label={starsDef} value={starsValue} />
             <ValueCell label='posted' value={postedDate} />
             <ValueCell label='author' value={steam.author.title} />
-        </MyRow>
+        </>
     )
 })) /* ============================================================================================================= */

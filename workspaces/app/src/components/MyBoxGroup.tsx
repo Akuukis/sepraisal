@@ -9,26 +9,32 @@ import { createSmartFC, createStyles, IMyTheme } from '../common'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        height: 50,
-        borderBottomColor: theme.palette.grey[200],
-        borderBottomStyle: 'solid',
-        borderBottomWidth: 1,
+        margin: 0,
     },
 })
 
 
 interface IProps extends GridProps {
+    height?: 1 | 2 | 3 | 4 | 5 | 6
+    width?: 1 | 2 | 3 | 4 | 5 | 6
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {className, ...otherProps} = props
+    const {className, height, width, ...otherProps} = props
+    const heightOrDefault = height ?? 1
+    const widthOrDefault = width ?? 6
 
     return (
         <Grid
-            container
             className={classnames(classes.root, className)}
-            spacing={0}
+            style={{height: heightOrDefault * 42 + theme.spacing(2)}}
+
+            item
+            xs={widthOrDefault * 2 as any}
+
+            container
+            spacing={1}
             justify='space-between'
             alignItems='stretch'
             {...otherProps}
