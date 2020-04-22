@@ -56,6 +56,13 @@ export const MY_LIGHT_THEME = createMuiTheme({
             primary: SE_COLORS.black,
             secondary: SE_COLORS.grey_dark,
         },
+
+        error: {
+            main: SE_COLORS.red,
+        },
+        success: {
+            main: SE_COLORS.green,
+        },
     },
     spacing: 4,
     typography: {
