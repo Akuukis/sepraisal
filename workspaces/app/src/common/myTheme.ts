@@ -48,6 +48,14 @@ export const MY_LIGHT_THEME = createMuiTheme({
             dark: '#c49822',  // 2 darker.
             light: '#fbe5aa',  // 6 lighter.
         },
+        background: {
+            default: SE_COLORS.grey,
+            paper: SE_COLORS.white,
+        },
+        text: {
+            primary: SE_COLORS.black,
+            secondary: SE_COLORS.grey_dark,
+        },
     },
     spacing: 4,
     typography: {
