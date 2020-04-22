@@ -1,5 +1,5 @@
 import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core'
-import { green, red } from '@material-ui/core/colors'
+import { blue, green, red, yellow } from '@material-ui/core/colors'
 
 // Official Space Engineers colors (https://blog.marekrosa.org/2017/09/my-vision-for-visual-style-of-space.html)
 export const SE_COLORS = {
@@ -8,10 +8,10 @@ export const SE_COLORS = {
     grey_dark: '#686868',
     white: '#efefef',
 
-    blue: '#1767ae',
-    green: '#417e3b',
-    red: '#c01118',
-    yellow: '#f5bf2b',
+    blue    : {main: '#1767ae', dark: '#12528b', light: '#a2c2de'},
+    green   : {main: '#417e3b', dark: '#34642f', light: '#b3cbb0'},
+    red     : {main: '#c01118', dark: '#990d13', light: '#e59fa2'},
+    yellow  : {main: '#f5bf2b', dark: '#c49822', light: '#fbe5aa'},
 }
 
 
@@ -37,16 +37,12 @@ export const MY_LIGHT_THEME = createMuiTheme({
     },
     palette: {
         primary: {
-            ...red,
-            main: SE_COLORS.blue,
-            dark:'#12528b',  // 2 darker.
-            light: '#a2c2de',  // 6 lighter.
+            ...blue,
+            ...SE_COLORS.blue,
         },
         secondary: {
-            ...green,
-            main: SE_COLORS.yellow,
-            dark: '#c49822',  // 2 darker.
-            light: '#fbe5aa',  // 6 lighter.
+            ...yellow,
+            ...SE_COLORS.yellow,
         },
         background: {
             default: SE_COLORS.grey,
@@ -57,11 +53,17 @@ export const MY_LIGHT_THEME = createMuiTheme({
             secondary: SE_COLORS.grey_dark,
         },
 
+        warning: {
+            ...SE_COLORS.yellow,
+        },
+        info: {
+            ...SE_COLORS.blue,
+        },
         error: {
-            main: SE_COLORS.red,
+            ...SE_COLORS.red,
         },
         success: {
-            main: SE_COLORS.green,
+            ...SE_COLORS.green,
         },
     },
     spacing: 4,
