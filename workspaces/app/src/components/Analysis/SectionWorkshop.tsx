@@ -3,9 +3,9 @@ import * as moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Button, CardMedia, Typography } from '@material-ui/core'
+import { Button, Link, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, GridSize, IMyTheme, linkBp } from '../../common/'
+import { createSmartFC, createStyles, formatDecimal, GridSize, IMyTheme, linkBp, linkCollection } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import Steam from '../../components/icons/Steam'
 import CenterCell from '../Cell/CenterCell'
@@ -19,10 +19,10 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    thumb: {
-        paddingTop: '56.3444%',  // = 268 / 151
+    img: {
         width: '100%',
-        borderTopRightRadius: `${theme.spacing(1)}px`,
+        height: '100%',
+        objectFit: 'fill',
     },
 
     description: {
@@ -35,6 +35,7 @@ const styles = (theme: IMyTheme) => createStyles({
             maxWidth: `calc(100% - ${theme.spacing(4)}px)`,
         },
         height: `100%`,
+        width: `100%`,
         overflowX: 'hidden',
         overflowY: 'scroll',
     },
@@ -53,6 +54,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
+    const collections = bp.steam.collections.map((collection) => (
+        (<Link href={linkCollection(collection.id)} target='_blank' rel='noreferrer noopener' variant='body2'>
+            {collection.title ?? collection.id}
+        </Link>)
+    ))
 
     return (
         <MySection className={classes.root}>
@@ -84,11 +90,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </MyBoxGroup>
             <MyBoxGroup height={3} width={3}>
                 <MyBox width={3}>
-                    <CardMedia
-                        className={classes.thumb}
-                        image={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
-                        title={bp.steam.title}
+                    <img
+                        className={classes.img}
+                        src={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
+                        alt={bp.steam.title}
                     />
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={1} width={6}>
+                <MyBox width={6}>
+                    <ValueCell label={`if any`} value={'Collections:'}/>
+                    <CenterCell width={5} direction='column' justify='flex-start' alignItems='flex-start'>
+                        {collections}
+                        {collections}
+                    </CenterCell>
                 </MyBox>
             </MyBoxGroup>
             <MyBoxGroup height={6} width={6}>

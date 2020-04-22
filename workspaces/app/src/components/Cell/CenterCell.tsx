@@ -10,15 +10,8 @@ import { CONTEXT } from '../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        // '&:first-child': {
-        //     paddingLeft: theme.spacing(2),
-        // },
-        // '&:last-child': {
-        //     paddingRight: theme.spacing(2),
-        // },
-        // paddingBottom: theme.spacing(1),
-        // paddingTop: theme.spacing(1),
-        // height: 50 - theme.spacing(2),
+        overflowY: 'auto',
+        maxHeight: '100%',
     },
 
     padded: {
