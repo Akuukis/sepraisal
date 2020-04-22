@@ -33,7 +33,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         .map((key) => [key, blueprintStore.getSomething(key)] as const)
         .map(([key, blueprint]) => (
             <Analysis
-                width={12}
                 classes={{root: classes.column}}
                 key={key}
                 bp={blueprint}

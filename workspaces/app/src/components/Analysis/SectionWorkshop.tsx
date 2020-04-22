@@ -5,16 +5,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link, Typography } from '@material-ui/core'
 
-import {
-    createSmartFC,
-    createStyles,
-    formatDecimal,
-    GridSize,
-    IMyTheme,
-    linkAuthor,
-    linkBp,
-    linkCollection,
-} from '../../common/'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkAuthor, linkBp, linkCollection } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
@@ -52,7 +43,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     bp: IBpProjectionRow
-    width: GridSize
 }
 
 

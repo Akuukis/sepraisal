@@ -3,7 +3,7 @@ import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
 
-import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { vegaSpecHeatmapLegend } from '../../common/vega'
 import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
@@ -21,7 +21,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     bp: IBpProjectionRow
-    width: GridSize
 }
 
 

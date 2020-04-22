@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader/root'
 import { Grid } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
-import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Header from './Header'
 import SectionBlocks from './SectionBlocks'
 import SectionIntegrity from './SectionIntegrity'
@@ -38,12 +38,11 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     bp: IBpProjection
-    width: GridSize
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, width} = props
+    const {bp} = props
 
     // @computed get anyError() {
     //     const { analysis } = props;
@@ -56,7 +55,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const renderBox = (AnalysisSections: Section[], header = false) =>
         (
             <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
-                {AnalysisSections.map((AnalysisSection, i) => (<AnalysisSection key={i} width={width} bp={bp} />))}
+                {AnalysisSections.map((AnalysisSection, i) => (<AnalysisSection key={i} bp={bp} />))}
             </Grid>
         )
 

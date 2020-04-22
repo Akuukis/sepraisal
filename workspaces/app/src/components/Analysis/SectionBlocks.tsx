@@ -2,7 +2,7 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { createSmartFC, createStyles, GridSize, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
@@ -23,7 +23,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     bp: IBpProjectionRow
-    width: GridSize
 }
 
 

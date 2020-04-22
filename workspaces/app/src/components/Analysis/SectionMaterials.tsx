@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
@@ -41,7 +41,6 @@ interface IRequirement {
 }
 interface IProps {
     bp: IBpProjectionRow
-    width: ColumnSize
 }
 
 
