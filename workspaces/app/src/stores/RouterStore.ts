@@ -1,8 +1,9 @@
-import { History, createHashHistory } from 'history'
+import { createBrowserHistory } from 'history'
 import { RouterStore as BaseRouterStore, syncHistoryWithStore } from 'mobx-react-router'
 
 import { ROUTES } from '../constants/routes'
 import { PiwikStore } from './PiwikStore'
+
 
 export class RouterStore extends BaseRouterStore {
     private piwikStore: PiwikStore
@@ -10,7 +11,7 @@ export class RouterStore extends BaseRouterStore {
     public constructor(piwikStore: PiwikStore) {
         super()
         this.piwikStore = piwikStore
-        this.history = syncHistoryWithStore(createHashHistory(), this)
+        this.history = syncHistoryWithStore(createBrowserHistory(), this)
     }
 
     public goBlueprint(id: number) {

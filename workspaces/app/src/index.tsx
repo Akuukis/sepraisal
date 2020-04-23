@@ -21,7 +21,7 @@ render((
         <CONTEXT.PIWIK.Provider value={piwikStore}>
         <CONTEXT.ROUTER.Provider value={routerStore}>
 
-        {routes}
+        {routes(routerStore.history)}
 
         </CONTEXT.ROUTER.Provider>
         </CONTEXT.PIWIK.Provider>

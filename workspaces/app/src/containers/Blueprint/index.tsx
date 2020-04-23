@@ -22,7 +22,6 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const maxWidth = 12
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const routerStore = React.useContext(CONTEXT.ROUTER)
     const [status, setStatus] = React.useState<typeof STATUS[keyof typeof STATUS]>(STATUS.Idle)
