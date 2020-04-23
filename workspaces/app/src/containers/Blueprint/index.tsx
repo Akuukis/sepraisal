@@ -1,4 +1,4 @@
-import { API_URL, IBlueprint } from '@sepraisal/common'
+import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -41,17 +41,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
 
         try {
-            const find = encodeURIComponent(JSON.stringify({_id: id}))
-            const res = await fetch(`${API_URL}?find=${find}&limit=${1}`)
-            const {docs} = await res.json() as {docs: Array<Required<IBlueprint>>}
-            const doc = docs.pop()
-            if(!doc) {
-                setStatus(STATUS.Failed)
-            } else {
-                blueprintStore.setRecent(doc)
-                setBlueprint(doc)
-                setStatus(STATUS.Loaded)
-            }
+            const doc = await blueprintStore.fetch(id)
+            setBlueprint(doc)
+            setStatus(STATUS.Loaded)
         } catch(err) {
             setStatus(STATUS.Failed)
         }
