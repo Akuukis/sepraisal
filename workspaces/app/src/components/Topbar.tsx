@@ -14,8 +14,7 @@ import TopbarButton from './TopbarButton'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        // backgroundImage: `url('${background}')`,
-        backgroundPosition: '0px -12px ',
+        backgroundColor: `${theme.palette.primary.main}CC`,
         zIndex: theme.zIndex.appBar + 1,
     },
 
@@ -25,16 +24,17 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(2),
     },
     headline: {
-        '@media (max-width: 750px)': {
-            display: 'none',
-        },
-        color: 'white',
+        color: theme.palette.primary.contrastText,
     },
-    headlineSmall: {
-        '@media (min-width: 750px)': {
-            display: 'none',
+    expand: {
+        display: 'inline-block',
+        transition: theme.transitions.create('max-width'),
+        maxWidth: 0,
+        overflowX: 'hidden',
+        verticalAlign: 'bottom',
+        [theme.breakpoints.up('sm')]: {
+            maxWidth: 120,
         },
-        color: 'white',
     },
 })
 
@@ -53,11 +53,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <AppBar elevation={0} className={classes.root}>
             <Toolbar>
                 <Button onClick={h}>
-                    <Typography variant='h5' className={classes.headlineSmall} noWrap>
-                        {'SE Praisal'}
-                    </Typography>
                     <Typography variant='h5' className={classes.headline} noWrap>
-                        {'Space Engineers Praisal'}
+                        S<span className={classes.expand}>pace&nbsp;</span>E<span className={classes.expand}>ngineers</span>&nbsp;<strong>Praisal</strong>
                     </Typography>
                 </Button>
                 <div style={{flex: 1}} />

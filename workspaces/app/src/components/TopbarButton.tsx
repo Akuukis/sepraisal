@@ -10,14 +10,19 @@ import { CONTEXT } from '../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: theme.palette.background.default,
+        // backgroundColor: theme.palette.background.default,
+        color: theme.palette.primary.contrastText,
+        borderColor: theme.palette.primary.contrastText,
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
         minWidth: 56,
     },
     title: {
-        '@media (max-width: 600px)': {
-                display: 'none',
+        overflow: 'hidden',
+        transition: theme.transitions.create('max-width'),
+        maxWidth: 0,
+        [theme.breakpoints.up('md')]: {
+            maxWidth: 80,
         },
     },
 })
@@ -41,7 +46,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Button
-            variant='contained'
+            variant='outlined'
             className={classes.root}
             onClick={h}
             value={props.route}
