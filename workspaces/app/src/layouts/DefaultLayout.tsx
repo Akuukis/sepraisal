@@ -39,26 +39,35 @@ const styles = (theme: IMyTheme) => createStyles({
         ...theme.mixins.toolbar,  // necessary for content to be below app bar
         justifyContent: 'flex-end',
         backgroundColor: theme.palette.background.paper,
-    },
-    asideContainer: {
-        overflow: 'auto',
-        backgroundColor: theme.palette.background.paper,
+        borderRadius: `0 32px 0 0`,
+        marginTop: theme.spacing(2),
     },
     asideHeaderTypography: {
         flexGrow: 1,
+    },
+    asideContainer: {
+        overflowX: 'hidden',
+        backgroundColor: theme.palette.background.paper,
+        '&::after': {
+            content: 'a'
+        }
+    },
+    asideFooter: {
+        backgroundColor: theme.palette.background.paper,
+        width: '100%',
+        height: theme.shape.borderRadius,
+        flexShrink: 0,
+        borderRadius: `0 0 ${theme.shape.borderRadius}px 0`,
+        marginBottom: theme.spacing(2),
     },
     aside2Wrapper: {
         width: buttonWidth,
     },
     aside2: {
-        zIndex: theme.zIndex.appBar - 2,
         width: buttonWidth,
-        height: 'unset',
-        backgroundColor: '#0000',
     },
-    aside2IconButton: {
-        backgroundColor: theme.palette.background.paper,
-        borderRadius: '0 33% 33% 0',
+    aside2Header: {
+        borderRadius: `0 32px 32px 0`,
     },
     mainWrapper: {
         height: 'calc(100% - 56px)',
@@ -107,6 +116,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <div className={classes.root} {...otherProps}>
             <Topbar />
             <Drawer
+                hidden={!aside}
+                className={clsx(classes.asideWrapper, classes.aside2Wrapper)}
+                variant='permanent'
+                PaperProps={{component: 'aside', className: clsx(classes.aside, classes.aside2)}}
+                {...asideProps}
+            >
+                <Toolbar />
+                <div className={clsx(classes.asideHeader, classes.aside2Header)}>
+                    <IconButton onClick={toggleDrawer} color='primary'>
+                        {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                    </IconButton>
+                </div>
+            </Drawer>
+            <Drawer
                 className={classes.asideWrapper}
                 variant='persistent'
                 PaperProps={{component: 'aside', className: classes.aside}}
@@ -124,20 +147,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <div className={classes.asideContainer}>
                     {aside}
                 </div>
-            </Drawer>
-            <Drawer
-                hidden={!aside}
-                className={classes.aside2Wrapper}
-                variant='permanent'
-                PaperProps={{component: 'aside', className: classes.aside2}}
-                {...asideProps}
-            >
-                <Toolbar />
-                <div className={classes.asideHeader}>
-                    <IconButton onClick={toggleDrawer} color='primary' className={classes.aside2IconButton}>
-                        {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </div>
+                <div className={classes.asideFooter} />
             </Drawer>
             <Toolbar />
             <div className={clsx(classes.mainWrapper, {
