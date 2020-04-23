@@ -14,7 +14,7 @@ import ValueCell from '../Cell/ValueCell'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: theme.palette.success.light,
         borderRadius: `${theme.spacing(1)}px`,
         width: `${268 * 2}px`,
     },

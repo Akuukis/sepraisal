@@ -10,10 +10,12 @@ import CenterCell, { IProps as ICenterCellProps } from './CenterCell'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        paddingLeft: theme.spacing(3),
     },
 
     title: {
         width: '100%',
+        color: theme.palette.success.contrastText,
     },
 })
 

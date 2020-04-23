@@ -45,9 +45,9 @@ import { SelectionStore } from '../../stores/SelectionStore'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        fontFamily: '"Roboto", Helvetica, Arial, sans-serif',
+        fontFamily: theme.typography.fontFamily,
+        fontSize: theme.typography.fontSize,
         fontSmoothing: 'antialiased',
-        fontWeight: 300,
         height: '100vh',
         minWidth: '230px',
         overflow: 'hidden',

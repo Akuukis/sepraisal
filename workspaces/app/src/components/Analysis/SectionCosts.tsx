@@ -40,7 +40,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <>
             <MyBoxGroup height={2} width={3}>
-                <MyBox width={2} flat>
+                <MyBox variant='header'>
                     <HeaderCell title='COSTS' />
                 </MyBox>
                 <MyBox>
