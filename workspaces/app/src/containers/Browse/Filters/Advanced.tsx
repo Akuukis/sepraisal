@@ -44,10 +44,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         dirtyOk = null
     }
 
+    const reset = () => {
+        const value = JSON.stringify(cardStore.find, null, 2)
+        setFindDirty(value)
+    }
     React.useEffect(() => autorun(() => {
         const value = JSON.stringify(cardStore.find, null, 2)
-        runInAction('reset-advanced-filter', () => setFindDirty(value))
-    }))
+        setFindDirty(value)
+    }), [])
+
 
     const handleRawFind = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const value = event.target.value
@@ -63,7 +68,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <MyExpansionPanel title='Advanced' subtitle='' expanded={expanded} onChange={onChange}>
             <Grid container spacing={2}>
                 <Grid item xs={6}>
-                    <Button variant='contained' fullWidth>
+                    <Button variant='contained' fullWidth onClick={reset}>
                         Reset
                     </Button>
                 </Grid>

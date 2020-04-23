@@ -20,6 +20,7 @@ import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
 import SectionUtils from './SectionUtils'
 import SectionWorkshop from './SectionWorkshop'
+import MySection from './MySection'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -53,6 +54,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
     const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(null)
+
 
     useAsyncEffectOnce(async () => {
         setStatus(ASYNC_STATE.Doing)
@@ -100,7 +102,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const renderBox = (AnalysisSections: Section[], header = false) => (
         <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
-            {AnalysisSections.map((AnalysisSection, i) => (<AnalysisSection key={i} bp={blueprint} />))}
+            {AnalysisSections.map((AnalysisSection, i) => (
+                <MySection>
+                    <AnalysisSection key={i} bp={blueprint} />
+                </MySection>
+            ))}
         </Grid>
     )
 

@@ -9,7 +9,6 @@ import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
-import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -62,7 +61,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     // const valuetext = (value: number) => `${value}°C`
 
     return (
-        <MySection className={classes.root}>
+        <>
             <MyBoxGroup>
                 <MyBox flat width={2}>
                     <HeaderCell title='MOBILITY' />
@@ -138,7 +137,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`right`} value={speedToFixed(sbc.thrustIon.Right, sbc.blockMass, 1)} />
                 </MyBox>
             </MyBoxGroup>
-        </MySection>
+        </>
     )
 })) /* ============================================================================================================= */
 

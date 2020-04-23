@@ -11,7 +11,6 @@ import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
-import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -62,7 +61,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </Link>)
 
     return (
-        <MySection className={classes.root}>
+        <>
             <MyBoxGroup height={3} width={3}>
                 <MyBox width={1.5} flat>
                     <HeaderCell title='WORKSHOP' />
@@ -119,7 +118,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
                 </MyBox>
             </MyBoxGroup>
-        </MySection>
+        </>
     )
 })) /* ============================================================================================================= */
 
