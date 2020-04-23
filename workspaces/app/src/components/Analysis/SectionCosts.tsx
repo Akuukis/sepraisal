@@ -46,25 +46,36 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <MyBox>
                     <ValueCell label='PCU' value={formatDecimal(sbc.blockPCU)} />
                 </MyBox>
+                <MyBox>
+                    <ValueCell label='grids' value={formatDecimal(sbc.gridCount)} />
+                </MyBox>
+                <MyBox>
+                    <ValueCell label='blocks' value={formatDecimal(sbc.blockCount)} />
+                </MyBox>
+                <MyBox>
+                    <ValueCell label='components' value={formatDecimal(componentCount)} />
+                </MyBox>
                 <MyBox width={3}>
                     <ValueCell label='welder time' value={formatDuration(sbc.blockTime)} />
                     <ValueCell label='assembler time' value={formatDuration(sbc.componentTime)} />
                     <ValueCell label='refinery time' value={formatDuration(sbc.ingotTime)} />
                 </MyBox>
             </MyBoxGroup>
-            <MyBoxGroup height={2} width={3}>
-                <MyBox>
-                    {/* <ValueCell label='comp. count' value={formatDecimal(componentCount)} /> */}
-                    <ValueCell label='comp. mass (kg)' value={formatDecimal(componentMass)} />
-                    <ValueCell label='comp. volume (l)' value={formatDecimal(componentVolume)} />
+            <MyBoxGroup height={3} width={3}>
+                <MyBox width={3}>
+                    <ValueCell label='' value='Components:' />
+                    <ValueCell label='mass (kg)' value={formatDecimal(componentMass)} />
+                    <ValueCell label='volume (l)' value={formatDecimal(componentVolume)} />
                 </MyBox>
-                <MyBox>
-                    <ValueCell label='Ingot mass (kg)' value={formatDecimal(getIngotMass(materials))} />
-                    <ValueCell label='Ingot volume (l)' value={formatDecimal(getIngotVolume(materials))} />
+                <MyBox width={3}>
+                    <ValueCell label='' value='Ingots:' />
+                    <ValueCell label='mass (kg)' value={formatDecimal(getIngotMass(materials))} />
+                    <ValueCell label='volume (l)' value={formatDecimal(getIngotVolume(materials))} />
                 </MyBox>
-                <MyBox>
-                    <ValueCell label='Ore mass (kg)' value={formatDecimal(getOreMass(materials))} />
-                    <ValueCell label='Ore volume (l)' value={formatDecimal(getOreVolume(materials))} />
+                <MyBox width={3}>
+                    <ValueCell label='' value='Ores:' />
+                    <ValueCell label='mass (kg)' value={formatDecimal(getOreMass(materials))} />
+                    <ValueCell label='volume (l)' value={formatDecimal(getOreVolume(materials))} />
                 </MyBox>
             </MyBoxGroup>
         </>
@@ -78,6 +89,7 @@ type ProjectionCardSbc =
     | 'blockTime'
     | 'componentTime'
     | 'components'
+    | 'gridCount'
     | 'ingotTime'
     | 'ingots'
     | 'ores'
