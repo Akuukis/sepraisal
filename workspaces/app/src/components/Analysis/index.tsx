@@ -10,6 +10,7 @@ import { CONTEXT } from '../../stores'
 import Header from './Header'
 import SectionAutomation from './SectionAutomation'
 import SectionBlocks from './SectionBlocks'
+import SectionCosts from './SectionCosts'
 import SectionDefensive from './SectionDefensive'
 import SectionElectricity from './SectionElectricity'
 import SectionIntegrity from './SectionIntegrity'
@@ -110,6 +111,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {renderBox([SectionIntegrity       as Section])}
             {renderBox([SectionElectricity          as Section])}
             {renderBox([SectionUtils          as Section])}
+            {renderBox([SectionCosts          as Section])}
             {renderBox([SectionMods          as Section])}
             {renderBox([SectionAutomation          as Section])}
             {renderBox([SectionMobility        as Section])}
