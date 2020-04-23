@@ -61,11 +61,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             Favorite blueprints and they will show up here.
                         </Typography>
                     </ListItem>
-                    {[...blueprintStore.favorites].map<JSX.Element>(([key, blueprint]) => (
+                    {[...blueprintStore.favorites].map<JSX.Element>(([id, blueprint]) => (
                             <SelectorRow
-                                key={key}
-                                id={key}
-                                title={`${blueprint.steam.title}, v${blueprint.steam.revision}`}
+                                key={id}
+                                id={id}
+                                title={blueprint?.steam?.title ?? id}
                             />
                         ))}
                 </List>
@@ -78,11 +78,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             Recently viewed blueprints will show up here.
                         </Typography>
                     </ListItem>
-                    {[...blueprintStore.recent].map<JSX.Element>(([key, blueprint]) => (
+                    {[...blueprintStore.recent].map<JSX.Element>(([id, blueprint]) => (
                             <SelectorRow
-                                key={key}
-                                id={key}
-                                title={`${blueprint.steam.title}, v${blueprint.steam.revision}`}
+                                key={id}
+                                id={id}
+                                title={blueprint?.steam?.title ?? id}
                             />
                         ))}
                 </List>

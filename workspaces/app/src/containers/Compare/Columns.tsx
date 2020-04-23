@@ -30,12 +30,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const columns = [...selectionStore.selected]
         // tslint:disable-next-line: no-non-null-assertion
-        .map((key) => [key, blueprintStore.getSomething(key)] as const)
-        .map(([key, blueprint]) => (
+        .map((id) => (
             <Analysis
                 classes={{root: classes.column}}
-                key={key}
-                bp={blueprint}
+                key={id}
+                id={id}
             />
     ))
 

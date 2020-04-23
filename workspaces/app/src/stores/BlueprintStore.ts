@@ -1,4 +1,4 @@
-import { IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
+import { API_URL, IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
 import { Praisal } from '@sepraisal/praisal'
 import { action, runInAction } from 'mobx'
 import * as moment from 'moment'
@@ -84,6 +84,20 @@ export class BlueprintStore {
         if(this.favorites.has(id)) this.deleteFavorite(id)
 
         return id
+    }
+
+    @action public async fetch(id: number) {
+        const find = encodeURIComponent(JSON.stringify({_id: id}))
+        const res = await fetch(`${API_URL}?find=${find}&limit=${1}`)
+        const {docs} = await res.json() as {docs: Array<RequiredSome<IBlueprint, 'sbc' | 'steam'>>}
+        const doc = docs.pop()
+
+        if(!doc) throw new Error('Not Found.')
+
+        runInAction('blueprintStore.fetch', () => {
+            this.setRecent(doc)
+        })
+        return doc
     }
 
     @action public setFavorite(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
