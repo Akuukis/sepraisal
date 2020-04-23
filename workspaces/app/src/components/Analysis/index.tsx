@@ -2,10 +2,11 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
+import { CONTEXT } from '../../stores'
 import Header from './Header'
 import SectionAutomation from './SectionAutomation'
 import SectionBlocks from './SectionBlocks'
@@ -41,12 +42,52 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    bp: IBpProjection
+    id: string | number
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp} = props
+    const {id} = props
+
+    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
+    const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
+    const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(null)
+
+    useAsyncEffectOnce(async () => {
+        setStatus(ASYNC_STATE.Doing)
+        try {
+            const cached = blueprintStore.getSomething(id)
+            if(cached) {
+                setBlueprint(cached)
+                setStatus(ASYNC_STATE.Done)
+
+                return
+            }
+        } catch(err) {
+            console.info(err.message)
+        }
+
+        if(typeof id === 'string') {
+            setStatus(ASYNC_STATE.Error)
+            return
+        }
+
+        try {
+            const doc = await blueprintStore.fetch(id)
+            setBlueprint(doc)
+            setStatus(ASYNC_STATE.Done)
+        } catch(err) {
+            setStatus(ASYNC_STATE.Error)
+        }
+    })
+
+    if(status !== ASYNC_STATE.Done || !blueprint) {
+        return (
+            <Grid component='article' className={classes.root} container justify='center'>
+                <Typography variant='body1' color='secondary'>TODO: nice loading animation..</Typography>
+            </Grid>
+        )
+    }
 
     // @computed get anyError() {
     //     const { analysis } = props;
@@ -56,17 +97,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     //         || analysis.oreErrors.length > 0
     // }
 
-    const renderBox = (AnalysisSections: Section[], header = false) =>
-        (
-            <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
-                {AnalysisSections.map((AnalysisSection, i) => (<AnalysisSection key={i} bp={bp} />))}
-            </Grid>
-        )
+    const renderBox = (AnalysisSections: Section[], header = false) => (
+        <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
+            {AnalysisSections.map((AnalysisSection, i) => (<AnalysisSection key={i} bp={blueprint} />))}
+        </Grid>
+    )
 
     return (
         <Grid component='article' className={classes.root} container justify='center'>
             {renderBox([Header          as Section], true)}
-            {'steam' in bp ? renderBox([SectionWorkshop        as Section]) : null}
+            {'steam' in blueprint ? renderBox([SectionWorkshop        as Section]) : null}
             {renderBox([SectionIntegrity       as Section])}
             {renderBox([SectionElectricity          as Section])}
             {renderBox([SectionUtils          as Section])}
@@ -90,4 +130,4 @@ interface IBpProjection {
     thumb?: Partial<IBlueprint.IThumb>,
 }
 
-type Section = React.ComponentType<IProps & StyledComponentProps<'root'>>
+type Section = React.ComponentType<{bp: IBlueprint} & StyledComponentProps<'root'>>
