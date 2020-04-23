@@ -12,7 +12,6 @@ import SelectorRow from './Row'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         backgroundColor: '#FFF',
-        paddingBottom: theme.spacing(2),
         position: 'relative',
     },
 

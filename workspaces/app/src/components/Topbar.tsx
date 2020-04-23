@@ -6,9 +6,9 @@ import IconBuild from '@material-ui/icons/Build'
 import IconInfo from '@material-ui/icons/Info'
 import IconSearch from '@material-ui/icons/Search'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import { ROUTES } from '../../constants/routes'
-import { CONTEXT } from '../../stores'
+import { createSmartFC, createStyles, IMyTheme } from '../common/'
+import { ROUTES } from '../constants/routes'
+import { CONTEXT } from '../stores'
 import TopbarButton from './TopbarButton'
 
 

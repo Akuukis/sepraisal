@@ -3,9 +3,9 @@ import { hot } from 'react-hot-loader/root'
 
 import { Button, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import { ROUTES } from '../../constants/routes'
-import { CONTEXT } from '../../stores'
+import { createSmartFC, createStyles, IMyTheme } from '../common/'
+import { ROUTES } from '../constants/routes'
+import { CONTEXT } from '../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({

@@ -10,7 +10,7 @@ import { CONTEXT } from '../../stores'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         flexWrap: 'nowrap',
-        width: 'auto',
+        width: 'unset',
     },
 
     column: {

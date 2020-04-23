@@ -1,10 +1,10 @@
 import './rhlConfig'
 
+import { MATOMO_PARAMS } from '@sepraisal/common'
 import { configure } from 'mobx'
 import * as React from 'react'
 import { render } from 'react-dom'
 
-import { MATOMO_PARAMS } from '@sepraisal/common'
 import routes from './routes'
 import { CONTEXT } from './stores'
 import { PiwikStore } from './stores/PiwikStore'

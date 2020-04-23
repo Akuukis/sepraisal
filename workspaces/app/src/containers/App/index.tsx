@@ -34,44 +34,27 @@ import { hot } from 'react-hot-loader/root'
 import { Paper } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/styles'
 
-import { ASYNC_STATE, MY_LIGHT_THEME, SE_COLORS, useAsyncEffectOnce } from '../../common'
+import { ASYNC_STATE, MY_LIGHT_THEME, useAsyncEffectOnce } from '../../common'
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import Topbar from '../../components/Topbar'
 import { CONTEXT } from '../../stores'
 import { BlueprintStore } from '../../stores/BlueprintStore'
 import { CardStore } from '../../stores/CardStore'
 import { SelectionStore } from '../../stores/SelectionStore'
-import Topbar from './Topbar'
 
 
 const styles = (theme: IMyTheme) => createStyles({
-    app: {
-        '@media (min-width: 0px)': {
-            top: 56,
-        },
-        '@media (min-width: 600px)': {
-            top: 64,
-        },
-        'background': '#f0f0f0',
-        'fontFamily': '"Roboto", Helvetica, Arial, sans-serif',
-        'fontSmoothing': 'antialiased',
-        'fontWeight': 300,
-        'height': '100%',
-        'left': 0,
-        'minWidth': '230px',
-        'overflow': 'hidden',
-        'position': 'fixed',
-        'width': '100%',
+    root: {
+        fontFamily: '"Roboto", Helvetica, Arial, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontWeight: 300,
+        height: '100vh',
+        minWidth: '230px',
+        overflow: 'hidden',
     },
-    content: {
-        '@media (min-width: 0px)': {
-            height: 'calc(100% - 56px)',
-        },
-        '@media (min-width: 600px)': {
-            height: 'calc(100% - 64px)',
-        },
-        'backgroundColor': SE_COLORS.grey,
-        'overflowX': 'hidden',
-        'overflowY': 'visible',
+
+    body: {
+        margin: 0,
     },
 })
 
@@ -87,6 +70,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [cardStore] = React.useState(() => new CardStore(piwikStore))
     const [praisalManager] = React.useState(() => new PraisalManager())
     const [state, setState] = React.useState<ASYNC_STATE>(ASYNC_STATE.Idle)
+
+    React.useEffect(() => {
+        const body = document.getElementById('body')!
+        body.className = classes.body
+
+        const root = document.getElementById('root')!
+        root.className = classes.root
+    })
 
     useAsyncEffectOnce(async () => {
         try {
@@ -132,7 +123,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             console.error(err)
             setState(ASYNC_STATE.Error)
         }
-
     })
 
     if(state === ASYNC_STATE.Idle || state === ASYNC_STATE.Doing) {
@@ -140,29 +130,27 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <CONTEXT.SELECTION.Provider value={selectionStore}>
 
             <ThemeProvider theme={MY_LIGHT_THEME}>
-                <Paper className={classes.app} square>
+                <main>
                     <Topbar/>
                     <Paper>
                         Loading...
                     </Paper>
-                </Paper>
+                </main>
             </ThemeProvider>
 
             </CONTEXT.SELECTION.Provider>
         )
-    }
-
-    if(state === ASYNC_STATE.Error) {
+    } else if(state === ASYNC_STATE.Error) {
         return (
             <CONTEXT.SELECTION.Provider value={selectionStore}>
 
             <ThemeProvider theme={MY_LIGHT_THEME}>
-                <Paper className={classes.app} square>
+                <main>
                     <Topbar/>
                     <Paper>
                         Error at startup. Please try again or see console for details.
                     </Paper>
-                </Paper>
+                </main>
             </ThemeProvider>
 
             </CONTEXT.SELECTION.Provider>
@@ -176,12 +164,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <CONTEXT.SELECTION.Provider value={selectionStore}>
 
         <ThemeProvider theme={MY_LIGHT_THEME}>
-            <Paper className={classes.app} square>
-                <Topbar/>
-                <Paper className={classes.content} square>
-                    {children}
-                </Paper>
-            </Paper>
+            {children}
         </ThemeProvider>
 
         </CONTEXT.SELECTION.Provider>
