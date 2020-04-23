@@ -7,7 +7,6 @@ import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
-import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -67,7 +66,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         + (sbc.blocks["Cockpit/LargeBlockCockpitIndustrial"] ?? 0)
 
     return (
-        <MySection className={classes.root}>
+        <>
             <MyBoxGroup height={4} width={6}>
                 <MyBox width={2} flat>
                     <HeaderCell title='UTILITIES' />
@@ -111,7 +110,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='gravity gen.' value={gravityGen || '-'} />
                 </MyBox>
             </MyBoxGroup>
-        </MySection>
+        </>
     )
 })) /* ============================================================================================================= */
 

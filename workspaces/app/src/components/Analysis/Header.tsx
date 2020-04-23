@@ -6,7 +6,6 @@ import { AppBar, Avatar, Toolbar, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, linkAuthor, linkBp } from '../../common/'
 import FavoriteButton from '../../components/FavoriteButton'
-import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -46,7 +45,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </a>)
         : bp.sbc.gridTitle
     return (
-        <MySection className={classes.root}>
+        <>
             <AppBar position='static'>
                 <Toolbar>
                     <Avatar style={{marginRight: '0.5em'}}>
@@ -64,7 +63,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </IconButton> TODO: Add Close for Compare view. */}
                 </Toolbar>
             </AppBar>
-        </MySection>
+        </>
     )
 })) /* ============================================================================================================= */
 

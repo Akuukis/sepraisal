@@ -7,7 +7,6 @@ import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
-import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -44,7 +43,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <MySection className={classes.root}>
+        <>
             <MyBoxGroup height={2} width={2}>
                 <MyBox width={2} flat>
                     <HeaderCell title='OFFENSIVE' />
@@ -69,7 +68,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`interior`} value={turret.interior || '-'} />
                 </MyBox>
             </MyBoxGroup>
-        </MySection>
+        </>
     )
 })) /* ============================================================================================================= */
 

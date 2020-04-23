@@ -1,7 +1,6 @@
 import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
-import { useErrorBoundary } from 'use-error-boundary'
 
 import { Grid, Typography } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
@@ -21,6 +20,7 @@ import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
 import SectionUtils from './SectionUtils'
 import SectionWorkshop from './SectionWorkshop'
+import MySection from './MySection'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -54,7 +54,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
     const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(null)
-    const { ErrorBoundary, error, errorInfo } = useErrorBoundary()
 
 
     useAsyncEffectOnce(async () => {
@@ -103,28 +102,30 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const renderBox = (AnalysisSections: Section[], header = false) => (
         <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
-            {AnalysisSections.map((AnalysisSection, i) => (<AnalysisSection key={i} bp={blueprint} />))}
+            {AnalysisSections.map((AnalysisSection, i) => (
+                <MySection>
+                    <AnalysisSection key={i} bp={blueprint} />
+                </MySection>
+            ))}
         </Grid>
     )
 
     return (
-        <ErrorBoundary>
-            <Grid component='article' className={classes.root} container justify='center'>
-                {renderBox([Header          as Section], true)}
-                {'steam' in blueprint ? renderBox([SectionWorkshop        as Section]) : null}
-                {renderBox([SectionIntegrity       as Section])}
-                {renderBox([SectionElectricity          as Section])}
-                {renderBox([SectionUtils          as Section])}
-                {renderBox([SectionCosts          as Section])}
-                {renderBox([SectionMods          as Section])}
-                {renderBox([SectionAutomation          as Section])}
-                {renderBox([SectionMobility        as Section])}
-                {renderBox([SectionOffensive        as Section])}
-                {renderBox([SectionDefensive        as Section])}
-                {renderBox([SectionMaterials          as Section])}
-                {renderBox([SectionBlocks          as Section])}
-            </Grid>
-        </ErrorBoundary>
+        <Grid component='article' className={classes.root} container justify='center'>
+            {renderBox([Header          as Section], true)}
+            {'steam' in blueprint ? renderBox([SectionWorkshop        as Section]) : null}
+            {renderBox([SectionIntegrity       as Section])}
+            {renderBox([SectionElectricity          as Section])}
+            {renderBox([SectionUtils          as Section])}
+            {renderBox([SectionCosts          as Section])}
+            {renderBox([SectionMods          as Section])}
+            {renderBox([SectionAutomation          as Section])}
+            {renderBox([SectionMobility        as Section])}
+            {renderBox([SectionOffensive        as Section])}
+            {renderBox([SectionDefensive        as Section])}
+            {renderBox([SectionMaterials          as Section])}
+            {renderBox([SectionBlocks          as Section])}
+        </Grid>
     )
 })) /* ============================================================================================================= */
 

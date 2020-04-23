@@ -9,7 +9,6 @@ import { CONTEXT } from '../../stores'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
-import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -39,7 +38,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     return (
-        <MySection className={classes.root}>
+        <>
             <MyBoxGroup height={2} width={3}>
                 <MyBox width={2} flat>
                     <HeaderCell title='COSTS' />
@@ -68,7 +67,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='Ore volume (l)' value={formatDecimal(getOreVolume(materials))} />
                 </MyBox>
             </MyBoxGroup>
-        </MySection>
+        </>
     )
 })) /* ============================================================================================================= */
 
