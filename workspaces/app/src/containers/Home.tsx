@@ -7,12 +7,11 @@ import IconBuild from '@material-ui/icons/Build'
 import IconSearch from '@material-ui/icons/Search'
 
 import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
-import { createSmartFC, createStyles, IMyTheme } from '../common/'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from '../common/'
 import { ROUTES } from '../constants/routes'
 import DefaultLayout from '../layouts/DefaultLayout'
 import { CONTEXT } from '../stores'
 import { PRESET } from '../stores/CardStore'
-import { STATUS } from './Blueprint'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -44,10 +43,10 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
-    const [status, setStatus] = React.useState<typeof STATUS[keyof typeof STATUS]>(STATUS.Idle)
+    const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
 
     const getRandom = async () => {
-        setStatus(STATUS.Loading)
+        setStatus(ASYNC_STATE.Doing)
         try {
             const skip = Math.floor(Math.random() * 90000)  // Random blueprint out of first 90k blueprints.
             const res = await fetch(getApiUrl(PRESET.none, {}, undefined, 1, skip))
@@ -55,7 +54,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             const doc = docs[0]
             routerStore.goBlueprint(doc._id)
         } catch(err) {
-            setStatus(STATUS.Failed)
+            setStatus(ASYNC_STATE.Error)
         }
     }
 
