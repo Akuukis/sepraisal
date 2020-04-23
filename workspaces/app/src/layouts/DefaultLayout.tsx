@@ -2,7 +2,9 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Drawer, DrawerProps, GridProps, Toolbar } from '@material-ui/core'
+import { Divider, Drawer, DrawerProps, GridProps, IconButton, Toolbar, Typography } from '@material-ui/core'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 import skyboxImage from '../../static/skybox.jpg'
 import { createSmartFC, createStyles, IMyTheme } from '../common/'
@@ -33,6 +35,17 @@ const styles = (theme: IMyTheme) => createStyles({
 
     asideContainer: {
         overflow: 'auto',
+    },
+
+    asideHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        padding: theme.spacing(0, 1),
+        ...theme.mixins.toolbar,  // necessary for content to be below app bar
+        justifyContent: 'flex-end',
+    },
+    asideHeaderTypography: {
+        flexGrow: 1,
     },
 
     mainWrapper: {
@@ -66,13 +79,16 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps extends GridProps {
     aside?: React.ReactNode,
+    asideTitle?: string,
     asideProps?: DrawerProps,
     mainProps?: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {aside, asideProps, mainProps, className, ...otherProps} = props
+    const {aside, asideProps, asideTitle, mainProps, className, ...otherProps} = props
+    const [open, setOpen] = React.useState(!!aside)
+    const toggleDrawer = () => setOpen(!open)
 
     return (
         <div className={classes.root} {...otherProps}>
@@ -81,15 +97,23 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 className={classes.asideWrapper}
                 variant='persistent'
                 PaperProps={{component: 'aside', className: classes.aside}}
+                open={open}
                 {...asideProps}
             >
                 <Toolbar />
+                <div className={classes.asideHeader}>
+                    <Typography className={classes.asideHeaderTypography} variant='h4' align='center'>{asideTitle}</Typography>
+                    <IconButton onClick={toggleDrawer}>
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                    </IconButton>
+                </div>
+                <Divider />
                 <div className={classes.asideContainer}>
                     {aside}
                 </div>
             </Drawer>
             <Toolbar />
-            <div className={clsx(classes.mainWrapper, {[classes.mainWrapperShifted]: !asideProps?.open})}>
+            <div className={clsx(classes.mainWrapper, {[classes.mainWrapperShifted]: !open})}>
                 <main className={clsx(classes.main, className)} {...mainProps}>
                     {children}
                 </main>

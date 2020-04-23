@@ -23,17 +23,10 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const [open, setOpen] = React.useState(true)
-
     const toggleDrawer = () => setOpen(!open)
 
-    const aside = (
-        <Filters
-            toggleDrawer={toggleDrawer}
-        />
-    )
-
     return (
-        <DefaultLayout aside={aside} asideProps={{open}} className={classes.root}>
+        <DefaultLayout className={classes.root} aside={<Filters />} asideTitle='Filters'>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Search toggleDrawer={toggleDrawer} />

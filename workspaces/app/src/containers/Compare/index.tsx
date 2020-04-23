@@ -83,14 +83,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const {getRootProps, getInputProps, isDragActive, open: browseFiles} = useDropzone({onDrop})
 
-    const aside = (
-        <Panel toggleDrawer={toggleDrawer} browseFiles={browseFiles} />
-    )
-
     return (
         <DefaultLayout
-            aside={aside}
-            asideProps={{open}}
+            aside={<Panel browseFiles={browseFiles} />}
+            asideTitle='Compare'
             mainProps={{...getRootProps(), onClick: noop}}
             className={classes.root}
         >
