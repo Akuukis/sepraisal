@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
+import { Divider } from '@material-ui/core'
+
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import Advanced from './Advanced'
 import Custom from './Custom'
@@ -36,10 +38,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 expanded={expanded === Pages.Presets}
                 onChange={setExpandedPage(Pages.Presets)}
             />
+            <Divider />
             <Custom
                 expanded={expanded === Pages.Custom}
                 onChange={setExpandedPage(Pages.Custom)}
             />
+            <Divider />
             <Advanced
                 expanded={expanded === Pages.Advanced}
                 onChange={setExpandedPage(Pages.Advanced)}
