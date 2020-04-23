@@ -50,6 +50,7 @@
         "react-router-dom": "^5.1.2",
         "react-table": "^6.11.4",
         "react-vega": "6.0.1",
+        "use-error-boundary": "^1.2.0",
         "vega": "5.9.2"
     },
     "devDependencies": {
