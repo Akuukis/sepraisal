@@ -2,7 +2,6 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import {
-    Divider,
     IconButton,
     InputAdornment,
     ListItemIcon,
@@ -15,7 +14,6 @@ import {
 import SearchIcon from '@material-ui/icons/Search'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import IconFilter from '../../components/icons/Filter'
 import IconSort from '../../components/icons/Sort'
 import IconSortAscending from '../../components/icons/SortAscending'
 import IconSortDescending from '../../components/icons/SortDescending'
@@ -31,13 +29,11 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    toggleDrawer(): void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
-    const {toggleDrawer} = props
     const [anchor, setAnchor] = React.useState<HTMLElement | null>(null)
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -125,14 +121,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     endAdornment: [(
                         <InputAdornment position='end' key='sort'>
                             {renderSortIcon()}
-                        </InputAdornment>
-                    ), (
-                        <Divider key='divide' />
-                    ), (
-                        <InputAdornment position='end' key='filter'>
-                            <IconButton onClick={toggleDrawer}>
-                                <IconFilter type='primary' color='primary'/>
-                            </IconButton>
                         </InputAdornment>
                     )],
                     fullWidth: false,

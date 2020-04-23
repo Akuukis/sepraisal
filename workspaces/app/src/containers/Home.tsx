@@ -9,6 +9,7 @@ import IconSearch from '@material-ui/icons/Search'
 import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
 import { createSmartFC, createStyles, IMyTheme } from '../common/'
 import { ROUTES } from '../constants/routes'
+import DefaultLayout from '../layouts/DefaultLayout'
 import { CONTEXT } from '../stores'
 import { PRESET } from '../stores/CardStore'
 import { STATUS } from './Blueprint'
@@ -59,7 +60,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <>
+        <DefaultLayout>
             <Grid container spacing={2} justify='center' className={classes.root} style={{paddingBottom: 0}}>
                 <Grid item xs={12} lg={9}>
                     <img src={banner} className={classes.banner} />
@@ -142,6 +143,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </Paper>
                 </Grid>
             </Grid>
-        </>
+        </DefaultLayout>
     )
 })) /* ============================================================================================================= */

@@ -1,5 +1,5 @@
-import { createMuiTheme, Theme } from '@material-ui/core'
-import { green, purple, red } from '@material-ui/core/colors'
+import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core'
+import { blue, green, red, yellow } from '@material-ui/core/colors'
 
 // Official Space Engineers colors (https://blog.marekrosa.org/2017/09/my-vision-for-visual-style-of-space.html)
 export const SE_COLORS = {
@@ -8,32 +8,62 @@ export const SE_COLORS = {
     grey_dark: '#686868',
     white: '#efefef',
 
-    blue: '#1767ae',
-    green: '#417e3b',
-    red: '#c01118',
-    yellow: '#f5bf2b',
+    blue    : {main: '#1767ae', dark: '#12528b', light: '#a2c2de'},
+    green   : {main: '#417e3b', dark: '#34642f', light: '#b3cbb0'},
+    red     : {main: '#c01118', dark: '#990d13', light: '#e59fa2'},
+    yellow  : {main: '#f5bf2b', dark: '#c49822', light: '#fbe5aa'},
 }
 
 
 export interface IMyTheme extends Theme {
+    shape: Theme['shape'] & {
+        boxHeight: number,
+    }
+}
+
+interface IMyThemeOptions extends ThemeOptions {
+    shape?: Theme['shape'] & {
+        boxHeight: number,
+    }
 }
 
 const defaultTheme = createMuiTheme()
 
 // www.color-hex.com/color
-export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
+export const MY_LIGHT_THEME = createMuiTheme({
+    shape: {
+        ...defaultTheme.shape,
+        boxHeight: 50,
+    },
     palette: {
         primary: {
-            ...red,
-            main: SE_COLORS.blue,
-            dark:'#12528b',  // 2 darker.
-            light: '#a2c2de',  // 6 lighter.
+            ...blue,
+            ...SE_COLORS.blue,
         },
         secondary: {
-            ...green,
-            main: SE_COLORS.yellow,
-            dark: '#c49822',  // 2 darker.
-            light: '#fbe5aa',  // 6 lighter.
+            ...yellow,
+            ...SE_COLORS.yellow,
+        },
+        background: {
+            default: SE_COLORS.grey,
+            paper: SE_COLORS.white,
+        },
+        text: {
+            primary: SE_COLORS.black,
+            secondary: SE_COLORS.grey_dark,
+        },
+
+        warning: {
+            ...SE_COLORS.yellow,
+        },
+        info: {
+            ...SE_COLORS.blue,
+        },
+        error: {
+            ...SE_COLORS.red,
+        },
+        success: {
+            ...SE_COLORS.green,
         },
     },
     spacing: 4,
@@ -55,4 +85,4 @@ export const MY_LIGHT_THEME: IMyTheme = createMuiTheme({
             fontSize: '0.675rem',
         },
     },
-})
+} as IMyThemeOptions) as IMyTheme

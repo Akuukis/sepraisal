@@ -4,23 +4,17 @@ import { hot } from 'react-hot-loader/root'
 
 import { InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, GridSize as ColumnSize, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyRow from '../MyRow'
+import MyBoxGroup from '../MyBoxGroup'
 import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-    },
-
-    content: {
-        height: `calc(${151 * 3 - 50}px - ${theme.spacing(4)}px)`,
-        overflowX: 'hidden',
-        overflowY: 'hidden',
     },
 
     contentText: {
@@ -47,7 +41,6 @@ interface IRequirement {
 }
 interface IProps {
     bp: IBpProjectionRow
-    width: ColumnSize
 }
 
 
@@ -166,10 +159,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MySection className={classes.root}>
-            <MyBox>
-                <MyRow>
-                    <HeaderCell wide title='MATERIALS' />
-                    <CenterCell wide padded>
+            <MyBoxGroup>
+                <MyBox width={1.5} flat>
+                    <HeaderCell width={1.5} title='MATERIALS' />
+                </MyBox>
+                <MyBox width={1.5}>
+                    <CenterCell width={1.5} padded>
                         <TextField
                             select
                             value={syntax}
@@ -183,11 +178,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
                         </TextField>
                     </CenterCell>
-                </MyRow>
-            </MyBox>
-            <MyBox>
-                <MyRow>
-                    <CenterCell wide padded>
+                </MyBox>
+                <MyBox width={1.5}>
+                    <CenterCell width={1.5} padded>
                         <TextField
                             select
                             value={type}
@@ -199,7 +192,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             <MenuItem value='ore'>Ores</MenuItem>
                         </TextField>
                     </CenterCell>
-                    <CenterCell wide padded>
+                </MyBox>
+                <MyBox width={1.5}>
+                    <CenterCell width={1.5} padded>
                         <TextField
                             id='copies'
                             type='number'
@@ -214,11 +209,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             }}
                         />
                     </CenterCell>
-                </MyRow>
-            </MyBox>
-            <MyBox wide className={classes.content}>
-                {getContent()}
-            </MyBox>
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={8}>
+                <MyBox width={6}>
+                    {getContent()}
+                </MyBox>
+            </MyBoxGroup>
         </MySection>
     )
 })) /* ============================================================================================================= */

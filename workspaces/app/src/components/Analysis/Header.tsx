@@ -2,14 +2,16 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { AppBar, Avatar, Grid, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, Avatar, Toolbar, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, GridSize, IMyTheme, linkAuthor, linkBp } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkAuthor, linkBp } from '../../common/'
 import FavoriteButton from '../../components/FavoriteButton'
+import MySection from '../MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        width: '100%',
     },
     header: {
         '&:visited': {
@@ -24,7 +26,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     bp: IBpProjectionRow
-    width: GridSize
 }
 
 
@@ -45,7 +46,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </a>)
         : bp.sbc.gridTitle
     return (
-        <Grid item xs={props.width} className={classes.root}>
+        <MySection className={classes.root}>
             <AppBar position='static'>
                 <Toolbar>
                     <Avatar style={{marginRight: '0.5em'}}>
@@ -63,7 +64,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </IconButton> TODO: Add Close for Compare view. */}
                 </Toolbar>
             </AppBar>
-        </Grid>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

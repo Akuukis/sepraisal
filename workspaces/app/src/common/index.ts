@@ -22,6 +22,8 @@ export const padTo2 = (value: number | string) => {
     return string
 }
 
+export type GridSizeColumns = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
+
 type NumberAlike = string | number | BigNumber
 /**
  * Always give a valid number, and never ever give more than 4 decimals.
@@ -130,3 +132,4 @@ export const DUD_URL = 'javascript:;'
 
 export const linkBp = (id: number) => `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`
 export const linkAuthor = (id: string | number) => `https://steamcommunity.com/id/${id}/myworkshopfiles/?appid=24485`
+export const linkCollection = (id: string | number) => `https://steamcommunity.com/workshop/filedetails/?id=${id}`

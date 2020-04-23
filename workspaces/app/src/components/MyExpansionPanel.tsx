@@ -21,6 +21,7 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
         paddingBottom: 0,
+        flexDirection: 'column',
     },
     expanded: {
         margin: '0 !important',

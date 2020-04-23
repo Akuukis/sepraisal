@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton, Typography } from '@material-ui/core'
-import CloseIcon from '@material-ui/icons/Close'
+import { Divider } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import Advanced from './Advanced'
@@ -26,30 +25,25 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    toggleDrawer(): void,
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {toggleDrawer} = props
-
     const [expanded, setExpanded] = React.useState<typeof Pages[keyof typeof Pages] | null>(Pages.Presets)
     const setExpandedPage = (page: typeof Pages[keyof typeof Pages]) => () => setExpanded(expanded !== page ? page : null)
 
     return (
         <div className={classes.root}>
-            <Typography variant='h4' align='center' style={{margin: 16}}>Filters</Typography>
-            <IconButton aria-label='Close' className={classes.closeButton} onClick={toggleDrawer}>
-                <CloseIcon />
-            </IconButton>
             <Presets
                 expanded={expanded === Pages.Presets}
                 onChange={setExpandedPage(Pages.Presets)}
             />
+            <Divider />
             <Custom
                 expanded={expanded === Pages.Custom}
                 onChange={setExpandedPage(Pages.Custom)}
             />
+            <Divider />
             <Advanced
                 expanded={expanded === Pages.Advanced}
                 onChange={setExpandedPage(Pages.Advanced)}

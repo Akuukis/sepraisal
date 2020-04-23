@@ -38,19 +38,29 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     itemFavorite: {
+
+    },
+
+    itemFavoriteOnHover: {
         borderColor: `#0000`,
         '&:hover': {
             borderColor: `#0000`,
         },
     },
-
     itemCompare: {
+        color: '#0000',
+    },
+    itemCompareOnHover: {
+        color: theme.palette.success.light,
         borderColor: `#0000`,
         '&:hover': {
+            color: theme.palette.success.main,
             borderColor: `#0000`,
         },
     },
-
+    itemCompareOff: {
+        color: 'inherit',
+    },
     itemSubscribe: {
         cursor: 'pointer',
         borderWidth: theme.spacing(0.5),
@@ -113,11 +123,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <Typography variant='button'>{'Analysis'}</Typography>
             </OverlayItem>
             <Grid container className={classes.subgroup} direction='column'>
-                <OverlayItem isHover={hover} classes={{containerOnHover: classes.itemFavorite}}>
+                <OverlayItem isHover={hover} classes={{container: classes.itemFavorite, containerOnHover: classes.itemFavoriteOnHover}}>
                     <FavoriteButton id={bp.id} />
                 </OverlayItem>
-                <OverlayItem isHover={hover} classes={{containerOnHover: classes.itemCompare}}>
-                    <CompareButton id={bp.id} />
+                <OverlayItem isHover={hover} classes={{container: classes.itemCompare, containerOnHover: classes.itemCompareOnHover}}>
+                    <CompareButton id={bp.id} classes={{off:  classes.itemCompareOff}} />
                 </OverlayItem>
                 <OverlayItem isHover={hover} onClick={goSteam} classes={{containerOnHover: classes.itemSubscribe}}>
                     <Steam />

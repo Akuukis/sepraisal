@@ -24,18 +24,18 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     rootOnHover: {
-        backgroundColor: `${theme.palette.secondary.light}40`,
+        backgroundColor: `${theme.palette.background.paper}60`,
         '&:hover': {
-            backgroundColor: `${theme.palette.secondary.light}80`,
+            backgroundColor: `${theme.palette.background.paper}B0`,
         },
     },
 
     containerOnHover: {
         color: theme.palette.text.disabled,
-        borderColor: `${theme.palette.secondary.main}80`,
+        borderColor: `${theme.palette.background.default}B0`,
         '&:hover': {
             color: theme.palette.text.primary,
-            borderColor: theme.palette.secondary.main,
+            borderColor: theme.palette.background.default,
         },
     },
 })

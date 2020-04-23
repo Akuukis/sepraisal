@@ -24,15 +24,15 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps extends ICenterCellProps {
-    label?: string | number
-    value?: string | number
+    label?: React.ReactNode
+    value?: React.ReactNode
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {label, value, className, ...otherProps} = props
-    const labelFormatted = label !== undefined ? String(label) : '\u00A0'
-    const valueFormatted = value !== undefined ? String(value) : '\u00A0'
+    const labelFormatted = label !== undefined ? label : '\u00A0'
+    const valueFormatted = value !== undefined ? value : '\u00A0'
 
     return (
         <CenterCell

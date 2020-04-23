@@ -6,13 +6,14 @@ import { Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
 import Analysis from '../../components/Analysis'
+import DefaultLayout from '../../layouts/DefaultLayout'
 import { CONTEXT } from '../../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
     },
+
 })
 
 
@@ -57,17 +58,23 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     })
 
+    let content: JSX.Element
     if(status !== STATUS.Loaded || !blueprint) {
-        return <Typography variant='body1'>TODO: nice loading animation..</Typography>
+        content = (
+            <Typography variant='body1' color='secondary'>TODO: nice loading animation..</Typography>
+        )
+    } else {
+        content = (
+            <Grid container spacing={2} justify='center' style={{padding: '8px'}}>
+                <Analysis bp={blueprint}/>
+            </Grid>
+        )
     }
 
     return (
-        <Grid container spacing={2} justify='center' style={{padding: '8px'}}>
-            <Analysis
-                width={maxWidth}
-                bp={blueprint}
-            />
-        </Grid>
+        <DefaultLayout className={classes.root}>
+            {content}
+        </DefaultLayout>
     )
 })) /* ============================================================================================================= */
 

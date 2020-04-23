@@ -3,15 +3,14 @@ import * as moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Button, CardMedia, Typography } from '@material-ui/core'
+import { Link, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, GridSize, IMyTheme, linkBp } from '../../common/'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkAuthor, linkCollection } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import Steam from '../../components/icons/Steam'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyRow from '../MyRow'
+import MyBoxGroup from '../MyBoxGroup'
 import MySection from '../MySection'
 
 
@@ -19,10 +18,10 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    thumb: {
-        paddingTop: '56.3444%',  // = 268 / 151
+    img: {
         width: '100%',
-        borderTopRightRadius: `${theme.spacing(1)}px`,
+        height: '100%',
+        objectFit: 'fill',
     },
 
     description: {
@@ -32,20 +31,18 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingTop: theme.spacing(2),
         backgroundColor: theme.palette.primary.light,
         '& > img': {
-            maxWidth: `calc(${268 * 2}px - ${theme.spacing(4)}px)`,
+            maxWidth: `calc(100% - ${theme.spacing(4)}px)`,
         },
-        height: `calc(${151 * 2}px - ${theme.spacing(4)}px)`,
+        height: `100%`,
+        width: `100%`,
         overflowX: 'hidden',
         overflowY: 'scroll',
-        borderBottomLeftRadius: `${theme.spacing(1)}px`,
-        borderBottomRightRadius: `${theme.spacing(1)}px`,
     },
 })
 
 
 interface IProps {
     bp: IBpProjectionRow
-    width: GridSize
 }
 
 
@@ -55,41 +52,73 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
+    const collections = bp.steam.collections.map((collection) => (
+        (<Link href={linkCollection(collection.id)} target='_blank' rel='noreferrer noopener' variant='body2' noWrap>
+            {collection.title ?? collection.id}
+        </Link>)
+    ))
+    const author = (<Link href={linkAuthor(bp.steam.author.id)} target='_blank' rel='noreferrer noopener' variant='body1'>
+            {bp.steam.author.title ?? bp.steam.author.id}
+        </Link>)
 
     return (
         <MySection className={classes.root}>
-            <MyBox>
-                <MyRow>
-                    <HeaderCell title='WORKSHOP' xs={12} sm={6} />
-                    <CenterCell wide>
+            <MyBoxGroup height={3} width={3}>
+                <MyBox width={1.5} flat>
+                    <HeaderCell title='WORKSHOP' />
+                </MyBox>
+                <MyBox width={1.5}>
+                    <ValueCell width={1.5} label={`author`} value={author}/>
+                    {/* <CenterCell width={1.5}>
                         <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
                             <Steam />
                             <Typography variant='body1'>{'Subscribe'}</Typography>
                         </Button>
-                    </CenterCell>
-                </MyRow>
-                <MyRow>
+                    </CenterCell> */}
+                </MyBox>
+                <MyBox width={3}>
                     <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
                     <ValueCell label={starsDef} value={starsValue} />
                     <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
+                </MyBox>
+                <MyBox width={3}>
                     <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
-                </MyRow>
-                <MyRow>
                     <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
                     <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
-                    <ValueCell wide label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title}/>
-                </MyRow>
-            </MyBox>
-            <MyBox>
-                <CardMedia
-                    className={classes.thumb}
-                    image={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
-                    title={bp.steam.title}
-                />
-            </MyBox>
-            <MyBox wide>
-                <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
-            </MyBox>
+                </MyBox>
+                <MyBox>
+                    <ValueCell label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title}/>
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={3} width={3}>
+                <MyBox width={3}>
+                    <img
+                        className={classes.img}
+                        src={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
+                        alt={bp.steam.title}
+                    />
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={1} width={3}>
+                <MyBox width={3}>
+                    <ValueCell label={`version`} value={bp.steam.revision}/>
+                    <ValueCell label={`size (MB)`} value={bp.steam.sizeMB}/>
+                    <ValueCell label={`favorites`} value={bp.steam.favoriteCount}/>
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={1} width={3}>
+                <MyBox width={3}>
+                    <ValueCell label={`if any`} value={'Collections:'} alignItems='flex-end'/>
+                    <CenterCell width={2} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
+                        {collections}
+                    </CenterCell>
+                </MyBox>
+            </MyBoxGroup>
+            <MyBoxGroup height={6} width={6}>
+                <MyBox width={6}>
+                    <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
+                </MyBox>
+            </MyBoxGroup>
         </MySection>
     )
 })) /* ============================================================================================================= */
@@ -99,7 +128,10 @@ type ProjectionCardSteam =
     | 'author'
     | 'collections'
     | 'commentCount'
+    | 'favoriteCount'
     | 'description'
+    | 'revision'
+    | 'mods'
     | 'id'
     | 'popularity'
     | 'postedDate'
@@ -107,6 +139,7 @@ type ProjectionCardSteam =
     | 'ratingCount'
     | 'subscriberCount'
     | 'title'
+    | 'sizeMB'
     | 'updatedDate'
     | 'visitorCount'
 

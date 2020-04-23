@@ -11,7 +11,7 @@ import { CONTEXT } from '../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        color: theme.palette.secondary.main,
+        color: theme.palette.error.main,
     },
 })
 

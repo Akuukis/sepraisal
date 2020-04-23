@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Divider, IconButton, Link, List, ListItem, Typography } from '@material-ui/core'
-import CloseIcon from '@material-ui/icons/Close'
+import { Divider, Link, List, ListItem, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, DUD_URL as NOOP_URL, IMyTheme } from '../../common'
 import MyExpansionPanel from '../../components/MyExpansionPanel'
@@ -12,7 +11,6 @@ import SelectorRow from './Row'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         backgroundColor: '#FFF',
-        paddingBottom: theme.spacing(2),
         position: 'relative',
     },
 
@@ -30,21 +28,15 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     browseFiles(): void
-    toggleDrawer(): void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const {browseFiles} = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const {toggleDrawer, browseFiles} = props
 
     return (
         <div className={classes.root}>
-            <Typography variant='h4' align='center' style={{margin: 16}}>{'Compare'}</Typography>
-            <IconButton aria-label='Close' className={classes.closeButton} onClick={toggleDrawer}>
-                <CloseIcon />
-            </IconButton>
-            <Divider />
             <MyExpansionPanel title='Uploads' subtitle={`${blueprintStore.uploads.size} blueprints`} defaultExpanded>
                 <List dense className={classes.list}>
                     <ListItem key='0'>
@@ -61,6 +53,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     ))}
                 </List>
             </MyExpansionPanel>
+            <Divider />
             <MyExpansionPanel title='Favorites' subtitle={`${blueprintStore.favorites.size} blueprints`} defaultExpanded>
                 <List dense className={classes.list}>
                     <ListItem key='0'>
@@ -77,6 +70,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         ))}
                 </List>
             </MyExpansionPanel>
+            <Divider />
             <MyExpansionPanel title='Recent' subtitle={`${blueprintStore.recent.size} blueprints`} defaultExpanded>
                 <List dense className={classes.list}>
                     <ListItem key='0'>
