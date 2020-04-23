@@ -9,6 +9,7 @@ import { CONTEXT } from '../../stores'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
+import LegendCell from '../Cell/LegendCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -63,17 +64,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </MyBoxGroup>
             <MyBoxGroup height={3} width={3}>
                 <MyBox width={3}>
-                    <ValueCell label='' value='Components:' />
+                    <LegendCell legend='Components' legendProps={{align: 'right'}} />
                     <ValueCell label='mass (kg)' value={formatDecimal(componentMass)} />
                     <ValueCell label='volume (l)' value={formatDecimal(componentVolume)} />
                 </MyBox>
                 <MyBox width={3}>
-                    <ValueCell label='' value='Ingots:' />
+                    <LegendCell legend='Ingots' legendProps={{align: 'right'}} />
                     <ValueCell label='mass (kg)' value={formatDecimal(getIngotMass(materials))} />
                     <ValueCell label='volume (l)' value={formatDecimal(getIngotVolume(materials))} />
                 </MyBox>
                 <MyBox width={3}>
-                    <ValueCell label='' value='Ores:' />
+                    <LegendCell legend='Ores' legendProps={{align: 'right'}} />
                     <ValueCell label='mass (kg)' value={formatDecimal(getOreMass(materials))} />
                     <ValueCell label='volume (l)' value={formatDecimal(getOreVolume(materials))} />
                 </MyBox>
