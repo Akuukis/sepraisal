@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link, List, ListItem, Typography } from '@material-ui/core'
+import { Divider, Link, List, ListItem, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, DUD_URL as NOOP_URL, IMyTheme } from '../../common'
 import MyExpansionPanel from '../../components/MyExpansionPanel'
@@ -53,6 +53,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     ))}
                 </List>
             </MyExpansionPanel>
+            <Divider />
             <MyExpansionPanel title='Favorites' subtitle={`${blueprintStore.favorites.size} blueprints`} defaultExpanded>
                 <List dense className={classes.list}>
                     <ListItem key='0'>
@@ -69,6 +70,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         ))}
                 </List>
             </MyExpansionPanel>
+            <Divider />
             <MyExpansionPanel title='Recent' subtitle={`${blueprintStore.recent.size} blueprints`} defaultExpanded>
                 <List dense className={classes.list}>
                     <ListItem key='0'>

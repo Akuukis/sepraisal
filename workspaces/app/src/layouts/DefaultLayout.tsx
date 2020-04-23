@@ -29,9 +29,8 @@ const styles = (theme: IMyTheme) => createStyles({
     aside: {
         zIndex: theme.zIndex.appBar - 1,
         width: drawerWidth,
-    },
-    asideContainer: {
-        overflow: 'auto',
+        backgroundColor: 'unset',
+        borderRight: 0,
     },
     asideHeader: {
         display: 'flex',
@@ -39,6 +38,11 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(0, 1),
         ...theme.mixins.toolbar,  // necessary for content to be below app bar
         justifyContent: 'flex-end',
+        backgroundColor: theme.palette.background.paper,
+    },
+    asideContainer: {
+        overflow: 'auto',
+        backgroundColor: theme.palette.background.paper,
     },
     asideHeaderTypography: {
         flexGrow: 1,
