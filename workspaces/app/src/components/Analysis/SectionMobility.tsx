@@ -96,7 +96,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <MyBox width={3}>
                     <LegendCell legend={`Parachutes`} />
                     <ValueCell label={`amount`} value={parachutes || '-'} />
-                    <ValueCell label={`t. velocity (m/s\u00B2)`} value={`${terminalVelocity(sbc.blockMass, sbc.blocks)} m/s`} />
+                    <ValueCell label={`t. velocity (m/s\u00B2)`} value={terminalVelocity(sbc.blockMass, sbc.blocks)} />
                     <ValueCell label={`req. 15m/s`} value={reqParachutesForFast} />
                     <ValueCell label={`req. 10m/s`} value={reqParachutesForMedium} />
                     <ValueCell label={`req. 5m/s`} value={reqParachutesForSlow} />
