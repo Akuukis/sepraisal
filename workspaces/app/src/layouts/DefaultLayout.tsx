@@ -7,7 +7,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 import skyboxImage from '../../static/skybox.jpg'
-import { createSmartFC, createStyles, IMyTheme } from '../common/'
+import { createSmartFC, createStyles, IMyTheme, dropShadowFromBoxShadow } from '../common/'
 import Topbar from '../components/Topbar'
 
 
@@ -27,10 +27,11 @@ const styles = (theme: IMyTheme) => createStyles({
         width: drawerWidth,
     },
     aside: {
-        zIndex: theme.zIndex.appBar - 1,
+        zIndex: theme.zIndex.appBar - 100,
         width: drawerWidth,
         backgroundColor: 'unset',
         borderRight: 0,
+        filter: dropShadowFromBoxShadow(theme.shadows[16]),
     },
     asideHeader: {
         display: 'flex',
@@ -77,7 +78,7 @@ const styles = (theme: IMyTheme) => createStyles({
         overflowX: 'auto',
     },
     mainWrapperOpen: {
-        marginLeft: drawerWidth,
+        paddingLeft: drawerWidth,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
@@ -88,7 +89,6 @@ const styles = (theme: IMyTheme) => createStyles({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        marginLeft: 0,
         paddingLeft: buttonWidth,
     },
     main: {
