@@ -51,8 +51,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
-    const collections = bp.steam.collections.map((collection) => (
-        (<Link href={linkCollection(collection.id)} target='_blank' rel='noreferrer noopener' variant='body2' noWrap>
+    const collections = bp.steam.collections.map((collection, i) => (
+        (<Link key={i} href={linkCollection(collection.id)} target='_blank' rel='noreferrer noopener' variant='body2' noWrap>
             {collection.title ?? collection.id}
         </Link>)
     ))
@@ -64,10 +64,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <>
             <MyBoxGroup height={3} width={3}>
                 <MyBox variant='header' width={1.5}>
-                    <HeaderCell title='WORKSHOP' />
+                    <HeaderCell width={1.5} title='WORKSHOP' />
                 </MyBox>
                 <MyBox width={1.5}>
-                    <ValueCell width={1.5} label={`author`} value={author}/>
+                    <ValueCell label={`author`} value={author}/>
                     {/* <CenterCell width={1.5}>
                         <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
                             <Steam />
@@ -84,9 +84,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
                     <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
                     <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
-                </MyBox>
-                <MyBox>
-                    <ValueCell label={`collection`} value={(bp.steam.collections.length > 0 ? bp.steam.collections[0] : {title: '-'}).title}/>
                 </MyBox>
             </MyBoxGroup>
             <MyBoxGroup height={3} width={3}>
@@ -117,7 +114,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <MyBox width={6}>
                     <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxGroup> */}
         </>
     )
 })) /* ============================================================================================================= */

@@ -100,11 +100,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     //         || analysis.oreErrors.length > 0
     // }
 
-    const renderBox = (AnalysisSections: Section[], header = false) => (
-        <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
+    let sectionGroupCounter = 0
+    const sectionGroup = (AnalysisSections: Section[], header = false) => (
+        <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
             {AnalysisSections.map((AnalysisSection, i) => (
-                <MySection>
-                    <AnalysisSection key={i} bp={blueprint} />
+                <MySection key={i}>
+                    <AnalysisSection bp={blueprint} />
                 </MySection>
             ))}
         </Grid>
@@ -112,19 +113,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid component='article' className={classes.root} container justify='center' {...otherProps}>
-            {renderBox([Header          as Section], true)}
-            {'steam' in blueprint ? renderBox([SectionWorkshop        as Section]) : null}
-            {renderBox([SectionIntegrity       as Section])}
-            {renderBox([SectionElectricity          as Section])}
-            {renderBox([SectionUtils          as Section])}
-            {renderBox([SectionCosts          as Section])}
-            {renderBox([SectionMods          as Section])}
-            {renderBox([SectionAutomation          as Section])}
-            {renderBox([SectionMobility        as Section])}
-            {renderBox([SectionOffensive        as Section])}
-            {renderBox([SectionDefensive        as Section])}
-            {renderBox([SectionMaterials          as Section])}
-            {renderBox([SectionBlocks          as Section])}
+            {sectionGroup([Header          as Section], true)}
+            {'steam' in blueprint ? sectionGroup([SectionWorkshop        as Section]) : null}
+            {sectionGroup([SectionIntegrity       as Section])}
+            {sectionGroup([SectionElectricity          as Section])}
+            {sectionGroup([SectionUtils          as Section])}
+            {sectionGroup([SectionCosts          as Section])}
+            {sectionGroup([SectionMods          as Section])}
+            {sectionGroup([SectionAutomation          as Section])}
+            {sectionGroup([SectionMobility        as Section])}
+            {sectionGroup([SectionOffensive        as Section])}
+            {sectionGroup([SectionDefensive        as Section])}
+            {sectionGroup([SectionMaterials          as Section])}
+            {sectionGroup([SectionBlocks          as Section])}
         </Grid>
     )
 })) /* ============================================================================================================= */
