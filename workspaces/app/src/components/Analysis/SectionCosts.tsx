@@ -7,9 +7,9 @@ import { createSmartFC, createStyles, formatDecimal, formatDuration, IMyTheme } 
 import ValueCell from '../../components/Cell/ValueCell'
 import { CONTEXT } from '../../stores'
 import HeaderCell from '../Cell/HeaderCell'
+import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
-import LegendCell from '../Cell/LegendCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -24,14 +24,14 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
-
     const {sbc} = props.bp
+
+    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
+    const getComponent = (name: string) => praisalManager.components.get(`Component/${name}`) ?? {} as Component
 
     const materials = getCombinedMaterials(sbc)
 
     const components = Object.entries(sbc.components).map(([type, components]) => ({type, components}))
-    const getComponent = (name: string) => praisalManager.components.get(`Component/${name}`) ?? {} as Component
 
     const componentCount = components.reduce((sum, entry) => sum + entry.components, 0)
     const componentMass = components.reduce((sum, entry) => sum + getComponent(entry.type).mass * entry.components, 0)

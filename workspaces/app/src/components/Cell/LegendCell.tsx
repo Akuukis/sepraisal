@@ -18,6 +18,7 @@ const styles = (theme: IMyTheme) => createStyles({
         width: `calc(100% - ${theme.spacing(1) * 2}px)`,
         display: 'inline-block',
         textOverflow: 'clip',
+        overflow: 'hidden',
         // color: theme.palette.success.dark,
     },
 })

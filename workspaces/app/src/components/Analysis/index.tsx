@@ -2,14 +2,16 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Typography, GridProps } from '@material-ui/core'
+import { Grid, GridProps, Typography } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
 import { CONTEXT } from '../../stores'
 import Header from './Header'
+import MySection from './MySection'
 import SectionAutomation from './SectionAutomation'
 import SectionBlocks from './SectionBlocks'
+import SectionCargo from './SectionCargo'
 import SectionCosts from './SectionCosts'
 import SectionDefensive from './SectionDefensive'
 import SectionElectricity from './SectionElectricity'
@@ -20,7 +22,6 @@ import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
 import SectionUtils from './SectionUtils'
 import SectionWorkshop from './SectionWorkshop'
-import MySection from './MySection'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -119,6 +120,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {sectionGroup([SectionElectricity          as Section])}
             {sectionGroup([SectionUtils          as Section])}
             {sectionGroup([SectionCosts          as Section])}
+            {sectionGroup([SectionCargo          as Section])}
             {sectionGroup([SectionMods          as Section])}
             {sectionGroup([SectionAutomation          as Section])}
             {sectionGroup([SectionMobility        as Section])}
