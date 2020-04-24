@@ -2,7 +2,7 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, Typography, GridProps } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
@@ -43,13 +43,13 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
-    id: string | number
+interface IProps extends GridProps {
+    bpId: string | number
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {id} = props
+    const {bpId, ...otherProps} = props
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
@@ -59,7 +59,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     useAsyncEffectOnce(async () => {
         setStatus(ASYNC_STATE.Doing)
         try {
-            const cached = blueprintStore.getSomething(id)
+            const cached = blueprintStore.getSomething(bpId)
             if(cached) {
                 setBlueprint(cached)
                 setStatus(ASYNC_STATE.Done)
@@ -70,13 +70,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             console.info(err.message)
         }
 
-        if(typeof id === 'string') {
+        if(typeof bpId === 'string') {
             setStatus(ASYNC_STATE.Error)
             return
         }
 
         try {
-            const doc = await blueprintStore.fetch(id)
+            const doc = await blueprintStore.fetch(bpId)
             setBlueprint(doc)
             setStatus(ASYNC_STATE.Done)
         } catch(err) {
@@ -111,7 +111,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 
     return (
-        <Grid component='article' className={classes.root} container justify='center'>
+        <Grid component='article' className={classes.root} container justify='center' {...otherProps}>
             {renderBox([Header          as Section], true)}
             {'steam' in blueprint ? renderBox([SectionWorkshop        as Section]) : null}
             {renderBox([SectionIntegrity       as Section])}
