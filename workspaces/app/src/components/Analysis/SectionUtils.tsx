@@ -42,7 +42,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const oxygenGenerator = (sbc.blocks['OxygenGenerator/'] ?? 0) + (sbc.blocks['OxygenGenerator/OxygenGeneratorSmall'] ?? 0)
     const hydrogenTanks = (sbc.blocks['OxygenTank/LargeHydrogenTank'] ?? 0) + (sbc.blocks['OxygenTank/SmallHydrogenTank'] ?? 0)
 
-    const connectors = (sbc.blocks['ShipConnector/Connector'] ?? 0) + (sbc.blocks['ShipConnector/ConnectorSmall'] ?? 0)
+    const connectors = (sbc.blocks['ShipConnector/Connector'] ?? 0) + (sbc.blocks['ShipConnector/ConnectorMedium'] ?? 0)
+    const ejectors = (sbc.blocks['ShipConnector/Connector'] ?? 0)
 
     const virtualMass = (sbc.blocks['VirtualMass/VirtualMassLarge'] ?? 0) + (sbc.blocks['VirtualMass/VirtualMassSmall'] ?? 0)
     const gravityGen = (sbc.blocks['GravityGenerator/'] ?? 0) + (sbc.blocks['GravityGeneratorSphere/'] ?? 0)
@@ -93,6 +94,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='medical' value={medical || '-'} />
                     <ValueCell label='cryo chambers' value={cryoChambers || '-'} />
                     <ValueCell label='survival kits' value={survivalKits || '-'} />
+                </MyBox>
+                <MyBox width={1}>
+                    <ValueCell label='ejectors' value={ejectors || '-'} />
                 </MyBox>
                 <MyBox width={2}>
                     <ValueCell label='spotlights' value={spotlights || '-'} />
