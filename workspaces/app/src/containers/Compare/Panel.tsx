@@ -27,16 +27,14 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    browseFiles(): void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {browseFiles} = props
 
     return (
         <div className={classes.root}>
-            <PanelUploads browseFiles={browseFiles} />
+            <PanelUploads />
             <Divider />
             <PanelFavorites />
             <Divider />
