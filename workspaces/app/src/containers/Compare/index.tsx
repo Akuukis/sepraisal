@@ -26,9 +26,6 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
-    const [open, setOpen] = React.useState(true)
-
-    const toggleDrawer = () => setOpen(!open)
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
