@@ -174,6 +174,10 @@ const STORAGE_MISC = {
   "Assembler/BasicAssembler": 2000,
   "SurvivalKit/SurvivalKitLarge": 2000,
   "SurvivalKit/SurvivalKit": 1000,
+  "ShipGrinder/LargeShipGrinder": 31250,
+  "ShipGrinder/SmallShipGrinder": 6750,
+  "ShipWelder/LargeShipWelder": 31250,
+  "ShipWelder/SmallShipWelder": 6750,
 }
 
 const STORAGE_ORE = {
