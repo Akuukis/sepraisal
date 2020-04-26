@@ -20,7 +20,7 @@ interface IParseBlueprintSbc {
 //   </Results>
 //   <Result Amount="0.7" TypeId="Ingot" SubtypeId="Iron" />
 
-export const parseBlueprintSbc = async (xml: string, filter: string): Promise<IParseBlueprintSbc[]> =>
+export const parseBlueprintSbc = async (xml: string, filters: string[]): Promise<IParseBlueprintSbc[]> =>
     new Promise((resolve: (value: IParseBlueprintSbc[]) => void, reject: (reason: Error) => void) => {
         parseString(xml, (parseError: Error | undefined, bp: IMaterialDefinition) => {
             if(parseError) reject(parseError)
@@ -38,7 +38,7 @@ export const parseBlueprintSbc = async (xml: string, filter: string): Promise<IP
 
                         return [material, resultItem]
                     })
-                    .filter(([, resultItem]) => resultItem.TypeId === filter)
+                    .filter(([, resultItem]) => filters.includes(resultItem.TypeId))
                     .map(([material, resultItem]) => ({
                             prerequisites: material.Prerequisites[0].Item.reduce((req, item) => {
                                 const title = `${item.$.TypeId}/${item.$.SubtypeId}`

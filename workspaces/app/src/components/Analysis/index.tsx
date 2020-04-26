@@ -2,14 +2,16 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Typography } from '@material-ui/core'
+import { Grid, GridProps, Typography } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
 import { CONTEXT } from '../../stores'
 import Header from './Header'
+import MySection from './MySection'
 import SectionAutomation from './SectionAutomation'
 import SectionBlocks from './SectionBlocks'
+import SectionCargo from './SectionCargo'
 import SectionCosts from './SectionCosts'
 import SectionDefensive from './SectionDefensive'
 import SectionElectricity from './SectionElectricity'
@@ -20,7 +22,6 @@ import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
 import SectionUtils from './SectionUtils'
 import SectionWorkshop from './SectionWorkshop'
-import MySection from './MySection'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -43,13 +44,13 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
-    id: string | number
+interface IProps extends GridProps {
+    bpId: string | number
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {id} = props
+    const {bpId, ...otherProps} = props
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
@@ -59,7 +60,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     useAsyncEffectOnce(async () => {
         setStatus(ASYNC_STATE.Doing)
         try {
-            const cached = blueprintStore.getSomething(id)
+            const cached = blueprintStore.getSomething(bpId)
             if(cached) {
                 setBlueprint(cached)
                 setStatus(ASYNC_STATE.Done)
@@ -70,13 +71,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             console.info(err.message)
         }
 
-        if(typeof id === 'string') {
+        if(typeof bpId === 'string') {
             setStatus(ASYNC_STATE.Error)
             return
         }
 
         try {
-            const doc = await blueprintStore.fetch(id)
+            const doc = await blueprintStore.fetch(bpId)
             setBlueprint(doc)
             setStatus(ASYNC_STATE.Done)
         } catch(err) {
@@ -100,31 +101,33 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     //         || analysis.oreErrors.length > 0
     // }
 
-    const renderBox = (AnalysisSections: Section[], header = false) => (
-        <Grid item className={classes.item} xs={12} style={header ? {maxWidth: '100%'} : {}}>
+    let sectionGroupCounter = 0
+    const sectionGroup = (AnalysisSections: Section[], header = false) => (
+        <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
             {AnalysisSections.map((AnalysisSection, i) => (
-                <MySection>
-                    <AnalysisSection key={i} bp={blueprint} />
+                <MySection key={i}>
+                    <AnalysisSection bp={blueprint} />
                 </MySection>
             ))}
         </Grid>
     )
 
     return (
-        <Grid component='article' className={classes.root} container justify='center'>
-            {renderBox([Header          as Section], true)}
-            {'steam' in blueprint ? renderBox([SectionWorkshop        as Section]) : null}
-            {renderBox([SectionIntegrity       as Section])}
-            {renderBox([SectionElectricity          as Section])}
-            {renderBox([SectionUtils          as Section])}
-            {renderBox([SectionCosts          as Section])}
-            {renderBox([SectionMods          as Section])}
-            {renderBox([SectionAutomation          as Section])}
-            {renderBox([SectionMobility        as Section])}
-            {renderBox([SectionOffensive        as Section])}
-            {renderBox([SectionDefensive        as Section])}
-            {renderBox([SectionMaterials          as Section])}
-            {renderBox([SectionBlocks          as Section])}
+        <Grid component='article' className={classes.root} container justify='center' {...otherProps}>
+            {sectionGroup([Header          as Section], true)}
+            {'steam' in blueprint ? sectionGroup([SectionWorkshop        as Section]) : null}
+            {sectionGroup([SectionIntegrity       as Section])}
+            {sectionGroup([SectionElectricity          as Section])}
+            {sectionGroup([SectionUtils          as Section])}
+            {sectionGroup([SectionCosts          as Section])}
+            {sectionGroup([SectionCargo          as Section])}
+            {sectionGroup([SectionMods          as Section])}
+            {sectionGroup([SectionAutomation          as Section])}
+            {sectionGroup([SectionMobility        as Section])}
+            {sectionGroup([SectionOffensive        as Section])}
+            {sectionGroup([SectionDefensive        as Section])}
+            {sectionGroup([SectionMaterials          as Section])}
+            {sectionGroup([SectionBlocks          as Section])}
         </Grid>
     )
 })) /* ============================================================================================================= */

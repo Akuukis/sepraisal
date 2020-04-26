@@ -133,3 +133,21 @@ export const DUD_URL = 'javascript:;'
 export const linkBp = (id: number) => `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`
 export const linkAuthor = (id: string | number) => `https://steamcommunity.com/id/${id}/myworkshopfiles/?appid=24485`
 export const linkCollection = (id: string | number) => `https://steamcommunity.com/workshop/filedetails/?id=${id}`
+
+
+/**
+ * As hacky for material-ui paper shadows as it can be: don't use elsewhere!
+ *
+ * Example (elevation 16):
+ *     IN: "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)"
+ *     OUT: 
+ */
+export const dropShadowFromBoxShadow = (css: string): string => {
+    const boxShadows = css.match(/(\w+ \S+ \S+ \S+ \S+?\))/g) as string[]
+    const dropShadows = boxShadows.map((boxShadow) => {
+        const part = boxShadow.split(' ')
+        return `drop-shadow(${part[0]} ${part[1]} ${part[2]} ${part[4]})`
+    })
+
+    return dropShadows.join(' ')
+}

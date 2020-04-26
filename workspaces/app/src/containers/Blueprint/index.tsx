@@ -23,13 +23,12 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
-    const id = Number(routerStore.location.pathname.split('?')[0].split('/').pop() as string)
-    console.log(routerStore.location.pathname.split('?')[0].split('/').pop(), id)
+    const bpId = Number(routerStore.location.pathname.split('?')[0].split('/').pop() as string)
 
     return (
         <DefaultLayout className={classes.root}>
             <Grid container spacing={2} justify='center'>
-                <Analysis id={id} />
+                <Analysis bpId={bpId} />
             </Grid>
         </DefaultLayout>
     )

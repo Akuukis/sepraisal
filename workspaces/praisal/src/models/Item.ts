@@ -1,6 +1,6 @@
 import { parseBlueprintSbc, parsePhysicalItemsSbc } from '../parsers'
 
-export interface IIngotDTO {
+export interface IItemDTO {
     mass: number  // kg.
     prerequisites: Record<string, number>
     subtype: string
@@ -9,24 +9,28 @@ export interface IIngotDTO {
     volume: number  // l.
 }
 
-export class Ingot implements IIngotDTO {
+export class Item implements IItemDTO {
+    /**
+     * TODO: Probably need to have seperate models but this is a quickfix.
+     */
+    public static readonly ITEM_TYPES: ['OxygenContainerObject', 'GasContainerObject', 'PhysicalGunObject', 'AmmoMagazine']
 
-    public static async parseXml(physicalItemsXml: string, blueprintXml: string): Promise<Ingot[]> {
-        const ingotDtos1 = await parseBlueprintSbc(blueprintXml, ['Ingot'])
-        const ingotDtos2 = await parsePhysicalItemsSbc(physicalItemsXml, 'Ingot')
+    public static async parseXml(physicalItemsXml: string, blueprintXml: string): Promise<Item[]> {
+        const itemDtos1 = await parseBlueprintSbc(blueprintXml, Item.ITEM_TYPES)
+        const itemDtos2 = await parsePhysicalItemsSbc(physicalItemsXml, 'Ingot')
 
-        return ingotDtos2
-            .filter((ingotDto2) => ingotDto2.subtype !== 'Scrap')
-            .map((ingotDto2) => {
-                const ingotDto1 = ingotDtos1.find((inner) => inner.subtype === ingotDto2.subtype)
-                if(!ingotDto1) throw new Error('Ingot not found in "Blueprint.sbc".')
+        return itemDtos2
+            .filter((itemDto2) => itemDto2.subtype !== 'Scrap')
+            .map((itemDto2) => {
+                const itemDto1 = itemDtos1.find((inner) => inner.subtype === itemDto2.subtype)
+                if(!itemDto1) throw new Error('Item not found in "Blueprint.sbc".')
 
                 return {
-                    ...ingotDto1,
-                    ...ingotDto2,
+                    ...itemDto1,
+                    ...itemDto2,
                 }
             })
-            .map((ingotDto) => new Ingot(ingotDto))
+            .map((itemDto) => new Item(itemDto))
     }
 
     public readonly mass: number  // kg.
@@ -40,7 +44,7 @@ export class Ingot implements IIngotDTO {
     public readonly type: string
     public readonly volume: number  // l.
 
-    public constructor(dto: IIngotDTO) {
+    public constructor(dto: IItemDTO) {
         this.type = dto.type
         this.subtype = dto.subtype
         this.mass = dto.mass
@@ -49,7 +53,7 @@ export class Ingot implements IIngotDTO {
         this.prerequisites = dto.prerequisites
     }
 
-    public toJSON(): IIngotDTO {
+    public toJSON(): IItemDTO {
         return {
             mass: this.mass,
             prerequisites: this.prerequisites,

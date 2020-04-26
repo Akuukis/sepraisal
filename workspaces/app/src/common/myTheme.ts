@@ -67,13 +67,24 @@ export const MY_LIGHT_THEME = createMuiTheme({
         },
     },
     spacing: 4,
+
+    /**
+     * 10px = 0.625rem
+     * 12px = 0.75rem
+     * 14px = 0.875rem
+     * 16px = 1rem (base)
+     * 18px = 1.125rem
+     * 20px = 1.25rem
+     * 24px = 1.5rem
+     * 30px = 1.875rem
+     * 32px = 2rem
+     */
     typography: {
         h3: {
             fontWeight: 500,
         },
         h6: {
-            fontWeight: 400,
-            color: defaultTheme.palette.text.primary,
+            fontSize: '1.125rem',  // 1.25
         },
         subtitle1: {  // Usually with `strong` element.
         },
@@ -82,7 +93,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
             fontStretch: 'condensed',
         },
         caption: {  // Usually with `label` element.
-            fontSize: '0.675rem',
+            fontSize: '0.675rem', // 0.75
         },
     },
 } as IMyThemeOptions) as IMyTheme

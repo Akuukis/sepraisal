@@ -39,7 +39,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MyBoxGroup width={6}>
-            <MyBox width={6} flat>
+            <MyBox width={6} variant='flat'>
                 <CenterCell width={1.5}>
                     <Avatar>{avatarTitle}</Avatar>
                 </CenterCell>

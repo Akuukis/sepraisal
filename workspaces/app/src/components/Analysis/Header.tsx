@@ -10,7 +10,7 @@ import FavoriteButton from '../../components/FavoriteButton'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        width: '100%',
+        zIndex: theme.zIndex.appBar - 200,
     },
     header: {
         '&:visited': {
@@ -46,7 +46,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         : bp.sbc.gridTitle
     return (
         <>
-            <AppBar position='static'>
+            <AppBar position='static' className={classes.root}>
                 <Toolbar>
                     <Avatar style={{marginRight: '0.5em'}}>
                         {author}

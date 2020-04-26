@@ -7,6 +7,7 @@ import { createSmartFC, createStyles, formatDecimal, formatDuration, IMyTheme } 
 import ValueCell from '../../components/Cell/ValueCell'
 import { CONTEXT } from '../../stores'
 import HeaderCell from '../Cell/HeaderCell'
+import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
 
@@ -23,14 +24,14 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
-
     const {sbc} = props.bp
+
+    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
+    const getComponent = (name: string) => praisalManager.components.get(`Component/${name}`) ?? {} as Component
 
     const materials = getCombinedMaterials(sbc)
 
     const components = Object.entries(sbc.components).map(([type, components]) => ({type, components}))
-    const getComponent = (name: string) => praisalManager.components.get(`Component/${name}`) ?? {} as Component
 
     const componentCount = components.reduce((sum, entry) => sum + entry.components, 0)
     const componentMass = components.reduce((sum, entry) => sum + getComponent(entry.type).mass * entry.components, 0)
@@ -40,11 +41,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <>
             <MyBoxGroup height={2} width={3}>
-                <MyBox width={2} flat>
+                <MyBox variant='header'>
                     <HeaderCell title='COSTS' />
                 </MyBox>
                 <MyBox>
                     <ValueCell label='PCU' value={formatDecimal(sbc.blockPCU)} />
+                </MyBox>
+                <MyBox>
+                    <ValueCell label='grids' value={formatDecimal(sbc.gridCount)} />
+                </MyBox>
+                <MyBox>
+                    <ValueCell label='blocks' value={formatDecimal(sbc.blockCount)} />
+                </MyBox>
+                <MyBox>
+                    <ValueCell label='components' value={formatDecimal(componentCount)} />
                 </MyBox>
                 <MyBox width={3}>
                     <ValueCell label='welder time' value={formatDuration(sbc.blockTime)} />
@@ -52,19 +62,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='refinery time' value={formatDuration(sbc.ingotTime)} />
                 </MyBox>
             </MyBoxGroup>
-            <MyBoxGroup height={2} width={3}>
-                <MyBox>
-                    {/* <ValueCell label='comp. count' value={formatDecimal(componentCount)} /> */}
-                    <ValueCell label='comp. mass (kg)' value={formatDecimal(componentMass)} />
-                    <ValueCell label='comp. volume (l)' value={formatDecimal(componentVolume)} />
+            <MyBoxGroup height={3} width={3}>
+                <MyBox width={3}>
+                    <LegendCell legend='Components' legendProps={{align: 'right'}} />
+                    <ValueCell label='mass (kg)' value={formatDecimal(componentMass)} />
+                    <ValueCell label='volume (l)' value={formatDecimal(componentVolume)} />
                 </MyBox>
-                <MyBox>
-                    <ValueCell label='Ingot mass (kg)' value={formatDecimal(getIngotMass(materials))} />
-                    <ValueCell label='Ingot volume (l)' value={formatDecimal(getIngotVolume(materials))} />
+                <MyBox width={3}>
+                    <LegendCell legend='Ingots' legendProps={{align: 'right'}} />
+                    <ValueCell label='mass (kg)' value={formatDecimal(getIngotMass(materials))} />
+                    <ValueCell label='volume (l)' value={formatDecimal(getIngotVolume(materials))} />
                 </MyBox>
-                <MyBox>
-                    <ValueCell label='Ore mass (kg)' value={formatDecimal(getOreMass(materials))} />
-                    <ValueCell label='Ore volume (l)' value={formatDecimal(getOreVolume(materials))} />
+                <MyBox width={3}>
+                    <LegendCell legend='Ores' legendProps={{align: 'right'}} />
+                    <ValueCell label='mass (kg)' value={formatDecimal(getOreMass(materials))} />
+                    <ValueCell label='volume (l)' value={formatDecimal(getOreVolume(materials))} />
                 </MyBox>
             </MyBoxGroup>
         </>
@@ -78,6 +90,7 @@ type ProjectionCardSbc =
     | 'blockTime'
     | 'componentTime'
     | 'components'
+    | 'gridCount'
     | 'ingotTime'
     | 'ingots'
     | 'ores'

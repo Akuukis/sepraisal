@@ -1,4 +1,4 @@
-import classnames from 'classnames'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -23,33 +23,46 @@ const styles = (theme: IMyTheme) => createStyles({
         borderRadius: theme.shape.borderRadius,
         overflow: 'hidden',
     },
-    h5Root: {
-        // backgroundColor: theme.palette.secondary.main,
-        borderTopLeftRadius: `${theme.spacing(1)}px`,
+    flatRoot: {
     },
-    h5Paper: {
+    flatPaper: {
         backgroundColor: 'unset',
+        boxShadow: theme.shadows[0],
+    },
+    headerRoot: {
+    },
+    headerPaper: {
+        backgroundColor: theme.palette.success.main,
         boxShadow: theme.shadows[0],
     },
 })
 
 
 interface IProps extends GridProps {
-    flat?: boolean
+    variant?: 'box' | 'flat' | 'header'
     width?: (1 | 2 | 3 | 4 | 5 | 6) | (1.5 | 4.5) | (1.2 | 2.4 | 3.6 | 4.8)
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {className, flat: header, width, ...otherProps} = props
-    const widthOrDefault = width ?? 1
+    const {className, variant, width, ...otherProps} = props
+    const widthOrDefault = width ?? (variant === 'header' ? 2 : 1)
 
     const parentColumns = React.useContext(CONTEXT.PARENT_COLUMNS)
     const columns = Math.round(widthOrDefault * 2 * 12 / parentColumns) as GridSizeColumns
 
+    const rootClassName = clsx(classes.root, {
+            [classes.flatRoot]: variant === 'flat',
+            [classes.headerRoot]: variant === 'header',
+        }, className)
+    const paperClassName = clsx(classes.paper, {
+            [classes.flatPaper]: variant === 'flat',
+            [classes.headerPaper]: variant === 'header',
+        }, className)
+
     return (
         <Grid
-            className={classnames(classes.root, header && classes.h5Root, className)}
+            className={rootClassName}
 
             item
             xs={columns}
@@ -57,7 +70,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {...otherProps}
         >
             <Grid
-                className={classnames(classes.paper, header && classes.h5Paper)}
+                className={paperClassName}
                 container
                 spacing={0}
                 justify='space-between'
