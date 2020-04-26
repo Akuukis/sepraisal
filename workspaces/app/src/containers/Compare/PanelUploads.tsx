@@ -15,18 +15,9 @@ import SelectorRow from './Row'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: '#FFF',
-        position: 'relative',
     },
 
-    closeButton: {
-        color: theme.palette.grey[500],
-        position: 'absolute',
-        right: theme.spacing(1),
-        top: theme.spacing(1),
-    },
     list: {
-        width: '100%',
     }
 })
 
@@ -92,7 +83,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {getRootProps, getInputProps, isDragActive, open: browseFiles} = useDropzone({onDrop})
 
     return (
-        <MyExpansionPanel title='Uploads' subtitle={`${blueprintStore.uploads.size} blueprints`} defaultExpanded>
+        <MyExpansionPanel className={classes.root} title='Uploads' subtitle={`${blueprintStore.uploads.size} blueprints`} defaultExpanded>
             <input {...getInputProps()} />
             {isDragActive ? <SelectorDnDOverlay /> :  null}
             <List dense className={classes.list}>

@@ -10,18 +10,9 @@ import SelectorRow from './Row'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: '#FFF',
-        position: 'relative',
     },
 
-    closeButton: {
-        color: theme.palette.grey[500],
-        position: 'absolute',
-        right: theme.spacing(1),
-        top: theme.spacing(1),
-    },
     list: {
-        width: '100%',
     }
 })
 
@@ -34,7 +25,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
 
     return (
-        <MyExpansionPanel title='Favorites' subtitle={`${blueprintStore.favorites.size}`} defaultExpanded>
+        <MyExpansionPanel className={classes.root} title='Favorites' subtitle={`${blueprintStore.favorites.size}`} defaultExpanded>
             <List dense className={classes.list}>
                 <ListItem key='0'>
                     <Typography color='textSecondary' variant='body2' align='center'>

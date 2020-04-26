@@ -14,14 +14,10 @@ const styles = (theme: IMyTheme) => createStyles({
         position: 'relative',
     },
 
-    closeButton: {
-        color: theme.palette.grey[500],
-        position: 'absolute',
-        right: theme.spacing(1),
-        top: theme.spacing(1),
-    },
     list: {
         width: '100%',
+    },
+    subpanel: {
     }
 })
 
@@ -34,11 +30,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <div className={classes.root}>
-            <PanelUploads />
+            <PanelUploads classes={{root: classes.subpanel, list: classes.list}} />
             <Divider />
-            <PanelFavorites />
+            <PanelFavorites classes={{root: classes.subpanel, list: classes.list}} />
             <Divider />
-            <PanelRecent />
+            <PanelRecent classes={{root: classes.subpanel, list: classes.list}} />
         </div>
     )
 })) /* ============================================================================================================= */
