@@ -7,7 +7,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 import skyboxImage from '../../static/skybox.jpg'
-import { createSmartFC, createStyles, IMyTheme, dropShadowFromBoxShadow } from '../common/'
+import { createSmartFC, createStyles, dropShadowFromBoxShadow, IMyTheme } from '../common/'
 import Topbar from '../components/Topbar'
 
 
@@ -32,6 +32,8 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: 'unset',
         borderRight: 0,
         filter: dropShadowFromBoxShadow(theme.shadows[16]),
+        height: 'unset',
+        maxHeight: `calc(100% - ${theme.spacing(6)}px)`,
     },
     asideHeader: {
         display: 'flex',
@@ -59,7 +61,6 @@ const styles = (theme: IMyTheme) => createStyles({
         height: theme.shape.borderRadius,
         flexShrink: 0,
         borderRadius: `0 0 ${theme.shape.borderRadius}px 0`,
-        marginBottom: theme.spacing(2),
     },
     aside2Wrapper: {
         width: buttonWidth,
