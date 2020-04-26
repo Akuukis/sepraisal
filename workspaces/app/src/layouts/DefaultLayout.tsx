@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Divider, Drawer, DrawerProps, GridProps, IconButton, Toolbar, Typography } from '@material-ui/core'
+import { Drawer, DrawerProps, GridProps, IconButton, Toolbar, Typography } from '@material-ui/core'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
@@ -36,6 +36,8 @@ const styles = (theme: IMyTheme) => createStyles({
         maxHeight: `calc(100% - ${theme.spacing(6)}px)`,
     },
     asideHeader: {
+        zIndex: 1,
+        filter: dropShadowFromBoxShadow(theme.shadows[1]),
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(0, 1),
@@ -144,7 +146,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>
-                <Divider />
                 <div className={classes.asideContainer}>
                     {aside}
                 </div>
