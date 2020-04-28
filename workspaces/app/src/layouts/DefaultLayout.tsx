@@ -88,15 +88,13 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     mainWrapperOpen: {
         paddingLeft: drawerWidth,
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
+        transition: theme.transitions.create('padding-left', {
+            delay: '200ms',
         }),
     },
     mainWrapperClosed: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
+        transition: theme.transitions.create('padding-left', {
+            delay: '200ms',
         }),
         paddingLeft: buttonWidth,
     },
@@ -171,5 +169,5 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 })) /* ============================================================================================================= */
 
-const drawerWidth = 360
+const drawerWidth = 420
 const buttonWidth = 40
