@@ -7,7 +7,7 @@ import { ExpansionPanelProps, List, ListItem, Typography } from '@material-ui/co
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import MyExpansionPanel from '../../components/MyExpansionPanel'
 import { CONTEXT } from '../../stores'
-import SelectorRow from './Row'
+import SelectorRow from './PanelFavoritesRow'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
