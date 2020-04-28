@@ -1,16 +1,16 @@
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 import { DB_NAME, DB_URL, toMinSec, Work, Worker } from '@sepraisal/common'
 import { exec, execSync } from 'child_process'
 import { lstatSync, readdirSync } from 'fs'
 import { MongoClient } from 'mongodb'
-import * as pad from 'pad'
+import pad from 'pad'
 import { join } from 'path'
 import { Tail } from 'tail'
 
 import { QUERIES } from '../queries'
 import { prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
+// tslint:disable:no-unsafe-any - because `response` is not typed.
+// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 const BATCH_SIZE = 50
 const MAX_SIZE = 20
 

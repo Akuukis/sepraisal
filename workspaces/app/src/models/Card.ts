@@ -1,5 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
-import * as moment from 'moment'
+import moment from 'moment'
 
 
 export type ProjectionCardSteam =

@@ -1,9 +1,10 @@
-// tslint:disable:max-line-length
 import { BigNumber as BN } from 'bignumber.js'
-import * as pad from 'pad'
+import pad from 'pad'
 import { PromiseType } from 'utility-types'
+
 import { API_URL } from './constants'
 
+// tslint:disable:max-line-length
 // tslint:disable:no-void-expression id-length
 
 export const ZERO = new BN(0)

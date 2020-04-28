@@ -1,10 +1,10 @@
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 import { DB_NAME, DB_URL, IBlueprint, idFromHref, toMinSec, Work, Worker } from '@sepraisal/common'
 import { Collection, MongoClient } from 'mongodb'
-import * as pad from 'pad'
-import * as scrapeIt from 'scrape-it'
+import pad from 'pad'
+import scrapeIt from 'scrape-it'
 
+// tslint:disable:no-unsafe-any - because `response` is not typed.
+// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 
 /**
  * For first run, use `TYPE = 'totaluniquesubscribers'` and `MAX_PAGES = 1670`.

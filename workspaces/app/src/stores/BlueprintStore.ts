@@ -1,7 +1,7 @@
 import { API_URL, IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
 import { Praisal } from '@sepraisal/praisal'
 import { action, runInAction } from 'mobx'
-import * as moment from 'moment'
+import moment from 'moment'
 
 // tslint:disable-next-line: min-class-cohesion
 export class BlueprintStore {

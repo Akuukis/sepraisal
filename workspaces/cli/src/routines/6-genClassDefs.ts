@@ -1,10 +1,9 @@
-import * as FormData from 'form-data'
+import { CLASSES, getApiUrl, IBlueprint } from '@sepraisal/common'
+import FormData from 'form-data'
 import { createReadStream, readFileSync, writeFileSync } from 'fs'
-import { MongoClient } from 'mongodb'
 import fetch from 'node-fetch'
 import { join } from 'path'
 
-import { CLASSES, DB_NAME, DB_URL, IBlueprint, getApiUrl } from '@sepraisal/common'
 import { lstatAsync } from '../utils'
 
 export const API_URL = 'https://db.spaceengineerspraisal.net/hello'
