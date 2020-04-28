@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import * as moment from 'moment'
+import moment from 'moment'
 import { useEffect, useState } from 'react'
 
 export * from './Component'
