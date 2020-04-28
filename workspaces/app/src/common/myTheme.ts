@@ -27,8 +27,10 @@ interface IMyThemeOptions extends ThemeOptions {
     }
 }
 
-const defaultTheme = createMuiTheme()
 const SPACING = 4  // Default is 8.
+const defaultTheme = createMuiTheme({
+    spacing: SPACING,
+})
 
 // www.color-hex.com/color
 export const MY_LIGHT_THEME = createMuiTheme({
@@ -144,6 +146,11 @@ export const MY_LIGHT_THEME = createMuiTheme({
         },
     },
     overrides: {
+        MuiExpansionPanelSummary: {
+            root: {
+                padding: defaultTheme.spacing(0, 3),  // Normally 24px, wasn't scaled using spacing.
+            },
+        },
         MuiIconButton: {
             sizeSmall: {
                 // Adjust spacing to reach minimal touch target hitbox
@@ -154,7 +161,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
         },
         MuiListItem: {
             gutters: {
-                paddingLeft: 2 * SPACING,
+                paddingLeft: defaultTheme.spacing(2),
             },
         },
         MuiListItemSecondaryAction: {

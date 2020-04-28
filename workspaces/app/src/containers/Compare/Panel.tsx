@@ -11,11 +11,14 @@ import PanelUploads from './PanelUploads'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: '#FFF',
         position: 'relative',
         padding: theme.spacing(0, 1),
     },
 
+    divider: {
+        marginTop: theme.spacing(2),
+        backgroundColor: theme.palette.success.main,
+    },
     list: {
         width: '100%',
     },
@@ -33,12 +36,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <div className={classes.root}>
             <PanelSelected classes={{root: classes.subpanel, list: classes.list}} />
-            <Divider />
-            <PanelUploads classes={{root: classes.subpanel, list: classes.list}} />
-            <Divider />
-            <PanelFavorites classes={{root: classes.subpanel, list: classes.list}} />
-            <Divider />
-            <PanelRecent classes={{root: classes.subpanel, list: classes.list}} />
+            <Divider className={classes.divider} />
+            <PanelUploads elevation={0} classes={{root: classes.subpanel, list: classes.list}} defaultExpanded />
+            <Divider className={classes.divider} />
+            <PanelFavorites elevation={0} classes={{root: classes.subpanel, list: classes.list}} defaultExpanded />
+            <Divider className={classes.divider} />
+            <PanelRecent elevation={0} classes={{root: classes.subpanel, list: classes.list}} />
         </div>
     )
 })) /* ============================================================================================================= */

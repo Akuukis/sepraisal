@@ -16,9 +16,9 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     selected: {
         '&:hover': {
-            background: theme.palette.secondary.light,
+            background: theme.palette.background.default,
         },
-        'background': theme.palette.secondary.light,
+        'background': theme.palette.background.default,
     },
     handle: {
         minWidth: 24 + theme.spacing(2),

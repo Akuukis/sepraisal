@@ -1,7 +1,8 @@
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { List, ListItem, Typography } from '@material-ui/core'
+import { ExpansionPanelProps, List, ListItem, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import MyExpansionPanel from '../../components/MyExpansionPanel'
@@ -17,15 +18,21 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends ExpansionPanelProps {
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const { className, ...otherProps } = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
 
     return (
-        <MyExpansionPanel className={classes.root} title='Favorites' subtitle={`${blueprintStore.favorites.size}`} defaultExpanded>
+        <MyExpansionPanel
+            className={clsx(classes.root, className)}
+            title='Favorites'
+            subtitle={`${blueprintStore.favorites.size}`}
+            {...otherProps}
+        >
             <List dense className={classes.list}>
                 <ListItem key='0'>
                     <Typography color='textSecondary' variant='body2' align='center'>

@@ -1,11 +1,12 @@
 import { noop } from '@sepraisal/common'
+import clsx from 'clsx'
 import { runInAction } from 'mobx'
 import * as Pako from 'pako'
 import * as React from 'react'
 import { useDropzone } from 'react-dropzone'
 import { hot } from 'react-hot-loader/root'
 
-import { Link, List, ListItem, Typography } from '@material-ui/core'
+import { ExpansionPanelProps, Link, List, ListItem, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, DUD_URL as NOOP_URL, IMyTheme } from '../../common'
 import MyExpansionPanel from '../../components/MyExpansionPanel'
@@ -22,11 +23,12 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends ExpansionPanelProps {
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const { className, ...otherProps } = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
@@ -83,7 +85,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {getRootProps, getInputProps, isDragActive, open: browseFiles} = useDropzone({onDrop})
 
     return (
-        <MyExpansionPanel className={classes.root} title='Uploads' subtitle={`${blueprintStore.uploads.size} blueprints`} defaultExpanded>
+        <MyExpansionPanel
+            className={clsx(classes.root, className)}
+            title='Uploads'
+            subtitle={`${blueprintStore.uploads.size} blueprints`}
+            {...otherProps}
+        >
             <input {...getInputProps()} />
             {isDragActive ? <SelectorDnDOverlay /> :  null}
             <List dense className={classes.list}>
