@@ -13,7 +13,7 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         backgroundColor: '#FFF',
         position: 'relative',
-        padding: theme.spacing(0, 2),
+        padding: theme.spacing(0, 1),
     },
 
     list: {

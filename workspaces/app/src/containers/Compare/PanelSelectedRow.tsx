@@ -11,7 +11,9 @@ import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
-    root: {},
+    root: {
+        margin: theme.spacing(1, 0),
+    },
     selected: {
         '&:hover': {
             background: theme.palette.secondary.light,

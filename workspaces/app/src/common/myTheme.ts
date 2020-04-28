@@ -152,5 +152,15 @@ export const MY_LIGHT_THEME = createMuiTheme({
                 padding: 12,
             },
         },
+        MuiListItem: {
+            gutters: {
+                paddingLeft: 2 * SPACING,
+            },
+        },
+        MuiListItemSecondaryAction: {
+            root: {
+                right: 4,  // For dense, as marginRight above. Normally 16px.
+            }
+        },
     },
 } as IMyThemeOptions) as IMyTheme
