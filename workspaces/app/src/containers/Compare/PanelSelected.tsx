@@ -30,7 +30,6 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     secondaryHeading: {
         fontWeight: 500,
-        color: theme.palette.primary.main,
     },
     list: {
         padding: 0,

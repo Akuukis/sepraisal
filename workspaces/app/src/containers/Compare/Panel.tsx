@@ -17,13 +17,16 @@ const styles = (theme: IMyTheme) => createStyles({
 
     divider: {
         marginTop: theme.spacing(2),
-        backgroundColor: theme.palette.success.main,
+        backgroundColor: theme.palette.success.light,
     },
     list: {
         width: '100%',
     },
+    secondaryHeading: {
+        color: theme.palette.success.dark,
+    },
     subpanel: {
-    }
+    },
 })
 
 
@@ -32,16 +35,21 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const panelClasses = {
+        root: classes.subpanel,
+        list: classes.list,
+        secondaryHeading: classes.secondaryHeading,
+    }
 
     return (
         <div className={classes.root}>
-            <PanelSelected classes={{root: classes.subpanel, list: classes.list}} />
+            <PanelSelected classes={panelClasses} />
             <Divider className={classes.divider} />
-            <PanelUploads elevation={0} classes={{root: classes.subpanel, list: classes.list}} defaultExpanded />
+            <PanelUploads elevation={0} classes={panelClasses} defaultExpanded />
             <Divider className={classes.divider} />
-            <PanelFavorites elevation={0} classes={{root: classes.subpanel, list: classes.list}} defaultExpanded />
+            <PanelFavorites elevation={0} classes={panelClasses} defaultExpanded />
             <Divider className={classes.divider} />
-            <PanelRecent elevation={0} classes={{root: classes.subpanel, list: classes.list}} />
+            <PanelRecent elevation={0} classes={panelClasses} />
         </div>
     )
 })) /* ============================================================================================================= */

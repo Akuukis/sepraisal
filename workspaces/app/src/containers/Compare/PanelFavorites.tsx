@@ -14,7 +14,9 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     list: {
-    }
+    },
+    secondaryHeading: {
+    },
 })
 
 
@@ -31,6 +33,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, className)}
             title='Favorites'
             subtitle={`${blueprintStore.favorites.size}`}
+            classes={{secondaryHeading: classes.secondaryHeading}}
             {...otherProps}
         >
             <List dense className={classes.list}>

@@ -19,7 +19,9 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     list: {
-    }
+    },
+    secondaryHeading: {
+    },
 })
 
 
@@ -89,6 +91,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, className)}
             title='Uploads'
             subtitle={`${blueprintStore.uploads.size} blueprints`}
+            classes={{secondaryHeading: classes.secondaryHeading}}
             {...otherProps}
         >
             <input {...getInputProps()} />
