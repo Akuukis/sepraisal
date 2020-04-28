@@ -6,12 +6,14 @@ import { Divider } from '@material-ui/core'
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import PanelFavorites from './PanelFavorites'
 import PanelRecent from './PanelRecent'
+import PanelSelected from './PanelSelected'
 import PanelUploads from './PanelUploads'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         backgroundColor: '#FFF',
         position: 'relative',
+        padding: theme.spacing(0, 2),
     },
 
     list: {
@@ -30,6 +32,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <div className={classes.root}>
+            <PanelSelected classes={{root: classes.subpanel, list: classes.list}} />
+            <Divider />
             <PanelUploads classes={{root: classes.subpanel, list: classes.list}} />
             <Divider />
             <PanelFavorites classes={{root: classes.subpanel, list: classes.list}} />
