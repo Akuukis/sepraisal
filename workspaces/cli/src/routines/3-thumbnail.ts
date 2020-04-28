@@ -1,13 +1,13 @@
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 import { DB_NAME, DB_URL, IBlueprint, toMinSec, Work, Worker } from '@sepraisal/common'
 import { Collection, MongoClient } from 'mongodb'
-import * as pad from 'pad'
+import pad from 'pad'
 import { join } from 'path'
 
 import { QUERIES } from '../queries'
 import { execAsync, execAsyncBuffer, lstatAsync, prepareQuery, THUMB_DIR } from '../utils'
 
+// tslint:disable:no-unsafe-any - because `response` is not typed.
+// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 
 const QUALITY = 10000  // In bytes. 3000 is the lowest that doesn't make eyes bleed.
 

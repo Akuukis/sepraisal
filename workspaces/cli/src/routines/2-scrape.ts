@@ -1,8 +1,8 @@
 import { DB_NAME, DB_URL, IBlueprint, idFromHref, timeout, toMinSec, Work, Worker } from '@sepraisal/common'
-import * as moment from 'moment'
+import moment from 'moment'
 import { Collection, MongoClient } from 'mongodb'
-import * as pad from 'pad'
-import * as scrapeIt from 'scrape-it'
+import pad from 'pad'
+import scrapeIt from 'scrape-it'
 import { Omit } from 'utility-types'
 
 import { QUERIES } from '../queries'

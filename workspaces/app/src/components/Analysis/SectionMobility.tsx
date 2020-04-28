@@ -1,5 +1,5 @@
 import { Direction, GridSize, IBlueprint } from '@sepraisal/common'
-import * as moment from 'moment'
+import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -7,9 +7,9 @@ import { formatDecimal } from '../../common'
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
+import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxGroup from '../MyBoxGroup'
-import LegendCell from '../Cell/LegendCell'
 
 
 const styles = (theme: IMyTheme) => createStyles({
