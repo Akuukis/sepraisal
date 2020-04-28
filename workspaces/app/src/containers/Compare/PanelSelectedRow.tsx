@@ -19,6 +19,7 @@ const styles = (theme: IMyTheme) => createStyles({
         'background': theme.palette.secondary.light,
     },
     handle: {
+        minWidth: 24 + theme.spacing(2),
     },
 })
 
@@ -49,14 +50,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             key={id}
             className={clsx(classes.root, index === -1 ? '' : classes.selected)}
         >
-            <ListItemIcon>
-                <IconDragHandle className={classes.handle} />
+            <ListItemIcon className={classes.handle}>
+                <IconDragHandle />
             </ListItemIcon>
             <ListItemText
                 primary={title}
             />
             <ListItemSecondaryAction>
-                <IconButton size='small' onClick={handleDeselect} ><IconClose /></IconButton>
+                <IconButton onClick={handleDeselect} edge='end'><IconClose /></IconButton>
             </ListItemSecondaryAction>
         </ListItem>
     )

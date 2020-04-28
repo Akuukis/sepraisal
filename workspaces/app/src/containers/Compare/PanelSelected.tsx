@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { hot } from 'react-hot-loader/root'
+import { cold } from 'react-hot-loader'
 import { ReactSortable } from 'react-sortablejs'
 
 import { createStyles, Grid, GridProps, List, Switch, Typography } from '@material-ui/core'
@@ -44,7 +44,7 @@ interface IProps extends Omit<GridProps, 'title'> {
 }
 
 
-export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+export default cold(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const { ...otherProps } = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
