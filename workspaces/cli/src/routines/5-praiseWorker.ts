@@ -1,13 +1,13 @@
-// tslint:disable: no-submodule-imports
 import { BLOCK_GROUPS, DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
 import { PraisalManager, unzipCachedSbc } from '@sepraisal/praisal'
 import { readFileSync } from 'fs'
 import { Collection, MongoClient } from 'mongodb'
-import * as pad from 'pad'
+import pad from 'pad'
 import { join } from 'path'
 
 import { sbcPath } from '../utils'
 
+// tslint:disable: no-submodule-imports
 
 interface IProjection {
     _id: number,

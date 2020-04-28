@@ -1,6 +1,6 @@
 import { DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
 import { MongoClient } from 'mongodb'
-import * as pad from 'pad'
+import pad from 'pad'
 
 import { QUERIES } from '../queries'
 
