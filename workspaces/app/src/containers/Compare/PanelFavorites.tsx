@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { ReactSortable } from 'react-sortablejs'
 
 import { ExpansionPanelProps, List, ListItem, Typography } from '@material-ui/core'
 
@@ -16,6 +17,9 @@ const styles = (theme: IMyTheme) => createStyles({
     list: {
     },
     secondaryHeading: {
+    },
+    handle: {
+        minWidth: 24 + theme.spacing(2),
     },
 })
 
@@ -43,13 +47,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         Favorite blueprints and they will show up here.
                     </Typography>
                 </ListItem>
-                {[...favoriteStore.favorites].map<JSX.Element>(({id, name}) => (
-                    <SelectorRow
-                        key={id}
-                        id={id}
-                        name={name}
-                    />
-                ))}
+                <ReactSortable
+                    handle={`.${classes.handle}`}
+                    animation={theme.transitions.duration.standard}
+                    list={[...favoriteStore.favorites]}
+                    setList={favoriteStore.replace}
+                >
+                    {[...favoriteStore.favorites].map<JSX.Element>(({id, name}) => (
+                        <SelectorRow
+                            key={id}
+                            id={id}
+                            name={name}
+                            classes={{handle: classes.handle}}
+                        />
+                    ))}
+                </ReactSortable>
             </List>
         </MyExpansionPanel>
     )

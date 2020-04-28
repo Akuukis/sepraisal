@@ -35,6 +35,7 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: 0,
     },
     handle: {
+        minWidth: 24 + theme.spacing(2),
     },
 })
 

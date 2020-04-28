@@ -7,7 +7,7 @@ export interface IFavorite {
 
 // tslint:disable-next-line: min-class-cohesion
 export class FavoriteStore {
-    public readonly favorites = observable<IFavorite>([])
+    public readonly favorites = observable<IFavorite>([], {deep: false})
 
     public constructor() {
         runInAction(() => {
@@ -20,13 +20,13 @@ export class FavoriteStore {
         return !!this.favorites.find((favorite) => favorite.id === id)
     }
 
-    @action public push(favorite: IFavorite) {
+    public push = action('FavoriteStore.push', (favorite: IFavorite) => {
         if(this.has(favorite.id)) throw new Error('Already exists.')
         this.favorites.push(favorite)
         localStorage.setItem('favorites', JSON.stringify([...this.favorites]))
-    }
+    })
 
-    @action public shift(favoriteOrId: IFavorite | IFavorite['id']) {
+    public shift = action('FavoriteStore.shift', (favoriteOrId: IFavorite | IFavorite['id']) => {
         const id = typeof favoriteOrId === 'object' ? favoriteOrId.id : favoriteOrId
         if(!this.has(id)) throw new Error('Not found.')
 
@@ -37,6 +37,11 @@ export class FavoriteStore {
         ]
         this.favorites.replace(newArray)
         localStorage.setItem('favorites', JSON.stringify([...this.favorites]))
-    }
+    })
+
+    public replace = action('FavoriteStore.replace', (favorites: IFavorite[]) => {
+        this.favorites.replace(favorites)
+        localStorage.setItem('favorites', JSON.stringify([...this.favorites]))
+    })
 
 }

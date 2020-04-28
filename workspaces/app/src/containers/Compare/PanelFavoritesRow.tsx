@@ -3,7 +3,8 @@ import { runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
+import { ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
+import IconDragHandle from '@material-ui/icons/DragHandle'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import FavoriteButton from '../../components/FavoriteButton'
@@ -18,6 +19,8 @@ const styles = (theme: IMyTheme) => createStyles({
             background: theme.palette.secondary.light,
         },
         'background': theme.palette.secondary.light,
+    },
+    handle: {
     },
 })
 
@@ -65,6 +68,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, index === -1 ? '' : classes.selected)}
             onClick={handleToggle}
         >
+            <ListItemIcon className={classes.handle}>
+                <IconDragHandle />
+            </ListItemIcon>
             <ListItemText
                 primary={name}
             />

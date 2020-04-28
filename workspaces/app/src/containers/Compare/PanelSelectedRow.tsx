@@ -21,7 +21,6 @@ const styles = (theme: IMyTheme) => createStyles({
         'background': theme.palette.background.default,
     },
     handle: {
-        minWidth: 24 + theme.spacing(2),
     },
 })
 
@@ -48,7 +47,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <ListItem
-            button
             key={id}
             className={clsx(classes.root, index === -1 ? '' : classes.selected)}
         >
