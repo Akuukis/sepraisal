@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -10,7 +11,9 @@ import FavoriteButton from '../../components/FavoriteButton'
 import { CONTEXT } from '../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
-    root: {},
+    root: {
+        margin: theme.spacing(1, 0),
+    },
     selected: {
         '&:hover': {
             background: theme.palette.secondary.light,
@@ -73,7 +76,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <ListItem
             button
             key={id}
-            className={index === -1 ? '' : classes.selected}
+            className={clsx(classes.root, index === -1 ? '' : classes.selected)}
             onClick={handleToggle}
         >
             <ListItemText
