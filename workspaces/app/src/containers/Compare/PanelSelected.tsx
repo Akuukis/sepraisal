@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { ReactSortable } from 'react-sortablejs'
 
 import { createStyles, Grid, GridProps, List, Switch, Typography } from '@material-ui/core'
 
@@ -31,10 +32,11 @@ const styles = (theme: IMyTheme) => createStyles({
         fontWeight: 500,
         color: theme.palette.primary.main,
     },
-
     list: {
         padding: 0,
-    }
+    },
+    handle: {
+    },
 })
 
 
@@ -62,13 +64,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </Grid>
             </Grid>
             <List dense className={classes.list}>
-                {[...selectionStore.selected].map<JSX.Element>((id, index) => (
-                    <PanelSelectedRow
-                        key={index}
-                        id={id}
-                        title={blueprintStore.getSomething(id).steam!.title}
-                    />
-                ))}
+                <ReactSortable
+                    handle={`.${classes.handle}`}
+                    animation={theme.transitions.duration.standard}
+                    list={selectionStore.selectedItems}
+                    setList={selectionStore.setSelectedItems}
+                >
+                    {selectionStore.selectedItems.map(({id, name}) => (
+                        <PanelSelectedRow
+                            classes={{handle: classes.handle}}
+                            id={id}
+                            title={blueprintStore.getSomething(id).steam!.title}
+                        />
+                    ))}
+                </ReactSortable>
             </List>
         </div>
     )

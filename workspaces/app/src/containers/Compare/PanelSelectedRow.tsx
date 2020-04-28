@@ -18,6 +18,8 @@ const styles = (theme: IMyTheme) => createStyles({
         },
         'background': theme.palette.secondary.light,
     },
+    handle: {
+    },
 })
 
 
@@ -48,7 +50,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, index === -1 ? '' : classes.selected)}
         >
             <ListItemIcon>
-                <IconDragHandle />
+                <IconDragHandle className={classes.handle} />
             </ListItemIcon>
             <ListItemText
                 primary={title}
