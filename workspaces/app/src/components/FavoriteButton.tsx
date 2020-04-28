@@ -17,25 +17,26 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    id: number | undefined
+    id: number | string
+    name: string
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {id} = props
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
+    const {id, name} = props
+    const favoriteStore = React.useContext(CONTEXT.FAVORITES)
 
     // Don't favorite uploads - they are already in seperate list.
     if(!id) {
         return null
     }
 
-    const favorited = blueprintStore.favorites.has(id)
+    const favorited = favoriteStore.has(id)
     const handleToggle = () => {
         if(favorited) {
-            blueprintStore.setRecent(blueprintStore.getSomething(id))
+            favoriteStore.shift(id)
         } else {
-            blueprintStore.setFavorite(blueprintStore.getSomething(id))
+            favoriteStore.push({id, name})
         }
     }
 

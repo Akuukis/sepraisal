@@ -27,6 +27,7 @@ interface IProps extends ExpansionPanelProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const { className, ...otherProps } = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
+    const favoriteStore = React.useContext(CONTEXT.FAVORITES)
 
     return (
         <MyExpansionPanel
@@ -42,13 +43,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         Favorite blueprints and they will show up here.
                     </Typography>
                 </ListItem>
-                {[...blueprintStore.favorites].map<JSX.Element>(([id, blueprint]) => (
-                        <SelectorRow
-                            key={id}
-                            id={id}
-                            title={blueprint?.steam?.title ?? id}
-                        />
-                    ))}
+                {[...favoriteStore.favorites].map<JSX.Element>(({id, name}) => (
+                    <SelectorRow
+                        key={id}
+                        id={id}
+                        name={name}
+                    />
+                ))}
             </List>
         </MyExpansionPanel>
     )

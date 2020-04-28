@@ -4,6 +4,7 @@ import { createContext } from 'react'
 import { GridSizeColumns } from '../common'
 import { BlueprintStore } from './BlueprintStore'
 import { CardStore } from './CardStore'
+import { FavoriteStore } from './FavoriteStore'
 import { PiwikStore } from './PiwikStore'
 import { RouterStore } from './RouterStore'
 import { SelectionStore } from './SelectionStore'
@@ -12,11 +13,12 @@ import { SelectionStore } from './SelectionStore'
 export const CONTEXT = {
     BLUEPRINTS: createContext<BlueprintStore>(null as any),
     CARDS: createContext<CardStore>(null as any),
+    FAVORITES: createContext<FavoriteStore>(null as any),
+    PARENT_COLUMNS: createContext<GridSizeColumns>(12),
     PIWIK: createContext<PiwikStore>(null as any),
     PRAISAL_MANAGER: createContext<PraisalManager>(null as any),
     ROUTER: createContext<RouterStore>(null as any),
     SELECTION: createContext<SelectionStore>(null as any),
-    PARENT_COLUMNS: createContext<GridSizeColumns>(12),
 }
 
 export type Context = {

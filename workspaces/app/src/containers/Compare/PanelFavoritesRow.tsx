@@ -24,15 +24,16 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     id: string | number
-    title: string
+    name: string
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const {id, name} = props
+
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
-    const {id, title} = props
     const index = selectionStore.selected.indexOf(id)
 
     const handleToggle = () => {
@@ -41,7 +42,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             piwikStore.push([
                 'trackEvent',
                 'workshop',
-                id === title ? 'select-upload' : 'select-recent',
+                id === name ? 'select-upload' : 'select-recent',
                 id,
                 undefined,
             ])
@@ -49,7 +50,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             piwikStore.push([
                 'trackEvent',
                 'workshop',
-                id === title ? 'deselect-upload' : 'deselect-recent',
+                id === name ? 'deselect-upload' : 'deselect-recent',
                 id,
                 undefined,
             ])
@@ -65,10 +66,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             onClick={handleToggle}
         >
             <ListItemText
-                primary={title}
+                primary={name}
             />
             <ListItemSecondaryAction>
-                <FavoriteButton id={typeof id === 'number' ? id : undefined} />
+                <FavoriteButton id={id} name={name} />
             </ListItemSecondaryAction>
         </ListItem>
     )

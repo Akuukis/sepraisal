@@ -20,9 +20,6 @@ export class BlueprintStore {
                 if(key.slice(0, `recent/`.length) === 'recent/') {
                     this.recent.set(Number(key.slice(`recent/`.length)), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
                 }
-                if(key.slice(0, `favorite/`.length) === 'favorite/') {
-                    this.favorites.set(Number(key.slice(`favorite/`.length)), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
-                }
                 if(key.slice(0, `upload/`.length) === 'upload/') {
                     this.uploads.set(key.slice(`upload/`.length), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc'>)
                 }
@@ -65,11 +62,6 @@ export class BlueprintStore {
         localStorage.removeItem(`recent/${id}`)
     }
 
-    @action public deleteFavorite(id: number) {
-        this.favorites.delete(id)
-        localStorage.removeItem(`favorite/${id}`)
-    }
-
     @action public deleteUpload(title: string) {
         this.uploads.delete(title)
         localStorage.removeItem(`upload/${title}`)
@@ -80,8 +72,6 @@ export class BlueprintStore {
 
         localStorage.setItem(`recent/${id}`, JSON.stringify(blueprint))
         this.recent.set(id, blueprint)
-
-        if(this.favorites.has(id)) this.deleteFavorite(id)
 
         return id
     }
@@ -98,16 +88,6 @@ export class BlueprintStore {
             this.setRecent(doc)
         })
         return doc
-    }
-
-    @action public setFavorite(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
-        const id = blueprint._id
-        localStorage.setItem(`favorite/${id}`, JSON.stringify(blueprint))
-        this.favorites.set(id, blueprint)
-
-        if(this.recent.has(id)) this.deleteRecent(id)
-
-        return id
     }
 
     @action public setUpload(praisal: Praisal) {
