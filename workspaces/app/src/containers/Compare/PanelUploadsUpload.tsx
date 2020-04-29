@@ -7,7 +7,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link, ListItem, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, DUD_URL as NOOP_URL, IMyTheme } from '../../common'
+import { createSmartFC, createStyles, DUD_URL, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
 import SelectorDnDOverlay from './DnDOverlay'
 
@@ -94,7 +94,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <input {...getInputProps()} />
             {isDragActive ? <SelectorDnDOverlay /> :  null}
             <Typography className={classes.text} variant='body2' align='center'>
-                Drop .sbc file here or&nbsp;<Link href={NOOP_URL} onClick={browseFiles}>click to upload</Link>.
+                Drop .sbc file here or&nbsp;<Link href={DUD_URL} onClick={browseFiles}>click to upload</Link>.
             </Typography>
         </ListItem>
     )

@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Switch, Typography } from '@material-ui/core'
+import { Divider, Grid, Link, Switch, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common'
+import { createSmartFC, createStyles, DUD_URL, formatDecimal, IMyTheme } from '../../common'
+import { CONTEXT } from '../../stores'
 import PanelFavorites from './PanelFavorites'
 import PanelRecent from './PanelRecent'
 import PanelSelected from './PanelSelected'
@@ -23,6 +24,14 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     switchItem: {
         paddingRight: theme.spacing(2),
+    },
+    divider: {
+        backgroundColor: theme.palette.success.light,
+        margin: theme.spacing(0, 2),
+        height: 2,
+    },
+    footer: {
+        padding: theme.spacing(2),
     }
 })
 
@@ -32,6 +41,8 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
+
     const panelClasses = {
         root: classes.subpanel,
         list: classes.list,
@@ -49,6 +60,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <PanelFavorites classes={panelClasses} defaultExpanded />
             <PanelUploads classes={panelClasses} />
             <PanelRecent classes={panelClasses} />
+            <Divider className={classes.divider} />
+            <Typography paragraph variant='caption' className={classes.footer}>
+                Uploads and Recents are cached locally in your browser.
+                You can clear uploads above, and click <Link href={DUD_URL} onClick={blueprintStore.deleteRecentsPast100}>prune recents</Link> to clear all but last 100 recents.
+                Memory used: {formatDecimal(blueprintStore.size/1024/1024, 1)}&nbsp;MB
+            </Typography>
         </div>
     )
 })) /* ============================================================================================================= */

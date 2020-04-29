@@ -1,6 +1,6 @@
 import { API_URL, IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
 import { Praisal } from '@sepraisal/praisal'
-import { action, runInAction } from 'mobx'
+import { action, computed, runInAction } from 'mobx'
 import moment from 'moment'
 
 import { FavoriteStore } from './FavoriteStore'
@@ -35,6 +35,23 @@ export class BlueprintStore {
         })
     }
 
+    @computed public get size() {
+        // Trigger when recent or uploads changes.
+        let size = 0 * (this.recent.size + this.uploads.size)
+
+        const keys = Array.from({length: localStorage.length}).map((_, i) => localStorage.key(i))
+        for(const key of keys) {
+            if(key === null) continue
+            size = size + key.length
+
+            const value = localStorage.getItem(key)
+            if(value === null) continue
+            size = size + value.length
+        }
+
+        return size
+    }
+
     public deleteSomething(idOrTitle: number | string): boolean {
         if(typeof idOrTitle === 'string') {
             return this.deleteUpload(idOrTitle)
@@ -62,6 +79,21 @@ export class BlueprintStore {
         localStorage.removeItem(`recent/${id}`)
         return this.recent.delete(id)
     }
+
+    public deleteRecentsPast100 = action(() => {
+        if(this.recent.size <= 100) return
+
+        const recents = [...this.recent.entries()]
+            .sort(([_, a], [__, b]) => b._cached.diff(a._cached))
+
+        const remaining = recents.slice(0, 100)
+        const deletes = recents.slice(100)
+
+        this.recent.replace(remaining)
+        deletes.forEach(([id]) => {
+            localStorage.removeItem(`recent/${id}`)
+        })
+    })
 
     @action public deleteUpload(title: string) {
         if(this.favoriteStore.has(title)) this.favoriteStore.shift(title)
