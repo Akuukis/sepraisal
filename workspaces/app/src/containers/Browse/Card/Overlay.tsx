@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Typography } from '@material-ui/core'
+import { fade, Grid, Typography } from '@material-ui/core'
 import IconSearch from '@material-ui/icons/Search'
 
 import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../common/'
@@ -16,7 +16,7 @@ import OverlayItem from './OverlayItem'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         '&:hover': {
-            backgroundColor: `${SE_COLORS.grey}80`,
+            backgroundColor: fade(SE_COLORS.grey, 0.5),
         },
         height: 165,
         left: 0,

@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, GridProps } from '@material-ui/core'
+import { fade, Grid, GridProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 
@@ -24,15 +24,15 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     rootOnHover: {
-        backgroundColor: `${theme.palette.background.paper}60`,
+        backgroundColor: fade(theme.palette.background.paper, 0.33),
         '&:hover': {
-            backgroundColor: `${theme.palette.background.paper}B0`,
+            backgroundColor: fade(theme.palette.background.paper, 0.66),
         },
     },
 
     containerOnHover: {
         color: theme.palette.text.disabled,
-        borderColor: `${theme.palette.background.default}B0`,
+        borderColor: fade(theme.palette.background.default, 0.5),
         '&:hover': {
             color: theme.palette.text.primary,
             borderColor: theme.palette.background.default,

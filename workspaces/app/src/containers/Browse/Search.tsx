@@ -23,7 +23,7 @@ import { CardStore } from '../../stores/CardStore'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: '#FFF',
+        backgroundColor: 'white',
     },
 })
 

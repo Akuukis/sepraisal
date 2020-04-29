@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Typography } from '@material-ui/core'
+import { darken, fade, Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 
@@ -12,7 +12,7 @@ interface IProps {
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        background: 'rgba(0,0,0,0.6)',
+        background: fade(darken(theme.palette.background.default, 0.6), 0.4),
         bottom: -theme.spacing(1.5),
         left: -theme.spacing(1.5),
         position: 'absolute',

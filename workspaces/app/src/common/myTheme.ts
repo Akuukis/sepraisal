@@ -1,4 +1,4 @@
-import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core'
+import { createMuiTheme, darken, lighten, Theme, ThemeOptions } from '@material-ui/core'
 import { blue, green, red, yellow } from '@material-ui/core/colors'
 
 // Official Space Engineers colors (https://blog.marekrosa.org/2017/09/my-vision-for-visual-style-of-space.html)
@@ -8,10 +8,10 @@ export const SE_COLORS = {
     grey_dark: '#686868',
     white: '#efefef',
 
-    blue    : {main: '#1767ae', dark: '#12528b', light: '#a2c2de'},
-    green   : {main: '#417e3b', dark: '#34642f', light: '#b3cbb0'},
-    red     : {main: '#c01118', dark: '#990d13', light: '#e59fa2'},
-    yellow  : {main: '#f5bf2b', dark: '#c49822', light: '#fbe5aa'},
+    blue    : {main: '#1767ae', dark: darken('#1767ae', 0.2), light: lighten('#1767ae', 0.6)},
+    green   : {main: '#417e3b', dark: darken('#417e3b', 0.2), light: lighten('#417e3b', 0.6)},
+    red     : {main: '#c01118', dark: darken('#c01118', 0.2), light: lighten('#c01118', 0.6)},
+    yellow  : {main: '#f5bf2b', dark: darken('#f5bf2b', 0.2), light: lighten('#f5bf2b', 0.6)},
 }
 
 

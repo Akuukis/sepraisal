@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { AppBar, Badge, Button, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, Badge, Button, fade, Toolbar, Typography } from '@material-ui/core'
 import IconBuild from '@material-ui/icons/Build'
 import IconInfo from '@material-ui/icons/Info'
 import IconSearch from '@material-ui/icons/Search'
@@ -14,7 +14,7 @@ import TopbarButton from './TopbarButton'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: `${theme.palette.primary.main}CC`,
+        backgroundColor: fade(theme.palette.primary.main, 0.8),
         zIndex: theme.zIndex.appBar + 1,
     },
 

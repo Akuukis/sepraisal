@@ -1,4 +1,4 @@
-import { autorun, runInAction } from 'mobx'
+import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -17,7 +17,7 @@ const styles = (theme: IMyTheme) => createStyles({
         margin: 0,
     },
     monospaceBox: {
-        backgroundColor: '#E8E8E8',
+        backgroundColor: theme.palette.background.default,
         fontFamily: '"Roboto Mono", Roboto',
         fontSize: '0.8rem',
         padding: '0px 0px 0px 0.5em',
