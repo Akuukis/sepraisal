@@ -2,10 +2,10 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { ExpansionPanelProps, List } from '@material-ui/core'
+import { List } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
-import MyExpansionPanel from '../../components/MyExpansionPanel'
+import MyExpansionPanel, { IMyExpansionPanelProps } from '../../components/MyExpansionPanel'
 import { CONTEXT } from '../../stores'
 import PanelRecentRow from './PanelRecentRow'
 
@@ -13,16 +13,12 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    details: {
-    },
     list: {
-    },
-    secondaryHeading: {
     },
 })
 
 
-interface IProps extends ExpansionPanelProps {
+interface IProps extends Omit<IMyExpansionPanelProps, 'header' | 'subheader'> {
 }
 
 
@@ -35,9 +31,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <MyExpansionPanel
             className={clsx(classes.root, className)}
-            title='Recent'
-            subtitle={`${blueprintStore.recent.size}`}
-            classes={{details: classes.details, secondaryHeading: classes.secondaryHeading}}
+            header='Recent'
+            subheader={`${blueprintStore.recent.size}`}
+            color='success'
             {...otherProps}
         >
             <List dense className={classes.list}>

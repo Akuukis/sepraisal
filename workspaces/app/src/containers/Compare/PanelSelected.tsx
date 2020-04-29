@@ -3,10 +3,10 @@ import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import { ReactSortable } from 'react-sortablejs'
 
-import { createStyles, ExpansionPanelProps, List } from '@material-ui/core'
+import { createStyles, List } from '@material-ui/core'
 
 import { createSmartFC, IMyTheme } from '../../common'
-import MyExpansionPanel from '../../components/MyExpansionPanel'
+import MyExpansionPanel, { IMyExpansionPanelProps } from '../../components/MyExpansionPanel'
 import { CONTEXT } from '../../stores'
 import PanelSelectedRow from './PanelSelectedRow'
 
@@ -15,10 +15,6 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    details: {
-    },
-    secondaryHeading: {
-    },
     list: {
     },
     handle: {
@@ -27,7 +23,7 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps extends ExpansionPanelProps {
+interface IProps extends Omit<IMyExpansionPanelProps, 'header' | 'subheader'> {
 }
 
 
@@ -39,9 +35,9 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     return (
         <MyExpansionPanel
             className={clsx(classes.root, className)}
-            title='Selected'
-            subtitle={`${selectionStore.selected.length}`}
-            classes={{details: classes.details, secondaryHeading: classes.secondaryHeading}}
+            header='Selected'
+            subheader={`${selectionStore.selected.length}`}
+            color='success'
             {...otherProps}
         >
             <List dense className={classes.list}>

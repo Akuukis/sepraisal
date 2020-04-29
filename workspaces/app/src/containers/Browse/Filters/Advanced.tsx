@@ -65,7 +65,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <MyExpansionPanel title='Advanced' subtitle='' expanded={expanded} onChange={onChange}>
+        <MyExpansionPanel header='Advanced' subheader='' expanded={expanded} onChange={onChange}>
             <Grid container spacing={2}>
                 <Grid item xs={6}>
                     <Button variant='contained' fullWidth onClick={reset}>

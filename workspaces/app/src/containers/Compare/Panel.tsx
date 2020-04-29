@@ -15,15 +15,9 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(0, 0),
     },
 
-    details: {
-        borderColor: theme.palette.success.main,
-    },
     list: {
         width: '100%',
         padding: theme.spacing(0),
-    },
-    secondaryHeading: {
-        color: theme.palette.success.dark,
     },
     subpanel: {
     },
@@ -40,9 +34,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const panelClasses = {
         root: classes.subpanel,
-        details: classes.details,
         list: classes.list,
-        secondaryHeading: classes.secondaryHeading,
     }
 
     return (
@@ -53,10 +45,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <Typography component='span' variant='subtitle2'>narrow columns</Typography>
                 </Grid>
             </Grid>
-            <PanelSelected elevation={0} classes={panelClasses} />
-            <PanelFavorites elevation={0} classes={panelClasses} defaultExpanded />
-            <PanelUploads elevation={0} classes={panelClasses} />
-            <PanelRecent elevation={0} classes={panelClasses} />
+            <PanelSelected classes={panelClasses} />
+            <PanelFavorites classes={panelClasses} defaultExpanded />
+            <PanelUploads classes={panelClasses} />
+            <PanelRecent classes={panelClasses} />
         </div>
     )
 })) /* ============================================================================================================= */

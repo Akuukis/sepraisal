@@ -34,7 +34,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     return (
-        <MyExpansionPanel title='Custom' subtitle={getTitle(cardStore)} expanded={expanded} onChange={onChange}>
+        <MyExpansionPanel header='Custom' subheader={getTitle(cardStore)} expanded={expanded} onChange={onChange}>
             <Typography color='textSecondary' variant='caption'>
                 [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
             </Typography>
