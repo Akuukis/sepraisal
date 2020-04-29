@@ -5,9 +5,8 @@ import moment from 'moment'
 
 // tslint:disable-next-line: min-class-cohesion
 export class BlueprintStore {
-    public readonly recent = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>, number>()
-    public readonly favorites = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>, number>()
-    public readonly uploads = new ObservableMap<RequiredSome<IBlueprint, 'sbc'>>()
+    public readonly recent = new ObservableMap<BlueprintStore.ICachedSteamBlueprint, number>()
+    public readonly uploads = new ObservableMap<BlueprintStore.ICachedUploadBlueprint>()
 
     public constructor() {
         const keys = Array.from({length: localStorage.length}).map((_, i) => localStorage.key(i))
@@ -18,10 +17,10 @@ export class BlueprintStore {
                 if(value === null) continue
 
                 if(key.slice(0, `recent/`.length) === 'recent/') {
-                    this.recent.set(Number(key.slice(`recent/`.length)), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
+                    this.recent.set(Number(key.slice(`recent/`.length)), JSON.parse(value) as BlueprintStore.ICachedSteamBlueprint)
                 }
                 if(key.slice(0, `upload/`.length) === 'upload/') {
-                    this.uploads.set(key.slice(`upload/`.length), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc'>)
+                    this.uploads.set(key.slice(`upload/`.length), JSON.parse(value) as BlueprintStore.ICachedUploadBlueprint)
                 }
             }
         })
@@ -31,15 +30,13 @@ export class BlueprintStore {
         if(typeof idOrTitle === 'string') {
             return this.uploads.delete(idOrTitle)
         } else {
-            const favorite = this.favorites.delete(idOrTitle)
-            const recent = this.favorites.delete(idOrTitle)
-            return favorite || recent
+            return this.recent.delete(idOrTitle)
         }
     }
 
-    public getSomething(id: number): RequiredSome<IBlueprint, 'sbc' | 'steam'>
-    public getSomething(title: string): RequiredSome<IBlueprint, 'sbc'>
-    public getSomething(idOrTitle: number | string): RequiredSome<IBlueprint, 'sbc' | 'steam'> | RequiredSome<IBlueprint, 'sbc'>
+    public getSomething(id: number): BlueprintStore.ICachedSteamBlueprint
+    public getSomething(title: string): BlueprintStore.ICachedUploadBlueprint
+    public getSomething(idOrTitle: number | string): BlueprintStore.ICachedSteamBlueprint | BlueprintStore.ICachedUploadBlueprint
     public getSomething(idOrTitle: number | string) {
         if(typeof idOrTitle === 'string') {
             const upload = this.uploads.get(idOrTitle)
@@ -47,9 +44,6 @@ export class BlueprintStore {
 
             throw new Error(`No Upload titled "${idOrTitle}"`)
         } else {
-            const favorite = this.favorites.get(idOrTitle)
-            if(favorite) return favorite
-
             const recent = this.recent.get(idOrTitle)
             if(recent) return recent
 
@@ -69,9 +63,10 @@ export class BlueprintStore {
 
     @action public setRecent(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
         const id = blueprint._id
+        const _cached = moment()
 
-        localStorage.setItem(`recent/${id}`, JSON.stringify(blueprint))
-        this.recent.set(id, blueprint)
+        localStorage.setItem(`recent/${id}`, JSON.stringify({...blueprint, _cached: _cached.toString()}))
+        this.recent.set(id, {...blueprint, _cached})
 
         return id
     }
@@ -91,15 +86,25 @@ export class BlueprintStore {
     }
 
     @action public setUpload(praisal: Praisal) {
-        const blueprint: RequiredSome<IBlueprint, 'sbc'> = {
+        const blueprint: BlueprintStore.ICachedUploadBlueprint = {
             _id: 0,
             sbc: praisal.toBlueprintSbc(0),
+            _cached: moment(),
         }
         const title = `${praisal.blummary.title}-${moment().format('MMDD-HHmmss')}`
-        localStorage.setItem(`upload/${title}`, JSON.stringify(blueprint))
+        localStorage.setItem(`upload/${title}`, JSON.stringify({...blueprint, _cached: blueprint._cached.toString()}))
         this.uploads.set(title, blueprint)
 
         return title
     }
 
+}
+
+export namespace BlueprintStore {
+    export interface ICachedSteamBlueprint extends RequiredSome<IBlueprint, 'sbc' | 'steam'> {
+        _cached: moment.Moment
+    }
+    export interface ICachedUploadBlueprint extends RequiredSome<IBlueprint, 'sbc'> {
+        _cached: moment.Moment
+    }
 }

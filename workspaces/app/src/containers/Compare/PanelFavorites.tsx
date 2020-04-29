@@ -30,14 +30,13 @@ interface IProps extends ExpansionPanelProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const { className, ...otherProps } = props
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const favoriteStore = React.useContext(CONTEXT.FAVORITES)
 
     return (
         <MyExpansionPanel
             className={clsx(classes.root, className)}
             title='Favorites'
-            subtitle={`${blueprintStore.favorites.size}`}
+            subtitle={`${favoriteStore.favorites.length}`}
             classes={{secondaryHeading: classes.secondaryHeading}}
             {...otherProps}
         >
