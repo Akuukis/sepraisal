@@ -35,7 +35,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, className)}
             header='Favorites'
             subheader={`${favoriteStore.favorites.length}`}
-            color='success'
             {...otherProps}
         >
             <List dense className={classes.list}>

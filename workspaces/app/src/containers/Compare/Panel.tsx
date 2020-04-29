@@ -26,7 +26,7 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingRight: theme.spacing(2),
     },
     divider: {
-        backgroundColor: theme.palette.success.light,
+        backgroundColor: theme.palette.primary.light,
         margin: theme.spacing(0, 2),
         height: 2,
     },

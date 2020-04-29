@@ -37,7 +37,6 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
             className={clsx(classes.root, className)}
             header='Selected'
             subheader={`${selectionStore.selected.length}`}
-            color='success'
             {...otherProps}
         >
             <List dense className={classes.list}>

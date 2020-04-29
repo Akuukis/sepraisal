@@ -33,7 +33,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, className)}
             header='Recent'
             subheader={`${blueprintStore.recent.size}`}
-            color='success'
             {...otherProps}
         >
             <List dense className={classes.list}>
