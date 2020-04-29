@@ -15,14 +15,27 @@ import { createSmartFC, createStyles, IMyTheme } from '../common/'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        '&::before': {
+            backgroundColor: theme.palette.primary.light,
+            display: 'inherit !important',
+            height: 2,
+            margin: theme.spacing(0, 2),
+        },
     },
 
     details: {
-        padding: 0,
+        padding: theme.spacing(0, 2, 0, 0.5),
         flexDirection: 'column',
+        borderLeftStyle: 'solid',
+        borderLeftColor: theme.palette.primary.main,
+        borderLeft: theme.spacing(1.5),
     },
     expanded: {
         margin: '0 !important',
+        '&::before': {
+            backgroundColor: theme.palette.primary.main,
+            opacity: '1 !important',
+        },
     },
     heading: {
         flexBasis: '33.33%',

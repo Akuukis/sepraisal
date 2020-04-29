@@ -15,6 +15,8 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
+    details: {
+    },
     secondaryHeading: {
     },
     list: {
@@ -39,7 +41,7 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
             className={clsx(classes.root, className)}
             title='Selected'
             subtitle={`${selectionStore.selected.length}`}
-            classes={{secondaryHeading: classes.secondaryHeading}}
+            classes={{details: classes.details, secondaryHeading: classes.secondaryHeading}}
             {...otherProps}
         >
             <List dense className={classes.list}>
