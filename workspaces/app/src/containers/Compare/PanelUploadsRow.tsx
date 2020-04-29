@@ -83,8 +83,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 primary={title}
             />
             <ListItemSecondaryAction>
-                <FavoriteButton id={id} name={title} />
-                <IconButton onClick={handleDelete} edge='end'><IconDeleteForever /></IconButton>
+                <IconButton onClick={handleDelete} ><IconDeleteForever /></IconButton>
+                <FavoriteButton bpId={id} name={title} edge='end' />
             </ListItemSecondaryAction>
         </ListItem>
     )

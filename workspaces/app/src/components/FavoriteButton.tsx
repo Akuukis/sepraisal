@@ -1,7 +1,8 @@
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton } from '@material-ui/core'
+import { IconButton, IconButtonProps } from '@material-ui/core'
 import IconFavorite from '@material-ui/icons/Favorite'
 import IconFavoriteBorder from '@material-ui/icons/FavoriteBorder'
 
@@ -16,14 +17,14 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
-    id: number | string
+interface IProps extends IconButtonProps {
+    bpId: number | string
     name: string
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {id, name} = props
+    const {bpId: id, name, className, ...otherProps} = props
     const favoriteStore = React.useContext(CONTEXT.FAVORITES)
 
     // Don't favorite uploads - they are already in seperate list.
@@ -41,7 +42,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <IconButton className={classes.root} size='small' color='inherit' aria-label='favorite' onClick={handleToggle}>
+        <IconButton
+            className={clsx(classes.root, className)}
+            size='small'
+            color='inherit'
+            aria-label='favorite'
+            onClick={handleToggle}
+            {...otherProps}
+        >
             {favorited ? <IconFavorite /> : <IconFavoriteBorder />}
         </IconButton>
     )

@@ -3,16 +3,20 @@ import { runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
-import IconDeleteForever from '@material-ui/icons/DeleteForever'
+import { ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import FavoriteButton from '../../components/FavoriteButton'
 import { CONTEXT } from '../../stores'
+import FromNow from './FromNow'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         margin: theme.spacing(1, 0),
+        paddingRight: 128,
+    },
+
+    listItemText: {
     },
     selected: {
         '&:hover': {
@@ -84,8 +88,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 primary={title}
             />
             <ListItemSecondaryAction>
-                <FavoriteButton id={id} name={title} />
-                <IconButton onClick={handleDelete} edge='end'><IconDeleteForever /></IconButton>
+                <FromNow variant='caption' moment={blueprint._cached} />
+                <FavoriteButton bpId={id} name={title} edge='end' />
             </ListItemSecondaryAction>
         </ListItem>
     )

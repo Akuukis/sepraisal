@@ -30,6 +30,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const { className, ...otherProps } = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
 
+    const blueprints = [...blueprintStore.recent].sort(([_, a], [__, b]) => b._cached.diff(a._cached))
+
     return (
         <MyExpansionPanel
             className={clsx(classes.root, className)}
@@ -39,7 +41,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {...otherProps}
         >
             <List dense className={classes.list}>
-                {[...blueprintStore.recent].map<JSX.Element>(([id, blueprint]) => (
+                {blueprints.map<JSX.Element>(([id, blueprint]) => (
                         <PanelRecentRow
                             key={id}
                             id={id}

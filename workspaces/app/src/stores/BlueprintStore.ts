@@ -22,10 +22,14 @@ export class BlueprintStore {
                 if(value === null) continue
 
                 if(key.slice(0, `recent/`.length) === 'recent/') {
-                    this.recent.set(Number(key.slice(`recent/`.length)), JSON.parse(value) as BlueprintStore.ICachedSteamBlueprint)
+                    const cachedBlueprint = JSON.parse(value) as BlueprintStore.ICachedSteamBlueprint
+                    cachedBlueprint._cached = moment(cachedBlueprint._cached)
+                    this.recent.set(Number(key.slice(`recent/`.length)), cachedBlueprint)
                 }
                 if(key.slice(0, `upload/`.length) === 'upload/') {
-                    this.uploads.set(key.slice(`upload/`.length), JSON.parse(value) as BlueprintStore.ICachedUploadBlueprint)
+                    const uploadedBlueprint = JSON.parse(value) as BlueprintStore.ICachedUploadBlueprint
+                    uploadedBlueprint._cached = moment(uploadedBlueprint._cached)
+                    this.uploads.set(key.slice(`upload/`.length), uploadedBlueprint)
                 }
             }
         })

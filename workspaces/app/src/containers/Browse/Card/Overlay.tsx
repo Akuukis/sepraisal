@@ -124,7 +124,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </OverlayItem>
             <Grid container className={classes.subgroup} direction='column'>
                 <OverlayItem isHover={hover} classes={{container: classes.itemFavorite, containerOnHover: classes.itemFavoriteOnHover}}>
-                    <FavoriteButton id={bp.id} name={bp.steam!.title} />
+                    <FavoriteButton bpId={bp.id} name={bp.steam!.title} />
                 </OverlayItem>
                 <OverlayItem isHover={hover} classes={{container: classes.itemCompare, containerOnHover: classes.itemCompareOnHover}}>
                     <CompareButton id={bp.id} classes={{off:  classes.itemCompareOff}} />
