@@ -3,12 +3,17 @@ import { Praisal } from '@sepraisal/praisal'
 import { action, runInAction } from 'mobx'
 import moment from 'moment'
 
+import { FavoriteStore } from './FavoriteStore'
+
 // tslint:disable-next-line: min-class-cohesion
 export class BlueprintStore {
     public readonly recent = new ObservableMap<BlueprintStore.ICachedSteamBlueprint, number>()
     public readonly uploads = new ObservableMap<BlueprintStore.ICachedUploadBlueprint>()
 
-    public constructor() {
+    private favoriteStore: FavoriteStore
+
+    public constructor(favoriteStore: FavoriteStore) {
+        this.favoriteStore = favoriteStore
         const keys = Array.from({length: localStorage.length}).map((_, i) => localStorage.key(i))
         runInAction(() => {
             for(const key of keys) {
@@ -28,9 +33,9 @@ export class BlueprintStore {
 
     public deleteSomething(idOrTitle: number | string): boolean {
         if(typeof idOrTitle === 'string') {
-            return this.uploads.delete(idOrTitle)
+            return this.deleteUpload(idOrTitle)
         } else {
-            return this.recent.delete(idOrTitle)
+            return this.deleteRecent(idOrTitle)
         }
     }
 
@@ -50,13 +55,14 @@ export class BlueprintStore {
     }
 
     @action public deleteRecent(id: number) {
-        this.recent.delete(id)
         localStorage.removeItem(`recent/${id}`)
+        return this.recent.delete(id)
     }
 
     @action public deleteUpload(title: string) {
-        this.uploads.delete(title)
+        if(this.favoriteStore.has(title)) this.favoriteStore.shift(title)
         localStorage.removeItem(`upload/${title}`)
+        return this.uploads.delete(title)
     }
 
     @action public setRecent(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
