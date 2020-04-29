@@ -16,7 +16,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     selected: {
         '&:hover': {
-            background: theme.palette.background.default,
+            background: `${theme.palette.background.default}CC`,
         },
         'background': theme.palette.background.default,
     },
