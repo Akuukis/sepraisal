@@ -58,7 +58,6 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                         <PanelSelectedRow
                             classes={{handle: classes.handle}}
                             id={id}
-                            title={blueprintStore.getSomething(id).steam!.title}
                         />
                     ))}
                 </ReactSortable>

@@ -59,16 +59,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     useAsyncEffectOnce(async () => {
         setStatus(ASYNC_STATE.Doing)
-        try {
-            const cached = blueprintStore.getSomething(bpId)
-            if(cached) {
-                setBlueprint(cached)
-                setStatus(ASYNC_STATE.Done)
+        const cached = blueprintStore.getSomething(bpId)
+        if(cached) {
+            setBlueprint(cached)
+            setStatus(ASYNC_STATE.Done)
 
-                return
-            }
-        } catch(err) {
-            console.info(err.message)
+            return
         }
 
         if(typeof bpId === 'string') {

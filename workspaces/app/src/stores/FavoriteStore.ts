@@ -20,6 +20,10 @@ export class FavoriteStore {
         return !!this.favorites.find((favorite) => favorite.id === id)
     }
 
+    public get(idReq: number | string): IFavorite | null {
+        return this.favorites.find(({id}) => id === idReq) ?? null
+    }
+
     public push = action('FavoriteStore.push', (favorite: IFavorite) => {
         if(this.has(favorite.id)) throw new Error('Already exists.')
         this.favorites.push(favorite)

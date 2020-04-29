@@ -41,14 +41,12 @@ export class BlueprintStore {
         if(typeof idOrTitle === 'string') {
             const upload = this.uploads.get(idOrTitle)
             if(upload) return upload
-
-            throw new Error(`No Upload titled "${idOrTitle}"`)
         } else {
             const recent = this.recent.get(idOrTitle)
             if(recent) return recent
-
-            throw new Error(`No Favorite nor Recent with id "${idOrTitle}"`)
         }
+
+        return null
     }
 
     @action public deleteRecent(id: number) {

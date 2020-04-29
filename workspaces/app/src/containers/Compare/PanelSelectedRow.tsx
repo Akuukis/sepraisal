@@ -27,17 +27,17 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     id: string | number
-    title: string
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
+    const favoriteStore = React.useContext(CONTEXT.FAVORITES)
 
-    const {id, title} = props
+    const {id} = props
     const index = selectionStore.selected.indexOf(id)
+    const title = blueprintStore.getSomething(id)?.steam?.title ?? favoriteStore.get(id)?.name ?? id
 
     const handleDeselect = () => {
         runInAction(() => {
