@@ -26,7 +26,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {sbc} = props.bp
 
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
-    console.log(praisalManager.ores)
 
     // Taken from wiki
     const spendRateLarge = 1670 / 9
@@ -60,7 +59,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const stellPlatePotential = Math.floor(anyVolume / 3)
     const constructionCompPotential = Math.floor(anyVolume / 2)
     const ironIngotPotential = Math.floor(anyVolume / 0.127)
-    
+
 
     const totalOxygen = getTotalOxygen(sbc.blocks)
     const totalHydrogen = getTotalHydrogen(sbc.blocks)
