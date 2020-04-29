@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Divider } from '@material-ui/core'
+import { Divider, Grid, Switch, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import PanelFavorites from './PanelFavorites'
@@ -17,6 +17,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
     divider: {
         marginTop: theme.spacing(2),
+        height: 2,
         backgroundColor: theme.palette.success.light,
     },
     list: {
@@ -27,6 +28,9 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     subpanel: {
     },
+    switchItem: {
+        paddingRight: theme.spacing(2),
+    }
 })
 
 
@@ -43,11 +47,18 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <div className={classes.root}>
-            <PanelSelected classes={panelClasses} />
+            <Grid container justify='flex-end'>
+                <Grid item className={classes.switchItem}>
+                    <Switch />
+                    <Typography component='span' variant='subtitle2'>narrow columns</Typography>
+                </Grid>
+            </Grid>
             <Divider className={classes.divider} />
-            <PanelUploads elevation={0} classes={panelClasses} defaultExpanded />
+            <PanelSelected elevation={0} classes={panelClasses} />
             <Divider className={classes.divider} />
             <PanelFavorites elevation={0} classes={panelClasses} defaultExpanded />
+            <Divider className={classes.divider} />
+            <PanelUploads elevation={0} classes={panelClasses} />
             <Divider className={classes.divider} />
             <PanelRecent elevation={0} classes={panelClasses} />
         </div>

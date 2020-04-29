@@ -1,38 +1,23 @@
+import clsx from 'clsx'
 import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import { ReactSortable } from 'react-sortablejs'
 
-import { createStyles, Grid, GridProps, List, Switch, Typography } from '@material-ui/core'
+import { createStyles, ExpansionPanelProps, List, ListItem, Typography } from '@material-ui/core'
 
 import { createSmartFC, IMyTheme } from '../../common'
+import MyExpansionPanel from '../../components/MyExpansionPanel'
 import { CONTEXT } from '../../stores'
 import PanelSelectedRow from './PanelSelectedRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: theme.spacing(0, 6),
-        minHeight: theme.spacing(12),
     },
 
-    details: {
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        paddingBottom: 0,
-        flexDirection: 'column',
-    },
-    heading: {
-        flexBasis: `calc((100% - 36px) / 3)`,
-        maxWidth: `calc((100% - 36px) / 3)`,
-        flexShrink: 0,
-        fontSize: theme.typography.pxToRem(16),
-        ...theme.typography.h6,
-    },
     secondaryHeading: {
-        fontWeight: 500,
     },
     list: {
-        padding: 0,
     },
     handle: {
         minWidth: 24 + theme.spacing(2),
@@ -40,30 +25,29 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps extends Omit<GridProps, 'title'> {
+interface IProps extends ExpansionPanelProps {
 }
 
 
 export default cold(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const { ...otherProps } = props
+    const { className, ...otherProps } = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
     return (
-        <div>
-            <Grid container className={classes.root} alignItems='center' { ...otherProps }>
-                <Typography className={classes.heading} variant='h3'>Selected</Typography>
-                <Grid item style={{flexGrow: 1}}>
-                    <Typography component='span' className={classes.secondaryHeading} variant='body1'>
-                        {selectionStore.selected.length}
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <Switch />
-                    <Typography component='span' variant='subtitle2'>narrow columns</Typography>
-                </Grid>
-            </Grid>
+        <MyExpansionPanel
+            className={clsx(classes.root, className)}
+            title='Selected'
+            subtitle={`${selectionStore.selected.length}`}
+            classes={{secondaryHeading: classes.secondaryHeading}}
+            {...otherProps}
+        >
             <List dense className={classes.list}>
+                <ListItem key='0'>
+                    <Typography color='textSecondary' variant='body2' align='center'>
+                        Favorite blueprints and they will show up here.
+                    </Typography>
+                </ListItem>
                 <ReactSortable
                     handle={`.${classes.handle}`}
                     animation={theme.transitions.duration.standard}
@@ -79,6 +63,6 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                     ))}
                 </ReactSortable>
             </List>
-        </div>
+        </MyExpansionPanel>
     )
 })) /* ============================================================================================================= */
