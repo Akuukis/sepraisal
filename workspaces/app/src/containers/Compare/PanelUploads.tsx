@@ -12,7 +12,7 @@ import { createSmartFC, createStyles, DUD_URL as NOOP_URL, IMyTheme } from '../.
 import MyExpansionPanel from '../../components/MyExpansionPanel'
 import { CONTEXT } from '../../stores'
 import SelectorDnDOverlay from './DnDOverlay'
-import SelectorRow from './Row'
+import PanelUploadsRow from './PanelUploadsRow'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -92,7 +92,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <MyExpansionPanel
             className={clsx(classes.root, className)}
             title='Uploads'
-            subtitle={`${blueprintStore.uploads.size} blueprints`}
+            subtitle={`${blueprintStore.uploads.size}`}
             classes={{details: classes.details, secondaryHeading: classes.secondaryHeading}}
             {...otherProps}
         >
@@ -105,7 +105,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </Typography>
                 </ListItem>
                 {[...blueprintStore.uploads].map<JSX.Element>(([key]) => (
-                    <SelectorRow
+                    <PanelUploadsRow
                         key={key}
                         id={key}
                         title={key}

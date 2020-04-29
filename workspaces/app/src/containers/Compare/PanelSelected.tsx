@@ -3,7 +3,7 @@ import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import { ReactSortable } from 'react-sortablejs'
 
-import { createStyles, ExpansionPanelProps, List, ListItem, Typography } from '@material-ui/core'
+import { createStyles, ExpansionPanelProps, List } from '@material-ui/core'
 
 import { createSmartFC, IMyTheme } from '../../common'
 import MyExpansionPanel from '../../components/MyExpansionPanel'
@@ -45,11 +45,6 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
             {...otherProps}
         >
             <List dense className={classes.list}>
-                <ListItem key='0'>
-                    <Typography color='textSecondary' variant='body2' align='center'>
-                        Favorite blueprints and they will show up here.
-                    </Typography>
-                </ListItem>
                 <ReactSortable
                     handle={`.${classes.handle}`}
                     animation={theme.transitions.duration.standard}
@@ -58,6 +53,7 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                 >
                     {selectionStore.selectedItems.map(({id, name}) => (
                         <PanelSelectedRow
+                            key={id}
                             classes={{handle: classes.handle}}
                             id={id}
                         />

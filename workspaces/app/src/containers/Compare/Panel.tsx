@@ -20,6 +20,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     list: {
         width: '100%',
+        padding: theme.spacing(0),
     },
     secondaryHeading: {
         color: theme.palette.success.dark,

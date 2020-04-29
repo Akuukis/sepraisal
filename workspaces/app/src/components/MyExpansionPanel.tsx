@@ -24,7 +24,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     details: {
-        padding: theme.spacing(0, 2, 0, 0.5),
+        padding: theme.spacing(0, 2, 2, 0.5),
         flexDirection: 'column',
         borderLeftStyle: 'solid',
         borderLeftColor: theme.palette.primary.main,

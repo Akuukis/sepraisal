@@ -154,8 +154,8 @@ export const MY_LIGHT_THEME = createMuiTheme({
         MuiIconButton: {
             sizeSmall: {
                 // Adjust spacing to reach minimal touch target hitbox
-                marginLeft: 4,
-                marginRight: 4,
+                // marginLeft: 4,
+                // marginRight: 4,
                 padding: 12,
             },
         },
