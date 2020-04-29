@@ -61,14 +61,8 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.background.paper,
         '&::after': {
             content: 'a'
-        }
-    },
-    asideFooter: {
-        backgroundColor: theme.palette.background.paper,
-        width: '100%',
-        height: theme.shape.borderRadius,
-        flexShrink: 0,
-        borderRadius: `0 0 ${theme.shape.borderRadius}px 0`,
+        },
+        borderRadius: `0 0 32px 0`,
     },
     aside2Wrapper: {
         width: buttonWidth,
@@ -153,7 +147,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <div className={classes.asideContainer}>
                     {aside}
                 </div>
-                <div className={classes.asideFooter} />
             </Drawer>
             <Toolbar />
             <div className={clsx(classes.mainWrapper, {
