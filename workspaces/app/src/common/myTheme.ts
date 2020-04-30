@@ -169,5 +169,10 @@ export const MY_LIGHT_THEME = createMuiTheme({
                 right: 4,  // For dense, as marginRight above. Normally 16px.
             }
         },
+        MuiLink: {
+            root: {
+                color: SE_COLORS.blue.dark,
+            },
+        },
     },
 } as IMyThemeOptions) as IMyTheme
