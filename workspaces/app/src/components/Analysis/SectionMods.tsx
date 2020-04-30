@@ -9,7 +9,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -52,7 +52,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <MyBoxGroup>
+            <MyBoxColumn>
                 <MyBox variant='header'>
                     <HeaderCell width={2} title='MODS' />
                 </MyBox>
@@ -66,16 +66,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`unique m.blocks`} value={'?'}/>
                     <ValueCell label={`total m.blocks`} value={'?'}/>
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={2} width={6}>
+            </MyBoxColumn>
+            <MyBoxColumn height={2} width={6}>
                 <MyBox width={6}>
                     <ValueCell width={2} label={`dependencies in steam.`} value={'Listed Mods:'} justify='flex-start' alignItems='flex-end'/>
                     <CenterCell width={4} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
                         {mods}
                     </CenterCell>
                 </MyBox>
-            </MyBoxGroup>
-            {/* <MyBoxGroup height={2} width={6}>
+            </MyBoxColumn>
+            {/* <MyBoxColumn height={2} width={6}>
                 <MyBox width={6}>
                     <ValueCell width={2} label={`found in the blueprint.`} value={'non-Vanilla blocks:'} justify='flex-start' alignItems='flex-end'/>
                     <CenterCell width={4} direction='column' justify='flex-start' alignItems='flex-start'>
@@ -84,7 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         </Typography>
                     </CenterCell>
                 </MyBox>
-            </MyBoxGroup> */}
+            </MyBoxColumn> */}
         </>
     )
 })) /* ============================================================================================================= */

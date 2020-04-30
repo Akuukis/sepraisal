@@ -10,7 +10,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -62,7 +62,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <MyBoxGroup height={3} width={3}>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox variant='header' width={1.5}>
                     <HeaderCell width={1.5} title='WORKSHOP' />
                 </MyBox>
@@ -85,8 +85,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
                     <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <img
                         className={classes.img}
@@ -94,27 +94,27 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         alt={bp.steam.title}
                     />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={1} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={1} width={3}>
                 <MyBox width={3}>
                     <ValueCell label={`version`} value={bp.steam.revision}/>
                     <ValueCell label={`size (MB)`} value={bp.steam.sizeMB}/>
                     <ValueCell label={`favorites`} value={bp.steam.favoriteCount}/>
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={1} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={1} width={3}>
                 <MyBox width={3}>
                     <ValueCell label={`if any`} value={'Collections:'} alignItems='flex-end'/>
                     <CenterCell width={2} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
                         {collections}
                     </CenterCell>
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={6} width={6}>
+            </MyBoxColumn>
+            <MyBoxColumn height={6} width={6}>
                 <MyBox width={6}>
                     <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
                 </MyBox>
-            </MyBoxGroup> */}
+            </MyBoxColumn> */}
         </>
     )
 })) /* ============================================================================================================= */

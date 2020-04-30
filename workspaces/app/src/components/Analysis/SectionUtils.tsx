@@ -6,7 +6,7 @@ import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -68,7 +68,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <MyBoxGroup height={4} width={6}>
+            <MyBoxColumn height={4} width={6}>
                 <MyBox variant='header'>
                     <HeaderCell title='UTILITIES' />
                 </MyBox>
@@ -113,7 +113,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='virtual mass' value={virtualMass || '-'} />
                     <ValueCell label='gravity gen.' value={gravityGen || '-'} />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxColumn>
         </>
     )
 })) /* ============================================================================================================= */

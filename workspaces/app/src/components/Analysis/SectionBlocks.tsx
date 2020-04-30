@@ -6,7 +6,7 @@ import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -33,14 +33,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <MyBoxGroup>
+            <MyBoxColumn>
                 <MyBox variant='header'>
                     <HeaderCell title='BLOCKS' />
                 </MyBox>
                 <MyBox>
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={8}>
+            </MyBoxColumn>
+            <MyBoxColumn height={8}>
                 <MyBox width={6}>
                     <Table
                         className={classes.contentTable}
@@ -49,7 +49,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         data={blocks}
                     />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxColumn>
         </>
     )
 })) /* ============================================================================================================= */

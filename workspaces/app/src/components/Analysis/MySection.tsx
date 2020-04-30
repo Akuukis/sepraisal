@@ -7,9 +7,9 @@ import { Grid, GridProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
-import MyBoxGroup from '../MyBoxGroup'
-import MyBox from '../MyBox'
 import ValueCell from '../Cell/ValueCell'
+import MyBox from '../MyBox'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -47,11 +47,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     } else {
         console.log('hello')
         content = (
-            <MyBoxGroup height={2} width={6}>
+            <MyBoxColumn height={2} width={6}>
                 <MyBox width={6} classes={{paper: classes.errorBox}}>
                     <ValueCell width={6} label={error.message} value='Something went wrong.' />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxColumn>
         )
     }
 

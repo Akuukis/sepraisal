@@ -9,7 +9,7 @@ import { CONTEXT } from '../../stores'
 import HeaderCell from '../Cell/HeaderCell'
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -40,7 +40,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <MyBoxGroup height={2} width={3}>
+            <MyBoxColumn height={2} width={3}>
                 <MyBox variant='header'>
                     <HeaderCell title='COSTS' />
                 </MyBox>
@@ -61,8 +61,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='assembler time' value={formatDuration(sbc.componentTime)} />
                     <ValueCell label='refinery time' value={formatDuration(sbc.ingotTime)} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <LegendCell legend='Components' legendProps={{align: 'right'}} />
                     <ValueCell label='mass (kg)' value={formatDecimal(componentMass)} />
@@ -78,7 +78,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='mass (kg)' value={formatDecimal(getOreMass(materials))} />
                     <ValueCell label='volume (l)' value={formatDecimal(getOreVolume(materials))} />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxColumn>
         </>
     )
 })) /* ============================================================================================================= */

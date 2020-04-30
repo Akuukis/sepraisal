@@ -9,7 +9,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -63,7 +63,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <MyBoxGroup>
+            <MyBoxColumn>
                 <MyBox variant='header'>
                     <HeaderCell title='MOBILITY' />
                 </MyBox>
@@ -84,8 +84,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         />
                     </CenterCell> */}
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox>
                     <ValueCell label={`gyros`} value={`${gyros(sbc.blockMass, sbc.gridSize, sbc.blocks)}`} />
                 </MyBox>
@@ -101,8 +101,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`req. 10m/s`} value={reqParachutesForMedium} />
                     <ValueCell label={`req. 5m/s`} value={reqParachutesForSlow} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <LegendCell width={2} legend={`Atmospheric Thrust (m/s\u00B2)`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
@@ -113,8 +113,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`left`} value={speedToFixed(sbc.thrustAtmospheric.Left, sbc.blockMass, 1)} />
                     <ValueCell label={`right`} value={speedToFixed(sbc.thrustAtmospheric.Right, sbc.blockMass, 1)} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <LegendCell width={2} legend={`Hydrogen Thrust (m/s\u00B2)`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />
@@ -125,8 +125,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`left`} value={speedToFixed(sbc.thrustHydrogen.Left, sbc.blockMass, 1)} />
                     <ValueCell label={`right`} value={speedToFixed(sbc.thrustHydrogen.Right, sbc.blockMass, 1)} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <LegendCell width={2} legend={`Ion Thrust (m/s\u00B2)`} />
                     <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
@@ -137,7 +137,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`left`} value={speedToFixed(sbc.thrustIon.Left, sbc.blockMass, 1)} />
                     <ValueCell label={`right`} value={speedToFixed(sbc.thrustIon.Right, sbc.blockMass, 1)} />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxColumn>
         </>
     )
 })) /* ============================================================================================================= */

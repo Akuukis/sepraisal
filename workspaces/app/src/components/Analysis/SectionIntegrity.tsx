@@ -8,7 +8,7 @@ import { vegaSpecHeatmapLegend } from '../../common/vega'
 import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
 
 
@@ -40,7 +40,7 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     // TODO: Simplify Legend & MyBox-es.
     return (
         <>
-            <MyBoxGroup height={3} width={2}>
+            <MyBoxColumn height={3} width={2}>
                 <MyBox variant='header'>
                     <HeaderCell title='INTEGRITY'/>
                 </MyBox>
@@ -51,8 +51,8 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                     <ValueCell label={`width (m)`} value={`${top.length * blockSize}`} />
                     <ValueCell label={`height (m)`} value={`${side.length * blockSize}`} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={1}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={1}>
                 <MyBox>
                     <Vega
                         data={{
@@ -61,22 +61,22 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                         spec={vegaSpecHeatmapLegend}
                     />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <SectionIntegrityHeatmap maxValues={maxValues} plane={top} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <SectionIntegrityHeatmap maxValues={maxValues} plane={front} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={3} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <SectionIntegrityHeatmap maxValues={maxValues} plane={side} />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxColumn>
         </>
     )
 })) /* ============================================================================================================= */

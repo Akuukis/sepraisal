@@ -6,7 +6,7 @@ import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../comm
 import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -44,7 +44,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <MyBoxGroup height={2} width={2}>
+            <MyBoxColumn height={2} width={2}>
                 <MyBox variant='header'>
                     <HeaderCell title='OFFENSIVE' />
                 </MyBox>
@@ -53,8 +53,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     {/* <ValueCell label={`PMM`} value={'?'} /> */}
                     {/* <ValueCell label={`gravity gun`} value={'?'} /> */}
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={2} width={4}>
+            </MyBoxColumn>
+            <MyBoxColumn height={2} width={4}>
                 <MyBox width={4}>
                     <ValueCell label={`fixed DPS`} value={formatDecimal(getFixedDPS(sbc.blocks))} />
                     <ValueCell label={`gatling`} value={fixed.smallGatling || '-'} />
@@ -67,7 +67,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`rocket`} value={(turret.smallMissile + fixed.largeMissile) || '-'} />
                     <ValueCell label={`interior`} value={turret.interior || '-'} />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxColumn>
         </>
     )
 })) /* ============================================================================================================= */

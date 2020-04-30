@@ -8,7 +8,7 @@ import { CONTEXT } from '../../stores'
 import HeaderCell from '../Cell/HeaderCell'
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -71,7 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <MyBoxGroup height={4} width={3}>
+            <MyBoxColumn height={4} width={3}>
                 <MyBox variant='header'>
                     <HeaderCell title='CARGO CAPACITY' />
                 </MyBox>
@@ -92,8 +92,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='oxygen gas (l)' value={totalOxygen ? formatDecimal(totalOxygen) : '-'} />
                     <ValueCell label='hydrogen gas (l)' value={totalHydrogen ? formatDecimal(totalHydrogen) : '-'} />
                 </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={4} width={3}>
+            </MyBoxColumn>
+            <MyBoxColumn height={4} width={3}>
                 <MyBox width={3}>
                     <LegendCell padded width={3} legend='Universal&nbsp;Cargo in&nbsp;terms&nbsp;of&nbsp;various&nbsp;examples' legendProps={{noWrap: false, align: 'center'}} />
                     <ValueCell label='ammo (pc)' value={ammoContainersPotential ? `+${formatDecimal(ammoContainersPotential)}` : '-'} />
@@ -108,7 +108,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label='from ice (l)' value={gasExtra ? `${formatDecimal(gasExtra)}` : '-'} />
                     <ValueCell label='from extra ice (l)' value={gasPotentialExtra ? `+${formatDecimal(gasPotentialExtra)}` : '-'} />
                 </MyBox>
-            </MyBoxGroup>
+            </MyBoxColumn>
         </>
     )
 })) /* ============================================================================================================= */
