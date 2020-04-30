@@ -52,7 +52,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     //     .join('\n')
 
     return (
-        <MySectionInner heading='Mods' label='vanilla' value={bp.sbc.vanilla ? 'Yes' : 'No'}>
+        <MySectionInner heading='Mods' label='status' value={bp.sbc.vanilla ? 'Vanilla' : 'Modded'}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox>

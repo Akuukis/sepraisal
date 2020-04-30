@@ -30,35 +30,27 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: 'unset',
         boxShadow: theme.shadows[0],
     },
-    headerRoot: {
-    },
-    headerPaper: {
-        backgroundColor: theme.palette.success.main,
-        boxShadow: theme.shadows[0],
-    },
 })
 
 
 interface IProps extends GridProps {
-    variant?: 'box' | 'flat' | 'header'
+    variant?: 'box' | 'flat'
     width?: (1 | 2 | 3 | 4 | 5 | 6) | (1.5 | 4.5) | (1.2 | 2.4 | 3.6 | 4.8)
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {className, variant, width, ...otherProps} = props
-    const widthOrDefault = width ?? (variant === 'header' ? 2 : 1)
+    const widthOrDefault = width ?? 1
 
     const parentColumns = React.useContext(CONTEXT.PARENT_COLUMNS)
     const columns = Math.round(widthOrDefault * 2 * 12 / parentColumns) as GridSizeColumns
 
     const rootClassName = clsx(classes.root, {
             [classes.flatRoot]: variant === 'flat',
-            [classes.headerRoot]: variant === 'header',
         }, className)
     const paperClassName = clsx(classes.paper, {
             [classes.flatPaper]: variant === 'flat',
-            [classes.headerPaper]: variant === 'header',
         }, className)
 
     return (

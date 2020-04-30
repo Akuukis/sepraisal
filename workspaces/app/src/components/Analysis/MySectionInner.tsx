@@ -2,11 +2,11 @@ import classnames from 'classnames'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, GridProps } from '@material-ui/core'
+import { Grid, GridProps, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
-import HeaderCell from '../Cell/HeaderCell'
+import CenterCell from '../Cell/CenterCell'
 import ValueCell from '../Cell/ValueCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
@@ -21,16 +21,34 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(0.5),
     },
 
+    CenterCell: {
+        paddingLeft: theme.spacing(3),
+    },
+    heading: {
+        width: '100%',
+        color: theme.palette.success.contrastText,
+    },
     MyBoxColumn: {
     },
     MyBoxRow: {
     },
     MyBox: {
     },
+    MyBoxPaper: {
+        backgroundColor: theme.palette.success.main,
+        boxShadow: theme.shadows[0],
+    },
     HeadingCell: {
     },
     ValueCell: {
-    }
+    },
+    ValueCellLabel: {
+        color: theme.palette.success.light,
+    },
+    ValueCellValue: {
+        fontWeight: 500,
+        color: theme.palette.success.contrastText,
+    },
 })
 
 
@@ -61,11 +79,26 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <CONTEXT.PARENT_COLUMNS.Provider value={12}>
                 <MyBoxColumn className={classes.MyBoxColumn} width={3} {...MyBoxColumnProps}>
                     <MyBoxRow className={classes.MyBoxRow} width={3}>
-                        <MyBox className={classes.MyBox} variant='header'>
-                            <HeaderCell className={classes.HeadingCell} title={heading} />
-                        </MyBox>
-                        <MyBox>
-                            <ValueCell className={classes.ValueCell} label={label} value={value} />
+                        <MyBox width={3} classes={{root: classes.MyBox, paper: classes.MyBoxPaper}}>
+                            <CenterCell width={2} className={classes.CenterCell} {...otherProps}>
+                                <Typography
+                                    variant='h6'
+                                    display='block'
+                                    noWrap
+                                    className={classes.heading}
+                                >
+                                    {heading}
+                                </Typography>
+                            </CenterCell>
+                            <ValueCell
+                                classes={{
+                                    root: classes.ValueCell,
+                                    label: classes.ValueCellLabel,
+                                    value: classes.ValueCellValue,
+                                }}
+                                label={label}
+                                value={value}
+                            />
                         </MyBox>
                     </MyBoxRow>
                     {innerChildren}
