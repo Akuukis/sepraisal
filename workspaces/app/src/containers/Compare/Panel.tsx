@@ -1,92 +1,71 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Divider, Link, List, ListItem, Typography } from '@material-ui/core'
+import { Divider, Grid, Link, Switch, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, DUD_URL as NOOP_URL, IMyTheme } from '../../common'
-import MyExpansionPanel from '../../components/MyExpansionPanel'
+import { createSmartFC, createStyles, DUD_URL, formatDecimal, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
-import SelectorRow from './Row'
+import PanelFavorites from './PanelFavorites'
+import PanelRecent from './PanelRecent'
+import PanelSelected from './PanelSelected'
+import PanelUploads from './PanelUploads'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: '#FFF',
         position: 'relative',
+        padding: theme.spacing(0, 0),
     },
 
-    closeButton: {
-        color: theme.palette.grey[500],
-        position: 'absolute',
-        right: theme.spacing(1),
-        top: theme.spacing(1),
-    },
     list: {
         width: '100%',
+        padding: theme.spacing(0),
+    },
+    subpanel: {
+    },
+    switchItem: {
+        paddingRight: theme.spacing(2),
+    },
+    divider: {
+        backgroundColor: theme.palette.primary.light,
+        margin: theme.spacing(0, 2),
+        height: 2,
+    },
+    footer: {
+        padding: theme.spacing(2),
     }
 })
 
 
 interface IProps {
-    browseFiles(): void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {browseFiles} = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
+
+    const panelClasses = {
+        root: classes.subpanel,
+        list: classes.list,
+    }
 
     return (
         <div className={classes.root}>
-            <MyExpansionPanel title='Uploads' subtitle={`${blueprintStore.uploads.size} blueprints`} defaultExpanded>
-                <List dense className={classes.list}>
-                    <ListItem key='0'>
-                        <Typography color='textSecondary' variant='body2' align='center'>
-                            "Drag and drop" or&nbsp;<Link href={NOOP_URL} variant='body1' onClick={browseFiles}>upload</Link>&nbsp; (sbc only).
-                        </Typography>
-                    </ListItem>
-                    {[...blueprintStore.uploads].map<JSX.Element>(([key]) => (
-                        <SelectorRow
-                            key={key}
-                            id={key}
-                            title={key}
-                        />
-                    ))}
-                </List>
-            </MyExpansionPanel>
-            <Divider />
-            <MyExpansionPanel title='Favorites' subtitle={`${blueprintStore.favorites.size} blueprints`} defaultExpanded>
-                <List dense className={classes.list}>
-                    <ListItem key='0'>
-                        <Typography color='textSecondary' variant='body2' align='center'>
-                            Favorite blueprints and they will show up here.
-                        </Typography>
-                    </ListItem>
-                    {[...blueprintStore.favorites].map<JSX.Element>(([id, blueprint]) => (
-                            <SelectorRow
-                                key={id}
-                                id={id}
-                                title={blueprint?.steam?.title ?? id}
-                            />
-                        ))}
-                </List>
-            </MyExpansionPanel>
-            <Divider />
-            <MyExpansionPanel title='Recent' subtitle={`${blueprintStore.recent.size} blueprints`} defaultExpanded>
-                <List dense className={classes.list}>
-                    <ListItem key='0'>
-                        <Typography color='textSecondary' variant='body2' align='center'>
-                            Recently viewed blueprints will show up here.
-                        </Typography>
-                    </ListItem>
-                    {[...blueprintStore.recent].map<JSX.Element>(([id, blueprint]) => (
-                            <SelectorRow
-                                key={id}
-                                id={id}
-                                title={blueprint?.steam?.title ?? id}
-                            />
-                        ))}
-                </List>
-            </MyExpansionPanel>
+            <Grid container justify='flex-end'>
+                <Grid item className={classes.switchItem}>
+                    <Switch />
+                    <Typography component='span' variant='subtitle2'>narrow columns</Typography>
+                </Grid>
+            </Grid>
+            <PanelSelected classes={panelClasses} />
+            <PanelFavorites classes={panelClasses} defaultExpanded />
+            <PanelUploads classes={panelClasses} />
+            <PanelRecent classes={panelClasses} />
+            <Divider className={classes.divider} />
+            <Typography paragraph variant='caption' className={classes.footer}>
+                Uploads and Recents are cached locally in your browser.
+                You can clear uploads above, and click <Link href={DUD_URL} onClick={blueprintStore.deleteRecentsPast100}>prune recents</Link> to clear all but last 100 recents.
+                Memory used: {formatDecimal(blueprintStore.size/1024/1024, 1)}&nbsp;MB
+            </Typography>
         </div>
     )
 })) /* ============================================================================================================= */

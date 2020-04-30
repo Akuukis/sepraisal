@@ -59,16 +59,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     useAsyncEffectOnce(async () => {
         setStatus(ASYNC_STATE.Doing)
-        try {
-            const cached = blueprintStore.getSomething(bpId)
-            if(cached) {
-                setBlueprint(cached)
-                setStatus(ASYNC_STATE.Done)
+        const cached = blueprintStore.getSomething(bpId)
+        if(cached) {
+            setBlueprint(cached)
+            setStatus(ASYNC_STATE.Done)
 
-                return
-            }
-        } catch(err) {
-            console.info(err.message)
+            return
         }
 
         if(typeof bpId === 'string') {
@@ -113,7 +109,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 
     return (
-        <Grid component='article' className={classes.root} container justify='center' {...otherProps}>
+        <Grid id={bpId as string} component='article' className={classes.root} container justify='center' {...otherProps}>
             {sectionGroup([Header          as Section], true)}
             {'steam' in blueprint ? sectionGroup([SectionWorkshop        as Section]) : null}
             {sectionGroup([SectionIntegrity       as Section])}

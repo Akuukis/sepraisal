@@ -9,8 +9,8 @@ import { CONTEXT } from '../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        marginBottom: '1em',
-        marginTop: '1em',
+        marginBottom: theme.spacing(2),
+        marginTop: theme.spacing(2),
     },
 })
 

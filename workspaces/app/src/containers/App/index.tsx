@@ -40,6 +40,7 @@ import Topbar from '../../components/Topbar'
 import { CONTEXT } from '../../stores'
 import { BlueprintStore } from '../../stores/BlueprintStore'
 import { CardStore } from '../../stores/CardStore'
+import { FavoriteStore } from '../../stores/FavoriteStore'
 import { SelectionStore } from '../../stores/SelectionStore'
 
 
@@ -65,7 +66,8 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const piwikStore = React.useContext(CONTEXT.PIWIK)
-    const [blueprintStore] = React.useState(() => new BlueprintStore())
+    const [favoriteStore] = React.useState(() => new FavoriteStore())
+    const [blueprintStore] = React.useState(() => new BlueprintStore(favoriteStore))
     const [selectionStore] = React.useState(() => new SelectionStore())
     const [cardStore] = React.useState(() => new CardStore(piwikStore))
     const [praisalManager] = React.useState(() => new PraisalManager())
@@ -159,6 +161,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <CONTEXT.BLUEPRINTS.Provider value={blueprintStore}>
+        <CONTEXT.FAVORITES.Provider value={favoriteStore}>
         <CONTEXT.CARDS.Provider value={cardStore}>
         <CONTEXT.PRAISAL_MANAGER.Provider value={praisalManager}>
         <CONTEXT.SELECTION.Provider value={selectionStore}>
@@ -170,6 +173,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </CONTEXT.SELECTION.Provider>
         </CONTEXT.PRAISAL_MANAGER.Provider>
         </CONTEXT.CARDS.Provider>
+        </CONTEXT.FAVORITES.Provider>
         </CONTEXT.BLUEPRINTS.Provider>
     )
 })) /* ============================================================================================================= */

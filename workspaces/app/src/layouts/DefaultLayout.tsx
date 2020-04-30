@@ -2,12 +2,12 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Divider, Drawer, DrawerProps, GridProps, IconButton, Toolbar, Typography } from '@material-ui/core'
+import { Drawer, DrawerProps, GridProps, IconButton, Toolbar, Typography } from '@material-ui/core'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 import skyboxImage from '../../static/skybox.jpg'
-import { createSmartFC, createStyles, IMyTheme, dropShadowFromBoxShadow } from '../common/'
+import { createSmartFC, createStyles, dropShadowFromBoxShadow, IMyTheme } from '../common/'
 import Topbar from '../components/Topbar'
 
 
@@ -32,12 +32,22 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: 'unset',
         borderRight: 0,
         filter: dropShadowFromBoxShadow(theme.shadows[16]),
+        height: 'unset',
+        maxHeight: `calc(100% - ${theme.spacing(6)}px)`,
     },
     asideHeader: {
+        // <Toolbar variant='dense' />
+        ...theme.mixins.toolbar,  // necessary for content to be below app bar
+        minHeight: '48px',
+        [theme.breakpoints.up('sm')]: {
+            minHeight: '48px',
+        },
+
+        zIndex: 1,
+        filter: dropShadowFromBoxShadow(theme.shadows[1]),
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(0, 1),
-        ...theme.mixins.toolbar,  // necessary for content to be below app bar
         justifyContent: 'flex-end',
         backgroundColor: theme.palette.background.paper,
         borderRadius: `0 32px 0 0`,
@@ -51,15 +61,8 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.background.paper,
         '&::after': {
             content: 'a'
-        }
-    },
-    asideFooter: {
-        backgroundColor: theme.palette.background.paper,
-        width: '100%',
-        height: theme.shape.borderRadius,
-        flexShrink: 0,
-        borderRadius: `0 0 ${theme.shape.borderRadius}px 0`,
-        marginBottom: theme.spacing(2),
+        },
+        borderRadius: `0 0 32px 0`,
     },
     aside2Wrapper: {
         width: buttonWidth,
@@ -71,30 +74,28 @@ const styles = (theme: IMyTheme) => createStyles({
         borderRadius: `0 32px 32px 0`,
     },
     mainWrapper: {
-        height: 'calc(100% - 56px)',
-        [theme.breakpoints.up('xs')]: {
-            height: 'calc(100% - 64px)',
+        height: 'calc(100% - 48px)',  // Minus dense toolbar.
+        [theme.breakpoints.up('sm')]: {
+            height: 'calc(100% - 48px)',  // Minus dense toolbar.
         },
         overflowX: 'auto',
     },
     mainWrapperOpen: {
         paddingLeft: drawerWidth,
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
+        transition: theme.transitions.create('padding-left', {
+            delay: '200ms',
         }),
     },
     mainWrapperClosed: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
+        transition: theme.transitions.create('padding-left', {
+            delay: '200ms',
         }),
         paddingLeft: buttonWidth,
     },
     main: {
-        minWidth: `calc(100% - ${theme.spacing(4)}px)`,
-        minHeight: `calc(100% - ${theme.spacing(4)}px)`,
-        padding: theme.spacing(2),
+        minWidth: `calc(100% - ${theme.spacing(2)}px)`,
+        minHeight: `calc(100% - ${theme.spacing(2)}px)`,
+        padding: theme.spacing(1),
     },
 })
 
@@ -143,11 +144,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>
-                <Divider />
                 <div className={classes.asideContainer}>
                     {aside}
                 </div>
-                <div className={classes.asideFooter} />
             </Drawer>
             <Toolbar />
             <div className={clsx(classes.mainWrapper, {
@@ -163,5 +162,5 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 })) /* ============================================================================================================= */
 
-const drawerWidth = 360
+const drawerWidth = 420
 const buttonWidth = 40

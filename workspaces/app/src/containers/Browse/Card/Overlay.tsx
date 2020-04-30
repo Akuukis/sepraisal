@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Typography } from '@material-ui/core'
+import { fade, Grid, Typography } from '@material-ui/core'
 import IconSearch from '@material-ui/icons/Search'
 
 import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../common/'
@@ -16,7 +16,7 @@ import OverlayItem from './OverlayItem'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         '&:hover': {
-            backgroundColor: `${SE_COLORS.grey}80`,
+            backgroundColor: fade(SE_COLORS.grey, 0.5),
         },
         height: 165,
         left: 0,
@@ -124,7 +124,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </OverlayItem>
             <Grid container className={classes.subgroup} direction='column'>
                 <OverlayItem isHover={hover} classes={{container: classes.itemFavorite, containerOnHover: classes.itemFavoriteOnHover}}>
-                    <FavoriteButton id={bp.id} />
+                    <FavoriteButton bpId={bp.id} name={bp.steam!.title} />
                 </OverlayItem>
                 <OverlayItem isHover={hover} classes={{container: classes.itemCompare, containerOnHover: classes.itemCompareOnHover}}>
                     <CompareButton id={bp.id} classes={{off:  classes.itemCompareOff}} />

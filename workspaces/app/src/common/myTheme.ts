@@ -1,4 +1,4 @@
-import { createMuiTheme, Theme, ThemeOptions } from '@material-ui/core'
+import { createMuiTheme, darken, lighten, Theme, ThemeOptions } from '@material-ui/core'
 import { blue, green, red, yellow } from '@material-ui/core/colors'
 
 // Official Space Engineers colors (https://blog.marekrosa.org/2017/09/my-vision-for-visual-style-of-space.html)
@@ -8,10 +8,10 @@ export const SE_COLORS = {
     grey_dark: '#686868',
     white: '#efefef',
 
-    blue    : {main: '#1767ae', dark: '#12528b', light: '#a2c2de'},
-    green   : {main: '#417e3b', dark: '#34642f', light: '#b3cbb0'},
-    red     : {main: '#c01118', dark: '#990d13', light: '#e59fa2'},
-    yellow  : {main: '#f5bf2b', dark: '#c49822', light: '#fbe5aa'},
+    blue    : {main: '#1767ae', dark: darken('#1767ae', 0.2), light: lighten('#1767ae', 0.6)},
+    green   : {main: '#417e3b', dark: darken('#417e3b', 0.2), light: lighten('#417e3b', 0.6)},
+    red     : {main: '#c01118', dark: darken('#c01118', 0.2), light: lighten('#c01118', 0.6)},
+    yellow  : {main: '#f5bf2b', dark: darken('#f5bf2b', 0.2), light: lighten('#f5bf2b', 0.6)},
 }
 
 
@@ -27,7 +27,10 @@ interface IMyThemeOptions extends ThemeOptions {
     }
 }
 
-const defaultTheme = createMuiTheme()
+const SPACING = 4  // Default is 8.
+const defaultTheme = createMuiTheme({
+    spacing: SPACING,
+})
 
 // www.color-hex.com/color
 export const MY_LIGHT_THEME = createMuiTheme({
@@ -66,7 +69,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
             ...SE_COLORS.green,
         },
     },
-    spacing: 4,
+    spacing: SPACING,
 
     /**
      * 10px = 0.625rem
@@ -94,6 +97,77 @@ export const MY_LIGHT_THEME = createMuiTheme({
         },
         caption: {  // Usually with `label` element.
             fontSize: '0.675rem', // 0.75
+        },
+    },
+
+    // Dense mode
+    props: {
+        MuiButton: {
+            size: 'small',
+        },
+        MuiFilledInput: {
+            margin: 'dense',
+        },
+        MuiFormControl: {
+            margin: 'dense',
+        },
+        MuiFormHelperText: {
+            margin: 'dense',
+        },
+        MuiIconButton: {
+            size: 'small',
+        },
+        MuiInputBase: {
+            margin: 'dense',
+        },
+        MuiInputLabel: {
+            margin: 'dense',
+        },
+        MuiListItem: {
+            dense: true,
+        },
+        MuiOutlinedInput: {
+            margin: 'dense',
+        },
+        MuiFab: {
+            size: 'small',
+        },
+        MuiTable: {
+            size: 'small',
+        },
+        MuiTextField: {
+            margin: 'dense',
+        },
+        MuiToolbar: {
+            variant: 'dense',
+        },
+        MuiSvgIcon: {
+            fontSize: 'small',
+        },
+    },
+    overrides: {
+        MuiExpansionPanelSummary: {
+            root: {
+                padding: defaultTheme.spacing(0, 3),  // Normally 24px, wasn't scaled using spacing.
+            },
+        },
+        MuiIconButton: {
+            sizeSmall: {
+                // Adjust spacing to reach minimal touch target hitbox
+                // marginLeft: 4,
+                // marginRight: 4,
+                padding: 12,
+            },
+        },
+        MuiListItem: {
+            gutters: {
+                paddingLeft: defaultTheme.spacing(2),
+            },
+        },
+        MuiListItemSecondaryAction: {
+            root: {
+                right: 4,  // For dense, as marginRight above. Normally 16px.
+            }
         },
     },
 } as IMyThemeOptions) as IMyTheme

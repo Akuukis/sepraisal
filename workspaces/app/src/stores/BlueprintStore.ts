@@ -1,15 +1,19 @@
 import { API_URL, IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
 import { Praisal } from '@sepraisal/praisal'
-import { action, runInAction } from 'mobx'
+import { action, computed, runInAction } from 'mobx'
 import moment from 'moment'
+
+import { FavoriteStore } from './FavoriteStore'
 
 // tslint:disable-next-line: min-class-cohesion
 export class BlueprintStore {
-    public readonly recent = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>, number>()
-    public readonly favorites = new ObservableMap<RequiredSome<IBlueprint, 'sbc' | 'steam'>, number>()
-    public readonly uploads = new ObservableMap<RequiredSome<IBlueprint, 'sbc'>>()
+    public readonly recent = new ObservableMap<BlueprintStore.ICachedSteamBlueprint, number>()
+    public readonly uploads = new ObservableMap<BlueprintStore.ICachedUploadBlueprint>()
 
-    public constructor() {
+    private favoriteStore: FavoriteStore
+
+    public constructor(favoriteStore: FavoriteStore) {
+        this.favoriteStore = favoriteStore
         const keys = Array.from({length: localStorage.length}).map((_, i) => localStorage.key(i))
         runInAction(() => {
             for(const key of keys) {
@@ -18,70 +22,91 @@ export class BlueprintStore {
                 if(value === null) continue
 
                 if(key.slice(0, `recent/`.length) === 'recent/') {
-                    this.recent.set(Number(key.slice(`recent/`.length)), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
-                }
-                if(key.slice(0, `favorite/`.length) === 'favorite/') {
-                    this.favorites.set(Number(key.slice(`favorite/`.length)), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc' | 'steam'>)
+                    const cachedBlueprint = JSON.parse(value) as BlueprintStore.ICachedSteamBlueprint
+                    cachedBlueprint._cached = moment(cachedBlueprint._cached)
+                    this.recent.set(Number(key.slice(`recent/`.length)), cachedBlueprint)
                 }
                 if(key.slice(0, `upload/`.length) === 'upload/') {
-                    this.uploads.set(key.slice(`upload/`.length), JSON.parse(value) as RequiredSome<IBlueprint, 'sbc'>)
+                    const uploadedBlueprint = JSON.parse(value) as BlueprintStore.ICachedUploadBlueprint
+                    uploadedBlueprint._cached = moment(uploadedBlueprint._cached)
+                    this.uploads.set(key.slice(`upload/`.length), uploadedBlueprint)
                 }
             }
         })
     }
 
+    @computed public get size() {
+        // Trigger when recent or uploads changes.
+        let size = 0 * (this.recent.size + this.uploads.size)
+
+        const keys = Array.from({length: localStorage.length}).map((_, i) => localStorage.key(i))
+        for(const key of keys) {
+            if(key === null) continue
+            size = size + key.length
+
+            const value = localStorage.getItem(key)
+            if(value === null) continue
+            size = size + value.length
+        }
+
+        return size
+    }
+
     public deleteSomething(idOrTitle: number | string): boolean {
         if(typeof idOrTitle === 'string') {
-            return this.uploads.delete(idOrTitle)
+            return this.deleteUpload(idOrTitle)
         } else {
-            const favorite = this.favorites.delete(idOrTitle)
-            const recent = this.favorites.delete(idOrTitle)
-            return favorite || recent
+            return this.deleteRecent(idOrTitle)
         }
     }
 
-    public getSomething(id: number): RequiredSome<IBlueprint, 'sbc' | 'steam'>
-    public getSomething(title: string): RequiredSome<IBlueprint, 'sbc'>
-    public getSomething(idOrTitle: number | string): RequiredSome<IBlueprint, 'sbc' | 'steam'> | RequiredSome<IBlueprint, 'sbc'>
+    public getSomething(id: number): BlueprintStore.ICachedSteamBlueprint
+    public getSomething(title: string): BlueprintStore.ICachedUploadBlueprint
+    public getSomething(idOrTitle: number | string): BlueprintStore.ICachedSteamBlueprint | BlueprintStore.ICachedUploadBlueprint
     public getSomething(idOrTitle: number | string) {
         if(typeof idOrTitle === 'string') {
             const upload = this.uploads.get(idOrTitle)
             if(upload) return upload
-
-            throw new Error(`No Upload titled "${idOrTitle}"`)
         } else {
-            const favorite = this.favorites.get(idOrTitle)
-            if(favorite) return favorite
-
             const recent = this.recent.get(idOrTitle)
             if(recent) return recent
-
-            throw new Error(`No Favorite nor Recent with id "${idOrTitle}"`)
         }
+
+        return null
     }
 
     @action public deleteRecent(id: number) {
-        this.recent.delete(id)
         localStorage.removeItem(`recent/${id}`)
+        return this.recent.delete(id)
     }
 
-    @action public deleteFavorite(id: number) {
-        this.favorites.delete(id)
-        localStorage.removeItem(`favorite/${id}`)
-    }
+    public deleteRecentsPast100 = action(() => {
+        if(this.recent.size <= 100) return
+
+        const recents = [...this.recent.entries()]
+            .sort(([_, a], [__, b]) => b._cached.diff(a._cached))
+
+        const remaining = recents.slice(0, 100)
+        const deletes = recents.slice(100)
+
+        this.recent.replace(remaining)
+        deletes.forEach(([id]) => {
+            localStorage.removeItem(`recent/${id}`)
+        })
+    })
 
     @action public deleteUpload(title: string) {
-        this.uploads.delete(title)
+        if(this.favoriteStore.has(title)) this.favoriteStore.shift(title)
         localStorage.removeItem(`upload/${title}`)
+        return this.uploads.delete(title)
     }
 
     @action public setRecent(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
         const id = blueprint._id
+        const _cached = moment()
 
-        localStorage.setItem(`recent/${id}`, JSON.stringify(blueprint))
-        this.recent.set(id, blueprint)
-
-        if(this.favorites.has(id)) this.deleteFavorite(id)
+        localStorage.setItem(`recent/${id}`, JSON.stringify({...blueprint, _cached: _cached.toString()}))
+        this.recent.set(id, {...blueprint, _cached})
 
         return id
     }
@@ -100,26 +125,26 @@ export class BlueprintStore {
         return doc
     }
 
-    @action public setFavorite(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
-        const id = blueprint._id
-        localStorage.setItem(`favorite/${id}`, JSON.stringify(blueprint))
-        this.favorites.set(id, blueprint)
-
-        if(this.recent.has(id)) this.deleteRecent(id)
-
-        return id
-    }
-
     @action public setUpload(praisal: Praisal) {
-        const blueprint: RequiredSome<IBlueprint, 'sbc'> = {
+        const blueprint: BlueprintStore.ICachedUploadBlueprint = {
             _id: 0,
             sbc: praisal.toBlueprintSbc(0),
+            _cached: moment(),
         }
         const title = `${praisal.blummary.title}-${moment().format('MMDD-HHmmss')}`
-        localStorage.setItem(`upload/${title}`, JSON.stringify(blueprint))
+        localStorage.setItem(`upload/${title}`, JSON.stringify({...blueprint, _cached: blueprint._cached.toString()}))
         this.uploads.set(title, blueprint)
 
         return title
     }
 
+}
+
+export namespace BlueprintStore {
+    export interface ICachedSteamBlueprint extends RequiredSome<IBlueprint, 'sbc' | 'steam'> {
+        _cached: moment.Moment
+    }
+    export interface ICachedUploadBlueprint extends RequiredSome<IBlueprint, 'sbc'> {
+        _cached: moment.Moment
+    }
 }

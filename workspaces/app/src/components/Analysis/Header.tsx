@@ -57,7 +57,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <Typography variant='h6' color='inherit' style={{flex: 1}}>
                         {title}
                     </Typography>
-                    <FavoriteButton id={bp._id} />
+                    <FavoriteButton bpId={bp._id!} name={'steam' in bp && bp.steam !== undefined ? bp.steam.title : bp.sbc.gridTitle} />
                     {/* <IconButton color='inherit' aria-label='remove'>
                         <IconClose />
                     </IconButton> TODO: Add Close for Compare view. */}

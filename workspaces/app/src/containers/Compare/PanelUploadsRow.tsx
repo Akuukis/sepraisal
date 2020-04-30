@@ -1,8 +1,9 @@
+import clsx from 'clsx'
 import { runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
+import { fade, IconButton, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
 import IconDeleteForever from '@material-ui/icons/DeleteForever'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
@@ -10,12 +11,14 @@ import FavoriteButton from '../../components/FavoriteButton'
 import { CONTEXT } from '../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
-    root: {},
+    root: {
+        margin: theme.spacing(1, 0),
+    },
     selected: {
         '&:hover': {
-            background: theme.palette.secondary.light,
+            background: fade(theme.palette.background.default, 0.8),
         },
-        'background': theme.palette.secondary.light,
+        'background': theme.palette.background.default,
     },
 })
 
@@ -73,15 +76,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <ListItem
             button
             key={id}
-            className={index === -1 ? '' : classes.selected}
+            className={clsx(classes.root, index === -1 ? '' : classes.selected)}
             onClick={handleToggle}
         >
             <ListItemText
                 primary={title}
             />
             <ListItemSecondaryAction>
-                <FavoriteButton id={typeof id === 'number' ? id : undefined} />
-                <IconButton size='small' onClick={handleDelete} ><IconDeleteForever /></IconButton>
+                <IconButton onClick={handleDelete} ><IconDeleteForever /></IconButton>
+                <FavoriteButton bpId={id} name={title} edge='end' />
             </ListItemSecondaryAction>
         </ListItem>
     )

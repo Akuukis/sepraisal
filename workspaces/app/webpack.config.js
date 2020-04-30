@@ -56,7 +56,7 @@ module.exports = {
                                 "@babel/preset-env",
                                 { targets: { browsers: "> 1%" } } // or whatever your project requires
                             ],
-                            "@babel/preset-typescript",
+                            ["@babel/preset-typescript", {allowNamespaces: true}],
                             "@babel/preset-react"
                         ],
                         plugins: [

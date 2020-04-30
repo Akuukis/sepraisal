@@ -1,4 +1,4 @@
-import { autorun, runInAction } from 'mobx'
+import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -17,7 +17,7 @@ const styles = (theme: IMyTheme) => createStyles({
         margin: 0,
     },
     monospaceBox: {
-        backgroundColor: '#E8E8E8',
+        backgroundColor: theme.palette.background.default,
         fontFamily: '"Roboto Mono", Roboto',
         fontSize: '0.8rem',
         padding: '0px 0px 0px 0.5em',
@@ -65,7 +65,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <MyExpansionPanel title='Advanced' subtitle='' expanded={expanded} onChange={onChange}>
+        <MyExpansionPanel header='Advanced' subheader='' expanded={expanded} onChange={onChange}>
             <Grid container spacing={2}>
                 <Grid item xs={6}>
                     <Button variant='contained' fullWidth onClick={reset}>

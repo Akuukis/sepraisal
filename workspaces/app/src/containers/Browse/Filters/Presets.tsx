@@ -64,7 +64,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     return (
-        <MyExpansionPanel title='Presets' subtitle={getTitle(cardStore.selectedPreset)} expanded={expanded} onChange={onChange}>
+        <MyExpansionPanel header='Presets' subheader={getTitle(cardStore.selectedPreset)} expanded={expanded} onChange={onChange}>
             <List className={classes.list}>
                 {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
             </List>

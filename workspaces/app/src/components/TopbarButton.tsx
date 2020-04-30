@@ -10,7 +10,6 @@ import { CONTEXT } from '../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        // backgroundColor: theme.palette.background.default,
         color: theme.palette.primary.contrastText,
         borderColor: theme.palette.primary.contrastText,
         marginLeft: theme.spacing(1),
