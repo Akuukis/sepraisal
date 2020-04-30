@@ -12,6 +12,7 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         minHeight: theme.shape.boxHeight,
         maxHeight: '100%',
+        padding: theme.spacing(0.5),
     },
 
     paper: {

@@ -10,8 +10,6 @@ import { CONTEXT } from '../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        margin: 0,
-        padding: 0,
         overflow: 'hidden',
     },
 })
@@ -38,7 +36,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             item
 
             container
-            spacing={1}
+            spacing={0}
             justify='space-between'
             alignItems='stretch'
             {...otherProps}

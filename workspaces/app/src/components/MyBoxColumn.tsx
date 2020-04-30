@@ -10,7 +10,6 @@ import { CONTEXT } from '../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        margin: 0,
         overflow: 'hidden',
     },
 })
