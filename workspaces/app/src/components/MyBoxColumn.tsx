@@ -26,7 +26,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const heightOrDefault = height ?? 1
     const widthOrDefault = width ?? 6
 
-    const columns = widthOrDefault * 2 as GridSizeColumns
+    const parentColumns = React.useContext(CONTEXT.PARENT_COLUMNS)
+    const columns = Math.round(widthOrDefault * 2 * 12 / parentColumns) as GridSizeColumns
 
     return (
         <Grid
@@ -42,7 +43,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             justify='space-between'
             {...otherProps}
         >
-            <CONTEXT.PARENT_COLUMNS.Provider value={columns}>
+            <CONTEXT.PARENT_COLUMNS.Provider value={parentColumns/12 * columns as GridSizeColumns}>
                 {children}
             </CONTEXT.PARENT_COLUMNS.Provider>
         </Grid>
