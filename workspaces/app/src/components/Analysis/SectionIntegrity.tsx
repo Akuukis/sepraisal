@@ -9,6 +9,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
 import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
 
 
@@ -41,41 +42,53 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     return (
         <>
             <MyBoxColumn height={3} width={2}>
-                <MyBox variant='header'>
-                    <HeaderCell title='INTEGRITY'/>
-                </MyBox>
-                <MyBox width={2}>
-                    {/* <ValueCell label={`Total Integrity`} value={sbc.blockIntegrity} /> */}
-                    <ValueCell label={`grid size`} value={sbc.gridSize} />
-                    <ValueCell label={`length (m)`} value={`${top[0].length * blockSize}`} />
-                    <ValueCell label={`width (m)`} value={`${top.length * blockSize}`} />
-                    <ValueCell label={`height (m)`} value={`${side.length * blockSize}`} />
-                </MyBox>
+                <MyBoxRow width={2}>
+                    <MyBox variant='header'>
+                        <HeaderCell title='INTEGRITY'/>
+                    </MyBox>
+                </MyBoxRow>
+                <MyBoxRow height={2} width={2}>
+                    <MyBox width={2}>
+                        {/* <ValueCell label={`Total Integrity`} value={sbc.blockIntegrity} /> */}
+                        <ValueCell label={`grid size`} value={sbc.gridSize} />
+                        <ValueCell label={`length (m)`} value={`${top[0].length * blockSize}`} />
+                        <ValueCell label={`width (m)`} value={`${top.length * blockSize}`} />
+                        <ValueCell label={`height (m)`} value={`${side.length * blockSize}`} />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={3} width={1}>
-                <MyBox>
-                    <Vega
-                        data={{
-                            domain: {max: Math.sqrt(maxValues.value)},
-                        }}
-                        spec={vegaSpecHeatmapLegend}
-                    />
-                </MyBox>
+                <MyBoxRow height={3} width={1}>
+                    <MyBox>
+                        <Vega
+                            data={{
+                                domain: {max: Math.sqrt(maxValues.value)},
+                            }}
+                            spec={vegaSpecHeatmapLegend}
+                        />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={3} width={3}>
-                <MyBox width={3}>
-                    <SectionIntegrityHeatmap maxValues={maxValues} plane={top} />
-                </MyBox>
+                <MyBoxRow height={3} width={3}>
+                    <MyBox width={3}>
+                        <SectionIntegrityHeatmap maxValues={maxValues} plane={top} />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={3} width={3}>
-                <MyBox width={3}>
-                    <SectionIntegrityHeatmap maxValues={maxValues} plane={front} />
-                </MyBox>
+                <MyBoxRow height={3} width={3}>
+                    <MyBox width={3}>
+                        <SectionIntegrityHeatmap maxValues={maxValues} plane={front} />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={3} width={3}>
-                <MyBox width={3}>
-                    <SectionIntegrityHeatmap maxValues={maxValues} plane={side} />
-                </MyBox>
+                <MyBoxRow height={3} width={3}>
+                    <MyBox width={3}>
+                        <SectionIntegrityHeatmap maxValues={maxValues} plane={side} />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
         </>
     )

@@ -11,6 +11,7 @@ import { CONTEXT } from '../stores'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         margin: 0,
+        padding: 0,
         overflow: 'hidden',
     },
 })
@@ -32,15 +33,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <Grid
             className={classnames(classes.root, className)}
-            style={{height: heightOrDefault * theme.shape.boxHeight}}
+            style={{flex: heightOrDefault}}
 
             item
-            xs={columns}
 
             container
-            spacing={0}
-            direction='column'
+            spacing={1}
             justify='space-between'
+            alignItems='stretch'
             {...otherProps}
         >
             <CONTEXT.PARENT_COLUMNS.Provider value={columns}>

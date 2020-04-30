@@ -7,6 +7,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -45,28 +46,34 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <>
             <MyBoxColumn height={2} width={2}>
-                <MyBox variant='header'>
-                    <HeaderCell title='OFFENSIVE' />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell label={`warheads`} value={(warheads.small + warheads.large) || '-'} />
-                    {/* <ValueCell label={`PMM`} value={'?'} /> */}
-                    {/* <ValueCell label={`gravity gun`} value={'?'} /> */}
-                </MyBox>
+                <MyBoxRow height={2} width={2}>
+                    <MyBox variant='header'>
+                        <HeaderCell title='OFFENSIVE' />
+                    </MyBox>
+                    <MyBox width={2}>
+                        <ValueCell label={`warheads`} value={(warheads.small + warheads.large) || '-'} />
+                        {/* <ValueCell label={`PMM`} value={'?'} /> */}
+                        {/* <ValueCell label={`gravity gun`} value={'?'} /> */}
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={2} width={4}>
-                <MyBox width={4}>
-                    <ValueCell label={`fixed DPS`} value={formatDecimal(getFixedDPS(sbc.blocks))} />
-                    <ValueCell label={`gatling`} value={fixed.smallGatling || '-'} />
-                    <ValueCell label={`rocket`} value={(fixed.smallMissile + fixed.largeMissile) || '-'} />
-                    <ValueCell label={`rel. rocket`} value={fixed.smallMissileReload || '-'} />
-                </MyBox>
-                <MyBox width={4}>
-                    <ValueCell label={`turret DPS`} value={formatDecimal(getTurretDPS(sbc.blocks))} />
-                    <ValueCell label={`gatling`} value={(turret.smallGatling + turret.largeGatling) || '-'} />
-                    <ValueCell label={`rocket`} value={(turret.smallMissile + fixed.largeMissile) || '-'} />
-                    <ValueCell label={`interior`} value={turret.interior || '-'} />
-                </MyBox>
+                <MyBoxRow width={4}>
+                    <MyBox width={4}>
+                        <ValueCell label={`fixed DPS`} value={formatDecimal(getFixedDPS(sbc.blocks))} />
+                        <ValueCell label={`gatling`} value={fixed.smallGatling || '-'} />
+                        <ValueCell label={`rocket`} value={(fixed.smallMissile + fixed.largeMissile) || '-'} />
+                        <ValueCell label={`rel. rocket`} value={fixed.smallMissileReload || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+                <MyBoxRow width={4}>
+                    <MyBox width={4}>
+                        <ValueCell label={`turret DPS`} value={formatDecimal(getTurretDPS(sbc.blocks))} />
+                        <ValueCell label={`gatling`} value={(turret.smallGatling + turret.largeGatling) || '-'} />
+                        <ValueCell label={`rocket`} value={(turret.smallMissile + fixed.largeMissile) || '-'} />
+                        <ValueCell label={`interior`} value={turret.interior || '-'} />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
         </>
     )

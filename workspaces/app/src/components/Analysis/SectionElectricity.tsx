@@ -7,6 +7,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -36,26 +37,30 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <>
             <MyBoxColumn height={2} width={6}>
-                <MyBox variant='header'>
-                    <HeaderCell title='ELECTRICITY' />
-                </MyBox>
-                <MyBox width={1}>
-                    <ValueCell label={`max output (MW)`} value={maxOutput || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`capacity (MWh)`} value={maxStorage || '-'} />
-                    <ValueCell label={`batteries`} value={batteries || '-'} />
-                    <ValueCell label={`small batteries`} value={smallBatteries || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`small reactors`} value={smallReactors || '-'} />
-                    <ValueCell label={`large reactors`} value={largeReactors || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`hydro engines`} value={hydroEngine || '-'} />
-                    <ValueCell label={`solar panels`} value={solarPanels || '-'} />
-                    <ValueCell label={`wind turbines`} value={windTurbines || '-'} />
-                </MyBox>
+                <MyBoxRow width={6}>
+                    <MyBox variant='header'>
+                        <HeaderCell title='ELECTRICITY' />
+                    </MyBox>
+                    <MyBox width={1}>
+                        <ValueCell label={`max output (MW)`} value={maxOutput || '-'} />
+                    </MyBox>
+                    <MyBox width={3}>
+                        <ValueCell label={`capacity (MWh)`} value={maxStorage || '-'} />
+                        <ValueCell label={`batteries`} value={batteries || '-'} />
+                        <ValueCell label={`small batteries`} value={smallBatteries || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+                <MyBoxRow width={6}>
+                    <MyBox width={3}>
+                        <ValueCell label={`small reactors`} value={smallReactors || '-'} />
+                        <ValueCell label={`large reactors`} value={largeReactors || '-'} />
+                    </MyBox>
+                    <MyBox width={3}>
+                        <ValueCell label={`hydro engines`} value={hydroEngine || '-'} />
+                        <ValueCell label={`solar panels`} value={solarPanels || '-'} />
+                        <ValueCell label={`wind turbines`} value={windTurbines || '-'} />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
         </>
     )

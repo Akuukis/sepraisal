@@ -7,6 +7,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -30,18 +31,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <>
             <MyBoxColumn height={1} width={6}>
-                <MyBox variant='header'>
-                    <HeaderCell title='DEFENSIVE' />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell width={2} label={`Hit Points`} value={formatDecimal(sbc.blockIntegrity)} />
-                </MyBox>
-                <MyBox>
-                    <ValueCell label={`decoys`} value={decoys || '-'} />
-                </MyBox>
-                <MyBox>
-                    <ValueCell label={`welders`} value={welders || '-'} />
-                </MyBox>
+                <MyBoxRow width={6}>
+                    <MyBox variant='header'>
+                        <HeaderCell title='DEFENSIVE' />
+                    </MyBox>
+                    <MyBox width={2}>
+                        <ValueCell width={2} label={`Hit Points`} value={formatDecimal(sbc.blockIntegrity)} />
+                    </MyBox>
+                    <MyBox>
+                        <ValueCell label={`decoys`} value={decoys || '-'} />
+                    </MyBox>
+                    <MyBox>
+                        <ValueCell label={`welders`} value={welders || '-'} />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
         </>
     )

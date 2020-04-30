@@ -11,6 +11,7 @@ import CenterCell from '../Cell/CenterCell'
 import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -63,28 +64,34 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <>
             <MyBoxColumn height={3} width={3}>
-                <MyBox variant='header' width={1.5}>
-                    <HeaderCell width={1.5} title='WORKSHOP' />
-                </MyBox>
-                <MyBox width={1.5}>
-                    <ValueCell label={`author`} value={author}/>
-                    {/* <CenterCell width={1.5}>
-                        <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
-                            <Steam />
-                            <Typography variant='body1'>{'Subscribe'}</Typography>
-                        </Button>
-                    </CenterCell> */}
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
-                    <ValueCell label={starsDef} value={starsValue} />
-                    <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
-                    <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
-                    <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
-                </MyBox>
+                <MyBoxRow width={3}>
+                    <MyBox variant='header' width={1.5}>
+                        <HeaderCell width={1.5} title='WORKSHOP' />
+                    </MyBox>
+                    <MyBox width={1.5}>
+                        <ValueCell label={`author`} value={author}/>
+                        {/* <CenterCell width={1.5}>
+                            <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
+                                <Steam />
+                                <Typography variant='body1'>{'Subscribe'}</Typography>
+                            </Button>
+                        </CenterCell> */}
+                    </MyBox>
+                </MyBoxRow>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
+                        <ValueCell label={starsDef} value={starsValue} />
+                        <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
+                    </MyBox>
+                </MyBoxRow>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <ValueCell label={`comments`} value={formatDecimal(bp.steam.commentCount)} />
+                        <ValueCell label={'posted'} value={moment(bp.steam.postedDate).format('YYYY-MM')} />
+                        <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
@@ -96,25 +103,31 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </MyBox>
             </MyBoxColumn>
             <MyBoxColumn height={1} width={3}>
-                <MyBox width={3}>
-                    <ValueCell label={`version`} value={bp.steam.revision}/>
-                    <ValueCell label={`size (MB)`} value={bp.steam.sizeMB}/>
-                    <ValueCell label={`favorites`} value={bp.steam.favoriteCount}/>
-                </MyBox>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <ValueCell label={`version`} value={bp.steam.revision}/>
+                        <ValueCell label={`size (MB)`} value={bp.steam.sizeMB}/>
+                        <ValueCell label={`favorites`} value={bp.steam.favoriteCount}/>
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={1} width={3}>
-                <MyBox width={3}>
-                    <ValueCell label={`if any`} value={'Collections:'} alignItems='flex-end'/>
-                    <CenterCell width={2} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
-                        {collections}
-                    </CenterCell>
-                </MyBox>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <ValueCell label={`if any`} value={'Collections:'} alignItems='flex-end'/>
+                        <CenterCell width={2} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
+                            {collections}
+                        </CenterCell>
+                    </MyBox>
+                </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={6} width={6}>
-                <MyBox width={6}>
-                    <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
-                </MyBox>
-            </MyBoxColumn> */}
+                <MyBoxRow height={6} width={6}>
+                    <MyBox width={6}>
+                        <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
         </>
     )
 })) /* ============================================================================================================= */
