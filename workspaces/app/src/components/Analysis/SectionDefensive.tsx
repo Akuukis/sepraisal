@@ -4,10 +4,9 @@ import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -29,24 +28,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const welders = (sbc.blocks['ShipWelder/LargeShipWelder'] ?? 0) + (sbc.blocks['ShipWelder/SmallShipWelder'] ?? 0)
 
     return (
-        <>
-            <MyBoxColumn height={1} width={6}>
-                <MyBoxRow width={6}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='DEFENSIVE' />
-                    </MyBox>
-                    <MyBox width={2}>
-                        <ValueCell width={2} label={`Hit Points`} value={formatDecimal(sbc.blockIntegrity)} />
-                    </MyBox>
-                    <MyBox>
-                        <ValueCell label={`decoys`} value={decoys || '-'} />
-                    </MyBox>
-                    <MyBox>
-                        <ValueCell label={`welders`} value={welders || '-'} />
-                    </MyBox>
-                </MyBoxRow>
-            </MyBoxColumn>
-        </>
+        <MySectionInner heading='Defensive' label='Hit Points' value={formatDecimal(sbc.blockIntegrity)}>
+            <MyBoxRow width={3}>
+                <MyBox>
+                    <ValueCell label={`decoys`} value={decoys || '-'} />
+                </MyBox>
+                <MyBox>
+                    <ValueCell label={`welders`} value={welders || '-'} />
+                </MyBox>
+            </MyBoxRow>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

@@ -4,10 +4,10 @@ import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -67,21 +67,46 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         + (sbc.blocks["Cockpit/SmallBlockCockpitIndustrial"] ?? 0)
         + (sbc.blocks["Cockpit/LargeBlockCockpitIndustrial"] ?? 0)
 
+    const total = 0
+        + remotes
+        + cameras
+        + oreDetectors
+        + landingGears
+        + beacons
+        + radioAntennas
+        + laserAntenna
+        + spotlights
+        + medical
+        + cryoChambers
+        + survivalKits
+        + airVents
+        // + oxygenTanks
+        + oxygenFarm
+        + oxygenGenerator
+        // + hydrogenTanks
+        + connectors
+        + ejectors
+        + virtualMass
+        + gravityGen
+        + mergeBlocks
+        + lights
+        + cockpits
+
     return (
-        <>
-            <MyBoxColumn height={4} width={6}>
-                <MyBoxRow height={4} width={6}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='UTILITIES' />
-                    </MyBox>
+        <MySectionInner heading='Utilities' label='total' value={total}>
+            <MyBoxColumn height={1} width={3}>
+                <MyBoxRow height={1} width={3}>
                     <MyBox width={2}>
                         <ValueCell label='cockpits' value={cockpits || '-'} />
                         <ValueCell label='remotes' value={remotes || '-'} />
                     </MyBox>
-                    <MyBox width={2}>
+                    <MyBox width={1}>
                         <ValueCell label='cameras' value={cameras || '-'} />
-                        <ValueCell label='ore detectors' value={oreDetectors || '-'} />
                     </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={6}>
+                <MyBoxRow height={3} width={6}>
                     <MyBox width={3}>
                         <ValueCell label='landing gears' value={landingGears || '-'} />
                         <ValueCell label='connectors' value={connectors || '-'} />
@@ -98,18 +123,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <ValueCell label='survival kits' value={survivalKits || '-'} />
                     </MyBox>
                     <MyBox width={1}>
-                        <ValueCell label='ejectors' value={ejectors || '-'} />
+                        <ValueCell label='ore detectors' value={oreDetectors || '-'} />
                     </MyBox>
                     <MyBox width={2}>
                         <ValueCell label='spotlights' value={spotlights || '-'} />
                         <ValueCell label='lights' value={lights || '-'} />
                     </MyBox>
-                    <MyBox width={4}>
+                    <MyBox width={3}>
                         <ValueCell label='air vents' value={airVents || '-'} />
-                        <ValueCell label='oxygen tanks' value={oxygenTanks || '-'} />
-                        {/* <ValueCell label='oxygen farm' value={oxygenFarm || '-'} /> */}
+                        <ValueCell label='oxygen farm' value={oxygenFarm || '-'} />
                         <ValueCell label='oxygen generator' value={oxygenGenerator || '-'} />
-                        <ValueCell label='hydrogen tanks' value={hydrogenTanks || '-'} />
+                    </MyBox>
+                    <MyBox width={1}>
+                        <ValueCell label='ejectors' value={ejectors || '-'} />
                     </MyBox>
                     <MyBox width={2}>
                         <ValueCell label='virtual mass' value={virtualMass || '-'} />
@@ -117,7 +143,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

@@ -7,10 +7,10 @@ import { InputAdornment, MenuItem, TextField, Typography } from '@material-ui/co
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import CenterCell from '../Cell/CenterCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -158,14 +158,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <>
-            <MyBoxColumn>
-                <MyBoxRow width={6}>
-                    <MyBox variant='header' width={1.5}>
-                        <HeaderCell width={1.5} title='MATERIALS' />
-                    </MyBox>
-                    <MyBox width={1.5}>
-                        <CenterCell width={1.5} padded>
+        <MySectionInner heading='Materials' label='?' value={'?'}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <CenterCell width={3} padded>
                             <TextField
                                 select
                                 value={syntax}
@@ -180,8 +177,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             </TextField>
                         </CenterCell>
                     </MyBox>
-                    <MyBox width={1.5}>
-                        <CenterCell width={1.5} padded>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn width={6}>
+                <MyBoxRow width={6}>
+                    <MyBox width={3}>
+                        <CenterCell width={3} padded>
                             <TextField
                                 select
                                 value={type}
@@ -194,8 +195,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             </TextField>
                         </CenterCell>
                     </MyBox>
-                    <MyBox width={1.5}>
-                        <CenterCell width={1.5} padded>
+                    <MyBox width={3}>
+                        <CenterCell width={3} padded>
                             <TextField
                                 id='copies'
                                 type='number'
@@ -220,7 +221,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

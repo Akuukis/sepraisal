@@ -4,10 +4,10 @@ import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -35,21 +35,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const windTurbines = (sbc.blocks['WindTurbine/LargeBlockWindTurbine'] ?? 0)
 
     return (
-        <>
-            <MyBoxColumn height={2} width={6}>
-                <MyBoxRow width={6}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='ELECTRICITY' />
-                    </MyBox>
-                    <MyBox width={1}>
-                        <ValueCell label={`max output (MW)`} value={maxOutput || '-'} />
-                    </MyBox>
+        <MySectionInner heading='Electricity' label='max output (MW)' value={maxOutput || '-'}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
                     <MyBox width={3}>
                         <ValueCell label={`capacity (MWh)`} value={maxStorage || '-'} />
                         <ValueCell label={`batteries`} value={batteries || '-'} />
                         <ValueCell label={`small batteries`} value={smallBatteries || '-'} />
                     </MyBox>
                 </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn width={6}>
                 <MyBoxRow width={6}>
                     <MyBox width={3}>
                         <ValueCell label={`small reactors`} value={smallReactors || '-'} />
@@ -62,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

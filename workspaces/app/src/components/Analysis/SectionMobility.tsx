@@ -6,11 +6,11 @@ import { hot } from 'react-hot-loader/root'
 import { formatDecimal } from '../../common'
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -63,16 +63,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     // const valuetext = (value: number) => `${value}°C`
 
     return (
-        <>
-            <MyBoxColumn>
-                <MyBoxRow width={6}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='MOBILITY' />
-                    </MyBox>
-                    <MyBox>
-                        <ValueCell label={`dry mass (kg)`} value={`${formatDecimal(sbc.blockMass)}`} />
-                        {/* <ValueCell label={`Grid Type`} value={sbc.gridStatic ? `Static` : `Vehicle`} /> */}
-                    </MyBox>
+        <MySectionInner heading='Mobility' label='dry mass (kg)' value={formatDecimal(sbc.blockMass)}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
                     <MyBox width={3}>
                         <ValueCell width={3} label={`Wheels`} value={wheeled(sbc.blocks)} />
                         {/* <CenterCell padded>
@@ -151,7 +144,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

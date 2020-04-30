@@ -4,10 +4,10 @@ import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -33,14 +33,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         .sort((a, b) => b.count - a.count)
 
     return (
-        <>
-            <MyBoxColumn>
-                <MyBoxRow width={6}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='BLOCKS' />
-                    </MyBox>
-                    <MyBox>
-                    </MyBox>
+        <MySectionInner heading='Blocks' label='block count' value={sbc.blockCount}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow>
                 </MyBoxRow>
             </MyBoxColumn>
             <MyBoxColumn height={8}>
@@ -55,7 +50,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 
@@ -67,6 +62,7 @@ const datumTitles = {
 
 type ProjectionCardSbc =
     | 'blocks'
+    | 'blockCount'
 
 interface IBpProjectionRow {
     sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]},

@@ -6,11 +6,11 @@ import { hot } from 'react-hot-loader/root'
 import { createSmartFC, createStyles, formatDecimal, formatDuration, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import { CONTEXT } from '../../stores'
-import HeaderCell from '../Cell/HeaderCell'
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -40,16 +40,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     return (
-        <>
-            <MyBoxColumn height={3} width={3}>
-                <MyBoxRow width={3}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='COSTS' />
-                    </MyBox>
-                    <MyBox>
-                        <ValueCell label='PCU' value={formatDecimal(sbc.blockPCU)} />
-                    </MyBox>
-                </MyBoxRow>
+        <MySectionInner
+            heading='Costs'
+            label='PCU'
+            value={formatDecimal(sbc.blockPCU)}
+            MyBoxColumnProps={{height: 3}}
+            innerChildren={(<>
                 <MyBoxRow width={3}>
                     <MyBox>
                         <ValueCell label='grids' value={formatDecimal(sbc.gridCount)} />
@@ -68,7 +64,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <ValueCell label='refinery time' value={formatDuration(sbc.ingotTime)} />
                     </MyBox>
                 </MyBoxRow>
-            </MyBoxColumn>
+            </>)}
+        >
             <MyBoxColumn height={3} width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
@@ -92,7 +89,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

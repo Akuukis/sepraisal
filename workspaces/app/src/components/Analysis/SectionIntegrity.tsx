@@ -6,10 +6,10 @@ import Vega from 'react-vega'
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { vegaSpecHeatmapLegend } from '../../common/vega'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
 
 
@@ -40,14 +40,13 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
 
     // TODO: Simplify Legend & MyBox-es.
     return (
-        <>
-            <MyBoxColumn height={3} width={2}>
-                <MyBoxRow width={2}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='INTEGRITY'/>
-                    </MyBox>
-                </MyBoxRow>
-                <MyBoxRow height={2} width={2}>
+        <MySectionInner
+            heading='X-Ray'
+            label='?'
+            value={'?'}
+            MyBoxColumnProps={{height: 3}}
+            innerChildren={(
+                <MyBoxRow height={2} width={3}>
                     <MyBox width={2}>
                         {/* <ValueCell label={`Total Integrity`} value={sbc.blockIntegrity} /> */}
                         <ValueCell label={`grid size`} value={sbc.gridSize} />
@@ -55,10 +54,6 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                         <ValueCell label={`width (m)`} value={`${top.length * blockSize}`} />
                         <ValueCell label={`height (m)`} value={`${side.length * blockSize}`} />
                     </MyBox>
-                </MyBoxRow>
-            </MyBoxColumn>
-            <MyBoxColumn height={3} width={1}>
-                <MyBoxRow height={3} width={1}>
                     <MyBox>
                         <Vega
                             data={{
@@ -68,7 +63,8 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                         />
                     </MyBox>
                 </MyBoxRow>
-            </MyBoxColumn>
+            )}
+        >
             <MyBoxColumn height={3} width={3}>
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>
@@ -90,7 +86,7 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

@@ -8,10 +8,10 @@ import { Link, Typography } from '@material-ui/core'
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkAuthor, linkCollection } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -62,13 +62,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </Link>)
 
     return (
-        <>
-            <MyBoxColumn height={3} width={3}>
+        <MySectionInner
+            heading='Workshop'
+            label='subscribers'
+            value={formatDecimal(bp.steam.subscriberCount)}
+            MyBoxColumnProps={{height: 3}}
+            innerChildren={(<>
                 <MyBoxRow width={3}>
-                    <MyBox variant='header' width={1.5}>
-                        <HeaderCell width={1.5} title='WORKSHOP' />
-                    </MyBox>
-                    <MyBox width={1.5}>
+                    <MyBox width={3}>
                         <ValueCell label={`author`} value={author}/>
                         {/* <CenterCell width={1.5}>
                             <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
@@ -76,11 +77,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                                 <Typography variant='body1'>{'Subscribe'}</Typography>
                             </Button>
                         </CenterCell> */}
-                    </MyBox>
-                </MyBoxRow>
-                <MyBoxRow width={3}>
-                    <MyBox width={3}>
-                        <ValueCell label={`subscribers`} value={formatDecimal(bp.steam.subscriberCount)} />
                         <ValueCell label={starsDef} value={starsValue} />
                         <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
                     </MyBox>
@@ -92,7 +88,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <ValueCell label={'updated'} value={moment(bp.steam.updatedDate).format('YYYY-MM')} />
                     </MyBox>
                 </MyBoxRow>
-            </MyBoxColumn>
+            </>)}
+        >
             <MyBoxColumn height={3} width={3}>
                 <MyBox width={3}>
                     <img
@@ -128,7 +125,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

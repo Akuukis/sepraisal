@@ -23,10 +23,11 @@ interface IProps extends GridProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {className, height, width, ...otherProps} = props
-    const heightOrDefault = height ?? 1
-    const widthOrDefault = width ?? 6
-
     const parentColumns = React.useContext(CONTEXT.PARENT_COLUMNS)
+
+    const heightOrDefault = height ?? 1
+    const widthOrDefault = width ?? parentColumns/2
+
     const columns = Math.round(widthOrDefault * 2 * 12 / parentColumns) as GridSizeColumns
 
     return (

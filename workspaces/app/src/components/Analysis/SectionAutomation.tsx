@@ -4,10 +4,10 @@ import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -56,25 +56,25 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         + (sbc.blocks["TextPanel/TransparentLCDSmall"] ?? 0)
 
     return (
-        <>
-            <MyBoxColumn height={2} width={6}>
-                <MyBoxRow width={6}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='AUTOMATION' />
-                    </MyBox>
-                    <MyBox width={2}>
-                        <ValueCell width={2} label={`prog.blocks`} value={progBlocks || '-'} />
-                    </MyBox>
+        <MySectionInner heading='Automation' label='prog.blocks' value={progBlocks || '-'}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow>
                     <MyBox width={2}>
                         <ValueCell label={`projectors`} value={projectors || '-'} />
                     </MyBox>
                 </MyBoxRow>
-                <MyBoxRow width={6}>
+            </MyBoxColumn>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
                     <MyBox width={3}>
                         <ValueCell label={`LCDs`} value={lcds || '-'} />
                         <ValueCell label={`buttons`} value={buttons || '-'} />
                         <ValueCell label={`soundBlocks`} value={soundBlocks || '-'} />
                     </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
                     <MyBox width={3}>
                         <ValueCell label={`sensors`} value={sensors || '-'} />
                         <ValueCell label={`timers`} value={timers || '-'} />
@@ -82,7 +82,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

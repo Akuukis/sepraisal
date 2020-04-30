@@ -7,10 +7,10 @@ import { Link } from '@material-ui/core'
 import { createSmartFC, createStyles, IMyTheme, linkBp } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -52,15 +52,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     //     .join('\n')
 
     return (
-        <>
-            <MyBoxColumn>
-                <MyBoxRow width={6}>
-                    <MyBox variant='header'>
-                        <HeaderCell width={2} title='MODS' />
-                    </MyBox>
-                    <MyBox>
-                        <ValueCell label={`vanilla`} value={bp.sbc.vanilla ? 'Yes' : 'No'}/>
-                    </MyBox>
+        <MySectionInner heading='Mods' label='vanilla' value={bp.sbc.vanilla ? 'Yes' : 'No'}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
                     <MyBox>
                         <ValueCell label={`listed mods`} value={mods.length}/>
                     </MyBox>
@@ -90,7 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </CenterCell>
                 </MyBox>
             </MyBoxColumn> */}
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 

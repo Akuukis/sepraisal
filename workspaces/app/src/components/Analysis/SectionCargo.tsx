@@ -5,11 +5,11 @@ import { hot } from 'react-hot-loader/root'
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import { CONTEXT } from '../../stores'
-import HeaderCell from '../Cell/HeaderCell'
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MySectionInner from './MySectionInner'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -71,19 +71,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     return (
-        <>
-            <MyBoxColumn height={4} width={3}>
-                <MyBoxRow height={1} width={3}>
-                    <MyBox variant='header'>
-                        <HeaderCell title='CARGO CAPACITY' />
-                    </MyBox>
-                    <MyBox>
-                        <ValueCell label='total cargo (l)' value={formatDecimal(totalItemVolume)} />
-                    </MyBox>
-                    {/* <MyBox>
-                        <ValueCell label='generators' value={generators || '-'} />
-                    </MyBox> */}
-                </MyBoxRow>
+        <MySectionInner
+            heading='Cargo Capacity'
+            label='total cargo (l)'
+            value={formatDecimal(totalItemVolume)}
+            MyBoxColumnProps={{height: 4}}
+            innerChildren={(
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>
                         <LegendCell legend='Breakdown' legendProps={{align: 'center'}} />
@@ -97,7 +90,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <ValueCell label='hydrogen gas (l)' value={totalHydrogen ? formatDecimal(totalHydrogen) : '-'} />
                     </MyBox>
                 </MyBoxRow>
-            </MyBoxColumn>
+            )}
+        >
             <MyBoxColumn height={4} width={3}>
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>
@@ -118,7 +112,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </>
+        </MySectionInner>
     )
 })) /* ============================================================================================================= */
 
