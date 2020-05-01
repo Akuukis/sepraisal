@@ -3,7 +3,6 @@ import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { formatDecimal } from '../../common'
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import LegendCell from '../Cell/LegendCell'
@@ -42,6 +41,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const reqParachutesForMedium = getRequiredParachutes(10, mass, sbc.gridSize)
     const reqParachutesForFast = getRequiredParachutes(15, mass, sbc.gridSize)
 
+    const avgThrustAtmospheric = averageThrust(sbc.thrustAtmospheric)
+    const avgThrustHydrogen = averageThrust(sbc.thrustHydrogen)
+    const avgThrustIon = averageThrust(sbc.thrustIon)
+    const totalThrust = 0
+        + avgThrustAtmospheric
+        + avgThrustIon
+        + (avgThrustHydrogen / 2)
+    const totalAccel = speedToFixed(totalThrust, sbc.blockMass, 1)
+
     // const marks = [
     //     {
     //         value: 0,
@@ -63,7 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     // const valuetext = (value: number) => `${value}°C`
 
     return (
-        <MySectionInner heading='Mobility' label='dry mass (kg)' value={formatDecimal(sbc.blockMass)}>
+        <MySectionInner heading='Mobility' label={'avg accel. (m/s\u00B2)'} value={totalAccel}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
@@ -95,7 +103,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <MyBox width={3}>
                         <LegendCell legend={`Parachutes`} />
                         <ValueCell label={`amount`} value={parachutes || '-'} />
-                        <ValueCell label={`t. velocity (m/s\u00B2)`} value={terminalVelocity(sbc.blockMass, sbc.blocks)} />
+                        <ValueCell label={`t. velocity (m/s)`} value={terminalVelocity(sbc.blockMass, sbc.blocks)} />
                         <ValueCell label={`req. 15m/s`} value={reqParachutesForFast} />
                         <ValueCell label={`req. 10m/s`} value={reqParachutesForMedium} />
                         <ValueCell label={`req. 5m/s`} value={reqParachutesForSlow} />
@@ -105,7 +113,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <MyBoxColumn height={3} width={3}>
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>
-                        <LegendCell width={2} legend={`Atmospheric Thrust (m/s\u00B2)`} />
+                        <LegendCell width={2} legend={`Atmo. acceleration (m/s\u00B2)`} />
                         <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustAtmospheric), sbc.blockMass, 1)} />
                         <ValueCell label={`upward`} value={speedToFixed(sbc.thrustAtmospheric.Up, sbc.blockMass, 1)} />
                         <ValueCell label={`forward`} value={speedToFixed(sbc.thrustAtmospheric.Forward, sbc.blockMass, 1)} />
@@ -119,7 +127,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <MyBoxColumn height={3} width={3}>
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>
-                        <LegendCell width={2} legend={`Hydrogen Thrust (m/s\u00B2)`} />
+                        <LegendCell width={2} legend={`Hydro. acceleration (m/s\u00B2)`} />
                         <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustHydrogen), sbc.blockMass, 1)} />
                         <ValueCell label={`upward`} value={speedToFixed(sbc.thrustHydrogen.Up, sbc.blockMass, 1)} />
                         <ValueCell label={`forward`} value={speedToFixed(sbc.thrustHydrogen.Forward, sbc.blockMass, 1)} />
@@ -133,7 +141,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <MyBoxColumn height={3} width={3}>
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>
-                        <LegendCell width={2} legend={`Ion Thrust (m/s\u00B2)`} />
+                        <LegendCell width={2} legend={`Ion acceleration (m/s\u00B2)`} />
                         <ValueCell label={`average`} value={speedToFixed(averageThrust(sbc.thrustIon), sbc.blockMass, 1)} />
                         <ValueCell label={`upward`} value={speedToFixed(sbc.thrustIon.Up, sbc.blockMass, 1)} />
                         <ValueCell label={`forward`} value={speedToFixed(sbc.thrustIon.Forward, sbc.blockMass, 1)} />

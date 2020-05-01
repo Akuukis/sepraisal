@@ -5,7 +5,6 @@ import Vega from 'react-vega'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { vegaSpecHeatmapLegend } from '../../common/vega'
-import ValueCell from '../../components/Cell/ValueCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
@@ -36,25 +35,15 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
         y: Math.max(yRaw, Math.round(xRaw * 151 / 268)),
     }
 
-    const blockSize = sbc.gridSize === 'Small' ? 0.5 : 2.5
-
-    // TODO: Simplify Legend & MyBox-es.
     return (
         <MySectionInner
             heading='X-Ray'
-            label='?'
-            value={'?'}
+            label={'grid size'}
+            value={sbc.gridSize}
             MyBoxColumnProps={{height: 3}}
             innerChildren={(
                 <MyBoxRow height={2} width={3}>
-                    <MyBox width={2}>
-                        {/* <ValueCell label={`Total Integrity`} value={sbc.blockIntegrity} /> */}
-                        <ValueCell label={`grid size`} value={sbc.gridSize} />
-                        <ValueCell label={`length (m)`} value={`${top[0].length * blockSize}`} />
-                        <ValueCell label={`width (m)`} value={`${top.length * blockSize}`} />
-                        <ValueCell label={`height (m)`} value={`${side.length * blockSize}`} />
-                    </MyBox>
-                    <MyBox>
+                    <MyBox width={3}>
                         <Vega
                             data={{
                                 domain: {max: Math.sqrt(maxValues.value)},
