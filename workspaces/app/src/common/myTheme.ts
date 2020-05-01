@@ -14,6 +14,12 @@ export const SE_COLORS = {
     yellow  : {main: '#f5bf2b', dark: darken('#f5bf2b', 0.2), light: lighten('#f5bf2b', 0.6)},
 }
 
+export const STEAM_COLORS = {
+    blue: '#1b2838',
+    grey: '#acb2b8',
+    white: '#ffffff',
+}
+
 
 export interface IMyTheme extends Theme {
     shape: Theme['shape'] & {

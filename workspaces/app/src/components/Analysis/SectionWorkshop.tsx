@@ -5,7 +5,15 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkAuthor, linkCollection } from '../../common/'
+import {
+    createSmartFC,
+    createStyles,
+    formatDecimal,
+    IMyTheme,
+    linkAuthor,
+    linkCollection,
+    STEAM_COLORS,
+} from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
@@ -29,7 +37,8 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
         paddingTop: theme.spacing(2),
-        backgroundColor: theme.palette.primary.light,
+        color: STEAM_COLORS.white,
+        backgroundColor: STEAM_COLORS.blue,
         '& > img': {
             maxWidth: `calc(100% - ${theme.spacing(4)}px)`,
         },
