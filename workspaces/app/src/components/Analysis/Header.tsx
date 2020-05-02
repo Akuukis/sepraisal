@@ -12,6 +12,7 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         zIndex: theme.zIndex.appBar - 200,
     },
+
     header: {
         '&:visited': {
             color: theme.palette.secondary.main,
@@ -19,6 +20,9 @@ const styles = (theme: IMyTheme) => createStyles({
         '&:link': {
             color: 'white',
         },
+    },
+    toolbar: {
+        backgroundColor: theme.palette.success.main,
     }
 })
 
@@ -47,7 +51,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <>
             <AppBar position='static' className={classes.root}>
-                <Toolbar>
+                <Toolbar className={classes.toolbar}>
                     <Avatar style={{marginRight: '0.5em'}}>
                         {author}
                     </Avatar>
