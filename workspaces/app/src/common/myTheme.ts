@@ -19,7 +19,7 @@ export const STEAM_COLORS = {
     grey: '#acb2b8',
     white: '#ffffff',
 }
-export const THUMB_WIDTH = 268
+export const THUMB_WIDTH = 268  // 536 ~ 600
 export const THUMB_HEIGHT = 151
 
 
@@ -37,6 +37,38 @@ interface IMyThemeOptions extends ThemeOptions {
     }
 }
 
+/*
+2020-05: https://gs.statcounter.com/screen-resolution-stats
+- 10.31% - 360x640
+- 8.94% - 1366x768
+- 7.70% - 1920x1080
+- 4.52% - 375x667
+- 4.45% - 414x896
+- 3.29%  - 1536x864
+- next - 1600x900
+*/
+
+//  xs      sm       md       lg       xl
+//  0px     600px    960px    1280px   1920px - default
+//  0px     640px    960px    1280px   1920px - multiples of 640: 1, 1.5, 2, 3
+//  0px     600px    900px    1200px   1800px - multiples of 600: 1, 1.5, 2, 3
+
+// Analysis
+// xs-sm: stretching half column
+// sm-md: whole column
+// md-lg: whole column
+// lg-xl: two columns
+// xl+++: three columns
+
+// Compare
+// xs-sm: "sorry, please use landscape"
+// sm-md: half column + fullscreen drawer
+// md-lg: half column + side drawer
+// lg-xl: whole column
+// xl+++: whole column
+
+
+
 const SPACING = 4  // Default is 8.
 const defaultTheme = createMuiTheme({
     spacing: SPACING,
@@ -44,6 +76,15 @@ const defaultTheme = createMuiTheme({
 
 // www.color-hex.com/color
 export const MY_LIGHT_THEME = createMuiTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 900,
+            lg: 1200,
+            xl: 1800,
+        },
+    },
     shape: {
         ...defaultTheme.shape,
         boxHeight: 50,

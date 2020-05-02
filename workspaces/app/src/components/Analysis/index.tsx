@@ -30,6 +30,9 @@ const styles = (theme: IMyTheme) => createStyles({
         [theme.breakpoints.up('lg')]: {
             maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 2,
         },
+        [theme.breakpoints.up('xl')]: {
+            maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 3,
+        },
     },
 
     error: {
@@ -116,23 +119,43 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={classes.root}
 
             container
+            alignItems='flex-start'
+            justify='flex-end'
             {...otherProps}
         >
-            {sectionGroup([['Header', Header          as Section]], true)}
-            {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop        as Section]]) : null}
-            {sectionGroup([['Integrity', SectionIntegrity       as Section],
-                           ['Mods', SectionMods          as Section]])}
-            {sectionGroup([['Offensive', SectionOffensive        as Section],
-                           ['Defensive', SectionDefensive        as Section]])}
-            {sectionGroup([['Cargo', SectionCargo          as Section]])}
-            {sectionGroup([['Mobility', SectionMobility        as Section]])}
-            {sectionGroup([['Printable', SectionPrintable          as Section],
-                           ['Costs', SectionCosts          as Section]])}
-            {sectionGroup([['Utils', SectionUtils          as Section]])}
-            {sectionGroup([['Electricity', SectionElectricity          as Section],
-                           ['Automation', SectionAutomation          as Section]])}
-            {sectionGroup([['Materials', SectionMaterials          as Section]])}
-            {sectionGroup([['Blocks', SectionBlocks          as Section]])}
+            <Grid
+                item
+                xs={12}
+                xl={4}
+
+                container
+                alignItems='flex-start'
+                justify='flex-end'
+            >
+                {sectionGroup([['Header', Header          as Section]])}
+                {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop        as Section]]) : null}
+            </Grid>
+            <Grid
+                item
+                xs={12}
+                xl={8}
+
+                container
+            >
+                {sectionGroup([['Integrity', SectionIntegrity       as Section]])}
+                {sectionGroup([['Mods', SectionMods          as Section]])}
+                {sectionGroup([['Offensive', SectionOffensive        as Section],
+                            ['Defensive', SectionDefensive        as Section]])}
+                {sectionGroup([['Cargo', SectionCargo          as Section]])}
+                {sectionGroup([['Mobility', SectionMobility        as Section]])}
+                {sectionGroup([['Printable', SectionPrintable          as Section],
+                            ['Costs', SectionCosts          as Section]])}
+                {sectionGroup([['Utils', SectionUtils          as Section]])}
+                {sectionGroup([['Electricity', SectionElectricity          as Section],
+                            ['Automation', SectionAutomation          as Section]])}
+                {sectionGroup([['Materials', SectionMaterials          as Section]])}
+                {sectionGroup([['Blocks', SectionBlocks          as Section]])}
+            </Grid>
         </Grid>
     )
 })) /* ============================================================================================================= */
