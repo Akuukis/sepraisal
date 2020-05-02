@@ -26,9 +26,9 @@ import SectionWorkshop from './SectionWorkshop'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        maxWidth: theme.spacing(1) * 2 + 536,
+        maxWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2,
         [theme.breakpoints.up('lg')]: {
-            maxWidth: (theme.spacing(1) * 2 + 536) * 2,
+            maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 2,
         },
     },
 
@@ -110,7 +110,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 
     return (
-        <Grid id={bpId as string} component='article' className={classes.root} container justify='center' {...otherProps}>
+        <Grid
+            id={bpId as string}
+            component='article'
+            className={classes.root}
+
+            container
+            {...otherProps}
+        >
             {sectionGroup([['Header', Header          as Section]], true)}
             {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop        as Section]]) : null}
             {sectionGroup([['Integrity', SectionIntegrity       as Section],

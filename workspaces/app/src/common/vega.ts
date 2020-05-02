@@ -1,16 +1,18 @@
 import * as Vega from 'vega'
 
+import { THUMB_HEIGHT, THUMB_WIDTH } from './myTheme'
+
 // tslint:disable: object-literal-sort-keys naming-convention
 export const vegaSpecHeatmap: Vega.Spec = {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
-    width: 268,
+    width: THUMB_WIDTH,
     height: 151,
     padding: 0,
 
     signals: [
         {
             name: 'targetRatio',
-            init: '268/151',
+            init: `${THUMB_WIDTH}/${THUMB_HEIGHT}`,
         },
         {
             name: 'yMaxGlobal',

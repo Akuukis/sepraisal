@@ -31,8 +31,8 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     const yRaw = Math.max(top.length, side.length, front.length) + 2
     const maxValues = {
         value: sbc.blockIntegrity / 10,
-        x: Math.max(xRaw, Math.round(yRaw * 268 / 151)),
-        y: Math.max(yRaw, Math.round(xRaw * 151 / 268)),
+        x: Math.max(xRaw, Math.round(yRaw * theme.shape.boxWidth / theme.shape.boxHeight)),
+        y: Math.max(yRaw, Math.round(xRaw * theme.shape.boxHeight / theme.shape.boxWidth)),
     }
 
     return (

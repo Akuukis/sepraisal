@@ -13,6 +13,8 @@ import {
     linkAuthor,
     linkCollection,
     STEAM_COLORS,
+    THUMB_HEIGHT,
+    THUMB_WIDTH,
 } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
@@ -70,6 +72,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {bp.steam.author.title ?? bp.steam.author.id}
         </Link>)
 
+    const placeholderThumb = `//via.placeholder.com/${THUMB_WIDTH}x${THUMB_HEIGHT}?text=No+Image`
+
     return (
         <MySectionInner
             heading='Workshop'
@@ -103,7 +107,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <MyBox width={3}>
                     <img
                         className={classes.img}
-                        src={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : 'https://via.placeholder.com/268x151?text=No+Image'}
+                        src={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : placeholderThumb}
                         alt={bp.steam.title}
                     />
                 </MyBox>

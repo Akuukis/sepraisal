@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { CardMedia } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme, THUMB_HEIGHT, THUMB_WIDTH } from '../../../common/'
 import { CardStatus, ICard } from '../../../models/Card'
 
 
@@ -25,7 +25,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const image = (thumb && thumb.webp)
         ? `data:image/webp;base64,${thumb.webp.toString('base64')}`
-        : '//via.placeholder.com/268x151?text=No+Image'
+        : `//via.placeholder.com/${THUMB_WIDTH}x${THUMB_HEIGHT}?text=No+Image`
+
 
     return (
         <CardMedia

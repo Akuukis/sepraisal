@@ -17,7 +17,7 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         backgroundColor: theme.palette.success.light,
         borderRadius: `${theme.spacing(1)}px`,
-        width: `${268 * 2}px`,
+        width: `${theme.shape.boxWidth * 2}px`,
         padding: theme.spacing(0.5),
     },
 
