@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom'
 
 import { fade, SvgIconProps, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
-import { ROUTES } from '../../../constants/routes'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { ROUTES } from '../../constants/routes'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -17,7 +17,8 @@ const styles = (theme: IMyTheme) => createStyles({
         [theme.breakpoints.up('md')]: {
             padding: theme.spacing(2, 6),
         },
-        height: `calc(${48}px - ${theme.spacing(2) * 2}px)`,
+        height: 48,
+        boxSizing: 'border-box',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -28,11 +29,8 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     active: {
         backgroundColor: fade('#000', 0.2),
-        height: `calc(${48}px - ${theme.spacing(2) * 2 + theme.spacing(0.5)}px)`,
-        borderBottomStyle: 'solid',
-        borderBottom: theme.spacing(0.5),
-        marginTop: -theme.spacing(0.5),
-        marginBottom: -theme.spacing(0.5),
+        borderBottom: `${theme.spacing(0.5)}px solid`,
+        paddingTop: theme.spacing(2.5),
     },
     icon: {
         paddingRight: theme.spacing(0.5),

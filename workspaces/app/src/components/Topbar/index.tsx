@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { AppBar, fade, Toolbar } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Logo from './Logo'
 import Navigation from './Navigation'
 

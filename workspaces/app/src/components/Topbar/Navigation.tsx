@@ -7,14 +7,15 @@ import IconCompare from '@material-ui/icons/CompareArrows'
 import IconInfo from '@material-ui/icons/InfoOutlined'
 import IconSearch from '@material-ui/icons/Search'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
-import { ROUTES } from '../../../constants/routes'
-import { CONTEXT } from '../../../stores'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { ROUTES } from '../../constants/routes'
+import { CONTEXT } from '../../stores'
 import NavigationButton from './NavigationButton'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        display: 'flex',
     },
 
     badge: {
