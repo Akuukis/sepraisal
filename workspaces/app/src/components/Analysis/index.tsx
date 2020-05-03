@@ -131,9 +131,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
                 container
             >
-                {sectionGroup([['Header', Header          as Section]], true)}
-                {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop        as Section]]) : null}
-                {'steam' in blueprint ? sectionGroup([['Description', SectionDescription        as Section]]) : null}
+                {sectionGroup([['Header', Header as Section]], true)}
+                {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop as Section]]) : null}
+                {'steam' in blueprint ? sectionGroup([['Description', SectionDescription as Section]]) : null}
             </Grid>
             <Grid
                 item
@@ -142,19 +142,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
                 container
             >
-                {sectionGroup([['Integrity', SectionIntegrity       as Section]])}
-                {sectionGroup([['Mods', SectionMods          as Section]])}
-                {sectionGroup([['Offensive', SectionOffensive        as Section],
-                               ['Defensive', SectionDefensive        as Section]])}
-                {sectionGroup([['Cargo', SectionCargo          as Section]])}
-                {sectionGroup([['Mobility', SectionMobility        as Section]])}
-                {sectionGroup([['Printable', SectionPrintable          as Section],
-                               ['Costs', SectionCosts          as Section]])}
-                {sectionGroup([['Utils', SectionUtils          as Section]])}
-                {sectionGroup([['Electricity', SectionElectricity          as Section],
-                               ['Automation', SectionAutomation          as Section]])}
-                {sectionGroup([['Materials', SectionMaterials          as Section]])}
-                {sectionGroup([['Blocks', SectionBlocks          as Section]])}
+                {sectionGroup([['Integrity', SectionIntegrity as Section]])}
+                {sectionGroup([['Mods', SectionMods as Section]])}
+                {sectionGroup([['Offensive', SectionOffensive as Section],
+                               ['Defensive', SectionDefensive as Section]])}
+                {sectionGroup([['Cargo', SectionCargo as Section]])}
+                {sectionGroup([['Mobility', SectionMobility as Section]])}
+                {sectionGroup([['Printable', SectionPrintable as Section],
+                               ['Costs', SectionCosts as Section]])}
+                {sectionGroup([['Utils', SectionUtils as Section]])}
+                {sectionGroup([['Electricity', SectionElectricity as Section],
+                               ['Automation', SectionAutomation as Section]])}
+                {sectionGroup([['Materials', SectionMaterials as Section]])}
+                {sectionGroup([['Blocks', SectionBlocks as Section]])}
             </Grid>
         </Grid>
     )
