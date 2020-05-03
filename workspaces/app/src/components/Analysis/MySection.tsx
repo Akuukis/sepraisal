@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, GridProps, Typography } from '@material-ui/core'
+import { Grid, GridProps, Typography, useMediaQuery } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
@@ -17,7 +17,10 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         backgroundColor: theme.palette.success.light,
         borderRadius: `${theme.spacing(1)}px`,
-        width: `${theme.shape.boxWidth * 2}px`,
+        width: `100%`,
+        [theme.breakpoints.up('sm')]: {
+            width: `${theme.shape.boxWidth * 2}px`,
+        },
         padding: theme.spacing(0.5),
     },
 
@@ -63,6 +66,7 @@ interface IProps extends GridProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {heading, value, label, MyBoxColumnProps, className, innerChildren, ...otherProps} = props
+    const largerThanSm = useMediaQuery(theme.breakpoints.up('sm'));
 
     return (
         <Grid
@@ -76,7 +80,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             justify='space-between'
             {...otherProps}
         >
-            <CONTEXT.PARENT_COLUMNS.Provider value={12}>
+            <CONTEXT.PARENT_COLUMNS.Provider value={largerThanSm ? 12 : 6}>
                 <MyBoxColumn className={classes.MyBoxColumn} width={3} {...MyBoxColumnProps}>
                     <MyBoxRow className={classes.MyBoxRow} width={3}>
                         <MyBox width={3} classes={{root: classes.MyBox, paper: classes.MyBoxPaper}}>
