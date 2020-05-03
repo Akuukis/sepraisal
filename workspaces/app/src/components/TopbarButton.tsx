@@ -1,20 +1,41 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { NavLink } from 'react-router-dom'
 
-import { Button, Typography } from '@material-ui/core'
+import { fade, SvgIconProps, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../common/'
 import { ROUTES } from '../constants/routes'
-import { CONTEXT } from '../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         color: theme.palette.primary.contrastText,
         borderColor: theme.palette.primary.contrastText,
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-        minWidth: 56,
+        padding: theme.spacing(2, 2),
+        minWidth: 24,
+        [theme.breakpoints.up('md')]: {
+            padding: theme.spacing(2, 6),
+        },
+        height: `calc(${48}px - ${theme.spacing(2) * 2}px)`,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textDecoration: 'none',
+        '&:hover': {
+            backgroundColor: fade('#000', 0.4),
+        },
+    },
+    active: {
+        backgroundColor: fade('#000', 0.2),
+        height: `calc(${48}px - ${theme.spacing(2) * 2 + theme.spacing(0.5)}px)`,
+        borderBottomStyle: 'solid',
+        borderBottom: theme.spacing(0.5),
+        marginTop: -theme.spacing(0.5),
+        marginBottom: -theme.spacing(0.5),
+    },
+    icon: {
+        paddingRight: theme.spacing(0.5),
     },
     title: {
         overflow: 'hidden',
@@ -28,35 +49,28 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-        icon: JSX.Element
-        route: ROUTES
-        title: string
+    Icon: React.FC<SvgIconProps>
+    to: ROUTES
+    title: string
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const routerStore = React.useContext(CONTEXT.ROUTER)
-
-    const h = (event: React.MouseEvent) => {
-        // tslint:disable-next-line: no-non-null-assertion
-        const path = event.currentTarget.getAttribute('value')!
-        routerStore.goView(path)
-    }
+    const {Icon, to, title} = props
 
     return (
-        <Button
-            variant='outlined'
+        <NavLink
+            to={to}
             className={classes.root}
-            onClick={h}
-            value={props.route}
+            activeClassName={classes.active}
         >
-            {props.icon}
+            <Icon className={classes.icon} />
             <Typography
                 className={classes.title}
                 variant='button'
             >
-                {props.title}
+                {title}
             </Typography>
-        </Button>
+        </NavLink>
     )
 })) /* ============================================================================================================= */

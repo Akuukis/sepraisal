@@ -130,8 +130,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 xl={4}
 
                 container
-                alignItems='flex-start'
-                justify='flex-end'
             >
                 {sectionGroup([['Header', Header          as Section]], true)}
                 {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop        as Section]]) : null}

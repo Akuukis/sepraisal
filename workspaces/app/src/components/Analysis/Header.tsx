@@ -1,11 +1,13 @@
 import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { Link } from 'react-router-dom'
 
 import { AppBar, Avatar, Toolbar, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkBpProps } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkAuthorProps } from '../../common/'
 import FavoriteButton from '../../components/FavoriteButton'
+import { ROUTES } from '../../constants/routes'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -44,9 +46,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const title = 'steam' in bp && bp.steam !== undefined
         ?
-            (<a className={classes.header} {...linkBpProps(bp.steam.id)}>
+            (<Link className={classes.header} to={`${ROUTES.BLUEPRINT}/${bp._id!}`}>
                 {bp.steam.title}
-            </a>)
+            </Link>)
         : bp.sbc.gridTitle
     return (
         <>
