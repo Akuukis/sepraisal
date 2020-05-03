@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { AppBar, Avatar, Toolbar, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkAuthor, linkBp } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkBpProps } from '../../common/'
 import FavoriteButton from '../../components/FavoriteButton'
 
 
@@ -37,14 +37,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const author = 'steam' in bp && bp.steam !== undefined
         ?
-            (<a href={linkAuthor(bp.steam.author.id)} target='_blank' rel='noreferrer noopener'>
+            (<a {...linkAuthorProps(bp.steam.author.id)}>
                 {bp.steam.author.title?.slice(0, 2) ?? bp.steam.author.id}
             </a>)
         : '<>'
 
     const title = 'steam' in bp && bp.steam !== undefined
         ?
-            (<a href={linkBp(bp.steam.id)} className={classes.header} target='_blank' rel='noreferrer noopener'>
+            (<a className={classes.header} {...linkBpProps(bp.steam.id)}>
                 {bp.steam.title}
             </a>)
         : bp.sbc.gridTitle

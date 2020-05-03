@@ -2,6 +2,8 @@ import BigNumber from 'bignumber.js'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 
+import { ROUTES } from '../constants/routes'
+
 export * from './Component'
 export * from './ComponentRouted'
 export * from './createFC'
@@ -130,9 +132,16 @@ export type ASYNC_STATE =
 
 export const DUD_URL = 'javascript:;'
 
+
+export const linkInner = (route: ROUTES) => `${route}`
 export const linkBp = (id: number) => `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`
 export const linkAuthor = (id: string | number) => `https://steamcommunity.com/id/${id}/myworkshopfiles/?appid=24485`
 export const linkCollection = (id: string | number) => `https://steamcommunity.com/workshop/filedetails/?id=${id}`
+
+export const linkInnerProps = (route: ROUTES) => ({href: linkInner(route), target: '_blank', rel: 'noreferrer noopener'})
+export const linkBpProps = (id: number) => ({href: linkBp(id), target: '_blank', rel: 'noreferrer noopener'})
+export const linkAuthorProps = (id: string | number) => ({href: linkAuthor(id), target: '_blank', rel: 'noreferrer noopener'})
+export const linkCollectionProps = (id: string | number) => ({href: linkCollection(id), target: '_blank', rel: 'noreferrer noopener'})
 
 
 /**

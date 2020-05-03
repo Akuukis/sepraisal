@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { IconButton, Paper, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkBp, STEAM_COLORS } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkBpProps, STEAM_COLORS } from '../../common/'
 import Steam from '../icons/Steam'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
@@ -73,7 +73,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </MyBoxRow>
             </MyBoxColumn>
             <Paper className={classes.corner}>
-                <IconButton size='medium' color='inherit' href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
+                <IconButton size='medium' color='inherit' {...linkBpProps(bp.steam.id)}>
                     <Steam fontSize='inherit' />
                 </IconButton>
             </Paper>

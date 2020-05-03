@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkBp } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkBpProps } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
@@ -38,7 +38,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     const mods = bp.steam.mods.map((mod) => (
-        (<div>- <Link href={linkBp(mod.id as number)} target='_blank' rel='noreferrer noopener' variant='body2' noWrap>
+        (<div>- <Link variant='body2' noWrap {...linkBpProps(mod.id as number)}>
             {mod.title ?? mod.id}
         </Link></div>)
     ))

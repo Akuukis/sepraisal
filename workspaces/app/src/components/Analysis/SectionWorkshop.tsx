@@ -10,8 +10,8 @@ import {
     createStyles,
     formatDecimal,
     IMyTheme,
-    linkAuthor,
-    linkCollection,
+    linkAuthorProps,
+    linkCollectionProps,
     THUMB_HEIGHT,
     THUMB_WIDTH,
 } from '../../common/'
@@ -47,11 +47,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
     const collections = bp.steam.collections.map((collection, i) => (
-        (<Link key={i} href={linkCollection(collection.id)} target='_blank' rel='noreferrer noopener' variant='body2' noWrap>
+        (<Link key={i} variant='body2' noWrap {...linkCollectionProps(collection.id)}>
             {collection.title ?? collection.id}
         </Link>)
     ))
-    const author = (<Link href={linkAuthor(bp.steam.author.id)} target='_blank' rel='noreferrer noopener' variant='body1'>
+    const author = (<Link variant='body1' {...linkAuthorProps(bp.steam.author.id)}>
             {bp.steam.author.title ?? bp.steam.author.id}
         </Link>)
 
@@ -67,12 +67,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
                         <ValueCell label={`author`} value={author}/>
-                        {/* <CenterCell width={1.5}>
-                            <Button href={linkBp(bp.steam.id)} target='_blank' rel='noreferrer noopener'>
-                                <Steam />
-                                <Typography variant='body1'>{'Subscribe'}</Typography>
-                            </Button>
-                        </CenterCell> */}
                         <ValueCell label={starsDef} value={starsValue} />
                         <ValueCell label={`views`} value={formatDecimal(bp.steam.visitorCount)} />
                     </MyBox>
