@@ -10,7 +10,7 @@ import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -52,7 +52,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     //     .join('\n')
 
     return (
-        <MySectionInner heading='Mods' label='status' value={bp.sbc.vanilla ? 'Vanilla' : 'Modded'}>
+        <MySection heading='Mods' label='status' value={bp.sbc.vanilla ? 'Vanilla' : 'Modded'}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox>
@@ -84,7 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </CenterCell>
                 </MyBox>
             </MyBoxColumn> */}
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

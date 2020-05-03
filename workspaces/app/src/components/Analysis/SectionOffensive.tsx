@@ -8,7 +8,7 @@ import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -48,7 +48,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const totalDPS = fixedDPS + turretDPS
 
     return (
-        <MySectionInner heading='Offensive' label='total DPS' value={formatDecimal(totalDPS)}>
+        <MySection heading='Offensive' label='total DPS' value={formatDecimal(totalDPS)}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
@@ -80,7 +80,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

@@ -8,7 +8,7 @@ import { StyledComponentProps } from '@material-ui/core/styles'
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
 import { CONTEXT } from '../../stores'
 import Header from './Header'
-import MySectionOuter from './MySectionOuter'
+import MySectionErrorBoundary from './MySectionErrorBoundary'
 import SectionAutomation from './SectionAutomation'
 import SectionBlocks from './SectionBlocks'
 import SectionCargo from './SectionCargo'
@@ -106,9 +106,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const sectionGroup = (AnalysisSections: [string, Section][], header = false) => (
         <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
             {AnalysisSections.map(([heading, AnalysisSection], i) => (
-                <MySectionOuter key={i} heading={heading}>
+                <MySectionErrorBoundary key={i} heading={heading}>
                     <AnalysisSection bp={blueprint} />
-                </MySectionOuter>
+                </MySectionErrorBoundary>
             ))}
         </Grid>
     )

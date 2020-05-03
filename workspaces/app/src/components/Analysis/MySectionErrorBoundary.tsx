@@ -5,7 +5,7 @@ import { useErrorBoundary } from 'use-error-boundary'
 import { GridProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -33,7 +33,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     if(error) {
         return (
-            <MySectionInner
+            <MySection
                 className={error && classes.error}
                 classes={{MyBox: classes.errorBox}}
                 heading={heading}

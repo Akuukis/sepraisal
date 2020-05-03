@@ -7,7 +7,7 @@ import Table from '../../components/Table'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -33,7 +33,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         .sort((a, b) => b.count - a.count)
 
     return (
-        <MySectionInner heading='Blocks' label='block count' value={sbc.blockCount}>
+        <MySection heading='Blocks' label='block count' value={sbc.blockCount}>
             <MyBoxColumn width={3}>
                 <MyBoxRow>
                 </MyBoxRow>
@@ -50,7 +50,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

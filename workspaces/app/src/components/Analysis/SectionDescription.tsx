@@ -9,7 +9,7 @@ import Steam from '../icons/Steam'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -58,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {bp} = props
 
     return (
-        <MySectionInner
+        <MySection
             className={classes.root}
             heading='Workshop description'
             label='-'
@@ -77,7 +77,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <Steam fontSize='inherit' />
                 </IconButton>
             </Paper>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

@@ -7,7 +7,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -93,7 +93,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         + cockpits
 
     return (
-        <MySectionInner heading='Utilities' label='total' value={total}>
+        <MySection heading='Utilities' label='total' value={total}>
             <MyBoxColumn height={1} width={3}>
                 <MyBoxRow height={1} width={3}>
                     <MyBox width={2}>
@@ -143,7 +143,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

@@ -8,7 +8,7 @@ import { vegaSpecHeatmapLegend } from '../../common/vega'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 import SectionIntegrityHeatmap from './SectionIntegrityHeatmap'
 
 
@@ -36,7 +36,7 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
     }
 
     return (
-        <MySectionInner
+        <MySection
             heading='X-Ray'
             label={'grid size'}
             value={sbc.gridSize}
@@ -75,7 +75,7 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

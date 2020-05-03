@@ -10,7 +10,7 @@ import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -58,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const apCheck = printable && weldersHorizontally <=3 && weldersVertically <=2 && weldersDeep === 1 ? 'Probably' : '-'
 
     return (
-        <MySectionInner
+        <MySection
             heading='Printable'
             label='printer size'
             value={output}
@@ -89,7 +89,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

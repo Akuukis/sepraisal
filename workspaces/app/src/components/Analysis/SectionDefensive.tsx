@@ -6,7 +6,7 @@ import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../comm
 import ValueCell from '../../components/Cell/ValueCell'
 import MyBox from '../MyBox'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -28,7 +28,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const welders = (sbc.blocks['ShipWelder/LargeShipWelder'] ?? 0) + (sbc.blocks['ShipWelder/SmallShipWelder'] ?? 0)
 
     return (
-        <MySectionInner heading='Defensive' label='Hit Points' value={formatDecimal(sbc.blockIntegrity)}>
+        <MySection heading='Defensive' label='Hit Points' value={formatDecimal(sbc.blockIntegrity)}>
             <MyBoxRow width={3}>
                 <MyBox>
                     <ValueCell label={`decoys`} value={decoys || '-'} />
@@ -37,7 +37,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell label={`welders`} value={welders || '-'} />
                 </MyBox>
             </MyBoxRow>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

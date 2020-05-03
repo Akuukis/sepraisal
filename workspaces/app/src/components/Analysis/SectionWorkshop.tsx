@@ -20,7 +20,7 @@ import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -58,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const placeholderThumb = `//via.placeholder.com/${THUMB_WIDTH}x${THUMB_HEIGHT}?text=No+Image`
 
     return (
-        <MySectionInner
+        <MySection
             heading='Workshop'
             label='subscribers'
             value={formatDecimal(bp.steam.subscriberCount)}
@@ -108,7 +108,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

@@ -7,7 +7,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -56,7 +56,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         + (sbc.blocks["TextPanel/TransparentLCDSmall"] ?? 0)
 
     return (
-        <MySectionInner heading='Automation' label='prog.blocks' value={progBlocks || '-'}>
+        <MySection heading='Automation' label='prog.blocks' value={progBlocks || '-'}>
             <MyBoxColumn width={3}>
                 <MyBoxRow>
                     <MyBox width={2}>
@@ -82,7 +82,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

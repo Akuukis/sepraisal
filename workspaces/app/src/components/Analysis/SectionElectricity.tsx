@@ -7,7 +7,7 @@ import ValueCell from '../../components/Cell/ValueCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -35,7 +35,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const windTurbines = (sbc.blocks['WindTurbine/LargeBlockWindTurbine'] ?? 0)
 
     return (
-        <MySectionInner heading='Electricity' label='max output (MW)' value={maxOutput || '-'}>
+        <MySection heading='Electricity' label='max output (MW)' value={maxOutput || '-'}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
@@ -58,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

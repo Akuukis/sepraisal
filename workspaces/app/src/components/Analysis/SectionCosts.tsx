@@ -10,7 +10,7 @@ import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
-import MySectionInner from './MySectionInner'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -40,7 +40,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     return (
-        <MySectionInner
+        <MySection
             heading='Costs'
             label='PCU'
             value={formatDecimal(sbc.blockPCU)}
@@ -89,7 +89,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-        </MySectionInner>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 
