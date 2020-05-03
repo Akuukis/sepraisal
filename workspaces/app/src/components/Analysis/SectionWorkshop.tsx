@@ -3,7 +3,7 @@ import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link, Typography } from '@material-ui/core'
+import { Link } from '@material-ui/core'
 
 import {
     createSmartFC,
@@ -12,7 +12,6 @@ import {
     IMyTheme,
     linkAuthor,
     linkCollection,
-    STEAM_COLORS,
     THUMB_HEIGHT,
     THUMB_WIDTH,
 } from '../../common/'
@@ -32,22 +31,6 @@ const styles = (theme: IMyTheme) => createStyles({
         width: '100%',
         height: '100%',
         objectFit: 'fill',
-    },
-
-    description: {
-        paddingBottom: theme.spacing(2),
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        paddingTop: theme.spacing(2),
-        color: STEAM_COLORS.white,
-        backgroundColor: STEAM_COLORS.blue,
-        '& > img': {
-            maxWidth: `calc(100% - ${theme.spacing(4)}px)`,
-        },
-        height: `100%`,
-        width: `100%`,
-        overflowX: 'hidden',
-        overflowY: 'scroll',
     },
 })
 
@@ -131,13 +114,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-            <MyBoxColumn height={6} width={6}>
-                <MyBoxRow height={6} width={6}>
-                    <MyBox width={6}>
-                        <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
-                    </MyBox>
-                </MyBoxRow>
-            </MyBoxColumn>
         </MySectionInner>
     )
 })) /* ============================================================================================================= */
@@ -148,7 +124,6 @@ type ProjectionCardSteam =
     | 'collections'
     | 'commentCount'
     | 'favoriteCount'
-    | 'description'
     | 'revision'
     | 'mods'
     | 'id'

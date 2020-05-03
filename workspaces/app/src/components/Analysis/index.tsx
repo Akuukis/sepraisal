@@ -14,6 +14,7 @@ import SectionBlocks from './SectionBlocks'
 import SectionCargo from './SectionCargo'
 import SectionCosts from './SectionCosts'
 import SectionDefensive from './SectionDefensive'
+import SectionDescription from './SectionDescription'
 import SectionElectricity from './SectionElectricity'
 import SectionIntegrity from './SectionIntegrity'
 import SectionMaterials from './SectionMaterials'
@@ -132,8 +133,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 alignItems='flex-start'
                 justify='flex-end'
             >
-                {sectionGroup([['Header', Header          as Section]])}
+                {sectionGroup([['Header', Header          as Section]], true)}
                 {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop        as Section]]) : null}
+                {'steam' in blueprint ? sectionGroup([['Description', SectionDescription        as Section]]) : null}
             </Grid>
             <Grid
                 item
@@ -145,14 +147,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 {sectionGroup([['Integrity', SectionIntegrity       as Section]])}
                 {sectionGroup([['Mods', SectionMods          as Section]])}
                 {sectionGroup([['Offensive', SectionOffensive        as Section],
-                            ['Defensive', SectionDefensive        as Section]])}
+                               ['Defensive', SectionDefensive        as Section]])}
                 {sectionGroup([['Cargo', SectionCargo          as Section]])}
                 {sectionGroup([['Mobility', SectionMobility        as Section]])}
                 {sectionGroup([['Printable', SectionPrintable          as Section],
-                            ['Costs', SectionCosts          as Section]])}
+                               ['Costs', SectionCosts          as Section]])}
                 {sectionGroup([['Utils', SectionUtils          as Section]])}
                 {sectionGroup([['Electricity', SectionElectricity          as Section],
-                            ['Automation', SectionAutomation          as Section]])}
+                               ['Automation', SectionAutomation          as Section]])}
                 {sectionGroup([['Materials', SectionMaterials          as Section]])}
                 {sectionGroup([['Blocks', SectionBlocks          as Section]])}
             </Grid>
