@@ -13,6 +13,10 @@ import MySectionInner from './MySectionInner'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        // backgroundColor: 'unset',
+    },
+    box: {
+        padding: 0,
     },
 
     description: {
@@ -25,8 +29,8 @@ const styles = (theme: IMyTheme) => createStyles({
         '& > img': {
             maxWidth: `calc(100% - ${theme.spacing(4)}px)`,
         },
-        height: `100%`,
-        width: `100%`,
+        height: `calc(100% - ${theme.spacing(2) * 2}px)`,
+        width: `calc(100% - ${theme.spacing(2) * 2}px)`,
         overflowX: 'hidden',
         overflowY: 'scroll',
     },
@@ -43,6 +47,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MySectionInner
+            className={classes.root}
             heading='Workshop description'
             label='-'
             value='-'
@@ -50,7 +55,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <MyBoxColumn height={4} width={6}>
                 <MyBoxRow height={4} width={6}>
-                    <MyBox width={6}>
+                    <MyBox width={6} className={classes.box}>
                         <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
                     </MyBox>
                 </MyBoxRow>
