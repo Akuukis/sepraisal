@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { GridProps, useMediaQuery } from '@material-ui/core'
+import { useMediaQuery } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import MyBoxColumn from '../MyBoxColumn'
@@ -13,10 +13,34 @@ import MySectionWide from './MySectionWide'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
+
+    rootNarrow: {
+    },
+
+    CenterCell: {
+    },
+    heading: {
+    },
+    MyBoxColumn: {
+    },
+    MyBoxRow: {
+    },
+    MyBox: {
+    },
+    MyBoxPaper: {
+    },
+    HeadingCell: {
+    },
+    ValueCell: {
+    },
+    ValueCellLabel: {
+    },
+    ValueCellValue: {
+    },
 })
 
-
-interface IProps extends GridProps {
+type MySectionProps = React.ComponentProps<typeof MySectionWide> & React.ComponentProps<typeof MySectionNarrow>
+interface IProps extends MySectionProps {
     heading: string
     value: React.ReactNode
     label: React.ReactNode
@@ -31,11 +55,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const largerThanSm = useMediaQuery(theme.breakpoints.up('sm'))
 
     return (largerThanSm && !narrow) ?
-            <MySectionWide className={clsx(classes.root, className)} {...otherProps}>
+            <MySectionWide className={clsx(classes.root, className)} {...otherProps as React.ComponentProps<typeof MySectionWide>}>
                 {children}
             </MySectionWide>
         :
-            <MySectionNarrow className={clsx(classes.root, className)} {...otherProps}>
+            <MySectionNarrow className={clsx(classes.root, className)} {...otherProps as React.ComponentProps<typeof MySectionNarrow>}>
                 {children}
             </MySectionNarrow>
 
