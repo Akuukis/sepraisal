@@ -28,6 +28,7 @@ const styles = (theme: IMyTheme) => createStyles({
         },
     },
     toolbar: {
+        minHeight: 58,
         backgroundColor: theme.palette.success.main,
     }
 })

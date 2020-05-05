@@ -15,15 +15,18 @@ import MyBoxRow from '../MyBoxRow'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: theme.palette.success.light,
-        borderRadius: `${theme.spacing(1)}px`,
+        padding: theme.spacing(0.5, 0),
         width: `100%`,
         [theme.breakpoints.up('sm')]: {
             width: `${theme.shape.boxWidth * 2}px`,
         },
-        padding: theme.spacing(0.5),
     },
 
+    inner: {
+        borderRadius: `${theme.spacing(1)}px`,
+        backgroundColor: theme.palette.success.light,
+        padding: theme.spacing(0.5),
+    },
     CenterCell: {
         paddingLeft: theme.spacing(3),
     },
@@ -73,41 +76,44 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             component='section'
 
             item
-
-            container
-            spacing={0}
-            justify='space-between'
             {...otherProps}
         >
-            <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: 12, maxWidth: 6}}>
-                <MyBoxColumn className={classes.MyBoxColumn} width={3} {...MyBoxColumnProps}>
-                    <MyBoxRow className={classes.MyBoxRow} width={3}>
-                        <MyBox width={3} classes={{root: classes.MyBox, paper: classes.MyBoxPaper}}>
-                            <CenterCell width={2} className={classes.CenterCell} {...otherProps}>
-                                <Typography
-                                    variant='h6'
-                                    display='block'
-                                    noWrap
-                                    className={classes.heading}
-                                >
-                                    {heading}
-                                </Typography>
-                            </CenterCell>
-                            <ValueCell
-                                classes={{
-                                    root: classes.ValueCell,
-                                    label: classes.ValueCellLabel,
-                                    value: classes.ValueCellValue,
-                                }}
-                                label={label}
-                                value={value}
-                            />
-                        </MyBox>
-                    </MyBoxRow>
-                    {innerChildren}
-                </MyBoxColumn>
-                {children}
-            </CONTEXT.PARENT_COLUMNS.Provider>
+            <Grid
+                className={classes.inner}
+                container
+                spacing={0}
+                justify='space-between'
+            >
+                <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: 12, maxWidth: 6}}>
+                    <MyBoxColumn className={classes.MyBoxColumn} width={3} {...MyBoxColumnProps}>
+                        <MyBoxRow className={classes.MyBoxRow} width={3}>
+                            <MyBox width={3} classes={{root: classes.MyBox, paper: classes.MyBoxPaper}}>
+                                <CenterCell width={2} className={classes.CenterCell} {...otherProps}>
+                                    <Typography
+                                        variant='h6'
+                                        display='block'
+                                        noWrap
+                                        className={classes.heading}
+                                    >
+                                        {heading}
+                                    </Typography>
+                                </CenterCell>
+                                <ValueCell
+                                    classes={{
+                                        root: classes.ValueCell,
+                                        label: classes.ValueCellLabel,
+                                        value: classes.ValueCellValue,
+                                    }}
+                                    label={label}
+                                    value={value}
+                                />
+                            </MyBox>
+                        </MyBoxRow>
+                        {innerChildren}
+                    </MyBoxColumn>
+                    {children}
+                </CONTEXT.PARENT_COLUMNS.Provider>
+            </Grid>
         </Grid>
     )
 })) /* ============================================================================================================= */
