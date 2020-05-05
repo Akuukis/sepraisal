@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
@@ -161,7 +161,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <MySection heading='Materials' label='?' value={'?'} className={clsx(classes.root, className)} {...otherProps}>
+        <MySection
+            heading='Materials'
+            label='ore mass (kg)'
+            value={formatDecimal(getOreMass(getCombinedMaterials(sbc)))}
+            className={clsx(classes.root, className)} {...otherProps}
+        >
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
@@ -245,3 +250,17 @@ type ProjectionCardSbc =
 interface IBpProjectionRow {
     sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]},
 }
+
+interface IMaterial {
+    type: keyof IBlueprint.ISbc['ingots']
+    ingots: number
+    ores: number
+}
+
+const getCombinedMaterials = (sbc: Pick<IBlueprint.ISbc, 'ingots' | 'ores'>): IMaterial[] => {
+    return Object.entries(sbc.ingots)
+        .map(([type, amount]) => ({type, ingots: amount, ores: sbc.ores[type]}))
+        .sort((a, b) => b.ores - a.ores)
+}
+
+const getOreMass = (combined: IMaterial[]) => combined.reduce((sum, entry) => sum + entry.ores, 0)
