@@ -6,10 +6,10 @@ import { Link } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, linkBpProps } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import Table from '../Table'
 import MySection from './MySection'
 
 
@@ -25,6 +25,9 @@ const styles = (theme: IMyTheme) => createStyles({
         width: '100%',
         overflowY: 'scroll',
     },
+    contentTable: {
+        width: '100%',
+    },
 })
 
 
@@ -37,11 +40,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {bp} = props
 
 
-    const mods = bp.steam.mods.map((mod) => (
-        (<div>- <Link variant='body2' noWrap {...linkBpProps(mod.id as number)}>
+    const mods = bp.steam.mods.map((mod) => ({
+        mod: (<Link variant='body2' noWrap {...linkBpProps(mod.id as number)}>
             {mod.title ?? mod.id}
-        </Link></div>)
-    ))
+        </Link>)
+    }))
 
     // TODO: Fix backend to have "unknownBlocks" just like "blocks".
 
@@ -64,13 +67,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-            <MyBoxColumn height={2} width={6}>
-                <MyBoxRow height={2} width={6}>
+            <MyBoxColumn height={4} width={6}>
+                <MyBoxRow height={4} width={6}>
                     <MyBox width={6}>
-                        <ValueCell width={2} label={`dependencies in steam.`} value={'Listed Mods:'} justify='flex-start' alignItems='flex-end'/>
-                        <CenterCell width={4} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
-                            {mods}
-                        </CenterCell>
+                        <Table
+                            className={classes.contentTable}
+                            columns={['mod']}
+                            headers={{mod: 'listed Mods'}}
+                            data={mods}
+                        />
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
