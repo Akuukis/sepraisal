@@ -28,28 +28,28 @@ import SectionWorkshop from './SectionWorkshop'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 1,
+        maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2 * 1,
     },
     rootLg: {
         [theme.breakpoints.up('lg')]: {
-            maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 2,
+            maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2 * 2,
         },
     },
     rootXl: {
         [theme.breakpoints.up('xl')]: {
-            maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 3,
+            maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2 * 3,
         },
     },
 
     narrow: {
-        maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 0.5,
+        maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2 * 0.5,
     },
 
     error: {
         backgroundColor: theme.palette.error.light,
     },
     item: {
-        maxWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2,
+        maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2,
         padding: theme.spacing(1),
     },
     headerItem: {
