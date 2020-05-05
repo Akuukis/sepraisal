@@ -5,6 +5,7 @@ import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from '..
 import ValueCell from '../../../components/Cell/ValueCell'
 import MyBox from '../../../components/MyBox'
 import MyBoxColumn from '../../../components/MyBoxColumn'
+import MyBoxRow from '../../../components/MyBoxRow'
 import { CardStatus, ICard } from '../../../models/Card'
 
 
@@ -33,13 +34,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const starsDef = steam.ratingStars === null ? 'few ratings' : `${steam.ratingCount}`
 
     return (
-        <MyBoxColumn width={6}>
-            <MyBox width={6}>
-                <ValueCell width={1.5} label='subscribers' value={formatDecimal(steam.subscriberCount)} />
-                <ValueCell width={1.5} label={starsDef} value={starsValue} />
-                <ValueCell width={1.5} label='posted' value={postedDate} />
-                <ValueCell width={1.5} label='author' value={steam.author.title} />
-            </MyBox>
+        <MyBoxColumn>
+            <MyBoxRow>
+                <MyBox width={4}>
+                    <ValueCell width={1} label='subscribers' value={formatDecimal(steam.subscriberCount)} />
+                    <ValueCell width={1} label={starsDef} value={starsValue} />
+                    <ValueCell width={1} label='posted' value={postedDate} />
+                    <ValueCell width={1} label='author' value={steam.author.title} />
+                </MyBox>
+            </MyBoxRow>
         </MyBoxColumn>
     )
 })) /* ============================================================================================================= */

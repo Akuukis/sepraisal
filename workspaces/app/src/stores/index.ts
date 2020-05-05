@@ -14,7 +14,7 @@ export const CONTEXT = {
     BLUEPRINTS: createContext<BlueprintStore>(null as any),
     CARDS: createContext<CardStore>(null as any),
     FAVORITES: createContext<FavoriteStore>(null as any),
-    PARENT_COLUMNS: createContext<{parentColumns: GridSizeColumns, maxWidth: 3|6}>(null as any),
+    PARENT_COLUMNS: createContext<{parentColumns: GridSizeColumns, maxWidth: 1|2|3|4|5|6}>(null as any),
     PIWIK: createContext<PiwikStore>(null as any),
     PRAISAL_MANAGER: createContext<PraisalManager>(null as any),
     ROUTER: createContext<RouterStore>(null as any),

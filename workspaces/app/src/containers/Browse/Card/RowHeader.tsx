@@ -8,6 +8,7 @@ import CenterCell from '../../../components/Cell/CenterCell'
 import ValueCell from '../../../components/Cell/ValueCell'
 import MyBox from '../../../components/MyBox'
 import MyBoxColumn from '../../../components/MyBoxColumn'
+import MyBoxRow from '../../../components/MyBoxRow'
 import { CardStatus, ICard } from '../../../models/Card'
 
 
@@ -38,13 +39,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         : 'Analysis in progress...'
 
     return (
-        <MyBoxColumn width={6}>
-            <MyBox width={6} variant='flat'>
-                <CenterCell width={1.5}>
-                    <Avatar>{avatarTitle}</Avatar>
-                </CenterCell>
-                <ValueCell width={4.5} label={subheader} value={title} alignItems='flex-start' />
-            </MyBox>
+        <MyBoxColumn>
+            <MyBoxRow>
+                <MyBox width={4} variant='flat'>
+                    <CenterCell width={1}>
+                        <Avatar>{avatarTitle}</Avatar>
+                    </CenterCell>
+                    <ValueCell width={3} label={subheader} value={title} alignItems='flex-start' />
+                </MyBox>
+            </MyBoxRow>
         </MyBoxColumn>
     )
 })) /* ============================================================================================================= */

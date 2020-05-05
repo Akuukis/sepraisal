@@ -5,6 +5,7 @@ import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../../c
 import ValueCell from '../../../components/Cell/ValueCell'
 import MyBox from '../../../components/MyBox'
 import MyBoxColumn from '../../../components/MyBoxColumn'
+import MyBoxRow from '../../../components/MyBoxRow'
 import { CardStatus, ICard } from '../../../models/Card'
 
 
@@ -37,13 +38,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const workhours = formatDecimal((sbc.blockTime + sbc.componentTime + sbc.ingotTime) / 60 / 60, 1)
 
     return (
-        <MyBoxColumn width={6}>
-            <MyBox width={6}>
-                <ValueCell width={1.5} label={`PCU`} value={pcu} />
-                <ValueCell width={1.5} {...grid} />
-                <ValueCell width={1.5} label={`ore (m\u00B3)`} value={ore} />
-                <ValueCell width={1.5} label={`workhours`} value={workhours} />
-            </MyBox>
+        <MyBoxColumn>
+            <MyBoxRow>
+                <MyBox width={4}>
+                    <ValueCell width={1} label={`PCU`} value={pcu} />
+                    <ValueCell width={1} {...grid} />
+                    <ValueCell width={1} label={`ore (m\u00B3)`} value={ore} />
+                    <ValueCell width={1} label={`workhours`} value={workhours} />
+                </MyBox>
+            </MyBoxRow>
         </MyBoxColumn>
     )
 })) /* ============================================================================================================= */

@@ -5,6 +5,7 @@ import { Card } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../common/'
 import { CardStatus, ICard } from '../../../models/Card'
+import { CONTEXT } from '../../../stores'
 import Overlay from './Overlay'
 import RowHeader from './RowHeader'
 import RowPraisal from './RowPraisal'
@@ -38,11 +39,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Card className={classes.root}>
-            <Thumb id={bp.id} thumb={bp.thumb} />
-            <RowHeader id={bp.id} steam={bp.steam} />
-            <RowSteam classes={{root: classes.cardContent}} id={bp.id} steam={bp.steam} />
-            <RowPraisal classes={{root: classes.cardContent}} id={bp.id} sbc={bp.sbc} />
-            <Overlay blueprint={bp} index={index} />
+            <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: 12, maxWidth: 4}}>
+                <Thumb id={bp.id} thumb={bp.thumb} />
+                <RowHeader id={bp.id} steam={bp.steam} />
+                <RowSteam classes={{root: classes.cardContent}} id={bp.id} steam={bp.steam} />
+                <RowPraisal classes={{root: classes.cardContent}} id={bp.id} sbc={bp.sbc} />
+                <Overlay blueprint={bp} index={index} />
+            </CONTEXT.PARENT_COLUMNS.Provider>
         </Card>
     )
 })) /* ============================================================================================================= */
