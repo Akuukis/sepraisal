@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import moment from 'moment'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export * from './Component'
 export * from './ComponentRouted'
@@ -28,17 +28,17 @@ type NumberAlike = string | number | BigNumber
 /**
  * Always give a valid number, and never ever give more than 4 decimals.
  */
-const addCommasForThousands = (value: string, recursive = 3): string => {
-    const oneCommaMore = value.toString().replace(/.*(?:\d\d|^\d)(?=(\d{3}))/g, '$&,')
+const addThousandSeperators = (value: string, seperator = '\u2009', recursive = 4): string => {
+    const oneCommaMore = value.toString().replace(/.*(?:\d\d|^\d)(?=(\d{3}))/g, `$&${seperator}`)
 
-    return recursive === 0 ? oneCommaMore : addCommasForThousands(oneCommaMore, recursive - 1)
+    return recursive === 0 ? oneCommaMore : addThousandSeperators(oneCommaMore, seperator, recursive - 1)
 }
 
 
 export const formatDecimal = (amount: NumberAlike, dp: number = 0): string => {
     const bn = new BigNumber(amount)
 
-    return addCommasForThousands(bn.toFixed(dp))
+    return addThousandSeperators(bn.toFixed(dp))
 }
 
 /**
