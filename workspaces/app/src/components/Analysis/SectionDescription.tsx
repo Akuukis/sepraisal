@@ -68,9 +68,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MySection
-            heading='Workshop description'
-            label='-'
-            value='-'
+            heading='Description'
+            label=''
+            value=''
             MyBoxColumnProps={{style: {display: 'none'}}}
             className={clsx(classes.root, className)}
             {...otherProps}

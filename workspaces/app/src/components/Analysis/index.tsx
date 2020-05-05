@@ -50,7 +50,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     item: {
         maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2,
-        padding: theme.spacing(1),
+        padding: theme.spacing(0, 1),
     },
     headerItem: {
         width: '100%',
