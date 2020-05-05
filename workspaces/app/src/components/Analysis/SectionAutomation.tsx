@@ -19,11 +19,12 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, className, ...otherProps} = props
+    const {bp, className, long, ...otherProps} = props
     const sbc = bp.sbc
 
     const progBlocks = (sbc.blocks['MyProgrammableBlock/LargeProgrammableBlock'] ?? 0) + (sbc.blocks['ProgrammableBlock/SmallProgrammableBlock'] ?? 0)

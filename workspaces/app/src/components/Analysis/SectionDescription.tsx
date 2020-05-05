@@ -63,7 +63,7 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, long, className, ...otherProps} = props
+    const {bp, className, long, ...otherProps} = props
     const largerThanXl = useMediaQuery(theme.breakpoints.up('xl'))
 
     return (
