@@ -11,10 +11,6 @@ export const vegaSpecHeatmap: Vega.Spec = {
 
     signals: [
         {
-            name: 'targetRatio',
-            init: `${MY_LIGHT_THEME.shape.boxWidth}/${MY_LIGHT_THEME.shape.boxHeight * 3}`,
-        },
-        {
             name: 'yMaxGlobal',
             init: 'data(\'max\')[0].y',
         },
