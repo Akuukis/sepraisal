@@ -41,7 +41,7 @@ const styles = (theme: IMyTheme) => createStyles({
     MyBox: {
     },
     MyBoxPaper: {
-        backgroundColor: theme.palette.success.main,
+        backgroundColor: theme.palette.success.dark,
         boxShadow: theme.shadows[0],
     },
     HeadingCell: {
