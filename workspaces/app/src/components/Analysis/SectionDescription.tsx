@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton, Paper, Typography, useMediaQuery } from '@material-ui/core'
+import { darken, IconButton, Paper, Typography, useMediaQuery } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, linkBpProps, STEAM_COLORS } from '../../common/'
 import Steam from '../icons/Steam'
@@ -41,6 +41,12 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: STEAM_COLORS.blue,
         '& > img': {
             maxWidth: `calc(100% - ${theme.spacing(4)}px)`,
+        },
+        '& > a:link': {
+            color: theme.palette.primary.light,
+        },
+        '& > a:visited': {
+            color: darken(theme.palette.primary.light, 0.5),
         },
         height: `calc(100% - ${theme.spacing(2) * 2}px)`,
         width: `calc(100% - ${theme.spacing(2) * 2}px)`,
