@@ -51,11 +51,12 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps extends GridProps {
     bpId: string | number
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bpId, ...otherProps} = props
+    const {bpId, long, ...otherProps} = props
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
@@ -107,7 +108,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
             {AnalysisSections.map(([heading, AnalysisSection], i) => (
                 <MySectionErrorBoundary key={i} heading={heading}>
-                    <AnalysisSection bp={blueprint} />
+                    <AnalysisSection bp={blueprint} long={long} />
                 </MySectionErrorBoundary>
             ))}
         </Grid>
@@ -169,4 +170,4 @@ interface IBpProjection {
     thumb?: Partial<IBlueprint.IThumb>,
 }
 
-type Section = React.ComponentType<{bp: IBlueprint} & StyledComponentProps<'root'>>
+type Section = React.ComponentType<{bp: IBlueprint, long?: boolean} & StyledComponentProps<'root'>>

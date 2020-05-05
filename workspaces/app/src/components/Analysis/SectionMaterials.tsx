@@ -41,11 +41,13 @@ interface IRequirement {
 }
 interface IProps {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const sbc = props.bp.sbc
+    const {bp, long} = props
+    const sbc = bp.sbc
     const [syntax, setSyntax] = React.useState<Syntax>('list')
     const [copies, setCopies] = React.useState(1)
     const [type, setType] = React.useState<Type>('component')
@@ -214,8 +216,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-            <MyBoxColumn height={8}>
-                <MyBoxRow height={8} width={6}>
+            <MyBoxColumn height={long ? 0 : 4}>
+                <MyBoxRow width={6}>
                     <MyBox width={6}>
                         {getContent()}
                     </MyBox>

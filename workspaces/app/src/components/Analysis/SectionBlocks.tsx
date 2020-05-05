@@ -22,11 +22,13 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const sbc = props.bp.sbc
+    const {bp, long} = props
+    const sbc = bp.sbc
 
     const blocks = (Object.entries(sbc.blocks))
         .map(([block, count]) => ({block, count}))
@@ -38,7 +40,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <MyBoxRow>
                 </MyBoxRow>
             </MyBoxColumn>
-            <MyBoxColumn height={8}>
+            <MyBoxColumn height={long ? 0 : 5}>
                 <MyBoxRow width={6}>
                     <MyBox width={6}>
                         <Table

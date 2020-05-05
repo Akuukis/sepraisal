@@ -35,7 +35,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <Grid
             className={classnames(classes.root, className)}
-            style={{height: heightFinal * theme.shape.boxHeight}}
+            style={{height: (heightFinal * theme.shape.boxHeight) || undefined}}
 
             item
             xs={columns}

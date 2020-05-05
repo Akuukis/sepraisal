@@ -2,7 +2,7 @@ import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton, Paper, Typography } from '@material-ui/core'
+import { IconButton, Paper, Typography, useMediaQuery } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, linkBpProps, STEAM_COLORS } from '../../common/'
 import Steam from '../icons/Steam'
@@ -44,18 +44,20 @@ const styles = (theme: IMyTheme) => createStyles({
         height: `calc(100% - ${theme.spacing(2) * 2}px)`,
         width: `calc(100% - ${theme.spacing(2) * 2}px)`,
         overflowX: 'hidden',
-        overflowY: 'scroll',
+        overflowY: 'auto',
     },
 })
 
 
 interface IProps {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp} = props
+    const {bp, long} = props
+    const largerThanXl = useMediaQuery(theme.breakpoints.up('xl'))
 
     return (
         <MySection
@@ -65,8 +67,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             value='-'
             MyBoxColumnProps={{style: {display: 'none'}}}
         >
-            <MyBoxColumn height={4} width={6}>
-                <MyBoxRow height={4} width={6}>
+            <MyBoxColumn height={largerThanXl && long ? 0 : 4} width={6}>
+                <MyBoxRow width={6}>
                     <MyBox width={6} className={classes.box}>
                         <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
                     </MyBox>

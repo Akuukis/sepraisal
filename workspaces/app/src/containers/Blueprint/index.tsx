@@ -28,7 +28,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <DefaultLayout className={classes.root}>
             <Grid container spacing={2} justify='center'>
-                <Analysis bpId={bpId} />
+                <Analysis bpId={bpId} long />
             </Grid>
         </DefaultLayout>
     )
