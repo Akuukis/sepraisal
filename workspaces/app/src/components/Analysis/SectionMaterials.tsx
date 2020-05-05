@@ -1,15 +1,17 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
 import Table from '../../components/Table'
 import CenterCell from '../Cell/CenterCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -38,13 +40,15 @@ interface IRequirement {
     amount: number
     blockType: string
 }
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const sbc = props.bp.sbc
+    const {bp, className, long, ...otherProps} = props
+    const {sbc} = bp
     const [syntax, setSyntax] = React.useState<Syntax>('list')
     const [copies, setCopies] = React.useState(1)
     const [type, setType] = React.useState<Type>('component')
@@ -157,65 +161,75 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <>
-            <MyBoxGroup>
-                <MyBox variant='header' width={1.5}>
-                    <HeaderCell width={1.5} title='MATERIALS' />
-                </MyBox>
-                <MyBox width={1.5}>
-                    <CenterCell width={1.5} padded>
-                        <TextField
-                            select
-                            value={syntax}
-                            onChange={handleSyntax}
-                            fullWidth
-                        >
-                            <MenuItem value='list'>List</MenuItem>
-                            <MenuItem value='aLcdInv'>aLCD2 Inventory</MenuItem>
-                            <MenuItem value='aLcdMissing'>aLCD2 Missing</MenuItem>
-                            <MenuItem value='iimLCD'>IIM LCD</MenuItem>
-                            <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
-                        </TextField>
-                    </CenterCell>
-                </MyBox>
-                <MyBox width={1.5}>
-                    <CenterCell width={1.5} padded>
-                        <TextField
-                            select
-                            value={type}
-                            onChange={handleType}
-                            fullWidth
-                        >
-                            <MenuItem value='component'>Compoments</MenuItem>
-                            <MenuItem value='ingot'>Ingots</MenuItem>
-                            <MenuItem value='ore'>Ores</MenuItem>
-                        </TextField>
-                    </CenterCell>
-                </MyBox>
-                <MyBox width={1.5}>
-                    <CenterCell width={1.5} padded>
-                        <TextField
-                            id='copies'
-                            type='number'
-                            value={copies}
-                            onChange={handleK}
-                            fullWidth
-                            inputProps={{
-                                style: {textAlign: 'center'},
-                            }}
-                            InputProps={{
-                                endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
-                            }}
-                        />
-                    </CenterCell>
-                </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={8}>
-                <MyBox width={6}>
-                    {getContent()}
-                </MyBox>
-            </MyBoxGroup>
-        </>
+        <MySection
+            heading='Materials'
+            label='ore mass (kg)'
+            value={formatDecimal(getOreMass(getCombinedMaterials(sbc)))}
+            className={clsx(classes.root, className)} {...otherProps}
+        >
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <CenterCell width={3} padded>
+                            <TextField
+                                select
+                                value={syntax}
+                                onChange={handleSyntax}
+                                fullWidth
+                            >
+                                <MenuItem value='list'>List</MenuItem>
+                                <MenuItem value='aLcdInv'>aLCD2 Inventory</MenuItem>
+                                <MenuItem value='aLcdMissing'>aLCD2 Missing</MenuItem>
+                                <MenuItem value='iimLCD'>IIM LCD</MenuItem>
+                                <MenuItem value='iimCargo'>IIM Cargo</MenuItem>
+                            </TextField>
+                        </CenterCell>
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn width={6}>
+                <MyBoxRow width={6}>
+                    <MyBox width={3}>
+                        <CenterCell width={3} padded>
+                            <TextField
+                                select
+                                value={type}
+                                onChange={handleType}
+                                fullWidth
+                            >
+                                <MenuItem value='component'>Compoments</MenuItem>
+                                <MenuItem value='ingot'>Ingots</MenuItem>
+                                <MenuItem value='ore'>Ores</MenuItem>
+                            </TextField>
+                        </CenterCell>
+                    </MyBox>
+                    <MyBox width={3}>
+                        <CenterCell width={3} padded>
+                            <TextField
+                                id='copies'
+                                type='number'
+                                value={copies}
+                                onChange={handleK}
+                                fullWidth
+                                inputProps={{
+                                    style: {textAlign: 'center'},
+                                }}
+                                InputProps={{
+                                    endAdornment: <InputAdornment position='end'>Copies</InputAdornment>,
+                                }}
+                            />
+                        </CenterCell>
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn height={long ? 0 : 4}>
+                <MyBoxRow width={6}>
+                    <MyBox width={6}>
+                        {getContent()}
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 
@@ -236,3 +250,17 @@ type ProjectionCardSbc =
 interface IBpProjectionRow {
     sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]},
 }
+
+interface IMaterial {
+    type: keyof IBlueprint.ISbc['ingots']
+    ingots: number
+    ores: number
+}
+
+const getCombinedMaterials = (sbc: Pick<IBlueprint.ISbc, 'ingots' | 'ores'>): IMaterial[] => {
+    return Object.entries(sbc.ingots)
+        .map(([type, amount]) => ({type, ingots: amount, ores: sbc.ores[type]}))
+        .sort((a, b) => b.ores - a.ores)
+}
+
+const getOreMass = (combined: IMaterial[]) => combined.reduce((sum, entry) => sum + entry.ores, 0)

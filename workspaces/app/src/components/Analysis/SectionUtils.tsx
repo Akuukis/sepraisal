@@ -1,12 +1,14 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -15,13 +17,15 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, long, ...otherProps} = props
+    const {sbc} = bp
 
     const remotes = (sbc.blocks['RemoteControl/LargeBlockRemoteControl'] ?? 0) + (sbc.blocks['RemoteControl/SmallBlockRemoteControl'] ?? 0)
     const cameras = (sbc.blocks['CameraBlock/SmallCameraBlock'] ?? 0) + (sbc.blocks['CameraBlock/LargeCameraBlock'] ?? 0)
@@ -66,55 +70,83 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         + (sbc.blocks["Cockpit/SmallBlockCockpitIndustrial"] ?? 0)
         + (sbc.blocks["Cockpit/LargeBlockCockpitIndustrial"] ?? 0)
 
+    const total = 0
+        + remotes
+        + cameras
+        + oreDetectors
+        + landingGears
+        + beacons
+        + radioAntennas
+        + laserAntenna
+        + spotlights
+        + medical
+        + cryoChambers
+        + survivalKits
+        + airVents
+        // + oxygenTanks
+        + oxygenFarm
+        + oxygenGenerator
+        // + hydrogenTanks
+        + connectors
+        + ejectors
+        + virtualMass
+        + gravityGen
+        + mergeBlocks
+        + lights
+        + cockpits
+
     return (
-        <>
-            <MyBoxGroup height={4} width={6}>
-                <MyBox variant='header'>
-                    <HeaderCell title='UTILITIES' />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell label='cockpits' value={cockpits || '-'} />
-                    <ValueCell label='remotes' value={remotes || '-'} />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell label='cameras' value={cameras || '-'} />
-                    <ValueCell label='ore detectors' value={oreDetectors || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label='landing gears' value={landingGears || '-'} />
-                    <ValueCell label='connectors' value={connectors || '-'} />
-                    <ValueCell label='merge blocks' value={mergeBlocks || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label='beacons' value={beacons || '-'} />
-                    <ValueCell label='radio antennas' value={radioAntennas || '-'} />
-                    <ValueCell label='laser antennas' value={laserAntenna || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label='medical' value={medical || '-'} />
-                    <ValueCell label='cryo chambers' value={cryoChambers || '-'} />
-                    <ValueCell label='survival kits' value={survivalKits || '-'} />
-                </MyBox>
-                <MyBox width={1}>
-                    <ValueCell label='ejectors' value={ejectors || '-'} />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell label='spotlights' value={spotlights || '-'} />
-                    <ValueCell label='lights' value={lights || '-'} />
-                </MyBox>
-                <MyBox width={4}>
-                    <ValueCell label='air vents' value={airVents || '-'} />
-                    <ValueCell label='oxygen tanks' value={oxygenTanks || '-'} />
-                    {/* <ValueCell label='oxygen farm' value={oxygenFarm || '-'} /> */}
-                    <ValueCell label='oxygen generator' value={oxygenGenerator || '-'} />
-                    <ValueCell label='hydrogen tanks' value={hydrogenTanks || '-'} />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell label='virtual mass' value={virtualMass || '-'} />
-                    <ValueCell label='gravity gen.' value={gravityGen || '-'} />
-                </MyBox>
-            </MyBoxGroup>
-        </>
+        <MySection heading='Utilities' label='total' value={total} className={clsx(classes.root, className)} {...otherProps}>
+            <MyBoxColumn height={1} width={3}>
+                <MyBoxRow height={1} width={3}>
+                    <MyBox width={2}>
+                        <ValueCell label='cockpits' value={cockpits || '-'} />
+                        <ValueCell label='remotes' value={remotes || '-'} />
+                    </MyBox>
+                    <MyBox width={1}>
+                        <ValueCell label='cameras' value={cameras || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={6}>
+                <MyBoxRow height={3} width={6}>
+                    <MyBox width={3}>
+                        <ValueCell label='landing gears' value={landingGears || '-'} />
+                        <ValueCell label='connectors' value={connectors || '-'} />
+                        <ValueCell label='merge blocks' value={mergeBlocks || '-'} />
+                    </MyBox>
+                    <MyBox width={3}>
+                        <ValueCell label='beacons' value={beacons || '-'} />
+                        <ValueCell label='radio antennas' value={radioAntennas || '-'} />
+                        <ValueCell label='laser antennas' value={laserAntenna || '-'} />
+                    </MyBox>
+                    <MyBox width={3}>
+                        <ValueCell label='medical' value={medical || '-'} />
+                        <ValueCell label='cryo chambers' value={cryoChambers || '-'} />
+                        <ValueCell label='survival kits' value={survivalKits || '-'} />
+                    </MyBox>
+                    <MyBox width={1}>
+                        <ValueCell label='ore detectors' value={oreDetectors || '-'} />
+                    </MyBox>
+                    <MyBox width={2}>
+                        <ValueCell label='spotlights' value={spotlights || '-'} />
+                        <ValueCell label='lights' value={lights || '-'} />
+                    </MyBox>
+                    <MyBox width={3}>
+                        <ValueCell label='air vents' value={airVents || '-'} />
+                        <ValueCell label='oxygen farm' value={oxygenFarm || '-'} />
+                        <ValueCell label='oxygen generator' value={oxygenGenerator || '-'} />
+                    </MyBox>
+                    <MyBox width={1}>
+                        <ValueCell label='ejectors' value={ejectors || '-'} />
+                    </MyBox>
+                    <MyBox width={2}>
+                        <ValueCell label='virtual mass' value={virtualMass || '-'} />
+                        <ValueCell label='gravity gen.' value={gravityGen || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

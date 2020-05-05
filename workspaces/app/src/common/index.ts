@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import moment from 'moment'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export * from './Component'
 export * from './ComponentRouted'
@@ -28,17 +28,17 @@ type NumberAlike = string | number | BigNumber
 /**
  * Always give a valid number, and never ever give more than 4 decimals.
  */
-const addCommasForThousands = (value: string, recursive = 3): string => {
-    const oneCommaMore = value.toString().replace(/.*(?:\d\d|^\d)(?=(\d{3}))/g, '$&,')
+const addThousandSeperators = (value: string, seperator = '\u2009', recursive = 4): string => {
+    const oneCommaMore = value.toString().replace(/.*(?:\d\d|^\d)(?=(\d{3}))/g, `$&${seperator}`)
 
-    return recursive === 0 ? oneCommaMore : addCommasForThousands(oneCommaMore, recursive - 1)
+    return recursive === 0 ? oneCommaMore : addThousandSeperators(oneCommaMore, seperator, recursive - 1)
 }
 
 
 export const formatDecimal = (amount: NumberAlike, dp: number = 0): string => {
     const bn = new BigNumber(amount)
 
-    return addCommasForThousands(bn.toFixed(dp))
+    return addThousandSeperators(bn.toFixed(dp))
 }
 
 /**
@@ -130,9 +130,14 @@ export type ASYNC_STATE =
 
 export const DUD_URL = 'javascript:;'
 
+
 export const linkBp = (id: number) => `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`
 export const linkAuthor = (id: string | number) => `https://steamcommunity.com/id/${id}/myworkshopfiles/?appid=24485`
 export const linkCollection = (id: string | number) => `https://steamcommunity.com/workshop/filedetails/?id=${id}`
+
+export const linkBpProps = (id: number) => ({href: linkBp(id), target: '_blank', rel: 'noreferrer noopener'})
+export const linkAuthorProps = (id: string | number) => ({href: linkAuthor(id), target: '_blank', rel: 'noreferrer noopener'})
+export const linkCollectionProps = (id: string | number) => ({href: linkCollection(id), target: '_blank', rel: 'noreferrer noopener'})
 
 
 /**

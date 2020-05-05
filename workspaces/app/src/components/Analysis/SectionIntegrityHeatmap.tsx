@@ -41,11 +41,11 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
         <Vega
             data={{
                 integrity0: props.plane.map((line) => ({data: line})),
-                max: {
+                max: [{
                     value: Math.sqrt(props.maxValues.value),
                     x: props.maxValues.x,
                     y: props.maxValues.y,
-                },
+                }],
             }}
             spec={vegaSpecHeatmap}
             onSignalHover={noop}

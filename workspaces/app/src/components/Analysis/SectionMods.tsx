@@ -1,15 +1,17 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Link } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkBp } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkBpProps } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import CenterCell from '../Cell/CenterCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
+import Table from '../Table'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -24,23 +26,27 @@ const styles = (theme: IMyTheme) => createStyles({
         width: '100%',
         overflowY: 'scroll',
     },
+    contentTable: {
+        width: '100%',
+    },
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp} = props
+    const {bp, className, long, ...otherProps} = props
 
 
-    const mods = bp.steam.mods.map((mod) => (
-        (<div>- <Link href={linkBp(mod.id as number)} target='_blank' rel='noreferrer noopener' variant='body2' noWrap>
+    const mods = bp.steam.mods.map((mod) => ({
+        mod: (<Link variant='body2' noWrap {...linkBpProps(mod.id as number)}>
             {mod.title ?? mod.id}
-        </Link></div>)
-    ))
+        </Link>)
+    }))
 
     // TODO: Fix backend to have "unknownBlocks" just like "blocks".
 
@@ -51,31 +57,31 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     //     .join('\n')
 
     return (
-        <>
-            <MyBoxGroup>
-                <MyBox variant='header'>
-                    <HeaderCell width={2} title='MODS' />
-                </MyBox>
-                <MyBox>
-                    <ValueCell label={`vanilla`} value={bp.sbc.vanilla ? 'Yes' : 'No'}/>
-                </MyBox>
-                <MyBox>
-                    <ValueCell label={`listed mods`} value={mods.length}/>
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell label={`unique m.blocks`} value={'?'}/>
-                    <ValueCell label={`total m.blocks`} value={'?'}/>
-                </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={2} width={6}>
-                <MyBox width={6}>
-                    <ValueCell width={2} label={`dependencies in steam.`} value={'Listed Mods:'} justify='flex-start' alignItems='flex-end'/>
-                    <CenterCell width={4} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
-                        {mods}
-                    </CenterCell>
-                </MyBox>
-            </MyBoxGroup>
-            {/* <MyBoxGroup height={2} width={6}>
+        <MySection heading='Mods' label='status' value={bp.sbc.vanilla ? 'Vanilla' : 'Modded'} className={clsx(classes.root, className)} {...otherProps}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox>
+                        <ValueCell label={`listed mods`} value={mods.length}/>
+                    </MyBox>
+                    <MyBox width={2}>
+                        <ValueCell label={`unique m.blocks`} value={'?'}/>
+                        <ValueCell label={`total m.blocks`} value={'?'}/>
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn height={4} width={6}>
+                <MyBoxRow height={4} width={6}>
+                    <MyBox width={6}>
+                        <Table
+                            className={classes.contentTable}
+                            columns={['mod']}
+                            headers={{mod: 'listed Mods'}}
+                            data={mods}
+                        />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            {/* <MyBoxColumn height={2} width={6}>
                 <MyBox width={6}>
                     <ValueCell width={2} label={`found in the blueprint.`} value={'non-Vanilla blocks:'} justify='flex-start' alignItems='flex-end'/>
                     <CenterCell width={4} direction='column' justify='flex-start' alignItems='flex-start'>
@@ -84,8 +90,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         </Typography>
                     </CenterCell>
                 </MyBox>
-            </MyBoxGroup> */}
-        </>
+            </MyBoxColumn> */}
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

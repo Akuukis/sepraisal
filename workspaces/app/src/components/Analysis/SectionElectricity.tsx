@@ -1,12 +1,14 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -15,13 +17,15 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, long, ...otherProps} = props
+    const {sbc} = bp
 
     const maxOutput = getMaxOutput(sbc.blocks)
     const maxStorage = getMaxStorage(sbc.blocks)
@@ -34,30 +38,30 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const windTurbines = (sbc.blocks['WindTurbine/LargeBlockWindTurbine'] ?? 0)
 
     return (
-        <>
-            <MyBoxGroup height={2} width={6}>
-                <MyBox variant='header'>
-                    <HeaderCell title='ELECTRICITY' />
-                </MyBox>
-                <MyBox width={1}>
-                    <ValueCell label={`max output (MW)`} value={maxOutput || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`capacity (MWh)`} value={maxStorage || '-'} />
-                    <ValueCell label={`batteries`} value={batteries || '-'} />
-                    <ValueCell label={`small batteries`} value={smallBatteries || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`small reactors`} value={smallReactors || '-'} />
-                    <ValueCell label={`large reactors`} value={largeReactors || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`hydro engines`} value={hydroEngine || '-'} />
-                    <ValueCell label={`solar panels`} value={solarPanels || '-'} />
-                    <ValueCell label={`wind turbines`} value={windTurbines || '-'} />
-                </MyBox>
-            </MyBoxGroup>
-        </>
+        <MySection heading='Electricity' label='max output (MW)' value={maxOutput || '-'} className={clsx(classes.root, className)} {...otherProps}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <ValueCell label={`capacity (MWh)`} value={maxStorage || '-'} />
+                        <ValueCell label={`batteries`} value={batteries || '-'} />
+                        <ValueCell label={`small batteries`} value={smallBatteries || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn width={6}>
+                <MyBoxRow width={6}>
+                    <MyBox width={3}>
+                        <ValueCell label={`small reactors`} value={smallReactors || '-'} />
+                        <ValueCell label={`large reactors`} value={largeReactors || '-'} />
+                    </MyBox>
+                    <MyBox width={3}>
+                        <ValueCell label={`hydro engines`} value={hydroEngine || '-'} />
+                        <ValueCell label={`solar panels`} value={solarPanels || '-'} />
+                        <ValueCell label={`wind turbines`} value={windTurbines || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

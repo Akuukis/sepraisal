@@ -1,12 +1,14 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -15,35 +17,33 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, long, ...otherProps} = props
+    const {sbc} = bp
     const mass = sbc.blockMass
 
     const decoys = (sbc.blocks['Decoy/LargeDecoy'] ?? 0) + (sbc.blocks['Decoy/SmallDecoy'] ?? 0)
     const welders = (sbc.blocks['ShipWelder/LargeShipWelder'] ?? 0) + (sbc.blocks['ShipWelder/SmallShipWelder'] ?? 0)
 
     return (
-        <>
-            <MyBoxGroup height={1} width={6}>
-                <MyBox variant='header'>
-                    <HeaderCell title='DEFENSIVE' />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell width={2} label={`Hit Points`} value={formatDecimal(sbc.blockIntegrity)} />
-                </MyBox>
-                <MyBox>
-                    <ValueCell label={`decoys`} value={decoys || '-'} />
-                </MyBox>
-                <MyBox>
-                    <ValueCell label={`welders`} value={welders || '-'} />
-                </MyBox>
-            </MyBoxGroup>
-        </>
+        <MySection heading='Defensive' label='Hit Points' value={formatDecimal(sbc.blockIntegrity)} className={clsx(classes.root, className)} {...otherProps}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox>
+                        <ValueCell label={`decoys`} value={decoys || '-'} />
+                    </MyBox>
+                    <MyBox>
+                        <ValueCell label={`welders`} value={welders || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

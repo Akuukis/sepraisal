@@ -1,17 +1,15 @@
 import * as Vega from 'vega'
 
+import { MY_LIGHT_THEME } from './myTheme'
+
 // tslint:disable: object-literal-sort-keys naming-convention
 export const vegaSpecHeatmap: Vega.Spec = {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
-    width: 268,
-    height: 151,
+    width: MY_LIGHT_THEME.shape.boxWidth,
+    height: MY_LIGHT_THEME.shape.boxHeight * 3,
     padding: 0,
 
     signals: [
-        {
-            name: 'targetRatio',
-            init: '268/151',
-        },
         {
             name: 'yMaxGlobal',
             init: 'data(\'max\')[0].y',

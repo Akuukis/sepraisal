@@ -42,17 +42,22 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
+    const selectionStore = React.useContext(CONTEXT.SELECTION)
 
     const panelClasses = {
         root: classes.subpanel,
         list: classes.list,
     }
 
+    const toggleNarrow = (event: React.ChangeEvent<HTMLInputElement>) => {
+        selectionStore.setNarrow(event.target.checked)
+    }
+
     return (
         <div className={classes.root}>
             <Grid container justify='flex-end'>
                 <Grid item className={classes.switchItem}>
-                    <Switch />
+                    <Switch checked={selectionStore.narrow} onChange={toggleNarrow} />
                     <Typography component='span' variant='subtitle2'>narrow columns</Typography>
                 </Grid>
             </Grid>

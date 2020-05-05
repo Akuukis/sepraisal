@@ -1,24 +1,35 @@
 import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { Link } from 'react-router-dom'
 
-import { AppBar, Avatar, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, Toolbar, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkAuthor, linkBp } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import FavoriteButton from '../../components/FavoriteButton'
+import { ROUTES } from '../../constants/routes'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         zIndex: theme.zIndex.appBar - 200,
     },
+
     header: {
+        textDecoration: 'none',
+        '&:hover': {
+            textDecoration: 'underline',
+        },
         '&:visited': {
-            color: theme.palette.secondary.main,
+            color: theme.palette.success.light,
         },
         '&:link': {
-            color: 'white',
+            color: theme.palette.success.contrastText,
         },
+    },
+    toolbar: {
+        minHeight: 58,
+        backgroundColor: theme.palette.success.main,
     }
 })
 
@@ -31,26 +42,16 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {bp} = props
 
-    const author = 'steam' in bp && bp.steam !== undefined
-        ?
-            (<a href={linkAuthor(bp.steam.author.id)} target='_blank' rel='noreferrer noopener'>
-                {bp.steam.author.title?.slice(0, 2) ?? bp.steam.author.id}
-            </a>)
-        : '<>'
-
     const title = 'steam' in bp && bp.steam !== undefined
         ?
-            (<a href={linkBp(bp.steam.id)} className={classes.header} target='_blank' rel='noreferrer noopener'>
+            (<Link className={classes.header} to={`${ROUTES.BLUEPRINT}/${bp._id!}`}>
                 {bp.steam.title}
-            </a>)
+            </Link>)
         : bp.sbc.gridTitle
     return (
         <>
             <AppBar position='static' className={classes.root}>
-                <Toolbar>
-                    <Avatar style={{marginRight: '0.5em'}}>
-                        {author}
-                    </Avatar>
+                <Toolbar className={classes.toolbar}>
                     {/* <IconButton color='contrast' aria-label='Menu'>
                         <IconMoreVert />
                     </IconButton> */}

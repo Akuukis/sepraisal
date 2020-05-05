@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -8,35 +9,48 @@ import { StyledComponentProps } from '@material-ui/core/styles'
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
 import { CONTEXT } from '../../stores'
 import Header from './Header'
-import MySection from './MySection'
+import MySectionErrorBoundary from './MySectionErrorBoundary'
 import SectionAutomation from './SectionAutomation'
 import SectionBlocks from './SectionBlocks'
 import SectionCargo from './SectionCargo'
 import SectionCosts from './SectionCosts'
 import SectionDefensive from './SectionDefensive'
+import SectionDescription from './SectionDescription'
 import SectionElectricity from './SectionElectricity'
 import SectionIntegrity from './SectionIntegrity'
 import SectionMaterials from './SectionMaterials'
 import SectionMobility from './SectionMobility'
 import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
+import SectionPrintable from './SectionPrintable'
 import SectionUtils from './SectionUtils'
 import SectionWorkshop from './SectionWorkshop'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        maxWidth: theme.spacing(1) * 2 + 536,
+        maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2 * 1,
+    },
+    rootLg: {
         [theme.breakpoints.up('lg')]: {
-            maxWidth: (theme.spacing(1) * 2 + 536) * 2,
+            maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2 * 2,
         },
+    },
+    rootXl: {
+        [theme.breakpoints.up('xl')]: {
+            maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2 * 3,
+        },
+    },
+
+    narrow: {
+        maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2 * 0.5,
     },
 
     error: {
         backgroundColor: theme.palette.error.light,
     },
     item: {
-        maxWidth: theme.spacing(1) * 2 + 536,
-        padding: theme.spacing(1),
+        maxWidth: theme.spacing(2) + theme.shape.boxWidth * 2,
+        padding: theme.spacing(0, 1),
     },
     headerItem: {
         width: '100%',
@@ -46,16 +60,23 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps extends GridProps {
     bpId: string | number
+    long?: boolean
+    maxWidth?: 0.5 | 1 | 2 | 3
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bpId, ...otherProps} = props
+    const {bpId, long, maxWidth, className, ...otherProps} = props
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
     const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(null)
 
+    const rootClassName = clsx(classes.root, {
+            [classes.narrow]: maxWidth === 0.5,
+            [classes.rootLg]: !maxWidth || maxWidth >= 2,
+            [classes.rootXl]: !maxWidth || maxWidth >= 3,
+        }, className)
 
     useAsyncEffectOnce(async () => {
         setStatus(ASYNC_STATE.Doing)
@@ -98,43 +119,61 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     // }
 
     let sectionGroupCounter = 0
-    const sectionGroup = (AnalysisSections: Section[], header = false) => (
+    const sectionGroup = (AnalysisSections: [string, Section][], header = false) => (
         <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
-            {AnalysisSections.map((AnalysisSection, i) => (
-                <MySection key={i}>
-                    <AnalysisSection bp={blueprint} />
-                </MySection>
+            {AnalysisSections.map(([heading, AnalysisSection], i) => (
+                <MySectionErrorBoundary key={i} heading={heading}>
+                    <AnalysisSection bp={blueprint} long={long} narrow={maxWidth === 0.5} />
+                </MySectionErrorBoundary>
             ))}
         </Grid>
     )
 
     return (
-        <Grid id={bpId as string} component='article' className={classes.root} container justify='center' {...otherProps}>
-            {sectionGroup([Header          as Section], true)}
-            {'steam' in blueprint ? sectionGroup([SectionWorkshop        as Section]) : null}
-            {sectionGroup([SectionIntegrity       as Section])}
-            {sectionGroup([SectionElectricity          as Section])}
-            {sectionGroup([SectionUtils          as Section])}
-            {sectionGroup([SectionCosts          as Section])}
-            {sectionGroup([SectionCargo          as Section])}
-            {sectionGroup([SectionMods          as Section])}
-            {sectionGroup([SectionAutomation          as Section])}
-            {sectionGroup([SectionMobility        as Section])}
-            {sectionGroup([SectionOffensive        as Section])}
-            {sectionGroup([SectionDefensive        as Section])}
-            {sectionGroup([SectionMaterials          as Section])}
-            {sectionGroup([SectionBlocks          as Section])}
+        <Grid
+            id={bpId as string}
+            component='article'
+            className={rootClassName}
+
+            container
+            alignItems='flex-start'
+            justify='flex-end'
+            {...otherProps}
+        >
+            <Grid
+                item
+                xs={12}
+                xl={(!maxWidth || maxWidth >=3) ? 4 : 12}
+
+                container
+            >
+                {sectionGroup([['Header', Header as Section]], true)}
+                {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop as Section]]) : null}
+                {'steam' in blueprint ? sectionGroup([['Description', SectionDescription as Section]]) : null}
+            </Grid>
+            <Grid
+                item
+                xs={12}
+                xl={(!maxWidth || maxWidth >=3) ? 8 : 12}
+
+                container
+            >
+                {sectionGroup([['Integrity', SectionIntegrity as Section]])}
+                {sectionGroup([['Mods', SectionMods as Section]])}
+                {sectionGroup([['Offensive', SectionOffensive as Section],
+                               ['Defensive', SectionDefensive as Section]])}
+                {sectionGroup([['Cargo', SectionCargo as Section]])}
+                {sectionGroup([['Mobility', SectionMobility as Section]])}
+                {sectionGroup([['Printable', SectionPrintable as Section],
+                               ['Costs', SectionCosts as Section]])}
+                {sectionGroup([['Utils', SectionUtils as Section]])}
+                {sectionGroup([['Electricity', SectionElectricity as Section],
+                               ['Automation', SectionAutomation as Section]])}
+                {sectionGroup([['Materials', SectionMaterials as Section]])}
+                {sectionGroup([['Blocks', SectionBlocks as Section]])}
+            </Grid>
         </Grid>
     )
 })) /* ============================================================================================================= */
 
-
-interface IBpProjection {
-    _id?: number,                      // discover.ts
-    classes?: Partial<IBlueprint.IClasses>,
-    sbc?: Partial<IBlueprint.ISbc>,
-    steam?: Partial<IBlueprint.ISteam>,
-    thumb?: Partial<IBlueprint.IThumb>,
-}
-
-type Section = React.ComponentType<{bp: IBlueprint} & StyledComponentProps<'root'>>
+type Section = React.ComponentType<{bp: IBlueprint, long?: boolean, narrow?: boolean} & StyledComponentProps<'root'>>

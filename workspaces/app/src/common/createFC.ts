@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
+import { basename } from 'path'
 import { FC } from 'react'
 import { DeepPartial } from 'utility-types'
-import { basename } from 'path'
 
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { Styles } from '@material-ui/styles/withStyles'
@@ -27,6 +27,7 @@ export const createSmartFC = <TClasses extends string>(
             // tslint:disable-next-line: no-object-literal-type-assertion
             return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
         }
+        wrapperFC.displayName = name
 
         return observer<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>>(wrapperFC)
     }
@@ -34,17 +35,22 @@ export const createSmartFC = <TClasses extends string>(
 
 export const createDumbFC = <TClasses extends string>(
         styles: Styles<IMyTheme, {}, TClasses>,
+        filepath?: string,
     ) => <TProps extends object>(
         fc: FunctionComponent<TProps, TClasses>,
     ) => {
-        const useStyles = makeStyles(styles)
+        const name = filepath && basename(filepath, '.tsx')
+        const useStyles = makeStyles(styles, {name})
 
         // tslint:disable-next-line: no-identical-functions - Because closure matters.
-        return (props: TProps) => {
+        const wrapperFC = (props: TProps) => {
             const theme = useTheme<IMyTheme>()
             const classes = useStyles(props)
 
             // tslint:disable-next-line: no-object-literal-type-assertion
             return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
         }
+        wrapperFC.displayName = name
+
+        return wrapperFC
     }

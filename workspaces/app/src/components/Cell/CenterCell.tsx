@@ -32,8 +32,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {className, padded, width, ...otherProps} = props
     const widthOrDefault = width ?? 1
 
-    const parentColumns = React.useContext(CONTEXT.PARENT_COLUMNS)
-    const columns = Math.round(widthOrDefault * 2 * 12 / parentColumns) as GridSizeColumns
+    const {parentColumns, maxWidth} = React.useContext(CONTEXT.PARENT_COLUMNS)
+    const columns = widthOrDefault * (12/maxWidth) * (12/parentColumns) as GridSizeColumns
 
     return (
         <Grid

@@ -7,7 +7,7 @@ import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import CenterCell from '../../../components/Cell/CenterCell'
 import ValueCell from '../../../components/Cell/ValueCell'
 import MyBox from '../../../components/MyBox'
-import MyBoxGroup from '../../../components/MyBoxGroup'
+import MyBoxColumn from '../../../components/MyBoxColumn'
 import { CardStatus, ICard } from '../../../models/Card'
 
 
@@ -38,13 +38,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         : 'Analysis in progress...'
 
     return (
-        <MyBoxGroup width={6}>
+        <MyBoxColumn width={6}>
             <MyBox width={6} variant='flat'>
                 <CenterCell width={1.5}>
                     <Avatar>{avatarTitle}</Avatar>
                 </CenterCell>
                 <ValueCell width={4.5} label={subheader} value={title} alignItems='flex-start' />
             </MyBox>
-        </MyBoxGroup>
+        </MyBoxColumn>
     )
 })) /* ============================================================================================================= */

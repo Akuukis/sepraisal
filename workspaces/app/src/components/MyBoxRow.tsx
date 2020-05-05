@@ -10,7 +10,7 @@ import { CONTEXT } from '../stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        margin: 0,
+        overflow: 'hidden',
     },
 })
 
@@ -23,26 +23,29 @@ interface IProps extends GridProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {className, height, width, ...otherProps} = props
-    const heightOrDefault = height ?? 1
-    const widthOrDefault = width ?? 6
+    const {parentColumns, maxWidth} = React.useContext(CONTEXT.PARENT_COLUMNS)
 
-    const columns = widthOrDefault * 2 as GridSizeColumns
+    const heightOrDefault = height ?? 1
+    const widthOrDefault = width ?? parentColumns/2
+
+    const tmpColumns = widthOrDefault * (12/maxWidth) * (12/parentColumns) as GridSizeColumns
+    const columns = Math.min(12, tmpColumns) as GridSizeColumns
+    const heightFinal = heightOrDefault * (tmpColumns/columns)
 
     return (
         <Grid
             className={classnames(classes.root, className)}
-            style={{height: heightOrDefault * theme.shape.boxHeight}}
+            style={{flex: heightFinal}}
 
             item
-            xs={columns}
 
             container
-            spacing={1}
+            spacing={0}
             justify='space-between'
             alignItems='stretch'
             {...otherProps}
         >
-            <CONTEXT.PARENT_COLUMNS.Provider value={columns}>
+            <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: parentColumns/12 * columns as GridSizeColumns, maxWidth}}>
                 {children}
             </CONTEXT.PARENT_COLUMNS.Provider>
         </Grid>

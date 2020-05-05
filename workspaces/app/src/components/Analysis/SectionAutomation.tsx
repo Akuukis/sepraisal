@@ -1,12 +1,14 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
-import HeaderCell from '../Cell/HeaderCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -15,13 +17,15 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, long, ...otherProps} = props
+    const sbc = bp.sbc
 
     const progBlocks = (sbc.blocks['MyProgrammableBlock/LargeProgrammableBlock'] ?? 0) + (sbc.blocks['ProgrammableBlock/SmallProgrammableBlock'] ?? 0)
     const sensors = (sbc.blocks['SensorBlock/LargeBlockSensor'] ?? 0) + (sbc.blocks['SensorBlock/SmallBlockSensor'] ?? 0)
@@ -55,29 +59,33 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         + (sbc.blocks["TextPanel/TransparentLCDSmall"] ?? 0)
 
     return (
-        <>
-            <MyBoxGroup height={2} width={6}>
-                <MyBox variant='header'>
-                    <HeaderCell title='AUTOMATION' />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell width={2} label={`prog.blocks`} value={progBlocks || '-'} />
-                </MyBox>
-                <MyBox width={2}>
-                    <ValueCell label={`projectors`} value={projectors || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`LCDs`} value={lcds || '-'} />
-                    <ValueCell label={`buttons`} value={buttons || '-'} />
-                    <ValueCell label={`soundBlocks`} value={soundBlocks || '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <ValueCell label={`sensors`} value={sensors || '-'} />
-                    <ValueCell label={`timers`} value={timers || '-'} />
-                    <ValueCell label={`sorters`} value={sorters || '-'} />
-                </MyBox>
-            </MyBoxGroup>
-        </>
+        <MySection heading='Automation' label='prog.blocks' value={progBlocks || '-'} className={clsx(classes.root, className)} {...otherProps}>
+            <MyBoxColumn width={3}>
+                <MyBoxRow>
+                    <MyBox width={2}>
+                        <ValueCell label={`projectors`} value={projectors || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <ValueCell label={`LCDs`} value={lcds || '-'} />
+                        <ValueCell label={`buttons`} value={buttons || '-'} />
+                        <ValueCell label={`soundBlocks`} value={soundBlocks || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <ValueCell label={`sensors`} value={sensors || '-'} />
+                        <ValueCell label={`timers`} value={timers || '-'} />
+                        <ValueCell label={`sorters`} value={sorters || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 

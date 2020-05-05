@@ -1,14 +1,16 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import { CONTEXT } from '../../stores'
-import HeaderCell from '../Cell/HeaderCell'
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
-import MyBoxGroup from '../MyBoxGroup'
+import MyBoxColumn from '../MyBoxColumn'
+import MyBoxRow from '../MyBoxRow'
+import MySection from './MySection'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -17,13 +19,15 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
+    long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, long, ...otherProps} = props
+    const {sbc} = bp
 
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
 
@@ -70,46 +74,50 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     return (
-        <>
-            <MyBoxGroup height={4} width={3}>
-                <MyBox variant='header'>
-                    <HeaderCell title='CARGO CAPACITY' />
-                </MyBox>
-                <MyBox>
-                    <ValueCell label='total cargo (l)' value={formatDecimal(totalItemVolume)} />
-                </MyBox>
-                {/* <MyBox>
-                    <ValueCell label='generators' value={generators || '-'} />
-                </MyBox> */}
-                <MyBox width={3}>
-                    <LegendCell legend='Breakdown' legendProps={{align: 'center'}} />
-                    <ValueCell label='universal (l)' value={anyVolume ? formatDecimal(anyVolume) : '-'} />
-                    <ValueCell label='misc (l)' value={miscVolume ? formatDecimal(miscVolume) : '-'} />
-                    <ValueCell label='ores (kg)' value={oreTotalVolume ? formatDecimal(oreTotalVolume) : '-'} />
-                    <ValueCell label='ammo (pc)' value={ammo ? formatDecimal(ammo) : '-'} />
-                    <ValueCell label='missiles (pc)' value={missiles ? formatDecimal(missiles) : '-'} />
-                    <ValueCell label='ice (kg)' value={ice ? formatDecimal(ice) : '-'} />
-                    <ValueCell label='oxygen gas (l)' value={totalOxygen ? formatDecimal(totalOxygen) : '-'} />
-                    <ValueCell label='hydrogen gas (l)' value={totalHydrogen ? formatDecimal(totalHydrogen) : '-'} />
-                </MyBox>
-            </MyBoxGroup>
-            <MyBoxGroup height={4} width={3}>
-                <MyBox width={3}>
-                    <LegendCell padded width={3} legend='Universal&nbsp;Cargo in&nbsp;terms&nbsp;of&nbsp;various&nbsp;examples' legendProps={{noWrap: false, align: 'center'}} />
-                    <ValueCell label='ammo (pc)' value={ammoContainersPotential ? `+${formatDecimal(ammoContainersPotential)}` : '-'} />
-                    <ValueCell label='missiles (pc)' value={missilesPotential ? `+${formatDecimal(missilesPotential)}` : '-'} />
-                    <ValueCell label='ore/ice (kg)' value={orePotential ? `+${formatDecimal(orePotential)}` : '-'} />
-                    <ValueCell label='steel plates (pc)' value={stellPlatePotential ? `+${formatDecimal(stellPlatePotential)}` : '-'} />
-                    <ValueCell label='constr.comp. (pc)' value={constructionCompPotential ? `+${formatDecimal(constructionCompPotential)}` : '-'} />
-                    <ValueCell label='iron ingots (kg)' value={ironIngotPotential ? `+${formatDecimal(ironIngotPotential)}` : '-'} />
-                </MyBox>
-                <MyBox width={3}>
-                    <LegendCell legend='Generators produce gas' legendProps={{noWrap: false, align: 'right'}} />
-                    <ValueCell label='from ice (l)' value={gasExtra ? `${formatDecimal(gasExtra)}` : '-'} />
-                    <ValueCell label='from extra ice (l)' value={gasPotentialExtra ? `+${formatDecimal(gasPotentialExtra)}` : '-'} />
-                </MyBox>
-            </MyBoxGroup>
-        </>
+        <MySection
+            heading='Cargo Capacity'
+            label='total cargo (l)'
+            value={formatDecimal(totalItemVolume)}
+            MyBoxColumnProps={{height: 4}}
+            className={clsx(classes.root, className)}
+            {...otherProps}
+            innerChildren={(
+                <MyBoxRow height={3} width={3}>
+                    <MyBox width={3}>
+                        <LegendCell legend='Breakdown' legendProps={{align: 'center'}} />
+                        <ValueCell label='universal (l)' value={anyVolume ? formatDecimal(anyVolume) : '-'} />
+                        <ValueCell label='misc (l)' value={miscVolume ? formatDecimal(miscVolume) : '-'} />
+                        <ValueCell label='ores (kg)' value={oreTotalVolume ? formatDecimal(oreTotalVolume) : '-'} />
+                        <ValueCell label='ammo (pc)' value={ammo ? formatDecimal(ammo) : '-'} />
+                        <ValueCell label='missiles (pc)' value={missiles ? formatDecimal(missiles) : '-'} />
+                        <ValueCell label='ice (kg)' value={ice ? formatDecimal(ice) : '-'} />
+                        <ValueCell label='oxygen gas (l)' value={totalOxygen ? formatDecimal(totalOxygen) : '-'} />
+                        <ValueCell label='hydrogen gas (l)' value={totalHydrogen ? formatDecimal(totalHydrogen) : '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            )}
+        >
+            <MyBoxColumn height={4} width={3}>
+                <MyBoxRow height={3} width={3}>
+                    <MyBox width={3}>
+                        <LegendCell padded width={3} legend='Universal&nbsp;Cargo in&nbsp;terms&nbsp;of&nbsp;various&nbsp;examples' legendProps={{noWrap: false, align: 'center'}} />
+                        <ValueCell label='ammo (pc)' value={ammoContainersPotential ? `+${formatDecimal(ammoContainersPotential)}` : '-'} />
+                        <ValueCell label='missiles (pc)' value={missilesPotential ? `+${formatDecimal(missilesPotential)}` : '-'} />
+                        <ValueCell label='ore/ice (kg)' value={orePotential ? `+${formatDecimal(orePotential)}` : '-'} />
+                        <ValueCell label='steel plates (pc)' value={stellPlatePotential ? `+${formatDecimal(stellPlatePotential)}` : '-'} />
+                        <ValueCell label='constr.comp. (pc)' value={constructionCompPotential ? `+${formatDecimal(constructionCompPotential)}` : '-'} />
+                        <ValueCell label='iron ingots (kg)' value={ironIngotPotential ? `+${formatDecimal(ironIngotPotential)}` : '-'} />
+                    </MyBox>
+                </MyBoxRow>
+                <MyBoxRow height={1} width={3}>
+                    <MyBox width={3}>
+                        <LegendCell legend='Generators produce gas' legendProps={{noWrap: false, align: 'right'}} />
+                        <ValueCell label='from ice (l)' value={gasExtra ? `${formatDecimal(gasExtra)}` : '-'} />
+                        <ValueCell label='from extra ice (l)' value={gasPotentialExtra ? `+${formatDecimal(gasPotentialExtra)}` : '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+        </MySection>
     )
 })) /* ============================================================================================================= */
 
