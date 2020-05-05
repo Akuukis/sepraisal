@@ -29,7 +29,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         .map((id, i) => (
             <Analysis
                 classes={{root: classes.column}}
-                style={{left: i * (theme.spacing(1) * 1 + width * 536)}}
+                style={{left: i * (theme.spacing(1) * 1 + width * 2 * theme.shape.boxWidth)}}
                 key={id}
                 bpId={id}
                 maxWidth={width}

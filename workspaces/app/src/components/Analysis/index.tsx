@@ -49,7 +49,7 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.error.light,
     },
     item: {
-        maxWidth: theme.spacing(1) * 2 + 536,
+        maxWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2,
         padding: theme.spacing(1),
     },
     headerItem: {

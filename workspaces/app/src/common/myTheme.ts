@@ -19,7 +19,7 @@ export const STEAM_COLORS = {
     grey: '#acb2b8',
     white: '#ffffff',
 }
-export const THUMB_WIDTH = 268  // 536 ~ 600
+export const THUMB_WIDTH = 268
 export const THUMB_HEIGHT = 151
 
 
@@ -88,7 +88,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
     shape: {
         ...defaultTheme.shape,
         boxHeight: 50,
-        boxWidth: THUMB_WIDTH,
+        boxWidth: 280,
     },
     palette: {
         primary: {
