@@ -41,10 +41,12 @@ interface IProps extends GridProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {className, variant, width, ...otherProps} = props
+
+    const {parentColumns, maxWidth} = React.useContext(CONTEXT.PARENT_COLUMNS)
     const widthOrDefault = width ?? 1
 
-    const parentColumns = React.useContext(CONTEXT.PARENT_COLUMNS)
-    const columns = Math.round(widthOrDefault * 2 * 12 / parentColumns) as GridSizeColumns
+    const tmpColumns = widthOrDefault * (12/maxWidth) * (12/parentColumns) as GridSizeColumns
+    const columns = Math.min(12, tmpColumns) as GridSizeColumns
 
     const rootClassName = clsx(classes.root, {
             [classes.flatRoot]: variant === 'flat',
@@ -69,7 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 justify='space-between'
                 alignItems='stretch'
             >
-                <CONTEXT.PARENT_COLUMNS.Provider value={parentColumns/12 * columns as GridSizeColumns}>
+            <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: parentColumns/12 * columns as GridSizeColumns, maxWidth}}>
                     {children}
                 </CONTEXT.PARENT_COLUMNS.Provider>
             </Grid>

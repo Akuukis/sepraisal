@@ -80,7 +80,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             justify='space-between'
             {...otherProps}
         >
-            <CONTEXT.PARENT_COLUMNS.Provider value={largerThanSm ? 12 : 6}>
+            <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: 12, maxWidth: largerThanSm ? 6 : 3}}>
                 <MyBoxColumn className={classes.MyBoxColumn} width={3} {...MyBoxColumnProps}>
                     <MyBoxRow className={classes.MyBoxRow} width={3}>
                         <MyBox width={3} classes={{root: classes.MyBox, paper: classes.MyBoxPaper}}>
