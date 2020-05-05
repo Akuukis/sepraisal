@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader/root'
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
 import ValueCell from '../../components/Cell/ValueCell'
 import MyBox from '../MyBox'
+import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
 import MySection from './MySection'
 
@@ -29,14 +30,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MySection heading='Defensive' label='Hit Points' value={formatDecimal(sbc.blockIntegrity)}>
-            <MyBoxRow width={3}>
-                <MyBox>
-                    <ValueCell label={`decoys`} value={decoys || '-'} />
-                </MyBox>
-                <MyBox>
-                    <ValueCell label={`welders`} value={welders || '-'} />
-                </MyBox>
-            </MyBoxRow>
+            <MyBoxColumn width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox>
+                        <ValueCell label={`decoys`} value={decoys || '-'} />
+                    </MyBox>
+                    <MyBox>
+                        <ValueCell label={`welders`} value={welders || '-'} />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
         </MySection>
     )
 })) /* ============================================================================================================= */
