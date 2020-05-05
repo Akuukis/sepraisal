@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -18,13 +19,14 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, ...otherProps} = props
+    const {sbc} = bp
 
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
 
@@ -76,6 +78,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             label='total cargo (l)'
             value={formatDecimal(totalItemVolume)}
             MyBoxColumnProps={{height: 4}}
+            className={clsx(classes.root, className)}
+            {...otherProps}
             innerChildren={(
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>

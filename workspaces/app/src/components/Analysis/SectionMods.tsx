@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -31,13 +32,13 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp} = props
+    const {bp, className, ...otherProps} = props
 
 
     const mods = bp.steam.mods.map((mod) => ({
@@ -55,7 +56,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     //     .join('\n')
 
     return (
-        <MySection heading='Mods' label='status' value={bp.sbc.vanilla ? 'Vanilla' : 'Modded'}>
+        <MySection heading='Mods' label='status' value={bp.sbc.vanilla ? 'Vanilla' : 'Modded'} className={clsx(classes.root, className)} {...otherProps}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox>

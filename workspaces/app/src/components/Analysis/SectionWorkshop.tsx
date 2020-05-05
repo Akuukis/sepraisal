@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -35,13 +36,13 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp} = props
+    const {bp, className, ...otherProps} = props
 
 
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
@@ -62,6 +63,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             heading='Workshop'
             label='subscribers'
             value={formatDecimal(bp.steam.subscriberCount)}
+            className={clsx(classes.root, className)}
+            {...otherProps}
             MyBoxColumnProps={{height: 3}}
             innerChildren={(<>
                 <MyBoxRow width={3}>

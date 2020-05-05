@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -16,20 +17,21 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, ...otherProps} = props
+    const {sbc} = bp
     const mass = sbc.blockMass
 
     const decoys = (sbc.blocks['Decoy/LargeDecoy'] ?? 0) + (sbc.blocks['Decoy/SmallDecoy'] ?? 0)
     const welders = (sbc.blocks['ShipWelder/LargeShipWelder'] ?? 0) + (sbc.blocks['ShipWelder/SmallShipWelder'] ?? 0)
 
     return (
-        <MySection heading='Defensive' label='Hit Points' value={formatDecimal(sbc.blockIntegrity)}>
+        <MySection heading='Defensive' label='Hit Points' value={formatDecimal(sbc.blockIntegrity)} className={clsx(classes.root, className)} {...otherProps}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox>

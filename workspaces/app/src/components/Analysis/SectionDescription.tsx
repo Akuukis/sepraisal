@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -49,23 +50,24 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
     long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, long} = props
+    const {bp, long, className, ...otherProps} = props
     const largerThanXl = useMediaQuery(theme.breakpoints.up('xl'))
 
     return (
         <MySection
-            className={classes.root}
             heading='Workshop description'
             label='-'
             value='-'
             MyBoxColumnProps={{style: {display: 'none'}}}
+            className={clsx(classes.root, className)}
+            {...otherProps}
         >
             <MyBoxColumn height={largerThanXl && long ? 0 : 4} width={6}>
                 <MyBoxRow width={6}>

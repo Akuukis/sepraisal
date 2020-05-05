@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -27,13 +28,21 @@ import SectionWorkshop from './SectionWorkshop'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        maxWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2,
+        maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 1,
+    },
+    rootLg: {
         [theme.breakpoints.up('lg')]: {
             maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 2,
         },
+    },
+    rootXl: {
         [theme.breakpoints.up('xl')]: {
             maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 3,
         },
+    },
+
+    narrow: {
+        maxWidth: (theme.spacing(1) * 2 + theme.shape.boxWidth * 2) * 0.5,
     },
 
     error: {
@@ -52,16 +61,22 @@ const styles = (theme: IMyTheme) => createStyles({
 interface IProps extends GridProps {
     bpId: string | number
     long?: boolean
+    maxWidth?: 0.5 | 1 | 2 | 3
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bpId, long, ...otherProps} = props
+    const {bpId, long, maxWidth, className, ...otherProps} = props
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
     const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(null)
 
+    const rootClassName = clsx(classes.root, {
+            [classes.narrow]: maxWidth === 0.5,
+            [classes.rootLg]: !maxWidth || maxWidth >= 2,
+            [classes.rootXl]: !maxWidth || maxWidth >= 3,
+        }, className)
 
     useAsyncEffectOnce(async () => {
         setStatus(ASYNC_STATE.Doing)
@@ -108,7 +123,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
             {AnalysisSections.map(([heading, AnalysisSection], i) => (
                 <MySectionErrorBoundary key={i} heading={heading}>
-                    <AnalysisSection bp={blueprint} long={long} />
+                    <AnalysisSection bp={blueprint} long={long} narrow={maxWidth === 0.5} />
                 </MySectionErrorBoundary>
             ))}
         </Grid>
@@ -118,7 +133,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <Grid
             id={bpId as string}
             component='article'
-            className={classes.root}
+            className={rootClassName}
 
             container
             alignItems='flex-start'
@@ -128,7 +143,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Grid
                 item
                 xs={12}
-                xl={4}
+                xl={(!maxWidth || maxWidth >=3) ? 4 : 12}
 
                 container
             >
@@ -139,7 +154,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Grid
                 item
                 xs={12}
-                xl={8}
+                xl={(!maxWidth || maxWidth >=3) ? 8 : 12}
 
                 container
             >
@@ -161,13 +176,4 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 })) /* ============================================================================================================= */
 
-
-interface IBpProjection {
-    _id?: number,                      // discover.ts
-    classes?: Partial<IBlueprint.IClasses>,
-    sbc?: Partial<IBlueprint.ISbc>,
-    steam?: Partial<IBlueprint.ISteam>,
-    thumb?: Partial<IBlueprint.IThumb>,
-}
-
-type Section = React.ComponentType<{bp: IBlueprint, long?: boolean} & StyledComponentProps<'root'>>
+type Section = React.ComponentType<{bp: IBlueprint, long?: boolean, narrow?: boolean} & StyledComponentProps<'root'>>

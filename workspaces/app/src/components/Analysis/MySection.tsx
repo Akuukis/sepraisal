@@ -24,6 +24,10 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(0.5),
     },
 
+    rootNarrow: {
+        maxWidth: `${theme.shape.boxWidth}px`,
+    },
+
     CenterCell: {
         paddingLeft: theme.spacing(3),
     },
@@ -61,16 +65,17 @@ interface IProps extends GridProps {
     label: React.ReactNode
     MyBoxColumnProps?: React.ComponentProps<typeof MyBoxColumn>
     innerChildren?: React.ReactNode
+    narrow?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {heading, value, label, MyBoxColumnProps, className, innerChildren, ...otherProps} = props
-    const largerThanSm = useMediaQuery(theme.breakpoints.up('sm'));
+    const {heading, value, label, MyBoxColumnProps, className, innerChildren, narrow, ...otherProps} = props
+    const largerThanSm = useMediaQuery(theme.breakpoints.up('sm'))
 
     return (
         <Grid
-            className={classnames(classes.root, className)}
+            className={classnames(classes.root, narrow && classes.rootNarrow, className)}
             component='section'
 
             item
@@ -80,7 +85,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             justify='space-between'
             {...otherProps}
         >
-            <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: 12, maxWidth: largerThanSm ? 6 : 3}}>
+            <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: 12, maxWidth: (largerThanSm && !narrow) ? 6 : 3}}>
                 <MyBoxColumn className={classes.MyBoxColumn} width={3} {...MyBoxColumnProps}>
                     <MyBoxRow className={classes.MyBoxRow} width={3}>
                         <MyBox width={3} classes={{root: classes.MyBox, paper: classes.MyBoxPaper}}>

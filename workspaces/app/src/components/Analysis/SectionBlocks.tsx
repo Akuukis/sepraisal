@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -20,14 +21,14 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
     long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, long} = props
+    const {bp, long, className, ...otherProps} = props
     const sbc = bp.sbc
 
     const blocks = (Object.entries(sbc.blocks))
@@ -35,7 +36,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         .sort((a, b) => b.count - a.count)
 
     return (
-        <MySection heading='Blocks' label='block count' value={sbc.blockCount}>
+        <MySection heading='Blocks' label='block count' value={sbc.blockCount} className={clsx(classes.root, className)} {...otherProps}>
             <MyBoxColumn width={3}>
                 <MyBoxRow>
                 </MyBoxRow>

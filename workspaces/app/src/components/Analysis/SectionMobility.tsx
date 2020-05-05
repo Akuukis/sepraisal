@@ -1,4 +1,5 @@
 import { Direction, GridSize, IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -24,13 +25,14 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const sbc = props.bp.sbc
+    const {bp, className, ...otherProps} = props
+    const {sbc} = bp
 
     const jumpDrives = sbc.blocks['JumpDrive/LargeJumpDrive'] ?? 0
     const parachutes = (sbc.blocks['Parachute/LgParachute'] ?? 0) + (sbc.blocks['Parachute/SmParachute'] ?? 0)
@@ -71,7 +73,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     // const valuetext = (value: number) => `${value}°C`
 
     return (
-        <MySection heading='Mobility' label={'avg accel. (m/s\u00B2)'} value={totalAccel}>
+        <MySection heading='Mobility' label={'avg accel. (m/s\u00B2)'} value={totalAccel} className={clsx(classes.root, className)} {...otherProps}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>

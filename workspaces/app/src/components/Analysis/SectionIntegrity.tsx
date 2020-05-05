@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
@@ -18,13 +19,14 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
 }
 
 
 export default cold(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, ...otherProps} = props
+    const {sbc} = bp
 
     const {top, front, side} = sbc.integrityPlanes
     const xRaw = Math.max(top[0].length, side[0].length, front[0].length) + 2
@@ -40,6 +42,8 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
             heading='X-Ray'
             label={'grid size'}
             value={sbc.gridSize}
+            className={clsx(classes.root, className)}
+            {...otherProps}
             MyBoxColumnProps={{height: 3}}
             innerChildren={(
                 <MyBoxRow height={2} width={3}>

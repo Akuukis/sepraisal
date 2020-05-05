@@ -8,6 +8,7 @@ interface IItem {
 export class SelectionStore {
     // public readonly selected: IObservableArray<RequiredSome<IBlueprint, "sbc">> = observable([])
     public readonly selected: IObservableArray<string | number> = observable([])
+    @observable public narrow: boolean = false
 
     @computed public get selectedItems(): IItem[] {
         return this.selected.map((id) => ({
@@ -16,8 +17,12 @@ export class SelectionStore {
         }))
     }
 
-    public setSelectedItems = action((items: IItem[]) => {
+    public setSelectedItems = action('selectionStore.setSelectedItems', (items: IItem[]) => {
         this.selected.replace(items.map(({id}) => id))
+    })
+
+    public setNarrow = action('selectionStore.setNarrow', (value: boolean) => {
+        this.narrow = value
     })
 
 }

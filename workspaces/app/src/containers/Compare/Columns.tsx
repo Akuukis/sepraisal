@@ -11,8 +11,6 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     column: {
-        minWidth: theme.spacing(1) * 1 + 536,
-        width: theme.spacing(1) * 1 + 536,
         position: 'absolute',
         transition: theme.transitions.create('left'),
     },
@@ -24,17 +22,17 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
+    const width = selectionStore.narrow ? 0.5 : 1
 
     const columns = [...selectionStore.selected]
-        // tslint:disable-next-line: no-non-null-assertion
         .map((id, i) => (
             <Analysis
                 classes={{root: classes.column}}
-                style={{left: i * (theme.spacing(1) * 1 + 536)}}
+                style={{left: i * (theme.spacing(1) * 1 + width * 536)}}
                 key={id}
                 bpId={id}
+                maxWidth={width}
             />
     ))
 

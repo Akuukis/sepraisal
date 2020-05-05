@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -16,13 +17,14 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {sbc} = props.bp
+    const {bp, className, ...otherProps} = props
+    const sbc = bp.sbc
 
     const progBlocks = (sbc.blocks['MyProgrammableBlock/LargeProgrammableBlock'] ?? 0) + (sbc.blocks['ProgrammableBlock/SmallProgrammableBlock'] ?? 0)
     const sensors = (sbc.blocks['SensorBlock/LargeBlockSensor'] ?? 0) + (sbc.blocks['SensorBlock/SmallBlockSensor'] ?? 0)
@@ -56,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         + (sbc.blocks["TextPanel/TransparentLCDSmall"] ?? 0)
 
     return (
-        <MySection heading='Automation' label='prog.blocks' value={progBlocks || '-'}>
+        <MySection heading='Automation' label='prog.blocks' value={progBlocks || '-'} className={clsx(classes.root, className)} {...otherProps}>
             <MyBoxColumn width={3}>
                 <MyBoxRow>
                     <MyBox width={2}>

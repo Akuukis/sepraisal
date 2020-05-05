@@ -1,4 +1,5 @@
 import { IBlueprint } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -39,15 +40,15 @@ interface IRequirement {
     amount: number
     blockType: string
 }
-interface IProps {
+interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
     bp: IBpProjectionRow
     long?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, long} = props
-    const sbc = bp.sbc
+    const {bp, long, className, ...otherProps} = props
+    const {sbc} = bp
     const [syntax, setSyntax] = React.useState<Syntax>('list')
     const [copies, setCopies] = React.useState(1)
     const [type, setType] = React.useState<Type>('component')
@@ -160,7 +161,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <MySection heading='Materials' label='?' value={'?'}>
+        <MySection heading='Materials' label='?' value={'?'} className={clsx(classes.root, className)} {...otherProps}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
