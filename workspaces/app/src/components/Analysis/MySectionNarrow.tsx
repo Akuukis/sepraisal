@@ -110,6 +110,11 @@ interface IProps extends GridProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {heading, value, label, MyBoxColumnProps, className, innerChildren, ...otherProps} = props
+    const selectionStore = React.useContext(CONTEXT.SELECTION)
+
+    const setExpaned = (event: React.ChangeEvent<{}>, expanded: boolean) => {
+        selectionStore.setExpanded(heading, expanded)
+    }
 
     const inner = innerChildren && (
         <MyBoxColumn
@@ -136,6 +141,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         root: clsx(classes.expansionPanel, className),
                         expanded: clsx(classes.expansionPanelExpanded),
                     }}
+                    expanded={selectionStore.expanded.get(heading) ?? false}
+                    onChange={setExpaned}
                 >
                     <ExpansionPanelSummary
                         expandIcon={<ExpandMoreIcon />}
