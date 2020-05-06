@@ -31,11 +31,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    add(): Promise<{
-        count: number;
-        limit: number;
-        skip: number;
-    }>
 }
 
 
@@ -63,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const myAdd = async () => {
         try {
             setState(ASYNC_STATE.Doing)
-            const {count, limit, skip} = await props.add()
+            await cardStore.nextPage()
             if(cardStore.cards.size === cardStore.count) {
                 setState(ASYNC_STATE.Idle)
             } else {

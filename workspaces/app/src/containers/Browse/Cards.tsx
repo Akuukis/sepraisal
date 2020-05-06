@@ -21,7 +21,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    index: number
 }
 
 
@@ -29,11 +28,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     return (
-        <Grid container justify='center' spacing={2} className={classes.root}>
+        <Grid item xs={12} container justify='center' spacing={2} className={classes.root}>
             {[...cardStore.cards.values()]
                 .map((card, i) => (
                     <Grid item className={classes.cardItem} key={card.id}>
-                        <PageCard blueprint={card} index={props.index * 12 + i} />
+                        <PageCard blueprint={card} index={i} />
                     </Grid>
                 ))}
         </Grid>
