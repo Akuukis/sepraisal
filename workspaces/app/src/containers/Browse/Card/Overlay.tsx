@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { fade, Grid, lighten } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme, THUMB_HEIGHT, THUMB_WIDTH } from '../../../common/'
 import IconAnalyse from '../../../components/icons/IconAnalyse'
 import IconCompare from '../../../components/icons/IconCompare'
 import IconFavorite from '../../../components/icons/IconFavorite'
@@ -16,7 +16,7 @@ import OverlayItem from './OverlayItem'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        height: 165,
+        height: `calc(${theme.shape.boxWidth}/${THUMB_WIDTH} * ${THUMB_HEIGHT}px)`,
         left: 0,
         position: 'absolute',
         right: 0,

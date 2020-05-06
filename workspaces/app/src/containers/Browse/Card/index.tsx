@@ -15,7 +15,9 @@ import Thumb from './Thumb'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         backgroundColor: theme.palette.success.dark,
-        'position': 'relative',
+        maxWidth: theme.shape.boxWidth,
+        position: 'relative',
+        width: '100%',
     },
 })
 
