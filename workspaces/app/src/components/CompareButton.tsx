@@ -1,4 +1,4 @@
-import classnames from 'classnames'
+import clsx from 'clsx'
 import { action } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -43,10 +43,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <IconButton
-            className={classnames(classes.root, favorited ? classes.on : classes.off)}
-            size='small'
+            className={clsx(classes.root, favorited ? classes.on : classes.off)}
             color='inherit'
-            aria-label='favorite'
+            aria-label='compare'
             onClick={handleToggle}
             {...otherProps}
         >

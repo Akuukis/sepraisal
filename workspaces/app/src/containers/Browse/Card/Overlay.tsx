@@ -1,13 +1,12 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { fade, Grid, Typography } from '@material-ui/core'
+import { fade, Grid, lighten, Typography } from '@material-ui/core'
 import IconSearch from '@material-ui/icons/Search'
 
-import { createSmartFC, createStyles, IMyTheme, SE_COLORS } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import CompareButton from '../../../components/CompareButton'
 import FavoriteButton from '../../../components/FavoriteButton'
-import Steam from '../../../components/icons/Steam'
 import { CardStatus, ICard } from '../../../models/Card'
 import { CONTEXT } from '../../../stores'
 import OverlayItem from './OverlayItem'
@@ -15,9 +14,6 @@ import OverlayItem from './OverlayItem'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        '&:hover': {
-            backgroundColor: fade(SE_COLORS.grey, 0.5),
-        },
         height: 165,
         left: 0,
         position: 'absolute',
@@ -33,43 +29,33 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     itemAnalysis: {
+        flex: 5,
         cursor: 'pointer',
-        flex: 6,
     },
 
     itemFavorite: {
-
     },
-
     itemFavoriteOnHover: {
-        borderColor: `#0000`,
+        color: lighten(theme.palette.error.main, 0.2),
+        // backgroundColor: fade(theme.palette.error.light, 0.9),
         '&:hover': {
-            borderColor: `#0000`,
+            color: theme.palette.error.main,
+            backgroundColor: fade(lighten(theme.palette.error.light, 0.33), 0.9),
         },
     },
     itemCompare: {
-        color: '#0000',
     },
     itemCompareOnHover: {
-        color: theme.palette.success.light,
-        borderColor: `#0000`,
+        color: lighten(theme.palette.success.main, 0.2),
+        // backgroundColor: fade(theme.palette.success.light, 0.9),
         '&:hover': {
             color: theme.palette.success.main,
-            borderColor: `#0000`,
+            backgroundColor: fade(lighten(theme.palette.success.light, 0.33), 0.9),
         },
     },
-    itemCompareOff: {
+    itemOff: {
         color: 'inherit',
     },
-    itemSubscribe: {
-        cursor: 'pointer',
-        borderWidth: theme.spacing(0.5),
-        color: theme.palette.text.disabled,
-        '&:hover': {
-            color: theme.palette.text.primary,
-        },
-    },
-
 })
 
 
@@ -116,21 +102,18 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             container
             className={classes.root}
             onMouseEnter={setHoverOn}
-            onMouseLeave={setHoverOff}
+            // onMouseLeave={setHoverOff}
         >
             <OverlayItem isHover={hover} onClick={goAnalysis} classes={{root: classes.itemAnalysis}}>
                 <IconSearch />
                 <Typography variant='button'>{'Analysis'}</Typography>
             </OverlayItem>
             <Grid container className={classes.subgroup} direction='column'>
-                <OverlayItem isHover={hover} classes={{container: classes.itemFavorite, containerOnHover: classes.itemFavoriteOnHover}}>
-                    <FavoriteButton bpId={bp.id} name={bp.steam!.title} />
+                <OverlayItem isHover={hover} classes={{root: classes.itemFavorite, rootOnHover: classes.itemFavoriteOnHover}} alignItems='flex-start'>
+                    <FavoriteButton bpId={bp.id} name={bp.steam!.title} classes={{off: classes.itemOff}} />
                 </OverlayItem>
-                <OverlayItem isHover={hover} classes={{container: classes.itemCompare, containerOnHover: classes.itemCompareOnHover}}>
-                    <CompareButton id={bp.id} classes={{off:  classes.itemCompareOff}} />
-                </OverlayItem>
-                <OverlayItem isHover={hover} onClick={goSteam} classes={{containerOnHover: classes.itemSubscribe}}>
-                    <Steam />
+                <OverlayItem isHover={hover} classes={{root: classes.itemCompare, rootOnHover: classes.itemCompareOnHover}} alignItems='flex-end'>
+                    <CompareButton id={bp.id} classes={{off: classes.itemOff}} />
                 </OverlayItem>
             </Grid>
         </Grid>

@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { action } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -13,6 +14,11 @@ import { CONTEXT } from '../stores'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         color: theme.palette.error.main,
+    },
+
+    on: {
+    },
+    off: {
     },
 })
 
@@ -32,25 +38,24 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         return null
     }
 
-    const favorited = favoriteStore.has(id)
-    const handleToggle = () => {
-        if(favorited) {
+    const compared = favoriteStore.has(id)
+    const handleToggle = action(`FavoriteButton<${JSON.stringify(id)}>`, () => {
+        if(compared) {
             favoriteStore.shift(id)
         } else {
             favoriteStore.push({id, name})
         }
-    }
+    })
 
     return (
         <IconButton
-            className={clsx(classes.root, className)}
-            size='small'
+            className={clsx(classes.root, compared ? classes.on : classes.off)}
             color='inherit'
             aria-label='favorite'
             onClick={handleToggle}
             {...otherProps}
         >
-            {favorited ? <IconFavorite /> : <IconFavoriteBorder />}
+            {compared ? <IconFavorite /> : <IconFavoriteBorder />}
         </IconButton>
     )
 })) /* ============================================================================================================= */
