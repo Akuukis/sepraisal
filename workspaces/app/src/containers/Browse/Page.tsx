@@ -39,15 +39,3 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </Grid>
     )
 })) /* ============================================================================================================= */
-
-
-// tslint:disable-next-line: naming-convention no-object-literal-type-assertion
-export const PageState = {
-    Idle: 0,
-
-    Loading: 1,
-
-    Loaded: 2,
-
-    Failed: 3,
-} as const
