@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkCollectionProps } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkCollectionProps } from '../../../common/'
 import CenterCell from '../../../components/Cell/CenterCell'
 import ValueCell from '../../../components/Cell/ValueCell'
 import MyBox from '../../../components/MyBox'
@@ -64,6 +64,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {id, steam} = props
 
     const title = steam?.title ?? String(id)
+
+    const author = (<Link className={classes.collection} variant='caption' noWrap {...linkAuthorProps(steam!.author.id)}>
+            {steam!.author.title ?? steam!.author.id}
+        </Link>)
+
     const subheader = steam === null ? 'Analysis in progress...' : steam.collections.length > 0
         ?
             (<Link className={classes.collection} variant='caption' noWrap {...linkCollectionProps(steam.collections[0].id)}>
@@ -83,7 +88,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             value: classes.ValueCellValue,
                         }}
                         width={4}
-                        label={subheader}
+                        label={(<>{author} | {subheader}</>)}
                         value={title}
                         alignItems='flex-start'
                         justify='space-between'
