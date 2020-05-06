@@ -36,7 +36,7 @@ import { ThemeProvider } from '@material-ui/styles'
 
 import { ASYNC_STATE, MY_LIGHT_THEME, useAsyncEffectOnce } from '../../common'
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import Topbar from '../../components/Topbar'
+import DefaultLayout from '../../layouts/DefaultLayout'
 import { CONTEXT } from '../../stores'
 import { BlueprintStore } from '../../stores/BlueprintStore'
 import { CardStore } from '../../stores/CardStore'
@@ -45,15 +45,6 @@ import { SelectionStore } from '../../stores/SelectionStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({
-    root: {
-        fontFamily: theme.typography.fontFamily,
-        fontSize: theme.typography.fontSize,
-        fontSmoothing: 'antialiased',
-        height: '100vh',
-        minWidth: '230px',
-        overflow: 'hidden',
-    },
-
     body: {
         margin: 0,
     },
@@ -76,9 +67,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     React.useEffect(() => {
         const body = document.getElementById('body')!
         body.className = classes.body
-
-        const root = document.getElementById('root')!
-        root.className = classes.root
     })
 
     useAsyncEffectOnce(async () => {
@@ -132,12 +120,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <CONTEXT.SELECTION.Provider value={selectionStore}>
 
             <ThemeProvider theme={MY_LIGHT_THEME}>
-                <main>
-                    <Topbar/>
+                <DefaultLayout>
                     <Paper>
                         Loading...
                     </Paper>
-                </main>
+                </DefaultLayout>
             </ThemeProvider>
 
             </CONTEXT.SELECTION.Provider>
@@ -147,12 +134,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <CONTEXT.SELECTION.Provider value={selectionStore}>
 
             <ThemeProvider theme={MY_LIGHT_THEME}>
-                <main>
-                    <Topbar/>
+                <DefaultLayout>
                     <Paper>
                         Error at startup. Please try again or see console for details.
                     </Paper>
-                </main>
+                </DefaultLayout>
             </ThemeProvider>
 
             </CONTEXT.SELECTION.Provider>

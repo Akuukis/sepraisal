@@ -11,7 +11,6 @@ import Faq from './Faq'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
     },
 
     content: {

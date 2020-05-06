@@ -13,14 +13,15 @@ import Topbar from '../components/Topbar'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        fontFamily: '"Roboto", Helvetica, Arial, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontWeight: 300,
-        height: '100%',
-        minWidth: '230px',
-        overflow: 'hidden',
         background: theme.palette.background.default,
         backgroundImage: `url(${skyboxImage})`,
+        fontFamily: theme.typography.fontFamily,
+        fontSize: theme.typography.fontSize,
+        fontSmoothing: 'antialiased',
+        fontWeight: 300,
+        minHeight: '100vh',
+        minWidth: 300,  // That's minium.
+        overflow: 'hidden',
     },
 
     asideWrapper: {
