@@ -27,6 +27,7 @@ const styles = (theme: IMyTheme) => createStyles({
         flexWrap: 'nowrap',
     },
     rootOnHover: {
+        cursor: 'pointer',
         color: theme.palette.text.secondary,
         backgroundColor: fade(theme.palette.background.default, 0.9),
         '&:hover': {

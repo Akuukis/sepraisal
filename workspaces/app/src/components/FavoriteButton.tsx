@@ -38,9 +38,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         return null
     }
 
-    const compared = favoriteStore.has(id)
+    const favorited = favoriteStore.has(id)
     const handleToggle = action(`FavoriteButton<${JSON.stringify(id)}>`, () => {
-        if(compared) {
+        if(favorited) {
             favoriteStore.shift(id)
         } else {
             favoriteStore.push({id, name})
@@ -49,7 +49,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <IconButton
-            className={clsx(classes.root, compared ? classes.on : classes.off)}
+            className={clsx(classes.root, favorited ? classes.on : classes.off)}
             color='inherit'
             aria-label='favorite'
             onClick={handleToggle}
