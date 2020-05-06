@@ -2,29 +2,32 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import {
+    Grid,
     IconButton,
     InputAdornment,
     ListItemIcon,
     ListItemText,
     Menu,
     MenuItem,
-    Paper,
     TextField,
 } from '@material-ui/core'
-import SearchIcon from '@material-ui/icons/Search'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import IconSort from '../../components/icons/Sort'
-import IconSortAscending from '../../components/icons/SortAscending'
-import IconSortDescending from '../../components/icons/SortDescending'
+import IconBrowse from '../../components/icons/IconBrowse'
+import IconSort from '../../components/icons/IconSort'
+import IconSortAscending from '../../components/icons/IconSortAscending'
+import IconSortDescending from '../../components/icons/IconSortDescending'
 import { CONTEXT } from '../../stores'
 import { CardStore } from '../../stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: 'white',
     },
+
+    input: {
+        backgroundColor: 'white',
+    }
 })
 
 
@@ -108,7 +111,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <Paper className={classes.root}>
+        <Grid item xs={12}>
             <TextField
                 id='search'
                 placeholder='Search by id, title, author, collection, or any keyword in description...'
@@ -118,6 +121,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 onKeyDown={keyPress}
                 fullWidth
                 InputProps={{
+                    classes: {
+                        root: classes.input,
+                    },
                     endAdornment: [(
                         <InputAdornment position='end' key='sort'>
                             {renderSortIcon()}
@@ -126,7 +132,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     fullWidth: false,
                     startAdornment: (
                         <InputAdornment position='start'>
-                            <SearchIcon />
+                            <IconBrowse />
                         </InputAdornment>
                     ),
                 }}
@@ -147,6 +153,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 {renderSortItem('blockPCU', 'PCU')}
                 {renderSortItem('oreVolume', 'Ore, m\u00B3')}
             </Menu>
-        </Paper>
+        </Grid>
     )
 })) /* ============================================================================================================= */

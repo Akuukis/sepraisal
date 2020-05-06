@@ -2,14 +2,14 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Badge } from '@material-ui/core'
-import IconAnalyze from '@material-ui/icons/BarChart'
-import IconCompare from '@material-ui/icons/CompareArrows'
-import IconInfo from '@material-ui/icons/InfoOutlined'
-import IconSearch from '@material-ui/icons/Search'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { ROUTES } from '../../constants/routes'
 import { CONTEXT } from '../../stores'
+import IconAnalyse from '../icons/IconAnalyse'
+import IconBrowse from '../icons/IconBrowse'
+import IconCompare from '../icons/IconCompare'
+import IconInfo from '../icons/IconInfo'
 import NavigationButton from './NavigationButton'
 
 
@@ -34,8 +34,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <nav className={classes.root}>
-            <NavigationButton to={ROUTES.BROWSE} Icon={IconSearch} title='Browse' />
-            <NavigationButton to={ROUTES.BLUEPRINT} Icon={IconAnalyze} title='Analyze' />
+            <NavigationButton to={ROUTES.BROWSE} Icon={IconBrowse} title='Browse' />
+            <NavigationButton to={ROUTES.BLUEPRINT} Icon={IconAnalyse} title='Analyze' />
             <Badge classes={{badge: classes.badge}} badgeContent={selectionStore.selected.length} color="secondary">
                 <NavigationButton to={ROUTES.COMPARE} Icon={IconCompare} title='Compare' />
             </Badge>

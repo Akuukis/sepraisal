@@ -1,9 +1,9 @@
-import { IBlueprint, ObservableMap, getApiUrl } from '@sepraisal/common'
+import { getApiUrl, IBlueprint, ObservableMap } from '@sepraisal/common'
+import { IFind } from '@sepraisal/common/lib/classificator/Class'
 import { action, computed, IReactionDisposer, observable, reaction, runInAction } from 'mobx'
 
 import { Card, CardStatus, IBpProjectionCard, ICard } from '../models'
 import { PiwikStore } from './PiwikStore'
-import { IFind } from '@sepraisal/common/lib/classificator/Class'
 
 
 // tslint:disable-next-line: naming-convention
@@ -18,6 +18,7 @@ const cardProjection: {[key in Exclude<keyof IBpProjectionCard, '_id'>]: {[key2 
         _revision: true,
         _version: true,
         blockCount: true,
+        blockMass: true,
         blockPCU: true,
         blockTime: true,
         componentTime: true,

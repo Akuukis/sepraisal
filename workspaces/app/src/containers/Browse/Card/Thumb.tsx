@@ -9,7 +9,7 @@ import { CardStatus, ICard } from '../../../models/Card'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        paddingTop: '56.34%',
+        paddingTop: `calc(${theme.shape.boxWidth}/${THUMB_WIDTH} * ${THUMB_HEIGHT}px)`,
     },
 })
 

@@ -209,6 +209,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
                 // marginLeft: 4,
                 // marginRight: 4,
                 padding: 12,
+                fontSize: '1.25em',
             },
         },
         MuiListItem: {

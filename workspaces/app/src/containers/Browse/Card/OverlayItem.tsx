@@ -9,33 +9,29 @@ import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: theme.spacing(0.5),
+        padding: theme.spacing(1),
+        width: '100%',
+        height: '100%',
         flex: 1,
+        color: '#0000',
+        borderColor: `#0000`,
     },
 
     container: {
-        color: '#0000',
+        color: 'inherit',
+        borderColor: `inherit`,
         width: '100%',
         height: '100%',
-        borderColor: `#0000`,
         borderStyle: `dashed`,
         borderWidth: theme.spacing(0.5),
         flexWrap: 'nowrap',
     },
-
     rootOnHover: {
-        backgroundColor: fade(theme.palette.background.paper, 0.33),
+        cursor: 'pointer',
+        color: theme.palette.text.secondary,
+        backgroundColor: fade(theme.palette.background.default, 0.9),
         '&:hover': {
-            backgroundColor: fade(theme.palette.background.paper, 0.66),
-        },
-    },
-
-    containerOnHover: {
-        color: theme.palette.text.disabled,
-        borderColor: fade(theme.palette.background.default, 0.5),
-        '&:hover': {
-            color: theme.palette.text.primary,
-            borderColor: theme.palette.background.default,
+            backgroundColor: fade(theme.palette.background.paper, 0.9),
         },
     },
 })
@@ -54,13 +50,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <Grid
             item
             className={classnames({[classes.root]: true, [classes.rootOnHover]: isHover})}
-            {...otherProps}
         >
             <Grid
                 container
                 alignItems='center'
                 justify='center'
-                className={classnames({[classes.container]: true, [classes.containerOnHover]: isHover})}
+                className={classes.container}
+                {...otherProps}
             >
                 {children}
             </Grid>

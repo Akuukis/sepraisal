@@ -29,18 +29,19 @@ export type ProjectionCardThumb =
 
 export type ProjectionCardSbc =
     | '_error'
-    | '_version'
     | '_revision'
+    | '_version'
     | 'blockCount'
+    | 'blockMass'
     | 'blockPCU'
-    | 'oreVolume'
-    | 'gridSize'
     | 'blockTime'
     | 'componentTime'
-    | 'ingotTime'
+    | 'flagsGreen'
     | 'flagsRed'
     | 'flagsYellow'
-    | 'flagsGreen'
+    | 'gridSize'
+    | 'ingotTime'
+    | 'oreVolume'
 
 export type ProjectionCardClasses =
     | '_error'

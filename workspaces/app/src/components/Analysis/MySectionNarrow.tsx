@@ -10,12 +10,12 @@ import {
     GridProps,
     Typography,
 } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
 import { CONTEXT } from '../../stores'
 import CenterCell from '../Cell/CenterCell'
 import ValueCell from '../Cell/ValueCell'
+import ExpandMoreIcon from '../icons/IconExpandMore'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'

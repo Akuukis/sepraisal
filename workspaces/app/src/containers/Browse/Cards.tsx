@@ -5,23 +5,21 @@ import { Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { CONTEXT } from '../../stores'
-import PageCard from './Card'
+import Card from './Card'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        // marginBottom: '1em',
+        minWidth: `calc(${theme.shape.boxWidth}px + ${theme.spacing(0.5) * 2}px)`,
     },
 
-    cardItem: {
-        maxWidth: '300px',
-        width: '100%',
+    card: {
+        margin: theme.spacing(0.5),
     },
 })
 
 
 interface IProps {
-    index: number
 }
 
 
@@ -29,25 +27,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     return (
-        <Grid container justify='center' spacing={2} className={classes.root}>
+        <Grid item xs={12} container justify='center' className={classes.root}>
             {[...cardStore.cards.values()]
                 .map((card, i) => (
-                    <Grid item className={classes.cardItem} key={card.id}>
-                        <PageCard blueprint={card} index={props.index * 12 + i} />
-                    </Grid>
+                    <Card classes={{root: classes.card}} blueprint={card} key={card.id} index={i} />
                 ))}
         </Grid>
     )
 })) /* ============================================================================================================= */
-
-
-// tslint:disable-next-line: naming-convention no-object-literal-type-assertion
-export const PageState = {
-    Idle: 0,
-
-    Loading: 1,
-
-    Loaded: 2,
-
-    Failed: 3,
-} as const

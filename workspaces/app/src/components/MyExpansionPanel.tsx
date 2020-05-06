@@ -9,9 +9,9 @@ import {
     ExpansionPanelSummary,
     Typography,
 } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../common/'
+import ExpandMoreIcon from './icons/IconExpandMore'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
