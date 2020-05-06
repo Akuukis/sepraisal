@@ -11,12 +11,12 @@ import {
     Paper,
     TextField,
 } from '@material-ui/core'
-import SearchIcon from '@material-ui/icons/Search'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import IconSort from '../../components/icons/Sort'
-import IconSortAscending from '../../components/icons/SortAscending'
-import IconSortDescending from '../../components/icons/SortDescending'
+import IconBrowse from '../../components/icons/IconBrowse'
+import IconSort from '../../components/icons/IconSort'
+import IconSortAscending from '../../components/icons/IconSortAscending'
+import IconSortDescending from '../../components/icons/IconSortDescending'
 import { CONTEXT } from '../../stores'
 import { CardStore } from '../../stores/CardStore'
 
@@ -126,7 +126,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     fullWidth: false,
                     startAdornment: (
                         <InputAdornment position='start'>
-                            <SearchIcon />
+                            <IconBrowse />
                         </InputAdornment>
                     ),
                 }}

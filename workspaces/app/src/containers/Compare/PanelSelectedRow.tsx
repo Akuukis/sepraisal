@@ -5,9 +5,9 @@ import { hot } from 'react-hot-loader/root'
 
 import { fade, IconButton, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
 import IconClose from '@material-ui/icons/Close'
-import IconDragHandle from '@material-ui/icons/DragHandle'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common'
+import IconDragHandle from '../../components/icons/IconDragHandle'
 import { CONTEXT } from '../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({

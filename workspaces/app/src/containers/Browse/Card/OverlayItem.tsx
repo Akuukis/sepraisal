@@ -27,11 +27,10 @@ const styles = (theme: IMyTheme) => createStyles({
         flexWrap: 'nowrap',
     },
     rootOnHover: {
-        color: theme.palette.text.disabled,
+        color: theme.palette.text.secondary,
         backgroundColor: fade(theme.palette.background.default, 0.9),
         '&:hover': {
             backgroundColor: fade(theme.palette.background.paper, 0.9),
-            color: theme.palette.text.primary,
         },
     },
 })

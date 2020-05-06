@@ -2,9 +2,9 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typography } from '@material-ui/core'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import ExpandMoreIcon from '../../components/icons/IconExpandMore'
 import { CONTEXT } from '../../stores'
 
 

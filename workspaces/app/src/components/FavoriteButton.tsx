@@ -4,21 +4,21 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { IconButton, IconButtonProps } from '@material-ui/core'
-import IconFavorite from '@material-ui/icons/Favorite'
-import IconFavoriteBorder from '@material-ui/icons/FavoriteBorder'
 
 import { createSmartFC, createStyles, IMyTheme } from '../common/'
 import { CONTEXT } from '../stores'
+import IconFavorite from './icons/IconFavorite'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        color: theme.palette.error.main,
     },
 
     on: {
+        color: theme.palette.error.main,
     },
     off: {
+        color: theme.palette.text.secondary,
     },
 })
 
@@ -55,7 +55,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             onClick={handleToggle}
             {...otherProps}
         >
-            {compared ? <IconFavorite /> : <IconFavoriteBorder />}
+            <IconFavorite />
         </IconButton>
     )
 })) /* ============================================================================================================= */

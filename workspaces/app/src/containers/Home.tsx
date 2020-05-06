@@ -3,11 +3,12 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
-import IconBuild from '@material-ui/icons/Build'
-import IconSearch from '@material-ui/icons/Search'
 
 import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from '../common/'
+import IconAnalyse from '../components/icons/IconAnalyse'
+import IconBrowse from '../components/icons/IconBrowse'
+import IconCompare from '../components/icons/IconCompare'
 import { ROUTES } from '../constants/routes'
 import DefaultLayout from '../layouts/DefaultLayout'
 import { CONTEXT } from '../stores'
@@ -76,7 +77,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             onClick={() => routerStore.goView(ROUTES.BROWSE)}
                             fullWidth
                         >
-                            <IconSearch />
+                            <IconBrowse />
                             <Typography variant='button'>{'Browse'}</Typography>
                         </Button>
                         <Typography paragraph>
@@ -101,7 +102,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             onClick={getRandom}
                             fullWidth
                         >
-                            <IconSearch />
+                            <IconAnalyse />
                             <Typography variant='button'>{'Analyse Random'}</Typography>
                         </Button>
                         <Typography paragraph>
@@ -126,7 +127,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             onClick={() => routerStore.goView(ROUTES.COMPARE)}
                             fullWidth
                         >
-                            <IconBuild />
+                            <IconCompare />
                             <Typography variant='button'>{'Compare'}</Typography>
                         </Button>
                         <Typography paragraph>

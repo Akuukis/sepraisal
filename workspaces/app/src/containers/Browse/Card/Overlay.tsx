@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { fade, Grid, lighten, Typography } from '@material-ui/core'
-import IconSearch from '@material-ui/icons/Search'
+import { fade, Grid, lighten } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
 import CompareButton from '../../../components/CompareButton'
 import FavoriteButton from '../../../components/FavoriteButton'
+import IconAnalyse from '../../../components/icons/IconAnalyse'
 import { CardStatus, ICard } from '../../../models/Card'
 import { CONTEXT } from '../../../stores'
 import OverlayItem from './OverlayItem'
@@ -32,24 +32,25 @@ const styles = (theme: IMyTheme) => createStyles({
         flex: 5,
         cursor: 'pointer',
     },
-
+    itemAnalysisOnHover: {
+        '&:hover': {
+            color: theme.palette.primary.main,
+        },
+    },
     itemFavorite: {
     },
     itemFavoriteOnHover: {
-        color: lighten(theme.palette.error.main, 0.2),
         // backgroundColor: fade(theme.palette.error.light, 0.9),
         '&:hover': {
-            color: theme.palette.error.main,
             backgroundColor: fade(lighten(theme.palette.error.light, 0.33), 0.9),
         },
     },
     itemCompare: {
     },
     itemCompareOnHover: {
-        color: lighten(theme.palette.success.main, 0.2),
+        color: theme.palette.text.secondary,
         // backgroundColor: fade(theme.palette.success.light, 0.9),
         '&:hover': {
-            color: theme.palette.success.main,
             backgroundColor: fade(lighten(theme.palette.success.light, 0.33), 0.9),
         },
     },
@@ -86,27 +87,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         routerStore.goBlueprint(bp.id)
     }
 
-    const goSteam = () => {
-        piwikStore.push([
-            'trackEvent',
-            'browse',
-            'click-steam',
-            bp.id,
-            index,
-        ])
-        window.open(`https://steamcommunity.com/sharedfiles/filedetails/?id=${bp.id}`)
-    }
-
     return (
         <Grid
             container
             className={classes.root}
             onMouseEnter={setHoverOn}
-            // onMouseLeave={setHoverOff}
+            onMouseLeave={setHoverOff}
         >
-            <OverlayItem isHover={hover} onClick={goAnalysis} classes={{root: classes.itemAnalysis}}>
-                <IconSearch />
-                <Typography variant='button'>{'Analysis'}</Typography>
+            <OverlayItem isHover={hover} onClick={goAnalysis} classes={{root: classes.itemAnalysis, rootOnHover: classes.itemAnalysisOnHover}}>
+                <IconAnalyse fontSize='large' />
             </OverlayItem>
             <Grid container className={classes.subgroup} direction='column'>
                 <OverlayItem isHover={hover} classes={{root: classes.itemFavorite, rootOnHover: classes.itemFavoriteOnHover}} alignItems='flex-start'>

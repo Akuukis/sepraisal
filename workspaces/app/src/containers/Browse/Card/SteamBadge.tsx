@@ -5,7 +5,7 @@ import { darken, IconButton } from '@material-ui/core'
 
 import { STEAM_COLORS } from '../../../common'
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkBpProps } from '../../../common/'
-import Steam from '../../../components/icons/Steam'
+import IconSteam from '../../../components/icons/IconSteam'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -47,7 +47,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             }}
             {...linkBpProps(id)}
         >
-            <Steam className={classes.icon} />
+            <IconSteam className={classes.icon} />
             {formatDecimal(amount)}
         </IconButton>
     )
