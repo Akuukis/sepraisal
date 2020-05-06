@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { AppBar, fade, Toolbar } from '@material-ui/core'
+import { AppBar, Toolbar } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Logo from './Logo'
@@ -10,7 +10,7 @@ import Navigation from './Navigation'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: fade(theme.palette.primary.main, 0.8),
+        backgroundColor: theme.palette.primary.main,
         zIndex: theme.zIndex.appBar + 1,
     },
 })
