@@ -45,15 +45,6 @@ import { SelectionStore } from '../../stores/SelectionStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({
-    root: {
-        fontFamily: theme.typography.fontFamily,
-        fontSize: theme.typography.fontSize,
-        fontSmoothing: 'antialiased',
-        height: '100vh',
-        minWidth: '230px',
-        overflow: 'hidden',
-    },
-
     body: {
         margin: 0,
     },
@@ -76,9 +67,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     React.useEffect(() => {
         const body = document.getElementById('body')!
         body.className = classes.body
-
-        const root = document.getElementById('root')!
-        root.className = classes.root
     })
 
     useAsyncEffectOnce(async () => {
