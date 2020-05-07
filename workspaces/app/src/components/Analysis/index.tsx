@@ -2,12 +2,15 @@ import { IBlueprint } from '@sepraisal/common'
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { Link } from 'react-router-dom'
 
-import { Grid, GridProps, Typography } from '@material-ui/core'
+import { Grid, GridProps } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
+import { ROUTES } from '../../constants/routes'
 import { CONTEXT } from '../../stores'
+import FavoriteButton from '../FavoriteButton'
 import Header from './Header'
 import MySectionErrorBoundary from './MySectionErrorBoundary'
 import SectionAutomation from './SectionAutomation'
@@ -22,6 +25,7 @@ import SectionMaterials from './SectionMaterials'
 import SectionMobility from './SectionMobility'
 import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
+import SectionPlaceholder from './SectionPlaceholder'
 import SectionPrintable from './SectionPrintable'
 import SectionUtils from './SectionUtils'
 import SectionWorkshop from './SectionWorkshop'
@@ -58,7 +62,19 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     headerItem: {
         width: '100%',
-    }
+    },
+    header: {
+        textDecoration: 'none',
+        '&:hover': {
+            textDecoration: 'underline',
+        },
+        '&:visited': {
+            color: theme.palette.success.light,
+        },
+        '&:link': {
+            color: theme.palette.success.contrastText,
+        },
+    },
 })
 
 
@@ -106,30 +122,51 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     })
 
-    if(status !== ASYNC_STATE.Done || !blueprint || bpId !== blueprint._id) {
-        return (
-            <Grid component='article' className={classes.root} container justify='center'>
-                <Typography variant='body1' color='secondary'>TODO: nice loading animation..</Typography>
-            </Grid>
-        )
+    const getTitle = (state: ASYNC_STATE, id: number|string, blueprint: IBlueprint | null): React.ReactNode => {
+        switch(state) {
+            case(ASYNC_STATE.Idle): {
+                return '???'
+            }
+            case(ASYNC_STATE.Doing): {
+                return `Loading ${id}...`
+            }
+            case(ASYNC_STATE.Error): {
+                return `Failed to load ${id}.`
+            }
+            case(ASYNC_STATE.Done): {
+                if(!blueprint) throw new Error('catch me')
+                return 'steam' in blueprint && blueprint.steam !== undefined
+                    ?
+                        (<Link className={classes.header} to={`${ROUTES.ANALYSE}?id=${blueprint._id!}`}>
+                            {blueprint.steam.title}
+                        </Link>)
+                    : blueprint.sbc!.gridTitle
+            }
+            default: {
+                throw new Error('catch me')
+            }
+        }
     }
+    const title = getTitle(status, bpId, blueprint)
 
-    // @computed get anyError() {
-    //     const { analysis } = props;
-    //     return analysis.blocksErrors.length > 0
-    //         || analysis.componentErrors.length > 0
-    //         || analysis.ingotErrors.length > 0
-    //         || analysis.oreErrors.length > 0
-    // }
-
-    let sectionGroupCounter = 0
+    let sectionGroupCounter = 1
     const sectionGroup = (AnalysisSections: [string, Section][], header = false) => (
         <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
-            {AnalysisSections.map(([heading, AnalysisSection], i) => (
-                <MySectionErrorBoundary key={i} heading={heading}>
-                    <AnalysisSection bp={blueprint} long={long} narrow={maxWidth === 0.5} />
-                </MySectionErrorBoundary>
-            ))}
+            {AnalysisSections.map(([heading, AnalysisSection], i) => {
+                if(status === ASYNC_STATE.Done && !!blueprint) {
+                    return (
+                        <MySectionErrorBoundary key={i} heading={heading}>
+                            <AnalysisSection bp={blueprint} long={long} narrow={maxWidth === 0.5} />
+                        </MySectionErrorBoundary>
+                    )
+                } else {
+                    return (
+                        <MySectionErrorBoundary key={i} heading={heading}>
+                            <SectionPlaceholder long={AnalysisSections.length === 1} narrow={maxWidth === 0.5} />
+                        </MySectionErrorBoundary>
+                    )
+                }
+            })}
         </Grid>
     )
 
@@ -151,9 +188,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
                 container
             >
-                {sectionGroup([['Header', Header as Section]], true)}
-                {'steam' in blueprint ? sectionGroup([['Workshop', SectionWorkshop as Section]]) : null}
-                {'steam' in blueprint ? sectionGroup([['Description', SectionDescription as Section]]) : null}
+                <Grid item className={classes.item} xs={12} style={{maxWidth: '100%'}}>
+                    <Header title={title}>
+                        {blueprint && <FavoriteButton bpId={blueprint._id!} name={blueprint?.steam?.title || blueprint?.sbc?.gridTitle || '?'} />}
+                    </Header>
+                </Grid>
+                {!blueprint || blueprint?.steam ? sectionGroup([['Workshop', SectionWorkshop as Section]]) : null}
+                {!blueprint || blueprint?.steam ? sectionGroup([['Description', SectionDescription as Section]]) : null}
             </Grid>
             <Grid
                 item

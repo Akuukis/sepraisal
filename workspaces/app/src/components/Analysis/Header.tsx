@@ -1,13 +1,10 @@
 import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
-import { Link } from 'react-router-dom'
 
 import { AppBar, Toolbar, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import FavoriteButton from '../../components/FavoriteButton'
-import { ROUTES } from '../../constants/routes'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -15,18 +12,6 @@ const styles = (theme: IMyTheme) => createStyles({
         zIndex: theme.zIndex.appBar - 200,
     },
 
-    header: {
-        textDecoration: 'none',
-        '&:hover': {
-            textDecoration: 'underline',
-        },
-        '&:visited': {
-            color: theme.palette.success.light,
-        },
-        '&:link': {
-            color: theme.palette.success.contrastText,
-        },
-    },
     toolbar: {
         minHeight: 58,
         backgroundColor: theme.palette.success.main,
@@ -35,19 +20,13 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    bp: IBpProjectionRow
+    title: React.ReactNode
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp} = props
+    const {title} = props
 
-    const title = 'steam' in bp && bp.steam !== undefined
-        ?
-            (<Link className={classes.header} to={`${ROUTES.ANALYSE}?id=${bp._id!}`}>
-                {bp.steam.title}
-            </Link>)
-        : bp.sbc.gridTitle
     return (
         <>
             <AppBar position='static' className={classes.root}>
@@ -58,7 +37,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <Typography variant='h6' color='inherit' style={{flex: 1}}>
                         {title}
                     </Typography>
-                    <FavoriteButton bpId={bp._id!} name={'steam' in bp && bp.steam !== undefined ? bp.steam.title : bp.sbc.gridTitle} />
+                    {children}
                     {/* <IconButton color='inherit' aria-label='remove'>
                         <IconClose />
                     </IconButton> TODO: Add Close for Compare view. */}
