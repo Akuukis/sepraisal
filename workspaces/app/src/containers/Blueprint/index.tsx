@@ -7,6 +7,7 @@ import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Analysis from '../../components/Analysis'
 import DefaultLayout from '../../layouts/DefaultLayout'
 import { CONTEXT } from '../../stores'
+import Panel from './Panel'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -26,7 +27,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const bpId = Number(routerStore.location.pathname.split('?')[0].split('/').pop() as string)
 
     return (
-        <DefaultLayout className={classes.root}>
+        <DefaultLayout
+            className={classes.root}
+            aside={<Panel />}
+            asideTitle='Analyse'
+        >
             <Grid container spacing={2} justify='center'>
                 <Analysis bpId={bpId} long />
             </Grid>
