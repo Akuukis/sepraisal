@@ -30,10 +30,6 @@ const styles = (theme: IMyTheme) => createStyles({
         }),
         opacity: 0,
     },
-    exiting: {
-        transition: theme.transitions.create('opacity'),
-        opacity: 0,
-    },
 })
 
 
