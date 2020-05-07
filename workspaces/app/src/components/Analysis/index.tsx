@@ -2,13 +2,11 @@ import { IBlueprint } from '@sepraisal/common'
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
-import { Link } from 'react-router-dom'
 
 import { Grid, GridProps } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
-import { ROUTES } from '../../constants/routes'
 import { CONTEXT } from '../../stores'
 import FavoriteButton from '../FavoriteButton'
 import Header from './Header'
@@ -63,18 +61,6 @@ const styles = (theme: IMyTheme) => createStyles({
     headerItem: {
         width: '100%',
     },
-    header: {
-        textDecoration: 'none',
-        '&:hover': {
-            textDecoration: 'underline',
-        },
-        '&:visited': {
-            color: theme.palette.success.light,
-        },
-        '&:link': {
-            color: theme.palette.success.contrastText,
-        },
-    },
 })
 
 
@@ -122,33 +108,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     })
 
-    const getTitle = (state: ASYNC_STATE, id: number|string, blueprint: IBlueprint | null): React.ReactNode => {
-        switch(state) {
-            case(ASYNC_STATE.Idle): {
-                return '???'
-            }
-            case(ASYNC_STATE.Doing): {
-                return `Loading ${id}...`
-            }
-            case(ASYNC_STATE.Error): {
-                return `Failed to load ${id}.`
-            }
-            case(ASYNC_STATE.Done): {
-                if(!blueprint) throw new Error('catch me')
-                return 'steam' in blueprint && blueprint.steam !== undefined
-                    ?
-                        (<Link className={classes.header} to={`${ROUTES.ANALYSE}?id=${blueprint._id!}`}>
-                            {blueprint.steam.title}
-                        </Link>)
-                    : blueprint.sbc!.gridTitle
-            }
-            default: {
-                throw new Error('catch me')
-            }
-        }
-    }
-    const title = getTitle(status, bpId, blueprint)
-
     let sectionGroupCounter = 1
     const sectionGroup = (AnalysisSections: [string, Section][], header = false) => (
         <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
@@ -189,7 +148,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 container
             >
                 <Grid item className={classes.item} xs={12} style={{maxWidth: '100%'}}>
-                    <Header title={title}>
+                    <Header bpId={bpId} blueprint={blueprint} state={status}>
                         {blueprint && <FavoriteButton bpId={blueprint._id!} name={blueprint?.steam?.title || blueprint?.sbc?.gridTitle || '?'} />}
                     </Header>
                 </Grid>
