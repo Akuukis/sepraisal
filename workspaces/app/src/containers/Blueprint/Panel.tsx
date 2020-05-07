@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { FormControl, FormHelperText, FormLabel, Input, InputAdornment, Typography } from '@material-ui/core'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from '../../common'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common'
 import IconBrowse from '../../components/icons/IconBrowse'
 import { CONTEXT } from '../../stores'
 
@@ -40,23 +40,39 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [text, setText] = React.useState('')
     const [status, setStatus] = React.useState<{code: ASYNC_STATE, text: string}>({code: ASYNC_STATE.Idle, text: ''})
 
-    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    useAsyncEffectOnce(async () => {
+        try {
+            const id = validateId(extractId(location.href))
+            setText(String(id))
+            setStatus({code: ASYNC_STATE.Done, text: ''})
+        } catch(err) {
+        }
+    })
+
+    const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value
         setText(value)
 
+        if(value === '') {
+            setStatus({code: ASYNC_STATE.Idle, text: ''})
+            routerStore.replace({...location, search: undefined})
+            return
+        }
+
         try {
             const id = validateId(extractId(value))
-            setStatus({code: ASYNC_STATE.Done, text: String(id)})
+            return select(id)
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `Validation: ${err.message}`})
         }
+        console.log('onchange')
     }
 
-    const handleOnSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        const id = validateId(extractId(text))
-        routerStore.replace({...location, search: `?id=${id}`})
+    }
 
+    const select = async (id: number) => {
         const blueprint = blueprintStore.getSomething(id)
         if(blueprint) {
             setStatus({code: ASYNC_STATE.Done, text: ''})
@@ -66,6 +82,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setStatus({code: ASYNC_STATE.Doing, text: 'Fetching...'})
         try {
             await blueprintStore.fetch(id)
+            routerStore.replace({...location, search: `?id=${id}`})
             setStatus({code: ASYNC_STATE.Done, text: 'Fetched!'})
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `ID ${id}: ${err.message}`})
@@ -77,14 +94,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             component='form'
             className={classes.root}
             required
-            onSubmit={handleOnSubmit}
+            onSubmit={handleSubmit}
             error={status.code === ASYNC_STATE.Error}
         >
-            <FormLabel htmlFor="my-input">Select a blueprint to analyse</FormLabel>
+            <FormLabel htmlFor='id'>Select a blueprint to analyse</FormLabel>
             <Input
                 autoFocus
-                id="my-input"
-                aria-describedby="my-helper-text"
+                id='id'
+                aria-describedby='id-helper-text'
                 className={classes.input}
                 startAdornment={(
                     <InputAdornment position='start'>
@@ -93,11 +110,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 )}
                 placeholder='Enter Steam Workshop item URL or ID'
                 value={text}
-                onChange={handleOnChange}
+                onChange={handleChange}
                 fullWidth
                 readOnly={status.code === ASYNC_STATE.Doing}
             />
-            <FormHelperText className={classes.helper}>
+            <FormHelperText id='id-helper-text' className={classes.helper}>
                 {status.text}
             </FormHelperText>
             <input type='submit' className={classes.submitHack} tabIndex={-1} />
