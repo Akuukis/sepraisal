@@ -16,10 +16,7 @@ import MyBoxRow from '../MyBoxRow'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         padding: theme.spacing(0.5, 0),
-        width: `100%`,
-        [theme.breakpoints.up('sm')]: {
-            width: `${theme.shape.boxWidth * 2}px`,
-        },
+        width: `${theme.shape.boxWidth * 2}px`,
     },
 
     inner: {

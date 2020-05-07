@@ -25,9 +25,7 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         padding: theme.spacing(0.5, 0),
         width: `100%`,
-        [theme.breakpoints.up('sm')]: {
-            width: `${theme.shape.boxWidth * 2}px`,
-        },
+        minWidth: `${theme.shape.boxWidth}px`,
     },
 
     expansionPanel: {
@@ -59,11 +57,8 @@ const styles = (theme: IMyTheme) => createStyles({
     expansionPanelDetails: {
         padding: 0,
     },
-
     rootNarrow: {
-        maxWidth: `${theme.shape.boxWidth}px`,
     },
-
     CenterCell: {
         paddingLeft: theme.spacing(2),
         flexBasis: '60%',
