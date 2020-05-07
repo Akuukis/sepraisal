@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader/root'
 import { Grid, GridProps, Typography } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffect } from '../../common/'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
 import { CONTEXT } from '../../stores'
 import Header from './Header'
 import MySectionErrorBoundary from './MySectionErrorBoundary'
@@ -82,10 +82,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             [classes.rootXl]: !maxWidth || maxWidth >= 3,
         }, className)
 
-    useAsyncEffect(async () => {
-        if(blueprint && blueprint._id === bpId) return
-
-        setStatus(ASYNC_STATE.Doing)
+    useAsyncEffectOnce(async () => {
         const cached = blueprintStore.getSomething(bpId)
         if(cached) {
             setBlueprint(cached)
@@ -100,6 +97,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
 
         try {
+            setStatus(ASYNC_STATE.Doing)
             const doc = await blueprintStore.fetch(bpId)
             setBlueprint(doc)
             setStatus(ASYNC_STATE.Done)

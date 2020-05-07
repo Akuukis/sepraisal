@@ -80,6 +80,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         try {
             const id = validateId(extractId(value))
             select(id)
+            setStatus({code: ASYNC_STATE.Done, text: `ID looks ok.`})
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `Validation: ${err.message}`})
         }
@@ -91,21 +92,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const select = async (id: number) => {
-        const blueprint = blueprintStore.getSomething(id)
-        if(blueprint) {
-            routerStore.replace({...location, search: `?id=${id}`})
-            setStatus({code: ASYNC_STATE.Done, text: ''})
-            return
-        }
-
-        setStatus({code: ASYNC_STATE.Doing, text: 'Fetching ...'})
-        try {
-            await blueprintStore.fetch(id)
-            routerStore.replace({...location, search: `?id=${id}`})
-            setStatus({code: ASYNC_STATE.Done, text: 'Fetched!'})
-        } catch(err) {
-            setStatus({code: ASYNC_STATE.Error, text: `ID ${id}: ${err.message}`})
-        }
+        routerStore.replace({...location, search: `?id=${id}`})
     }
 
     const OnRandom = (preset: any) => async () => {
@@ -117,6 +104,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             const id = docs[0]._id
             setText(id.toString())
             select(id)
+            setStatus({code: ASYNC_STATE.Done, text: 'Random ID selected!'})
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `Randomizer: ${err.message}`})
         }

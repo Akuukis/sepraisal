@@ -7,7 +7,6 @@ import { Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import Analysis from '../../components/Analysis'
-import { CONTEXT } from '../../stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -22,15 +21,13 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const location = useLocation()
 
-    let content: React.ReactElement | null = null
+    let content: [React.ReactElement] | null = null
     try {
         const id = idFromHref(location.search)
-        if(blueprintStore.getSomething(id)) {
-            content = <Analysis bpId={id} long />
-        }
+        // Use `key` prop so it doesn't reuse Analysis for different ids.
+        content = [<Analysis bpId={id} key={id} long />]
     } catch(err) {
     }
 
