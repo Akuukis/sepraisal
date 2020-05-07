@@ -3,10 +3,9 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { Link } from 'react-router-dom'
 
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import { AppBar, darken, Toolbar, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import FavoriteButton from '../../components/FavoriteButton'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from '../../common/'
 import { ROUTES } from '../../constants/routes'
 
 
@@ -15,50 +14,79 @@ const styles = (theme: IMyTheme) => createStyles({
         zIndex: theme.zIndex.appBar - 200,
     },
 
+    toolbar: {
+        minHeight: 58,
+        backgroundColor: theme.palette.success.main,
+    },
     header: {
         textDecoration: 'none',
         '&:hover': {
             textDecoration: 'underline',
         },
         '&:visited': {
-            color: theme.palette.success.light,
+            color: darken(theme.palette.success.contrastText, 0.05),
         },
         '&:link': {
             color: theme.palette.success.contrastText,
         },
     },
-    toolbar: {
-        minHeight: 58,
-        backgroundColor: theme.palette.success.main,
-    }
 })
 
 
 interface IProps {
-    bp: IBpProjectionRow
+    state: {code: ASYNC_STATE, text?: string}
+    bpId: number|string
+    blueprint: IBlueprint | null
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp} = props
+    const {state, bpId, blueprint} = props
+    const getTitle = (): React.ReactNode => {
+        switch(state.code) {
+            case(ASYNC_STATE.Idle): {
+                return '???'
+            }
+            case(ASYNC_STATE.Doing): {
+                return `[${bpId}] Loading ...`
+            }
+            case(ASYNC_STATE.Error): {
+                return `[${bpId}] Error: ${state.text}`
+            }
+            case(ASYNC_STATE.Done): {
+                if(!blueprint) throw new Error('catch me')
+                return 'steam' in blueprint && blueprint.steam !== undefined
+                    ?
+                        (<Link className={classes.header} to={`${ROUTES.ANALYSE}?id=${blueprint._id!}`}>
+                            {blueprint.steam.title}
+                        </Link>)
+                    : blueprint.sbc!.gridTitle
+            }
+            default: {
+                throw new Error('catch me')
+            }
+        }
+    }
+    const title = getTitle()
 
-    const title = 'steam' in bp && bp.steam !== undefined
-        ?
-            (<Link className={classes.header} to={`${ROUTES.BLUEPRINT}/${bp._id!}`}>
-                {bp.steam.title}
-            </Link>)
-        : bp.sbc.gridTitle
+    const colorMap = {
+        [ASYNC_STATE.Idle]: theme.palette.background.default,
+        [ASYNC_STATE.Doing]: theme.palette.warning.dark,
+        [ASYNC_STATE.Error]: theme.palette.error.dark,
+        [ASYNC_STATE.Done]: theme.palette.success.main,
+    }
+
     return (
         <>
             <AppBar position='static' className={classes.root}>
-                <Toolbar className={classes.toolbar}>
+                <Toolbar className={classes.toolbar} style={{backgroundColor: colorMap[state.code]}}>
                     {/* <IconButton color='contrast' aria-label='Menu'>
                         <IconMoreVert />
                     </IconButton> */}
                     <Typography variant='h6' color='inherit' style={{flex: 1}}>
                         {title}
                     </Typography>
-                    <FavoriteButton bpId={bp._id!} name={'steam' in bp && bp.steam !== undefined ? bp.steam.title : bp.sbc.gridTitle} />
+                    {children}
                     {/* <IconButton color='inherit' aria-label='remove'>
                         <IconClose />
                     </IconButton> TODO: Add Close for Compare view. */}
