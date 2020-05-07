@@ -15,19 +15,16 @@ import MySection from './MySection'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        // backgroundColor: 'unset',
-        position: 'relative',
     },
     box: {
         padding: 0,
+        display: 'block',
     },
 
     corner: {
+        float: 'right',
         backgroundColor: theme.palette.background.default,
         color: 'black',
-        position: 'absolute',
-        right: 0,
-        top: 0,
         paddingLeft: 25,
         paddingBottom: 25,
         clipPath: 'polygon(0 0, 100% 0%, 100% 100%)',
@@ -48,10 +45,10 @@ const styles = (theme: IMyTheme) => createStyles({
         '& > a:visited': {
             color: darken(theme.palette.primary.light, 0.5),
         },
+        minHeight: `10em`,
         height: `calc(100% - ${theme.spacing(2) * 2}px)`,
         width: `calc(100% - ${theme.spacing(2) * 2}px)`,
-        overflowX: 'hidden',
-        overflowY: 'auto',
+        overflow: 'unset',  // Required for floating corner.
     },
 })
 
@@ -78,15 +75,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <MyBoxColumn height={largerThanXl && long ? 0 : 4} width={6}>
                 <MyBoxRow width={6}>
                     <MyBox width={6} className={classes.box}>
-                        <Typography className={classes.description} variant='body1' dangerouslySetInnerHTML={{ __html: bp.steam.description}} />
+                        <Paper square className={classes.corner}>
+                            <IconButton size='medium' color='inherit' {...linkBpProps(bp.steam.id)}>
+                                <IconSteam fontSize='inherit' />
+                            </IconButton>
+                        </Paper>
+                        <Typography
+                            className={classes.description}
+                            variant='body1'
+                            dangerouslySetInnerHTML={{ __html: bp.steam.description}}
+                        />
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-            <Paper className={classes.corner}>
-                <IconButton size='medium' color='inherit' {...linkBpProps(bp.steam.id)}>
-                    <IconSteam fontSize='inherit' />
-                </IconButton>
-            </Paper>
         </MySection>
     )
 })) /* ============================================================================================================= */
