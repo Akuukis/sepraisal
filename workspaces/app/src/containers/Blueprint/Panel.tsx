@@ -1,23 +1,41 @@
-import { idFromHref } from '@sepraisal/common'
+import { getApiUrl, idFromHref } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { FormControl, FormHelperText, FormLabel, Input, InputAdornment, Typography } from '@material-ui/core'
+import {
+    Button,
+    FormControl,
+    FormGroup,
+    FormHelperText,
+    FormLabel,
+    Input,
+    InputAdornment,
+    Typography,
+} from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common'
 import IconBrowse from '../../components/icons/IconBrowse'
 import { CONTEXT } from '../../stores'
+import { PRESET } from '../../stores/CardStore'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        margin: theme.spacing(4),
+        padding: theme.spacing(0, 4),
     },
 
+    button: {
+        margin: theme.spacing(1),
+        minWidth: 240,
+        maxWidth: 240,
+        alignSelf: 'left',
+    },
+    formGroup: {
+        margin: theme.spacing(2, 0),
+    },
     input: {
     },
     footer: {
         marginTop: theme.spacing(8),
-        marginBottom: theme.spacing(-2),
     },
     helper: {
     },
@@ -61,7 +79,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         try {
             const id = validateId(extractId(value))
-            return select(id)
+            select(id)
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `Validation: ${err.message}`})
         }
@@ -75,11 +93,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const select = async (id: number) => {
         const blueprint = blueprintStore.getSomething(id)
         if(blueprint) {
+            routerStore.replace({...location, search: `?id=${id}`})
             setStatus({code: ASYNC_STATE.Done, text: ''})
             return
         }
 
-        setStatus({code: ASYNC_STATE.Doing, text: 'Fetching...'})
+        setStatus({code: ASYNC_STATE.Doing, text: 'Fetching ...'})
         try {
             await blueprintStore.fetch(id)
             routerStore.replace({...location, search: `?id=${id}`})
@@ -89,39 +108,63 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     }
 
+    const OnRandom = (preset: any) => async () => {
+        setStatus({code: ASYNC_STATE.Doing, text: 'Randomizing blueprint id ...'})
+        try {
+            const skip = Math.floor(Math.random() * 3800)  // Random blueprint out of first 90k blueprints.
+            const res = await fetch(getApiUrl(preset, {_id: true}, undefined, 1, skip))
+            const {docs} = await res.json() as {docs: [{_id: number}]}
+            const id = docs[0]._id
+            setText(id.toString())
+            select(id)
+        } catch(err) {
+            setStatus({code: ASYNC_STATE.Error, text: `Randomizer: ${err.message}`})
+        }
+    }
+
     return (
-        <FormControl
-            component='form'
+        <div
             className={classes.root}
-            required
-            onSubmit={handleSubmit}
-            error={status.code === ASYNC_STATE.Error}
         >
-            <FormLabel htmlFor='id'>Select a blueprint to analyse</FormLabel>
-            <Input
-                autoFocus
-                id='id'
-                aria-describedby='id-helper-text'
-                className={classes.input}
-                startAdornment={(
-                    <InputAdornment position='start'>
-                        <IconBrowse />
-                    </InputAdornment>
-                )}
-                placeholder='Enter Steam Workshop item URL or ID'
-                value={text}
-                onChange={handleChange}
-                fullWidth
-                readOnly={status.code === ASYNC_STATE.Doing}
-            />
-            <FormHelperText id='id-helper-text' className={classes.helper}>
-                {status.text}
-            </FormHelperText>
-            <input type='submit' className={classes.submitHack} tabIndex={-1} />
+            <FormGroup className={classes.formGroup}>
+                <FormControl
+                    component='form'
+                    required
+                    onSubmit={handleSubmit}
+                    error={status.code === ASYNC_STATE.Error}
+                >
+                    <FormLabel htmlFor='id'>Select a blueprint to analyse</FormLabel>
+                    <Input
+                        autoFocus
+                        id='id'
+                        aria-describedby='id-helper-text'
+                        className={classes.input}
+                        startAdornment={(
+                            <InputAdornment position='start'>
+                                <IconBrowse />
+                            </InputAdornment>
+                        )}
+                        placeholder='Enter Steam Workshop item URL or ID'
+                        value={text}
+                        onChange={handleChange}
+                        fullWidth
+                        readOnly={status.code === ASYNC_STATE.Doing}
+                    />
+                    <FormHelperText id='id-helper-text' className={classes.helper}>
+                        {status.text}
+                    </FormHelperText>
+                </FormControl>
+            </FormGroup>
+            <FormGroup className={classes.formGroup}>
+                <FormLabel htmlFor='random'>Or select randomly:</FormLabel>
+                <Button id='random' color='primary' variant='outlined' className={classes.button} onClick={OnRandom(PRESET.fighter)}>A fighter</Button>
+                <Button id='random' color='primary' variant='outlined' className={classes.button} onClick={OnRandom(PRESET.ship)}>A ship</Button>
+                <Button id='random' color='primary' variant='outlined' className={classes.button} onClick={OnRandom(PRESET.none)}>A blueprint</Button>
+            </FormGroup>
             <Typography paragraph variant='caption' className={classes.footer}>
                 Note that blueprints added to Steam Workshop less than 6 hours ago may not be available yet.
             </Typography>
-        </FormControl>
+        </div>
     )
 })) /* ============================================================================================================= */
 
