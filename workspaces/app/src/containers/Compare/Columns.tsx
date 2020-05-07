@@ -18,7 +18,17 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     moving: {
-        transition: theme.transitions.create('left'),
+        transition: theme.transitions.create('left', {
+            easing: theme.transitions.easing.easeIn,
+            duration: theme.transitions.duration.complex,
+        }),
+    },
+    exiting: {
+        transition: theme.transitions.create('opacity', {
+            easing: theme.transitions.easing.easeIn,
+            duration: theme.transitions.duration.complex,
+        }),
+        opacity: 0,
     },
     exiting: {
         transition: theme.transitions.create('opacity'),
@@ -39,7 +49,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [prevOrder, setPrevOrder] = React.useState(() => order)
 
     React.useEffect(() => {
-        const timeout = setTimeout(() => setPrevOrder(order), theme.transitions.duration.standard * 1.2)
+        const timeout = setTimeout(() => setPrevOrder(order), theme.transitions.duration.complex * 1.2)
 
         return () => clearTimeout(timeout)
     })
