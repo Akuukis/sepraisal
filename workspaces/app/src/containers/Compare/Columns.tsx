@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -13,9 +14,15 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     column: {
-        display: 'inline-block',
         position: 'relative',
+    },
+
+    moving: {
         transition: theme.transitions.create('left'),
+    },
+    exiting: {
+        transition: theme.transitions.create('opacity'),
+        opacity: 0,
     },
 })
 
@@ -27,17 +34,50 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const selectionStore = React.useContext(CONTEXT.SELECTION)
     const width = selectionStore.narrow ? 0.5 : 1
+    const order = [...selectionStore.selected]
 
-    const columns = [...selectionStore.selected]
-        .map((id, i) => (
-            <Analysis
-                classes={{root: classes.column}}
-                // style={{left: i * (theme.spacing(1) + width * 2 * theme.shape.boxWidth)}}
+    const [prevOrder, setPrevOrder] = React.useState(() => order)
+
+    React.useEffect(() => {
+        const timeout = setTimeout(() => setPrevOrder(order), theme.transitions.duration.standard * 1.2)
+
+        return () => clearTimeout(timeout)
+    })
+
+    // Exit & Change
+    const change = prevOrder
+        .map((id, i) => {
+            const newI = order.findIndex((innerId) => innerId === id)
+            const removed = newI === -1
+
+            const left = ((removed ? i : newI) - i) * (theme.spacing(2) + width * 2 * theme.shape.boxWidth)
+
+            return (<Analysis
+                classes={{root: clsx(classes.column, left !== 0 && classes.moving, removed && classes.exiting)}}
+                style={{left}}
                 key={id}
                 bpId={id}
                 maxWidth={width}
-            />
-    ))
+            />)
+        })
+
+    // Enter
+    const enter = order
+        .filter((id) => !prevOrder.includes(id))
+        .map((id, i) => {
+            return (<Analysis
+                classes={{root: classes.column}}
+                style={{}}
+                key={id}
+                bpId={id}
+                maxWidth={width}
+            />)
+        })
+
+    const columns = [
+        ...change,
+        ...enter,
+    ]
 
     return (
         <Grid container className={classes.root}>
