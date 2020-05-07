@@ -15,7 +15,7 @@ export default (history: History) => (
     <Router history={history}>
         <App>
             <Switch>
-                <Route path={ROUTES.BLUEPRINT}>
+                <Route path={ROUTES.ANALYSE}>
                     <Blueprint />
                 </Route>
                 <Route path={ROUTES.BROWSE}>

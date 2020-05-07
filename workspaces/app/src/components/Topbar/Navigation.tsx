@@ -35,7 +35,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <nav className={classes.root}>
             <NavigationButton to={ROUTES.BROWSE} Icon={IconBrowse} title='Browse' />
-            <NavigationButton to={ROUTES.BLUEPRINT} Icon={IconAnalyse} title='Analyze' />
+            <NavigationButton to={ROUTES.ANALYSE} Icon={IconAnalyse} title='Analyze' />
             <Badge classes={{badge: classes.badge}} badgeContent={selectionStore.selected.length} color="secondary">
                 <NavigationButton to={ROUTES.COMPARE} Icon={IconCompare} title='Compare' />
             </Badge>
