@@ -75,7 +75,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {bpId, long, maxWidth, className, ...otherProps} = props
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const [status, setStatus] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
+    const [state, setState] = React.useState<{code: ASYNC_STATE, text?: string}>({code: ASYNC_STATE.Idle})
     const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(null)
 
     const rootClassName = clsx(classes.root, {
@@ -88,23 +88,23 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         const cached = blueprintStore.getSomething(bpId)
         if(cached) {
             setBlueprint(cached)
-            setStatus(ASYNC_STATE.Done)
+            setState({code: ASYNC_STATE.Done})
 
             return
         }
 
         if(typeof bpId === 'string') {
-            setStatus(ASYNC_STATE.Error)
+            setState({code: ASYNC_STATE.Error})
             return
         }
 
         try {
-            setStatus(ASYNC_STATE.Doing)
+            setState({code: ASYNC_STATE.Doing})
             const doc = await blueprintStore.fetch(bpId)
             setBlueprint(doc)
-            setStatus(ASYNC_STATE.Done)
+            setState({code: ASYNC_STATE.Done})
         } catch(err) {
-            setStatus(ASYNC_STATE.Error)
+            setState({code: ASYNC_STATE.Error, text: err.message})
         }
     })
 
@@ -112,7 +112,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const sectionGroup = (AnalysisSections: [string, Section][], header = false) => (
         <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
             {AnalysisSections.map(([heading, AnalysisSection], i) => {
-                if(status === ASYNC_STATE.Done && !!blueprint) {
+                if(state.code === ASYNC_STATE.Done && !!blueprint) {
                     return (
                         <MySectionErrorBoundary key={i} heading={heading}>
                             <AnalysisSection bp={blueprint} long={long} narrow={maxWidth === 0.5} />
@@ -148,7 +148,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 container
             >
                 <Grid item className={classes.item} xs={12} style={{maxWidth: '100%'}}>
-                    <Header bpId={bpId} blueprint={blueprint} state={status}>
+                    <Header bpId={bpId} blueprint={blueprint} state={state}>
                         {blueprint && <FavoriteButton bpId={blueprint._id!} name={blueprint?.steam?.title || blueprint?.sbc?.gridTitle || '?'} />}
                     </Header>
                 </Grid>

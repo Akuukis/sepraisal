@@ -3,6 +3,8 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
+import { fade } from '@material-ui/core'
+
 import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import MyBoxColumn from '../MyBoxColumn'
 import MySection from './MySection'
@@ -10,7 +12,9 @@ import MySection from './MySection'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        opacity: 0.4,
+    },
+    inner: {
+        backgroundColor: fade(theme.palette.background.default, 0.5),
     },
     box: {
         backgroundColor: 'transparent',
@@ -32,7 +36,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             label=''
             value=''
             MyBoxColumnProps={{style: {display: 'none'}}}
-            className={clsx(classes.root, className)}
+            classes={{
+                root: clsx(classes.root, className),
+                inner: classes.inner,
+            }}
             {...otherProps}
         >
             <MyBoxColumn height={long ? 4 : 2} width={6} />

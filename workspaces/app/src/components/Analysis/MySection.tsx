@@ -13,6 +13,8 @@ import MySectionWide from './MySectionWide'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
+    inner: {
+    },
 
     rootNarrow: {
     },
@@ -55,11 +57,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const largerThanSm = useMediaQuery(theme.breakpoints.up('sm'))
 
     return (largerThanSm && !narrow) ?
-            <MySectionWide className={clsx(classes.root, className)} {...otherProps as React.ComponentProps<typeof MySectionWide>}>
+            <MySectionWide className={clsx(classes.root, className)} classes={classes} {...otherProps as React.ComponentProps<typeof MySectionWide>}>
                 {children}
             </MySectionWide>
         :
-            <MySectionNarrow className={clsx(classes.root, className)} {...otherProps as React.ComponentProps<typeof MySectionNarrow>}>
+            <MySectionNarrow className={clsx(classes.root, className)} classes={classes} {...otherProps as React.ComponentProps<typeof MySectionNarrow>}>
                 {children}
             </MySectionNarrow>
 
