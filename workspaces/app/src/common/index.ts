@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import moment from 'moment'
-import { useEffect } from 'react'
+import { DependencyList, useEffect } from 'react'
 
 export * from './Component'
 export * from './ComponentRouted'
@@ -105,11 +105,12 @@ export const formatDuration = (seconds: number): string => {
     return res
 }
 
-export const useAsyncEffectOnce = (afn: () => Promise<void>) => {
+export const useAsyncEffect = (afn: () => Promise<void>, deps?: DependencyList) => {
     useEffect(() => {
         afn().catch((err) => console.error(`Async Effect "${afn.name}" failed:`, err))
-    }, [])
+    }, deps)
 }
+export const useAsyncEffectOnce = (afn: () => Promise<void>) => useAsyncEffect(afn, [])
 
 // tslint:disable-next-line: naming-convention no-object-literal-type-assertion
 export const ASYNC_STATE = {

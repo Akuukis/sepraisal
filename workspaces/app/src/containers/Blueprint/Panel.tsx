@@ -1,3 +1,4 @@
+import { idFromHref } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -34,6 +35,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
+    const routerStore = React.useContext(CONTEXT.ROUTER)
 
     const [text, setText] = React.useState('')
     const [status, setStatus] = React.useState<{code: ASYNC_STATE, text: string}>({code: ASYNC_STATE.Idle, text: ''})
@@ -50,9 +52,24 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     }
 
-    const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleOnSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        alert(text)
+        const id = validateId(extractId(text))
+        routerStore.replace({...location, search: `?id=${id}`})
+
+        const blueprint = blueprintStore.getSomething(id)
+        if(blueprint) {
+            setStatus({code: ASYNC_STATE.Done, text: ''})
+            return
+        }
+
+        setStatus({code: ASYNC_STATE.Doing, text: 'Fetching...'})
+        try {
+            await blueprintStore.fetch(id)
+            setStatus({code: ASYNC_STATE.Done, text: 'Fetched!'})
+        } catch(err) {
+            setStatus({code: ASYNC_STATE.Error, text: `ID ${id}: ${err.message}`})
+        }
     }
 
     return (
@@ -91,17 +108,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 })) /* ============================================================================================================= */
 
-const extractId = (text) => {
+const extractId = (text: string) => {
     let url: URL | null = null
     try {
         url = new URL(text)
     } catch(err) {
     }
     if(url) {
-        const idString = url.searchParams.get('id')
-        if(!idString) throw new Error(`URL doesn't contain search parameter "id".`)
+        const id = idFromHref(url.href)
+        if(!id) throw new Error(`URL doesn't contain search parameter "id".`)
 
-        return Math.round(Number(idString))
+        return id
     }
 
     const id = Math.round(Number(text))

@@ -44,7 +44,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const title = 'steam' in bp && bp.steam !== undefined
         ?
-            (<Link className={classes.header} to={`${ROUTES.ANALYSE}/${bp._id!}`}>
+            (<Link className={classes.header} to={`${ROUTES.ANALYSE}?id=${bp._id!}`}>
                 {bp.steam.title}
             </Link>)
         : bp.sbc.gridTitle

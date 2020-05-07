@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader/root'
 import { Grid, GridProps, Typography } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffect } from '../../common/'
 import { CONTEXT } from '../../stores'
 import Header from './Header'
 import MySectionErrorBoundary from './MySectionErrorBoundary'
@@ -78,7 +78,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             [classes.rootXl]: !maxWidth || maxWidth >= 3,
         }, className)
 
-    useAsyncEffectOnce(async () => {
+    useAsyncEffect(async () => {
+        if(blueprint && blueprint._id === bpId) return
+
         setStatus(ASYNC_STATE.Doing)
         const cached = blueprintStore.getSomething(bpId)
         if(cached) {
@@ -102,7 +104,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     })
 
-    if(status !== ASYNC_STATE.Done || !blueprint) {
+    if(status !== ASYNC_STATE.Done || !blueprint || bpId !== blueprint._id) {
         return (
             <Grid component='article' className={classes.root} container justify='center'>
                 <Typography variant='body1' color='secondary'>TODO: nice loading animation..</Typography>
@@ -131,7 +133,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid
-            id={bpId as string}
+            id={String(bpId)}
             component='article'
             className={rootClassName}
 
