@@ -29,20 +29,24 @@ import SectionWorkshop from './SectionWorkshop'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         maxWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2 * 1,
+        minWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2 * 1,
     },
     rootLg: {
         [theme.breakpoints.up('lg')]: {
             maxWidth: theme.spacing(1) * 4 + theme.shape.boxWidth * 2 * 2,
+            minWidth: theme.spacing(1) * 4 + theme.shape.boxWidth * 2 * 2,
         },
     },
     rootXl: {
         [theme.breakpoints.up('xl')]: {
             maxWidth: theme.spacing(1) * 6 + theme.shape.boxWidth * 2 * 3,
+            minWidth: theme.spacing(1) * 6 + theme.shape.boxWidth * 2 * 3,
         },
     },
 
     narrow: {
         maxWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2 * 0.5,
+        minWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2 * 0.5,
     },
 
     error: {
