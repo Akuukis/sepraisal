@@ -15,7 +15,7 @@
         "start": "yarn run build && yarn run watch:hot",
         "analyze": "mkdir -p tmp && webpack-cli --profile --json --production > tmp/stats.json && webpack-bundle-analyzer --no-open tmp/stats.json ./dist",
         "build": "tsc -v && tsc -b tsconfig.json",
-        "clean": "rm -rf coverage lib tmp tsconfig-src.tsbuildinfo",
+        "clean": "rm -rf coverage lib tmp tsconfig.tsbuildinfo",
         "deploy": "yarn run package:prod; aws --profile SEPraisal s3 --region eu-west-1 sync dist s3://spaceengineerspraisal.net --acl public-read",
         "lint": "tslint -p tsconfig.json",
         "lint:fix": "yarn run lint --fix",

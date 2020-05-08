@@ -6,6 +6,7 @@ export * from './Component'
 export * from './ComponentRouted'
 export * from './createFC'
 export * from './myTheme'
+export * from './vega'
 
 // tslint:disable: no-submodule-imports
 export { createStyles } from '@material-ui/core/styles'  // TODO: '@material-ui/styles'
