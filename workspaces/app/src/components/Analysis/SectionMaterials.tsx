@@ -6,8 +6,8 @@ import { hot } from 'react-hot-loader/root'
 import { InputAdornment, MenuItem, TextField, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from 'src/common'
+import Table from 'src/components/Table'
 
-import Table from '../../components/Table'
 import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'

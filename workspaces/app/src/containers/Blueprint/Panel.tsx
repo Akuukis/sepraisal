@@ -14,8 +14,8 @@ import {
 } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
+import IconBrowse from 'src/components/icons/IconBrowse'
 
-import IconBrowse from '../../components/icons/IconBrowse'
 import { CONTEXT } from '../../stores'
 import { PRESET } from '../../stores/CardStore'
 

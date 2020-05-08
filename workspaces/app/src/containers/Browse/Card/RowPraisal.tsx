@@ -2,11 +2,11 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from 'src/common'
+import ValueCell from 'src/components/Cell/ValueCell'
+import MyBox from 'src/components/MyBox'
+import MyBoxColumn from 'src/components/MyBoxColumn'
+import MyBoxRow from 'src/components/MyBoxRow'
 
-import ValueCell from '../../../components/Cell/ValueCell'
-import MyBox from '../../../components/MyBox'
-import MyBoxColumn from '../../../components/MyBoxColumn'
-import MyBoxRow from '../../../components/MyBoxRow'
 import { CardStatus, ICard } from '../../../models/Card'
 
 

@@ -7,9 +7,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 import { createSmartFC, createStyles, dropShadowFromBoxShadow, IMyTheme } from 'src/common'
+import Topbar from 'src/components/Topbar'
 
 import skyboxImage from '../../static/skybox.jpg'
-import Topbar from '../components/Topbar'
 
 
 const styles = (theme: IMyTheme) => createStyles({

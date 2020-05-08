@@ -13,11 +13,11 @@ import {
 } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import IconBrowse from 'src/components/icons/IconBrowse'
+import IconSort from 'src/components/icons/IconSort'
+import IconSortAscending from 'src/components/icons/IconSortAscending'
+import IconSortDescending from 'src/components/icons/IconSortDescending'
 
-import IconBrowse from '../../components/icons/IconBrowse'
-import IconSort from '../../components/icons/IconSort'
-import IconSortAscending from '../../components/icons/IconSortAscending'
-import IconSortDescending from '../../components/icons/IconSortDescending'
 import { CONTEXT } from '../../stores'
 import { CardStore } from '../../stores/CardStore'
 

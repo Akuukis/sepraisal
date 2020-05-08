@@ -4,8 +4,8 @@ import { hot } from 'react-hot-loader/root'
 import { FormGroup, FormLabel, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import MyExpansionPanel from 'src/components/MyExpansionPanel'
 
-import MyExpansionPanel from '../../../components/MyExpansionPanel'
 import { CONTEXT } from '../../../stores'
 import { CardStore } from '../../../stores/CardStore'
 import Checkbox from './FormControls/Checkbox'

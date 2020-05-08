@@ -7,8 +7,8 @@ import { fade, IconButton, ListItem, ListItemIcon, ListItemSecondaryAction, List
 import IconClose from '@material-ui/icons/Close'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import IconDragHandle from 'src/components/icons/IconDragHandle'
 
-import IconDragHandle from '../../components/icons/IconDragHandle'
 import { CONTEXT } from '../../stores'
 
 const styles = (theme: IMyTheme) => createStyles({

@@ -6,8 +6,8 @@ import { hot } from 'react-hot-loader/root'
 import { fade, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import FavoriteButton from 'src/components/FavoriteButton'
 
-import FavoriteButton from '../../components/FavoriteButton'
 import { CONTEXT } from '../../stores'
 import FromNow from './FromNow'
 
