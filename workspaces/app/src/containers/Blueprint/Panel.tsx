@@ -16,8 +16,7 @@ import {
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import { CONTEXT } from 'src/stores'
-
-import { PRESET } from '../../stores/CardStore'
+import { PRESET } from 'src/stores/CardStore'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {

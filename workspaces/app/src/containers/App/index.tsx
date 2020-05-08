@@ -37,11 +37,10 @@ import { ThemeProvider } from '@material-ui/styles'
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, MY_LIGHT_THEME, useAsyncEffectOnce } from 'src/common'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 import { CONTEXT } from 'src/stores'
-
-import { BlueprintStore } from '../../stores/BlueprintStore'
-import { CardStore } from '../../stores/CardStore'
-import { FavoriteStore } from '../../stores/FavoriteStore'
-import { SelectionStore } from '../../stores/SelectionStore'
+import { BlueprintStore } from 'src/stores/BlueprintStore'
+import { CardStore } from 'src/stores/CardStore'
+import { FavoriteStore } from 'src/stores/FavoriteStore'
+import { SelectionStore } from 'src/stores/SelectionStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({

@@ -11,9 +11,9 @@ import IconCompare from 'src/components/icons/IconCompare'
 import { ROUTES } from 'src/constants/routes'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 import { CONTEXT } from 'src/stores'
+import { PRESET } from 'src/stores/CardStore'
 
 import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
-import { PRESET } from '../stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({

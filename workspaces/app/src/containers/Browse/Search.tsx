@@ -18,8 +18,7 @@ import IconSort from 'src/components/icons/IconSort'
 import IconSortAscending from 'src/components/icons/IconSortAscending'
 import IconSortDescending from 'src/components/icons/IconSortDescending'
 import { CONTEXT } from 'src/stores'
-
-import { CardStore } from '../../stores/CardStore'
+import { CardStore } from 'src/stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({

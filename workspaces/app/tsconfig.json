@@ -15,7 +15,8 @@
             "src/constants/*": ["src/constants/*"],
             "src/layouts/*": ["src/layouts/*"],
             "src/models": ["src/models"],
-            "src/stores*": ["src/stores"]
+            "src/stores": ["src/stores"],
+            "src/stores/*": ["src/stores/*"]
         }
     },
     "include": [

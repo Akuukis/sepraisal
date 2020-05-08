@@ -6,10 +6,10 @@ import * as React from 'react'
 import { render } from 'react-dom'
 
 import { CONTEXT } from 'src/stores'
+import { PiwikStore } from 'src/stores/PiwikStore'
+import RouterStore from 'src/stores/RouterStore'
 
 import routes from './routes'
-import { PiwikStore } from './stores/PiwikStore'
-import RouterStore from './stores/RouterStore'
 
 // enable MobX strict mode
 configure({ enforceActions: 'always' })
