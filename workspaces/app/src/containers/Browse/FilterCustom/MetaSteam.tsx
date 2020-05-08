@@ -33,7 +33,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </FormLabel>
                 <Slider    title='Steam stars'             findKey='steam.ratingStars'            min={0} max={5} />
                 <SliderLog title='Steam subscribers'       findKey='steam.subscriberCount'        min={0} max={Math.pow(10, 5)} />
+                <SliderLog title='Steam views'             findKey='steam.viewCount'              min={0} max={Math.pow(10, 5)} />
+                <SliderLog title='Steam favorites'         findKey='steam.favoriteCount'          min={0} max={Math.pow(10, 5)} />
                 <Slider    title='File size (MB)'          findKey='steam.sizeMB'                 min={0} max={Math.pow(10, 2)} step={0.1} />
+                {/* TODO: No Description */}
+                {/* TODO: Status (by tags) */}
+                {/* TODO: Published date */}
+                {/* TODO: Updated date */}
             </FormGroup>
         </MyExpansionPanel>
     )

@@ -33,9 +33,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Basics         classes={{root: classes.root, legend: classes.legend}} />
             <MetaSteam      classes={{root: classes.root, legend: classes.legend}} />
             <Size           classes={{root: classes.root, legend: classes.legend}} />
-            <Blocks         classes={{root: classes.root, legend: classes.legend}} />
             <Performance    classes={{root: classes.root, legend: classes.legend}} />
             <Cost           classes={{root: classes.root, legend: classes.legend}} />
+            <Blocks         classes={{root: classes.root, legend: classes.legend}} />
         </>
     )
 })) /* ============================================================================================================= */

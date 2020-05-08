@@ -30,7 +30,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <MyExpansionPanel className={clsx(classes.root, className)} header='Size' subheader='' {...otherProps}>
             <FormGroup>
                 <Checkbox  title='Large Grid'                  findKey='sbc.gridSize'                 yes={{$eq: 'Large'}}        no={{$eq: 'Small'}} />
-                <SliderLog title='PCU'                         findKey='sbc.blockPCU'                 min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
                 <SliderLog title='Block count'                 findKey='sbc.blockCount'               min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
                 <SliderLog title='Mass (kg)'                   findKey='sbc.blockMass'                min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
                 {/* <Slider    title='Length (m)' operator='$size' findKey='sbc.integrityPlanes.front'    min={0} max={100} step={0.5} /> */}
