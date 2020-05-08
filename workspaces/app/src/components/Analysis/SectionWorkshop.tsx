@@ -15,8 +15,9 @@ import {
     linkCollectionProps,
     THUMB_HEIGHT,
     THUMB_WIDTH,
-} from '../../common/'
-import ValueCell from '../../components/Cell/ValueCell'
+} from 'src/common'
+import ValueCell from 'src/components/Cell/ValueCell'
+
 import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'

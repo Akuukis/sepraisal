@@ -3,8 +3,9 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import ValueCell from '../../components/Cell/ValueCell'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import ValueCell from 'src/components/Cell/ValueCell'
+
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'

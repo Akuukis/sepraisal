@@ -4,15 +4,16 @@ import { hot } from 'react-hot-loader/root'
 
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
 
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
+import IconAnalyse from 'src/components/icons/IconAnalyse'
+import IconBrowse from 'src/components/icons/IconBrowse'
+import IconCompare from 'src/components/icons/IconCompare'
+import { ROUTES } from 'src/constants/routes'
+import DefaultLayout from 'src/layouts/DefaultLayout'
+import { CONTEXT } from 'src/stores'
+import { PRESET } from 'src/stores/CardStore'
+
 import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from '../common/'
-import IconAnalyse from '../components/icons/IconAnalyse'
-import IconBrowse from '../components/icons/IconBrowse'
-import IconCompare from '../components/icons/IconCompare'
-import { ROUTES } from '../constants/routes'
-import DefaultLayout from '../layouts/DefaultLayout'
-import { CONTEXT } from '../stores'
-import { PRESET } from '../stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({

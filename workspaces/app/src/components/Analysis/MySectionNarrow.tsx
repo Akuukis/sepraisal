@@ -11,8 +11,9 @@ import {
     Typography,
 } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common'
-import { CONTEXT } from '../../stores'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { CONTEXT } from 'src/stores'
+
 import CenterCell from '../Cell/CenterCell'
 import ValueCell from '../Cell/ValueCell'
 import ExpandMoreIcon from '../icons/IconExpandMore'

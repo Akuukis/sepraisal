@@ -3,13 +3,14 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkCollectionProps } from '../../../common/'
-import CenterCell from '../../../components/Cell/CenterCell'
-import ValueCell from '../../../components/Cell/ValueCell'
-import MyBox from '../../../components/MyBox'
-import MyBoxColumn from '../../../components/MyBoxColumn'
-import MyBoxRow from '../../../components/MyBoxRow'
-import { CardStatus, ICard } from '../../../models/Card'
+import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkCollectionProps } from 'src/common'
+import CenterCell from 'src/components/Cell/CenterCell'
+import ValueCell from 'src/components/Cell/ValueCell'
+import MyBox from 'src/components/MyBox'
+import MyBoxColumn from 'src/components/MyBoxColumn'
+import MyBoxRow from 'src/components/MyBoxRow'
+import { CardStatus, ICard } from 'src/models/Card'
+
 import SteamBadge from './SteamBadge'
 
 

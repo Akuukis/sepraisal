@@ -116,6 +116,7 @@
             "Plains",
             "Modules",
             "/@material-ui/",
+            "/src\//",
             "Workspace"
         ],
         "typescript.tsserver.log": "verbose"

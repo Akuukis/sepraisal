@@ -26,7 +26,13 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
         alias: {
-            'react-dom': '@hot-loader/react-dom'
+            'react-dom': '@hot-loader/react-dom',
+            'src/common': path.join(sourcePath, 'common'),
+            'src/components': path.join(sourcePath, 'components'),
+            'src/constants': path.join(sourcePath, 'constants'),
+            'src/layouts': path.join(sourcePath, 'layouts'),
+            'src/models': path.join(sourcePath, 'models'),
+            'src/stores': path.join(sourcePath, 'stores'),
         },
     },
     node: {
@@ -76,7 +82,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(IS_PRODUCTION ? 'production' : 'development'),
         }),
-        new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json'), tsconfig: 'tsconfig-src.json'}),
+        new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json'), tsconfig: 'tsconfig.json'}),
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({template: path.join('static', 'index.html') }),
         new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/)  // Leave out moment.js locales.

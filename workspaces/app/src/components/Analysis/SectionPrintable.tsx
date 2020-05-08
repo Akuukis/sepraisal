@@ -5,8 +5,9 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
-import ValueCell from '../../components/Cell/ValueCell'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme } from 'src/common'
+import ValueCell from 'src/components/Cell/ValueCell'
+
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'

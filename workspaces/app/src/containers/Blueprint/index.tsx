@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import DefaultLayout from '../../layouts/DefaultLayout'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import DefaultLayout from 'src/layouts/DefaultLayout'
+
 import Main from './Main'
 import Panel from './Panel'
 

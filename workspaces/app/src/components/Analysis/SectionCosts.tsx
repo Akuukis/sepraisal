@@ -4,9 +4,10 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { createSmartFC, createStyles, formatDecimal, formatDuration, IMyTheme } from '../../common/'
-import ValueCell from '../../components/Cell/ValueCell'
-import { CONTEXT } from '../../stores'
+import { createSmartFC, createStyles, formatDecimal, formatDuration, IMyTheme } from 'src/common'
+import ValueCell from 'src/components/Cell/ValueCell'
+import { CONTEXT } from 'src/stores'
+
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'

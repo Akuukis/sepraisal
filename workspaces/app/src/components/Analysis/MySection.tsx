@@ -4,7 +4,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { useMediaQuery } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import MyBoxColumn from '../MyBoxColumn'
 import MySectionNarrow from './MySectionNarrow'
 import MySectionWide from './MySectionWide'

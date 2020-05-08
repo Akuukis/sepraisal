@@ -10,7 +10,8 @@ import {
     Typography,
 } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../common/'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import ExpandMoreIcon from './icons/IconExpandMore'
 
 const styles = (theme: IMyTheme) => createStyles({

@@ -5,9 +5,10 @@ import { hot } from 'react-hot-loader/root'
 
 import { fade, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common'
-import FavoriteButton from '../../components/FavoriteButton'
-import { CONTEXT } from '../../stores'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import FavoriteButton from 'src/components/FavoriteButton'
+import { CONTEXT } from 'src/stores'
+
 import FromNow from './FromNow'
 
 const styles = (theme: IMyTheme) => createStyles({

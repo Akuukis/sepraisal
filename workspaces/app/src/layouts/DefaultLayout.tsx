@@ -6,9 +6,10 @@ import { Drawer, DrawerProps, GridProps, IconButton, Toolbar, Typography } from 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
+import { createSmartFC, createStyles, dropShadowFromBoxShadow, IMyTheme } from 'src/common'
+import Topbar from 'src/components/Topbar'
+
 import skyboxImage from '../../static/skybox.jpg'
-import { createSmartFC, createStyles, dropShadowFromBoxShadow, IMyTheme } from '../common/'
-import Topbar from '../components/Topbar'
 
 
 const styles = (theme: IMyTheme) => createStyles({

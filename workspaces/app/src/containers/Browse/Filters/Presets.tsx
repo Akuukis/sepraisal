@@ -3,10 +3,10 @@ import { hot } from 'react-hot-loader/root'
 
 import { List, ListItem, ListItemText } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
-import MyExpansionPanel from '../../../components/MyExpansionPanel'
-import { CONTEXT } from '../../../stores'
-import { PRESET } from '../../../stores/CardStore'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import MyExpansionPanel from 'src/components/MyExpansionPanel'
+import { CONTEXT } from 'src/stores'
+import { PRESET } from 'src/stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({

@@ -4,8 +4,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { Grid, GridProps } from '@material-ui/core'
 
-import { createSmartFC, createStyles, GridSizeColumns, IMyTheme } from '../../common/'
-import { CONTEXT } from '../../stores'
+import { createSmartFC, createStyles, GridSizeColumns, IMyTheme } from 'src/common'
+import { CONTEXT } from 'src/stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({

@@ -4,9 +4,9 @@ import { hot } from 'react-hot-loader/root'
 
 import { Grid } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common'
-import Analysis from '../../components/Analysis'
-import { CONTEXT } from '../../stores'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import Analysis from 'src/components/Analysis'
+import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
