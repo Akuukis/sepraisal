@@ -9,8 +9,8 @@ import { createSmartFC, createStyles, IMyTheme, THUMB_HEIGHT, THUMB_WIDTH } from
 import IconAnalyse from 'src/components/icons/IconAnalyse'
 import IconCompare from 'src/components/icons/IconCompare'
 import IconFavorite from 'src/components/icons/IconFavorite'
+import { CardStatus, ICard } from 'src/models/Card'
 
-import { CardStatus, ICard } from '../../../models/Card'
 import { CONTEXT } from '../../../stores'
 import OverlayItem from './OverlayItem'
 

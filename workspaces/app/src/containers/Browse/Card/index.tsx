@@ -4,8 +4,8 @@ import { hot } from 'react-hot-loader/root'
 import { Card } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { CardStatus, ICard } from 'src/models/Card'
 
-import { CardStatus, ICard } from '../../../models/Card'
 import { CONTEXT } from '../../../stores'
 import Overlay from './Overlay'
 import RowHeader from './RowHeader'

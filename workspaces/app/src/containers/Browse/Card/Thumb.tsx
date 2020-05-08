@@ -4,8 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import { CardMedia } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, THUMB_HEIGHT, THUMB_WIDTH } from 'src/common'
-
-import { CardStatus, ICard } from '../../../models/Card'
+import { CardStatus, ICard } from 'src/models/Card'
 
 
 const styles = (theme: IMyTheme) => createStyles({

@@ -6,8 +6,7 @@ import ValueCell from 'src/components/Cell/ValueCell'
 import MyBox from 'src/components/MyBox'
 import MyBoxColumn from 'src/components/MyBoxColumn'
 import MyBoxRow from 'src/components/MyBoxRow'
-
-import { CardStatus, ICard } from '../../../models/Card'
+import { CardStatus, ICard } from 'src/models/Card'
 
 
 const styles = (theme: IMyTheme) => createStyles({
