@@ -2,6 +2,7 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import IconFilter from 'src/components/icons/IconFilter'
 import { CONTEXT } from 'src/stores'
 import { CardStore } from 'src/stores/CardStore'
 
@@ -30,12 +31,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            <Basics         classes={{root: classes.root, legend: classes.legend}} />
-            <MetaSteam      classes={{root: classes.root, legend: classes.legend}} />
-            <Size           classes={{root: classes.root, legend: classes.legend}} />
-            <Performance    classes={{root: classes.root, legend: classes.legend}} />
-            <Cost           classes={{root: classes.root, legend: classes.legend}} />
-            <Blocks         classes={{root: classes.root, legend: classes.legend}} />
+            <Basics         classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
+            <MetaSteam      classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
+            <Size           classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
+            <Performance    classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
+            <Cost           classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
+            <Blocks         classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
         </>
     )
 })) /* ============================================================================================================= */

@@ -39,6 +39,9 @@ const styles = (theme: IMyTheme) => createStyles({
             opacity: '1 !important',
         },
     },
+    headingWithIcon: {
+        paddingLeft: theme.spacing(1),
+    },
     heading: {
         flexBasis: '33.33%',
         flexShrink: 0,
@@ -75,11 +78,12 @@ export interface IMyExpansionPanelProps extends Omit<ExpansionPanelProps, 'title
     header: string
     subheader: React.ReactNode
     color?: 'primary' | 'success'
+    icon?: React.ReactNode
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({children, classes, theme, ...props}) => {
-    const { header, subheader, color, className, ...otherProps } = props
+    const { header, subheader, color, className, icon, ...otherProps } = props
     const exclusiveScopeStore = React.useContext(CONTEXT.EXCLUSIVE_SCOPE)
 
     const isSuccess = color === 'success'
@@ -104,8 +108,9 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
             {...otherProps}
         >
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                {icon}
                 <Typography
-                    className={classes.heading}
+                    className={clsx(classes.heading, icon && classes.headingWithIcon)}
                     variant='h3'
                 >
                     {header}
