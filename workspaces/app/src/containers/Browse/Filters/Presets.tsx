@@ -6,7 +6,7 @@ import { List, ListItem, ListItemText } from '@material-ui/core'
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyExpansionPanel from 'src/components/MyExpansionPanel'
 import { CONTEXT } from 'src/stores'
-import { PRESET } from 'src/stores/CardStore'
+import { getPresetTitle, PRESET } from 'src/stores/CardStore'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -58,25 +58,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 // tslint:disable-next-line: no-any
                 {...{value: id} as any}
             >
-                <ListItemText primary={getTitle(id)} />
+                <ListItemText primary={getPresetTitle(id)} />
             </ListItem>
         )
 
 
     return (
-        <MyExpansionPanel header='Presets' subheader={getTitle(cardStore.selectedPreset)} expanded={expanded} onChange={onChange}>
+        <MyExpansionPanel header='Presets' subheader={getPresetTitle(cardStore.selectedPreset)} expanded={expanded} onChange={onChange}>
             <List className={classes.list}>
                 {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
             </List>
         </MyExpansionPanel>
     )
 })) /* ============================================================================================================= */
-
-const getTitle = (id: keyof typeof PRESET | 'custom') => {
-    switch(id) {
-        case 'none': return 'None'
-        case 'ship': return 'Any ship, vanilla.'
-        case 'fighter': return 'Fighter, vanilla.'
-        default: return ''
-    }
-}

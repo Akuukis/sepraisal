@@ -1,22 +1,14 @@
-import { getApiUrl, idFromHref } from '@sepraisal/common'
+import { idFromHref } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import {
-    Button,
-    FormControl,
-    FormGroup,
-    FormHelperText,
-    FormLabel,
-    Input,
-    InputAdornment,
-    Typography,
-} from '@material-ui/core'
+import { FormControl, FormGroup, FormHelperText, FormLabel, Input, InputAdornment, Typography } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import { CONTEXT } from 'src/stores'
-import { PRESET } from 'src/stores/CardStore'
+
+import PanelRandom from './PanelRandom'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -36,6 +28,13 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     footer: {
         marginTop: theme.spacing(8),
+    },
+    formLabel: {
+        ...theme.typography.subtitle2,
+        color: theme.palette.text.primary,
+        '& > span': {
+            color: theme.palette.error.main,
+        },
     },
     helper: {
     },
@@ -95,21 +94,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         routerStore.replace({...location, search: `?id=${id}`})
     }
 
-    const OnRandom = (preset: any) => async () => {
-        setStatus({code: ASYNC_STATE.Doing, text: 'Randomizing blueprint id ...'})
-        try {
-            const skip = Math.floor(Math.random() * 3800)  // Random blueprint out of first 90k blueprints.
-            const res = await fetch(getApiUrl(preset, {_id: true}, undefined, 1, skip))
-            const {docs} = await res.json() as {docs: [{_id: number}]}
-            const id = docs[0]._id
-            setText(id.toString())
-            select(id)
-            setStatus({code: ASYNC_STATE.Done, text: 'Random ID selected!'})
-        } catch(err) {
-            setStatus({code: ASYNC_STATE.Error, text: `Randomizer: ${err.message}`})
-        }
-    }
-
     return (
         <div
             className={classes.root}
@@ -121,7 +105,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     onSubmit={handleSubmit}
                     error={status.code === ASYNC_STATE.Error}
                 >
-                    <FormLabel htmlFor='id'>Select a blueprint to analyse</FormLabel>
+                    <FormLabel htmlFor='id' className={classes.formLabel}>Select a blueprint to analyse:</FormLabel>
                     <Input
                         autoFocus
                         id='id'
@@ -143,12 +127,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </FormHelperText>
                 </FormControl>
             </FormGroup>
-            <FormGroup className={classes.formGroup}>
-                <FormLabel htmlFor='random'>Or select randomly:</FormLabel>
-                <Button id='random' color='primary' variant='outlined' className={classes.button} onClick={OnRandom(PRESET.fighter)}>A fighter</Button>
-                <Button id='random' color='primary' variant='outlined' className={classes.button} onClick={OnRandom(PRESET.ship)}>A ship</Button>
-                <Button id='random' color='primary' variant='outlined' className={classes.button} onClick={OnRandom(PRESET.none)}>A blueprint</Button>
-            </FormGroup>
+            <PanelRandom />
             <Typography paragraph variant='caption' className={classes.footer}>
                 Note that blueprints added to Steam Workshop less than 6 hours ago may not be available yet.
             </Typography>

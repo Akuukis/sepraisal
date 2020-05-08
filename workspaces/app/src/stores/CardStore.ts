@@ -108,6 +108,15 @@ export const PRESET = {
 }
 // tslint:enable: object-literal-sort-keys
 
+export const getPresetTitle = (id: keyof typeof PRESET | 'custom') => {
+    switch(id) {
+        case 'none': return 'None'
+        case 'ship': return 'Any ship, vanilla.'
+        case 'fighter': return 'Fighter, vanilla.'
+        default: return ''
+    }
+}
+
 interface IBrowserStoreSort {
     [field: string]: -1 | 1
 }
