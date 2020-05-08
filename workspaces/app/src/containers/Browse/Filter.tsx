@@ -4,6 +4,8 @@ import { hot } from 'react-hot-loader/root'
 import { Divider } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { CONTEXT } from 'src/stores'
+import { ExclusiveScopeStore } from 'src/stores/ExclusiveScopeStore'
 
 import FilterCustom from './FilterCustom'
 import FilterPresets from './FilterPresets'
@@ -30,33 +32,20 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const [expanded, setExpanded] = React.useState<typeof Pages[keyof typeof Pages] | null>(Pages.Presets)
-    const setExpandedPage = (page: typeof Pages[keyof typeof Pages]) => () => setExpanded(expanded !== page ? page : null)
+    const [exclusiveScopeStore] = React.useState(() => new ExclusiveScopeStore)
 
     return (
         <div className={classes.root}>
-            <FilterPresets
-                expanded={expanded === Pages.Presets}
-                onChange={setExpandedPage(Pages.Presets)}
-            />
-            <Divider />
-            <FilterCustom
-                expanded={expanded === Pages.Custom}
-                onChange={setExpandedPage(Pages.Custom)}
-            />
-            <Divider />
-            <FilterRaw
-                expanded={expanded === Pages.Advanced}
-                onChange={setExpandedPage(Pages.Advanced)}
-            />
+            <CONTEXT.EXCLUSIVE_SCOPE.Provider value={exclusiveScopeStore}>
+                <FilterPresets
+                />
+                <Divider />
+                <FilterCustom
+                />
+                <Divider />
+                <FilterRaw
+                />
+            </CONTEXT.EXCLUSIVE_SCOPE.Provider>
         </div>
     )
 })) /* ============================================================================================================= */
-
-
-// tslint:disable-next-line: no-object-literal-type-assertion
-const Pages = {
-    Advanced: 'advanced',
-    Custom: 'custom',
-    Presets: 'presets',
-} as const

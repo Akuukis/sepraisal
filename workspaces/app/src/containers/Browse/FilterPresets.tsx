@@ -31,14 +31,10 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    expanded: boolean
-    // tslint:disable-next-line: prefer-method-signature
-    onChange: () => void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {expanded, onChange} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     const setFind = (event: React.MouseEvent<HTMLElement>) => {
@@ -64,7 +60,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
     return (
-        <MyExpansionPanel header='Presets' subheader={getPresetTitle(cardStore.selectedPreset)} expanded={expanded} onChange={onChange}>
+        <MyExpansionPanel header='Presets' subheader={getPresetTitle(cardStore.selectedPreset)} defaultExpanded>
             <List className={classes.list}>
                 {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
             </List>

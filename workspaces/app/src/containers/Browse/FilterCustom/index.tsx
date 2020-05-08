@@ -25,17 +25,14 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 interface IProps {
-    expanded: boolean
-    onChange(): void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {expanded, onChange} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     return (
-        <MyExpansionPanel header='Custom' subheader={getTitle(cardStore)} expanded={expanded} onChange={onChange}>
+        <MyExpansionPanel header='Custom' subheader={getTitle(cardStore)}>
             <Typography color='textSecondary' variant='caption'>
                 [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
             </Typography>

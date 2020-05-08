@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { CONTEXT } from 'src/stores'
 
 import ExpandMoreIcon from './icons/IconExpandMore'
 
@@ -71,7 +72,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 export interface IMyExpansionPanelProps extends Omit<ExpansionPanelProps, 'title' | 'color'> {
-    header: React.ReactNode
+    header: string
     subheader: React.ReactNode
     color?: 'primary' | 'success'
 }
@@ -79,8 +80,17 @@ export interface IMyExpansionPanelProps extends Omit<ExpansionPanelProps, 'title
 
 export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({children, classes, theme, ...props}) => {
     const { header, subheader, color, className, ...otherProps } = props
+    const exclusiveScopeStore = React.useContext(CONTEXT.EXCLUSIVE_SCOPE)
 
     const isSuccess = color === 'success'
+
+    const handleToggle = () => exclusiveScopeStore!.setValue(exclusiveScopeStore!.value === header ? null : header)
+
+    React.useEffect(() => {
+        if(exclusiveScopeStore && props.defaultExpanded) {
+            exclusiveScopeStore.setValue(header)
+        }
+    }, [])
 
     return (
         <ExpansionPanel
@@ -89,6 +99,8 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
                 root: clsx(classes.root, isSuccess && classes.rootSuccess, className),
                 expanded: clsx(classes.expanded, isSuccess && classes.expandedSuccess),
             }}
+            expanded={exclusiveScopeStore && exclusiveScopeStore.value === header}
+            onChange={exclusiveScopeStore && handleToggle}
             {...otherProps}
         >
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
