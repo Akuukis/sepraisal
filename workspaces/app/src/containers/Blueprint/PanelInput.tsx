@@ -1,11 +1,12 @@
 import { idFromHref } from '@sepraisal/common'
 import clsx from 'clsx'
+import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { FormControl, FormHelperText, FormLabel, Input, InputAdornment } from '@material-ui/core'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import { CONTEXT } from 'src/stores'
 
@@ -13,28 +14,12 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
-    button: {
-        margin: theme.spacing(1),
-        minWidth: 240,
-        maxWidth: 240,
-        alignSelf: 'left',
-    },
-    formGroup: {
-        margin: theme.spacing(2, 0),
-    },
     input: {
-    },
-    footer: {
-        marginTop: theme.spacing(8),
-    },
-    label: {
     },
     helperText: {
     },
-    submitHack: {
-        position: 'absolute',
-        left: '-9999px',
-    }
+    label: {
+    },
 })
 
 
@@ -45,21 +30,17 @@ interface IProps extends React.ComponentProps<'form'> {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {select, className, ...otherProps} = props
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const selectionStore = React.useContext(CONTEXT.SELECTION)
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
     const [text, setText] = React.useState('')
     const [status, setStatus] = React.useState<{code: ASYNC_STATE, text: string}>({code: ASYNC_STATE.Idle, text: ''})
 
-    useAsyncEffectOnce(async () => {
-        try {
-            const id = validateId(extractId(location.href))
+    React.useEffect(() => {
+        return autorun(() => {
+            const id = validateId(idFromHref(routerStore.location.search))
             setText(String(id))
-            setStatus({code: ASYNC_STATE.Done, text: ''})
-        } catch(err) {
-        }
-    })
+        })
+    }, [])
 
     const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value

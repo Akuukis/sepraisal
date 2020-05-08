@@ -18,9 +18,9 @@ const styles = (theme: IMyTheme) => createStyles({
         maxWidth: 240,
         alignSelf: 'left',
     },
-    label: {
-    },
     helperText: {
+    },
+    label: {
     },
 })
 
