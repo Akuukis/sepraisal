@@ -5,8 +5,8 @@ import { FormGroup, FormLabel, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyExpansionPanel from 'src/components/MyExpansionPanel'
+import { CONTEXT } from 'src/stores'
 
-import { CONTEXT } from '../../../stores'
 import { CardStore } from '../../../stores/CardStore'
 import Checkbox from './FormControls/Checkbox'
 import Slider from './FormControls/Slider'

@@ -5,8 +5,8 @@ import { Card } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { CardStatus, ICard } from 'src/models/Card'
+import { CONTEXT } from 'src/stores'
 
-import { CONTEXT } from '../../../stores'
 import Overlay from './Overlay'
 import RowHeader from './RowHeader'
 import RowPraisal from './RowPraisal'

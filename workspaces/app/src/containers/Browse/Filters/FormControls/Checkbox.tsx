@@ -5,8 +5,7 @@ import { hot } from 'react-hot-loader/root'
 import { Checkbox, FormControlLabel } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-
-import { CONTEXT } from '../../../../stores'
+import { CONTEXT } from 'src/stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({

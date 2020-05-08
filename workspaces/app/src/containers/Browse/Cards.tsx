@@ -4,8 +4,8 @@ import { hot } from 'react-hot-loader/root'
 import { Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { CONTEXT } from 'src/stores'
 
-import { CONTEXT } from '../../stores'
 import Card from './Card'
 
 

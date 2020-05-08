@@ -6,8 +6,7 @@ import { hot } from 'react-hot-loader/root'
 import { Grid, Slider, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, formatFloat, IMyTheme } from 'src/common'
-
-import { CONTEXT } from '../../../../stores'
+import { CONTEXT } from 'src/stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({

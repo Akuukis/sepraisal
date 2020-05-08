@@ -6,8 +6,7 @@ import { Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import Analysis from 'src/components/Analysis'
-
-import { CONTEXT } from '../../stores'
+import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {

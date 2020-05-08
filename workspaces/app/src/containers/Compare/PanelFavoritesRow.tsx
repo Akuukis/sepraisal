@@ -8,8 +8,7 @@ import { fade, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText } f
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import FavoriteButton from 'src/components/FavoriteButton'
 import IconDragHandle from 'src/components/icons/IconDragHandle'
-
-import { CONTEXT } from '../../stores'
+import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {

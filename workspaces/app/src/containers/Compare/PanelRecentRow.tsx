@@ -7,8 +7,8 @@ import { fade, ListItem, ListItemSecondaryAction, ListItemText } from '@material
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import FavoriteButton from 'src/components/FavoriteButton'
+import { CONTEXT } from 'src/stores'
 
-import { CONTEXT } from '../../stores'
 import FromNow from './FromNow'
 
 const styles = (theme: IMyTheme) => createStyles({

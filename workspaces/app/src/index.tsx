@@ -5,8 +5,9 @@ import { configure } from 'mobx'
 import * as React from 'react'
 import { render } from 'react-dom'
 
+import { CONTEXT } from 'src/stores'
+
 import routes from './routes'
-import { CONTEXT } from './stores'
 import { PiwikStore } from './stores/PiwikStore'
 import RouterStore from './stores/RouterStore'
 

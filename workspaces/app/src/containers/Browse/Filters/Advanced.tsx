@@ -6,8 +6,7 @@ import { Button, Grid, TextField } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyExpansionPanel from 'src/components/MyExpansionPanel'
-
-import { CONTEXT } from '../../../stores'
+import { CONTEXT } from 'src/stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({

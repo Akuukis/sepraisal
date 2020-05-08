@@ -17,8 +17,8 @@ import IconBrowse from 'src/components/icons/IconBrowse'
 import IconSort from 'src/components/icons/IconSort'
 import IconSortAscending from 'src/components/icons/IconSortAscending'
 import IconSortDescending from 'src/components/icons/IconSortDescending'
+import { CONTEXT } from 'src/stores'
 
-import { CONTEXT } from '../../stores'
 import { CardStore } from '../../stores/CardStore'
 
 

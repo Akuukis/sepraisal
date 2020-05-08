@@ -10,8 +10,8 @@ import IconAnalyse from 'src/components/icons/IconAnalyse'
 import IconCompare from 'src/components/icons/IconCompare'
 import IconFavorite from 'src/components/icons/IconFavorite'
 import { CardStatus, ICard } from 'src/models/Card'
+import { CONTEXT } from 'src/stores'
 
-import { CONTEXT } from '../../../stores'
 import OverlayItem from './OverlayItem'
 
 

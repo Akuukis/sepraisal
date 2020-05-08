@@ -6,8 +6,8 @@ import { hot } from 'react-hot-loader/root'
 import { IconButton, IconButtonProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { CONTEXT } from 'src/stores'
 
-import { CONTEXT } from '../stores'
 import IconCompare from './icons/IconCompare'
 
 

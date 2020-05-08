@@ -8,8 +8,7 @@ import IconDeleteForever from '@material-ui/icons/DeleteForever'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import FavoriteButton from 'src/components/FavoriteButton'
-
-import { CONTEXT } from '../../stores'
+import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {

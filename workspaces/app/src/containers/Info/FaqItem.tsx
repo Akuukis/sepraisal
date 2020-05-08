@@ -5,8 +5,7 @@ import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typograph
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import ExpandMoreIcon from 'src/components/icons/IconExpandMore'
-
-import { CONTEXT } from '../../stores'
+import { CONTEXT } from 'src/stores'
 
 
 const styles = (theme: IMyTheme) => createStyles({
