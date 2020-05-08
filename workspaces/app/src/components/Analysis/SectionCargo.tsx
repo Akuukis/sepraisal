@@ -3,7 +3,8 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { createSmartFC, createStyles, formatDecimal, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme } from 'src/common'
+
 import ValueCell from '../../components/Cell/ValueCell'
 import { CONTEXT } from '../../stores'
 import LegendCell from '../Cell/LegendCell'

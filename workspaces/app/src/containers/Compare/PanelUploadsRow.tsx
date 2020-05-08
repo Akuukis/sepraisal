@@ -6,7 +6,8 @@ import { hot } from 'react-hot-loader/root'
 import { fade, IconButton, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
 import IconDeleteForever from '@material-ui/icons/DeleteForever'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import FavoriteButton from '../../components/FavoriteButton'
 import { CONTEXT } from '../../stores'
 

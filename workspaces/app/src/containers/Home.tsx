@@ -4,8 +4,9 @@ import { hot } from 'react-hot-loader/root'
 
 import { Button, Grid, Paper, Typography } from '@material-ui/core'
 
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from '../common/'
 import IconAnalyse from '../components/icons/IconAnalyse'
 import IconBrowse from '../components/icons/IconBrowse'
 import IconCompare from '../components/icons/IconCompare'

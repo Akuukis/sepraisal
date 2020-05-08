@@ -7,7 +7,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link, ListItem, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, DUD_URL, IMyTheme } from '../../common'
+import { createSmartFC, createStyles, DUD_URL, IMyTheme } from 'src/common'
+
 import { CONTEXT } from '../../stores'
 import SelectorDnDOverlay from './DnDOverlay'
 

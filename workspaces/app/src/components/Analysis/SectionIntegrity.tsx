@@ -4,8 +4,9 @@ import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import { vegaSpecHeatmapLegend } from '../../common/vega'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { vegaSpecHeatmapLegend } from 'src/commonvega'
+
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'

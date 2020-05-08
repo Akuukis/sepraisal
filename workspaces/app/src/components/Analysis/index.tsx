@@ -6,7 +6,8 @@ import { hot } from 'react-hot-loader/root'
 import { Grid, GridProps } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
+
 import { CONTEXT } from '../../stores'
 import FavoriteButton from '../FavoriteButton'
 import Header from './Header'

@@ -3,7 +3,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { Divider } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import Advanced from './Advanced'
 import Custom from './Custom'
 import Presets from './Presets'

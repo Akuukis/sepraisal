@@ -3,7 +3,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { Divider, Grid, Link, Switch, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, DUD_URL, formatDecimal, IMyTheme } from '../../common'
+import { createSmartFC, createStyles, DUD_URL, formatDecimal, IMyTheme } from 'src/common'
+
 import { CONTEXT } from '../../stores'
 import PanelFavorites from './PanelFavorites'
 import PanelRecent from './PanelRecent'

@@ -3,7 +3,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkCollectionProps } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkCollectionProps } from 'src/common'
+
 import CenterCell from '../../../components/Cell/CenterCell'
 import ValueCell from '../../../components/Cell/ValueCell'
 import MyBox from '../../../components/MyBox'

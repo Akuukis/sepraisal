@@ -5,7 +5,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { darken, IconButton, Paper, Typography, useMediaQuery } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkBpProps, STEAM_COLORS } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkBpProps, STEAM_COLORS } from 'src/common'
+
 import IconSteam from '../icons/IconSteam'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'

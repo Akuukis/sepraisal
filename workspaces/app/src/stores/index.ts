@@ -1,7 +1,8 @@
 import { PraisalManager } from '@sepraisal/praisal'
 import { createContext } from 'react'
 
-import { GridSizeColumns } from '../common'
+import { GridSizeColumns } from 'src/common'
+
 import { BlueprintStore } from './BlueprintStore'
 import { CardStore } from './CardStore'
 import { FavoriteStore } from './FavoriteStore'

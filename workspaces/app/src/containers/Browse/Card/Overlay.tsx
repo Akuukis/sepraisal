@@ -5,7 +5,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { fade, Grid, lighten } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, THUMB_HEIGHT, THUMB_WIDTH } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme, THUMB_HEIGHT, THUMB_WIDTH } from 'src/common'
+
 import IconAnalyse from '../../../components/icons/IconAnalyse'
 import IconCompare from '../../../components/icons/IconCompare'
 import IconFavorite from '../../../components/icons/IconFavorite'

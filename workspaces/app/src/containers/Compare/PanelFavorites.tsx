@@ -5,7 +5,8 @@ import { ReactSortable } from 'react-sortablejs'
 
 import { List } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import MyExpansionPanel, { IMyExpansionPanelProps } from '../../components/MyExpansionPanel'
 import { CONTEXT } from '../../stores'
 import SelectorRow from './PanelFavoritesRow'

@@ -34,8 +34,8 @@ import { hot } from 'react-hot-loader/root'
 import { Paper } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/styles'
 
-import { ASYNC_STATE, MY_LIGHT_THEME, useAsyncEffectOnce } from '../../common'
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, MY_LIGHT_THEME, useAsyncEffectOnce } from 'src/common'
+
 import DefaultLayout from '../../layouts/DefaultLayout'
 import { CONTEXT } from '../../stores'
 import { BlueprintStore } from '../../stores/BlueprintStore'

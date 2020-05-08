@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from '../../../common'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from 'src/common'
+
 import ValueCell from '../../../components/Cell/ValueCell'
 import MyBox from '../../../components/MyBox'
 import MyBoxColumn from '../../../components/MyBoxColumn'

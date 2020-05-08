@@ -5,7 +5,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { fade } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import MyBoxColumn from '../MyBoxColumn'
 import MySection from './MySection'
 

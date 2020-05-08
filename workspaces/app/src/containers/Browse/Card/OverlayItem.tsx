@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { fade, Grid, GridProps } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../../common/'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
 
 const styles = (theme: IMyTheme) => createStyles({

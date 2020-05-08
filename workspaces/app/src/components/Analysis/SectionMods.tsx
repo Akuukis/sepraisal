@@ -5,7 +5,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkBpProps } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme, linkBpProps } from 'src/common'
+
 import ValueCell from '../../components/Cell/ValueCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'

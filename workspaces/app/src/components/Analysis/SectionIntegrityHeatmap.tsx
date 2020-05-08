@@ -3,8 +3,8 @@ import * as React from 'react'
 import { cold } from 'react-hot-loader'
 import Vega from 'react-vega'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
-import { vegaSpecHeatmap } from '../../common/vega'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { vegaSpecHeatmap } from 'src/commonvega'
 
 
 const styles = (theme: IMyTheme) => createStyles({

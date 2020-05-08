@@ -4,7 +4,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { Grid, Paper, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import DefaultLayout from '../../layouts/DefaultLayout'
 import Faq from './Faq'
 

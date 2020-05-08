@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { darken, fade, Grid, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
 
 interface IProps {

@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 
 import { AppBar, darken, Toolbar, Typography } from '@material-ui/core'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import { ROUTES } from '../../constants/routes'
 
 

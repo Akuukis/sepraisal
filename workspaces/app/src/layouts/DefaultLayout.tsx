@@ -6,8 +6,9 @@ import { Drawer, DrawerProps, GridProps, IconButton, Toolbar, Typography } from 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
+import { createSmartFC, createStyles, dropShadowFromBoxShadow, IMyTheme } from 'src/common'
+
 import skyboxImage from '../../static/skybox.jpg'
-import { createSmartFC, createStyles, dropShadowFromBoxShadow, IMyTheme } from '../common/'
 import Topbar from '../components/Topbar'
 
 

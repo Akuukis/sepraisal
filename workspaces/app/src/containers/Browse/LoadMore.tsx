@@ -4,7 +4,8 @@ import { hot } from 'react-hot-loader/root'
 
 import { Button, Grid } from '@material-ui/core'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from '../../common/'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
+
 import { CONTEXT } from '../../stores'
 
 

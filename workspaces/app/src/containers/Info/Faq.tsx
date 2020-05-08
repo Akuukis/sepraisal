@@ -3,11 +3,12 @@ import { hot } from 'react-hot-loader/root'
 
 import { Typography } from '@material-ui/core'
 
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import imageFighterBlockCount from '../../../static/fighter-blockCount.png'
 import imageFighterBlockMass from '../../../static/fighter-blockMass.png'
 import imageFighterBlockPCU from '../../../static/fighter-blockPCU.png'
 import imageFighterOreVolume from '../../../static/fighter-oreVolume.png'
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
 import FaqItem from './FaqItem'
 
 const styles = (theme: IMyTheme) => createStyles({

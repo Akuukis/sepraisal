@@ -12,7 +12,8 @@ import {
     TextField,
 } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from '../../common/'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+
 import IconBrowse from '../../components/icons/IconBrowse'
 import IconSort from '../../components/icons/IconSort'
 import IconSortAscending from '../../components/icons/IconSortAscending'
