@@ -5,9 +5,9 @@ import { Divider } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
-import Advanced from './Advanced'
-import Custom from './Custom'
-import Presets from './Presets'
+import FilterCustom from './FilterCustom'
+import FilterPresets from './FilterPresets'
+import FilterRaw from './FilterRaw'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -35,17 +35,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <div className={classes.root}>
-            <Presets
+            <FilterPresets
                 expanded={expanded === Pages.Presets}
                 onChange={setExpandedPage(Pages.Presets)}
             />
             <Divider />
-            <Custom
+            <FilterCustom
                 expanded={expanded === Pages.Custom}
                 onChange={setExpandedPage(Pages.Custom)}
             />
             <Divider />
-            <Advanced
+            <FilterRaw
                 expanded={expanded === Pages.Advanced}
                 onChange={setExpandedPage(Pages.Advanced)}
             />
