@@ -1,4 +1,5 @@
 import { getApiUrl } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -18,22 +19,19 @@ const styles = (theme: IMyTheme) => createStyles({
         alignSelf: 'left',
     },
     label: {
-        ...theme.typography.subtitle2,
-        color: theme.palette.text.primary,
-        '& > span': {
-            color: theme.palette.error.main,
-        },
     },
-    helper: {
+    helperText: {
     },
 })
 
 
-interface IProps {
+interface IProps extends React.ComponentProps<'form'> {
+    select: (id: number) => void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const {select, className, ...otherProps} = props
     const [value, setValue] = React.useState<keyof typeof PRESET | null>(null);
     const [status, setStatus] = React.useState<{code: ASYNC_STATE, text: string}>({code: ASYNC_STATE.Idle, text: ''})
 
@@ -56,8 +54,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             const res = await fetch(getApiUrl(preset, {_id: true}, undefined, 1, skip))
             const {docs} = await res.json() as {docs: [{_id: number}]}
             const id = docs[0]._id
-            // setText(id.toString())
-            // select(id)
+            select(id)
             setStatus({code: ASYNC_STATE.Done, text: 'Random ID selected!'})
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `Randomizer: ${err.message}`})
@@ -65,10 +62,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     };
 
     return (
-        <form className={classes.root} onSubmit={handleSubmit}>
+        <form className={clsx(classes.root, className)} onSubmit={handleSubmit} {...otherProps}>
             <FormControl component='fieldset' error={status.code === ASYNC_STATE.Error}>
                 <FormLabel component='legend' className={classes.label}>Or analyse a random blueprint:</FormLabel>
-                <RadioGroup aria-label='quiz' name='quiz' value={value} onChange={handleRadioChange}>
+                <RadioGroup aria-label='random' name='random' value={value} onChange={handleRadioChange}>
                     {Object.keys(PRESET).map((name) => (
                         <FormControlLabel
                             value={name}
@@ -77,7 +74,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         />
                     ))}
                 </RadioGroup>
-                <FormHelperText>{status.text}</FormHelperText>
+                <FormHelperText className={classes.helperText}>
+                    {status.text}
+                </FormHelperText>
                 <Button type='submit' variant='outlined' color='primary' className={classes.button}>
                     Analyse Random
                 </Button>

@@ -1,18 +1,16 @@
 import { idFromHref } from '@sepraisal/common'
+import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Typography } from '@material-ui/core'
+import { FormControl, FormHelperText, FormLabel, Input, InputAdornment } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
+import IconBrowse from 'src/components/icons/IconBrowse'
 import { CONTEXT } from 'src/stores'
-
-import PanelInput from './PanelInput'
-import PanelRandom from './PanelRandom'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: theme.spacing(0, 4),
     },
 
     button: {
@@ -30,13 +28,8 @@ const styles = (theme: IMyTheme) => createStyles({
         marginTop: theme.spacing(8),
     },
     label: {
-        ...theme.typography.subtitle2,
-        color: theme.palette.text.primary,
-        '& > span': {
-            color: theme.palette.error.main,
-        },
     },
-    helper: {
+    helperText: {
     },
     submitHack: {
         position: 'absolute',
@@ -45,11 +38,13 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps {
+interface IProps extends React.ComponentProps<'form'> {
+    select: (id: number) => void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const {select, className, ...otherProps} = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
     const routerStore = React.useContext(CONTEXT.ROUTER)
@@ -78,8 +73,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         try {
             const id = validateId(extractId(value))
-            select(id)
             setStatus({code: ASYNC_STATE.Done, text: `ID looks ok.`})
+            select(id)
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `Validation: ${err.message}`})
         }
@@ -90,20 +85,34 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         event.preventDefault()
     }
 
-    const select = async (id: number) => {
-        routerStore.replace({...location, search: `?id=${id}`})
-    }
-
     return (
-        <div
-            className={classes.root}
-        >
-            <PanelInput classes={{label: classes.label}} select={select} />
-            <PanelRandom classes={{label: classes.label}} select={select} />
-            <Typography paragraph variant='caption' className={classes.footer}>
-                Note that blueprints added to Steam Workshop less than 6 hours ago may not be available yet.
-            </Typography>
-        </div>
+        <form className={clsx(classes.root, className)} onSubmit={handleSubmit} {...otherProps}>
+            <FormControl error={status.code === ASYNC_STATE.Error}>
+                <FormLabel htmlFor='id' className={classes.label}>
+                    Select a blueprint to analyse:
+                </FormLabel>
+                <Input
+                    required
+                    autoFocus
+                    id='id'
+                    aria-describedby='id-helper-text'
+                    className={classes.input}
+                    startAdornment={(
+                        <InputAdornment position='start'>
+                            <IconBrowse />
+                        </InputAdornment>
+                    )}
+                    placeholder='Enter Steam Workshop item URL or ID'
+                    value={text}
+                    onChange={handleChange}
+                    fullWidth
+                    readOnly={status.code === ASYNC_STATE.Doing}
+                />
+                <FormHelperText id='id-helper-text' className={classes.helperText}>
+                    {status.text}
+                </FormHelperText>
+            </FormControl>
+        </form>
     )
 })) /* ============================================================================================================= */
 
