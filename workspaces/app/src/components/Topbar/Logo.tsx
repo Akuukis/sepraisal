@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 import { Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-
-import { ROUTES } from '../../constants/routes'
+import { ROUTES } from 'src/constants/routes'
 
 
 const styles = (theme: IMyTheme) => createStyles({
