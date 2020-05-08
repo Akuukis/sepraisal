@@ -9,9 +9,9 @@ import IconAnalyse from 'src/components/icons/IconAnalyse'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import IconCompare from 'src/components/icons/IconCompare'
 import { ROUTES } from 'src/constants/routes'
+import DefaultLayout from 'src/layouts/DefaultLayout'
 
 import banner from '../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
-import DefaultLayout from '../layouts/DefaultLayout'
 import { CONTEXT } from '../stores'
 import { PRESET } from '../stores/CardStore'
 

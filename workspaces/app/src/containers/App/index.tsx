@@ -35,8 +35,8 @@ import { Paper } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/styles'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, MY_LIGHT_THEME, useAsyncEffectOnce } from 'src/common'
+import DefaultLayout from 'src/layouts/DefaultLayout'
 
-import DefaultLayout from '../../layouts/DefaultLayout'
 import { CONTEXT } from '../../stores'
 import { BlueprintStore } from '../../stores/BlueprintStore'
 import { CardStore } from '../../stores/CardStore'
