@@ -61,8 +61,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setFindDirty(JSON.stringify(cardStore.find, null, 2))
     }
 
+    const totalCriteria = cardStore.querryFindBuilder.find.$and?.length ?? 0
+
     return (
-        <MyExpansionPanel header='Advanced' subheader=''>
+        <MyExpansionPanel header='Advanced' subheader={`${totalCriteria} active criteria total`}>
             <Grid container spacing={2}>
                 <Grid item xs={6}>
                     <Button variant='contained' fullWidth onClick={reset}>

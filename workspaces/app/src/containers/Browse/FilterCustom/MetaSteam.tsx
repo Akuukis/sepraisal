@@ -2,11 +2,11 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { FormGroup, FormLabel } from '@material-ui/core'
+import { FormLabel } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import MyExpansionPanel from 'src/components/MyExpansionPanel'
 
+import MyFormGroup from './FormControls/MyFormGroup'
 import Slider from './FormControls/Slider'
 import SliderLog from './FormControls/SliderLog'
 
@@ -19,7 +19,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 })
 
-interface IProps extends Omit<React.ComponentProps<typeof MyExpansionPanel>, 'header' | 'subheader'> {
+interface IProps extends Omit<React.ComponentProps<typeof MyFormGroup>, 'header' | 'subheader'> {
 }
 
 
@@ -27,20 +27,18 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {className, ...otherProps} = props
 
     return (
-        <MyExpansionPanel className={clsx(classes.root, className)} header='Steam' subheader='' {...otherProps}>
-            <FormGroup>
-                <FormLabel className={classes.legend} component='legend'>
-                </FormLabel>
-                <Slider    title='Steam stars'             findKey='steam.ratingStars'            min={0} max={5} />
-                <SliderLog title='Steam subscribers'       findKey='steam.subscriberCount'        min={0} max={Math.pow(10, 5)} />
-                <SliderLog title='Steam views'             findKey='steam.viewCount'              min={0} max={Math.pow(10, 5)} />
-                <SliderLog title='Steam favorites'         findKey='steam.favoriteCount'          min={0} max={Math.pow(10, 5)} />
-                <Slider    title='File size (MB)'          findKey='steam.sizeMB'                 min={0} max={Math.pow(10, 2)} step={0.1} />
-                {/* TODO: No Description */}
-                {/* TODO: Status (by tags) */}
-                {/* TODO: Published date */}
-                {/* TODO: Updated date */}
-            </FormGroup>
-        </MyExpansionPanel>
+        <MyFormGroup className={clsx(classes.root, className)} header='Steam' {...otherProps}>
+            <FormLabel className={classes.legend} component='legend'>
+            </FormLabel>
+            <Slider    title='Steam stars'             findKey='steam.ratingStars'            min={0} max={5} />
+            <SliderLog title='Steam subscribers'       findKey='steam.subscriberCount'        min={0} max={Math.pow(10, 5)} />
+            <SliderLog title='Steam views'             findKey='steam.viewCount'              min={0} max={Math.pow(10, 5)} />
+            <SliderLog title='Steam favorites'         findKey='steam.favoriteCount'          min={0} max={Math.pow(10, 5)} />
+            <Slider    title='File size (MB)'          findKey='steam.sizeMB'                 min={0} max={Math.pow(10, 2)} step={0.1} />
+            {/* TODO: No Description */}
+            {/* TODO: Status (by tags) */}
+            {/* TODO: Published date */}
+            {/* TODO: Updated date */}
+        </MyFormGroup>
     )
 })) /* ============================================================================================================= */
