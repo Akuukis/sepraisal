@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import deep from 'fast-deep-equal/es6'
+import deep from 'fast-deep-equal'
 import { action } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
