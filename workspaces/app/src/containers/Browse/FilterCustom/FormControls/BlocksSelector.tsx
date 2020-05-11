@@ -76,10 +76,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 const key = Object.keys(criteria).pop()!
                 if(!key) throw Error('catch me')
 
-                const fullId = key.split('.')[2]
+                const fullId = key.match(/sbc\.blocks\.(.*)/)?.[1]
                 return [fullId, criteria[key] as object] as const
             })
-            .filter(([key, value]) => !!key)
+            .filter((pair): pair is [string, object] => !!pair[0])
 
     const disabled = filtered
             .filter(([fullId, value]) => deep(value, {$exists: !$exists}))
