@@ -6,7 +6,6 @@ import { FormGroup, FormLabel } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyExpansionPanel from 'src/components/MyExpansionPanel'
-import { CONTEXT } from 'src/stores'
 
 import BlocksSelector from './BlocksSelector'
 
@@ -28,8 +27,6 @@ interface IProps extends Omit<React.ComponentProps<typeof MyExpansionPanel>, 'he
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {className, ...otherProps} = props
-    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
-    const cubeNames = [...praisalManager.cubes.keys()]
 
     return (
         <MyExpansionPanel className={clsx(classes.root, className)} header='Blocks' subheader='' {...otherProps}>

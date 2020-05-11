@@ -3,8 +3,6 @@ import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconFilter from 'src/components/icons/IconFilter'
-import { CONTEXT } from 'src/stores'
-import { CardStore } from 'src/stores/CardStore'
 
 import Basics from './Basics'
 import Blocks from './Blocks'
@@ -27,7 +25,6 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const cardStore = React.useContext(CONTEXT.CARDS)
 
     return (
         <>
@@ -40,11 +37,3 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </>
     )
 })) /* ============================================================================================================= */
-
-const getTitle = (cardStore: CardStore) => {
-    if(cardStore.selectedPreset !== 'custom') return ''
-
-    const criteriaAmount = cardStore.find.$and.length - 2
-
-    return `${criteriaAmount} criteria selected`
-}

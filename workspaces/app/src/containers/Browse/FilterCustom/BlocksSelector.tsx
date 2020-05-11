@@ -71,8 +71,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const $exists = variant === 'include'
 
-    const [selected, setSelected] = React.useState<string[]>(() => [])
-
     const filtered = cardStore.find.$and
             .map((criteria: object) => {
                 const key = Object.keys(criteria).pop()!
