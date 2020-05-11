@@ -5,6 +5,7 @@ import { GridSizeColumns } from 'src/common'
 
 import { BlueprintStore } from './BlueprintStore'
 import { CardStore } from './CardStore'
+import { ExclusiveScopeStore } from './ExclusiveScopeStore'
 import { FavoriteStore } from './FavoriteStore'
 import { PiwikStore } from './PiwikStore'
 import { RouterStore } from './RouterStore'
@@ -16,6 +17,7 @@ export const CONTEXT = {
     CARDS: createContext<CardStore>(null as any),
     FAVORITES: createContext<FavoriteStore>(null as any),
     PARENT_COLUMNS: createContext<{parentColumns: GridSizeColumns, maxWidth: 1|2|3|4|5|6}>(null as any),
+    EXCLUSIVE_SCOPE: createContext<ExclusiveScopeStore>(undefined as any),
     PIWIK: createContext<PiwikStore>(null as any),
     PRAISAL_MANAGER: createContext<PraisalManager>(null as any),
     ROUTER: createContext<RouterStore>(null as any),

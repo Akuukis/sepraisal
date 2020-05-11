@@ -5,7 +5,7 @@ import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 
 import Cards from './Cards'
-import Filters from './Filters'
+import Filter from './Filter'
 import LoadMore from './LoadMore'
 import Search from './Search'
 
@@ -24,7 +24,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
 
     return (
-        <DefaultLayout className={classes.root} aside={<Filters />} asideTitle='Filters'>
+        <DefaultLayout className={classes.root} aside={<Filter />} asideTitle='Filters'>
             <Search />
             <Cards />
             <LoadMore />

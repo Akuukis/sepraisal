@@ -4,9 +4,9 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { fade, IconButton, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
-import IconClose from '@material-ui/icons/Close'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import IconClose from 'src/components/icons/IconClose'
 import IconDragHandle from 'src/components/icons/IconDragHandle'
 import { CONTEXT } from 'src/stores'
 

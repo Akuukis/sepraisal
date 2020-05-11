@@ -27,13 +27,10 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    expanded: boolean
-    onChange(): void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {expanded, onChange} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const [findDirty, setFindDirty] = React.useState('')
 
@@ -65,7 +62,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <MyExpansionPanel header='Advanced' subheader='' expanded={expanded} onChange={onChange}>
+        <MyExpansionPanel header='Advanced' subheader=''>
             <Grid container spacing={2}>
                 <Grid item xs={6}>
                     <Button variant='contained' fullWidth onClick={reset}>
