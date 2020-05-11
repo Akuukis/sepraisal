@@ -53,14 +53,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const [logValue, setLogValue] = React.useState<[number, number]>(setState())
 
-    const criterion: IQuery = {}
+    let criterion: IQuery | null = {}
     if(logValue[0] !== min) {
         criterion.$gte = new BigNumber(Math.pow(10, logValue[0])).dp(0).toNumber()
     }
     if(logValue[1] !== Infinity && Math.pow(10, logValue[1]) !== max) {
         criterion.$lte = logValue[1] === 0 ? 0 : new BigNumber(Math.pow(10, logValue[1])).dp(0).toNumber()
     }
-    const isEnabled = Object.keys(criterion).length !== 0
+    criterion = Object.keys(criterion).length > 0 ? criterion : null
 
     const handleChange = (event, newValue) => {
         setLogValue(newValue)
@@ -83,36 +83,24 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             return
         }
 
-        if(!isEnabled) {
-            piwikStore.push([
-                'trackEvent',
-                'custom-filter',
-                findKey,
-                JSON.stringify(null),
-            ])
-            cardStore.querryFindBuilder.setCriterion(findKey, null)
-
-            return
-        }
-
         piwikStore.push([
             'trackEvent',
             'custom-filter',
             findKey,
-            `${criterion.$gte} to ${criterion.$lte}`,
+            criterion ? `${criterion.$gte} to ${criterion.$lte}` : JSON.stringify(null),
         ])
         cardStore.querryFindBuilder.setCriterion(findKey, criterion)
     })
 
-    const from = criterion.$gte !== undefined ? `from ${formatFloat(criterion.$gte)}` : ''
-    const to = criterion.$lte !== undefined ? `to ${formatFloat(criterion.$lte)}` : ''
+    const from = criterion?.$gte !== undefined ? `from ${formatFloat(criterion.$gte)}` : ''
+    const to = criterion?.$lte !== undefined ? `to ${formatFloat(criterion.$lte)}` : ''
 
     return (
         <Grid container justify='space-between' className={classes.root}>
             <Grid item>
                 <Typography
                     id='range-slider'
-                    style={!isEnabled ? {color: theme.palette.text.disabled} : {}}
+                    style={!criterion ? {color: theme.palette.text.disabled} : {}}
                 >
                     {title}
                 </Typography>
@@ -122,7 +110,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </Grid>
             <Grid item xs={12}>
                 <Slider
-                    className={!isEnabled ? classes.disabledSlider : undefined}
+                    className={!criterion ? classes.disabledSlider : undefined}
                     min={safeMin}
                     max={safeMax}
                     step={(safeMax - safeMin) / 100}

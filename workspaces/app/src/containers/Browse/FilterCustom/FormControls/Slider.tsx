@@ -55,12 +55,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const [value, setValue] = React.useState<[number, number]>(setState())
 
-    const query: IMyFindCriterion = {}
-    if(value[0] !== min) query.$gte = new BigNumber(value[0]).dp(0).toNumber()
-    if(value[1] !== max) {
-        query.$lte = new BigNumber(value[1]).dp(0).toNumber()
-    }
-    const isEnabled = Object.keys(query).length !== 0
+    let criterion: IMyFindCriterion | null = {}
+    if(value[0] !== min) criterion.$gte = new BigNumber(value[0]).dp(0).toNumber()
+    if(value[1] !== max) criterion.$lte = new BigNumber(value[1]).dp(0).toNumber()
+    criterion = Object.keys(criterion).length > 0 ? criterion : null
 
     const format = (sliderValue: number) => formatFloat(sliderValue, step >= 1)
 
@@ -73,9 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }))
 
     const onChangeCommitted = action(() => {
-
         if(zeroes !== undefined && value[0] === 0 && value[1] === 0) {
-
             piwikStore.push([
                 'trackEvent',
                 'custom-filter',
@@ -87,40 +83,24 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             return
         }
 
-        const criterion: IMyFindCriterion = {}
-        if(value[0] !== min) criterion.$gte = value[0]
-        if(value[1] !== max) criterion.$lte = value[1]
-
-        if(!isEnabled) {
-            piwikStore.push([
-                'trackEvent',
-                'custom-filter',
-                findKey,
-                JSON.stringify(null),
-            ])
-            cardStore.querryFindBuilder.setCriterion(findKey, null)
-
-            return
-        }
-
         piwikStore.push([
             'trackEvent',
             'custom-filter',
             findKey,
-            JSON.stringify(`${criterion.$gte} - ${criterion.$lte}`),
+            criterion ? JSON.stringify(`${criterion.$gte} - ${criterion.$lte}`) : JSON.stringify(null),
         ])
         cardStore.querryFindBuilder.setCriterion(findKey, criterion)
     })
 
-    const from = query.$gte !== undefined ? `from ${format(query.$gte)}` : ''
-    const to = query.$lte !== undefined ? `to ${format(query.$lte)}` : ''
+    const from = criterion?.$gte !== undefined ? `from ${format(criterion.$gte)}` : ''
+    const to = criterion?.$lte !== undefined ? `to ${format(criterion.$lte)}` : ''
 
     return (
         <Grid container justify='space-between' className={classes.root}>
             <Grid item>
                 <Typography
                     id='range-slider'
-                    style={!isEnabled ? {color: theme.palette.text.disabled} : {}}
+                    style={!criterion ? {color: theme.palette.text.disabled} : {}}
                 >
                     {title}
                 </Typography>
@@ -130,7 +110,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </Grid>
             <Grid item xs={12}>
                 <Slider
-                    className={!isEnabled ? classes.disabledSlider : undefined}
+                    className={!criterion ? classes.disabledSlider : undefined}
                     min={min}
                     max={max}
                     step={step}
