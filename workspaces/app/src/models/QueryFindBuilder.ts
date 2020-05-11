@@ -1,18 +1,40 @@
-import { IBlueprint, ObservableMap } from '@sepraisal/common'
-import { IFind } from '@sepraisal/common/lib/classificator/Class'
+import { IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
 import { action, computed, IReactionDisposer, observable } from 'mobx'
+import { QuerySelector, RootQuerySelector } from 'mongodb'
 
 import { CardStatus, ICard } from '../models'
 
 
-const presetUpToDate = [
+export type FindCriterionDirect = QuerySelector<string | number | boolean>
+export type FindQueryDirect = {
+    [P in keyof IBlueprint]?: FindCriterionDirect
+} & {
+    [key: string]: FindCriterionDirect
+}
+
+export type FindCriterionGroup = FindQueryDirect[]
+export type FindQueryGroup = {
+    $or: FindCriterionGroup
+}
+
+export type FindCriterion = FindCriterionDirect | FindCriterionGroup
+export type FindQuery = FindQueryDirect | FindQueryGroup
+
+export type FindQueryPreset = FindQuery[]
+export interface IFindRootQuery extends RequiredSome<Pick<RootQuerySelector<IBlueprint>, '$and' | '$text'>, '$and'> {
+    $and: FindQueryPreset,
+    // $text?: {$search: string},
+}
+
+
+const presetUpToDate: FindQueryPreset = [
     {sbc: {$exists: true}},
     {'sbc._version': {$eq: IBlueprint.VERSION.sbc}},
 ]
 
-const presetShip = [
+const presetShip: FindQueryPreset = [
     ...presetUpToDate,
-    {'sbc.vanilla': true},
+    {'sbc.vanilla': {$eq: true}},
     {'sbc.blocks.Gyro/SmallBlockGyro': {$exists: true}},
     {$or: [
         {'sbc.blocks.BatteryBlock/SmallBlockBatteryBlock': {$exists: true}},
@@ -25,16 +47,16 @@ const presetShip = [
     ]},
 ]
 
-const presetFighter = [
+const presetFighter: FindQueryPreset = [
     ...presetShip,
-    {'sbc.gridSize': 'Small'},
+    {'sbc.gridSize': {$eq: 'Small'}},
     {$or: [
         {'sbc.blocks.SmallGatlingGun/': {$exists: true}},
         {'sbc.blocks.SmallMissileLauncher/': {$exists: true}},
     ]},
 ]
 
-const genFighterPreset = (...args) =>
+const genFighterPreset = (...args): IFindRootQuery =>
     ({$and: [
         ...presetFighter,
         {'sbc.blockCount': {$gte: args[0], $lte: args[1] } },
@@ -50,8 +72,8 @@ export const PRESET = {
     // fighter50:    genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
     fighter/* 80 */: genFighterPreset(103, 1197, 9053 , 80361 , 1205, 6546 , 7102 , 59263 , 0, 2),
     // fighter95:    genFighterPreset(72 , 3059, 6430 , 180955, 891 , 11889, 5065 , 129737, 0, 3),
-    ship: {$and: [...presetShip]},
-    none: {$and: [...presetUpToDate]},
+    ship: {$and: [...presetShip]} as IFindRootQuery,
+    none: {$and: [...presetUpToDate]} as IFindRootQuery,
 }
 // tslint:enable: object-literal-sort-keys
 
@@ -68,7 +90,7 @@ interface IBrowserStoreSort {
     [field: string]: -1 | 1
 }
 
-const sortFindAnd = ($and: object[]) => {
+const sortFindAnd = ($and: FindQueryPreset): FindQueryPreset => {
     const clone = [...$and]
 
     return clone.sort((a, b) => {
@@ -88,10 +110,30 @@ const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
     ship: JSON.stringify(sortFindAnd(PRESET.ship.$and)),
 }
 
-// tslint:disable-next-line: min-class-cohesion
+/**
+ * Create and edit a valid MongoDB find() querry using Filter controls.
+ *
+ * Goals:
+ * - Editable by form controls
+ * - Editable directly by User with minimally limited MongoDB syntax freedom.
+ * - both changes are synced
+ *
+ * Restrictions:
+ * - Valid MongoDB syntax as source of truth (so User can read it docs and do magic)
+ * - top-level `$and` operator (it's just convenient for form controls)
+ *
+ * Form controls (a React component) adds, edits and removes criteria (a object within `$and` array).
+ * One Form control may manage one criterion (e.g. "sbc.vanilla") or many criteria (e.g. "sbc.blocks.*").
+
+ * Those criteria must have IDs so that Form control can find it within the `$and` array. There are two ways:
+ * - when criterion has one-to-one relationship with a field, that field can be used as ID (e.g. "sbc.vanilla").
+ * - when criterion has one-to-many relationship with multiple known fields as part of `$or` group,
+ *   the list fields are sort alphabetically and concatenated using `,` seperator into a ID.
+ * - NOT USED/SUPPORTED: when criterion has one-to-many relationship with changing amount of fields.
+ */
 export class QueryFindBuilder {
 
-    @computed public get find(): IFind { return this._find }
+    @computed public get find(): IFindRootQuery { return this._find }
 
     @computed public get findStringified() {
         return JSON.stringify(sortFindAnd(this.find.$and))
@@ -116,7 +158,7 @@ export class QueryFindBuilder {
     @observable public cardsPerPage = 12
     @observable public count: null | number = null
 
-    @observable protected _find: IFind = PRESET.none
+    @observable protected _find: IFindRootQuery = PRESET.none
     @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
     protected disposers: IReactionDisposer[] = []
 
@@ -127,7 +169,72 @@ export class QueryFindBuilder {
         for(const disposer of this.disposers) disposer()
     }
 
-    @action public setFind(diff: Partial<IFind>) {
+    @computed private get byIds(): Array<[string, FindCriterionDirect | FindCriterionGroup]> {
+        return this._find.$and
+            .map((criterionWrapper, i) => {
+                const key = Object.keys(criterionWrapper).pop()
+                if(!key) {
+                    const $comment = `Found criteria wrapper without content at position ${i}, ignoring..`
+                    console.warn($comment)
+                    return ['__warnings', {$comment}] as [string, {}]
+                }
+
+                const criterion = criterionWrapper[key] as FindCriterionDirect
+                if(key !== '$or') return [key, criterion] as [string, FindCriterionDirect]
+
+                const innerKeys = Object.keys(criterion)
+                    .sort((a, b) => a > b ? 1 : -1)  // alphabetically.
+
+                return [innerKeys.join(','), criterion] as [string, FindCriterionGroup]
+            })
+            .filter((amIundefined) => amIundefined! !== undefined)
+    }
+
+    public getCriterion<T extends FindCriterionDirect = FindCriterionDirect>(idOrIds: string): T | null
+    public getCriterion<T extends FindCriterionGroup = FindCriterionGroup>(idOrIds: string[]): T | null
+    public getCriterion<T extends FindCriterion = FindCriterion>(idOrIds: string | string[]): T | null {
+        const id = parseId(idOrIds)
+        return (this.byIds.find(([innerId]) => innerId === id)?.[1] as T | undefined) ?? null  // Brackets for Babel.
+    }
+
+    public setCriterion(idOrIds: string, criterion: FindCriterionDirect | null): void
+    public setCriterion(idOrIds: string[], criterion: FindCriterionGroup | null): void
+    @action public setCriterion(idOrIds: string | string[], criterion: FindCriterionDirect | FindCriterionGroup | null): void {
+        const id = parseId(idOrIds)
+
+        const index = this.byIds.findIndex(([innerId]) => innerId === id)
+
+        if(criterion === null) {
+            if(index === -1) return
+
+            this._find.$and = [
+                ...this._find.$and.slice(0, Math.max(0, index)),
+                ...this._find.$and.slice(index + 1, this._find.$and.length),
+            ]
+            return
+        }
+
+        let query: FindQuery
+        if(Array.isArray(idOrIds) && isCriterionGroup(criterion)) {
+            query = fromCriterionGroup(idOrIds, criterion)
+        } else if(!Array.isArray(idOrIds) && isCriterionDirect(criterion)) {
+            query = fromCriterionDirect(idOrIds, criterion)
+        } else {
+            throw new Error('catch me')
+        }
+
+        if(index === -1) {
+            this._find.$and.push(query)
+        } else {
+            this._find.$and = [
+                ...this._find.$and.slice(0, Math.max(0, index)),
+                query,
+                ...this._find.$and.slice(index + 1, this._find.$and.length),
+            ]
+        }
+    }
+
+    @action public setFind(diff: Partial<IFindRootQuery>) {
         // If changed, automatically trigger query via mobx due reaction above on `this.find.$and`.
         if('$and' in diff && diff.$and) {
             this._find.$and = sortFindAnd(diff.$and)
@@ -136,4 +243,20 @@ export class QueryFindBuilder {
         // Doesn't automatically trigger query because there's no reaction on `this.find.$text`.
         if('$text' in diff) this._find.$text = '$text' in diff ? diff.$text : this._find.$text
     }
+}
+
+const parseId = (idOrIds: string | string[]) => (Array.isArray(idOrIds) ? idOrIds : [idOrIds]).join(',')
+const isCriterionGroup = (criterion: FindCriterion): criterion is FindCriterionGroup => {
+    return '$or' in criterion
+}
+const isCriterionDirect = (criterion: FindCriterion): criterion is FindCriterionDirect => {
+    return !isCriterionGroup(criterion)
+}
+
+const fromCriterionDirect = (id: string, criterion: FindCriterionDirect): FindQueryDirect => {
+    return {[id]: criterion}
+}
+
+const fromCriterionGroup = (ids: string[], criterion: FindCriterionGroup): FindQueryGroup => {
+    return {$or: criterion}
 }

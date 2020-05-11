@@ -42,93 +42,70 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const safeMin = min === 0 ? 0 : Math.log10(min)
     const safeMax = Math.log10(max)
 
-    const setState = () => {
-        const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const found: IQuery = index === -1 ? {} : cardStore.find.$and[index]
+    const setState = (): [number, number] => {
+        const criterion = cardStore.querryFindBuilder.getCriterion<IQuery>(findKey)
 
         return [
-            found[findKey]?.$gte ? Math.log10(found[findKey].$gte) : safeMin,
-            found[findKey]?.$lte ? Math.log10(found[findKey].$lte) : safeMax,
+            criterion?.[findKey]?.$gte ? Math.log10(criterion[findKey].$gte) : safeMin,
+            criterion?.[findKey]?.$lte ? Math.log10(criterion[findKey].$lte) : safeMax,
         ]
     }
 
-    const [logValue, setLogValue] = React.useState(setState())
+    const [logValue, setLogValue] = React.useState<[number, number]>(setState())
 
-    const query: IQuery = {}
+    const criterion: IQuery = {}
     if(logValue[0] !== min) {
-        query.$gte = new BigNumber(Math.pow(10, logValue[0])).dp(0).toNumber()
+        criterion.$gte = new BigNumber(Math.pow(10, logValue[0])).dp(0).toNumber()
     }
     if(logValue[1] !== Infinity && Math.pow(10, logValue[1]) !== max) {
-        query.$lte = logValue[1] === 0 ? 0 : new BigNumber(Math.pow(10, logValue[1])).dp(0).toNumber()
+        criterion.$lte = logValue[1] === 0 ? 0 : new BigNumber(Math.pow(10, logValue[1])).dp(0).toNumber()
     }
-    const isEnabled = Object.keys(query).length !== 0
+    const isEnabled = Object.keys(criterion).length !== 0
 
     const handleChange = (event, newValue) => {
         setLogValue(newValue)
     }
 
-    React.useEffect(() => reaction(() => cardStore.find.$and, () => {
+    React.useEffect(() => reaction(() => cardStore.querryFindBuilder.find.$and, () => {
         setLogValue(setState())
     }))
 
     const onChangeCommitted = action(() => {
-        // tslint:disable-next-line: no-non-null-assertion
-        const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const before = cardStore.find.$and.slice(0, Math.max(0, index))
-        const after = cardStore.find.$and.slice(index + 1, cardStore.find.$and.length)
-
         if(zeroes !== undefined && logValue[0] === 0 && logValue[1] === 0) {
-
             piwikStore.push([
                 'trackEvent',
                 'custom-filter',
                 findKey,
                 String(zeroes),
             ])
-
-            cardStore.setFind({$and: [
-                ...before,
-                {[findKey]: zeroes},
-                ...after,
-            ]})
+            cardStore.querryFindBuilder.setCriterion(findKey, zeroes)
 
             return
         }
 
         if(!isEnabled) {
-
             piwikStore.push([
                 'trackEvent',
                 'custom-filter',
                 findKey,
                 JSON.stringify(null),
             ])
-
-            cardStore.setFind({$and: [
-                ...before,
-                ...after,
-            ]})
+            cardStore.querryFindBuilder.setCriterion(findKey, null)
 
             return
         }
-
 
         piwikStore.push([
             'trackEvent',
             'custom-filter',
             findKey,
-            `${query.$gte} to ${query.$lte}`,
+            `${criterion.$gte} to ${criterion.$lte}`,
         ])
-
-        cardStore.setFind({$and: [
-            ...before,
-            {[findKey]: query},
-            ...after,
-        ]})
+        cardStore.querryFindBuilder.setCriterion(findKey, criterion)
     })
 
-    const from = query.$gte !== undefined ? `from ${formatFloat(query.$gte)}` : ''
-    const to = query.$lte !== undefined ? `to ${formatFloat(query.$lte)}` : ''
+    const from = criterion.$gte !== undefined ? `from ${formatFloat(criterion.$gte)}` : ''
+    const to = criterion.$lte !== undefined ? `to ${formatFloat(criterion.$lte)}` : ''
 
     return (
         <Grid container justify='space-between' className={classes.root}>

@@ -88,7 +88,7 @@ const sortFindAnd = ($and: object[]) => {
 
 // tslint:disable-next-line: min-class-cohesion
 export class CardStore {
-    private querryFindBuilder = new QueryFindBuilder()
+    public readonly querryFindBuilder = new QueryFindBuilder()
 
     @computed public get find(): IFind { return this.querryFindBuilder.find }
     @computed public get selectedPreset() { return this.querryFindBuilder.selectedPreset }
@@ -112,7 +112,7 @@ export class CardStore {
 
     public constructor(piwikStore: PiwikStore) {
         this.piwikStore = piwikStore
-        this.disposers.push(reaction(() => this.find.$and, async (find) => {
+        this.disposers.push(reaction(() => [...this.querryFindBuilder.find.$and], async (find) => {
             await this.querry()
         }))
     }

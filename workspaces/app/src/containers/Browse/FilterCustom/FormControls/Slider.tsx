@@ -6,6 +6,7 @@ import { hot } from 'react-hot-loader/root'
 import { Grid, Slider, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, formatFloat, IMyTheme } from 'src/common'
+import { FindCriterionDirect } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
 
@@ -26,37 +27,35 @@ interface IProps {
     findKey: string,
     max: number,
     min: number,
-    operator?: string,
     step?: number,
     title: string,
-    zeroes?: object
+    zeroes?: FindCriterionDirect
 }
 
-interface IQuery {
+interface IMyFindCriterion {
     $gte?: number,
     $lte?: number,
 }
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {title, findKey, operator, min, max, step: stepRaw, zeroes} = props
+    const {title, findKey, min, max, step: stepRaw, zeroes} = props
     const step = stepRaw ?? 1
 
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
 
-    const setState = () => {
-        const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const found: IQuery = index === -1 ? {} : cardStore.find.$and[index]
+    const setState = (): [number, number] => {
+        const criterion = cardStore.querryFindBuilder.getCriterion<IMyFindCriterion>(findKey)
 
         return [
-            (operator ? found[findKey]?.operator?.$gte : found[findKey]?.$gte) ?? min,
-            (operator ? found[findKey]?.operator?.$lte : found[findKey]?.$lte) ?? max,
+            criterion?.[findKey]?.$gte ?? min,
+            criterion?.[findKey]?.$lte ?? max,
         ]
     }
 
-    const [value, setValue] = React.useState(setState())
+    const [value, setValue] = React.useState<[number, number]>(setState())
 
-    const query: IQuery = {}
+    const query: IMyFindCriterion = {}
     if(value[0] !== min) query.$gte = new BigNumber(value[0]).dp(0).toNumber()
     if(value[1] !== max) {
         query.$lte = new BigNumber(value[1]).dp(0).toNumber()
@@ -74,10 +73,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }))
 
     const onChangeCommitted = action(() => {
-        // tslint:disable-next-line: no-non-null-assertion
-        const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const before = cardStore.find.$and.slice(0, Math.max(0, index))
-        const after = cardStore.find.$and.slice(index + 1, cardStore.find.$and.length)
 
         if(zeroes !== undefined && value[0] === 0 && value[1] === 0) {
 
@@ -87,50 +82,34 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 findKey,
                 JSON.stringify(zeroes),
             ])
-
-            cardStore.setFind({$and: [
-                ...before,
-                {[findKey]: operator ? {[operator]: zeroes} : zeroes},
-                ...after,
-            ]})
+            cardStore.querryFindBuilder.setCriterion(findKey, zeroes)
 
             return
         }
 
-        const query: IQuery = {}
-        if(value[0] !== min) query.$gte = value[0]
-        if(value[1] !== max) query.$lte = value[1]
+        const criterion: IMyFindCriterion = {}
+        if(value[0] !== min) criterion.$gte = value[0]
+        if(value[1] !== max) criterion.$lte = value[1]
 
         if(!isEnabled) {
-
             piwikStore.push([
                 'trackEvent',
                 'custom-filter',
                 findKey,
                 JSON.stringify(null),
             ])
-
-            cardStore.setFind({$and: [
-                ...before,
-                ...after,
-            ]})
+            cardStore.querryFindBuilder.setCriterion(findKey, null)
 
             return
         }
-
 
         piwikStore.push([
             'trackEvent',
             'custom-filter',
             findKey,
-            JSON.stringify(`${query.$gte} - ${query.$lte}`),
+            JSON.stringify(`${criterion.$gte} - ${criterion.$lte}`),
         ])
-
-        cardStore.setFind({$and: [
-            ...before,
-            {[findKey]: operator ? {[operator]: query} : query},
-            ...after,
-        ]})
+        cardStore.querryFindBuilder.setCriterion(findKey, criterion)
     })
 
     const from = query.$gte !== undefined ? `from ${format(query.$gte)}` : ''

@@ -94,42 +94,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         {heading}
     </>)
 
-    const handleChange = action((event: React.ChangeEvent<{}>, values: string[]) => {
-        let $and = [...cardStore.find.$and]
-        for(const value of [...enabled, ...values]) {
-            const index = $and.findIndex((criteria) => {
-                const key = Object.keys(criteria).pop()!
-                if(!key) throw Error('catch me')
-
-                const fullId = key.split('.')[2]
-                return fullId === value
-            })
-            const newCriteriaWrapped = values.includes(value) ? [{[`sbc.blocks.${value}`]: {$exists}}] : []
-
-            $and = [
-                ...$and.slice(0, Math.max(0, index)),
-                ...newCriteriaWrapped,
-                ...$and.slice(index + 1, $and.length),
-            ]
+    const handleChange = action((event: React.ChangeEvent<{}>, fullIds: string[]) => {
+        for(const fullId of [...enabled, ...fullIds]) {
+            const newValue = fullIds.includes(fullId) ? {$exists} : null
+            cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullId}`, newValue)
         }
-        cardStore.setFind({$and})
     })
 
     const handleRemove = (event: React.SyntheticEvent<any, Event>) => {
         const id = event.currentTarget.parentElement.innerText
-
-        const index = cardStore.find.$and.findIndex((criteria) => {
-            const key = Object.keys(criteria).pop()!
-            if(!key) throw Error('catch me')
-
-            const fullId = key.split('.')[2]
-            return fullId === id
-        })
-
-        cardStore.setFind({$and: [
-            ...cardStore.find.$and.slice(0, Math.max(0, index)),
-            ...cardStore.find.$and.slice(index + 1, cardStore.find.$and.length),
-        ]})
+        cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${id}`, null)
     }
 
     return (
