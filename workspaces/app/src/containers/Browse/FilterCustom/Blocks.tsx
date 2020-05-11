@@ -20,18 +20,6 @@ const styles = (theme: IMyTheme) => createStyles({
     selector: {
         margin: theme.spacing(1),
     },
-    excludeHeader: {
-        backgroundColor: theme.palette.error.light,
-    },
-    excludeChip: {
-        backgroundColor: theme.palette.error.light,
-    },
-    includeHeader: {
-        backgroundColor: theme.palette.success.light,
-    },
-    includeChip: {
-        backgroundColor: theme.palette.success.light,
-    }
 })
 
 interface IProps extends Omit<React.ComponentProps<typeof MyExpansionPanel>, 'header' | 'subheader'> {
@@ -50,19 +38,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     TODO
                 </FormLabel>
                 <BlocksSelector
+                    variant='include'
                     heading='MUST include all of these blocks'
                     classes={{
                         root: classes.selector,
-                        header: classes.includeHeader,
-                        chip: classes.includeChip,
                     }}
                 />
                 <BlocksSelector
+                    variant='exclude'
                     heading='MUST NOT include any of these blocks'
                     classes={{
                         root: classes.selector,
-                        header: classes.excludeHeader,
-                        chip: classes.excludeChip,
                     }}
                 />
             </FormGroup>
