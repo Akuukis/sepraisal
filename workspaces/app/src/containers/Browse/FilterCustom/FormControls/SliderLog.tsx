@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { action, reaction } from 'mobx'
+import { action, reaction, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -39,6 +39,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {title, findKey, min, max, zeroes} = props
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
     const safeMin = min === 0 ? 0 : Math.log10(min)
     const safeMax = Math.log10(max)
 
@@ -46,8 +47,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         const criterion = cardStore.querryFindBuilder.getCriterion<IQuery>(findKey)
 
         return [
-            criterion?.[findKey]?.$gte ? Math.log10(criterion[findKey].$gte) : safeMin,
-            criterion?.[findKey]?.$lte ? Math.log10(criterion[findKey].$lte) : safeMax,
+            criterion?.$gte ? Math.log10(criterion.$gte) : safeMin,
+            criterion?.$lte ? Math.log10(criterion.$lte) : safeMax,
         ]
     }
 
@@ -61,6 +62,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         criterion.$lte = logValue[1] === 0 ? 0 : new BigNumber(Math.pow(10, logValue[1])).dp(0).toNumber()
     }
     criterion = Object.keys(criterion).length > 0 ? criterion : null
+    runInAction(() => formGroupScope.set(findKey, undefined))
 
     const handleChange = (event, newValue) => {
         setLogValue(newValue)

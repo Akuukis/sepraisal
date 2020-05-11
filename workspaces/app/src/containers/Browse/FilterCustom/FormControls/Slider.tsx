@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { action, reaction } from 'mobx'
+import { action, reaction, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -43,13 +43,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 
     const setState = (): [number, number] => {
         const criterion = cardStore.querryFindBuilder.getCriterion<IMyFindCriterion>(findKey)
 
         return [
-            criterion?.[findKey]?.$gte ?? min,
-            criterion?.[findKey]?.$lte ?? max,
+            criterion?.$gte ?? min,
+            criterion?.$lte ?? max,
         ]
     }
 
@@ -59,6 +60,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     if(value[0] !== min) criterion.$gte = new BigNumber(value[0]).dp(0).toNumber()
     if(value[1] !== max) criterion.$lte = new BigNumber(value[1]).dp(0).toNumber()
     criterion = Object.keys(criterion).length > 0 ? criterion : null
+    runInAction(() => formGroupScope.set(findKey, undefined))
 
     const format = (sliderValue: number) => formatFloat(sliderValue, step >= 1)
 
@@ -66,7 +68,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setValue(newValue)
     }
 
-    React.useEffect(() => reaction(() => cardStore.find.$and, () => {
+    React.useEffect(() => reaction(() => cardStore.querryFindBuilder.find.$and, () => {
         setValue(setState())
     }))
 

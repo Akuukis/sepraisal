@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import deep from 'fast-deep-equal'
-import { action } from 'mobx'
+import { action, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -68,10 +68,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
     const cubeNames = [...praisalManager.cubes.keys()]
+    const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 
     const $exists = variant === 'include'
 
-    const filtered = cardStore.find.$and
+    const filtered = cardStore.querryFindBuilder.find.$and
             .map((criteria: object) => {
                 const key = Object.keys(criteria).pop()!
                 if(!key) throw Error('catch me')
@@ -89,6 +90,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             .filter(([fullId, value]) => deep(value, {$exists}))
             .map(([fullId]) => fullId)
 
+    runInAction(() => {
+        for(const fullId of enabled) {
+            console.log(fullId, enabled.includes(fullId))
+            formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
+        }
+        // Don't bother removing them at next re-render, it's ok.
+    })
+
     const title = (<>
         <IconBrowse className={classes.icon} />
         {heading}
@@ -98,12 +107,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         for(const fullId of [...enabled, ...fullIds]) {
             const newValue = fullIds.includes(fullId) ? {$exists} : null
             cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullId}`, newValue)
+            formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
         }
     })
 
     const handleRemove = (event: React.SyntheticEvent<any, Event>) => {
-        const id = event.currentTarget.parentElement.innerText
-        cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${id}`, null)
+        const fullId = event.currentTarget.parentElement.innerText
+        cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullId}`, null)
+        formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
     }
 
     return (
