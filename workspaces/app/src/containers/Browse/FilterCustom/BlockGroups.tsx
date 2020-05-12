@@ -6,7 +6,7 @@ import { FormLabel } from '@material-ui/core'
 
 import { BLOCK_GROUPS, createSmartFC, createStyles, IMyTheme } from 'src/common'
 
-import Checkbox from './FormControls/Checkbox'
+import CheckboxMulti from './FormControls/CheckboxMulti'
 import MyFormGroup from './FormControls/MyFormGroup'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -14,6 +14,15 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     legend: {
+    },
+
+    checkbox: {
+    },
+    checkboxParent: {
+        marginTop: theme.spacing(2),
+    },
+    checkboxChildren: {
+        paddingLeft: theme.spacing(8),
     },
 })
 
@@ -30,11 +39,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 TODO
             </FormLabel>
             {Object.entries(BLOCK_GROUPS).map(([groupId, fullIds]) => (
-                <Checkbox
-                    title={BLOCK_GROUP_NAMES[groupId]}
-                    criterionId={fullIds.map((fullId) => `sbc.blocks.${fullId}`)}
-                    yes={{$exists: true}}
-                    no={{$exists: false}}
+                <CheckboxMulti
+                    className={clsx(classes.checkbox, groupId.includes('_') ? classes.checkboxChildren : classes.checkboxParent)}
+                    label={BLOCK_GROUP_NAMES[groupId]}
+                    criterionIds={fullIds.map((fullId) => `sbc.blocks.${fullId}`)}
                 />
             ))}
         </MyFormGroup>

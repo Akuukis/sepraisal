@@ -11,8 +11,6 @@ const POWER_ENGINE = [
     'Reactor/LargeBlockSmallGenerator',
     'Reactor/SmallBlockLargeGenerator',
     'Reactor/SmallBlockSmallGenerator',
-    'Reactor/SmallBlockLargeGenerator',
-    'Reactor/SmallBlockSmallGenerator',
 ]
 const POWER = ([] as string[])
     .concat(POWER_BATTERY)
