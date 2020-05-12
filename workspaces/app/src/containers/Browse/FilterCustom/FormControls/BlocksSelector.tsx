@@ -95,8 +95,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             .map(([fullType]) => fullTypeToOption(fullType))
 
     runInAction(() => {
-        for(const fullType of selected) {
-            formGroupScope.set(`sbc.blocks.${fullType}`, undefined)
+        for(const option of selected) {
+            formGroupScope.set(`sbc.blocks.${option.fullType}`, undefined)
         }
         // Don't bother removing them at next re-render, it's ok.
     })
@@ -106,9 +106,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         {heading}
     </>)
 
-    const handleChange = action((event: React.ChangeEvent<{}>, options: IOption[]) => {
-        for(const fullType of [...selected, ...options.map(({fullType})=>fullType)]) {
-            const newValue = options.some((option) => option.fullType === fullType) ? {$exists} : null
+    const handleChange = action((event: React.ChangeEvent<{}>, newOptions: IOption[]) => {
+        // A lot of overwritting going on because that's cheaper than to identify exact change.
+        // As it's within one action it doesn't trigger re-rerenders during the loop.
+        for(const option of [...selected, ...newOptions]) {
+            const {fullType} = option
+            const newValue = newOptions.some((option) => option.fullType === fullType) ? {$exists} : null
             cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullType}`, newValue)
             formGroupScope.set(`sbc.blocks.${fullType}`, undefined)
         }
