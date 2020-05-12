@@ -24,7 +24,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
 
     return (
-        <DefaultLayout className={classes.root} aside={<Filter />} asideTitle='Filters'>
+        <DefaultLayout className={classes.root} aside={<Filter />} asideTitle='Browse'>
             <Search />
             <Cards />
             <LoadMore />

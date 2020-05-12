@@ -2,12 +2,12 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { FormGroup, FormLabel } from '@material-ui/core'
+import { FormLabel } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import MyExpansionPanel from 'src/components/MyExpansionPanel'
 
 import Checkbox from './FormControls/Checkbox'
+import MyFormGroup from './FormControls/MyFormGroup'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -18,7 +18,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 })
 
-interface IProps extends Omit<React.ComponentProps<typeof MyExpansionPanel>, 'header' | 'subheader'> {
+interface IProps extends Omit<React.ComponentProps<typeof MyFormGroup>, 'header' | 'subheader'> {
 }
 
 
@@ -26,19 +26,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {className, ...otherProps} = props
 
     return (
-        <MyExpansionPanel className={clsx(classes.root, className)} header='Performance' subheader='' {...otherProps}>
-            <FormGroup>
-                <FormLabel className={classes.legend} component='legend'>
-                </FormLabel>
-                <Checkbox  title='Atmosperic thrusters'    findKey='sbc.thrustAtmospheric.Forward' yes={{$exists: true}} no={{$exists: false}} />
-                <Checkbox  title='Ion thrusters'           findKey='sbc.thrustIon.Forward'         yes={{$exists: true}} no={{$exists: false}} />
-                <Checkbox  title='Hydrogen thrusters'      findKey='sbc.thrustHydrogen.Forward'    yes={{$exists: true}} no={{$exists: false}} />
-                {/* TODO: Average thrust x3 */}
-                {/* TODO: Firepower (total DPS) */}
-                {/* TODO: Jump Distance */}
-                {/* TODO: Cargo capacity */}
-                {/* TODO: Hitpoints */}
-            </FormGroup>
-        </MyExpansionPanel>
+        <MyFormGroup className={clsx(classes.root, className)} header='Performance' {...otherProps}>
+            <FormLabel className={classes.legend} component='legend'>
+            </FormLabel>
+            <Checkbox  title='Atmosperic thrusters'    criterionId='sbc.thrustAtmospheric.Forward' yes={{$exists: true}} no={{$exists: false}} />
+            <Checkbox  title='Ion thrusters'           criterionId='sbc.thrustIon.Forward'         yes={{$exists: true}} no={{$exists: false}} />
+            <Checkbox  title='Hydrogen thrusters'      criterionId='sbc.thrustHydrogen.Forward'    yes={{$exists: true}} no={{$exists: false}} />
+            {/* TODO: Average thrust x3 */}
+            {/* TODO: Firepower (total DPS) */}
+            {/* TODO: Jump Distance */}
+            {/* TODO: Cargo capacity */}
+            {/* TODO: Hitpoints */}
+        </MyFormGroup>
     )
 })) /* ============================================================================================================= */

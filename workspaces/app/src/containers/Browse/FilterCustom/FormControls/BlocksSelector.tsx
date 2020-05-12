@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import deep from 'fast-deep-equal'
-import { action } from 'mobx'
+import { action, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -68,18 +68,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
     const cubeNames = [...praisalManager.cubes.keys()]
+    const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 
     const $exists = variant === 'include'
 
-    const filtered = cardStore.find.$and
+    const filtered = cardStore.querryFindBuilder.find.$and
             .map((criteria: object) => {
                 const key = Object.keys(criteria).pop()!
                 if(!key) throw Error('catch me')
 
-                const fullId = key.split('.')[2]
+                const fullId = key.match(/sbc\.blocks\.(.*)/)?.[1]
                 return [fullId, criteria[key] as object] as const
             })
-            .filter(([key, value]) => !!key)
+            .filter((pair): pair is [string, object] => !!pair[0])
 
     const disabled = filtered
             .filter(([fullId, value]) => deep(value, {$exists: !$exists}))
@@ -89,47 +90,31 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             .filter(([fullId, value]) => deep(value, {$exists}))
             .map(([fullId]) => fullId)
 
+    runInAction(() => {
+        for(const fullId of enabled) {
+            console.log(fullId, enabled.includes(fullId))
+            formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
+        }
+        // Don't bother removing them at next re-render, it's ok.
+    })
+
     const title = (<>
         <IconBrowse className={classes.icon} />
         {heading}
     </>)
 
-    const handleChange = action((event: React.ChangeEvent<{}>, values: string[]) => {
-        let $and = [...cardStore.find.$and]
-        for(const value of [...enabled, ...values]) {
-            const index = $and.findIndex((criteria) => {
-                const key = Object.keys(criteria).pop()!
-                if(!key) throw Error('catch me')
-
-                const fullId = key.split('.')[2]
-                return fullId === value
-            })
-            const newCriteriaWrapped = values.includes(value) ? [{[`sbc.blocks.${value}`]: {$exists}}] : []
-
-            $and = [
-                ...$and.slice(0, Math.max(0, index)),
-                ...newCriteriaWrapped,
-                ...$and.slice(index + 1, $and.length),
-            ]
+    const handleChange = action((event: React.ChangeEvent<{}>, fullIds: string[]) => {
+        for(const fullId of [...enabled, ...fullIds]) {
+            const newValue = fullIds.includes(fullId) ? {$exists} : null
+            cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullId}`, newValue)
+            formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
         }
-        cardStore.setFind({$and})
     })
 
     const handleRemove = (event: React.SyntheticEvent<any, Event>) => {
-        const id = event.currentTarget.parentElement.innerText
-
-        const index = cardStore.find.$and.findIndex((criteria) => {
-            const key = Object.keys(criteria).pop()!
-            if(!key) throw Error('catch me')
-
-            const fullId = key.split('.')[2]
-            return fullId === id
-        })
-
-        cardStore.setFind({$and: [
-            ...cardStore.find.$and.slice(0, Math.max(0, index)),
-            ...cardStore.find.$and.slice(index + 1, cardStore.find.$and.length),
-        ]})
+        const fullId = event.currentTarget.parentElement.innerText
+        cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullId}`, null)
+        formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
     }
 
     return (

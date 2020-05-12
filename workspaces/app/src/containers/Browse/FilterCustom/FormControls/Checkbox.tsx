@@ -1,10 +1,12 @@
-import { action } from 'mobx'
+import deep from 'fast-deep-equal'
+import { action, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Checkbox, FormControlLabel } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { FindCriterion, FindCriterionDirect, QueryFindBuilder } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
 
@@ -21,54 +23,49 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    findKey: string,
-    no: unknown,
+    criterionId: string | string[],
+    no?: FindCriterionDirect,
     title: string,
-    yes: unknown,
+    yes: FindCriterionDirect,
 }
 
-const NEXT_STATE = new Map([
-    // from -> to
-    [null, true],
-    [true, false],
-    [false, null],
-])
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {title, findKey, yes, no} = props
+    const {title, criterionId, yes, no} = props
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 
-    const values = new Map([
-        [null, []],
-        [true, [{[findKey]: yes}]],
-        [false, [{[findKey]: no}]],
-    ])
-
-    let checked: null | boolean
-    // tslint:disable-next-line: no-non-null-assertion - TODO review.
-    const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-    if(index === -1) {
-        checked = null
-    } else {
-        const item = cardStore.find.$and[index]
-        checked = JSON.stringify(item[findKey]) === JSON.stringify(yes)
+    const nextState = (state: boolean | null) => {
+        switch(state) {
+            case(null): return true
+            case(true): return no ? false : null
+            case(false): return null
+            default: throw new Error('catch me')
+        }
     }
+
+    const getCriteria = (state: boolean | null): FindCriterionDirect | null => {
+        switch(state) {
+            case(null): return null
+            case(true): return yes
+            case(false): return no!  // nextState() guards this would never happen.
+            default: throw new Error('catch me')
+        }
+    }
+
+    const criterion = cardStore.querryFindBuilder.getCriterion(criterionId)
+    const state = inferState(criterion, yes, no)
+    runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionId), undefined))
 
     const toggleChecked = action(() => {
         piwikStore.push([
             'trackEvent',
             'custom-filter',
-            findKey,
-            // tslint:disable-next-line: no-non-null-assertion
-            JSON.stringify(NEXT_STATE.get(checked)!),
+            criterionId,
+            JSON.stringify(nextState(state)),
         ])
-        cardStore.setFind({$and: [
-            ...cardStore.find.$and.slice(0, Math.max(0, index)),
-            // tslint:disable-next-line: no-non-null-assertion
-            ...values.get(NEXT_STATE.get(checked)!)!,
-            ...cardStore.find.$and.slice(index + 1, cardStore.find.$and.length),
-        ]})
+        cardStore.querryFindBuilder.setCriterion(criterionId, getCriteria(nextState(state)))
     })
 
     return (
@@ -80,14 +77,29 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         indeterminate: classes.checkboxIndeterminate,
                     }}
                     color='primary'  // Applies when checked.
-                    checked={checked === true}
+                    checked={state === true}
                     onChange={toggleChecked}
-                    value={findKey}
-                    indeterminate={checked === null}
+                    value={criterionId}
+                    indeterminate={state === null}
                 />
             }
             label={title}
-            style={checked === null ? {color: theme.palette.text.disabled} : {}}
+            style={state === null ? {color: theme.palette.text.disabled} : {}}
         />
     )
 })) /* ============================================================================================================= */
+
+const inferState = (criterion: FindCriterion | null, yes: FindCriterionDirect, no?: FindCriterionDirect): boolean | null => {
+    if(!criterion) return null
+
+    if(QueryFindBuilder.isCriterionDirect(criterion)) {
+        if(deep(criterion, yes)) return true
+        if(no && deep(criterion, no)) return false
+    } else {
+        if(criterion.every((subCriterion) => deep(Object.values(subCriterion).pop(), yes))) return true
+        if(no && criterion.every((subCriterion) => deep(Object.values(subCriterion).pop(), no))) return false
+    }
+
+    // If it doesn't match anything expected, then user has added different filter for this key.
+    return null
+}

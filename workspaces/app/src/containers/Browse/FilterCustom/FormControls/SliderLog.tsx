@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { action, reaction } from 'mobx'
+import { action, reaction, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -23,7 +23,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    findKey: string,
+    criterionId: string,
     max: number,
     min: number,
     title: string,
@@ -36,106 +36,73 @@ interface IQuery {
 }
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {title, findKey, min, max, zeroes} = props
+    const {title, criterionId, min, max, zeroes} = props
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
     const safeMin = min === 0 ? 0 : Math.log10(min)
     const safeMax = Math.log10(max)
 
-    const setState = () => {
-        const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const found: IQuery = index === -1 ? {} : cardStore.find.$and[index]
+    const setState = (): [number, number] => {
+        const criterion = cardStore.querryFindBuilder.getCriterion<IQuery>(criterionId)
 
         return [
-            found[findKey]?.$gte ? Math.log10(found[findKey].$gte) : safeMin,
-            found[findKey]?.$lte ? Math.log10(found[findKey].$lte) : safeMax,
+            criterion?.$gte ? Math.log10(criterion.$gte) : safeMin,
+            criterion?.$lte ? Math.log10(criterion.$lte) : safeMax,
         ]
     }
 
-    const [logValue, setLogValue] = React.useState(setState())
+    const [logValue, setLogValue] = React.useState<[number, number]>(setState())
 
-    const query: IQuery = {}
+    let criterion: IQuery | null = {}
     if(logValue[0] !== min) {
-        query.$gte = new BigNumber(Math.pow(10, logValue[0])).dp(0).toNumber()
+        criterion.$gte = new BigNumber(Math.pow(10, logValue[0])).dp(0).toNumber()
     }
     if(logValue[1] !== Infinity && Math.pow(10, logValue[1]) !== max) {
-        query.$lte = logValue[1] === 0 ? 0 : new BigNumber(Math.pow(10, logValue[1])).dp(0).toNumber()
+        criterion.$lte = logValue[1] === 0 ? 0 : new BigNumber(Math.pow(10, logValue[1])).dp(0).toNumber()
     }
-    const isEnabled = Object.keys(query).length !== 0
+    criterion = Object.keys(criterion).length > 0 ? criterion : null
+    runInAction(() => formGroupScope.set(criterionId, undefined))
 
     const handleChange = (event, newValue) => {
         setLogValue(newValue)
     }
 
-    React.useEffect(() => reaction(() => cardStore.find.$and, () => {
+    React.useEffect(() => reaction(() => cardStore.querryFindBuilder.find.$and, () => {
         setLogValue(setState())
     }))
 
     const onChangeCommitted = action(() => {
-        // tslint:disable-next-line: no-non-null-assertion
-        const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === findKey)
-        const before = cardStore.find.$and.slice(0, Math.max(0, index))
-        const after = cardStore.find.$and.slice(index + 1, cardStore.find.$and.length)
-
         if(zeroes !== undefined && logValue[0] === 0 && logValue[1] === 0) {
-
             piwikStore.push([
                 'trackEvent',
                 'custom-filter',
-                findKey,
+                criterionId,
                 String(zeroes),
             ])
-
-            cardStore.setFind({$and: [
-                ...before,
-                {[findKey]: zeroes},
-                ...after,
-            ]})
+            cardStore.querryFindBuilder.setCriterion(criterionId, zeroes)
 
             return
         }
-
-        if(!isEnabled) {
-
-            piwikStore.push([
-                'trackEvent',
-                'custom-filter',
-                findKey,
-                JSON.stringify(null),
-            ])
-
-            cardStore.setFind({$and: [
-                ...before,
-                ...after,
-            ]})
-
-            return
-        }
-
 
         piwikStore.push([
             'trackEvent',
             'custom-filter',
-            findKey,
-            `${query.$gte} to ${query.$lte}`,
+            criterionId,
+            criterion ? `${criterion.$gte} to ${criterion.$lte}` : JSON.stringify(null),
         ])
-
-        cardStore.setFind({$and: [
-            ...before,
-            {[findKey]: query},
-            ...after,
-        ]})
+        cardStore.querryFindBuilder.setCriterion(criterionId, criterion)
     })
 
-    const from = query.$gte !== undefined ? `from ${formatFloat(query.$gte)}` : ''
-    const to = query.$lte !== undefined ? `to ${formatFloat(query.$lte)}` : ''
+    const from = criterion?.$gte !== undefined ? `from ${formatFloat(criterion.$gte)}` : ''
+    const to = criterion?.$lte !== undefined ? `to ${formatFloat(criterion.$lte)}` : ''
 
     return (
         <Grid container justify='space-between' className={classes.root}>
             <Grid item>
                 <Typography
                     id='range-slider'
-                    style={!isEnabled ? {color: theme.palette.text.disabled} : {}}
+                    style={!criterion ? {color: theme.palette.text.disabled} : {}}
                 >
                     {title}
                 </Typography>
@@ -145,7 +112,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </Grid>
             <Grid item xs={12}>
                 <Slider
-                    className={!isEnabled ? classes.disabledSlider : undefined}
+                    className={!criterion ? classes.disabledSlider : undefined}
                     min={safeMin}
                     max={safeMax}
                     step={(safeMax - safeMin) / 100}

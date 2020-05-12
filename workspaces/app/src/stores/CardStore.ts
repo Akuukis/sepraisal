@@ -1,12 +1,18 @@
-import { getApiUrl, IBlueprint, ObservableMap } from '@sepraisal/common'
+import { getApiUrl, ObservableMap } from '@sepraisal/common'
 import { IFind } from '@sepraisal/common/lib/classificator/Class'
 import { action, computed, IReactionDisposer, observable, reaction, runInAction } from 'mobx'
 
-import { Card, CardStatus, IBpProjectionCard, ICard } from '../models'
+import {
+    Card,
+    CardStatus,
+    getPresetTitle as getPresetTitleReexport,
+    IBpProjectionCard,
+    ICard,
+    PRESET as PRESET_REEXPORT,
+    QueryFindBuilder,
+} from '../models'
 import { PiwikStore } from './PiwikStore'
 
-
-// tslint:disable-next-line: naming-convention
 const cardProjection: {[key in Exclude<keyof IBpProjectionCard, '_id'>]: {[key2 in keyof IBpProjectionCard[key]]: true}} = {
     classes: {
         _error: true,
@@ -58,64 +64,9 @@ const cardProjection: {[key in Exclude<keyof IBpProjectionCard, '_id'>]: {[key2 
 
 const projection = encodeURIComponent(JSON.stringify(cardProjection))
 
-const presetUpToDate = [
-    {sbc: {$exists: true}},
-    {'sbc._version': {$eq: IBlueprint.VERSION.sbc}},
-]
+export const PRESET = PRESET_REEXPORT
 
-const presetShip = [
-    ...presetUpToDate,
-    {'sbc.vanilla': true},
-    {'sbc.blocks.Gyro/SmallBlockGyro': {$exists: true}},
-    {$or: [
-        {'sbc.blocks.BatteryBlock/SmallBlockBatteryBlock': {$exists: true}},
-        {'sbc.blocks.Reactor/SmallBlockSmallGenerator': {$exists: true}},
-        {'sbc.blocks.Reactor/SmallBlockLargeGenerator': {$exists: true}},
-    ]},
-    {$or: [
-        {'sbc.blocks.Cockpit/SmallBlockCockpit': {$exists: true}},
-        {'sbc.blocks.Cockpit/DBSmallBlockFighterCockpit': {$exists: true}},
-    ]},
-]
-
-const presetFighter = [
-    ...presetShip,
-    {'sbc.gridSize': 'Small'},
-    {$or: [
-        {'sbc.blocks.SmallGatlingGun/': {$exists: true}},
-        {'sbc.blocks.SmallMissileLauncher/': {$exists: true}},
-    ]},
-]
-
-const genFighterPreset = (...args) =>
-    ({$and: [
-        ...presetFighter,
-        {'sbc.blockCount': {$gte: args[0], $lte: args[1] } },
-        {'sbc.blockMass' : {$gte: args[2], $lte: args[3] } },
-        {'sbc.blockPCU'  : {$gte: args[4], $lte: args[5] } },
-        {'sbc.oreVolume' : {$gte: args[6], $lte: args[7] } },
-        // {'sbc.gridCount' : {$gte: args[8], $lte: args[9] } },
-    ]})
-
-
-// tslint:disable: object-literal-sort-keys
-export const PRESET = {
-    // fighter50:    genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
-    fighter/* 80 */: genFighterPreset(103, 1197, 9053 , 80361 , 1205, 6546 , 7102 , 59263 , 0, 2),
-    // fighter95:    genFighterPreset(72 , 3059, 6430 , 180955, 891 , 11889, 5065 , 129737, 0, 3),
-    ship: {$and: [...presetShip]},
-    none: {$and: [...presetUpToDate]},
-}
-// tslint:enable: object-literal-sort-keys
-
-export const getPresetTitle = (id: keyof typeof PRESET | 'custom') => {
-    switch(id) {
-        case 'none': return 'None'
-        case 'ship': return 'Any ship, vanilla.'
-        case 'fighter': return 'Fighter, vanilla.'
-        default: return ''
-    }
-}
+export const getPresetTitle = getPresetTitleReexport
 
 interface IBrowserStoreSort {
     [field: string]: -1 | 1
@@ -135,27 +86,13 @@ const sortFindAnd = ($and: object[]) => {
     })
 }
 
-const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
-    fighter: JSON.stringify(sortFindAnd(PRESET.fighter.$and)),
-    none: JSON.stringify(sortFindAnd(PRESET.none.$and)),
-    ship: JSON.stringify(sortFindAnd(PRESET.ship.$and)),
-}
-
 // tslint:disable-next-line: min-class-cohesion
 export class CardStore {
+    public readonly querryFindBuilder = new QueryFindBuilder()
 
-    @computed public get find(): IFind { return this._find }
+    @computed public get find(): IFind { return this.querryFindBuilder.find }
+    @computed public get selectedPreset() { return this.querryFindBuilder.selectedPreset }
 
-    @computed private get findStringified() {
-        return JSON.stringify(sortFindAnd(this.find.$and))
-    }
-
-    @computed public get selectedPreset() {
-        const foundPreset = (Object.keys(PRESET) as Array<keyof typeof PRESET>)
-            .find((key) => this.findStringified === PRESET_STRINGIFIED[key])
-
-        return foundPreset ?? 'custom'
-    }
     @computed public get sort() { return this._sort }
     public set sort(value: IBrowserStoreSort) {
         this._sort = value
@@ -169,14 +106,13 @@ export class CardStore {
     @observable public cardsPerPage = 12
     @observable public count: null | number = null
 
-    @observable protected _find: IFind = PRESET.none
     @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
     protected disposers: IReactionDisposer[] = []
     private piwikStore: PiwikStore
 
     public constructor(piwikStore: PiwikStore) {
         this.piwikStore = piwikStore
-        this.disposers.push(reaction(() => this.find.$and, async (find) => {
+        this.disposers.push(reaction(() => [...this.querryFindBuilder.find.$and], async (find) => {
             await this.querry()
         }))
     }
@@ -205,7 +141,7 @@ export class CardStore {
                 'trackEvent',
                 'load-time',
                 this.selectedPreset,
-                this.selectedPreset !== 'custom' ? undefined : this.findStringified,
+                this.selectedPreset !== 'custom' ? undefined : this.querryFindBuilder.findStringified,
                 (Date.now() - timer) / 1000,
             ])
 
@@ -275,7 +211,7 @@ export class CardStore {
                 'trackEvent',
                 'load-time',
                 this.selectedPreset,
-                this.selectedPreset !== 'custom' ? undefined : this.findStringified,
+                this.selectedPreset !== 'custom' ? undefined : this.querryFindBuilder.findStringified,
                 (Date.now() - timer) / 1000,
             ])
         } catch(err) {
@@ -289,13 +225,6 @@ export class CardStore {
     }
 
     @action public setFind(diff: Partial<IFind>) {
-
-        // If changed, automatically trigger query via mobx due reaction above on `this.find.$and`.
-        if('$and' in diff && diff.$and) {
-            this._find.$and = sortFindAnd(diff.$and)
-        }
-
-        // Doesn't automatically trigger query because there's no reaction on `this.find.$text`.
-        if('$text' in diff) this._find.$text = '$text' in diff ? diff.$text : this._find.$text
+        return this.querryFindBuilder.setFind(diff)
     }
 }

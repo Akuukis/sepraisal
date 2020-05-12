@@ -2,12 +2,12 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { FormGroup, FormLabel } from '@material-ui/core'
+import { FormLabel } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import MyExpansionPanel from 'src/components/MyExpansionPanel'
 
 import Checkbox from './FormControls/Checkbox'
+import MyFormGroup from './FormControls/MyFormGroup'
 import SliderLog from './FormControls/SliderLog'
 
 
@@ -19,7 +19,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 })
 
-interface IProps extends Omit<React.ComponentProps<typeof MyExpansionPanel>, 'header' | 'subheader'> {
+interface IProps extends Omit<React.ComponentProps<typeof MyFormGroup>, 'header' | 'subheader'> {
 }
 
 
@@ -27,17 +27,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {className, ...otherProps} = props
 
     return (
-        <MyExpansionPanel className={clsx(classes.root, className)} header='Basics' subheader='' {...otherProps}>
-            <FormGroup>
-                <FormLabel className={classes.legend} component='legend'>
-                    [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
-                </FormLabel>
-                <Checkbox  title='Vanilla'                 findKey='sbc.vanilla'                   yes                   no={false} />
-                <Checkbox  title='Large Grid'              findKey='sbc.gridSize'                  yes={{$eq: 'Large'}}  no={{$eq: 'Small'}} />
-                <Checkbox  title='Static Grid'             findKey='sbc.gridStatic'                yes                   no={false} />
-                <Checkbox  title='Printable (no subgrids)' findKey='sbc.gridCount'                 yes={{$eq: 1}}        no={{$ne: 1}} />
-                <SliderLog title='PCU'                     findKey='sbc.blockPCU'                  min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
-            </FormGroup>
-        </MyExpansionPanel>
+        <MyFormGroup className={clsx(classes.root, className)} header='Basics' {...otherProps}>
+            <FormLabel className={classes.legend} component='legend'>
+                [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
+            </FormLabel>
+            <Checkbox  title='Vanilla'                 criterionId='sbc.vanilla'                   yes={{$eq: true}}     no={{$eq: false}} />
+            <Checkbox  title='Large Grid'              criterionId='sbc.gridSize'                  yes={{$eq: 'Large'}}  no={{$eq: 'Small'}} />
+            <Checkbox  title='Static Grid'             criterionId='sbc.gridStatic'                yes={{$eq: true}}     no={{$eq: false}} />
+            <Checkbox  title='Printable (no subgrids)' criterionId='sbc.gridCount'                 yes={{$eq: 1}}        no={{$ne: 1}} />
+            <SliderLog title='PCU'                     criterionId='sbc.blockPCU'                  min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
+        </MyFormGroup>
     )
 })) /* ============================================================================================================= */
