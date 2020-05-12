@@ -36,7 +36,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <MyFormGroup className={clsx(classes.root, className)} header='Block Groups' {...otherProps}>
             <FormLabel className={classes.legend} component='legend'>
-                TODO
             </FormLabel>
             {Object.entries(BLOCK_GROUPS).map(([groupId, fullIds]) => (
                 <CheckboxMulti
