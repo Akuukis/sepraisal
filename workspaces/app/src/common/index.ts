@@ -4,6 +4,7 @@ import { DependencyList, useEffect } from 'react'
 
 export * from './Component'
 export * from './ComponentRouted'
+export * from './blockGroups'
 export * from './createFC'
 export * from './myTheme'
 export * from './vega'
