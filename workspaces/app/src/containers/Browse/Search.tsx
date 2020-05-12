@@ -10,6 +10,7 @@ import {
     Menu,
     MenuItem,
     TextField,
+    Typography,
 } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
@@ -27,7 +28,19 @@ const styles = (theme: IMyTheme) => createStyles({
 
     input: {
         backgroundColor: 'white',
-    }
+    },
+    search: {
+        maxWidth: 720,
+        flexGrow: 1,
+        flexShrink: 1,
+    },
+    status: {
+        flexGrow: 0,
+        flexShrink: 0,
+        padding: theme.spacing(2),
+        color: theme.palette.primary.contrastText,
+        minWidth: 240,
+    },
 })
 
 
@@ -111,8 +124,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <Grid item xs={12}>
+        <Grid
+            className={classes.root}
+            item
+            xs={12}
+
+            container
+            justify='center'
+            alignItems='center'
+        >
             <TextField
+                className={classes.search}
                 id='search'
                 placeholder='Search by id, title, author, collection, or any keyword in description...'
                 variant='outlined'
@@ -125,7 +147,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         root: classes.input,
                     },
                     endAdornment: [(
-                        <InputAdornment position='end' key='sort'>
+                        <InputAdornment position='end' id='sort'>
                             {renderSortIcon()}
                         </InputAdornment>
                     )],
@@ -153,6 +175,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 {renderSortItem('blockPCU', 'PCU')}
                 {renderSortItem('oreVolume', 'Ore, m\u00B3')}
             </Menu>
+            <Typography className={classes.status} variant='subtitle1' align='center'>
+                {cardStore.count && `showing ${cardStore.cards.size} of ${cardStore.count} results`}
+            </Typography>
         </Grid>
     )
 })) /* ============================================================================================================= */
