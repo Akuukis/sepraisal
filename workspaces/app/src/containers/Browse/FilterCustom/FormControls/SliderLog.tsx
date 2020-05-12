@@ -23,7 +23,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    findKey: string,
+    criterionId: string,
     max: number,
     min: number,
     title: string,
@@ -36,7 +36,7 @@ interface IQuery {
 }
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {title, findKey, min, max, zeroes} = props
+    const {title, criterionId, min, max, zeroes} = props
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
@@ -44,7 +44,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const safeMax = Math.log10(max)
 
     const setState = (): [number, number] => {
-        const criterion = cardStore.querryFindBuilder.getCriterion<IQuery>(findKey)
+        const criterion = cardStore.querryFindBuilder.getCriterion<IQuery>(criterionId)
 
         return [
             criterion?.$gte ? Math.log10(criterion.$gte) : safeMin,
@@ -62,7 +62,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         criterion.$lte = logValue[1] === 0 ? 0 : new BigNumber(Math.pow(10, logValue[1])).dp(0).toNumber()
     }
     criterion = Object.keys(criterion).length > 0 ? criterion : null
-    runInAction(() => formGroupScope.set(findKey, undefined))
+    runInAction(() => formGroupScope.set(criterionId, undefined))
 
     const handleChange = (event, newValue) => {
         setLogValue(newValue)
@@ -77,10 +77,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             piwikStore.push([
                 'trackEvent',
                 'custom-filter',
-                findKey,
+                criterionId,
                 String(zeroes),
             ])
-            cardStore.querryFindBuilder.setCriterion(findKey, zeroes)
+            cardStore.querryFindBuilder.setCriterion(criterionId, zeroes)
 
             return
         }
@@ -88,10 +88,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         piwikStore.push([
             'trackEvent',
             'custom-filter',
-            findKey,
+            criterionId,
             criterion ? `${criterion.$gte} to ${criterion.$lte}` : JSON.stringify(null),
         ])
-        cardStore.querryFindBuilder.setCriterion(findKey, criterion)
+        cardStore.querryFindBuilder.setCriterion(criterionId, criterion)
     })
 
     const from = criterion?.$gte !== undefined ? `from ${formatFloat(criterion.$gte)}` : ''

@@ -29,20 +29,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <MyFormGroup className={clsx(classes.root, className)} header='Cost' {...otherProps}>
             <FormLabel className={classes.legend} component='legend'>
             </FormLabel>
-            <SliderLog title='PCU'                          findKey='sbc.blockPCU'      min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
-            <SliderLog title={'Spent total ore (m\u00B3)'}  findKey='sbc.oreVolume'     min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+            <SliderLog title='PCU'                          criterionId='sbc.blockPCU'      min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
+            <SliderLog title={'Spent total ore (m\u00B3)'}  criterionId='sbc.oreVolume'     min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
             <Divider />
-            <SliderLog title={'Iron Ore (m\u00B3)'}         findKey='sbc.ores.Iron'     min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-            <SliderLog title={'Nickel Ore (m\u00B3)'}       findKey='sbc.ores.Nickel'   min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-            <SliderLog title={'Silicon Ore (m\u00B3)'}      findKey='sbc.ores.Silicon'  min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-            <SliderLog title={'Cobalt Ore (m\u00B3)'}       findKey='sbc.ores.Cobalt'   min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-            <SliderLog title={'Silver Ore (m\u00B3)'}       findKey='sbc.ores.Silver'   min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-            <SliderLog title={'Gold Ore (m\u00B3)'}         findKey='sbc.ores.Gold'     min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
-            <SliderLog title={'Platinum Ore (m\u00B3)'}     findKey='sbc.ores.Iron'     min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+            <SliderLog title={'Iron Ore (m\u00B3)'}         criterionId='sbc.ores.Iron'     min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+            <SliderLog title={'Nickel Ore (m\u00B3)'}       criterionId='sbc.ores.Nickel'   min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+            <SliderLog title={'Silicon Ore (m\u00B3)'}      criterionId='sbc.ores.Silicon'  min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+            <SliderLog title={'Cobalt Ore (m\u00B3)'}       criterionId='sbc.ores.Cobalt'   min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+            <SliderLog title={'Silver Ore (m\u00B3)'}       criterionId='sbc.ores.Silver'   min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+            <SliderLog title={'Gold Ore (m\u00B3)'}         criterionId='sbc.ores.Gold'     min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
+            <SliderLog title={'Platinum Ore (m\u00B3)'}     criterionId='sbc.ores.Iron'     min={0} max={Math.pow(10, 8)} zeroes={{$exists: false}} />
             <Divider />
-            <SliderLog title={'Time to weld'}               findKey='sbc.blockTime'     min={0} max={Math.pow(10, 7)} zeroes={{$exists: false}} />
-            <SliderLog title={'Time to assemble'}           findKey='sbc.componentTime' min={0} max={Math.pow(10, 7)} zeroes={{$exists: false}} />
-            <SliderLog title={'Time to refine'}             findKey='sbc.ingotTime'     min={0} max={Math.pow(10, 7)} zeroes={{$exists: false}} />
+            <SliderLog title={'Time to weld'}               criterionId='sbc.blockTime'     min={0} max={Math.pow(10, 7)} zeroes={{$exists: false}} />
+            <SliderLog title={'Time to assemble'}           criterionId='sbc.componentTime' min={0} max={Math.pow(10, 7)} zeroes={{$exists: false}} />
+            <SliderLog title={'Time to refine'}             criterionId='sbc.ingotTime'     min={0} max={Math.pow(10, 7)} zeroes={{$exists: false}} />
         </MyFormGroup>
     )
 })) /* ============================================================================================================= */

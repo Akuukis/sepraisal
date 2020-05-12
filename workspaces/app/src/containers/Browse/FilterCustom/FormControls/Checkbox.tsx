@@ -23,49 +23,49 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    findKey: string,
-    no: FindCriterionDirect,
+    criterionId: string,
+    no?: FindCriterionDirect,
     title: string,
     yes: FindCriterionDirect,
 }
 
-const nextState = (state: boolean | null) => {
-    switch(state) {
-        case(null): return true
-        case(true): return false
-        case(false): return null
-        default: throw new Error('catch me')
-    }
-}
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {title, findKey, yes, no} = props
+    const {title, criterionId, yes, no} = props
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
+
+    const nextState = (state: boolean | null) => {
+        switch(state) {
+            case(null): return true
+            case(true): return no ? false : null
+            case(false): return null
+            default: throw new Error('catch me')
+        }
+    }
 
     const getCriteria = (state: boolean | null): FindCriterionDirect | null => {
         switch(state) {
             case(null): return null
             case(true): return yes
-            case(false): return no
+            case(false): return no!  // nextState() guards this would never happen.
             default: throw new Error('catch me')
         }
     }
 
-    const criterion = cardStore.querryFindBuilder.getCriterion(findKey)
+    const criterion = cardStore.querryFindBuilder.getCriterion(criterionId)
     const checked = criterion ? deep(criterion, yes) : null
-    runInAction(() => formGroupScope.set(findKey, undefined))
+    runInAction(() => formGroupScope.set(criterionId, undefined))
 
     const toggleChecked = action(() => {
         piwikStore.push([
             'trackEvent',
             'custom-filter',
-            findKey,
-            // tslint:disable-next-line: no-non-null-assertion
+            criterionId,
             JSON.stringify(nextState(checked)),
         ])
-        cardStore.querryFindBuilder.setCriterion(findKey, getCriteria(nextState(checked)))
+        cardStore.querryFindBuilder.setCriterion(criterionId, getCriteria(nextState(checked)))
     })
 
     return (
@@ -79,7 +79,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     color='primary'  // Applies when checked.
                     checked={checked === true}
                     onChange={toggleChecked}
-                    value={findKey}
+                    value={criterionId}
                     indeterminate={checked === null}
                 />
             }

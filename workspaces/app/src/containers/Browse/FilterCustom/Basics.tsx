@@ -31,11 +31,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <FormLabel className={classes.legend} component='legend'>
                 [-]: disabled filter,   [x]: positive filer,   [ ]: negative filter
             </FormLabel>
-            <Checkbox  title='Vanilla'                 findKey='sbc.vanilla'                   yes={{$eq: true}}     no={{$eq: false}} />
-            <Checkbox  title='Large Grid'              findKey='sbc.gridSize'                  yes={{$eq: 'Large'}}  no={{$eq: 'Small'}} />
-            <Checkbox  title='Static Grid'             findKey='sbc.gridStatic'                yes={{$eq: true}}     no={{$eq: false}} />
-            <Checkbox  title='Printable (no subgrids)' findKey='sbc.gridCount'                 yes={{$eq: 1}}        no={{$ne: 1}} />
-            <SliderLog title='PCU'                     findKey='sbc.blockPCU'                  min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
+            <Checkbox  title='Vanilla'                 criterionId='sbc.vanilla'                   yes={{$eq: true}}     no={{$eq: false}} />
+            <Checkbox  title='Large Grid'              criterionId='sbc.gridSize'                  yes={{$eq: 'Large'}}  no={{$eq: 'Small'}} />
+            <Checkbox  title='Static Grid'             criterionId='sbc.gridStatic'                yes={{$eq: true}}     no={{$eq: false}} />
+            <Checkbox  title='Printable (no subgrids)' criterionId='sbc.gridCount'                 yes={{$eq: 1}}        no={{$ne: 1}} />
+            <SliderLog title='PCU'                     criterionId='sbc.blockPCU'                  min={0} max={Math.pow(10, 5)} zeroes={{$exists: false}} />
         </MyFormGroup>
     )
 })) /* ============================================================================================================= */

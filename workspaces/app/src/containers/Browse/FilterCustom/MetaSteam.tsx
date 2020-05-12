@@ -30,11 +30,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <MyFormGroup className={clsx(classes.root, className)} header='Steam' {...otherProps}>
             <FormLabel className={classes.legend} component='legend'>
             </FormLabel>
-            <Slider    title='Steam stars'             findKey='steam.ratingStars'            min={0} max={5} />
-            <SliderLog title='Steam subscribers'       findKey='steam.subscriberCount'        min={0} max={Math.pow(10, 5)} />
-            <SliderLog title='Steam views'             findKey='steam.viewCount'              min={0} max={Math.pow(10, 5)} />
-            <SliderLog title='Steam favorites'         findKey='steam.favoriteCount'          min={0} max={Math.pow(10, 5)} />
-            <Slider    title='File size (MB)'          findKey='steam.sizeMB'                 min={0} max={Math.pow(10, 2)} step={0.1} />
+            <Slider    title='Steam stars'             criterionId='steam.ratingStars'            min={0} max={5} />
+            <SliderLog title='Steam subscribers'       criterionId='steam.subscriberCount'        min={0} max={Math.pow(10, 5)} />
+            <SliderLog title='Steam views'             criterionId='steam.viewCount'              min={0} max={Math.pow(10, 5)} />
+            <SliderLog title='Steam favorites'         criterionId='steam.favoriteCount'          min={0} max={Math.pow(10, 5)} />
+            <Slider    title='File size (MB)'          criterionId='steam.sizeMB'                 min={0} max={Math.pow(10, 2)} step={0.1} />
             {/* TODO: No Description */}
             {/* TODO: Status (by tags) */}
             {/* TODO: Published date */}
