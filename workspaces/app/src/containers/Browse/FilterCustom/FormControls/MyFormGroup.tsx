@@ -26,7 +26,7 @@ interface IProps extends Omit<React.ComponentProps<typeof MyExpansionPanel>, 'su
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {className, header, ...otherProps} = props
-    const [scope] = React.useState(() => new ObservableMap<undefined>())
+    const [scope] = React.useState(() => new ObservableMap<boolean | undefined>())
 
     return (
         <CONTEXT.FORM_GROUP_SCOPE.Provider value={scope}>
