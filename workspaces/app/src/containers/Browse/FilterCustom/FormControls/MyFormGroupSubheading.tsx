@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
+import { Link } from '@material-ui/core'
+
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { CONTEXT } from 'src/stores'
 
@@ -18,16 +20,23 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
     const cardStore = React.useContext(CONTEXT.CARDS)
 
-    const active = [...formGroupScope.keys()]
-        .map((id) => cardStore.querryFindBuilder.getCriterion(id))
-        .filter((active) => !!active)
-        .length
+    const actives = [...formGroupScope.keys()]
+        .filter((id) => !!cardStore.querryFindBuilder.getCriterion(id))
 
     console.log(formGroupScope.toJS())
 
+    const handleClear = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+        event.stopPropagation()  // Don't open the drawer.
+        for(const active of actives) cardStore.querryFindBuilder.setCriterion(active, null)
+    }
+
+    if(!actives.length) return (<>{''}</>)
+
     return (
         <>
-            {active ? `${active} active filters` : ''}
+            {`${actives.length} active filters`}
+            &nbsp;
+            (<Link onClick={handleClear}>clear</Link>)
         </>
     )
 })) /* ============================================================================================================= */
