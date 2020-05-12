@@ -71,6 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cubeFullTypes = [...praisalManager.cubes.keys()]
 
     const options = cubeFullTypes
+        .filter((fullType) => !fullType.includes('Debug'))
         .map(fullTypeToOption)
 
     const $exists = variant === 'include'
