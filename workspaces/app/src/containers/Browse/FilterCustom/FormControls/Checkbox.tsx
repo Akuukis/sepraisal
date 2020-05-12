@@ -56,7 +56,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const criterion = cardStore.querryFindBuilder.getCriterion(criterionId)
     const state = inferState(criterion, yes, no)
-    runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionId), undefined))
+    runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionId), state !== null))
 
     const toggleChecked = action(() => {
         piwikStore.push([

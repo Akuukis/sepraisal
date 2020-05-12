@@ -57,7 +57,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const state = isYes ? true : isNo ? false : null
     const isError = isYes && isNo
 
-    runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionIds), undefined))
+    runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionIds), state !== null))
 
     const toggleChecked = action(() => {
         piwikStore.push([

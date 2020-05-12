@@ -64,7 +64,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const totalCriteria = (cardStore.querryFindBuilder.find.$and?.length ?? 2) - 2
 
     return (
-        <MyExpansionPanel header='Advanced' subheader={totalCriteria ? `${totalCriteria} active filters total` : ``}>
+        <MyExpansionPanel header='Advanced' subheader={totalCriteria ? `${totalCriteria} criteria from filters` : ``}>
             <Grid container spacing={2}>
                 <Grid item xs={6}>
                     <Button variant='contained' fullWidth onClick={reset}>
