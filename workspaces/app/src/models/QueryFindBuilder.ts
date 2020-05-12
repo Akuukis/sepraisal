@@ -2,6 +2,8 @@ import { IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
 import { action, computed, IReactionDisposer, observable } from 'mobx'
 import { QuerySelector, RootQuerySelector } from 'mongodb'
 
+import { BLOCK_GROUPS } from 'src/common'
+
 import { CardStatus, ICard } from '../models'
 
 
@@ -26,6 +28,13 @@ export interface IFindRootQuery extends RequiredSome<Pick<RootQuerySelector<IBlu
     // $text?: {$search: string},
 }
 
+const blockGroupToQuery = (fullIds: string[]) => {
+    return {
+        $or: fullIds.map((fullId) => ({
+            [`sbc.blocks.${fullId}`]: {$exists: true}
+        }))
+    }
+}
 
 const presetUpToDate: FindQueryPreset = [
     {sbc: {$exists: true}},
@@ -36,24 +45,18 @@ const presetShip: FindQueryPreset = [
     ...presetUpToDate,
     {'sbc.vanilla': {$eq: true}},
     {'sbc.blocks.Gyro/SmallBlockGyro': {$exists: true}},
-    {$or: [
-        {'sbc.blocks.BatteryBlock/SmallBlockBatteryBlock': {$exists: true}},
-        {'sbc.blocks.Reactor/SmallBlockSmallGenerator': {$exists: true}},
-        {'sbc.blocks.Reactor/SmallBlockLargeGenerator': {$exists: true}},
-    ]},
-    {$or: [
-        {'sbc.blocks.Cockpit/SmallBlockCockpit': {$exists: true}},
-        {'sbc.blocks.Cockpit/DBSmallBlockFighterCockpit': {$exists: true}},
-    ]},
+    blockGroupToQuery(BLOCK_GROUPS.POWER),
+    blockGroupToQuery(BLOCK_GROUPS.COCKPIT),
 ]
 
 const presetFighter: FindQueryPreset = [
-    ...presetShip,
+    ...presetUpToDate,
+    {'sbc.vanilla': {$eq: true}},
     {'sbc.gridSize': {$eq: 'Small'}},
-    {$or: [
-        {'sbc.blocks.SmallGatlingGun/': {$exists: true}},
-        {'sbc.blocks.SmallMissileLauncher/': {$exists: true}},
-    ]},
+    {'sbc.blocks.Gyro/SmallBlockGyro': {$exists: true}},
+    blockGroupToQuery(BLOCK_GROUPS.POWER),
+    blockGroupToQuery(BLOCK_GROUPS.COCKPIT_CLOSED),
+    blockGroupToQuery(BLOCK_GROUPS.WEAPON_FIXED),
 ]
 
 const genFighterPreset = (...args): IFindRootQuery =>

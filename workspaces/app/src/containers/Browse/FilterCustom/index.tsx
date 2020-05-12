@@ -5,6 +5,7 @@ import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconFilter from 'src/components/icons/IconFilter'
 
 import Basics from './Basics'
+import BlockGroups from './BlockGroups'
 import Blocks from './Blocks'
 import Cost from './Cost'
 import MetaSteam from './MetaSteam'
@@ -33,6 +34,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Size           classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
             <Performance    classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
             <Cost           classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
+            <BlockGroups    classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
             <Blocks         classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
         </>
     )

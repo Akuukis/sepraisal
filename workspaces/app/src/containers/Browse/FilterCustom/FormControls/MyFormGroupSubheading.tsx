@@ -21,8 +21,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
     const cardStore = React.useContext(CONTEXT.CARDS)
 
-    const actives = [...formGroupScope.keys()]
-        .filter((id) => !!cardStore.querryFindBuilder.getCriterion(QueryFindBuilder.parseId(id)))
+    const actives = [...formGroupScope.entries()]
+        .filter(([id, value]) => value !== false)
+        .filter(([id, value]) => value === true || cardStore.querryFindBuilder.getCriterion(QueryFindBuilder.parseId(id)))
+        .map(([id]) => id)
 
     const handleClear = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         event.stopPropagation()  // Don't open the drawer.
@@ -33,7 +35,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <>
-            {`${actives.length} active filters`}
+            {`${actives.length} filters active`}
             &nbsp;
             (<Link onClick={handleClear}>clear</Link>)
         </>
