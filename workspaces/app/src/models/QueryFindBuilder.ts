@@ -145,6 +145,12 @@ export class QueryFindBuilder {
         return idSerial.split(',')
     }
 
+    public static isCriterionGroup = (criterion: FindCriterion): criterion is FindCriterionGroup => {
+        return Array.isArray(criterion)
+    }
+    public static isCriterionDirect = (criterion: FindCriterion): criterion is FindCriterionDirect => {
+        return !QueryFindBuilder.isCriterionGroup(criterion)
+    }
 
     @computed public get find(): IFindRootQuery { return this._find }
 
@@ -208,7 +214,6 @@ export class QueryFindBuilder {
     public getCriterion<T extends FindCriterionGroup = FindCriterionGroup>(idOrIds: string[]): T | null
     public getCriterion<T extends FindCriterion = FindCriterion>(idOrIds: string | string[]): T | null
     public getCriterion<T extends FindCriterion = FindCriterion>(idOrIds: string | string[]): T | null {
-        console.log(idOrIds, this.byIds)
         const id = QueryFindBuilder.serializeId(idOrIds)
         return (this.byIds.find(([innerId]) => innerId === id)?.[1] as T | undefined) ?? null  // Brackets for Babel.
     }
@@ -234,7 +239,7 @@ export class QueryFindBuilder {
         let query: FindQuery
         if(Array.isArray(idOrIds)) {
             query = fromCriterionGroup(idOrIds, criterion)
-        } else if(!Array.isArray(idOrIds) && isCriterionDirect(criterion)) {
+        } else if(!Array.isArray(idOrIds) && QueryFindBuilder.isCriterionDirect(criterion)) {
             query = fromCriterionDirect(idOrIds, criterion)
         } else {
             throw new Error('catch me')
@@ -262,19 +267,12 @@ export class QueryFindBuilder {
     }
 }
 
-const isCriterionGroup = (criterion: FindCriterion): criterion is FindCriterionGroup => {
-    return '$or' in criterion
-}
-const isCriterionDirect = (criterion: FindCriterion): criterion is FindCriterionDirect => {
-    return !isCriterionGroup(criterion)
-}
-
 const fromCriterionDirect = (id: string, criterion: FindCriterionDirect): FindQueryDirect => {
     return {[id]: criterion}
 }
 
 const fromCriterionGroup = (ids: string[], criterion: FindCriterionDirect | FindCriterionGroup): FindQueryGroup => {
-    if(isCriterionGroup(criterion)) {
+    if(QueryFindBuilder.isCriterionGroup(criterion)) {
         return {$or: criterion}
     } else {
         return {$or: ids.map((id) => ({[id]: criterion}))}

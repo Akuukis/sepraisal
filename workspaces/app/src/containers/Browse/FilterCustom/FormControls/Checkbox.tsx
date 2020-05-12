@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader/root'
 import { Checkbox, FormControlLabel } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import { FindCriterionDirect } from 'src/models'
+import { FindCriterion, FindCriterionDirect, QueryFindBuilder } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
 
@@ -23,7 +23,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    criterionId: string,
+    criterionId: string | string[],
     no?: FindCriterionDirect,
     title: string,
     yes: FindCriterionDirect,
@@ -55,17 +55,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const criterion = cardStore.querryFindBuilder.getCriterion(criterionId)
-    const checked = criterion ? deep(criterion, yes) : null
-    runInAction(() => formGroupScope.set(criterionId, undefined))
+    const state = inferState(criterion, yes, no)
+    runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionId), undefined))
 
     const toggleChecked = action(() => {
         piwikStore.push([
             'trackEvent',
             'custom-filter',
             criterionId,
-            JSON.stringify(nextState(checked)),
+            JSON.stringify(nextState(state)),
         ])
-        cardStore.querryFindBuilder.setCriterion(criterionId, getCriteria(nextState(checked)))
+        cardStore.querryFindBuilder.setCriterion(criterionId, getCriteria(nextState(state)))
     })
 
     return (
@@ -77,14 +77,29 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         indeterminate: classes.checkboxIndeterminate,
                     }}
                     color='primary'  // Applies when checked.
-                    checked={checked === true}
+                    checked={state === true}
                     onChange={toggleChecked}
                     value={criterionId}
-                    indeterminate={checked === null}
+                    indeterminate={state === null}
                 />
             }
             label={title}
-            style={checked === null ? {color: theme.palette.text.disabled} : {}}
+            style={state === null ? {color: theme.palette.text.disabled} : {}}
         />
     )
 })) /* ============================================================================================================= */
+
+const inferState = (criterion: FindCriterion | null, yes: FindCriterionDirect, no?: FindCriterionDirect): boolean | null => {
+    if(!criterion) return null
+
+    if(QueryFindBuilder.isCriterionDirect(criterion)) {
+        if(deep(criterion, yes)) return true
+        if(no && deep(criterion, no)) return false
+    } else {
+        if(criterion.every((subCriterion) => deep(Object.values(subCriterion).pop(), yes))) return true
+        if(no && criterion.every((subCriterion) => deep(Object.values(subCriterion).pop(), no))) return false
+    }
+
+    // If it doesn't match anything expected, then user has added different filter for this key.
+    return null
+}

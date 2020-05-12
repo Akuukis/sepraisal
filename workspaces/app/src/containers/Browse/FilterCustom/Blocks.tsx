@@ -7,6 +7,7 @@ import { FormLabel } from '@material-ui/core'
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
 import BlocksSelector from './FormControls/BlocksSelector'
+import Checkbox from './FormControls/Checkbox'
 import MyFormGroup from './FormControls/MyFormGroup'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -47,6 +48,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     root: classes.selector,
                 }}
             />
+            <Checkbox
+                title='Any power source'
+                criterionId={[
+                    'sbc.blocks.BatteryBlock/SmallBlockBatteryBlock',
+                    'sbc.blocks.Reactor/SmallBlockSmallGenerator',
+                    'sbc.blocks.Reactor/SmallBlockLargeGenerator',
+                ]}
+                yes={{$exists: true}}
+            />
+
         </MyFormGroup>
     )
 })) /* ============================================================================================================= */

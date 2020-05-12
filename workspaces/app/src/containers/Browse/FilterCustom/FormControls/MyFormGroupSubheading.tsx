@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import { Link } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { QueryFindBuilder } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
 
@@ -21,9 +22,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     const actives = [...formGroupScope.keys()]
-        .filter((id) => !!cardStore.querryFindBuilder.getCriterion(id))
-
-    console.log(formGroupScope.toJS())
+        .filter((id) => !!cardStore.querryFindBuilder.getCriterion(QueryFindBuilder.parseId(id)))
 
     const handleClear = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         event.stopPropagation()  // Don't open the drawer.
