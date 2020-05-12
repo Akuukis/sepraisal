@@ -67,8 +67,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {heading, className, variant, ...otherProps} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
-    const cubeNames = [...praisalManager.cubes.keys()]
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
+    const cubeFullTypes = [...praisalManager.cubes.keys()]
+
+    const options = cubeFullTypes
+        .filter((fullType) => !fullType.includes('Debug'))
+        .map(fullTypeToOption)
 
     const $exists = variant === 'include'
 
@@ -77,23 +81,22 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 const key = Object.keys(criteria).pop()!
                 if(!key) throw Error('catch me')
 
-                const fullId = key.match(/sbc\.blocks\.(.*)/)?.[1]
-                return [fullId, criteria[key] as object] as const
+                const fullType = key.match(/sbc\.blocks\.(.*)/)?.[1]
+                return [fullType, criteria[key] as object] as const
             })
             .filter((pair): pair is [string, object] => !!pair[0])
 
     const disabled = filtered
-            .filter(([fullId, value]) => deep(value, {$exists: !$exists}))
-            .map(([fullId]) => fullId)
+            .filter(([_, value]) => deep(value, {$exists: !$exists}))
+            .map(([fullType]) => fullTypeToOption(fullType))
 
-    const enabled = filtered
-            .filter(([fullId, value]) => deep(value, {$exists}))
-            .map(([fullId]) => fullId)
+    const selected = filtered
+            .filter(([_, value]) => deep(value, {$exists}))
+            .map(([fullType]) => fullTypeToOption(fullType))
 
     runInAction(() => {
-        for(const fullId of enabled) {
-            console.log(fullId, enabled.includes(fullId))
-            formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
+        for(const fullType of selected) {
+            formGroupScope.set(`sbc.blocks.${fullType}`, undefined)
         }
         // Don't bother removing them at next re-render, it's ok.
     })
@@ -103,19 +106,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         {heading}
     </>)
 
-    const handleChange = action((event: React.ChangeEvent<{}>, fullIds: string[]) => {
-        for(const fullId of [...enabled, ...fullIds]) {
-            const newValue = fullIds.includes(fullId) ? {$exists} : null
-            cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullId}`, newValue)
-            formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
+    const handleChange = action((event: React.ChangeEvent<{}>, options: IOption[]) => {
+        for(const fullType of [...selected, ...options.map(({fullType})=>fullType)]) {
+            const newValue = options.some((option) => option.fullType === fullType) ? {$exists} : null
+            cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullType}`, newValue)
+            formGroupScope.set(`sbc.blocks.${fullType}`, undefined)
         }
     })
 
-    const handleRemove = (event: React.SyntheticEvent<any, Event>) => {
-        const fullId = event.currentTarget.parentElement.innerText
-        cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullId}`, null)
-        formGroupScope.set(`sbc.blocks.${fullId}`, undefined)
-    }
+    const handleRemove = action((event: React.SyntheticEvent<Element, Event>) => {
+        const shortType = event.currentTarget.parentElement!.innerText
+        const option = options.find((option) => option.shortType === shortType)!
+        cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${option.fullType}`, null)
+        formGroupScope.set(`sbc.blocks.${option.fullType}`, undefined)
+    })
 
     return (
         <Card className={clsx(classes.root, className)} {...otherProps}>
@@ -129,14 +133,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <CardContent className={classes.content}>
                 <Autocomplete
                     multiple
-                    value={enabled}
+                    value={selected}
                     onChange={handleChange}
                     id='tags-filled'
                     disableCloseOnSelect
-                    options={cubeNames}
-                    getOptionSelected={(option: string, value: string) => value === option}
-                    getOptionDisabled={(option: string) => disabled.includes(option)}
-                    renderTags={(value: string[])=>null}
+                    options={options}
+                    getOptionSelected={(option: IOption, value: IOption) => selected.some(({fullType}) => fullType === option.fullType)}
+                    getOptionDisabled={(option: IOption) => disabled.some(({fullType}) => fullType === option.fullType)}
+                    getOptionLabel={(option: IOption) => option.shortType}
+                    renderTags={(value: IOption[])=>null}
                     renderInput={(params) => (
                         <TextField
                             color='secondary'
@@ -149,12 +154,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 />
             </CardContent>
             <CardContent className={classes.content}>
-                {enabled.map((id: string, index: number) => (
+                {selected.map((option: IOption, index: number) => (
                     <Chip
+                        id={option.fullType}
                         variant='outlined'
-                        key={id}
                         size='small'
-                        label={id}
+                        label={option.shortType}
                         className={clsx(classes.chip, variant === 'exclude' && classes.chipExcludeVariant)}
                         onDelete={handleRemove}
                     />
@@ -163,3 +168,18 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </Card>
     )
 })) /* ============================================================================================================= */
+
+const fullToShortType = (fullType: string) => {
+    const [type, subtype] = fullType.split('/')
+    return subtype || type
+}
+
+interface IOption {
+    fullType: string
+    shortType: string
+}
+
+const fullTypeToOption = (fullType: string): IOption => ({
+    fullType,
+    shortType: fullToShortType(fullType),
+})
