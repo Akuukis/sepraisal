@@ -69,10 +69,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             setValue(newValue)
         } else if(newValue.type === OPTION_TYPE.AUTHOR) {
             cardStore.querryFindBuilder.setCriterion('steam.author.title', {$in: [...authors, newValue.value]})
+            cardStore.setFind({$text: undefined})
             setValue(null)
             setInput('')
         } else if(newValue.type === OPTION_TYPE.COLLECTION) {
             cardStore.querryFindBuilder.setCriterion('steam.collections.title', {$in: [...collections, newValue.value]})
+            cardStore.setFind({$text: undefined})
             setValue(null)
             setInput('')
         }
