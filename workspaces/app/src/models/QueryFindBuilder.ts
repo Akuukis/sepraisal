@@ -268,7 +268,8 @@ export class QueryFindBuilder {
         }
 
         // Doesn't automatically trigger query because there's no reaction on `this.find.$text`.
-        if('$text' in diff) this._find.$text = '$text' in diff ? diff.$text : this._find.$text
+        // if `$text` property is `undefined`, it will be deleted later as part of JSON serialize and parse.
+        if('$text' in diff) this._find.$text = diff.$text
     }
 }
 

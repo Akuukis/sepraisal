@@ -8,6 +8,8 @@ export * from './blockGroups'
 export * from './createFC'
 export * from './myTheme'
 export * from './vega'
+export * from './collections'
+export * from './authors'
 
 // tslint:disable: no-submodule-imports
 export { createStyles } from '@material-ui/core/styles'  // TODO: '@material-ui/styles'
