@@ -14,6 +14,7 @@ import IconPerson from 'src/components/icons/IconPerson'
 import { CONTEXT } from 'src/stores'
 
 import SearchSort from './SearchSort'
+import { ListboxComponent, renderGroup } from './SearchVirtualized'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -93,6 +94,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
                     return option.value
                 }}
+                ListboxComponent={ListboxComponent as React.ComponentType<React.HTMLAttributes<HTMLElement>>}
+                renderGroup={renderGroup}
                 renderOption={(option: IOption) => {
                     switch(option.type) {
                         case(OPTION_TYPE.AUTHOR): {
