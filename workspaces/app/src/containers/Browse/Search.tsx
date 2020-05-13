@@ -64,19 +64,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else if(typeof newValue === 'string') {  // Pressed ENTER and so we receive plain string.
             cardStore.setFind({$text: {$search: newValue}})
             setValue({type: OPTION_TYPE.OTHER, value: newValue})
-        } else if(newValue.type === OPTION_TYPE.OTHER) {
-            cardStore.setFind({$text: {$search: newValue.value}})
-            setValue(newValue)
-        } else if(newValue.type === OPTION_TYPE.AUTHOR) {
+        } else if(newValue.type === OPTION_TYPE.AUTHOR || newValue.subtype === OPTION_TYPE.AUTHOR) {
             cardStore.querryFindBuilder.setCriterion('steam.author.title', {$in: [...authors, newValue.value]})
             cardStore.setFind({$text: undefined})
             setValue(null)
             setInput('')
-        } else if(newValue.type === OPTION_TYPE.COLLECTION) {
+        } else if(newValue.type === OPTION_TYPE.COLLECTION || newValue.subtype === OPTION_TYPE.COLLECTION) {
             cardStore.querryFindBuilder.setCriterion('steam.collections.title', {$in: [...collections, newValue.value]})
             cardStore.setFind({$text: undefined})
             setValue(null)
             setInput('')
+        } else if(newValue.type === OPTION_TYPE.OTHER) {
+            cardStore.setFind({$text: {$search: newValue.value}})
+            setValue(newValue)
         }
     }
 
@@ -111,6 +111,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 freeSolo
                 onChange={handleChange}
                 filterOptions={(options: IOption[], params) => {
+                    if (params.inputValue !== '') {
+                        options.push(
+                            // TODO: Learn MongoDB query syntax.
+                            // { value: params.inputValue, type: OPTION_TYPE.OTHER, subtype: 'In description' },
+                            // { value: params.inputValue, type: OPTION_TYPE.OTHER, subtype: 'In title' },
+                        )
+                    }
+
                     const filtered = filter(options, params) as IOption[]
 
                     // Suggest the creation of a new value
@@ -119,7 +127,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             // TODO: Learn MongoDB query syntax.
                             // { value: params.inputValue, type: OPTION_TYPE.OTHER, subtype: 'In description' },
                             // { value: params.inputValue, type: OPTION_TYPE.OTHER, subtype: 'In title' },
-                            { value: params.inputValue, type: OPTION_TYPE.OTHER, subtype: 'Anywhere' },
+                            { value: params.inputValue, type: OPTION_TYPE.OTHER, subtype: OPTION_TYPE.AUTHOR },
+                            { value: params.inputValue, type: OPTION_TYPE.OTHER, subtype: OPTION_TYPE.COLLECTION },
+                            { value: params.inputValue, type: OPTION_TYPE.OTHER, subtype: 'Anywhere by' },
                         )
                     }
 
@@ -138,23 +148,23 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 renderTags={(value, getTagProps) => [
                 ]}
                 renderGroup={renderGroup}
-                renderOption={(option: IOption) => {
-                    switch(option.type) {
+                renderOption={({type, subtype, value, amount}: IOption) => {
+                    switch(type) {
                         case(OPTION_TYPE.AUTHOR): {
-                            return <><IconPerson />&nbsp;{option.value} ({option.amount})</>
+                            return <><IconPerson />&nbsp;{amount ? `${value} (${amount})` : `"${value}"`}</>
                         }
                         case(OPTION_TYPE.COLLECTION): {
-                            return <><IconCollection />&nbsp;{option.value} ({option.amount})</>
+                            return <><IconCollection />&nbsp;{amount ? `${value} (${amount})` : `"${value}"`}</>
                         }
                         case(OPTION_TYPE.OTHER): {
-                            return <><IconBrowse />&nbsp;{option.subtype!} by "{option.value}"</>
+                            return <><IconBrowse />&nbsp;{subtype} "{value}"</>
                         }
                     }
                 }}
                 renderInput={(params) => (
                     <TextField
                         {...params}
-                        placeholder='Search by id, title, author, collection, or any keyword in description...'
+                        placeholder='Search author, collection, or free text ...'
                         variant='outlined'
                         fullWidth
                         InputProps={{
@@ -201,13 +211,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 enum OPTION_TYPE {
     AUTHOR = 'By author',
     COLLECTION = 'By collection',
-    OTHER = 'Search Text',
+    OTHER = 'Search',
 }
 
 interface IOption {
     type: OPTION_TYPE
     value: string
-    subtype?: 'In title' | 'In description' | 'Anywhere'
+    subtype?: string//'In title' | 'In description' | 'Anywhere'
     amount?: number
 }
 
