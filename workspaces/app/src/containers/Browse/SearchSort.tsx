@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from '@material-ui/core'
+import { Grid, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconSort from 'src/components/icons/IconSort'
@@ -13,6 +13,12 @@ import { CardStore } from 'src/stores/CardStore'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+    },
+
+    button: {
+    },
+    text: {
+        paddingLeft: theme.spacing(1),
     },
 })
 
@@ -49,7 +55,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         handleClose()
     }
 
-    const renderSortItem = (id: string, title: string) => {
+    const renderSortItem = (id: string) => {
+        const title = TITLES[id]
         const {sort} = cardStore
         const icon =
             id in sort && sort[id] === -1 ? <ListItemIcon><IconSortDescending /></ListItemIcon> :
@@ -59,20 +66,25 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         return (
             <MenuItem value={id} onClick={setSort}>
                 {icon}
-                <ListItemText inset primary={title} />
+                <ListItemText inset={!icon} primary={title} />
             </MenuItem>
         )
     }
 
-    const icon = <IconSort />
-        // browser.sort.key === null ? SortIcon :
-        // browser.sort.order === -1 ? SortDescendingIcon :
-        // browser.sort.order ===  1 ? SortAscendingIcon :
-        // undefined
+    const currentKey = Object.keys(cardStore.sort).pop()
+    console.log(currentKey, {...cardStore.sort})
+    const icon =
+        currentKey === undefined ? <IconSort /> :
+        cardStore.sort[currentKey] === -1 ? <IconSortDescending /> :
+        cardStore.sort[currentKey] ===  1 ? <IconSortAscending /> :
+        null
 
     return (
-        <>
-            <IconButton onClick={handleClick} className={classes.root}>
+        <Grid className={classes.root} container alignItems='center' justify='center'>
+            <Typography className={classes.text} variant='subtitle1'>
+                {currentKey && TITLES[currentKey]}
+            </Typography>
+            <IconButton onClick={handleClick} className={classes.button}>
                 {icon}
             </IconButton>
             <Menu
@@ -85,12 +97,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
                 transformOrigin={{vertical: 'top', horizontal: 'right'}}
             >
-                {renderSortItem('title', 'Blueprint Title')}
-                {renderSortItem('subscriberCount', 'Subscribers')}
-                {renderSortItem('blockCount', 'Blocks')}
-                {renderSortItem('blockPCU', 'PCU')}
-                {renderSortItem('oreVolume', 'Ore, m\u00B3')}
+                {renderSortItem('steam.title')}
+                {renderSortItem('steam.subscriberCount')}
+                {renderSortItem('sbc.blockCount')}
+                {renderSortItem('sbc.blockPCU')}
+                {renderSortItem('sbc.oreVolume')}
             </Menu>
-        </>
+        </Grid>
     )
 })) /* ============================================================================================================= */
+
+const TITLES = {
+    'steam.title': 'Blueprint Title',
+    'steam.subscriberCount': 'Subscribers',
+    'sbc.blockCount': 'Blocks',
+    'sbc.blockPCU': 'PCU',
+    'sbc.oreVolume': 'Ore, m\u00B3',
+}

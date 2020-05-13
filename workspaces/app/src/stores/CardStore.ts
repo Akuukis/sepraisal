@@ -106,7 +106,7 @@ export class CardStore {
     @observable public cardsPerPage = 12
     @observable public count: null | number = null
 
-    @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
+    @observable protected _sort: IBrowserStoreSort = {'steam.subscriberCount': -1}
     protected disposers: IReactionDisposer[] = []
     private piwikStore: PiwikStore
 

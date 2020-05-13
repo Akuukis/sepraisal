@@ -55,8 +55,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const authors = ((cardStore.querryFindBuilder.getCriterion('steam.author.title') ?? {$in: []}).$in ?? []) as string[]
     const collections = ((cardStore.querryFindBuilder.getCriterion('steam.collections.title') ?? {$in: []}).$in ?? []) as string[]
 
-    console.log([...authors], [...collections])
-
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
         if(newValue === null) {
             cardStore.setFind({$text: undefined})
