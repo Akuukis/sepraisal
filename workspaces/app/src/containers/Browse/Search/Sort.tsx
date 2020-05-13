@@ -13,6 +13,10 @@ import { CardStore } from 'src/stores/CardStore'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        width: 'unset',
+        backgroundColor: theme.palette.background.default,
+        borderBottomRightRadius: theme.shape.borderRadius,
+        borderTopRightRadius: theme.shape.borderRadius,
     },
 
     button: {
@@ -84,7 +88,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Typography className={classes.text} variant='subtitle1'>
                 {currentKey && TITLES[currentKey]}
             </Typography>
-            <IconButton onClick={handleClick} className={classes.button}>
+            <IconButton className={classes.button} onClick={handleClick} color='primary'>
                 {icon}
             </IconButton>
             <Menu

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Paper, Typography } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { CONTEXT } from 'src/stores'
@@ -50,9 +50,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             alignItems='center'
         >
             <Search />
-            <Paper>
-                <Sort />
-            </Paper>
+            <Sort />
             <Typography className={classes.status} variant='subtitle1' align='center'>
                 {cardStore.count && `showing ${cardStore.cards.size} of ${cardStore.count} results`}
             </Typography>
