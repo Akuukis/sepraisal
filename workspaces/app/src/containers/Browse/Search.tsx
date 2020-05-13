@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, InputAdornment, Paper, TextField, Typography } from '@material-ui/core'
+import { Chip, Grid, InputAdornment, Paper, TextField, Typography } from '@material-ui/core'
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
@@ -45,13 +45,48 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const [input, setInput] = React.useState('')
+    const [value, setValue] = React.useState<IOption|null>(null)
+
+    const handleInput = (event: React.ChangeEvent<{}>, newInputValue: string) => {
+        setInput(newInputValue)
+    }
+
+    const authors = ((cardStore.querryFindBuilder.getCriterion('steam.author.title') ?? {$in: []}).$in ?? []) as string[]
+    const collections = ((cardStore.querryFindBuilder.getCriterion('steam.collections.title') ?? {$in: []}).$in ?? []) as string[]
+
+    console.log([...authors], [...collections])
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
         if(newValue === null) {
             cardStore.setFind({$text: undefined})
+            setValue(null)
+        } else if(typeof newValue === 'string') {  // Pressed ENTER and so we receive plain string.
+            cardStore.setFind({$text: {$search: newValue}})
+            setValue({type: OPTION_TYPE.OTHER, value: newValue})
+        } else if(newValue.type === OPTION_TYPE.OTHER) {
+            cardStore.setFind({$text: {$search: newValue.value}})
+            setValue(newValue)
+        } else if(newValue.type === OPTION_TYPE.AUTHOR) {
+            cardStore.querryFindBuilder.setCriterion('steam.author.title', {$in: [...authors, newValue.value]})
+            setValue(null)
+            setInput('')
+        } else if(newValue.type === OPTION_TYPE.COLLECTION) {
+            cardStore.querryFindBuilder.setCriterion('steam.collections.title', {$in: [...collections, newValue.value]})
+            setValue(null)
+            setInput('')
+        }
+    }
+
+    const HandleDelete = (option: IOption) => () => {
+        if(option.type === OPTION_TYPE.AUTHOR) {
+            const newCriteria = {$in: authors.filter((author) => author !== option.value)}
+            cardStore.querryFindBuilder.setCriterion('steam.author.title', newCriteria.$in.length > 0 ? newCriteria : null)
+        } else if(option.type === OPTION_TYPE.COLLECTION) {
+            const newCriteria = {$in: collections.filter((collection) => collection !== option.value)}
+            cardStore.querryFindBuilder.setCriterion('steam.collections.title', newCriteria.$in.length > 0 ? newCriteria : null)
         } else {
-            const $search = typeof newValue === 'string' ? newValue : newValue.value
-            cardStore.setFind({$text: {$search}})
+            throw new Error('catch me')
         }
     }
 
@@ -68,6 +103,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Autocomplete
                 className={classes.autocomplete}
                 id='free-solo-with-text-demo'
+                inputValue={input}
+                onInputChange={handleInput}
+                value={value}
                 freeSolo
                 onChange={handleChange}
                 filterOptions={(options: IOption[], params) => {
@@ -95,6 +133,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     return option.value
                 }}
                 ListboxComponent={ListboxComponent as React.ComponentType<React.HTMLAttributes<HTMLElement>>}
+                renderTags={(value, getTagProps) => [
+                ]}
                 renderGroup={renderGroup}
                 renderOption={(option: IOption) => {
                     switch(option.type) {
@@ -118,11 +158,27 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         InputProps={{
                             ...params.InputProps,
                             className: clsx(params.InputProps.className, classes.input),
-                            startAdornment: (
-                                <InputAdornment position='start'>
+                            startAdornment: [
+                                (<InputAdornment position='start'>
                                     <IconBrowse color='primary' />
-                                </InputAdornment>
-                            ),
+                                </InputAdornment>),
+                                ...authors.map((author: string, index: number) => (
+                                    <Chip
+                                        variant='outlined'
+                                        key={author}
+                                        label={author}
+                                        onDelete={HandleDelete({type: OPTION_TYPE.AUTHOR, value: author})}
+                                    />
+                                )),
+                                ...collections.map((collection: string, index: number) => (
+                                    <Chip
+                                        variant='outlined'
+                                        key={collection}
+                                        label={collection}
+                                        onDelete={HandleDelete({type: OPTION_TYPE.COLLECTION, value: collection})}
+                                    />
+                                )),
+                            ],
                         }}
                     />
                 )}
