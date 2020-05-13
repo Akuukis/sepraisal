@@ -164,6 +164,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                                 </InputAdornment>),
                                 ...authors.map((author: string, index: number) => (
                                     <Chip
+                                        icon={<IconPerson />}
                                         variant='outlined'
                                         key={author}
                                         label={author}
@@ -172,6 +173,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                                 )),
                                 ...collections.map((collection: string, index: number) => (
                                     <Chip
+                                        icon={<IconCollection />}
                                         variant='outlined'
                                         key={collection}
                                         label={collection}
