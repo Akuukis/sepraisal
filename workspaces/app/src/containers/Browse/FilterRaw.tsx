@@ -32,7 +32,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
-    const [findDirty, setFindDirty] = React.useState('')
+    const [findDirty, setFindDirty] = React.useState(JSON.stringify(cardStore.find, null, 2))
 
     let dirtyOk: {} | null
     try {
@@ -41,14 +41,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         dirtyOk = null
     }
 
-    const reset = () => {
-        const value = JSON.stringify(cardStore.find, null, 2)
-        setFindDirty(value)
-    }
-    React.useEffect(() => autorun(() => {
-        const value = JSON.stringify(cardStore.find, null, 2)
-        setFindDirty(value)
-    }), [])
+    const reset = () => setFindDirty(JSON.stringify(cardStore.find, null, 2))
+    React.useEffect(() => autorun(reset, {name: `${__filename}: autorun(reset)`}), [])
 
 
     const handleRawFind = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -58,7 +52,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const applyAdvancedFilter = () => {
         cardStore.setFind(JSON.parse(findDirty))
-        setFindDirty(JSON.stringify(cardStore.find, null, 2))
+        reset()
     }
 
     const totalCriteria = (cardStore.querryFindBuilder.find.$and?.length ?? 2) - 2

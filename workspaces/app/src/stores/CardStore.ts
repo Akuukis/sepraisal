@@ -1,6 +1,6 @@
 import { getApiUrl, ObservableMap } from '@sepraisal/common'
 import { IFind } from '@sepraisal/common/lib/classificator/Class'
-import { action, computed, IReactionDisposer, observable, reaction, runInAction } from 'mobx'
+import { action, autorun, computed, IReactionDisposer, observable, runInAction } from 'mobx'
 
 import {
     Card,
@@ -112,9 +112,7 @@ export class CardStore {
 
     public constructor(piwikStore: PiwikStore) {
         this.piwikStore = piwikStore
-        this.disposers.push(reaction(() => [...this.querryFindBuilder.find.$and], async (find) => {
-            await this.querry()
-        }))
+        this.disposers.push(autorun(() => JSON.stringify(this.find) && this.querry(), {name: `${__filename}: autorun(query)`}))
     }
 
     public deconstructor() {
@@ -135,7 +133,7 @@ export class CardStore {
                 .map<[number, Card<CardStatus.ok>]>((doc) => [doc._id, new Card(doc)])
                 .filter(([id, card]) => card.isStatus(CardStatus.praisedOnce))
 
-            runInAction(() => this.cards.merge(cards))
+            runInAction(`${__filename}: .nextPage()`, () => this.cards.merge(cards))
 
             this.piwikStore.push([
                 'trackEvent',
@@ -153,11 +151,11 @@ export class CardStore {
         }
     }
 
-    @action public async querry() {
+    public querry = async () => {
         try {
             const timer = Date.now()
 
-            runInAction(() => {
+            runInAction(`${__filename}: .querry(1/2)`, () => {
                 this.count = null
                 this.cards.replace([])
             })
@@ -171,7 +169,7 @@ export class CardStore {
                 .map<[number, Card<CardStatus.ok>]>((doc) => [doc._id, new Card(doc)])
                 .filter(([id, card]) => card.isStatus(CardStatus.praisedOnce))
 
-            runInAction(() => {
+            runInAction(`${__filename}: .querry(2/2)`, () => {
                 this.count = count
                 this.cards.replace(cards)
             })
@@ -217,7 +215,7 @@ export class CardStore {
         } catch(err) {
             console.error(err)
 
-            runInAction(() => {
+            runInAction(`${__filename}: .querry(catch)`, () => {
                 this.count = -1
                 this.cards.replace([])
             })
