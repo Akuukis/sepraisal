@@ -48,6 +48,7 @@ interface IProps extends Omit<AutocompleteProps<IOption>, 'renderInput' | 'optio
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const routerStore = React.useContext(CONTEXT.ROUTER)
     const [input, setInput] = React.useState('')
     const [value, setValue] = React.useState<IOption|null>(null)
 
@@ -55,8 +56,25 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setInput(newInputValue)
     }
 
-    const authors = ((cardStore.querryFindBuilder.getCriterion('steam.author.title') ?? {$in: []}).$in ?? []) as string[]
-    const collections = ((cardStore.querryFindBuilder.getCriterion('steam.collections.title') ?? {$in: []}).$in ?? []) as string[]
+    const searchParams = new URLSearchParams(routerStore.location.search)
+    const authors = searchParams.getAll('author')
+    const collections = searchParams.getAll('collection')
+
+    React.useEffect(() => {
+        cardStore.querryFindBuilder.setCriterion('steam.author.title', authors.length > 0 ? {$in: authors} : null)
+        cardStore.querryFindBuilder.setCriterion('steam.collections.title', collections.length > 0 ? {$in: collections} : null)
+    })
+
+    const updateUrlParams = () => {
+        const newAuthors = (cardStore.querryFindBuilder.getCriterion('steam.author.title')?.$in ?? []) as string[]
+        const newCollections = (cardStore.querryFindBuilder.getCriterion('steam.collections.title')?.$in ?? []) as string[]
+        const searchParams = new URLSearchParams(routerStore.location.search)
+        searchParams.delete('author')
+        searchParams.delete('collection')
+        for(const newAuthor of newAuthors) searchParams.append('author', newAuthor)
+        for(const newCollection of newCollections) searchParams.append('collection', newCollection)
+        routerStore.replace({search: searchParams.toString()})
+    }
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
         if(newValue === null) {
@@ -79,6 +97,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             cardStore.setFind({$text: {$search: newValue.value}})
             setValue(newValue)
         }
+        updateUrlParams()
     }
 
     const HandleDelete = (option: IOption) => () => {
@@ -91,6 +110,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else {
             throw new Error('catch me')
         }
+        updateUrlParams()
     }
 
     return (
