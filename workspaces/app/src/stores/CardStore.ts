@@ -109,6 +109,7 @@ export class CardStore {
     @observable protected _sort: IBrowserStoreSort = {'steam.subscriberCount': -1}
     protected disposers: IReactionDisposer[] = []
     private piwikStore: PiwikStore
+    private abortController = new AbortController()
 
     public constructor(piwikStore: PiwikStore) {
         this.piwikStore = piwikStore
@@ -160,7 +161,12 @@ export class CardStore {
                 this.cards.replace([])
             })
 
-            const res = await fetch(getApiUrl(this.find, cardProjection, this.sort, this.cardsPerPage))
+            this.abortController.abort()
+            this.abortController = new AbortController()
+            const res = await fetch(
+                    getApiUrl(this.find, cardProjection, this.sort, this.cardsPerPage),
+                    {signal: this.abortController.signal}
+                )
             if(res.status !== 200) throw new Error(`Backend error: ${await res.text()}`)
             const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[]}
 
@@ -213,7 +219,8 @@ export class CardStore {
                 (Date.now() - timer) / 1000,
             ])
         } catch(err) {
-            console.error(err)
+            // console.error((err as Error).name)
+            if((err as Error).name === 'AbortError') return  // Don't report aborted fetches as failed.
 
             runInAction(`${__filename}: .querry(catch)`, () => {
                 this.count = -1
