@@ -2,7 +2,18 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Drawer, DrawerProps, GridProps, IconButton, Toolbar, Typography } from '@material-ui/core'
+import {
+    Dialog,
+    Drawer,
+    DrawerProps,
+    Fab,
+    GridProps,
+    Hidden,
+    IconButton,
+    Toolbar,
+    Typography,
+    useMediaQuery,
+} from '@material-ui/core'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
@@ -26,23 +37,27 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     asideWrapper: {
-        width: drawerWidth,
+        maxWidth: drawerWidth,
+        width: `calc(100% - ${theme.spacing(2)}px)`,
     },
     aside: {
         zIndex: theme.zIndex.appBar - 100,
-        width: drawerWidth,
+        maxWidth: drawerWidth,
+        width: `calc(100% - ${theme.spacing(2)}px)`,
         backgroundColor: 'unset',
-        borderRight: 0,
+        border: 0,
         filter: dropShadowFromBoxShadow(theme.shadows[16]),
         height: 'unset',
         maxHeight: `calc(100% - ${theme.spacing(6)}px)`,
     },
     asideHeader: {
         // <Toolbar variant='dense' />
-        ...theme.mixins.toolbar,  // necessary for content to be below app bar
+        // ...theme.mixins.toolbar,  // necessary for content to be below app bar
         minHeight: '48px',
         [theme.breakpoints.up('sm')]: {
             minHeight: '48px',
+            borderRadius: theme.direction === 'ltr' ? `32px 0 0 0` : `0 32px 0 0`,
+            marginTop: theme.spacing(2),
         },
 
         zIndex: 1,
@@ -52,8 +67,6 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(0, 1),
         justifyContent: 'flex-end',
         backgroundColor: theme.palette.background.paper,
-        borderRadius: theme.direction === 'ltr' ? `32px 0 0 0` : `0 32px 0 0`,
-        marginTop: theme.spacing(2),
     },
     asideHeaderTypography: {
         flexGrow: 1,
@@ -87,6 +100,11 @@ const styles = (theme: IMyTheme) => createStyles({
         minHeight: `calc(100% - ${theme.spacing(2)}px)`,
         padding: theme.spacing(1),
     },
+    fab: {
+        position: 'fixed',
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
+    },
 })
 
 
@@ -101,51 +119,84 @@ interface IProps extends GridProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {aside, asideProps, asideTitle, mainProps, className, ...otherProps} = props
     const [open, setOpen] = React.useState(!!aside)
-    const toggleDrawer = () => setOpen(!open)
+    const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
+        console.log('asdf')
+        setOpen(!open)
+    }
+    const xsDown = useMediaQuery(theme.breakpoints.down('xs'))
+
+    const content = (<>
+        <div className={classes.asideHeader}>
+            <Typography className={classes.asideHeaderTypography} variant='h4' align='center'>{asideTitle}</Typography>
+            <IconButton onClick={toggleDrawer}>
+                {theme.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+        </div>
+        <div className={classes.asideContainer}>
+            {aside}
+        </div>
+    </>)
 
     return (
         <div className={classes.root} {...otherProps}>
             <Topbar />
-            <Drawer
-                hidden={!aside}
-                className={clsx(classes.asideWrapper, classes.aside2Wrapper)}
-                variant='permanent'
-                anchor='right'
-                PaperProps={{component: 'aside', className: clsx(classes.aside, classes.aside2)}}
-                {...asideProps}
+            <Dialog
+                open={xsDown && open}
+                onClose={toggleDrawer}
+                fullScreen
+                keepMounted
+                transitionDuration={{
+                    enter: theme.transitions.duration.enteringScreen,
+                    exit: theme.transitions.duration.leavingScreen,
+                }}
             >
-                <Toolbar />
-                <div className={clsx(classes.asideHeader, classes.aside2Header)}>
-                    <IconButton onClick={toggleDrawer} color='primary'>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </div>
-            </Drawer>
-            <Drawer
-                className={classes.asideWrapper}
-                variant='persistent'
-                anchor='right'
-                PaperProps={{component: 'aside', className: classes.aside}}
-                open={open}
-                {...asideProps}
-            >
-                <Toolbar />
-                <div className={classes.asideHeader}>
-                    <Typography className={classes.asideHeaderTypography} variant='h4' align='center'>{asideTitle}</Typography>
-                    <IconButton onClick={toggleDrawer}>
-                        {theme.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                    </IconButton>
-                </div>
-                <div className={classes.asideContainer}>
-                    {aside}
-                </div>
-            </Drawer>
+                {content}
+            </Dialog>
+            <Hidden xsDown implementation="css">
+                <Drawer
+                    hidden={!aside}
+                    className={clsx(classes.asideWrapper, classes.aside2Wrapper)}
+                    variant='permanent'
+                    anchor={theme.direction === 'ltr' ? 'right' : 'left'}
+                    PaperProps={{component: 'aside', className: clsx(classes.aside, classes.aside2)}}
+                    {...asideProps}
+                >
+                    <Toolbar />
+                    <div className={clsx(classes.asideHeader, classes.aside2Header)}>
+                        <IconButton onClick={toggleDrawer} color='primary'>
+                            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        </IconButton>
+                    </div>
+                </Drawer>
+                <Drawer
+                    className={classes.asideWrapper}
+                    variant='persistent'
+                    anchor={theme.direction === 'ltr' ? 'right' : 'left'}
+                    PaperProps={{component: 'aside', className: classes.aside}}
+                    open={open}
+                    {...asideProps}
+                >
+                    <Toolbar />
+                    {content}
+                </Drawer>
+            </Hidden>
             <Toolbar />
             <div className={classes.mainWrapper}>
                 <main className={clsx(classes.main, className)} {...mainProps}>
                     {children}
                 </main>
             </div>
+            <Hidden smUp implementation="css">
+                <Fab
+                    className={classes.fab}
+                    color="primary"
+                    aria-label="edit"
+                    onClick={toggleDrawer}
+                    
+                >
+                    {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                </Fab>
+            </Hidden>
         </div>
     )
 })) /* ============================================================================================================= */
