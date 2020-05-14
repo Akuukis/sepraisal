@@ -52,7 +52,7 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(0, 1),
         justifyContent: 'flex-end',
         backgroundColor: theme.palette.background.paper,
-        borderRadius: `0 32px 0 0`,
+        borderRadius: theme.direction === 'ltr' ? `32px 0 0 0` : `0 32px 0 0`,
         marginTop: theme.spacing(2),
     },
     asideHeaderTypography: {
@@ -64,7 +64,7 @@ const styles = (theme: IMyTheme) => createStyles({
         '&::after': {
             content: 'a'
         },
-        borderRadius: `0 0 32px 0`,
+        borderRadius: theme.direction === 'ltr' ? `0 0 0 32px` : `0 0 32px 0`,
     },
     aside2Wrapper: {
         width: buttonWidth,
@@ -73,7 +73,7 @@ const styles = (theme: IMyTheme) => createStyles({
         width: buttonWidth,
     },
     aside2Header: {
-        borderRadius: `0 32px 32px 0`,
+        borderRadius: theme.direction === 'ltr' ? `32px 0 0 32px` : `0 32px 32px 0`,
     },
     mainWrapper: {
         height: 'calc(100% - 48px)',  // Minus dense toolbar.
@@ -81,18 +81,6 @@ const styles = (theme: IMyTheme) => createStyles({
             height: 'calc(100% - 48px)',  // Minus dense toolbar.
         },
         overflowX: 'auto',
-    },
-    mainWrapperOpen: {
-        paddingLeft: drawerWidth,
-        transition: theme.transitions.create('padding-left', {
-            delay: '200ms',
-        }),
-    },
-    mainWrapperClosed: {
-        transition: theme.transitions.create('padding-left', {
-            delay: '200ms',
-        }),
-        paddingLeft: buttonWidth,
     },
     main: {
         minWidth: `calc(100% - ${theme.spacing(2)}px)`,
@@ -122,19 +110,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 hidden={!aside}
                 className={clsx(classes.asideWrapper, classes.aside2Wrapper)}
                 variant='permanent'
+                anchor='right'
                 PaperProps={{component: 'aside', className: clsx(classes.aside, classes.aside2)}}
                 {...asideProps}
             >
                 <Toolbar />
                 <div className={clsx(classes.asideHeader, classes.aside2Header)}>
                     <IconButton onClick={toggleDrawer} color='primary'>
-                        {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>
             </Drawer>
             <Drawer
                 className={classes.asideWrapper}
                 variant='persistent'
+                anchor='right'
                 PaperProps={{component: 'aside', className: classes.aside}}
                 open={open}
                 {...asideProps}
@@ -143,7 +133,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <div className={classes.asideHeader}>
                     <Typography className={classes.asideHeaderTypography} variant='h4' align='center'>{asideTitle}</Typography>
                     <IconButton onClick={toggleDrawer}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {theme.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>
                 </div>
                 <div className={classes.asideContainer}>
@@ -151,11 +141,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </div>
             </Drawer>
             <Toolbar />
-            <div className={clsx(classes.mainWrapper, {
-                    [classes.mainWrapperOpen]: !!aside && open,
-                    [classes.mainWrapperClosed]: !!aside && !open,
-                })}
-            >
+            <div className={classes.mainWrapper}>
                 <main className={clsx(classes.main, className)} {...mainProps}>
                     {children}
                 </main>
