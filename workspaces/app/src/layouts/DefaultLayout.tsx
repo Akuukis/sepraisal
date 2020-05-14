@@ -140,19 +140,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <div className={classes.root} {...otherProps}>
             <Topbar />
-            <Dialog
-                open={xsDown && open}
-                onClose={toggleDrawer}
-                fullScreen
-                keepMounted
-                transitionDuration={{
-                    enter: theme.transitions.duration.enteringScreen,
-                    exit: theme.transitions.duration.leavingScreen,
-                }}
-            >
-                {content}
-            </Dialog>
-            <Hidden xsDown implementation="css">
+            <Hidden smUp implementation="js">
+                <Dialog
+                    open={xsDown && open}
+                    onClose={toggleDrawer}
+                    fullScreen
+                    keepMounted
+                    transitionDuration={{
+                        enter: theme.transitions.duration.enteringScreen,
+                        exit: theme.transitions.duration.leavingScreen,
+                    }}
+                >
+                    {content}
+                </Dialog>
+            </Hidden>
+            <Hidden xsDown implementation="js">
                 <Drawer
                     hidden={!aside}
                     className={clsx(classes.asideWrapper, classes.aside2Wrapper)}
@@ -192,7 +194,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     color="primary"
                     aria-label="edit"
                     onClick={toggleDrawer}
-                    
                 >
                     {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                 </Fab>
