@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Paper, PaperProps, Typography } from '@material-ui/core'
+import { Card, CardContent, CardHeader, PaperProps, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
@@ -15,13 +15,13 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     content: {
-        padding: theme.spacing(1),
+    },
+    header: {
+        backgroundColor: theme.palette.primary.dark,
     },
     heading: {
         ...theme.typography.h4,
-        backgroundColor: theme.palette.primary.dark,
         color: theme.palette.primary.contrastText,
-        padding: theme.spacing(2),
         borderTopLeftRadius: theme.shape.borderRadius,
         borderTopRightRadius: theme.shape.borderRadius,
         textAlign: 'center',
@@ -37,14 +37,18 @@ interface IProps extends PaperProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {heading, className, ...otherProps} = props
 
+    const title = (
+        <Typography className={classes.heading} variant='h2'>
+            {heading}
+        </Typography>
+    )
+
     return (
-        <Paper className={clsx(classes.root, className)} {...otherProps}>
-            <Typography className={classes.heading} variant='h2' gutterBottom>
-                {heading}
-            </Typography>
-            <Paper className={classes.content}>
+        <Card className={clsx(classes.root, className)} {...otherProps}>
+            <CardHeader className={classes.header} title={title} />
+            <CardContent className={classes.content}>
                 {children}
-            </Paper>
-        </Paper>
+            </CardContent>
+        </Card>
     )
 })) /* ============================================================================================================= */

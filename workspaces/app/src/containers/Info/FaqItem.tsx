@@ -53,7 +53,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MyExpansionPanel
-            header={<><strong>Q{no}:</strong> {title}</>}
+            header={<><strong>{no}.</strong> {title}</>}
             classes={{root: classes.root, expanded: classes.expanded}}
         >
             {children}
