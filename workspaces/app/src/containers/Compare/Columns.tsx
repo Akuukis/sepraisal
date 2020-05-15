@@ -6,6 +6,7 @@ import { Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import Analysis from 'src/components/Analysis'
+import NothingSelected from 'src/components/NothingSelected'
 import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -13,10 +14,12 @@ const styles = (theme: IMyTheme) => createStyles({
         flexWrap: 'nowrap',
     },
 
+    rootEmpty: {
+        justifyContent: 'center',
+    },
     column: {
         position: 'relative',
     },
-
     moving: {
         transition: theme.transitions.create('left', {
             easing: theme.transitions.easing.easeIn,
@@ -86,8 +89,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     ]
 
     return (
-        <Grid container className={classes.root}>
-            {columns}
+        <Grid container className={clsx(classes.root, columns.length === 0 && classes.rootEmpty)}>
+            {columns.length > 0 ? columns : <NothingSelected />}
         </Grid>
     )
 })) /* ============================================================================================================= */
