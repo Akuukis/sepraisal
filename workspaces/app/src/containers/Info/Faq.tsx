@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Typography } from '@material-ui/core'
+import { Paper, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
@@ -13,7 +13,6 @@ import FaqItem from './FaqItem'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
     },
 
     chart: {
@@ -22,8 +21,7 @@ const styles = (theme: IMyTheme) => createStyles({
         marginRight: theme.spacing(-8),
         width: `calc(100% + ${theme.spacing(16)}px)`,
     },
-    content: {
-        padding: '0.5em',
+    heading: {
     },
 })
 
@@ -35,8 +33,8 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
 
     return (
-        <>
-            <Typography variant='h4' gutterBottom>Questions & Answers</Typography>
+        <Paper className={classes.root}>
+            <Typography className={classes.heading} variant='h2' gutterBottom>Questions & Answers</Typography>
             <FaqItem no={1} title='How does SEPraisal categorize all blueprints?'>
                 <Typography paragraph component='div'>
                     SEPraisal plans to categorize blueprints in three levels:
@@ -224,6 +222,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                     It's possible to define a lot more than by using "Custom" filter controls!
                 </Typography>
             </FaqItem>
-        </>
+        </Paper>
     )
 })) /* ============================================================================================================= */
