@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Paper, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
@@ -10,6 +10,7 @@ import imageFighterBlockMass from '../../../static/fighter-blockMass.png'
 import imageFighterBlockPCU from '../../../static/fighter-blockPCU.png'
 import imageFighterOreVolume from '../../../static/fighter-oreVolume.png'
 import FaqItem from './FaqItem'
+import InfoCard from './InfoCard'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -21,8 +22,6 @@ const styles = (theme: IMyTheme) => createStyles({
         marginRight: theme.spacing(-8),
         width: `calc(100% + ${theme.spacing(16)}px)`,
     },
-    heading: {
-    },
 })
 
 
@@ -33,8 +32,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
 
     return (
-        <Paper className={classes.root}>
-            <Typography className={classes.heading} variant='h2' gutterBottom>Questions & Answers</Typography>
+        <InfoCard className={classes.root} heading='Questions & Answers'>
             <FaqItem no={1} title='How does SEPraisal categorize all blueprints?'>
                 <Typography paragraph component='div'>
                     SEPraisal plans to categorize blueprints in three levels:
@@ -222,6 +220,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                     It's possible to define a lot more than by using "Custom" filter controls!
                 </Typography>
             </FaqItem>
-        </Paper>
+        </InfoCard>
     )
 })) /* ============================================================================================================= */
