@@ -87,7 +87,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             <MyBox width={3} classes={{root: classes.MyBox, paper: classes.MyBoxPaper}}>
                                 <CenterCell width={2} className={classes.CenterCell} {...otherProps}>
                                     <Typography
-                                        variant='h6'
+                                        variant='h4'
                                         display='block'
                                         noWrap
                                         className={classes.heading}

@@ -163,6 +163,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
         h4: {
             fontWeight: FONT_WEIGHT_REGULAR,
             fontSize: '1.125rem',
+            letterSpacing: undefined,
         },
 
         // Similar to body, but small line height.
