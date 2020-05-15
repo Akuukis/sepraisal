@@ -168,7 +168,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             renderInput={(params) => (
                 <TextField
                     {...params}
-                    placeholder='Search author, collection, or free text ...'
+                    placeholder='Search blueprints ...'
                     variant='outlined'
                     fullWidth
                     InputProps={{
