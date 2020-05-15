@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import moment from 'moment'
-import { DependencyList, useEffect } from 'react'
+import { DependencyList, useEffect, useState } from 'react'
 
 export * from './Component'
 export * from './ComponentRouted'
@@ -161,4 +161,27 @@ export const dropShadowFromBoxShadow = (css: string): string => {
     })
 
     return dropShadows.join(' ')
+}
+
+const getWindowDimensions = () => {
+    const { innerWidth: width, innerHeight: height } = window
+    return {
+        width,
+        height
+    }
+}
+
+export const useWindowDimensions = () => {
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions())
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    return windowDimensions
 }

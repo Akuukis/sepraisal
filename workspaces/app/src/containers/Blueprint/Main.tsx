@@ -7,6 +7,7 @@ import { Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import Analysis from 'src/components/Analysis'
+import NothingSelected from 'src/components/NothingSelected'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -33,7 +34,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid container spacing={2} justify='center'>
-            {content}
+            {content ?? <NothingSelected />}
         </Grid>
     )
 })) /* ============================================================================================================= */
