@@ -17,15 +17,19 @@ import Compare from './Compare'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
+        backgroundImage: `url(${encodeURI(banner)})`,
+        backgroundPositionX: 'center',
+        backgroundSize: 'cover',
+        minHeight: '100%',
+        display: 'flex',
+        flexDirection: 'column',
     },
 
-    banner: {
-        borderRadius: theme.spacing(1),
-        display: 'block',
-        height: theme.spacing(50),
-        objectFit: 'cover',
-        width: '100%',
+    center: {
+        flexGrow: 1,
+    },
+    bottom: {
+        flexGrow: 0,
     },
 })
 
@@ -53,20 +57,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <DefaultLayout>
-            <Grid container spacing={2} justify='center' className={classes.root} style={{paddingBottom: 0}}>
-                <Grid item xs={12} lg={9}>
-                    <img src={banner} className={classes.banner} />
+        <DefaultLayout className={classes.root}>
+            <Grid container spacing={2} justify='center' alignItems='center' className={classes.center}>
+                <Grid item xs>
+                    asdf
                 </Grid>
             </Grid>
-            <Grid container spacing={2} justify='center' className={classes.root}>
-                <Grid item xs={12} sm={8} md={4} lg={3}>
+            <Grid item xs container spacing={2} justify='center' className={classes.bottom}>
+                <Grid item xs={12} sm={6} md={4} xl={3}>
                     <Browse />
                </Grid>
-                <Grid item xs={12} sm={8} md={4} lg={3}>
+                <Grid item xs={12} sm={6} md={4} xl={3}>
                     <Analyse />
                 </Grid>
-                <Grid item xs={12} sm={8} md={4} lg={3}>
+                <Grid item xs={12} sm={12} md={4} xl={3}>
                     <Compare />
                 </Grid>
             </Grid>

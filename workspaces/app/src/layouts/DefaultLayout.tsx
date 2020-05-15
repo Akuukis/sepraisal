@@ -89,9 +89,9 @@ const styles = (theme: IMyTheme) => createStyles({
         borderRadius: theme.direction === 'ltr' ? `32px 0 0 32px` : `0 32px 32px 0`,
     },
     mainWrapper: {
-        height: 'calc(100% - 48px)',  // Minus dense toolbar.
+        height: 'calc(100vh - 48px)',  // Minus dense toolbar.
         [theme.breakpoints.up('sm')]: {
-            height: 'calc(100% - 48px)',  // Minus dense toolbar.
+            height: 'calc(100vh - 48px)',  // Minus dense toolbar.
         },
         overflowX: 'auto',
     },
