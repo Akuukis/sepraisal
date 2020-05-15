@@ -1,7 +1,7 @@
 {
     "private": true,
     "name": "@sepraisal/monorepo",
-    "description": "Space Engineers Praisal: Blueprint Parser & Analyzer",
+    "description": "Space Engineers Praisal: Blueprint Parser & Analyser",
     "scripts": {
         "start": "yarn run bootstrap && yarn run build",
         "bootstrap": "yarn && lerna bootstrap",

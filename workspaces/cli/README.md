@@ -71,10 +71,10 @@ PATH=/bin:/usr/bin:/usr/games/:/usr/local/bin/
 | ------------ | --------------- | ------- |
 | `info`       | N/A             | prints human-readable databse summary of all blueprints and their states. |
 | `discover`   | N/A             | Check 1670 steam blueprint pages with 30 items each (steam limit) and save newly found IDs. |
-| `scrape`     | `pendingScrape` | Look at Steam page of blueprint to save and analyze everything. |
+| `scrape`     | `pendingScrape` | Look at Steam page of blueprint to save and analyse everything. |
 | `thumbnail`  | `pendingThumb`  | Download thumbnail for mods from Steam and converts to `.webp` format. |
 | `cache`      | `pendingPraise` | Use steamcmd and Steam account with SE to locally download newest version of mods. |
-| `praise`     | `pendingPraise` | Parse blueprint `.sbc` file to count and analyze everything. |
+| `praise`     | `pendingPraise` | Parse blueprint `.sbc` file to count and analyse everything. |
 | `categorize` | N/A             | Create categories using Big Data of 25k+ blueprints, R language and pragmatic common sense. |
 | `classify`   | `pendingClass`  | Make a score how good the blueprint fits into one of classes. |
 
