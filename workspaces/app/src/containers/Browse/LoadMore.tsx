@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Button, Grid } from '@material-ui/core'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
+import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { CONTEXT } from 'src/stores'
 
 
@@ -36,38 +36,15 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
-    const [state, setState] = React.useState<typeof ASYNC_STATE[keyof typeof ASYNC_STATE]>(ASYNC_STATE.Idle)
 
-    useAsyncEffectOnce(async () => {
-        try {
-            setState(ASYNC_STATE.Doing)
-            if(cardStore.cards.size === 0) {
-                await cardStore.querry()
-            }
-            if(cardStore.cards.size === cardStore.count) {
-                setState(ASYNC_STATE.Idle)
-            } else {
-                setState(ASYNC_STATE.Done)
-            }
-        } catch(err) {
-            console.error(err)
-            setState(ASYNC_STATE.Error)
-        }
-    })
+    const state = cardStore.cards.size === 0 ? ASYNC_STATE.Doing
+        : cardStore.cards.size === -1 ? ASYNC_STATE.Error
+        : cardStore.cards.size === cardStore.count ? ASYNC_STATE.Idle
+        : ASYNC_STATE.Done
+
 
     const myAdd = async () => {
-        try {
-            setState(ASYNC_STATE.Doing)
-            await cardStore.nextPage()
-            if(cardStore.cards.size === cardStore.count) {
-                setState(ASYNC_STATE.Idle)
-            } else {
-                setState(ASYNC_STATE.Done)
-            }
-        } catch(err) {
-            console.error(err)
-            setState(ASYNC_STATE.Error)
-        }
+        await cardStore.nextPage()
     }
 
     const wrap = (content: JSX.Element) => (

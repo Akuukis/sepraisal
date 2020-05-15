@@ -109,11 +109,17 @@ export class CardStore {
     @observable protected _sort: IBrowserStoreSort = {'steam.subscriberCount': -1}
     protected disposers: IReactionDisposer[] = []
     private piwikStore: PiwikStore
-    private abortController = new AbortController()
+    private abortController: AbortController | null = null
 
     public constructor(piwikStore: PiwikStore) {
         this.piwikStore = piwikStore
-        this.disposers.push(autorun(() => JSON.stringify(this.find) && this.querry(), {name: `${__filename}: autorun(query)`}))
+        this.disposers.push(autorun(
+            () => JSON.stringify(this.find) && this.fetch(),
+            {
+                name: `${__filename}: autorun(query)`,
+                delay: 400,
+            }
+        ))
     }
 
     public deconstructor() {
@@ -152,7 +158,7 @@ export class CardStore {
         }
     }
 
-    public querry = async () => {
+    private fetch = async () => {
         try {
             const timer = Date.now()
 
@@ -161,7 +167,7 @@ export class CardStore {
                 this.cards.replace([])
             })
 
-            this.abortController.abort()
+            if(this.abortController) this.abortController.abort()
             this.abortController = new AbortController()
             const res = await fetch(
                     getApiUrl(this.find, cardProjection, this.sort, this.cardsPerPage),
@@ -219,8 +225,14 @@ export class CardStore {
                 (Date.now() - timer) / 1000,
             ])
         } catch(err) {
-            // console.error((err as Error).name)
-            if((err as Error).name === 'AbortError') return  // Don't report aborted fetches as failed.
+            if((err as Error).name === 'AbortError') {
+                // Don't report aborted fetches as failed.
+                console.log(`Previous fetch was aborted due changes in the query.`)
+
+                return
+            }
+
+            console.error(err)
 
             runInAction(`${__filename}: .querry(catch)`, () => {
                 this.count = -1
