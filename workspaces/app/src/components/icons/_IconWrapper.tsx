@@ -3,9 +3,9 @@ import * as React from 'react'
 import { SvgIcon, SvgIconProps } from '@material-ui/core'
 
 
-export default (path: string) => ({...rest}: SvgIconProps) =>
+export default (path: string, config?: SvgIconProps) => ({...otherProps}: SvgIconProps) =>
     (
-        <SvgIcon {...rest}>
+        <SvgIcon {...config} {...otherProps}>
             {/* tslint:disable-next-line: id-length */}
             <path d={path} />
         </SvgIcon>

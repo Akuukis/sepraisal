@@ -140,9 +140,10 @@ export const linkBp = (id: number) => `https://steamcommunity.com/sharedfiles/fi
 export const linkAuthor = (id: string | number) => `https://steamcommunity.com/id/${id}/myworkshopfiles/?appid=24485`
 export const linkCollection = (id: string | number) => `https://steamcommunity.com/workshop/filedetails/?id=${id}`
 
-export const linkBpProps = (id: number) => ({href: linkBp(id), target: '_blank', rel: 'noreferrer noopener'})
-export const linkAuthorProps = (id: string | number) => ({href: linkAuthor(id), target: '_blank', rel: 'noreferrer noopener'})
-export const linkCollectionProps = (id: string | number) => ({href: linkCollection(id), target: '_blank', rel: 'noreferrer noopener'})
+export const linkProps = (href: string) => ({href, target: '_blank', rel: 'noreferrer noopener'})
+export const linkBpProps = (id: number) => linkProps(linkBp(id))
+export const linkAuthorProps = (id: string | number) => linkProps(linkAuthor(id))
+export const linkCollectionProps = (id: string | number) => linkProps(linkCollection(id))
 
 
 /**

@@ -96,8 +96,9 @@ const styles = (theme: IMyTheme) => createStyles({
         overflowX: 'auto',
     },
     main: {
-        minWidth: `calc(100% - ${theme.spacing(2)}px)`,
-        minHeight: `calc(100% - ${theme.spacing(2)}px)`,
+        minWidth: '100%',
+        minHeight: '100%',
+        boxSizing: 'border-box',
         padding: theme.spacing(1),
     },
     fab: {

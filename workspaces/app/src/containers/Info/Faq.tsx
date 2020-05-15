@@ -10,10 +10,10 @@ import imageFighterBlockMass from '../../../static/fighter-blockMass.png'
 import imageFighterBlockPCU from '../../../static/fighter-blockPCU.png'
 import imageFighterOreVolume from '../../../static/fighter-oreVolume.png'
 import FaqItem from './FaqItem'
+import InfoCard from './InfoCard'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
     },
 
     chart: {
@@ -21,9 +21,6 @@ const styles = (theme: IMyTheme) => createStyles({
         marginLeft: theme.spacing(-8),
         marginRight: theme.spacing(-8),
         width: `calc(100% + ${theme.spacing(16)}px)`,
-    },
-    content: {
-        padding: '0.5em',
     },
 })
 
@@ -35,8 +32,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
 
     return (
-        <>
-            <Typography variant='h4' gutterBottom>Questions & Answers</Typography>
+        <InfoCard className={classes.root} heading='Questions & Answers'>
             <FaqItem no={1} title='How does SEPraisal categorize all blueprints?'>
                 <Typography paragraph component='div'>
                     SEPraisal plans to categorize blueprints in three levels:
@@ -224,6 +220,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                     It's possible to define a lot more than by using "Custom" filter controls!
                 </Typography>
             </FaqItem>
-        </>
+        </InfoCard>
     )
 })) /* ============================================================================================================= */

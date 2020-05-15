@@ -43,10 +43,12 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingLeft: theme.spacing(1),
     },
     heading: {
-        flexBasis: '33.33%',
         flexShrink: 0,
         lineHeight: 1,
         fontSize: theme.typography.pxToRem(16),
+    },
+    headingWithSecondary: {
+        flexBasis: '33.33%',
     },
     secondaryHeading: {
         color: theme.palette.primary.main,
@@ -54,45 +56,28 @@ const styles = (theme: IMyTheme) => createStyles({
         lineHeight: 1,
         fontSize: theme.typography.pxToRem(16),
     },
-
-    rootSuccess: {
-        '&::before': {
-            backgroundColor: theme.palette.success.light,
-        },
-    },
-    detailsSuccess: {
-        borderLeftColor: theme.palette.success.main,
-    },
-    expandedSuccess: {
-        '&::before': {
-            backgroundColor: theme.palette.success.main,
-        },
-    },
-    secondaryHeadingSuccess: {
-        color: theme.palette.success.main,
-    },
 })
 
 
 export interface IMyExpansionPanelProps extends Omit<ExpansionPanelProps, 'title' | 'color'> {
-    header: string
-    subheader: React.ReactNode
-    color?: 'primary' | 'success'
+    id?: string
+    header: React.ReactNode
+    subheader?: React.ReactNode
     icon?: React.ReactNode
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({children, classes, theme, ...props}) => {
-    const { header, subheader, color, className, icon, ...otherProps } = props
+    const { id, header, subheader, className, icon, ...otherProps } = props
+
+    const unique = id ?? String(header)
     const exclusiveScopeStore = React.useContext(CONTEXT.EXCLUSIVE_SCOPE)
 
-    const isSuccess = color === 'success'
-
-    const handleToggle = () => exclusiveScopeStore!.setValue(exclusiveScopeStore!.value === header ? null : header)
+    const handleToggle = () => exclusiveScopeStore!.setValue(exclusiveScopeStore!.value === unique ? null : unique)
 
     React.useEffect(() => {
         if(exclusiveScopeStore && props.defaultExpanded) {
-            exclusiveScopeStore.setValue(header)
+            exclusiveScopeStore.setValue(unique)
         }
     }, [])
 
@@ -100,8 +85,8 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
         <ExpansionPanel
             elevation={0}
             classes={{
-                root: clsx(classes.root, isSuccess && classes.rootSuccess, className),
-                expanded: clsx(classes.expanded, isSuccess && classes.expandedSuccess),
+                root: clsx(classes.root, className),
+                expanded: clsx(classes.expanded),
             }}
             expanded={exclusiveScopeStore && exclusiveScopeStore.value === header}
             onChange={exclusiveScopeStore && handleToggle}
@@ -109,22 +94,21 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
         >
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 {icon}
-                <Typography
-                    className={clsx(classes.heading, icon && classes.headingWithIcon)}
-                    variant='h3'
-                >
-                    {header}
-                </Typography>
-                <Typography
-                    component='span'
-                    className={clsx(classes.secondaryHeading, isSuccess && classes.secondaryHeadingSuccess)}
-                >
+                    <Typography
+                        className={clsx({
+                            [classes.heading]: true,
+                            [classes.headingWithIcon]: icon,
+                            [classes.headingWithSecondary]: subheader,
+                        })}
+                        variant='h3'
+                    >
+                        {header}
+                    </Typography>
+                <Typography component='span' className={classes.secondaryHeading}>
                     {subheader}
                 </Typography>
             </ExpansionPanelSummary>
-            <ExpansionPanelDetails
-                className={clsx(classes.details, isSuccess && classes.detailsSuccess)}
-            >
+            <ExpansionPanelDetails className={classes.details}>
                 {children}
             </ExpansionPanelDetails>
         </ExpansionPanel>

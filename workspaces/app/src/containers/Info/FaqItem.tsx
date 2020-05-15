@@ -1,10 +1,8 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typography } from '@material-ui/core'
-
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import ExpandMoreIcon from 'src/components/icons/IconExpandMore'
+import MyExpansionPanel from 'src/components/MyExpansionPanel'
 import { CONTEXT } from 'src/stores'
 
 
@@ -13,10 +11,6 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: '0.5em',
     },
 
-    content: {
-        display: 'block',
-        paddingBottom: '0px',
-    },
     expanded: {
     },
 })
@@ -58,17 +52,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <ExpansionPanel
-            square={false}
-            expanded={open}
+        <MyExpansionPanel
+            header={<><strong>{no}.</strong> {title}</>}
             classes={{root: classes.root, expanded: classes.expanded}}
         >
-            <ExpansionPanelSummary onClick={handleClick} expandIcon={<ExpandMoreIcon />}>
-                <Typography variant='subtitle1'><strong>Q{no}:</strong> {title}</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className={classes.content}>
-                {children}
-            </ExpansionPanelDetails>
-        </ExpansionPanel>
+            {children}
+        </MyExpansionPanel>
     )
 })) /* ============================================================================================================= */
