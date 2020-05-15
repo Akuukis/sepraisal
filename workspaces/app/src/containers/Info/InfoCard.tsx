@@ -9,6 +9,7 @@ import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        margin: theme.spacing(2),
         borderTopLeftRadius: theme.shape.borderRadius * 2,  // So that it doesn't anti-alise with heading.
         borderTopRightRadius: theme.shape.borderRadius * 2,  // So that it doesn't anti-alise with heading.
     },
