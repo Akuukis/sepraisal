@@ -17,9 +17,8 @@ const styles = (theme: IMyTheme) => createStyles({
         margin: 0,
     },
     monospaceBox: {
+        ...theme.typography.mono,
         backgroundColor: theme.palette.background.default,
-        fontFamily: '"Roboto Mono", Roboto',
-        fontSize: '0.8rem',
         padding: '0px 0px 0px 0.5em',
         resize: 'vertical',
     },

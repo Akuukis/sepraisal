@@ -88,7 +88,6 @@ const styles = (theme: IMyTheme) => createStyles({
         width: '120%',
     },
     ValueCellValue: {
-        fontWeight: 500,
         color: theme.palette.success.contrastText,
     },
 })

@@ -50,7 +50,6 @@ const styles = (theme: IMyTheme) => createStyles({
         color: theme.palette.success.light,
     },
     ValueCellValue: {
-        fontWeight: 500,
         color: theme.palette.success.contrastText,
     },
 })

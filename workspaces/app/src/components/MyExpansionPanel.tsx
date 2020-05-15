@@ -44,17 +44,12 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     heading: {
         flexShrink: 0,
-        lineHeight: 1,
-        fontSize: theme.typography.pxToRem(16),
     },
     headingWithSecondary: {
         flexBasis: '33.33%',
     },
     secondaryHeading: {
         color: theme.palette.primary.main,
-        fontWeight: 500,
-        lineHeight: 1,
-        fontSize: theme.typography.pxToRem(16),
     },
 })
 

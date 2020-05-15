@@ -41,7 +41,6 @@ const styles = (theme: IMyTheme) => createStyles({
         color: theme.palette.success.light,
     },
     ValueCellValue: {
-        fontWeight: 500,
         color: theme.palette.success.contrastText,
         // height: `calc(${theme.typography.body1.fontSize} * 2.5)`,
         overflow: 'hidden',
