@@ -109,10 +109,17 @@ export class CardStore {
     @observable protected _sort: IBrowserStoreSort = {'steam.subscriberCount': -1}
     protected disposers: IReactionDisposer[] = []
     private piwikStore: PiwikStore
+    private abortController: AbortController | null = null
 
     public constructor(piwikStore: PiwikStore) {
         this.piwikStore = piwikStore
-        this.disposers.push(autorun(() => JSON.stringify(this.find) && this.querry(), {name: `${__filename}: autorun(query)`}))
+        this.disposers.push(autorun(
+            () => JSON.stringify(this.find) && this.fetch(),
+            {
+                name: `${__filename}: autorun(query)`,
+                delay: 400,
+            }
+        ))
     }
 
     public deconstructor() {
@@ -151,7 +158,7 @@ export class CardStore {
         }
     }
 
-    public querry = async () => {
+    private fetch = async () => {
         try {
             const timer = Date.now()
 
@@ -160,7 +167,12 @@ export class CardStore {
                 this.cards.replace([])
             })
 
-            const res = await fetch(getApiUrl(this.find, cardProjection, this.sort, this.cardsPerPage))
+            if(this.abortController) this.abortController.abort()
+            this.abortController = new AbortController()
+            const res = await fetch(
+                    getApiUrl(this.find, cardProjection, this.sort, this.cardsPerPage),
+                    {signal: this.abortController.signal}
+                )
             if(res.status !== 200) throw new Error(`Backend error: ${await res.text()}`)
             const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[]}
 
@@ -213,6 +225,13 @@ export class CardStore {
                 (Date.now() - timer) / 1000,
             ])
         } catch(err) {
+            if((err as Error).name === 'AbortError') {
+                // Don't report aborted fetches as failed.
+                console.log(`Previous fetch was aborted due changes in the query.`)
+
+                return
+            }
+
             console.error(err)
 
             runInAction(`${__filename}: .querry(catch)`, () => {

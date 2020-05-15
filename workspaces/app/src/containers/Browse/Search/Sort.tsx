@@ -55,7 +55,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             }
         }
 
-        cardStore.querry().catch((err) => console.error(err))
         handleClose()
     }
 
