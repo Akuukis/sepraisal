@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader/root'
 import { Grid } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
+import Search from 'src/components/Search'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 import { CONTEXT } from 'src/stores'
 import { PRESET } from 'src/stores/CardStore'
@@ -60,7 +61,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <DefaultLayout className={classes.root}>
             <Grid container spacing={2} justify='center' alignItems='center' className={classes.center}>
                 <Grid item xs>
-                    asdf
+                    <Search disableSort disableStatus />
                 </Grid>
             </Grid>
             <Grid item xs container spacing={2} justify='center' className={classes.bottom}>
