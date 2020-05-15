@@ -20,11 +20,9 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.primary.dark,
     },
     heading: {
-        ...theme.typography.h4,
         color: theme.palette.primary.contrastText,
         borderTopLeftRadius: theme.shape.borderRadius,
         borderTopRightRadius: theme.shape.borderRadius,
-        textAlign: 'center',
     },
 })
 

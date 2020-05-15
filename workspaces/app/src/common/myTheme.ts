@@ -154,6 +154,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
             fontWeight: FONT_WEIGHT_BOLD,
             fontSize: '1.75rem',
             textTransform: 'uppercase',
+            textAlign: 'center',
         },
         h3: {
             fontWeight: FONT_WEIGHT_BOLD,

@@ -92,7 +92,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const asideContent = (<>
         <div className={classes.asideHeader}>
-            <Typography className={classes.asideHeaderTypography} variant='h4' align='center'>{asideTitle}</Typography>
+            <Typography className={classes.asideHeaderTypography} variant='h2'>{asideTitle}</Typography>
             <IconButton onClick={toggleOpen}>
                 {theme.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </IconButton>
