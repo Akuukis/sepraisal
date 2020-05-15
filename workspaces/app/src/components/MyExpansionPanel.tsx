@@ -25,6 +25,12 @@ const styles = (theme: IMyTheme) => createStyles({
         },
     },
 
+    summary: {
+        alignItems: 'baseline',
+        '& > svg': {
+            alignSelf: 'center',
+        },
+    },
     details: {
         padding: theme.spacing(0, 2, 2, 0.5),
         flexDirection: 'column',
@@ -87,19 +93,19 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
             onChange={exclusiveScopeStore && handleToggle}
             {...otherProps}
         >
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <ExpansionPanelSummary classes={{content: classes.summary}} expandIcon={<ExpandMoreIcon />}>
                 {icon}
-                    <Typography
-                        className={clsx({
-                            [classes.heading]: true,
-                            [classes.headingWithIcon]: icon,
-                            [classes.headingWithSecondary]: subheader,
-                        })}
-                        variant='h3'
-                    >
-                        {header}
-                    </Typography>
-                <Typography component='span' className={classes.secondaryHeading}>
+                <Typography
+                    className={clsx({
+                        [classes.heading]: true,
+                        [classes.headingWithIcon]: icon,
+                        [classes.headingWithSecondary]: subheader,
+                    })}
+                    variant='h3'
+                >
+                    {header}
+                </Typography>
+                <Typography component='span' variant='subtitle2' className={classes.secondaryHeading}>
                     {subheader}
                 </Typography>
             </ExpansionPanelSummary>

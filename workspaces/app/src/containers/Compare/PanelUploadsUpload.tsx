@@ -94,7 +94,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <ListItem className={classes.root} {...{...getRootProps(), onClick: noop}}>
             <input {...getInputProps()} />
             {isDragActive ? <SelectorDnDOverlay /> :  null}
-            <Typography className={classes.text} variant='body2' align='center'>
+            <Typography className={classes.text} variant='body1' align='center'>
                 Drop .sbc file here or&nbsp;<Link href={DUD_URL} onClick={browseFiles}>click to upload</Link>.
             </Typography>
         </ListItem>

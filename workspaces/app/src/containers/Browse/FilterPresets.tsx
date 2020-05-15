@@ -54,7 +54,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 // tslint:disable-next-line: no-any
                 {...{value: id} as any}
             >
-                <ListItemText primary={getPresetTitle(id)} />
+                <ListItemText primary={getPresetTitle(id)} primaryTypographyProps={{variant: 'body1'}} />
             </ListItem>
         )
 

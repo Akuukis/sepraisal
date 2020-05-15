@@ -16,7 +16,6 @@ const styles = (theme: IMyTheme) => createStyles({
         margin: theme.spacing(1),
         minWidth: 240,
         maxWidth: 240,
-        alignSelf: 'left',
     },
     helperText: {
     },

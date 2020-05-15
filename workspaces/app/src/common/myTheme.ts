@@ -151,19 +151,24 @@ export const MY_LIGHT_THEME = createMuiTheme({
 
         // Headings.
         h2: {
-            fontWeight: FONT_WEIGHT_BOLD,
+            fontWeight: FONT_WEIGHT_MEDIUM,
             fontSize: '1.75rem',
             textTransform: 'uppercase',
             textAlign: 'center',
         },
         h3: {
-            fontWeight: FONT_WEIGHT_BOLD,
-            fontSize: '0.9375rem',
+            fontWeight: FONT_WEIGHT_MEDIUM,
+            fontSize: '1.125rem',
+            lineHeight: 1.6,
         },
-        h4: {
+        h4: {  // That's only section within analysis column.
             fontWeight: FONT_WEIGHT_REGULAR,
             fontSize: '1.125rem',
             letterSpacing: undefined,
+        },
+        h5: {  // There's no h3 in html, but this sets h3 of cards in browse.
+            fontWeight: FONT_WEIGHT_BOLD,
+            fontSize: '0.9375rem',
         },
 
         // Similar to body, but small line height.
@@ -171,9 +176,13 @@ export const MY_LIGHT_THEME = createMuiTheme({
             fontWeight: FONT_WEIGHT_BOLD,
             fontSize: '0.875rem'
         },
+        subtitle2: {
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.875rem'
+        },
 
         // Similar to subtitle, but big line height appropriate for paragraphs.
-        body1: {
+        body1: {  // Also a label.
             fontWeight: FONT_WEIGHT_REGULAR,
             fontSize: '0.9375rem',
         },
@@ -202,16 +211,14 @@ export const MY_LIGHT_THEME = createMuiTheme({
         },
 
         // Not used.
-        h5: {},
         h6: {},
-        subtitle2: {},
     },
 
     // Dense mode
     props: {
-        MuiButton: {
-            size: 'small',
-        },
+        // MuiButton: {
+        //     size: 'small',
+        // },
         MuiFilledInput: {
             margin: 'dense',
         },
@@ -221,9 +228,9 @@ export const MY_LIGHT_THEME = createMuiTheme({
         MuiFormHelperText: {
             margin: 'dense',
         },
-        MuiIconButton: {
-            size: 'small',
-        },
+        // MuiIconButton: {
+        //     size: 'small',
+        // },
         MuiInputBase: {
             margin: 'dense',
         },
