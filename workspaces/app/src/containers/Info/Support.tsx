@@ -22,13 +22,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <InfoCard className={classes.root} heading='Support'>
-            <Typography paragraph>
-                Found a bug? Something is not working or is confusing?
+            <Typography paragraph variant='subtitle1'>
+                Found a bug? Something is confusing?
             </Typography>
             <Typography paragraph>
-                Please send a email to <a href={`mailto:${SERVICE_DESK_EMAIL}`}>{SERVICE_DESK_EMAIL}</a> describing it.
-                Please attach screenshots, that helps a lot.
-                Your email will create a issue ticket <a href='//gitlab.com/akuukis/sepraisal/issues'>here</a> to easily track and respond to it.
+                Please send an email to <a href={`mailto:${SERVICE_DESK_EMAIL}`}>{SERVICE_DESK_EMAIL}</a> describing it.
+                It helps a lot if you are explicit and add screenshots.
+                Your email will create an issue ticket <a href='//gitlab.com/akuukis/sepraisal/issues'>here</a> that you can follow and respond to.
+                Thank you!
+            </Typography>
+            <Typography paragraph variant='subtitle1'>
                 Thank you!
             </Typography>
         </InfoCard>

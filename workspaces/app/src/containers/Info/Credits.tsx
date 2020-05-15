@@ -1,14 +1,21 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Typography } from '@material-ui/core'
+import { Link, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { createSmartFC, createStyles, IMyTheme, linkProps } from 'src/common'
+import IconDiscord from 'src/components/icons/IconDiscord'
+import IconGithub from 'src/components/icons/IconGithub'
+import IconGitlab from 'src/components/icons/IconGitlab'
 
 import InfoCard from './InfoCard'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+    },
+
+    icon: {
+        verticalAlign: 'text-bottom',
     },
 })
 
@@ -22,13 +29,29 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <InfoCard className={classes.root} heading='Credits'>
             <Typography variant='h5'>Maintainers</Typography>
+            <Typography paragraph>
+                SE Praisal was created and is maintained by Akuukis.
+            </Typography>
+            <Typography paragraph>
+                A team of one is rather a lonely endeavour. If you are interested to join or help out occasionally, contact Akuukis here:
+            </Typography>
             <Typography paragraph component='div'>
                 <ul>
                     <li>
-                        <strong>Akuukis</strong> -
-                        contact on: <a href='//github.com/Akuukis'>Github</a>, <a href='//gitlab.com/Akuukis'>GitLab</a>, or Discord: Akuukis#6154.
+                        <IconDiscord fontSize='default' className={classes.icon} />
+                        &nbsp;
+                        <strong>Akuukis#6154</strong> (<Link {...linkProps('//discord.gg/98VJRWf')}>on KeenSW Server</Link>)
                     </li>
-                    <li><em>... looking for maintainers (if interested, DM Akuukis) ...</em></li>
+                    <li>
+                        <IconGitlab fontSize='default' className={classes.icon} />
+                        &nbsp;
+                        <Link {...linkProps('//gitlab.com/Akuukis')}><strong>Akuukis</strong></Link>
+                    </li>
+                    <li>
+                        <IconGithub fontSize='default' className={classes.icon} />
+                        &nbsp;
+                        <Link {...linkProps('//github.com/Akuukis')}><strong>Akuukis</strong></Link>
+                    </li>
                 </ul>
             </Typography>
             <Typography variant='h5'>Keen Software House</Typography>
@@ -39,6 +62,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Typography paragraph>
                 This website is open-source (<a href='//choosealicense.com/licenses/gpl-3.0/'>GPLv3</a>).
                 You can find source code at <a href='//gitlab.com/akuukis/sepraisal'>Gitlab</a>.
+            </Typography>
+            <Typography paragraph>
+                The name ("Space Engineers Praisal") and associated domain belongs to Akuukis.
             </Typography>
             <Typography paragraph>
                 Game assets are used with Keen Software House permission in personal communication with Akuukis.
