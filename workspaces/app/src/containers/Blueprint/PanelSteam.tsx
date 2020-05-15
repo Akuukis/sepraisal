@@ -40,8 +40,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     React.useEffect(() => {
         return autorun(() => {
-            const id = validateId(idFromHref(routerStore.location.search))
-            setText(String(id))
+            if(routerStore.location.search === '') return
+            setText(String(validateId(idFromHref(routerStore.location.search))))
         })
     }, [])
 
@@ -62,7 +62,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `Validation: ${err.message}`})
         }
-        console.log('onchange')
     }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
