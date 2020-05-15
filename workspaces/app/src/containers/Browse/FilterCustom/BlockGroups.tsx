@@ -39,6 +39,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </FormLabel>
             {Object.entries(BLOCK_GROUPS).map(([groupId, fullIds]) => (
                 <CheckboxMulti
+                    key={groupId}
                     className={clsx(classes.checkbox, groupId.includes('_') ? classes.checkboxChildren : classes.checkboxParent)}
                     label={BLOCK_GROUP_NAMES[groupId]}
                     criterionIds={fullIds.map((fullId) => `sbc.blocks.${fullId}`)}
