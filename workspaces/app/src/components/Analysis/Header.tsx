@@ -19,7 +19,6 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.success.main,
     },
     header: {
-        textDecoration: 'none',
         '&:hover': {
             textDecoration: 'underline',
         },
@@ -83,7 +82,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     {/* <IconButton color='contrast' aria-label='Menu'>
                         <IconMoreVert />
                     </IconButton> */}
-                    <Typography variant='h6' color='inherit' style={{flex: 1}}>
+                    <Typography variant='h3' color='inherit' style={{flex: 1}}>
                         {title}
                     </Typography>
                     {children}

@@ -92,6 +92,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         value={title}
                         alignItems='flex-start'
                         justify='space-between'
+                        valueProps={{variant: 'h3', component: 'h3'} as any}
                     />
                     <CenterCell
                         className={classes.CenterCell}

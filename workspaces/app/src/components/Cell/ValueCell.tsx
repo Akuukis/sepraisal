@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Typography } from '@material-ui/core'
+import { Typography, TypographyProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
@@ -27,11 +27,12 @@ const styles = (theme: IMyTheme) => createStyles({
 interface IProps extends ICenterCellProps {
     label?: React.ReactNode
     value?: React.ReactNode
+    valueProps?: TypographyProps
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {label, value, className, ...otherProps} = props
+    const {label, value, valueProps, className, ...otherProps} = props
     const labelFormatted = label !== undefined ? label : '\u00A0'
     const valueFormatted = value !== undefined ? value : '\u00A0'
 
@@ -48,6 +49,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 variant='body2'
                 component='span'
                 align='center'
+                {...valueProps}
             >
                 {valueFormatted}
             </Typography>

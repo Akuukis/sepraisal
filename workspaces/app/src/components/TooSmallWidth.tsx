@@ -30,7 +30,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Card className={classes.root}>
-            <CardHeader className={classes.header} title='Screen is too narrow.' />
+            <CardHeader className={classes.header} titleTypographyProps={{variant:'h3'}} title='Screen is too narrow.' />
             <CardContent className={classes.content}>
                 <Grid container justify='center' alignItems='flex-start' spacing={2}>
                     <Grid item>

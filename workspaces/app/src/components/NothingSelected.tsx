@@ -27,7 +27,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     return (
         <Card className={classes.root}>
-            <CardHeader className={classes.header} title='No blueprint selected.' />
+            <CardHeader className={classes.header} titleTypographyProps={{variant:'h3'}} title='No blueprint selected.' />
             <CardContent className={classes.content}>
                 <Typography paragraph>
                     Please open and use the panel to select a blueprint.
