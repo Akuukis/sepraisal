@@ -81,6 +81,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <ListItemText
                 primary={title}
+                primaryTypographyProps={{variant: 'body1'}}
             />
             <ListItemSecondaryAction>
                 <IconButton onClick={handleDelete} ><IconDeleteForever /></IconButton>

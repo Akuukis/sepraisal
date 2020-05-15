@@ -14,6 +14,7 @@ import { createSmartFC, createStyles, IMyTheme } from '../common/'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        ...theme.typography.body2,
     },
 
     td: {

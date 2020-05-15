@@ -54,7 +54,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {collection.title ?? collection.id}
         </Link>)
     ))
-    const author = (<Link variant='body1' {...linkAuthorProps(bp.steam.author.id)}>
+    const author = (<Link variant='body2' {...linkAuthorProps(bp.steam.author.id)}>
             {bp.steam.author.title ?? bp.steam.author.id}
         </Link>)
 

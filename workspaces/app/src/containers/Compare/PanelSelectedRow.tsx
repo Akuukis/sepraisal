@@ -55,6 +55,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </ListItemIcon>
             <ListItemText
                 primary={title}
+                primaryTypographyProps={{variant: 'body1'}}
             />
             <ListItemSecondaryAction>
                 <IconButton onClick={handleDeselect} edge='end'><IconClose /></IconButton>

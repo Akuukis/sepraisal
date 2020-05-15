@@ -47,10 +47,11 @@ const styles = (theme: IMyTheme) => createStyles({
     ValueCell: {
     },
     ValueCellLabel: {
-        color: theme.palette.success.light,
+        color: theme.palette.success.contrastText,
     },
     ValueCellValue: {
         color: theme.palette.success.contrastText,
+        fontWeight: 700,
     },
 })
 

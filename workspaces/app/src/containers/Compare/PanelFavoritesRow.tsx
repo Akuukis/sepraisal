@@ -73,6 +73,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </ListItemIcon>
             <ListItemText
                 primary={name}
+                primaryTypographyProps={{variant: 'body1'}}
             />
             <ListItemSecondaryAction>
                 <FavoriteButton bpId={id} name={name} edge='end' />

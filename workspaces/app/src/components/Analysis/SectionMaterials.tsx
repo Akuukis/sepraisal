@@ -198,7 +198,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                                 onChange={handleType}
                                 fullWidth
                             >
-                                <MenuItem value='component'>Compoments</MenuItem>
+                                <MenuItem value='component'>Components</MenuItem>
                                 <MenuItem value='ingot'>Ingots</MenuItem>
                                 <MenuItem value='ore'>Ores</MenuItem>
                             </TextField>

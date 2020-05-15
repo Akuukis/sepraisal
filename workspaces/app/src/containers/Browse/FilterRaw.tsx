@@ -2,7 +2,7 @@ import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Button, Grid, TextField } from '@material-ui/core'
+import { Button, Grid, TextField, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyExpansionPanel from 'src/components/MyExpansionPanel'
@@ -21,6 +21,9 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.background.default,
         padding: '0px 0px 0px 0.5em',
         resize: 'vertical',
+    },
+    helperText: {
+        padding: theme.spacing(1),
     },
 })
 
@@ -59,6 +62,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <MyExpansionPanel header='Advanced' subheader={totalCriteria ? `${totalCriteria} criteria from filters` : ``}>
             <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <TextField
+                        className={classes.textField}
+                        id='outlined-multiline-flexible'
+                        multiline
+                        rows='12'
+                        value={findDirty}
+                        onChange={handleRawFind}
+                        margin='normal'
+                        variant='outlined'
+                        error={dirtyOk === null}
+                        fullWidth
+                        InputProps={{className: classes.monospaceBox}}
+                    />
+                </Grid>
                 <Grid item xs={6}>
                     <Button variant='contained' fullWidth onClick={reset}>
                         Reset
@@ -69,22 +87,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         Apply
                     </Button>
                 </Grid>
-                <Grid item xs={12}>
-                    <TextField
-                        className={classes.textField}
-                        id='outlined-multiline-flexible'
-                        multiline
-                        rows='12'
-                        value={findDirty}
-                        onChange={handleRawFind}
-                        margin='normal'
-                        helperText={helperText}
-                        variant='outlined'
-                        error={dirtyOk === null}
-                        fullWidth
-                        InputProps={{className: classes.monospaceBox}}
-                    />
-                </Grid>
+                <Typography variant='caption' className={classes.helperText}>
+                    {helperText}
+                </Typography>
             </Grid>
         </MyExpansionPanel>
     )

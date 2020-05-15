@@ -87,6 +87,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <ListItemText
                 primary={title}
+                primaryTypographyProps={{variant: 'body1'}}
             />
             <ListItemSecondaryAction>
                 <FromNow variant='caption' moment={blueprint._cached} />

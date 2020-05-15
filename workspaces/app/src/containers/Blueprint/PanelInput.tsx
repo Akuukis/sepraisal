@@ -19,7 +19,6 @@ const styles = (theme: IMyTheme) => createStyles({
     helperText: {
     },
     label: {
-        ...theme.typography.h3,
     },
 })
 

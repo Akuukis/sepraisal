@@ -30,7 +30,8 @@ const styles = (theme: IMyTheme) => createStyles({
         marginTop: theme.spacing(8),
     },
     label: {
-        ...theme.typography.subtitle2,
+        marginTop: theme.spacing(2),
+        // ...theme.typography.body1,
         color: theme.palette.text.primary,
         '& > span': {
             color: theme.palette.error.main,

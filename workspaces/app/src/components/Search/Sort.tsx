@@ -84,7 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid className={classes.root} container alignItems='center' justify='center'>
-            <Typography className={classes.text} variant='subtitle1'>
+            <Typography className={classes.text} variant='body1' component='label'>
                 {currentKey && TITLES[currentKey]}
             </Typography>
             <IconButton className={classes.button} onClick={handleClick} color='primary'>

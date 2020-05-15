@@ -20,7 +20,6 @@ const styles = (theme: IMyTheme) => createStyles({
     helperText: {
     },
     label: {
-        ...theme.typography.h3,
     },
 })
 
@@ -63,8 +62,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <form className={clsx(classes.root, className)} onSubmit={handleSubmit} {...otherProps}>
-            <FormControl component='fieldset' error={status.code === ASYNC_STATE.Error}>
-                <FormLabel component='legend' className={classes.label}>Or analyse a random blueprint:</FormLabel>
+            <FormControl error={status.code === ASYNC_STATE.Error}>
+                <FormLabel className={classes.label}>Or analyse a random blueprint:</FormLabel>
                 <RadioGroup aria-label='random' name='random' value={value} onChange={handleRadioChange}>
                     {Object.keys(PRESET).map((name) => (
                         <FormControlLabel

@@ -101,14 +101,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <Grid container justify='space-between' className={classes.root}>
             <Grid item>
                 <Typography
-                    id='range-slider'
+                    id='log-slider'
                     style={!criterion ? {color: theme.palette.text.disabled} : {}}
                 >
                     {title}
                 </Typography>
             </Grid>
             <Grid item>
-                <Typography id='range-slider'>{from} {to}</Typography>
+                <Typography variant='body2'>{from} {to}</Typography>
             </Grid>
             <Grid item xs={12}>
                 <Slider
@@ -120,7 +120,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     onChange={handleChange}
                     onChangeCommitted={onChangeCommitted}
                     valueLabelDisplay='auto'
-                    aria-labelledby='range-slider'
+                    aria-labelledby='log-slider'
                     valueLabelFormat={format}
                 />
             </Grid>

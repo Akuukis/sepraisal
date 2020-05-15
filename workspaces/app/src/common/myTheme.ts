@@ -1,4 +1,4 @@
-import { createMuiTheme, darken, lighten, Theme, ThemeOptions } from '@material-ui/core'
+import { createMuiTheme, darken, fade, lighten, Theme, ThemeOptions } from '@material-ui/core'
 import { blue, green, red, yellow } from '@material-ui/core/colors'
 import { TypographyStyle, TypographyStyleOptions } from '@material-ui/core/styles/createTypography'
 
@@ -105,10 +105,12 @@ export const MY_LIGHT_THEME = createMuiTheme({
         primary: {
             ...blue,
             ...SE_COLORS.blue,
+            contrastText: fade('#fff', 0.93)
         },
         secondary: {
             ...yellow,
             ...SE_COLORS.yellow,
+            contrastText: fade('#fff', 0.93)
         },
         background: {
             default: SE_COLORS.grey,
@@ -121,15 +123,19 @@ export const MY_LIGHT_THEME = createMuiTheme({
 
         warning: {
             ...SE_COLORS.yellow,
+            contrastText: fade('#fff', 0.93)
         },
         info: {
             ...SE_COLORS.blue,
+            contrastText: fade('#fff', 0.93)
         },
         error: {
             ...SE_COLORS.red,
+            contrastText: fade('#fff', 0.93)
         },
         success: {
             ...SE_COLORS.green,
+            contrastText: fade('#fff', 0.93)
         },
     },
     spacing: SPACING,
@@ -174,11 +180,12 @@ export const MY_LIGHT_THEME = createMuiTheme({
         // Similar to body, but small line height.
         subtitle1: {
             fontWeight: FONT_WEIGHT_BOLD,
-            fontSize: '0.875rem'
+            fontSize: '0.875rem',
+            lineHeight: 1.2,
         },
         subtitle2: {
             fontWeight: FONT_WEIGHT_REGULAR,
-            fontSize: '0.875rem'
+            fontSize: '0.875rem',
         },
 
         // Similar to subtitle, but big line height appropriate for paragraphs.
