@@ -2,31 +2,24 @@ import { getApiUrl, IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid } from '@material-ui/core'
+import { Button, Typography } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
-import DefaultLayout from 'src/layouts/DefaultLayout'
+import IconAnalyse from 'src/components/icons/IconAnalyse'
 import { CONTEXT } from 'src/stores'
 import { PRESET } from 'src/stores/CardStore'
 
-import banner from '../../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
-import Analyse from './Analyse'
-import Browse from './Browse'
-import Compare from './Compare'
+import HomeCard from './HomeCard'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: '0.5em',
     },
 
-    banner: {
-        borderRadius: theme.spacing(1),
-        display: 'block',
-        height: theme.spacing(50),
-        objectFit: 'cover',
-        width: '100%',
-    },
+    button: {
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(8),
+    }
 })
 
 
@@ -53,23 +46,27 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <DefaultLayout>
-            <Grid container spacing={2} justify='center' className={classes.root} style={{paddingBottom: 0}}>
-                <Grid item xs={12} lg={9}>
-                    <img src={banner} className={classes.banner} />
-                </Grid>
-            </Grid>
-            <Grid container spacing={2} justify='center' className={classes.root}>
-                <Grid item xs={12} sm={8} md={4} lg={3}>
-                    <Browse />
-               </Grid>
-                <Grid item xs={12} sm={8} md={4} lg={3}>
-                    <Analyse />
-                </Grid>
-                <Grid item xs={12} sm={8} md={4} lg={3}>
-                    <Compare />
-                </Grid>
-            </Grid>
-        </DefaultLayout>
+        <HomeCard className={classes.root} heading='2. Analyse'>
+            <Typography paragraph>
+                Get in-depth analysis of the blueprint.
+            </Typography>
+            <Typography component='div' paragraph>
+                <ul>
+                    <li><strong>2D x-ray</strong>: Bad picture? View it in three projections.</li>
+                    <li><strong>Costs</strong>: list all required components, ingots and ores.</li>
+                    <li><strong>Stats</strong>: Precalculated values of most important stats.</li>
+                </ul>
+            </Typography>
+            <Button
+                className={classes.button}
+                color='primary'
+                variant='outlined'
+                onClick={getRandom}
+                fullWidth
+            >
+                <IconAnalyse />
+                <Typography variant='button'>{'Analyse Random'}</Typography>
+            </Button>
+        </HomeCard>
     )
 })) /* ============================================================================================================= */
