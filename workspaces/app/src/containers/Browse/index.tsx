@@ -2,12 +2,12 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import Search from 'src/components/Search'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 
 import Cards from './Cards'
 import Filter from './Filter'
 import LoadMore from './LoadMore'
-import Search from './Search'
 
 
 const styles = (theme: IMyTheme) => createStyles({

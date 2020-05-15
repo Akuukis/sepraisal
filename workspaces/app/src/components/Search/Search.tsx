@@ -11,13 +11,13 @@ import { AUTOCOMPLETE_COLLECTIONS } from 'src/common/collections'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import IconCollection from 'src/components/icons/IconCollection'
 import IconPerson from 'src/components/icons/IconPerson'
+import { ROUTES } from 'src/constants/routes'
 import { CONTEXT } from 'src/stores'
 
 import { ListboxComponent, renderGroup } from './SearchVirtualized'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        minWidth: 360,
         maxWidth: 720,
         flexGrow: 1,
         flexShrink: 1,
@@ -32,13 +32,6 @@ const styles = (theme: IMyTheme) => createStyles({
     input: {
         minHeight: 44,
     },
-    status: {
-        flexGrow: 0,
-        flexShrink: 0,
-        padding: theme.spacing(2),
-        color: theme.palette.primary.contrastText,
-        minWidth: 240,
-    },
 })
 
 
@@ -47,6 +40,7 @@ interface IProps extends Omit<AutocompleteProps<IOption>, 'renderInput' | 'optio
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const {className, ...otherProps} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const routerStore = React.useContext(CONTEXT.ROUTER)
     const [input, setInput] = React.useState('')
@@ -73,7 +67,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         searchParams.delete('collection')
         for(const newAuthor of newAuthors) searchParams.append('author', newAuthor)
         for(const newCollection of newCollections) searchParams.append('collection', newCollection)
-        routerStore.replace({search: searchParams.toString()})
+        routerStore.push({pathname: ROUTES.BROWSE, search: searchParams.toString()})
     }
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
@@ -115,7 +109,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Autocomplete
-            className={classes.root}
+            className={clsx(classes.root, className)}
             id='free-solo-with-text-demo'
             inputValue={input}
             onInputChange={handleInput}
@@ -174,7 +168,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             renderInput={(params) => (
                 <TextField
                     {...params}
-                    placeholder='Search author, collection, or free text ...'
+                    placeholder='Search blueprints ...'
                     variant='outlined'
                     fullWidth
                     InputProps={{
@@ -206,6 +200,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     }}
                 />
             )}
+            {...otherProps}
         />
     )
 })) /* ============================================================================================================= */
