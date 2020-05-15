@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import deep from 'fast-deep-equal'
 import { runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -50,6 +51,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [prevOrder, setPrevOrder] = React.useState(() => order)
 
     React.useEffect(() => {
+        if(deep(prevOrder, order)) return
+
         const timeout = setTimeout(() => setPrevOrder(order), theme.transitions.duration.complex * 1.2)
 
         return () => clearTimeout(timeout)
