@@ -1,5 +1,6 @@
 import { createMuiTheme, darken, lighten, Theme, ThemeOptions } from '@material-ui/core'
 import { blue, green, red, yellow } from '@material-ui/core/colors'
+import { TypographyStyle, TypographyStyleOptions } from '@material-ui/core/styles/createTypography'
 
 // Official Space Engineers colors (https://blog.marekrosa.org/2017/09/my-vision-for-visual-style-of-space.html)
 export const SE_COLORS = {
@@ -22,18 +23,28 @@ export const STEAM_COLORS = {
 export const THUMB_WIDTH = 268
 export const THUMB_HEIGHT = 151
 
+const FONT_WEIGHT_REGULAR = 400
+const FONT_WEIGHT_MEDIUM = 500
+const FONT_WEIGHT_BOLD = 700
+
 
 export interface IMyTheme extends Theme {
     shape: Theme['shape'] & {
         boxHeight: number,
         boxWidth: number,
+    },
+    typography: Theme['typography'] & {
+        mono: TypographyStyle
     }
 }
 
 interface IMyThemeOptions extends ThemeOptions {
-    shape?: Theme['shape'] & {
+    shape?: ThemeOptions['shape'] & {
         boxHeight: number,
         boxWidth: number,
+    }
+    typography?: ThemeOptions['typography'] & {
+        mono: TypographyStyleOptions
     }
 }
 
@@ -135,21 +146,63 @@ export const MY_LIGHT_THEME = createMuiTheme({
      * 32px = 2rem
      */
     typography: {
+        // Reserved: not visible because button's active state signals current page.
+        h1: {},
+
+        // Headings.
+        h2: {
+            fontWeight: FONT_WEIGHT_BOLD,
+            fontSize: '1.75rem',
+            textTransform: 'uppercase',
+        },
         h3: {
-            fontWeight: 500,
+            fontWeight: FONT_WEIGHT_BOLD,
+            fontSize: '0.9375rem',
         },
-        h6: {
-            fontSize: '1.125rem',  // 1.25
+        h4: {
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '1.125rem',
         },
-        subtitle1: {  // Usually with `strong` element.
+
+        // Similar to body, but small line height.
+        subtitle1: {
+            fontWeight: FONT_WEIGHT_BOLD,
+            fontSize: '0.875rem'
         },
-        subtitle2: {  // Usually with `em` element.
-            fontStyle: 'normal',
+
+        // Similar to subtitle, but big line height appropriate for paragraphs.
+        body1: {
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.9375rem',
+        },
+        body2: {
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.875rem',
             fontStretch: 'condensed',
         },
+
         caption: {  // Usually with `label` element.
-            fontSize: '0.675rem', // 0.75
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.6875rem',  // 11px
         },
+
+        button: {
+            fontWeight: FONT_WEIGHT_MEDIUM,
+            fontSize: '0.9375rem',  // 15px
+            textTransform: 'uppercase',
+        },
+
+        // Custom style for monospace, e.g. raw filters textarea.
+        mono: {
+            fontFamily: '"Roboto Mono", Roboto',
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.6875rem',  // 11px
+        },
+
+        // Not used.
+        h5: {},
+        h6: {},
+        subtitle2: {},
     },
 
     // Dense mode
