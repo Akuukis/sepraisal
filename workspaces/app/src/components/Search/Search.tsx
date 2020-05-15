@@ -18,7 +18,6 @@ import { ListboxComponent, renderGroup } from './SearchVirtualized'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        minWidth: 360,
         maxWidth: 720,
         flexGrow: 1,
         flexShrink: 1,
@@ -32,13 +31,6 @@ const styles = (theme: IMyTheme) => createStyles({
 
     input: {
         minHeight: 44,
-    },
-    status: {
-        flexGrow: 0,
-        flexShrink: 0,
-        padding: theme.spacing(2),
-        color: theme.palette.primary.contrastText,
-        minWidth: 240,
     },
 })
 
