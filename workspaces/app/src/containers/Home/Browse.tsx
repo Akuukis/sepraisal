@@ -31,7 +31,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <HomeCard className={classes.root} heading='1. Browse'>
-            <Typography paragraph>
+            <Typography align='center' variant='subtitle1'>
                 Browse all Steam workshop blueprints.
             </Typography>
             <Typography component='div' paragraph>

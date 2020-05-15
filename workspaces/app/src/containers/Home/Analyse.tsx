@@ -47,7 +47,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <HomeCard className={classes.root} heading='2. Analyse'>
-            <Typography paragraph>
+            <Typography align='center' variant='subtitle1'>
                 Get in-depth analysis of the blueprint.
             </Typography>
             <Typography component='div' paragraph>
