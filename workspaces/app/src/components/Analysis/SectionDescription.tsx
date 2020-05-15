@@ -66,7 +66,7 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {bp, className, long, ...otherProps} = props
-    const largerThanXl = useMediaQuery(theme.breakpoints.up('xl'))
+    const xlUp = useMediaQuery(theme.breakpoints.up('xl'), { noSsr: true })
 
     return (
         <MySection
@@ -77,7 +77,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, className)}
             {...otherProps}
         >
-            <MyBoxColumn height={largerThanXl && long ? 0 : 4} width={6}>
+            <MyBoxColumn height={xlUp && long ? 0 : 4} width={6}>
                 <MyBoxRow width={6}>
                     <MyBox width={6} classes={{root: classes.box, paper: classes.paper}}>
                         <Paper square className={classes.corner}>

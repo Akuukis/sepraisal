@@ -54,9 +54,9 @@ interface IProps extends MySectionProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {className, narrow, ...otherProps} = props
-    const largerThanSm = useMediaQuery(theme.breakpoints.up('sm'))
+    const smUp = useMediaQuery(theme.breakpoints.up('sm'), { noSsr: true })
 
-    return (largerThanSm && !narrow) ?
+    return (smUp && !narrow) ?
             <MySectionWide
                 classes={{
                     root: clsx(classes.root, className),

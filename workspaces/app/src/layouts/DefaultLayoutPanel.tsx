@@ -91,7 +91,7 @@ interface IProps extends GridProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {aside, asideIcon, asideProps, asideTitle, open, toggleOpen, className, ...otherProps} = props
-    const xsDown = useMediaQuery(theme.breakpoints.down('xs'))
+    const xsDown = useMediaQuery(theme.breakpoints.down('xs'), { noSsr: true })
 
     const asideContent = (<>
         <div className={classes.asideHeader}>
