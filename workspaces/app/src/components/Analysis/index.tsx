@@ -78,8 +78,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {bpId, icons, long, maxWidth, className, ...otherProps} = props
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const [state, setState] = React.useState<{code: ASYNC_STATE, text?: string}>({code: ASYNC_STATE.Idle})
-    const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(null)
+    const cached = blueprintStore.getSomething(bpId)
+
+    const [state, setState] = React.useState<{code: ASYNC_STATE, text?: string}>({code: cached ? ASYNC_STATE.Done : ASYNC_STATE.Idle})
+    const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(() => cached ?? null)
 
     const rootClassName = clsx(classes.root, {
             [classes.narrow]: maxWidth === 0.5,
@@ -88,13 +90,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }, className)
 
     useAsyncEffectOnce(async () => {
-        const cached = blueprintStore.getSomething(bpId)
-        if(cached) {
-            setBlueprint(cached)
-            setState({code: ASYNC_STATE.Done})
-
-            return
-        }
+        if(state.code === ASYNC_STATE.Done) return
 
         if(typeof bpId === 'string') {
             setState({code: ASYNC_STATE.Error})
