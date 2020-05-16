@@ -113,7 +113,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
             contrastText: fade('#fff', 0.93),
         },
         background: {
-            default: rgbToHex(darken(SE_COLORS.white, 0.15)),
+            default: rgbToHex(darken(SE_COLORS.white, 0.1)),
             paper: SE_COLORS.white,
         },
         text: {
