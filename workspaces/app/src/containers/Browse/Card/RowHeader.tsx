@@ -37,6 +37,9 @@ const styles = (theme: IMyTheme) => createStyles({
         flexShrink: 0,
         flexBasis: 0,
     },
+    ValueCellLabel: {
+        color: fade(theme.palette.success.contrastText, 0.5),  // For divider.
+    },
     ValueCellValue: {
         color: theme.palette.success.contrastText,
         // height: `calc(${theme.typography.body1.fontSize} * 2.5)`,
@@ -81,6 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell
                         classes={{
                             root: classes.ValueCell,
+                            label: classes.ValueCellLabel,
                             value: classes.ValueCellValue,
                         }}
                         width={4}
