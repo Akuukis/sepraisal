@@ -4,7 +4,7 @@ import { action, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Card, CardContent, CardHeader, CardProps, Chip, TextField } from '@material-ui/core'
+import { Chip, InputAdornment, TextField, Typography } from '@material-ui/core'
 import { Autocomplete } from '@material-ui/lab'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
@@ -15,53 +15,38 @@ import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        borderStyle: `solid`,
-        borderWidth: 1,
-        borderColor: theme.palette.text.secondary,
     },
 
-    content: {
-        padding: theme.spacing(1, 2),
-        textAlign: 'right',
-        '&:last-child': {
-            paddingBottom: theme.spacing(4),
-        }
-    },
-    header: {
-        borderBottomStyle: `solid`,
-        borderBottomWidth: 1,
-        borderBottomColor: theme.palette.text.secondary,
-        padding: theme.spacing(2),
-        backgroundColor: theme.palette.success.light,
-    },
-    icon: {
-        verticalAlign: 'text-bottom',
-    },
     textField: {
-    },
-    input: {
-        backgroundColor: theme.palette.background.paper,
     },
     chip: {
         margin: theme.spacing(0.5),
         backgroundColor: theme.palette.success.light,
     },
-    headerExcludeVariant: {
-        backgroundColor: theme.palette.error.light,
-    },
     chipExcludeVariant: {
         backgroundColor: theme.palette.error.light,
     },
+    subheading: {
+        margin: theme.spacing(2, 0, 0, 0),
+    },
+    chips: {
+    },
+    inputAdornment: {
+        color: theme.palette.success.main,
+    },
+    inputAdornmentExcludeVariant: {
+        color: theme.palette.error.main,
+    },
 })
 
-interface IProps extends Omit<CardProps, 'variant'> {
+interface IProps {
     heading: string
     variant: 'include' | 'exclude'
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {heading, className, variant, ...otherProps} = props
+    const {heading, variant} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
@@ -98,11 +83,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         // Don't bother removing them at next re-render, it's ok.
     })
 
-    const title = (<>
-        <IconBrowse className={classes.icon} />
-        {heading}
-    </>)
-
     const handleChange = action((event: React.ChangeEvent<{}>, newOptions: IOption[]) => {
         // A lot of overwritting going on because that's cheaper than to identify exact change.
         // As it's within one action it doesn't trigger re-rerenders during the loop.
@@ -122,15 +102,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     })
 
     return (
-        <Card className={clsx(classes.root, className)} {...otherProps}>
-            <CardHeader
-                title={title}
-                classes={{
-                    root: clsx(classes.header, variant === 'exclude' && classes.headerExcludeVariant),
-                }}
-                titleTypographyProps={{variant: 'body1', component: 'label'} as any}
-            />
-            <CardContent className={classes.content}>
+        <div className={clsx(classes.root)}>
+            <Typography component='legend' className={classes.subheading} variant='subtitle1' align='left'>
+                {heading}
+            </Typography>
                 <Autocomplete
                     multiple
                     value={selected}
@@ -149,11 +124,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             {...params}
                             variant='outlined'
                             placeholder='Select ID of blocks ...'
+                            InputProps={{
+                                ...params.InputProps,
+                                startAdornment: (
+                                    <InputAdornment
+                                        position='start'
+                                        className={clsx(classes.inputAdornment, variant === 'exclude' && classes.inputAdornmentExcludeVariant)}
+                                    >
+                                        <IconBrowse color='inherit' fontSize='default' />
+                                    </InputAdornment>
+                                )
+                            }}
                         />
                     )}
                 />
-            </CardContent>
-            <CardContent className={classes.content}>
+            <div className={classes.chips}>
                 {selected.map((option: IOption, index: number) => (
                     <Chip
                         id={option.fullType}
@@ -163,8 +148,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         onDelete={handleRemove}
                     />
                 ))}
-            </CardContent>
-        </Card>
+            </div>
+        </div>
     )
 })) /* ============================================================================================================= */
 
