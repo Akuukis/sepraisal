@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link } from '@material-ui/core'
+import { fade, Link } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkCollectionProps } from 'src/common'
 import CenterCell from 'src/components/Cell/CenterCell'
@@ -24,7 +24,7 @@ const styles = (theme: IMyTheme) => createStyles({
         // paddingTop: theme.spacing(1),
     },
     collection: {
-        color: theme.palette.success.contrastText,
+        color: fade(theme.palette.success.contrastText, 0.9),
     },
     CenterCell: {
         padding: theme.spacing(0),
@@ -36,9 +36,6 @@ const styles = (theme: IMyTheme) => createStyles({
         flexGrow: 1,
         flexShrink: 0,
         flexBasis: 0,
-    },
-    ValueCellLabel: {
-        color: theme.palette.success.light,
     },
     ValueCellValue: {
         color: theme.palette.success.contrastText,
@@ -84,7 +81,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <ValueCell
                         classes={{
                             root: classes.ValueCell,
-                            label: classes.ValueCellLabel,
                             value: classes.ValueCellValue,
                         }}
                         width={4}
