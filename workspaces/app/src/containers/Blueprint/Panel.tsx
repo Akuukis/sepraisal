@@ -9,6 +9,7 @@ import { CONTEXT } from 'src/stores'
 
 import PanelInput from './PanelInput'
 import PanelRandom from './PanelRandom'
+import PanelUpload from './PanelUpload'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -50,8 +51,6 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const selectionStore = React.useContext(CONTEXT.SELECTION)
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
     const [text, setText] = React.useState('')
@@ -66,32 +65,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     })
 
-    const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value
-        setText(value)
-
-        if(value === '') {
-            setStatus({code: ASYNC_STATE.Idle, text: ''})
+    const select = async (id: number | string) => {
+        if(typeof id === 'number') {
+            routerStore.replace({...location, search: `?id=${id}`})
+        } else {
+            // Can't share a url to uploaded blueprint.
             routerStore.replace({...location, search: undefined})
-            return
         }
-
-        try {
-            const id = validateId(extractId(value))
-            select(id)
-            setStatus({code: ASYNC_STATE.Done, text: `ID looks ok.`})
-        } catch(err) {
-            setStatus({code: ASYNC_STATE.Error, text: `Validation: ${err.message}`})
-        }
-        console.log('onchange')
-    }
-
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-    }
-
-    const select = async (id: number) => {
-        routerStore.replace({...location, search: `?id=${id}`})
     }
 
     return (
@@ -100,6 +80,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <PanelInput classes={{label: classes.label}} select={select} />
             <PanelRandom classes={{label: classes.label}} select={select} />
+            <PanelUpload classes={{label: classes.label}} select={select} />
             <Typography paragraph variant='caption' className={classes.footer}>
                 Note that blueprints added to Steam Workshop less than 6 hours ago may not be available yet.
             </Typography>
