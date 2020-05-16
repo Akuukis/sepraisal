@@ -21,6 +21,9 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     label: {
     },
+    upload: {
+        marginTop: theme.spacing(4),
+    },
 })
 
 
@@ -45,7 +48,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <form className={clsx(classes.root, className)} {...otherProps}>
             <FormControl error={status.code === ASYNC_STATE.Error} fullWidth>
                 <FormLabel className={classes.label}>Upload your blueprint:</FormLabel>
-                <Upload onUpload={onUpload} onError={onError} />
+                <Upload onUpload={onUpload} onError={onError} classes={{root: classes.upload}} />
             </FormControl>
         </form>
     );
