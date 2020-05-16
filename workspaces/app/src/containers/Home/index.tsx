@@ -20,7 +20,6 @@ const styles = (theme: IMyTheme) => createStyles({
             backgroundPositionX: 'center',
             backgroundSize: 'cover',
         },
-        padding: 0,
         minHeight: 'calc(100vh - 48px)',  // Minus dense toolbar.
         display: 'flex',
         flexDirection: 'column',
@@ -33,6 +32,11 @@ const styles = (theme: IMyTheme) => createStyles({
             backgroundImage: `url(${encodeURI(banner)})`,
             backgroundPositionX: 'center',
             backgroundSize: 'cover',
+
+            // Hack around global padding.
+            margin: theme.spacing(-2, -2, 0, -2),
+            width: `calc(100% + ${theme.spacing(4)}px)`,
+            padding: theme.spacing(2),
         }
     },
     bottom: {

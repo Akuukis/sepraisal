@@ -32,7 +32,7 @@ const styles = (theme: IMyTheme) => createStyles({
         minWidth: '100%',
         minHeight: '100%',
         boxSizing: 'border-box',
-        padding: theme.spacing(1),
+        padding: theme.spacing(2),
     },
 })
 
