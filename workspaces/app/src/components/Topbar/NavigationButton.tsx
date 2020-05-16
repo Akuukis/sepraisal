@@ -15,7 +15,7 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(2, 2),
         minWidth: 24,
         [theme.breakpoints.up('md')]: {
-            padding: theme.spacing(2, 6),
+            padding: theme.spacing(2, 4),
         },
         height: 48,
         boxSizing: 'border-box',
@@ -36,11 +36,12 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingRight: theme.spacing(0.5),
     },
     title: {
+        ...theme.typography.h3,
         overflow: 'hidden',
         transition: theme.transitions.create('max-width'),
         maxWidth: 0,
         [theme.breakpoints.up('md')]: {
-            maxWidth: 80,
+            maxWidth: 92,
         },
     },
 })
@@ -62,7 +63,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={classes.root}
             activeClassName={classes.active}
         >
-            <Icon className={classes.icon} />
+            <Icon className={classes.icon} fontSize='default' />
             <Typography
                 className={classes.title}
                 variant='button'

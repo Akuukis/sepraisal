@@ -1,4 +1,3 @@
-import { idFromHref } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { useLocation } from 'react-router-dom'
@@ -24,17 +23,26 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const location = useLocation()
 
-    let content: [React.ReactElement] | null = null
-    try {
-        const id = idFromHref(location.search)
-        // Use `key` prop so it doesn't reuse Analysis for different ids.
-        content = [<Analysis bpId={id} key={id} long />]
-    } catch(err) {
+    const urlParams = new URLSearchParams(location.search)
+    let bpId: number | string | null = null
+
+    // Try steam id.
+    bpId = urlParams.get('id')
+    if(bpId) {
+        console.log(`Found steam id: "${bpId}"`)
+        bpId = Number(bpId)
     }
+
+    // Try upload title.
+    bpId = urlParams.get('upload')
+    if(bpId) console.log(`Found upload id: "${bpId}"`)
+
+    console.log(bpId)
+
 
     return (
         <Grid container spacing={2} justify='center'>
-            {content ?? <NothingSelected />}
+            {bpId !== null ? <Analysis bpId={bpId} key={bpId} long /> :  <NothingSelected />}
         </Grid>
     )
 })) /* ============================================================================================================= */

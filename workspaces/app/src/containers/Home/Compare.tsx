@@ -31,7 +31,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <HomeCard className={classes.root} heading='3. Compare'>
-            <Typography align='center' variant='subtitle1'>
+            <Typography align='center' variant='h3'>
                 Compare blueprints side-to-side.
             </Typography>
             <Typography component='div' paragraph>

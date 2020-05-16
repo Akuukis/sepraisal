@@ -21,16 +21,22 @@ const styles = (theme: IMyTheme) => createStyles({
             backgroundColor: theme.palette.primary.light,
             display: 'inherit !important',
             height: 2,
-            margin: theme.spacing(0, 2),
+            // margin: theme.spacing(0, 2),
         },
     },
 
+    summaryRoot: {
+        padding: theme.spacing(0),
+    },
+    summaryContent: {
+        alignItems: 'baseline',
+        '& > svg': {
+            alignSelf: 'center',
+        },
+    },
     details: {
-        padding: theme.spacing(0, 2, 2, 0.5),
+        padding: theme.spacing(0, 0, 2, 0),
         flexDirection: 'column',
-        borderLeftStyle: 'solid',
-        borderLeftColor: theme.palette.primary.main,
-        borderLeft: theme.spacing(1.5),
     },
     expanded: {
         margin: '0 !important',
@@ -44,17 +50,14 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     heading: {
         flexShrink: 0,
-        lineHeight: 1,
-        fontSize: theme.typography.pxToRem(16),
+        overflow: 'hidden',
+        maxWidth: '100%',
     },
     headingWithSecondary: {
         flexBasis: '33.33%',
     },
     secondaryHeading: {
         color: theme.palette.primary.main,
-        fontWeight: 500,
-        lineHeight: 1,
-        fontSize: theme.typography.pxToRem(16),
     },
 })
 
@@ -92,19 +95,19 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
             onChange={exclusiveScopeStore && handleToggle}
             {...otherProps}
         >
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <ExpansionPanelSummary classes={{root: classes.summaryRoot, content: classes.summaryContent}} expandIcon={<ExpandMoreIcon />}>
                 {icon}
-                    <Typography
-                        className={clsx({
-                            [classes.heading]: true,
-                            [classes.headingWithIcon]: icon,
-                            [classes.headingWithSecondary]: subheader,
-                        })}
-                        variant='h3'
-                    >
-                        {header}
-                    </Typography>
-                <Typography component='span' className={classes.secondaryHeading}>
+                <Typography
+                    className={clsx({
+                        [classes.heading]: true,
+                        [classes.headingWithIcon]: icon,
+                        [classes.headingWithSecondary]: subheader,
+                    })}
+                    variant='h3'
+                >
+                    {header}
+                </Typography>
+                <Typography component='span' variant='subtitle2' className={classes.secondaryHeading}>
                     {subheader}
                 </Typography>
             </ExpansionPanelSummary>

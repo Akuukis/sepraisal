@@ -16,7 +16,7 @@ import MyBoxRow from '../MyBoxRow'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: theme.spacing(0.5, 0),
+        padding: theme.spacing(1, 0),
         width: `${theme.shape.boxWidth * 2}px`,
     },
 
@@ -47,11 +47,11 @@ const styles = (theme: IMyTheme) => createStyles({
     ValueCell: {
     },
     ValueCellLabel: {
-        color: theme.palette.success.light,
+        color: theme.palette.success.contrastText,
     },
     ValueCellValue: {
-        fontWeight: 500,
         color: theme.palette.success.contrastText,
+        fontWeight: 700,
     },
 })
 
@@ -88,7 +88,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             <MyBox width={3} classes={{root: classes.MyBox, paper: classes.MyBoxPaper}}>
                                 <CenterCell width={2} className={classes.CenterCell} {...otherProps}>
                                     <Typography
-                                        variant='h6'
+                                        variant='h4'
                                         display='block'
                                         noWrap
                                         className={classes.heading}

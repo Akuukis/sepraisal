@@ -2,46 +2,33 @@ import { idFromHref } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Typography } from '@material-ui/core'
+import { Divider } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
 import { CONTEXT } from 'src/stores'
 
-import PanelInput from './PanelInput'
 import PanelRandom from './PanelRandom'
+import PanelSteam from './PanelSteam'
+import PanelUpload from './PanelUpload'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: theme.spacing(0, 4),
+        paddingBottom: theme.spacing(4),
     },
 
-    button: {
-        margin: theme.spacing(1),
-        minWidth: 240,
-        maxWidth: 240,
-        alignSelf: 'left',
-    },
-    formGroup: {
-        margin: theme.spacing(2, 0),
-    },
-    input: {
-    },
-    footer: {
-        marginTop: theme.spacing(8),
-    },
     label: {
-        ...theme.typography.subtitle2,
+        margin: theme.spacing(2, 0),
         color: theme.palette.text.primary,
         '& > span': {
             color: theme.palette.error.main,
         },
     },
-    helper: {
+    divider: {
+        backgroundColor: theme.palette.primary.light,
+        display: 'inherit !important',
+        height: 2,
+        margin: theme.spacing(2, 0),
     },
-    submitHack: {
-        position: 'absolute',
-        left: '-9999px',
-    }
 })
 
 
@@ -50,8 +37,6 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const selectionStore = React.useContext(CONTEXT.SELECTION)
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
     const [text, setText] = React.useState('')
@@ -66,43 +51,24 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     })
 
-    const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value
-        setText(value)
-
-        if(value === '') {
-            setStatus({code: ASYNC_STATE.Idle, text: ''})
-            routerStore.replace({...location, search: undefined})
-            return
+    const select = async (id: number | string) => {
+        if(typeof id === 'number') {
+            routerStore.replace({...location, search: `?id=${id}`})
+        } else if(typeof id === 'string') {
+            routerStore.replace({...location, search: `?upload=${id}`})
+        } else {
         }
-
-        try {
-            const id = validateId(extractId(value))
-            select(id)
-            setStatus({code: ASYNC_STATE.Done, text: `ID looks ok.`})
-        } catch(err) {
-            setStatus({code: ASYNC_STATE.Error, text: `Validation: ${err.message}`})
-        }
-        console.log('onchange')
-    }
-
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-    }
-
-    const select = async (id: number) => {
-        routerStore.replace({...location, search: `?id=${id}`})
     }
 
     return (
         <div
             className={classes.root}
         >
-            <PanelInput classes={{label: classes.label}} select={select} />
+            <PanelSteam classes={{label: classes.label}} select={select} />
+            <Divider className={classes.divider} />
             <PanelRandom classes={{label: classes.label}} select={select} />
-            <Typography paragraph variant='caption' className={classes.footer}>
-                Note that blueprints added to Steam Workshop less than 6 hours ago may not be available yet.
-            </Typography>
+            <Divider className={classes.divider} />
+            <PanelUpload classes={{label: classes.label}} select={select} />
         </div>
     )
 })) /* ============================================================================================================= */

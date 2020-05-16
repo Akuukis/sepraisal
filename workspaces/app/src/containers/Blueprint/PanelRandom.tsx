@@ -3,7 +3,16 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Button, FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup } from '@material-ui/core'
+import {
+    Button,
+    FormControl,
+    FormControlLabel,
+    FormHelperText,
+    FormLabel,
+    Grid,
+    Radio,
+    RadioGroup,
+} from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { getPresetTitle, PRESET } from 'src/stores/CardStore'
@@ -16,7 +25,6 @@ const styles = (theme: IMyTheme) => createStyles({
         margin: theme.spacing(1),
         minWidth: 240,
         maxWidth: 240,
-        alignSelf: 'left',
     },
     helperText: {
     },
@@ -32,7 +40,7 @@ interface IProps extends React.ComponentProps<'form'> {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {select, className, ...otherProps} = props
-    const [value, setValue] = React.useState<keyof typeof PRESET | null>(null);
+    const [value, setValue] = React.useState(Object.keys(PRESET).shift()! as keyof typeof PRESET);
     const [status, setStatus] = React.useState<{code: ASYNC_STATE, text: string}>({code: ASYNC_STATE.Idle, text: ''})
 
     const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,8 +71,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <form className={clsx(classes.root, className)} onSubmit={handleSubmit} {...otherProps}>
-            <FormControl component='fieldset' error={status.code === ASYNC_STATE.Error}>
-                <FormLabel component='legend' className={classes.label}>Or analyse a random blueprint:</FormLabel>
+            <FormControl error={status.code === ASYNC_STATE.Error} fullWidth>
+                <FormLabel className={classes.label}>Get a random blueprint:</FormLabel>
                 <RadioGroup aria-label='random' name='random' value={value} onChange={handleRadioChange}>
                     {Object.keys(PRESET).map((name) => (
                         <FormControlLabel
@@ -77,9 +85,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <FormHelperText className={classes.helperText}>
                     {status.text}
                 </FormHelperText>
-                <Button type='submit' variant='outlined' color='primary' className={classes.button}>
-                    Analyse Random
-                </Button>
+                <Grid container justify='center'>
+                    <Button type='submit' variant='outlined' color='primary' className={classes.button}>
+                        Analyse Random
+                    </Button>
+                </Grid>
             </FormControl>
         </form>
     );

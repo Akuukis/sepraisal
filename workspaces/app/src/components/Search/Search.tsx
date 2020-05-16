@@ -18,7 +18,7 @@ import { ListboxComponent, renderGroup } from './SearchVirtualized'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        maxWidth: 720,
+        maxWidth: 640,
         flexGrow: 1,
         flexShrink: 1,
         '& > div': {  // Autocomplete looks like doesn't have `formControl` style prop, hence this.
@@ -31,6 +31,12 @@ const styles = (theme: IMyTheme) => createStyles({
 
     input: {
         minHeight: 44,
+    },
+    inputInput: {
+        minWidth: '64px !important',
+    },
+    inputAdornment: {
+        margin: theme.spacing(0, 0, 0, 1)
     },
 })
 
@@ -144,6 +150,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             groupBy={(option: IOption) => String(option.type)}
             selectOnFocus
             clearOnEscape
+            disableClearable
             options={AUTOCOMPLETE}
             getOptionLabel={(option: string | IOption) => {
                 if (typeof option === 'string') return option  // Value selected with enter, right from the input
@@ -174,9 +181,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     InputProps={{
                         ...params.InputProps,
                         className: clsx(params.InputProps.className, classes.input),
+                        classes: {
+                            input: classes.inputInput
+                        },
                         startAdornment: [
-                            (<InputAdornment position='start'>
-                                <IconBrowse color='primary' />
+                            (<InputAdornment position='start' className={classes.inputAdornment}>
+                                <IconBrowse color='primary' fontSize='default' />
                             </InputAdornment>),
                             ...authors.map((author: string, index: number) => (
                                 <Chip

@@ -9,7 +9,10 @@ import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        margin: theme.spacing(2),
+        margin: theme.spacing(1),
+        [theme.breakpoints.up('sm')]: {
+            margin: theme.spacing(2),
+        },
         borderTopLeftRadius: theme.shape.borderRadius * 2,  // So that it doesn't anti-alise with heading.
         borderTopRightRadius: theme.shape.borderRadius * 2,  // So that it doesn't anti-alise with heading.
     },
@@ -20,11 +23,9 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.primary.dark,
     },
     heading: {
-        ...theme.typography.h4,
         color: theme.palette.primary.contrastText,
         borderTopLeftRadius: theme.shape.borderRadius,
         borderTopRightRadius: theme.shape.borderRadius,
-        textAlign: 'center',
     },
 })
 

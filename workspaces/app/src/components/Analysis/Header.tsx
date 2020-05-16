@@ -12,14 +12,15 @@ import { ROUTES } from 'src/constants/routes'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         zIndex: theme.zIndex.appBar - 200,
+        padding: theme.spacing(0, 0, 0.5, 0),
+        backgroundColor: 'unset',
     },
 
     toolbar: {
-        minHeight: 58,
         backgroundColor: theme.palette.success.main,
+        minHeight: 56,
     },
     header: {
-        textDecoration: 'none',
         '&:hover': {
             textDecoration: 'underline',
         },
@@ -83,7 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     {/* <IconButton color='contrast' aria-label='Menu'>
                         <IconMoreVert />
                     </IconButton> */}
-                    <Typography variant='h6' color='inherit' style={{flex: 1}}>
+                    <Typography variant='h3' color='inherit' style={{flex: 1}}>
                         {title}
                     </Typography>
                     {children}

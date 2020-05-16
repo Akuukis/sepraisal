@@ -1,5 +1,4 @@
 import { noop } from '@sepraisal/common'
-import { runInAction } from 'mobx'
 import * as Pako from 'pako'
 import * as React from 'react'
 import { useDropzone } from 'react-dropzone'
@@ -31,13 +30,14 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
+    onUpload: (title: string) => void
+    onError: (error: Error) => void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const {onUpload, onError} = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
-    const selectionStore = React.useContext(CONTEXT.SELECTION)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
 
     const onDrop = React.useCallback(async (acceptedFiles, rejectedFiles) => {
@@ -63,26 +63,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 })
 
                 const title = blueprintStore.setUpload(await praisalManager.praiseXml(xml))
-                runInAction(() => {
-                    selectionStore.selected.push(title)
-                })
-                piwikStore.push([
-                    'trackEvent',
-                    'workshop',
-                    'upload-successful',
-                    title,
-                    undefined,
-                ])
-
+                onUpload(title)
             } catch(err) {
-                piwikStore.push([
-                    'trackEvent',
-                    'workshop',
-                    'upload-failed',
-                    err.message,
-                    undefined,
-                ])
-
+                onError(err)
             }
         }
     }, [])
@@ -94,7 +77,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <ListItem className={classes.root} {...{...getRootProps(), onClick: noop}}>
             <input {...getInputProps()} />
             {isDragActive ? <SelectorDnDOverlay /> :  null}
-            <Typography className={classes.text} variant='body2' align='center'>
+            <Typography className={classes.text} variant='body1' align='center'>
                 Drop .sbc file here or&nbsp;<Link href={DUD_URL} onClick={browseFiles}>click to upload</Link>.
             </Typography>
         </ListItem>

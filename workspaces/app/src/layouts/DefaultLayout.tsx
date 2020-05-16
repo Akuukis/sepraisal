@@ -16,10 +16,6 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         background: theme.palette.background.default,
         backgroundImage: `url(${skyboxImage})`,
-        fontFamily: theme.typography.fontFamily,
-        fontSize: theme.typography.fontSize,
-        fontSmoothing: 'antialiased',
-        fontWeight: 300,
         minHeight: '100vh',
         minWidth: 300,  // That's minium.
         overflow: 'hidden',
@@ -36,7 +32,7 @@ const styles = (theme: IMyTheme) => createStyles({
         minWidth: '100%',
         minHeight: '100%',
         boxSizing: 'border-box',
-        padding: theme.spacing(1),
+        padding: theme.spacing(2),
     },
 })
 
@@ -52,7 +48,7 @@ interface IProps extends GridProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {aside, asideIcon, asideProps, asideTitle, mainProps, className, ...otherProps} = props
-    const [open, setOpen] = React.useState(!!aside)
+    const [open, setOpen] = React.useState(false)
     const toggleModal = (event?: React.KeyboardEvent | React.MouseEvent) => {
         setOpen(!open)
     }
@@ -62,6 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Topbar />
             <DefaultLayoutPanel
                 aside={aside}
+                asideIcon={asideIcon}
                 asideTitle={asideTitle}
                 asideProps={asideProps}
                 open={open}

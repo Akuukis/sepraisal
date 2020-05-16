@@ -34,9 +34,6 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(2),
         backgroundColor: theme.palette.success.light,
     },
-    title: {
-        ...theme.typography.subtitle2,
-    },
     icon: {
         verticalAlign: 'text-bottom',
     },
@@ -130,8 +127,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 title={title}
                 classes={{
                     root: clsx(classes.header, variant === 'exclude' && classes.headerExcludeVariant),
-                    title: classes.title
                 }}
+                titleTypographyProps={{variant: 'body1', component: 'label'} as any}
             />
             <CardContent className={classes.content}>
                 <Autocomplete

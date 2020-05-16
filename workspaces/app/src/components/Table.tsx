@@ -14,7 +14,7 @@ import { createSmartFC, createStyles, IMyTheme } from '../common/'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+        ...theme.typography.body2,
     },
 
     td: {

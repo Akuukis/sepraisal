@@ -28,7 +28,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     divider: {
         backgroundColor: theme.palette.primary.light,
-        margin: theme.spacing(0, 2),
+        margin: theme.spacing(0),
         height: 2,
     },
     footer: {
@@ -59,7 +59,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Grid container justify='flex-end'>
                 <Grid item className={classes.switchItem}>
                     <Switch checked={selectionStore.narrow} onChange={toggleNarrow} />
-                    <Typography component='span' variant='subtitle2'>narrow columns</Typography>
+                    <Typography component='label' variant='body1'>narrow columns</Typography>
                 </Grid>
             </Grid>
             <PanelSelected classes={panelClasses} />

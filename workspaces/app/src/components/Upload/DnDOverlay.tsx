@@ -27,7 +27,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <Grid container className={classes.root} alignItems='center' justify='center'>
             <Grid item>
-                <Typography component='span' variant='h4' style={{color: '#fff'}}>Drop files here</Typography>
+                <Typography component='span' variant='body1' style={{color: '#fff'}}>Drop files here</Typography>
             </Grid>
         </Grid>
     )

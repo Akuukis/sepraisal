@@ -4,7 +4,7 @@ import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { FormControl, FormHelperText, FormLabel, Input, InputAdornment } from '@material-ui/core'
+import { FormControl, FormHelperText, FormLabel, InputAdornment, TextField, Typography } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
@@ -19,6 +19,9 @@ const styles = (theme: IMyTheme) => createStyles({
     helperText: {
     },
     label: {
+    },
+    footer: {
+        marginTop: theme.spacing(2),
     },
 })
 
@@ -68,30 +71,36 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <form className={clsx(classes.root, className)} onSubmit={handleSubmit} {...otherProps}>
-            <FormControl error={status.code === ASYNC_STATE.Error}>
+            <FormControl error={status.code === ASYNC_STATE.Error} fullWidth>
                 <FormLabel htmlFor='id' className={classes.label}>
-                    Select a blueprint to analyse:
+                    Get a blueprint from Steam:
                 </FormLabel>
-                <Input
+                <TextField
                     required
                     autoFocus
                     id='id'
                     aria-describedby='id-helper-text'
                     className={classes.input}
-                    startAdornment={(
-                        <InputAdornment position='start'>
-                            <IconBrowse />
-                        </InputAdornment>
-                    )}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position='start'>
+                                <IconBrowse color='primary' />
+                            </InputAdornment>
+                        ),
+                        readOnly: status.code === ASYNC_STATE.Doing,
+                    }}
                     placeholder='Enter Steam Workshop item URL or ID'
                     value={text}
                     onChange={handleChange}
                     fullWidth
-                    readOnly={status.code === ASYNC_STATE.Doing}
+                    variant='outlined'
                 />
                 <FormHelperText id='id-helper-text' className={classes.helperText}>
                     {status.text}
                 </FormHelperText>
+                <Typography variant='caption' className={classes.footer}>
+                    Note that blueprints added to Steam Workshop less than 6 hours ago may not be available yet.
+                </Typography>
             </FormControl>
         </form>
     )

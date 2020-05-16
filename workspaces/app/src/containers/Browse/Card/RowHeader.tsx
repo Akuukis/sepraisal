@@ -41,7 +41,6 @@ const styles = (theme: IMyTheme) => createStyles({
         color: theme.palette.success.light,
     },
     ValueCellValue: {
-        fontWeight: 500,
         color: theme.palette.success.contrastText,
         // height: `calc(${theme.typography.body1.fontSize} * 2.5)`,
         overflow: 'hidden',
@@ -93,6 +92,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         value={title}
                         alignItems='flex-start'
                         justify='space-between'
+                        valueProps={{variant: 'h5', component: 'h3'} as any}
                     />
                     <CenterCell
                         className={classes.CenterCell}

@@ -44,7 +44,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 className={classes.legend}
                 noWrap
                 display='block'
-                variant='subtitle2'
+                variant='subtitle1'
                 component='legend'
                 align='left'
                 {...legendProps}

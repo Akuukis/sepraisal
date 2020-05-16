@@ -1,5 +1,6 @@
-import { createMuiTheme, darken, lighten, Theme, ThemeOptions } from '@material-ui/core'
+import { createMuiTheme, darken, fade, lighten, Theme, ThemeOptions } from '@material-ui/core'
 import { blue, green, red, yellow } from '@material-ui/core/colors'
+import { TypographyStyle, TypographyStyleOptions } from '@material-ui/core/styles/createTypography'
 
 // Official Space Engineers colors (https://blog.marekrosa.org/2017/09/my-vision-for-visual-style-of-space.html)
 export const SE_COLORS = {
@@ -22,18 +23,28 @@ export const STEAM_COLORS = {
 export const THUMB_WIDTH = 268
 export const THUMB_HEIGHT = 151
 
+const FONT_WEIGHT_REGULAR = 400
+const FONT_WEIGHT_MEDIUM = 500
+const FONT_WEIGHT_BOLD = 700
+
 
 export interface IMyTheme extends Theme {
     shape: Theme['shape'] & {
         boxHeight: number,
         boxWidth: number,
+    },
+    typography: Theme['typography'] & {
+        mono: TypographyStyle
     }
 }
 
 interface IMyThemeOptions extends ThemeOptions {
-    shape?: Theme['shape'] & {
+    shape?: ThemeOptions['shape'] & {
         boxHeight: number,
         boxWidth: number,
+    }
+    typography?: ThemeOptions['typography'] & {
+        mono: TypographyStyleOptions
     }
 }
 
@@ -94,10 +105,12 @@ export const MY_LIGHT_THEME = createMuiTheme({
         primary: {
             ...blue,
             ...SE_COLORS.blue,
+            contrastText: fade('#fff', 0.93)
         },
         secondary: {
             ...yellow,
             ...SE_COLORS.yellow,
+            contrastText: fade('#fff', 0.93)
         },
         background: {
             default: SE_COLORS.grey,
@@ -110,15 +123,19 @@ export const MY_LIGHT_THEME = createMuiTheme({
 
         warning: {
             ...SE_COLORS.yellow,
+            contrastText: fade('#fff', 0.93)
         },
         info: {
             ...SE_COLORS.blue,
+            contrastText: fade('#fff', 0.93)
         },
         error: {
             ...SE_COLORS.red,
+            contrastText: fade('#fff', 0.93)
         },
         success: {
             ...SE_COLORS.green,
+            contrastText: fade('#fff', 0.93)
         },
     },
     spacing: SPACING,
@@ -135,28 +152,85 @@ export const MY_LIGHT_THEME = createMuiTheme({
      * 32px = 2rem
      */
     typography: {
+        // Reserved: not visible because button's active state signals current page.
+        h1: {},
+
+        // Headings.
+        h2: {
+            fontWeight: FONT_WEIGHT_MEDIUM,
+            fontSize: '1.75rem',
+            textTransform: 'uppercase',
+            textAlign: 'center',
+        },
         h3: {
-            fontWeight: 500,
+            fontWeight: FONT_WEIGHT_MEDIUM,
+            fontSize: '1.125rem',
+            lineHeight: 1.6,
         },
-        h6: {
-            fontSize: '1.125rem',  // 1.25
+        h4: {  // That's only section within analysis column.
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '1.125rem',
+            letterSpacing: undefined,
+            textTransform: 'uppercase',
         },
-        subtitle1: {  // Usually with `strong` element.
+        h5: {  // There's no h3 in html, but this sets h3 of cards in browse.
+            fontWeight: FONT_WEIGHT_BOLD,
+            fontSize: '0.9375rem',
         },
-        subtitle2: {  // Usually with `em` element.
-            fontStyle: 'normal',
-            fontStretch: 'condensed',
+
+        // Similar to body, but small line height.
+        subtitle1: {
+            fontWeight: FONT_WEIGHT_BOLD,
+            fontSize: '0.875rem',
+            lineHeight: 1.2,
         },
+        subtitle2: {
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.875rem',
+        },
+
+        // Similar to subtitle, but big line height appropriate for paragraphs.
+        body1: {  // Also a label.
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.9375rem',
+        },
+        body2: {
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.875rem',
+            lineHeight: 1,  // Default 1.43
+            letterSpacing: 0,  // Default 0.01071em
+        },
+
         caption: {  // Usually with `label` element.
-            fontSize: '0.675rem', // 0.75
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.6875rem',  // 11px
+            lineHeight: 1.5,  // Default was 1.66
         },
+
+        button: {
+            fontWeight: FONT_WEIGHT_MEDIUM,
+            fontSize: '0.9375rem',  // 15px
+            textTransform: 'uppercase',
+        },
+
+        // Custom style for monospace, e.g. raw filters textarea.
+        mono: {
+            fontFamily: '"Roboto Mono", Roboto',
+            fontWeight: FONT_WEIGHT_REGULAR,
+            fontSize: '0.75rem',  // 11px
+            lineHeight: 1.2,
+            letterSpacing: 0,
+        },
+
+        // Not used.
+        h6: {},
     },
 
     // Dense mode
     props: {
-        MuiButton: {
-            size: 'small',
-        },
+        // MuiButton: {
+        //     size: 'small',
+        // },
         MuiFilledInput: {
             margin: 'dense',
         },
@@ -166,9 +240,9 @@ export const MY_LIGHT_THEME = createMuiTheme({
         MuiFormHelperText: {
             margin: 'dense',
         },
-        MuiIconButton: {
-            size: 'small',
-        },
+        // MuiIconButton: {
+        //     size: 'small',
+        // },
         MuiInputBase: {
             margin: 'dense',
         },
@@ -181,9 +255,9 @@ export const MY_LIGHT_THEME = createMuiTheme({
         MuiOutlinedInput: {
             margin: 'dense',
         },
-        MuiFab: {
-            size: 'small',
-        },
+        // MuiFab: {
+        //     size: 'small',
+        // },
         MuiTable: {
             size: 'small',
         },

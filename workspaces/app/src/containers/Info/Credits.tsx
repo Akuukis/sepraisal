@@ -28,7 +28,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <InfoCard className={classes.root} heading='Credits'>
-            <Typography variant='h5'>Maintainers</Typography>
+            <Typography variant='h3'>Maintainers</Typography>
             <Typography paragraph>
                 SE Praisal was created and is maintained by Akuukis.
             </Typography>
@@ -54,11 +54,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </li>
                 </ul>
             </Typography>
-            <Typography variant='h5'>Keen Software House</Typography>
+            <Typography variant='h3'>Keen Software House</Typography>
             <Typography paragraph>
                 <a href='https://www.keenswh.com/'>You</a> are great! Thanks for making <a href='https://www.spaceengineersgame.com/'>Space Engineers</a> :)
             </Typography>
-            <Typography variant='h5'>Legal</Typography>
+            <Typography variant='h3'>Legal</Typography>
             <Typography paragraph>
                 This website is open-source (<a href='//choosealicense.com/licenses/gpl-3.0/'>GPLv3</a>).
                 You can find source code at <a href='//gitlab.com/akuukis/sepraisal'>Gitlab</a>.

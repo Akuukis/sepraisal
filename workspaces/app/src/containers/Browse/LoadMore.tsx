@@ -10,11 +10,13 @@ import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        marginBottom: theme.spacing(2),
-        marginTop: theme.spacing(2),
-        color: `${theme.palette.primary.contrastText} !important`,
+        padding: theme.spacing(6, 6),
     },
 
+    button: {
+        color: `${theme.palette.primary.contrastText} !important`,
+        height: 64,
+    },
     idle: {
     },
     doing: {
@@ -55,7 +57,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     if(cardStore.count === null) {
         return wrap((
-            <Button fullWidth className={clsx(classes.root, classes.doing)} variant='text' disabled>
+            <Button fullWidth className={clsx(classes.button, classes.doing)} variant='text' disabled>
                 {`Loading first ${cardStore.cardsPerPage} blueprints ...`}
             </Button>
         ))
@@ -63,22 +65,22 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     switch(state) {
         case(ASYNC_STATE.Idle): return wrap((
-            <Button fullWidth className={clsx(classes.root, classes.idle)} variant='text' disabled>
+            <Button fullWidth className={clsx(classes.button, classes.idle)} variant='text' disabled>
                 {`${cardStore.cards.size}/${cardStore.count}`}
             </Button>
         ))
         case(ASYNC_STATE.Done): return wrap((
-            <Button fullWidth className={clsx(classes.root, classes.done)} variant='contained' onClick={myAdd} color='primary'>
+            <Button fullWidth className={clsx(classes.button, classes.done)} variant='outlined' onClick={myAdd} color='inherit'>
                 {`(${cardStore.cards.size}/${cardStore.count}) Load more`}
             </Button>
         ))
         case(ASYNC_STATE.Doing): return wrap((
-            <Button fullWidth className={clsx(classes.root, classes.doing)} variant='text' disabled>
+            <Button fullWidth className={clsx(classes.button, classes.doing)} variant='text' disabled>
                 {`Loading next ${cardStore.cardsPerPage} blueprints ...`}
             </Button>
         ))
         case(ASYNC_STATE.Error): return wrap((
-            <Button fullWidth className={clsx(classes.root, classes.error)} variant='contained' onClick={myAdd}>
+            <Button fullWidth className={clsx(classes.button, classes.error)} variant='outlined' onClick={myAdd}>
                 {`Error. Retry?`}
             </Button>
         ))
