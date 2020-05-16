@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { List, ListItem, ListItemText } from '@material-ui/core'
+import { FormControl, FormControlLabel, Radio, RadioGroup } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyExpansionPanel from 'src/components/MyExpansionPanel'
@@ -37,33 +37,25 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
 
-    const setFind = (event: React.MouseEvent<HTMLElement>) => {
+    const setFind = (event: React.ChangeEvent<HTMLInputElement>) => {
         const id = event.currentTarget.getAttribute('value') as keyof typeof PRESET
         cardStore.setFind(PRESET[id] as typeof cardStore['find'])
     }
 
-    const renderPreset = (id: keyof typeof PRESET | 'custom') =>
-        (
-            <ListItem
-                classes={{root: classes.listItem, selected: classes.listItemSelected}}
-                button
-                selected={cardStore.selectedPreset === id}
-                onClick={setFind}
-                disabled={id === 'custom'}
-                key={id}
-                // tslint:disable-next-line: no-any
-                {...{value: id} as any}
-            >
-                <ListItemText primary={getPresetTitle(id)} primaryTypographyProps={{variant: 'body1'}} />
-            </ListItem>
-        )
-
 
     return (
         <MyExpansionPanel header='Presets' subheader={getPresetTitle(cardStore.selectedPreset)} defaultExpanded>
-            <List className={classes.list}>
-                {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map(renderPreset)}
-            </List>
+            <FormControl fullWidth>
+                <RadioGroup aria-label='preset' name='preset' value={cardStore.selectedPreset} onChange={setFind}>
+                    {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map((name) => (
+                        <FormControlLabel
+                            value={name}
+                            control={<Radio color='primary' size='small' />}
+                            label={getPresetTitle(name as keyof typeof PRESET)}
+                        />
+                    ))}
+                </RadioGroup>
+            </FormControl>
         </MyExpansionPanel>
     )
 })) /* ============================================================================================================= */
