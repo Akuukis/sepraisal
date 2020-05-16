@@ -171,6 +171,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
             fontWeight: FONT_WEIGHT_REGULAR,
             fontSize: '1.125rem',
             letterSpacing: undefined,
+            textTransform: 'uppercase',
         },
         h5: {  // There's no h3 in html, but this sets h3 of cards in browse.
             fontWeight: FONT_WEIGHT_BOLD,
