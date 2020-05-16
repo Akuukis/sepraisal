@@ -36,7 +36,6 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingRight: theme.spacing(0.5),
     },
     title: {
-        ...theme.typography.h3,
         overflow: 'hidden',
         transition: theme.transitions.create('max-width'),
         maxWidth: 0,
