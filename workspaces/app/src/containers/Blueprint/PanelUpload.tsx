@@ -22,7 +22,7 @@ const styles = (theme: IMyTheme) => createStyles({
     label: {
     },
     upload: {
-        marginTop: theme.spacing(4),
+        marginTop: theme.spacing(2),
     },
 })
 

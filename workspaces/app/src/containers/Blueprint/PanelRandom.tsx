@@ -3,7 +3,16 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Button, FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup } from '@material-ui/core'
+import {
+    Button,
+    FormControl,
+    FormControlLabel,
+    FormHelperText,
+    FormLabel,
+    Grid,
+    Radio,
+    RadioGroup,
+} from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { getPresetTitle, PRESET } from 'src/stores/CardStore'
@@ -76,9 +85,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <FormHelperText className={classes.helperText}>
                     {status.text}
                 </FormHelperText>
-                <Button type='submit' variant='outlined' color='primary' className={classes.button}>
-                    Analyse Random
-                </Button>
+                <Grid container justify='center'>
+                    <Button type='submit' variant='outlined' color='primary' className={classes.button}>
+                        Analyse Random
+                    </Button>
+                </Grid>
             </FormControl>
         </form>
     );

@@ -2,7 +2,7 @@ import { idFromHref } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Typography } from '@material-ui/core'
+import { Divider } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
 import { CONTEXT } from 'src/stores'
@@ -13,36 +13,22 @@ import PanelUpload from './PanelUpload'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        paddingBottom: theme.spacing(4),
     },
 
-    button: {
-        margin: theme.spacing(1),
-        minWidth: 240,
-        maxWidth: 240,
-        alignSelf: 'left',
-    },
-    formGroup: {
-        margin: theme.spacing(2, 0),
-    },
-    input: {
-    },
-    footer: {
-        marginTop: theme.spacing(8),
-    },
     label: {
-        marginTop: theme.spacing(2),
-        // ...theme.typography.body1,
+        margin: theme.spacing(2, 0),
         color: theme.palette.text.primary,
         '& > span': {
             color: theme.palette.error.main,
         },
     },
-    helper: {
+    divider: {
+        backgroundColor: theme.palette.primary.light,
+        display: 'inherit !important',
+        height: 2,
+        margin: theme.spacing(2, 0),
     },
-    submitHack: {
-        position: 'absolute',
-        left: '-9999px',
-    }
 })
 
 
@@ -79,11 +65,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={classes.root}
         >
             <PanelSteam classes={{label: classes.label}} select={select} />
+            <Divider className={classes.divider} />
             <PanelRandom classes={{label: classes.label}} select={select} />
+            <Divider className={classes.divider} />
             <PanelUpload classes={{label: classes.label}} select={select} />
-            <Typography paragraph variant='caption' className={classes.footer}>
-                Note that blueprints added to Steam Workshop less than 6 hours ago may not be available yet.
-            </Typography>
         </div>
     )
 })) /* ============================================================================================================= */
