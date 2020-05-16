@@ -68,9 +68,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const select = async (id: number | string) => {
         if(typeof id === 'number') {
             routerStore.replace({...location, search: `?id=${id}`})
+        } else if(typeof id === 'string') {
+            routerStore.replace({...location, search: `?upload=${id}`})
         } else {
-            // Can't share a url to uploaded blueprint.
-            routerStore.replace({...location, search: undefined})
         }
     }
 
