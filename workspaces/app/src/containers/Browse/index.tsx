@@ -16,7 +16,8 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     search: {
-        margin: theme.spacing(2, 4)
+        padding: theme.spacing(2, 14, 2, 0),
+        maxWidth: '100%',
     },
 })
 
@@ -40,6 +41,3 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </DefaultLayout>
     )
 })) /* ============================================================================================================= */
-
-
-const drawerWidth = 360

@@ -20,6 +20,11 @@ const styles = (theme: IMyTheme) => createStyles({
         borderBottomRightRadius: theme.shape.borderRadius,
         borderTopRightRadius: theme.shape.borderRadius,
     },
+    wrapper: {
+        flexGrow: 1,
+        flexWrap: 'nowrap',
+        maxWidth: 640,
+    }
 })
 
 
@@ -43,8 +48,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             alignItems='center'
             {...otherProps}
         >
-            <Search className={clsx(classes.search, disableSort && classes.searchDisabledSort)} />
-            {!disableSort && <Sort />}
+            <Grid item xs container justify='center' alignItems='stretch' className={classes.wrapper}>
+                <Search className={clsx(classes.search, disableSort && classes.searchDisabledSort)} />
+                {!disableSort && <Sort />}
+            </Grid>
             {!disableStatus && <Status />}
         </Grid>
     )

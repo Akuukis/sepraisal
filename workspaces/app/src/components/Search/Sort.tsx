@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@material-ui/core'
+import { Grid, Hidden, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconSort from 'src/components/icons/IconSort'
@@ -17,6 +17,7 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.background.default,
         borderBottomRightRadius: theme.shape.borderRadius,
         borderTopRightRadius: theme.shape.borderRadius,
+        flexWrap: 'nowrap',
     },
 
     button: {
@@ -84,9 +85,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid className={classes.root} container alignItems='center' justify='center'>
-            <Typography className={classes.text} variant='body1' component='label'>
-                {currentKey && TITLES[currentKey]}
-            </Typography>
+            <Hidden smDown>
+                <Typography className={classes.text} variant='body1' component='label'>
+                    {currentKey && TITLES[currentKey]}
+                </Typography>
+            </Hidden>
             <IconButton className={classes.button} onClick={handleClick} color='primary'>
                 {icon}
             </IconButton>
