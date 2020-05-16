@@ -253,9 +253,9 @@ export const MY_LIGHT_THEME = createMuiTheme({
         MuiOutlinedInput: {
             margin: 'dense',
         },
-        MuiFab: {
-            size: 'small',
-        },
+        // MuiFab: {
+        //     size: 'small',
+        // },
         MuiTable: {
             size: 'small',
         },

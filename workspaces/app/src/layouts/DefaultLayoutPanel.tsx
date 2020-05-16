@@ -42,7 +42,7 @@ const styles = (theme: IMyTheme) => createStyles({
         minHeight: '48px',
         [theme.breakpoints.up('sm')]: {
             minHeight: '48px',
-            borderRadius: theme.direction === 'ltr' ? `32px 0 0 0` : `0 32px 0 0`,
+            borderRadius: theme.direction === 'ltr' ? `${theme.shape.borderRadius}px 0 0 0` : `0 ${theme.shape.borderRadius}px 0 0`,
             marginTop: theme.spacing(2),
         },
 
@@ -80,6 +80,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps extends GridProps {
     aside?: React.ReactNode,
+    asideIcon?: React.ReactNode,
     asideTitle?: string,
     asideProps?: DrawerProps,
     open: boolean,
@@ -88,14 +89,14 @@ interface IProps extends GridProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {aside, asideProps, asideTitle, open, toggleOpen, className, ...otherProps} = props
+    const {aside, asideIcon, asideProps, asideTitle, open, toggleOpen, className, ...otherProps} = props
     const xsDown = useMediaQuery(theme.breakpoints.down('xs'))
 
     const asideContent = (<>
         <div className={classes.asideHeader}>
             <Typography className={classes.asideHeaderTypography} variant='h2'>{asideTitle}</Typography>
             <IconButton onClick={toggleOpen}>
-                {theme.direction === 'ltr' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                {theme.direction === 'ltr' ? <ChevronRightIcon fontSize='default' /> : <ChevronLeftIcon fontSize='default' />}
             </IconButton>
         </div>
         <div className={classes.asideContainer}>
@@ -133,7 +134,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <Toolbar />
                 <div className={clsx(classes.asideHeader, classes.aside2Header)}>
                     <IconButton onClick={toggleOpen} color='primary'>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {asideIcon}
                     </IconButton>
                 </div>
             </Drawer>

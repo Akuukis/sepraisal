@@ -26,7 +26,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <DefaultLayout
             className={classes.root}
             aside={<Panel />}
-            asideIcon={<IconAnalyse />}
+            asideIcon={<IconAnalyse fontSize='default' />}
             asideTitle='Analyse'
         >
             <Main />

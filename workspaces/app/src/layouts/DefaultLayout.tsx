@@ -58,6 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Topbar />
             <DefaultLayoutPanel
                 aside={aside}
+                asideIcon={asideIcon}
                 asideTitle={asideTitle}
                 asideProps={asideProps}
                 open={open}
