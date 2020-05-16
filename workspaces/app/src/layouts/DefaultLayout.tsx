@@ -48,7 +48,7 @@ interface IProps extends GridProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {aside, asideIcon, asideProps, asideTitle, mainProps, className, ...otherProps} = props
-    const [open, setOpen] = React.useState(!!aside)
+    const [open, setOpen] = React.useState(false)
     const toggleModal = (event?: React.KeyboardEvent | React.MouseEvent) => {
         setOpen(!open)
     }
