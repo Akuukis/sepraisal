@@ -95,7 +95,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const asideContent = (<>
         <div className={classes.asideHeader}>
             <Typography className={classes.asideHeaderTypography} variant='h2'>{asideTitle}</Typography>
-            <IconButton onClick={toggleOpen}>
+            <IconButton onClick={toggleOpen} color='primary'>
                 {theme.direction === 'ltr' ? <ChevronRightIcon fontSize='default' /> : <ChevronLeftIcon fontSize='default' />}
             </IconButton>
         </div>
