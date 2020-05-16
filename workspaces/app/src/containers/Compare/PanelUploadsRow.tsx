@@ -3,7 +3,7 @@ import { runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { fade, IconButton, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
+import { darken, IconButton, ListItem, ListItemSecondaryAction, ListItemText } from '@material-ui/core'
 import IconDeleteForever from '@material-ui/icons/DeleteForever'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
@@ -16,7 +16,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     selected: {
         '&:hover': {
-            background: fade(theme.palette.background.default, 0.8),
+            background: darken(theme.palette.background.default, 0.1),
         },
         'background': theme.palette.background.default,
     },
