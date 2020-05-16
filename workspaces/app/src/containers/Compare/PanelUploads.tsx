@@ -6,10 +6,10 @@ import { List } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyExpansionPanel, { IMyExpansionPanelProps } from 'src/components/MyExpansionPanel'
+import Upload from 'src/components/Upload'
 import { CONTEXT } from 'src/stores'
 
 import PanelUploadsRow from './PanelUploadsRow'
-import PanelUploadsUpload from './PanelUploadsUpload'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -36,7 +36,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {...otherProps}
         >
             <List dense className={classes.list}>
-                <PanelUploadsUpload />
+                <Upload />
                 {[...blueprintStore.uploads].map<JSX.Element>(([key]) => (
                     <PanelUploadsRow
                         key={key}
