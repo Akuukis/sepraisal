@@ -24,6 +24,9 @@ const styles = (theme: IMyTheme) => createStyles({
         flexGrow: 1,
         flexWrap: 'nowrap',
         maxWidth: 640,
+        [theme.breakpoints.down('xs')]: {
+            flexBasis: '100%',
+        }
     }
 })
 

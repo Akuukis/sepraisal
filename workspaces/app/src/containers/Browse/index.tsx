@@ -16,7 +16,10 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     search: {
-        padding: theme.spacing(2, 14, 2, 0),
+        padding: theme.spacing(2, 0, 2, 0),
+        [theme.breakpoints.up('sm')]: {
+            paddingRight: theme.spacing(14),  // Give space to panel button.
+        },
         maxWidth: '100%',
     },
 })
