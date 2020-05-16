@@ -41,6 +41,9 @@ const styles = (theme: IMyTheme) => createStyles({
     inputAdornment: {
         margin: theme.spacing(0, 0, 0, 1)
     },
+    chip: {
+        margin: theme.spacing(0, 0.5),
+    },
 })
 
 
@@ -193,8 +196,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             </InputAdornment>),
                             ...authors.map((author: string, index: number) => (
                                 <Chip
+                                    className={classes.chip}
                                     icon={<IconPerson />}
-                                    variant='outlined'
                                     key={author}
                                     label={author}
                                     onDelete={HandleDelete({type: OPTION_TYPE.AUTHOR, value: author})}
@@ -202,8 +205,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             )),
                             ...collections.map((collection: string, index: number) => (
                                 <Chip
+                                    className={classes.chip}
                                     icon={<IconCollection />}
-                                    variant='outlined'
                                     key={collection}
                                     label={collection}
                                     onDelete={HandleDelete({type: OPTION_TYPE.COLLECTION, value: collection})}
