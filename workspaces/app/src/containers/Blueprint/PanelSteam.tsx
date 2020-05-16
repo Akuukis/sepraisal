@@ -70,7 +70,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <form className={clsx(classes.root, className)} onSubmit={handleSubmit} {...otherProps}>
             <FormControl error={status.code === ASYNC_STATE.Error} fullWidth>
                 <FormLabel htmlFor='id' className={classes.label}>
-                    Select a blueprint to analyse:
+                    Get a blueprint from Steam:
                 </FormLabel>
                 <Input
                     required

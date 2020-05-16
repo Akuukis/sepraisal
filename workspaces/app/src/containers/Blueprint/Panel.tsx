@@ -7,8 +7,8 @@ import { Typography } from '@material-ui/core'
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
 import { CONTEXT } from 'src/stores'
 
-import PanelInput from './PanelInput'
 import PanelRandom from './PanelRandom'
+import PanelSteam from './PanelSteam'
 import PanelUpload from './PanelUpload'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -78,7 +78,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <div
             className={classes.root}
         >
-            <PanelInput classes={{label: classes.label}} select={select} />
+            <PanelSteam classes={{label: classes.label}} select={select} />
             <PanelRandom classes={{label: classes.label}} select={select} />
             <PanelUpload classes={{label: classes.label}} select={select} />
             <Typography paragraph variant='caption' className={classes.footer}>

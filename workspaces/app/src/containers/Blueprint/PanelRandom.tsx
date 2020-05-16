@@ -63,7 +63,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <form className={clsx(classes.root, className)} onSubmit={handleSubmit} {...otherProps}>
             <FormControl error={status.code === ASYNC_STATE.Error} fullWidth>
-                <FormLabel className={classes.label}>Or analyse a random blueprint:</FormLabel>
+                <FormLabel className={classes.label}>Get a random blueprint:</FormLabel>
                 <RadioGroup aria-label='random' name='random' value={value} onChange={handleRadioChange}>
                     {Object.keys(PRESET).map((name) => (
                         <FormControlLabel
