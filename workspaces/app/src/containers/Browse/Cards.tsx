@@ -15,7 +15,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     card: {
-        margin: theme.spacing(0.5),
+        margin: theme.spacing(2),
     },
 })
 
