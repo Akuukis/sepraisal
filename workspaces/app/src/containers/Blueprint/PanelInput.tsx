@@ -68,7 +68,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <form className={clsx(classes.root, className)} onSubmit={handleSubmit} {...otherProps}>
-            <FormControl error={status.code === ASYNC_STATE.Error}>
+            <FormControl error={status.code === ASYNC_STATE.Error} fullWidth>
                 <FormLabel htmlFor='id' className={classes.label}>
                     Select a blueprint to analyse:
                 </FormLabel>
