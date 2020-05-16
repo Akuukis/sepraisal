@@ -24,12 +24,15 @@ const styles = (theme: IMyTheme) => createStyles({
         '& > div': {  // Autocomplete looks like doesn't have `formControl` style prop, hence this.
             margin: 0,
         },
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.background.paper,
         borderBottomLeftRadius: theme.shape.borderRadius,
         borderTopLeftRadius: theme.shape.borderRadius,
     },
 
     input: {
+        borderRadius: 0,
+        borderBottomLeftRadius: theme.shape.borderRadius,
+        borderTopLeftRadius: theme.shape.borderRadius,
         minHeight: 44,
     },
     inputInput: {
