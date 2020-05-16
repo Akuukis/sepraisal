@@ -28,7 +28,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     divider: {
         backgroundColor: theme.palette.primary.light,
-        margin: theme.spacing(0, 2),
+        margin: theme.spacing(0),
         height: 2,
     },
     footer: {
