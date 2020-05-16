@@ -24,7 +24,7 @@ import MyBoxRow from '../MyBoxRow'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: theme.spacing(0.5, 0),
+        padding: theme.spacing(1, 0),
         width: `100%`,
         minWidth: `${theme.shape.boxWidth}px`,
     },

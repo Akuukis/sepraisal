@@ -15,6 +15,9 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
     },
 
+    search: {
+        margin: theme.spacing(2, 4)
+    },
 })
 
 
@@ -31,7 +34,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             asideIcon={<IconFilter fontSize='default' />}
             asideTitle='Filters'
         >
-            <Search />
+            <Search className={classes.search} />
             <Cards />
             <LoadMore />
         </DefaultLayout>

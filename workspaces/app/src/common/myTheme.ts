@@ -203,6 +203,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
         caption: {  // Usually with `label` element.
             fontWeight: FONT_WEIGHT_REGULAR,
             fontSize: '0.6875rem',  // 11px
+            lineHeight: 1.5,  // Default was 1.66
         },
 
         button: {

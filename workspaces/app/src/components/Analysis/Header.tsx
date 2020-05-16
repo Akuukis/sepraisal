@@ -12,11 +12,13 @@ import { ROUTES } from 'src/constants/routes'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         zIndex: theme.zIndex.appBar - 200,
+        padding: theme.spacing(0, 0, 0.5, 0),
+        backgroundColor: 'unset',
     },
 
     toolbar: {
-        minHeight: 58,
         backgroundColor: theme.palette.success.main,
+        minHeight: 56,
     },
     header: {
         '&:hover': {
