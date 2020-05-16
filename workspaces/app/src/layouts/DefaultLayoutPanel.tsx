@@ -50,7 +50,7 @@ const styles = (theme: IMyTheme) => createStyles({
         filter: dropShadowFromBoxShadow(theme.shadows[1]),
         display: 'flex',
         alignItems: 'center',
-        padding: theme.spacing(0, 1),
+        padding: theme.spacing(1, 1),
         justifyContent: 'flex-end',
         backgroundColor: theme.palette.background.paper,
     },
@@ -58,12 +58,13 @@ const styles = (theme: IMyTheme) => createStyles({
         flexGrow: 1,
     },
     asideContainer: {
+        padding: theme.spacing(0, 4, 4, 4),
         overflowX: 'hidden',
         backgroundColor: theme.palette.background.paper,
         '&::after': {
-            content: 'a'
+            content: ' '
         },
-        borderRadius: theme.direction === 'ltr' ? `0 0 0 32px` : `0 0 32px 0`,
+        borderRadius: theme.direction === 'ltr' ? `0 0 0 ${theme.shape.borderRadius}px` : `0 0 ${theme.shape.borderRadius}px 0`,
     },
     aside2Wrapper: {
         width: buttonWidth,
@@ -72,7 +73,7 @@ const styles = (theme: IMyTheme) => createStyles({
         width: buttonWidth,
     },
     aside2Header: {
-        borderRadius: theme.direction === 'ltr' ? `32px 0 0 32px` : `0 32px 32px 0`,
+        borderRadius: theme.direction === 'ltr' ? `${theme.shape.borderRadius}px 0 0 ${theme.shape.borderRadius}px` : `0 ${theme.shape.borderRadius}px ${theme.shape.borderRadius}px 0`,
     },
 })
 
@@ -151,4 +152,4 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 const drawerWidth = 420
-const buttonWidth = 40
+const buttonWidth = 56

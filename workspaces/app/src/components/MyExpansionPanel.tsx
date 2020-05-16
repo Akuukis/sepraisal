@@ -21,22 +21,22 @@ const styles = (theme: IMyTheme) => createStyles({
             backgroundColor: theme.palette.primary.light,
             display: 'inherit !important',
             height: 2,
-            margin: theme.spacing(0, 2),
+            // margin: theme.spacing(0, 2),
         },
     },
 
-    summary: {
+    summaryRoot: {
+        padding: theme.spacing(0),
+    },
+    summaryContent: {
         alignItems: 'baseline',
         '& > svg': {
             alignSelf: 'center',
         },
     },
     details: {
-        padding: theme.spacing(0, 2, 2, 0.5),
+        padding: theme.spacing(0, 0, 2, 0),
         flexDirection: 'column',
-        borderLeftStyle: 'solid',
-        borderLeftColor: theme.palette.primary.main,
-        borderLeft: theme.spacing(1.5),
     },
     expanded: {
         margin: '0 !important',
@@ -95,7 +95,7 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
             onChange={exclusiveScopeStore && handleToggle}
             {...otherProps}
         >
-            <ExpansionPanelSummary classes={{content: classes.summary}} expandIcon={<ExpandMoreIcon />}>
+            <ExpansionPanelSummary classes={{root: classes.summaryRoot, content: classes.summaryContent}} expandIcon={<ExpandMoreIcon />}>
                 {icon}
                 <Typography
                     className={clsx({

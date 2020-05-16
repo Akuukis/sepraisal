@@ -12,7 +12,10 @@ import Support from './Support'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: theme.spacing(2),
+        padding: theme.spacing(1),
+        [theme.breakpoints.up('sm')]: {
+            padding: theme.spacing(2),
+        },
     },
 })
 

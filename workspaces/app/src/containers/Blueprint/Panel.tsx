@@ -12,7 +12,6 @@ import PanelRandom from './PanelRandom'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        padding: theme.spacing(0, 4),
     },
 
     button: {
