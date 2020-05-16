@@ -2,7 +2,7 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import IconBrowse from 'src/components/icons/IconBrowse'
+import IconFilter from 'src/components/icons/IconFilter'
 import Search from 'src/components/Search'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 
@@ -25,7 +25,12 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
 
     return (
-        <DefaultLayout className={classes.root} aside={<Filter />} asideIcon={<IconBrowse />} asideTitle='Browse'>
+        <DefaultLayout
+            className={classes.root}
+            aside={<Filter />}
+            asideIcon={<IconFilter fontSize='default' />}
+            asideTitle='Filters'
+        >
             <Search />
             <Cards />
             <LoadMore />

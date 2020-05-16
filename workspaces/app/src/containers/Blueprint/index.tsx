@@ -2,7 +2,7 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import IconAnalyse from 'src/components/icons/IconAnalyse'
+import IconAdd from 'src/components/icons/IconAdd'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 
 import Main from './Main'
@@ -26,8 +26,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <DefaultLayout
             className={classes.root}
             aside={<Panel />}
-            asideIcon={<IconAnalyse fontSize='default' />}
-            asideTitle='Analyse'
+            asideIcon={<IconAdd fontSize='default' />}
+            asideTitle='Select'
         >
             <Main />
         </DefaultLayout>

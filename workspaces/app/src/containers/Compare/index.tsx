@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import { useMediaQuery } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import IconCompare from 'src/components/icons/IconCompare'
+import IconBuild from 'src/components/icons/IconBuild'
 import TooSmallWidth from 'src/components/TooSmallWidth'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 
@@ -28,8 +28,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <DefaultLayout
             aside={<Panel />}
-            asideIcon={<IconCompare />}
-            asideTitle='Compare'
+            asideIcon={<IconBuild fontSize='default' />}
+            asideTitle='Manage Blueprints'
             className={classes.root}
         >
             {smUp ? <Columns /> : <TooSmallWidth />}
