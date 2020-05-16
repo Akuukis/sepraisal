@@ -196,7 +196,8 @@ export const MY_LIGHT_THEME = createMuiTheme({
         body2: {
             fontWeight: FONT_WEIGHT_REGULAR,
             fontSize: '0.875rem',
-            fontStretch: 'condensed',
+            lineHeight: 1,  // Default 1.43
+            letterSpacing: 0,  // Default 0.01071em
         },
 
         caption: {  // Usually with `label` element.
@@ -214,7 +215,9 @@ export const MY_LIGHT_THEME = createMuiTheme({
         mono: {
             fontFamily: '"Roboto Mono", Roboto',
             fontWeight: FONT_WEIGHT_REGULAR,
-            fontSize: '0.6875rem',  // 11px
+            fontSize: '0.75rem',  // 11px
+            lineHeight: 1.2,
+            letterSpacing: 0,
         },
 
         // Not used.

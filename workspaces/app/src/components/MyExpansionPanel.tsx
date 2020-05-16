@@ -50,6 +50,8 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     heading: {
         flexShrink: 0,
+        overflow: 'hidden',
+        maxWidth: '100%',
     },
     headingWithSecondary: {
         flexBasis: '33.33%',

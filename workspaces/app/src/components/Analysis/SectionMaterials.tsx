@@ -20,6 +20,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     contentText: {
+        ...theme.typography.mono,
         paddingBottom: theme.spacing(2),
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
@@ -121,7 +122,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const wrapText = (formatter: (reqs: IRequirement[]) => string) => (ids: IRequirement[]): React.ReactNode => {
         return (
-            <Typography className={classes.contentText} component='pre' variant='body2'>
+            <Typography className={classes.contentText} component='pre'>
                 {formatter(ids)}
             </Typography>
         )
