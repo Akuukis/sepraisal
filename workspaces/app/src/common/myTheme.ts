@@ -9,10 +9,10 @@ export const SE_COLORS = {
     grey_dark: '#686868',
     white: '#efefef',
 
-    blue    : {main: '#1767ae', dark: rgbToHex(darken('#1767ae', 0.2)), light: rgbToHex(lighten('#1767ae', 0.6))},
-    green   : {main: '#417e3b', dark: rgbToHex(darken('#417e3b', 0.2)), light: rgbToHex(lighten('#417e3b', 0.6))},
-    red     : {main: '#c01118', dark: rgbToHex(darken('#c01118', 0.2)), light: rgbToHex(lighten('#c01118', 0.6))},
-    yellow  : {main: '#f5bf2b', dark: rgbToHex(darken('#f5bf2b', 0.2)), light: rgbToHex(lighten('#f5bf2b', 0.6))},
+    red     : {main: '#c01118', dark: rgbToHex(darken('#c01118', 0.2)), light: rgbToHex(lighten('#c01118', 0.8))},
+    green   : {main: '#417e3b', dark: rgbToHex(darken('#417e3b', 0.2)), light: rgbToHex(lighten('#417e3b', 0.7))},
+    blue    : {main: '#1767ae', dark: rgbToHex(darken('#1767ae', 0.2)), light: rgbToHex(lighten('#1767ae', 0.7))},
+    yellow  : {main: '#f5bf2b', dark: rgbToHex(darken('#f5bf2b', 0.2)), light: rgbToHex(lighten('#f5bf2b', 0.4))},
 }
 
 export const STEAM_COLORS = {
