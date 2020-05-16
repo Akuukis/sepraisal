@@ -1,4 +1,5 @@
 import BigNumber from 'bignumber.js'
+import clsx from 'clsx'
 import { action, reaction, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -17,8 +18,11 @@ const styles = (theme: IMyTheme) => createStyles({
         paddingRight: theme.spacing(2),
     },
 
-    disabledSlider: {
-        color: '#9e9e9e',
+    inactiveLabel: {
+        color: theme.palette.text.secondary,
+    },
+    inactiveSlider: {
+        color: theme.palette.text.secondary,
     },
 })
 
@@ -102,7 +106,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Grid item>
                 <Typography
                     id='linear-slider'
-                    style={!criterion ? {color: theme.palette.text.disabled} : {}}
+                    className={clsx(!criterion && classes.inactiveLabel)}
                 >
                     {title}
                 </Typography>
@@ -112,7 +116,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </Grid>
             <Grid item xs={12}>
                 <Slider
-                    className={!criterion ? classes.disabledSlider : undefined}
+                    className={clsx(!criterion && classes.inactiveSlider)}
                     min={min}
                     max={max}
                     step={step}
