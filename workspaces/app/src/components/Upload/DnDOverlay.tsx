@@ -20,6 +20,10 @@ const styles = (theme: IMyTheme) => createStyles({
         top: -theme.spacing(1.5),
         width: 'unset',
     },
+
+    text: {
+        color: theme.palette.primary.contrastText,
+    }
 })
 
 
@@ -27,7 +31,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <Grid container className={classes.root} alignItems='center' justify='center'>
             <Grid item>
-                <Typography component='span' variant='body1' style={{color: '#fff'}}>Drop files here</Typography>
+                <Typography component='span' variant='body1' className={classes.text}>Drop files here</Typography>
             </Grid>
         </Grid>
     )

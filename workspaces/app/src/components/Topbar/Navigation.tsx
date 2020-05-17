@@ -20,6 +20,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     badge: {
+        color: theme.palette.text.primary,
         right: `1.2em`,
         top: `1.2em`,
     },

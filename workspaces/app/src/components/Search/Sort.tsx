@@ -23,7 +23,7 @@ const styles = (theme: IMyTheme) => createStyles({
     button: {
     },
     text: {
-        paddingLeft: theme.spacing(1),
+        paddingLeft: theme.spacing(2),
     },
 })
 

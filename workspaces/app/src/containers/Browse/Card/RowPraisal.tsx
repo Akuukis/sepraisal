@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
+import { fade } from '@material-ui/core'
+
 import { createSmartFC, createStyles, formatDecimal, IMyTheme, padTo2 } from 'src/common'
 import ValueCell from 'src/components/Cell/ValueCell'
 import MyBox from 'src/components/MyBox'
@@ -16,9 +18,11 @@ const styles = (theme: IMyTheme) => createStyles({
         backgroundColor: theme.palette.success.main,
     },
     ValueCellLabel: {
-        color: theme.palette.success.light,
+        color: fade(theme.palette.success.contrastText, 0.9),
     },
     ValueCellValue: {
+        textOverflow: 'clip',
+        fontWeight: 500,
         color: theme.palette.success.contrastText,
     },
 })

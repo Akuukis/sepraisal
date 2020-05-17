@@ -1,4 +1,4 @@
-import { createMuiTheme, darken, fade, lighten, Theme, ThemeOptions } from '@material-ui/core'
+import { createMuiTheme, darken, fade, lighten, rgbToHex, Theme, ThemeOptions } from '@material-ui/core'
 import { blue, green, red, yellow } from '@material-ui/core/colors'
 import { TypographyStyle, TypographyStyleOptions } from '@material-ui/core/styles/createTypography'
 
@@ -9,10 +9,10 @@ export const SE_COLORS = {
     grey_dark: '#686868',
     white: '#efefef',
 
-    blue    : {main: '#1767ae', dark: darken('#1767ae', 0.2), light: lighten('#1767ae', 0.6)},
-    green   : {main: '#417e3b', dark: darken('#417e3b', 0.2), light: lighten('#417e3b', 0.6)},
-    red     : {main: '#c01118', dark: darken('#c01118', 0.2), light: lighten('#c01118', 0.6)},
-    yellow  : {main: '#f5bf2b', dark: darken('#f5bf2b', 0.2), light: lighten('#f5bf2b', 0.6)},
+    red     : {main: '#c01118', dark: rgbToHex(darken('#c01118', 0.2)), light: rgbToHex(lighten('#c01118', 0.8))},
+    green   : {main: '#417e3b', dark: rgbToHex(darken('#417e3b', 0.2)), light: rgbToHex(lighten('#417e3b', 0.7))},
+    blue    : {main: '#1767ae', dark: rgbToHex(darken('#1767ae', 0.2)), light: rgbToHex(lighten('#1767ae', 0.7))},
+    yellow  : {main: '#f5bf2b', dark: rgbToHex(darken('#f5bf2b', 0.2)), light: rgbToHex(lighten('#f5bf2b', 0.4))},
 }
 
 export const STEAM_COLORS = {
@@ -105,15 +105,15 @@ export const MY_LIGHT_THEME = createMuiTheme({
         primary: {
             ...blue,
             ...SE_COLORS.blue,
-            contrastText: fade('#fff', 0.93)
+            contrastText: fade('#fff', 0.93),
         },
         secondary: {
             ...yellow,
             ...SE_COLORS.yellow,
-            contrastText: fade('#fff', 0.93)
+            contrastText: fade('#fff', 0.93),
         },
         background: {
-            default: SE_COLORS.grey,
+            default: rgbToHex(darken(SE_COLORS.white, 0.1)),
             paper: SE_COLORS.white,
         },
         text: {
@@ -123,19 +123,19 @@ export const MY_LIGHT_THEME = createMuiTheme({
 
         warning: {
             ...SE_COLORS.yellow,
-            contrastText: fade('#fff', 0.93)
+            contrastText: fade('#fff', 0.93),
         },
         info: {
             ...SE_COLORS.blue,
-            contrastText: fade('#fff', 0.93)
+            contrastText: fade('#fff', 0.93),
         },
         error: {
             ...SE_COLORS.red,
-            contrastText: fade('#fff', 0.93)
+            contrastText: fade('#fff', 0.93),
         },
         success: {
             ...SE_COLORS.green,
-            contrastText: fade('#fff', 0.93)
+            contrastText: fade('#fff', 0.93),
         },
     },
     spacing: SPACING,
@@ -274,7 +274,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
     overrides: {
         MuiExpansionPanelSummary: {
             root: {
-                padding: defaultTheme.spacing(0, 3),  // Normally 24px, wasn't scaled using spacing.
+                padding: defaultTheme.spacing(0, 3),  // NormargbToHex(lly 24px, wasn't scaled using spacin)g.
             },
         },
         MuiIconButton: {

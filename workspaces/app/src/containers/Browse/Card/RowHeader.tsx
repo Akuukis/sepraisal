@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link } from '@material-ui/core'
+import { fade, Link } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkCollectionProps } from 'src/common'
 import CenterCell from 'src/components/Cell/CenterCell'
@@ -24,7 +24,7 @@ const styles = (theme: IMyTheme) => createStyles({
         // paddingTop: theme.spacing(1),
     },
     collection: {
-        color: theme.palette.success.contrastText,
+        color: fade(theme.palette.success.contrastText, 0.9),
     },
     CenterCell: {
         padding: theme.spacing(0),
@@ -38,7 +38,7 @@ const styles = (theme: IMyTheme) => createStyles({
         flexBasis: 0,
     },
     ValueCellLabel: {
-        color: theme.palette.success.light,
+        color: fade(theme.palette.success.contrastText, 0.5),  // For divider.
     },
     ValueCellValue: {
         color: theme.palette.success.contrastText,

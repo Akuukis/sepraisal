@@ -24,12 +24,15 @@ const styles = (theme: IMyTheme) => createStyles({
         '& > div': {  // Autocomplete looks like doesn't have `formControl` style prop, hence this.
             margin: 0,
         },
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.background.paper,
         borderBottomLeftRadius: theme.shape.borderRadius,
         borderTopLeftRadius: theme.shape.borderRadius,
     },
 
     input: {
+        borderRadius: 0,
+        borderBottomLeftRadius: theme.shape.borderRadius,
+        borderTopLeftRadius: theme.shape.borderRadius,
         minHeight: 44,
     },
     inputInput: {
@@ -37,6 +40,9 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     inputAdornment: {
         margin: theme.spacing(0, 0, 0, 1)
+    },
+    chip: {
+        margin: theme.spacing(0, 0.5),
     },
 })
 
@@ -190,8 +196,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             </InputAdornment>),
                             ...authors.map((author: string, index: number) => (
                                 <Chip
+                                    className={classes.chip}
                                     icon={<IconPerson />}
-                                    variant='outlined'
                                     key={author}
                                     label={author}
                                     onDelete={HandleDelete({type: OPTION_TYPE.AUTHOR, value: author})}
@@ -199,8 +205,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             )),
                             ...collections.map((collection: string, index: number) => (
                                 <Chip
+                                    className={classes.chip}
                                     icon={<IconCollection />}
-                                    variant='outlined'
                                     key={collection}
                                     label={collection}
                                     onDelete={HandleDelete({type: OPTION_TYPE.COLLECTION, value: collection})}
