@@ -30,7 +30,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
     return (
-        <HomeCard className={classes.root} heading='3. Compare'>
+        <HomeCard className={classes.root} Icon={IconCompare} heading='Compare'>
             <Typography align='center' variant='h3'>
                 Compare blueprints side-to-side.
             </Typography>
@@ -48,8 +48,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 onClick={() => routerStore.goView(ROUTES.COMPARE)}
                 fullWidth
             >
-                <IconCompare />
-                <Typography variant='button'>{'Compare'}</Typography>
+                <Typography variant='button'>{'Compare Two Fighters'}</Typography>
             </Button>
         </HomeCard>
     )

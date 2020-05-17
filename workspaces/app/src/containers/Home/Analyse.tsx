@@ -46,7 +46,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     return (
-        <HomeCard className={classes.root} heading='2. Analyse'>
+        <HomeCard className={classes.root} Icon={IconAnalyse} heading='Analyse'>
             <Typography align='center' variant='h3'>
                 Get in-depth analysis of the blueprint.
             </Typography>
@@ -64,8 +64,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 onClick={getRandom}
                 fullWidth
             >
-                <IconAnalyse />
-                <Typography variant='button'>{'Analyse Random'}</Typography>
+                <Typography variant='button'>{'Analyse a Fighter'}</Typography>
             </Button>
         </HomeCard>
     )

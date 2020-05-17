@@ -30,7 +30,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const routerStore = React.useContext(CONTEXT.ROUTER)
 
     return (
-        <HomeCard className={classes.root} heading='1. Browse'>
+        <HomeCard className={classes.root} Icon={IconBrowse} heading='Browse'>
             <Typography align='center' variant='h3'>
                 Browse all Steam workshop blueprints.
             </Typography>
@@ -48,8 +48,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 onClick={() => routerStore.goView(ROUTES.BROWSE)}
                 fullWidth
             >
-                <IconBrowse />
-                <Typography variant='button'>{'Browse'}</Typography>
+                <Typography variant='button'>{'Browse Fighters'}</Typography>
             </Button>
         </HomeCard>
     )
