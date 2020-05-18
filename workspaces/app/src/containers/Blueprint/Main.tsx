@@ -27,8 +27,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     let bpId: number | string | null = null
 
     // Try steam id.
-    bpId = urlParams.get('id')
     if(!bpId) {
+        bpId = urlParams.get('id')
         console.info(`Found steam id: "${bpId}"`)
         bpId = Number(bpId)
     }

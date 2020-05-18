@@ -58,10 +58,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 if(!blueprint) throw new Error('catch me')
                 return 'steam' in blueprint && blueprint.steam !== undefined
                     ?
-                        (<Link className={classes.header} to={`${ROUTES.ANALYSE}?id=${blueprint._id!}`}>
+                        (<Link className={classes.header} to={`${ROUTES.ANALYSE}?id=${bpId}`}>
                             {blueprint.steam.title}
                         </Link>)
-                    : blueprint.sbc!.gridTitle
+                    :
+                        (<Link className={classes.header} to={`${ROUTES.ANALYSE}?upload=${bpId}`}>
+                            {bpId}
+                        </Link>)
             }
             default: {
                 throw new Error('catch me')

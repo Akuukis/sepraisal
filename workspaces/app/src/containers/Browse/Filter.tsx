@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Divider } from '@material-ui/core'
+import { Button, Divider, Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import IconClearAll from 'src/components/icons/IconClearAll'
+import { PRESET } from 'src/models'
 import { CONTEXT } from 'src/stores'
 import { ExclusiveScopeStore } from 'src/stores/ExclusiveScopeStore'
 
@@ -24,6 +26,9 @@ const styles = (theme: IMyTheme) => createStyles({
         position: 'absolute',
         top: theme.spacing(1),
     },
+    clearButton: {
+        margin: theme.spacing(2),
+    },
 })
 
 
@@ -33,18 +38,32 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const [exclusiveScopeStore] = React.useState(() => new ExclusiveScopeStore)
+    const cardStore = React.useContext(CONTEXT.CARDS)
+
+    const reset = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        cardStore.setFind(PRESET.none)
+    }
 
     return (
         <div className={classes.root}>
             <CONTEXT.EXCLUSIVE_SCOPE.Provider value={exclusiveScopeStore}>
-                <FilterPresets
-                />
+                <Grid container justify='flex-end'>
+                    <Button
+                        className={classes.clearButton}
+                        variant='outlined'
+                        color='primary'
+                        size='small'
+                        onClick={reset}
+                    >
+                        <IconClearAll />
+                        Clear all filters
+                    </Button>
+                </Grid>
+                <FilterPresets/>
                 <Divider />
-                <FilterCustom
-                />
+                <FilterCustom/>
                 <Divider />
-                <FilterRaw
-                />
+                <FilterRaw/>
             </CONTEXT.EXCLUSIVE_SCOPE.Provider>
         </div>
     )

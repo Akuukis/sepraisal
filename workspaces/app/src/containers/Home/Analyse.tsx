@@ -45,6 +45,23 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     }
 
+    let title: React.ReactNode
+    switch(status) {
+        case(ASYNC_STATE.Idle): {
+            title ='Analyse a Fighter'
+            break
+        }
+        case(ASYNC_STATE.Doing): {
+            title ='Randomizing ...'
+            break
+        }
+        case(ASYNC_STATE.Done):
+        case(ASYNC_STATE.Error):
+        default: {
+            throw new Error('catch me')
+        }
+    }
+
     return (
         <HomeCard className={classes.root} Icon={IconAnalyse} heading='Analyse'>
             <Typography align='center' variant='h3'>
@@ -63,8 +80,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 variant='outlined'
                 onClick={getRandom}
                 fullWidth
+                disabled={status !== ASYNC_STATE.Idle}
             >
-                <Typography variant='button'>{'Analyse a Fighter'}</Typography>
+                <Typography variant='button'>{title}</Typography>
             </Button>
         </HomeCard>
     )

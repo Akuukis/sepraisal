@@ -62,7 +62,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <List dense className={classes.list}>
                 <Upload onUpload={onUpload} onError={onError} />
-                {[...blueprintStore.uploads].map<JSX.Element>(([key]) => (
+                {blueprintStore.uploadsArray.map<JSX.Element>(([key]) => (
                     <PanelUploadsRow
                         key={key}
                         id={key}

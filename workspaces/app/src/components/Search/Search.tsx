@@ -163,6 +163,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
                 return option.value
             }}
+            getOptionDisabled={(option: IOption) => {
+                return authors.includes(option.value) || collections.includes(option.value)
+            }}
             ListboxComponent={ListboxComponent as React.ComponentType<React.HTMLAttributes<HTMLElement>>}
             renderGroup={renderGroup}
             renderOption={({type, subtype, value, amount}: IOption) => {

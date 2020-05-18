@@ -6,7 +6,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Grid, Slider, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatFloat, IMyTheme } from 'src/common'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme } from 'src/common'
 import { FindCriterionDirect } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
@@ -44,12 +44,13 @@ interface IMyFindCriterion {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title, criterionId, min, max, step: stepRaw, zeroes} = props
     const step = stepRaw ?? 1
+    const dp = step < 1 ? 1 : 0
 
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 
-    const setState = (): [number, number] => {
+    const getState = (): [number, number] => {
         const criterion = cardStore.querryFindBuilder.getCriterion<IMyFindCriterion>(criterionId)
 
         return [
@@ -58,22 +59,22 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         ]
     }
 
-    const [value, setValue] = React.useState<[number, number]>(setState())
+    const [value, setValue] = React.useState<[number, number]>(getState())
 
     let criterion: IMyFindCriterion | null = {}
-    if(value[0] !== min) criterion.$gte = new BigNumber(value[0]).dp(0).toNumber()
-    if(value[1] !== max) criterion.$lte = new BigNumber(value[1]).dp(0).toNumber()
+    if(value[0] !== min) criterion.$gte = new BigNumber(value[0]).dp(dp).toNumber()
+    if(value[1] !== max) criterion.$lte = new BigNumber(value[1]).dp(dp).toNumber()
     criterion = Object.keys(criterion).length > 0 ? criterion : null
     runInAction(() => formGroupScope.set(criterionId, undefined))
 
-    const format = (sliderValue: number) => formatFloat(sliderValue, step >= 1)
+    const format = (sliderValue: number) => formatDecimal(sliderValue, dp)
 
     const handleChange = (event, newValue) => {
         setValue(newValue)
     }
 
     React.useEffect(() => reaction(() => cardStore.querryFindBuilder.find.$and, () => {
-        setValue(setState())
+        setValue(getState())
     }))
 
     const onChangeCommitted = action(() => {
@@ -120,6 +121,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     min={min}
                     max={max}
                     step={step}
+                    marks={(max-min)/step < 50}
                     value={value}
                     onChange={handleChange}
                     onChangeCommitted={onChangeCommitted}

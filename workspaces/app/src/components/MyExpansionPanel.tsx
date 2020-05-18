@@ -57,6 +57,7 @@ const styles = (theme: IMyTheme) => createStyles({
         flexBasis: '33.33%',
     },
     secondaryHeading: {
+        flexGrow: 1,
         color: theme.palette.primary.main,
     },
 })
