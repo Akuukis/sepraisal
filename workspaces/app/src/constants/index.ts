@@ -13,8 +13,9 @@ export enum PROVIDER {
 }
 
 export enum BROWSE_PARTS {
-    CRITERION = 'criterion',
     SEARCH = 'search',
     AUTHOR = 'author',
     COLLECTION = 'collection',
+    FILTER = 'filter',
+    SORT = 'sort',
 }
