@@ -159,12 +159,21 @@ export class QueryFindBuilder {
     @computed public get find(): IFindRootQuery { return this._find }
 
     @computed public get findStringified() {
-        return JSON.stringify(sortFindAnd(this.find.$and))
+        const queriesSorted = sortFindAnd(this.find.$and)
+        return JSON.stringify(queriesSorted)
+    }
+
+    @computed public get findStringifiedOnlyQueries() {
+        const queriesSorted = sortFindAnd(this.find.$and)
+        const queriesFiltered = queriesSorted
+            .filter((query) => Object.keys(query).pop() !== 'steam.author.title')
+            .filter((query) => Object.keys(query).pop() !== 'steam.collections.title')
+        return JSON.stringify(queriesFiltered)
     }
 
     @computed public get selectedPreset() {
         const foundPreset = (Object.keys(PRESET) as Array<keyof typeof PRESET>)
-            .find((key) => this.findStringified === PRESET_STRINGIFIED[key])
+            .find((key) => this.findStringifiedOnlyQueries === PRESET_STRINGIFIED[key])
 
         return foundPreset ?? 'custom'
     }
@@ -261,7 +270,12 @@ export class QueryFindBuilder {
     }
 
     @action public replaceQueries(queries: FindQuery[]): void {
+        // Leave author's & collections unchanged, because they are manipulated in search bar, not filter sidepanel.
+        const authors = this.getCriterion('steam.author.title')
+        const collections = this.getCriterion('steam.collections.title')
         this.replaceFilter({$and: queries})
+        this.setCriterion('steam.author.title', authors)
+        this.setCriterion('steam.collections.title', collections)
     }
 
     @action public replaceSearch($search?: string) {
