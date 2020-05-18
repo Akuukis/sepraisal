@@ -12,7 +12,7 @@ const styles = (theme: IMyTheme) => createStyles({
         flexShrink: 0,
         padding: theme.spacing(2),
         color: theme.palette.primary.contrastText,
-        minWidth: 120,
+        minWidth: 140,
     },
 })
 
@@ -25,7 +25,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     return (
-        <Typography className={classes.root} component='span' variant='subtitle1' align='center'>
+        <Typography className={classes.root} component='span' variant='subtitle1' align='left'>
             {cardStore.count && `${cardStore.cards.size} of ${cardStore.count} results`}
         </Typography>
     )
