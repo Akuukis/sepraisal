@@ -46,6 +46,7 @@ import { SelectionStore } from 'src/stores/SelectionStore'
 const styles = (theme: IMyTheme) => createStyles({
     body: {
         margin: 0,
+        overflowY: 'scroll',
     },
 })
 
