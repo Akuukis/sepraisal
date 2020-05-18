@@ -1,7 +1,7 @@
 import { createBrowserHistory } from 'history'
 import { RouterStore as BaseRouterStore, syncHistoryWithStore } from 'mobx-react-router'
 
-import { ROUTES } from 'src/constants'
+import { ROUTE } from 'src/constants'
 
 import { PiwikStore } from './PiwikStore'
 
@@ -16,7 +16,7 @@ export class RouterStore extends BaseRouterStore {
     }
 
     public goBlueprint(id: number) {
-        const path = `${ROUTES.ANALYSE}?id=${id}`
+        const path = `${ROUTE.ANALYSE}?id=${id}`
 
         this.piwikStore.track({path})
         this.push(path)

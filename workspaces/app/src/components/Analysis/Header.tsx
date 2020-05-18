@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { AppBar, darken, Toolbar, Typography } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
-import { ROUTES } from 'src/constants'
+import { ROUTE } from 'src/constants'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -58,11 +58,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 if(!blueprint) throw new Error('catch me')
                 return 'steam' in blueprint && blueprint.steam !== undefined
                     ?
-                        (<Link className={classes.header} to={`${ROUTES.ANALYSE}?id=${bpId}`}>
+                        (<Link className={classes.header} to={`${ROUTE.ANALYSE}?id=${bpId}`}>
                             {blueprint.steam.title}
                         </Link>)
                     :
-                        (<Link className={classes.header} to={`${ROUTES.ANALYSE}?upload=${bpId}`}>
+                        (<Link className={classes.header} to={`${ROUTE.ANALYSE}?upload=${bpId}`}>
                             {bpId}
                         </Link>)
             }

@@ -5,7 +5,7 @@ import { Button, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
-import { ROUTES } from 'src/constants'
+import { ROUTE } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import HomeCard from './HomeCard'
@@ -45,7 +45,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 className={classes.button}
                 color='primary'
                 variant='contained'
-                onClick={() => routerStore.goView(ROUTES.BROWSE)}
+                onClick={() => routerStore.goView(ROUTE.BROWSE)}
                 fullWidth
             >
                 <Typography variant='button'>{'Browse Fighters'}</Typography>

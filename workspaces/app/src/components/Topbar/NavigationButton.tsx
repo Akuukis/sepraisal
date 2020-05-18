@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { fade, SvgIconProps, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import { ROUTES } from 'src/constants'
+import { ROUTE } from 'src/constants'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -48,7 +48,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps {
     Icon: React.FC<SvgIconProps>
-    to: ROUTES
+    to: ROUTE
     title: string
 }
 

@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import { Badge } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import { ROUTES } from 'src/constants'
+import { ROUTE } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import IconAnalyse from '../icons/IconAnalyse'
@@ -36,12 +36,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <nav className={classes.root}>
-            <NavigationButton to={ROUTES.BROWSE} Icon={IconBrowse} title='Browse' />
-            <NavigationButton to={ROUTES.ANALYSE} Icon={IconAnalyse} title='Analyse' />
+            <NavigationButton to={ROUTE.BROWSE} Icon={IconBrowse} title='Browse' />
+            <NavigationButton to={ROUTE.ANALYSE} Icon={IconAnalyse} title='Analyse' />
             <Badge classes={{badge: classes.badge}} badgeContent={selectionStore.selected.length} color="secondary">
-                <NavigationButton to={ROUTES.COMPARE} Icon={IconCompare} title='Compare' />
+                <NavigationButton to={ROUTE.COMPARE} Icon={IconCompare} title='Compare' />
             </Badge>
-            <NavigationButton to={ROUTES.INFO} Icon={IconInfo} title='Info' />
+            <NavigationButton to={ROUTE.INFO} Icon={IconInfo} title='Info' />
         </nav>
     )
 })) /* ============================================================================================================= */
