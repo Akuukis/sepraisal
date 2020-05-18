@@ -241,7 +241,7 @@ export class CardStore {
         }
     }
 
-    @action public setFind(diff: Partial<IFind>) {
-        return this.querryFindBuilder.setFind(diff)
+    @action public setFilter(diff: Partial<IFind>) {
+        return this.querryFindBuilder.setFilter(diff)
     }
 }

@@ -261,7 +261,7 @@ export class QueryFindBuilder {
         }
     }
 
-    @action public setFind(diff: Partial<IFindRootQuery>) {
+    @action public setFilter(diff: Partial<IFindRootQuery>) {
         // If changed, automatically trigger query via mobx due reaction above on `this.find.$and`.
         if('$and' in diff && diff.$and) {
             this._find.$and = sortFindAnd(diff.$and)

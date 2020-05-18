@@ -37,16 +37,16 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
 
-    const setFind = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const applyPreset = (event: React.ChangeEvent<HTMLInputElement>) => {
         const id = event.currentTarget.getAttribute('value') as keyof typeof PRESET
-        cardStore.setFind(PRESET[id] as typeof cardStore['find'])
+        cardStore.setFilter(PRESET[id] as typeof cardStore['find'])
     }
 
 
     return (
         <MyExpansionPanel header='Presets' subheader={getPresetTitle(cardStore.selectedPreset)} defaultExpanded>
             <FormControl fullWidth>
-                <RadioGroup aria-label='preset' name='preset' value={cardStore.selectedPreset} onChange={setFind}>
+                <RadioGroup aria-label='preset' name='preset' value={cardStore.selectedPreset} onChange={applyPreset}>
                     {(Object.keys(PRESET) as Array<keyof typeof PRESET>).map((name) => (
                         <FormControlLabel
                             value={name}

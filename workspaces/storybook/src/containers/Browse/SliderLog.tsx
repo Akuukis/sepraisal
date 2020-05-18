@@ -2,8 +2,9 @@ import { createSmartFC } from '@sepraisal/app/lib/common'
 import SliderLog from '@sepraisal/app/lib/containers/Browse/Filters/FormControls/SliderLog'
 import { CONTEXT } from '@sepraisal/app/lib/stores'
 import { CardStore, PRESET } from '@sepraisal/app/lib/stores/CardStore'
+import { PiwikStore } from '@sepraisal/app/lib/stores/PiwikStore'
 import { action as storyAction } from '@storybook/addon-actions'
-import { number, withKnobs } from '@storybook/addon-knobs'
+import { withKnobs } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
 import { action } from 'mobx'
 import * as React from 'react'
@@ -12,7 +13,6 @@ import { Button } from '@material-ui/core'
 
 import { ProviderDecorator } from '../../ProviderDecorator'
 import Theme from '../../ThemeDecorator'
-import { PiwikStore } from '@sepraisal/app/lib/stores/PiwikStore'
 
 
 class MockCardStore extends CardStore {
@@ -24,9 +24,9 @@ class MockCardStore extends CardStore {
         return super.find
     }
 
-    public setFind(value: Parameters<CardStore['setFind']>[0]) {
-        super.setFind(value)
-        storyAction('setFind')(JSON.stringify(super.find), super.find)
+    public setFilter(value: Parameters<CardStore['setFilter']>[0]) {
+        super.setFilter(value)
+        storyAction('setFilter')(JSON.stringify(super.find), super.find)
     }
 }
 
@@ -47,7 +47,7 @@ storiesOf('Containers|SliderLog', module)
                 const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === 'sbc.blockCount')
                 const before = cardStore.find.$and.slice(0, Math.max(0, index))
                 const after = cardStore.find.$and.slice(index + 1, cardStore.find.$and.length)
-                cardStore.setFind({$and: [
+                cardStore.setFilter({$and: [
                     ...before,
                     value,
                     ...after,
