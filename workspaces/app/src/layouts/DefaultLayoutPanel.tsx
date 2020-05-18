@@ -16,6 +16,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 import { createSmartFC, createStyles, dropShadowFromBoxShadow, IMyTheme } from 'src/common'
+import IconClose from 'src/components/icons/IconClose'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -96,7 +97,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <div className={classes.asideHeader}>
             <Typography className={classes.asideHeaderTypography} variant='h2'>{asideTitle}</Typography>
             <IconButton onClick={toggleOpen} color='primary'>
-                {theme.direction === 'ltr' ? <ChevronRightIcon fontSize='default' /> : <ChevronLeftIcon fontSize='default' />}
+                {xsDown ?
+                    <IconClose fontSize='default' />
+                :
+                    theme.direction === 'ltr' ? <ChevronRightIcon fontSize='default' /> : <ChevronLeftIcon fontSize='default' />
+                }
             </IconButton>
         </div>
         <div className={classes.asideContainer}>
