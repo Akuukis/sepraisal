@@ -28,16 +28,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     // Try steam id.
     bpId = urlParams.get('id')
-    if(bpId) {
-        console.log(`Found steam id: "${bpId}"`)
+    if(!bpId) {
+        console.info(`Found steam id: "${bpId}"`)
         bpId = Number(bpId)
     }
 
     // Try upload title.
-    bpId = urlParams.get('upload')
-    if(bpId) console.log(`Found upload id: "${bpId}"`)
-
-    console.log(bpId)
+    if(!bpId) {
+        bpId = urlParams.get('upload')
+        if(bpId) console.info(`Found upload id: "${bpId}"`)
+    }
 
 
     return (
