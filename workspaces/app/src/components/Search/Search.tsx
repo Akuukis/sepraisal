@@ -84,23 +84,23 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
         if(newValue === null) {
-            cardStore.querryFindBuilder.setSearch(undefined)
+            cardStore.querryFindBuilder.replaceSearch(undefined)
             setValue(null)
         } else if(typeof newValue === 'string') {  // Pressed ENTER and so we receive plain string.
-            cardStore.querryFindBuilder.setSearch(newValue)
+            cardStore.querryFindBuilder.replaceSearch(newValue)
             setValue({type: OPTION_TYPE.OTHER, value: newValue})
         } else if(newValue.type === OPTION_TYPE.AUTHOR || newValue.subtype === OPTION_TYPE.AUTHOR) {
             cardStore.querryFindBuilder.setCriterion('steam.author.title', {$in: [...authors, newValue.value]})
-            cardStore.querryFindBuilder.setSearch(undefined)
+            cardStore.querryFindBuilder.replaceSearch(undefined)
             setValue(null)
             setInput('')
         } else if(newValue.type === OPTION_TYPE.COLLECTION || newValue.subtype === OPTION_TYPE.COLLECTION) {
             cardStore.querryFindBuilder.setCriterion('steam.collections.title', {$in: [...collections, newValue.value]})
-            cardStore.querryFindBuilder.setSearch(undefined)
+            cardStore.querryFindBuilder.replaceSearch(undefined)
             setValue(null)
             setInput('')
         } else if(newValue.type === OPTION_TYPE.OTHER) {
-            cardStore.querryFindBuilder.setSearch(newValue.value)
+            cardStore.querryFindBuilder.replaceSearch(newValue.value)
             setValue(newValue)
         }
         updateUrlParams()

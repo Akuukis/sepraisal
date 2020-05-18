@@ -24,10 +24,10 @@ class MockCardStore extends CardStore {
         return super.find
     }
 
-    public setFilter(value: Parameters<CardStore['setFilter']>[0]) {
-        super.setFilter(value)
-        storyAction('setFilter')(JSON.stringify(super.find), super.find)
-    }
+    // public setFilter(value: Parameters<CardStore['setFilter']>[0]) {
+    //     super.setFilter(value)
+    //     storyAction('setFilter')(JSON.stringify(super.find), super.find)
+    // }
 }
 
 storiesOf('Containers|SliderLog', module)
@@ -47,7 +47,7 @@ storiesOf('Containers|SliderLog', module)
                 const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === 'sbc.blockCount')
                 const before = cardStore.find.$and.slice(0, Math.max(0, index))
                 const after = cardStore.find.$and.slice(index + 1, cardStore.find.$and.length)
-                cardStore.querryFindBuilder.setFilter({$and: [
+                cardStore.querryFindBuilder.replaceFilter({$and: [
                     ...before,
                     value,
                     ...after,
