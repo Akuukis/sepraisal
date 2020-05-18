@@ -11,7 +11,7 @@ import { AUTOCOMPLETE_COLLECTIONS } from 'src/common/collections'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import IconCollection from 'src/components/icons/IconCollection'
 import IconPerson from 'src/components/icons/IconPerson'
-import { ROUTE } from 'src/constants'
+import { BROWSE_PARTS, ROUTE } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import { ListboxComponent, renderGroup } from './SearchVirtualized'
@@ -55,6 +55,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {className, ...otherProps} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const routerStore = React.useContext(CONTEXT.ROUTER)
+
+    const searchParams = new URLSearchParams(routerStore.location.search)
+    const authors = searchParams.getAll(BROWSE_PARTS.AUTHOR)
+    const collections = searchParams.getAll(BROWSE_PARTS.COLLECTION)
+
     const [input, setInput] = React.useState('')
     const [value, setValue] = React.useState<IOption|null>(null)
 
@@ -62,48 +67,47 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setInput(newInputValue)
     }
 
-    const searchParams = new URLSearchParams(routerStore.location.search)
-    const authors = searchParams.getAll('author')
-    const collections = searchParams.getAll('collection')
 
     React.useEffect(() => {
         cardStore.querryFindBuilder.setCriterion('steam.author.title', authors.length > 0 ? {$in: authors} : null)
         cardStore.querryFindBuilder.setCriterion('steam.collections.title', collections.length > 0 ? {$in: collections} : null)
-    })
+        updateUrlParams(searchParams.get(BROWSE_PARTS.SEARCH))
+    }, [])
 
-    const updateUrlParams = () => {
+    const updateUrlParams = (newSearch: string | null) => {
+        cardStore.querryFindBuilder.replaceSearch(newSearch ?? undefined)
+        setValue(newSearch ? {type: OPTION_TYPE.OTHER, value: newSearch} : null)
+        setInput('')
+
         const newAuthors = (cardStore.querryFindBuilder.getCriterion('steam.author.title')?.$in ?? []) as string[]
         const newCollections = (cardStore.querryFindBuilder.getCriterion('steam.collections.title')?.$in ?? []) as string[]
-        const searchParams = new URLSearchParams(routerStore.location.search)
-        searchParams.delete('author')
-        searchParams.delete('collection')
-        for(const newAuthor of newAuthors) searchParams.append('author', newAuthor)
-        for(const newCollection of newCollections) searchParams.append('collection', newCollection)
-        routerStore.push({pathname: ROUTE.BROWSE, search: searchParams.toString()})
+        const newSearchParams = new URLSearchParams(routerStore.location.search)
+        newSearchParams.delete(BROWSE_PARTS.AUTHOR)
+        newSearchParams.delete(BROWSE_PARTS.COLLECTION)
+        for(const newAuthor of newAuthors) newSearchParams.append(BROWSE_PARTS.AUTHOR, newAuthor)
+        for(const newCollection of newCollections) newSearchParams.append(BROWSE_PARTS.COLLECTION, newCollection)
+        if(newSearch === null) {
+            newSearchParams.delete(BROWSE_PARTS.SEARCH)
+        } else {
+            newSearchParams.set(BROWSE_PARTS.SEARCH, newSearch)
+        }
+        routerStore.push({pathname: ROUTE.BROWSE, search: newSearchParams.toString()})
     }
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
         if(newValue === null) {
-            cardStore.querryFindBuilder.replaceSearch(undefined)
-            setValue(null)
+            updateUrlParams(null)
         } else if(typeof newValue === 'string') {  // Pressed ENTER and so we receive plain string.
-            cardStore.querryFindBuilder.replaceSearch(newValue)
-            setValue({type: OPTION_TYPE.OTHER, value: newValue})
+            updateUrlParams(newValue)
         } else if(newValue.type === OPTION_TYPE.AUTHOR || newValue.subtype === OPTION_TYPE.AUTHOR) {
             cardStore.querryFindBuilder.setCriterion('steam.author.title', {$in: [...authors, newValue.value]})
-            cardStore.querryFindBuilder.replaceSearch(undefined)
-            setValue(null)
-            setInput('')
+            updateUrlParams(null)
         } else if(newValue.type === OPTION_TYPE.COLLECTION || newValue.subtype === OPTION_TYPE.COLLECTION) {
             cardStore.querryFindBuilder.setCriterion('steam.collections.title', {$in: [...collections, newValue.value]})
-            cardStore.querryFindBuilder.replaceSearch(undefined)
-            setValue(null)
-            setInput('')
+            updateUrlParams(null)
         } else if(newValue.type === OPTION_TYPE.OTHER) {
-            cardStore.querryFindBuilder.replaceSearch(newValue.value)
-            setValue(newValue)
+            updateUrlParams(newValue.value)
         }
-        updateUrlParams()
     }
 
     const HandleDelete = (option: IOption) => () => {
@@ -116,7 +120,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else {
             throw new Error('catch me')
         }
-        updateUrlParams()
+        updateUrlParams(input !== '' ? input : null)
     }
 
     return (

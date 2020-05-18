@@ -11,3 +11,10 @@ export enum PROVIDER {
     LOCAL = 'upload',
     MODIO = 'modio',
 }
+
+export enum BROWSE_PARTS {
+    CRITERION = 'criterion',
+    SEARCH = 'search',
+    AUTHOR = 'author',
+    COLLECTION = 'collection',
+}
