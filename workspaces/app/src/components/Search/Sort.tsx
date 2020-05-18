@@ -1,7 +1,18 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Hidden, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Typography } from '@material-ui/core'
+import {
+    Button,
+    Divider,
+    Grid,
+    Hidden,
+    IconButton,
+    ListItemIcon,
+    ListItemText,
+    Menu,
+    MenuItem,
+    useMediaQuery,
+} from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconSort from 'src/components/icons/IconSort'
@@ -23,7 +34,6 @@ const styles = (theme: IMyTheme) => createStyles({
     button: {
     },
     text: {
-        paddingLeft: theme.spacing(2),
     },
 })
 
@@ -35,6 +45,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
     const [anchor, setAnchor] = React.useState<HTMLElement | null>(null)
+    const smUp = useMediaQuery(theme.breakpoints.up('sm'), {noSsr: true})
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchor(event.currentTarget)
@@ -58,6 +69,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         handleClose()
     }
+    const quickReverse = () => {
+        const key = Object.keys(cardStore.sort).pop()!
+        cardStore.sort = {[key]: -cardStore.sort[key] as 1 | -1}
+    }
 
     const renderSortItem = (id: string) => {
         const title = TITLES[id]
@@ -69,8 +84,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         return (
             <MenuItem value={id} onClick={setSort}>
-                {icon}
-                <ListItemText inset={!icon} primary={title} />
+                {smUp ? null : icon}
+                <ListItemText inset={!icon && !smUp} primary={title} />
             </MenuItem>
         )
     }
@@ -86,11 +101,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <Grid className={classes.root} container alignItems='center' justify='center'>
             <Hidden smDown>
-                <Typography className={classes.text} variant='body1' component='label'>
+                <Button className={classes.text} onClick={handleClick}>
                     {currentKey && TITLES[currentKey]}
-                </Typography>
+                </Button>
+                <Divider orientation='vertical' />
             </Hidden>
-            <IconButton className={classes.button} onClick={handleClick} color='primary'>
+            <IconButton className={classes.button} onClick={smUp ? quickReverse : handleClick}>
                 {icon}
             </IconButton>
             <Menu
@@ -101,7 +117,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 transitionDuration={100}
                 getContentAnchorEl={null}
                 anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
-                transformOrigin={{vertical: 'top', horizontal: 'right'}}
+                transformOrigin={{vertical: 'top', horizontal: 'left'}}
             >
                 {renderSortItem('steam.title')}
                 {renderSortItem('steam.subscriberCount')}
