@@ -142,6 +142,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 {selected.map((option: IOption, index: number) => (
                     <Chip
                         id={option.fullType}
+                        key={option.fullType}
                         size='small'
                         label={option.shortType}
                         className={clsx(classes.chip, variant === 'exclude' && classes.chipExcludeVariant)}

@@ -94,7 +94,7 @@ const styles = (theme: IMyTheme) => createStyles({
 })
 
 
-interface IProps extends GridProps {
+interface IProps extends Omit<GridProps, 'classes'> {
     heading: string
     value: React.ReactNode
     label: React.ReactNode

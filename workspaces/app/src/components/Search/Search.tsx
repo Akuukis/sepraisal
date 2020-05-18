@@ -191,7 +191,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             input: classes.inputInput
                         },
                         startAdornment: [
-                            (<InputAdornment position='start' className={classes.inputAdornment}>
+                            (<InputAdornment key='icon' position='start' className={classes.inputAdornment}>
                                 <IconBrowse color='primary' fontSize='default' />
                             </InputAdornment>),
                             ...authors.map((author: string, index: number) => (

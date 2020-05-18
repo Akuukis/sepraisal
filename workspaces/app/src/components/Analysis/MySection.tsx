@@ -52,17 +52,50 @@ interface IProps extends MySectionProps {
     narrow?: boolean
 }
 
-
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {className, narrow, ...otherProps} = props
-    const largerThanSm = useMediaQuery(theme.breakpoints.up('sm'))
+    const smUp = useMediaQuery(theme.breakpoints.up('sm'), { noSsr: true })
 
-    return (largerThanSm && !narrow) ?
-            <MySectionWide className={clsx(classes.root, className)} classes={classes} {...otherProps as React.ComponentProps<typeof MySectionWide>}>
+    return (smUp && !narrow) ?
+            <MySectionWide
+                classes={{
+                    root: clsx(classes.root, className),
+                    inner: classes.inner,
+                    // rootNarrow: classes.rootNarrow,
+                    CenterCell: classes.CenterCell,
+                    heading: classes.heading,
+                    MyBoxColumn: classes.MyBoxColumn,
+                    MyBoxRow: classes.MyBoxRow,
+                    MyBox: classes.MyBox,
+                    MyBoxPaper: classes.MyBoxPaper,
+                    HeadingCell: classes.HeadingCell,
+                    ValueCell: classes.ValueCell,
+                    ValueCellLabel: classes.ValueCellLabel,
+                    ValueCellValue: classes.ValueCellValue,
+                }}
+                {...otherProps as React.ComponentProps<typeof MySectionWide>}
+            >
                 {children}
             </MySectionWide>
         :
-            <MySectionNarrow className={clsx(classes.root, className)} classes={classes} {...otherProps as React.ComponentProps<typeof MySectionNarrow>}>
+            <MySectionNarrow
+                classes={{
+                    root: clsx(classes.root, className),
+                    // inner: classes.inner,
+                    rootNarrow: classes.rootNarrow,
+                    CenterCell: classes.CenterCell,
+                    heading: classes.heading,
+                    MyBoxColumn: classes.MyBoxColumn,
+                    MyBoxRow: classes.MyBoxRow,
+                    MyBox: classes.MyBox,
+                    MyBoxPaper: classes.MyBoxPaper,
+                    // HeadingCell: classes.HeadingCell,
+                    ValueCell: classes.ValueCell,
+                    ValueCellLabel: classes.ValueCellLabel,
+                    ValueCellValue: classes.ValueCellValue,
+                }}
+                {...otherProps as React.ComponentProps<typeof MySectionNarrow>}
+            >
                 {children}
             </MySectionNarrow>
 
