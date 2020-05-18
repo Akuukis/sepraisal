@@ -2,11 +2,11 @@ import clipboard from 'clipboard-polyfill'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Button, Divider, Grid } from '@material-ui/core'
+import { Button, ClickAwayListener, Divider, Grid, Tooltip } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconClearAll from 'src/components/icons/IconClearAll'
-import IconClipboard from 'src/components/icons/IconClipboard'
+import IconCopy from 'src/components/icons/IconCopy'
 import { BROWSE_PARTS } from 'src/constants'
 import { PRESET, QueryFindBuilder } from 'src/models'
 import { CONTEXT } from 'src/stores'
@@ -32,6 +32,9 @@ const styles = (theme: IMyTheme) => createStyles({
     clearButton: {
         margin: theme.spacing(2),
     },
+    header: {
+        padding: theme.spacing(1, 0),
+    },
 })
 
 
@@ -43,6 +46,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [exclusiveScopeStore] = React.useState(() => new ExclusiveScopeStore)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const routerStore = React.useContext(CONTEXT.ROUTER)
+    const [open, setOpen] = React.useState(false)
+
+    const close = () => setOpen(false)
 
     // Once, try to load filter query.
     React.useEffect(() => {
@@ -72,6 +78,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         searchParams.set(BROWSE_PARTS.SORT, JSON.stringify(cardStore.sort))
         const url = `${location.origin}${location.pathname}?${searchParams.toString()}`
         clipboard.writeText(url)
+        setOpen(true)
+        setTimeout(close, 6000)
     }
 
     const reset = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -81,17 +89,30 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <div className={classes.root}>
             <CONTEXT.EXCLUSIVE_SCOPE.Provider value={exclusiveScopeStore}>
-                <Grid container justify='space-between'>
-                    <Button
-                        className={classes.clearButton}
-                        variant='outlined'
-                        color='primary'
-                        size='small'
-                        onClick={copy}
-                    >
-                        <IconClipboard />
-                        URL with Filters
-                    </Button>
+                <Grid className={classes.header} container justify='space-between'>
+                    <ClickAwayListener onClickAway={close}>
+                        <Tooltip
+                            PopperProps={{disablePortal: true}}
+                            placement='right'
+                            onClose={close}
+                            open={open}
+                            disableFocusListener
+                            disableHoverListener
+                            disableTouchListener
+                            title='Link with filters has been copied to your clipboard.'
+                        >
+                            <Button
+                                className={classes.clearButton}
+                                variant='outlined'
+                                color='primary'
+                                size='small'
+                                onClick={copy}
+                            >
+                                <IconCopy />
+                                Copy
+                            </Button>
+                        </Tooltip>
+                    </ClickAwayListener>
                     <Button
                         className={classes.clearButton}
                         variant='outlined'
@@ -100,14 +121,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         onClick={reset}
                     >
                         <IconClearAll />
-                        Clear filters
+                        Clear All
                     </Button>
                 </Grid>
                 <FilterPresets/>
                 <Divider />
                 <FilterCustom/>
                 <Divider />
-                <FilterRaw/>
+                <FilterRaw />
             </CONTEXT.EXCLUSIVE_SCOPE.Provider>
         </div>
     )
