@@ -19,7 +19,11 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     box: {
         padding: 0,
+        overflowY: 'scroll',
+    },
+    paper: {
         display: 'block',
+        height: 'unset',
     },
 
     corner: {
@@ -47,7 +51,7 @@ const styles = (theme: IMyTheme) => createStyles({
             color: darken(theme.palette.primary.light, 0.5),
         },
         minHeight: `10em`,
-        height: `calc(100% - ${theme.spacing(2) * 2}px)`,
+        // height: `calc(100% - ${theme.spacing(2) * 2}px)`,
         width: `calc(100% - ${theme.spacing(2) * 2}px)`,
         overflow: 'unset',  // Required for floating corner.
     },
@@ -75,7 +79,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <MyBoxColumn height={largerThanXl && long ? 0 : 4} width={6}>
                 <MyBoxRow width={6}>
-                    <MyBox width={6} className={classes.box}>
+                    <MyBox width={6} classes={{root: classes.box, paper: classes.paper}}>
                         <Paper square className={classes.corner}>
                             <IconButton size='medium' color='inherit' {...linkBpProps(bp.steam.id)}>
                                 <IconSteam fontSize='inherit' />

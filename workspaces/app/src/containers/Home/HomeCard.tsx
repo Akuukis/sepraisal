@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Card, CardContent, CardHeader, PaperProps, Typography } from '@material-ui/core'
+import { Card, CardContent, CardHeader, PaperProps, SvgIconProps, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
@@ -24,22 +24,28 @@ const styles = (theme: IMyTheme) => createStyles({
         borderTopLeftRadius: theme.shape.borderRadius,
         borderTopRightRadius: theme.shape.borderRadius,
     },
+    icon: {
+        verticalAlign: 'middle',
+        marginRight: theme.spacing(1),
+    },
 })
 
 
 interface IProps extends PaperProps {
+    Icon: React.FunctionComponent<SvgIconProps>,
     heading: React.ReactNode,
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {heading, className, ...otherProps} = props
+    const {Icon, heading, className, ...otherProps} = props
 
-    const title = (
+    const title = (<>
         <Typography className={classes.heading} variant='h2'>
+            <Icon fontSize='large' className={classes.icon} />
             {heading}
         </Typography>
-    )
+    </>)
 
     return (
         <Card className={clsx(classes.root, className)} {...otherProps}>

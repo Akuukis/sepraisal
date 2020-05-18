@@ -53,7 +53,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }, className)
     const paperClassName = clsx(classes.paper, {
             [classes.flatPaper]: variant === 'flat',
-        }, className)
+        })
 
     return (
         <Grid

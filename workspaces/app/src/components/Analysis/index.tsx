@@ -70,11 +70,12 @@ interface IProps extends GridProps {
     bpId: string | number
     long?: boolean
     maxWidth?: 0.5 | 1 | 2 | 3
+    icons?: React.ReactNode
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bpId, long, maxWidth, className, ...otherProps} = props
+    const {bpId, icons, long, maxWidth, className, ...otherProps} = props
 
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const [state, setState] = React.useState<{code: ASYNC_STATE, text?: string}>({code: ASYNC_STATE.Idle})
@@ -152,6 +153,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <Grid item className={classes.item} xs={12} style={{maxWidth: '100%'}}>
                     <Header bpId={bpId} blueprint={blueprint} state={state}>
                         {blueprint && <FavoriteButton bpId={blueprint._id!} name={blueprint?.steam?.title || blueprint?.sbc?.gridTitle || '?'} />}
+                        {icons}
                     </Header>
                 </Grid>
                 {!blueprint || blueprint?.steam ? sectionGroup([['Workshop', SectionWorkshop as Section]]) : null}

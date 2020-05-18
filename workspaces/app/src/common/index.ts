@@ -92,21 +92,23 @@ export const formatFloat = (amount: NumberAlike, wholeNumbers = true): string =>
 export const formatDuration = (seconds: number): string => {
     const zero = moment.unix(0).utc()
     const time = moment.unix(seconds).utc()
-    const diff = time.diff(zero, 's')
 
-    let res = ''
-    res = `${padTo2(Math.floor(diff                % 60))}${res}`
-    if(Math.floor(diff / 60) === 0) return res
+    if(time.isAfter(moment.unix(0).utc().add(1, 'day'))) {
+        const days = time.diff(zero, 'days')
+        return `${days}d ${time.subtract(days, 'days').diff(zero, 'hour')}h`
+    }
 
-    res = `${padTo2(Math.floor(diff / 60           % 60))}:${res}`
-    if(Math.floor(diff / 60 / 60) === 0) return res
+    if(time.isAfter(moment.unix(0).utc().add(1, 'hour'))) {
+        const hour = time.diff(zero, 'hour')
+        return `${hour}h ${time.subtract(hour, 'hours').diff(zero, 'minute')}m`
+    }
 
-    res = `${padTo2(Math.floor(diff / 60 / 60      % 24))}:${res}`
-    if(Math.floor(diff / 60 / 60 / 24) === 0) return res
+    if(time.isAfter(moment.unix(0).utc().add(1, 'minute'))) {
+        const minutes = time.diff(zero, 'minutes')
+        return `${minutes}m ${time.subtract(minutes, 'minutes').diff(zero, 'second')}s`
+    }
 
-    res = `${padTo2(Math.floor(diff / 60 / 60 / 24))}d ${res}`
-
-    return res
+    return `${time.diff(zero, 'second')}s`
 }
 
 export const useAsyncEffect = (afn: () => Promise<void>, deps?: DependencyList) => {

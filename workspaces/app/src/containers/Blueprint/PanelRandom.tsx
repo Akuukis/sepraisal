@@ -76,6 +76,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <RadioGroup aria-label='random' name='random' value={value} onChange={handleRadioChange}>
                     {Object.keys(PRESET).map((name) => (
                         <FormControlLabel
+                            key={name}
                             value={name}
                             control={<Radio color='primary' size='small' />}
                             label={getPresetTitle(name as keyof typeof PRESET)}
