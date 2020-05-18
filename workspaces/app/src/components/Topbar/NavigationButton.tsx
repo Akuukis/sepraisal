@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { fade, SvgIconProps, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import { ROUTES } from 'src/constants/routes'
+import { ROUTES } from 'src/constants'
 
 
 const styles = (theme: IMyTheme) => createStyles({

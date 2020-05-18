@@ -5,7 +5,7 @@ import { Button, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
-import { ROUTES } from 'src/constants/routes'
+import { ROUTES } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import HomeCard from './HomeCard'

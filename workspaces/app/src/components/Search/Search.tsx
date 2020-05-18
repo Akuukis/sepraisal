@@ -11,7 +11,7 @@ import { AUTOCOMPLETE_COLLECTIONS } from 'src/common/collections'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import IconCollection from 'src/components/icons/IconCollection'
 import IconPerson from 'src/components/icons/IconPerson'
-import { ROUTES } from 'src/constants/routes'
+import { ROUTES } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import { ListboxComponent, renderGroup } from './SearchVirtualized'

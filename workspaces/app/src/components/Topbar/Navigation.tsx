@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import { Badge } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import { ROUTES } from 'src/constants/routes'
+import { ROUTES } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import IconAnalyse from '../icons/IconAnalyse'

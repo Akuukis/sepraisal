@@ -2,7 +2,7 @@ import { History } from 'history'
 import * as React from 'react'
 import { Redirect, Route, Router, Switch } from 'react-router-dom'
 
-import { ROUTES } from 'src/constants/routes'
+import { ROUTES } from 'src/constants'
 
 import App from './containers/App'
 import Blueprint from './containers/Blueprint'

@@ -1,7 +1,7 @@
 import { createBrowserHistory } from 'history'
 import { RouterStore as BaseRouterStore, syncHistoryWithStore } from 'mobx-react-router'
 
-import { ROUTES } from 'src/constants/routes'
+import { ROUTES } from 'src/constants'
 
 import { PiwikStore } from './PiwikStore'
 
