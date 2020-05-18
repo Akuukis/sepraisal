@@ -78,7 +78,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <FormControlLabel
                             key={name}
                             value={name}
-                            key={name}
                             control={<Radio color='primary' size='small' />}
                             label={getPresetTitle(name as keyof typeof PRESET)}
                         />
