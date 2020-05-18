@@ -1,11 +1,13 @@
 import clsx from 'clsx'
+import { runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid } from '@material-ui/core'
+import { Grid, IconButton } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import Analysis from 'src/components/Analysis'
+import IconClose from 'src/components/icons/IconClose'
 import NothingSelected from 'src/components/NothingSelected'
 import { CONTEXT } from 'src/stores'
 
@@ -53,6 +55,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         return () => clearTimeout(timeout)
     })
 
+    const HandleDeselect = (id: number | string) => () => {
+        runInAction(() => {
+            selectionStore.selected.remove(id)
+        })
+    }
+
     // Exit & Change
     const change = prevOrder
         .map((id, i) => {
@@ -62,11 +70,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             const left = ((removed ? i : newI) - i) * (theme.spacing(2) + width * 2 * theme.shape.boxWidth)
 
             return (<Analysis
+                key={id}
                 classes={{root: clsx(classes.column, left !== 0 && classes.moving, removed && classes.exiting)}}
                 style={{left}}
-                key={id}
                 bpId={id}
                 maxWidth={width}
+                icons={<IconButton onClick={HandleDeselect(id)}><IconClose /></IconButton>}
             />)
         })
 
@@ -75,11 +84,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         .filter((id) => !prevOrder.includes(id))
         .map((id, i) => {
             return (<Analysis
+                key={id}
                 classes={{root: classes.column}}
                 style={{}}
-                key={id}
                 bpId={id}
                 maxWidth={width}
+                icons={<IconButton onClick={HandleDeselect(id)}><IconClose /></IconButton>}
             />)
         })
 
