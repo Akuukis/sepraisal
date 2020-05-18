@@ -100,6 +100,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const from = criterion?.$gte !== undefined ? `from ${formatFloat(criterion.$gte)}` : ''
     const to = criterion?.$lte !== undefined ? `to ${formatFloat(criterion.$lte)}` : ''
+    const marks = Array.from(Array(10), (_, i) => ({
+        value: Math.log10(min + (max - min) / 10 * (i+1)),
+    }))
 
     return (
         <Grid container justify='space-between' className={classes.root}>
@@ -119,8 +122,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     className={clsx(!criterion && classes.inactiveSlider)}
                     min={safeMin}
                     max={safeMax}
-                    step={(safeMax - safeMin) / 100}
+                    step={(safeMax - safeMin) / 1000}
                     value={logValue}
+                    marks={marks}
                     onChange={handleChange}
                     onChangeCommitted={onChangeCommitted}
                     valueLabelDisplay='auto'
