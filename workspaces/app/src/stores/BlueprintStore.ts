@@ -10,6 +10,11 @@ export class BlueprintStore {
     public readonly recent = new ObservableMap<BlueprintStore.ICachedSteamBlueprint, number>()
     public readonly uploads = new ObservableMap<BlueprintStore.ICachedUploadBlueprint>()
 
+    @computed public get uploadsArray(): [string, BlueprintStore.ICachedUploadBlueprint][] {
+        return [...this.uploads]
+            .sort((a, b) => b[1]._cached.diff(a[1]._cached))
+    }
+
     private favoriteStore: FavoriteStore
 
     public constructor(favoriteStore: FavoriteStore) {
@@ -125,17 +130,26 @@ export class BlueprintStore {
         return doc
     }
 
-    @action public setUpload(praisal: Praisal) {
-        const blueprint: BlueprintStore.ICachedUploadBlueprint = {
-            _id: 0,
-            sbc: praisal.toBlueprintSbc(0),
-            _cached: moment(),
+    public setUpload(praisal: Praisal): string
+    public setUpload(praisal: BlueprintStore.ICachedUploadBlueprint, title: string): string
+    @action public setUpload(praisalOrCached: Praisal | BlueprintStore.ICachedUploadBlueprint, title?: string): string {
+        let titleFinal: string
+        let blueprint: BlueprintStore.ICachedUploadBlueprint
+        if(praisalOrCached instanceof Praisal) {
+            titleFinal = `${praisalOrCached.blummary.title}-${moment().format('MMDD-HHmmss')}`
+            blueprint = {
+                _id: 0,
+                sbc: praisalOrCached.toBlueprintSbc(0),
+                _cached: moment(),
+            }
+        } else {
+            titleFinal = title!
+            blueprint = praisalOrCached
         }
-        const title = `${praisal.blummary.title}-${moment().format('MMDD-HHmmss')}`
-        localStorage.setItem(`upload/${title}`, JSON.stringify({...blueprint, _cached: blueprint._cached.toString()}))
-        this.uploads.set(title, blueprint)
+        localStorage.setItem(`upload/${titleFinal}`, JSON.stringify({...blueprint, _cached: blueprint._cached.toString()}))
+        this.uploads.set(titleFinal, blueprint)
 
-        return title
+        return titleFinal
     }
 
 }
