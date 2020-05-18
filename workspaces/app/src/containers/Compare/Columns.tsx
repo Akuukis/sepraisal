@@ -1,12 +1,12 @@
 import clsx from 'clsx'
 import deep from 'fast-deep-equal'
-import { runInAction } from 'mobx'
+import { reaction, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Grid, IconButton } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
 import Analysis from 'src/components/Analysis'
 import IconClose from 'src/components/icons/IconClose'
 import NothingSelected from 'src/components/NothingSelected'
@@ -45,10 +45,33 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const selectionStore = React.useContext(CONTEXT.SELECTION)
+    const routerStore = React.useContext(CONTEXT.ROUTER)
     const width = selectionStore.narrow ? 0.5 : 1
     const order = [...selectionStore.selected]
 
     const [prevOrder, setPrevOrder] = React.useState(() => order)
+
+    useAsyncEffectOnce(async () => {
+        const urlParams = new URLSearchParams(location.search)
+        const steamIds = urlParams.getAll('id')
+        const uploadIds = urlParams.getAll('upload')
+        if(steamIds.length === 0 && uploadIds.length === 0) return
+
+        selectionStore.setSelectedItems([
+            ...steamIds.map((id) => ({id: Number(id), name: id})),
+            ...uploadIds.map((id) => ({id: String(id), name: id})),
+        ])
+    })
+
+    React.useEffect(() => {
+        return reaction(() => selectionStore.selectedItems, (items) => {
+            const searchParams = new URLSearchParams()
+            for(const item of items) {
+                searchParams.append(typeof item.id === 'number' ? 'id' : 'upload', String(item.id))
+            }
+            routerStore.replace({...location, search: searchParams.toString()})
+        })
+    })
 
     React.useEffect(() => {
         if(deep(prevOrder, order)) return
