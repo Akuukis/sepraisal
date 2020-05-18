@@ -50,7 +50,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
-    const cubeFullTypes = [...praisalManager.cubes.keys()]
+    const cubeFullTypes = praisalManager ? [...praisalManager.cubes.keys()] : []
 
     const options = cubeFullTypes
         .filter((fullType) => !fullType.includes('Debug'))
@@ -123,7 +123,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             className={classes.textField}
                             {...params}
                             variant='outlined'
-                            placeholder='Select ID of blocks ...'
+                            disabled={praisalManager === null}
+                            placeholder={praisalManager === null ? 'Loading blocks, please wait ...' : 'Select ID of blocks ...'}
                             InputProps={{
                                 ...params.InputProps,
                                 startAdornment: (

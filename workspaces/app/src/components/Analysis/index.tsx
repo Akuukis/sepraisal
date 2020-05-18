@@ -77,6 +77,7 @@ interface IProps extends GridProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {bpId, icons, long, maxWidth, className, ...otherProps} = props
 
+    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const cached = blueprintStore.getSomething(bpId)
 
@@ -111,7 +112,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const sectionGroup = (AnalysisSections: [string, Section][], header = false) => (
         <Grid item className={classes.item} xs={12} key={sectionGroupCounter++} style={header ? {maxWidth: '100%'} : {}}>
             {AnalysisSections.map(([heading, AnalysisSection], i) => {
-                if(state.code === ASYNC_STATE.Done && !!blueprint) {
+                if(state.code === ASYNC_STATE.Done && !!praisalManager && !!blueprint) {
                     return (
                         <MySectionErrorBoundary key={i} heading={heading}>
                             <AnalysisSection bp={blueprint} long={long} narrow={maxWidth === 0.5} />
@@ -147,7 +148,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 container
             >
                 <Grid item className={classes.item} xs={12} style={{maxWidth: '100%'}}>
-                    <Header bpId={bpId} blueprint={blueprint} state={state}>
+                    <Header bpId={bpId} blueprint={blueprint} state={!praisalManager ? {code: ASYNC_STATE.Doing} : state}>
                         {blueprint && <FavoriteButton bpId={blueprint._id!} name={blueprint?.steam?.title || blueprint?.sbc?.gridTitle || '?'} />}
                         {icons}
                     </Header>
