@@ -7,6 +7,7 @@ import { Grid } from '@material-ui/core'
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import Analysis from 'src/components/Analysis'
 import NothingSelected from 'src/components/NothingSelected'
+import { PROVIDER } from 'src/constants'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -28,14 +29,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     // Try steam id.
     if(!bpId) {
-        bpId = urlParams.get('id')
+        bpId = urlParams.get(PROVIDER.STEAM)
         console.info(`Found steam id: "${bpId}"`)
         bpId = Number(bpId)
     }
 
     // Try upload title.
     if(!bpId) {
-        bpId = urlParams.get('upload')
+        bpId = urlParams.get(PROVIDER.LOCAL)
         if(bpId) console.info(`Found upload id: "${bpId}"`)
     }
 

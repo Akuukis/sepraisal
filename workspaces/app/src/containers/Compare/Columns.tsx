@@ -10,6 +10,7 @@ import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/c
 import Analysis from 'src/components/Analysis'
 import IconClose from 'src/components/icons/IconClose'
 import NothingSelected from 'src/components/NothingSelected'
+import { PROVIDER } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -51,26 +52,31 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const [prevOrder, setPrevOrder] = React.useState(() => order)
 
-    useAsyncEffectOnce(async () => {
-        const urlParams = new URLSearchParams(location.search)
-        const steamIds = urlParams.getAll('id')
-        const uploadIds = urlParams.getAll('upload')
-        if(steamIds.length === 0 && uploadIds.length === 0) return
+    const setSearchParams = (ids: Array<string | number>) => {
+        const searchParams = new URLSearchParams()
+        for(const id of ids) {
+            searchParams.append(typeof id === 'number' ? PROVIDER.STEAM : PROVIDER.LOCAL, String(id))
+        }
+        routerStore.replace({...location, search: searchParams.toString()})
+    }
 
-        selectionStore.setSelectedItems([
-            ...steamIds.map((id) => ({id: Number(id), name: id})),
-            ...uploadIds.map((id) => ({id: String(id), name: id})),
-        ])
+    useAsyncEffectOnce(async () => {
+        const searchParams = new URLSearchParams(location.search)
+        const steamIds = searchParams.getAll(PROVIDER.STEAM)
+        const uploadIds = searchParams.getAll(PROVIDER.LOCAL)
+        if(steamIds.length > 0 || uploadIds.length > 0) {
+            selectionStore.setSelectedItems([
+                ...steamIds.map((id) => ({id: Number(id), name: id})),
+                ...uploadIds.map((id) => ({id: String(id), name: id})),
+            ])
+        } else {
+            setSearchParams(selectionStore.selectedItems.map(({id})=>id))
+        }
+
     })
 
     React.useEffect(() => {
-        return reaction(() => selectionStore.selectedItems, (items) => {
-            const searchParams = new URLSearchParams()
-            for(const item of items) {
-                searchParams.append(typeof item.id === 'number' ? 'id' : 'upload', String(item.id))
-            }
-            routerStore.replace({...location, search: searchParams.toString()})
-        })
+        return reaction(() => selectionStore.selectedItems.map(({id})=>id), setSearchParams)
     })
 
     React.useEffect(() => {

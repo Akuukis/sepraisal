@@ -5,3 +5,9 @@ export enum ROUTE {
   COMPARE = '/compare',
   INFO = '/info',
 }
+
+export enum PROVIDER {
+    STEAM = 'steam',
+    LOCAL = 'upload',
+    MODIO = 'modio',
+}

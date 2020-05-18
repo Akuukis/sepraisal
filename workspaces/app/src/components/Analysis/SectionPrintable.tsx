@@ -5,7 +5,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Link } from '@material-ui/core'
 
-import { createSmartFC, createStyles, formatDecimal, IMyTheme } from 'src/common'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkBpProps } from 'src/common'
 import ValueCell from 'src/components/Cell/ValueCell'
 
 import LegendCell from '../Cell/LegendCell'
@@ -55,7 +55,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const output = printable ? `Yes, ${weldersHorizontally}x${weldersVertically}${weldersDeep >= 2 ? ' long' : ''}` : '-'
 
     const apLink = (
-        <Link href='https://steamcommunity.com/sharedfiles/filedetails/?id=2066785552' target='_blank' rel='noreferrer noopener'>
+        <Link {...linkBpProps(2066785552)}>
             AutoPrinter (3x2):
         </Link>
     )
