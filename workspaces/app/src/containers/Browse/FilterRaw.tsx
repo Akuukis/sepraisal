@@ -53,7 +53,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const applyAdvancedFilter = () => {
-        cardStore.setFilter(JSON.parse(dirty))
+        cardStore.querryFindBuilder.setFilter(JSON.parse(dirty))
         reset()
     }
 

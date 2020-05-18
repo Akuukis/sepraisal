@@ -47,7 +47,7 @@ storiesOf('Containers|SliderLog', module)
                 const index = cardStore.find.$and.findIndex((obj) => Object.keys(obj).pop()! === 'sbc.blockCount')
                 const before = cardStore.find.$and.slice(0, Math.max(0, index))
                 const after = cardStore.find.$and.slice(index + 1, cardStore.find.$and.length)
-                cardStore.setFilter({$and: [
+                cardStore.querryFindBuilder.setFilter({$and: [
                     ...before,
                     value,
                     ...after,

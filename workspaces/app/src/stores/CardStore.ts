@@ -240,8 +240,4 @@ export class CardStore {
             })
         }
     }
-
-    @action public setFilter(diff: Partial<IFind>) {
-        return this.querryFindBuilder.setFilter(diff)
-    }
 }

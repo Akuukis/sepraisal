@@ -41,7 +41,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
 
     const reset = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        cardStore.setFilter(PRESET.none)
+        cardStore.querryFindBuilder.setFilter(PRESET.none)
     }
 
     return (

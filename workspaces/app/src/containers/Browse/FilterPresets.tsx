@@ -39,7 +39,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const applyPreset = (event: React.ChangeEvent<HTMLInputElement>) => {
         const id = event.currentTarget.getAttribute('value') as keyof typeof PRESET
-        cardStore.setFilter(PRESET[id] as typeof cardStore['find'])
+        cardStore.querryFindBuilder.setFilter(PRESET[id] as typeof cardStore['find'])
     }
 
 
