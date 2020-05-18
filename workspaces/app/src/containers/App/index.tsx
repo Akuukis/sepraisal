@@ -31,11 +31,9 @@ import PhysicalItemsLink from '@sepraisal/praisal/vendor/PhysicalItems.sbc'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Paper } from '@material-ui/core'
 import { ThemeProvider } from '@material-ui/styles'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, MY_LIGHT_THEME, useAsyncEffectOnce } from 'src/common'
-import DefaultLayout from 'src/layouts/DefaultLayout'
+import { createSmartFC, createStyles, IMyTheme, MY_LIGHT_THEME, useAsyncEffectOnce } from 'src/common'
 import { CONTEXT } from 'src/stores'
 import { BlueprintStore } from 'src/stores/BlueprintStore'
 import { CardStore } from 'src/stores/CardStore'
@@ -61,8 +59,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [blueprintStore] = React.useState(() => new BlueprintStore(favoriteStore))
     const [selectionStore] = React.useState(() => new SelectionStore())
     const [cardStore] = React.useState(() => new CardStore(piwikStore))
-    const [praisalManager] = React.useState(() => new PraisalManager())
-    const [state, setState] = React.useState<ASYNC_STATE>(ASYNC_STATE.Idle)
+    const [praisalManager, setPraisalManager] = React.useState<PraisalManager | null>(null)
 
     React.useEffect(() => {
         const body = document.getElementById('body')!
@@ -71,7 +68,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     useAsyncEffectOnce(async () => {
         try {
-            setState(ASYNC_STATE.Doing)
             const [componentsXml, materialsXml, physicalItemsXml, ...cubeBlocksXmls] = await Promise.all([
                 fetch(ComponentsLink).then((res) => res.text()),
                 fetch(MaterialsLink).then((res) => res.text()),
@@ -103,47 +99,18 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksWheelsLink).then((res) => res.text()),
                 fetch(CubeBlocksWindowsLink).then((res) => res.text()),
             ])
+            const praisalManager = new PraisalManager()
             await praisalManager.addOres(physicalItemsXml)
             await praisalManager.addIngots(physicalItemsXml, materialsXml)
             await praisalManager.addComponents(materialsXml, componentsXml)
             for(const cubeBlocksXml of cubeBlocksXmls) await praisalManager.addCubes(cubeBlocksXml)
             praisalManager.addGroups(BLOCK_GROUPS)
-            setState(ASYNC_STATE.Done)
+            setPraisalManager(praisalManager)
         } catch(err) {
             console.error(err)
-            setState(ASYNC_STATE.Error)
         }
     })
 
-    if(state === ASYNC_STATE.Idle || state === ASYNC_STATE.Doing) {
-        return (
-            <CONTEXT.SELECTION.Provider value={selectionStore}>
-
-            <ThemeProvider theme={MY_LIGHT_THEME}>
-                <DefaultLayout>
-                    <Paper>
-                        Loading...
-                    </Paper>
-                </DefaultLayout>
-            </ThemeProvider>
-
-            </CONTEXT.SELECTION.Provider>
-        )
-    } else if(state === ASYNC_STATE.Error) {
-        return (
-            <CONTEXT.SELECTION.Provider value={selectionStore}>
-
-            <ThemeProvider theme={MY_LIGHT_THEME}>
-                <DefaultLayout>
-                    <Paper>
-                        Error at startup. Please try again or see console for details.
-                    </Paper>
-                </DefaultLayout>
-            </ThemeProvider>
-
-            </CONTEXT.SELECTION.Provider>
-        )
-    }
 
     return (
         <CONTEXT.BLUEPRINTS.Provider value={blueprintStore}>

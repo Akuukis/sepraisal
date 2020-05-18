@@ -62,7 +62,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     reader.readAsText(file)
                 })
 
-                const title = blueprintStore.setUpload(await praisalManager.praiseXml(xml))
+                // TODO: Guard against not-yet-loaded praisalManagaer, but practically good luck dropping before that.
+                const title = blueprintStore.setUpload(await praisalManager!.praiseXml(xml))
                 onUpload(title)
             } catch(err) {
                 onError(err)
