@@ -3,12 +3,12 @@ import clsx from 'clsx'
 import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { useLocation } from 'react-router-dom'
 
 import { FormControl, FormHelperText, FormLabel, InputAdornment, TextField, Typography } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
-import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -27,21 +27,21 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps extends React.ComponentProps<'form'> {
-    select: (id: number) => void
+    select: (id?: number | string) => void
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {select, className, ...otherProps} = props
-    const routerStore = React.useContext(CONTEXT.ROUTER)
+    const location = useLocation()
 
     const [text, setText] = React.useState('')
     const [status, setStatus] = React.useState<{code: ASYNC_STATE, text: string}>({code: ASYNC_STATE.Idle, text: ''})
 
     React.useEffect(() => {
         return autorun(() => {
-            if(routerStore.location.search === '') return
-            setText(String(validateId(idFromHref(routerStore.location.search))))
+            if(location.search === '') return
+            setText(String(validateId(idFromHref(location.search))))
         })
     }, [])
 
@@ -51,7 +51,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         if(value === '') {
             setStatus({code: ASYNC_STATE.Idle, text: ''})
-            routerStore.replace({...location, search: undefined})
+            select(undefined)
             return
         }
 

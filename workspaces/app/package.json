@@ -39,6 +39,7 @@
         "@sepraisal/praisal": "^0.0.1",
         "bignumber.js": "^9.0.0",
         "classnames": "^2.2.6",
+        "clipboard-polyfill": "^2.8.6",
         "fast-deep-equal": "^3.1.1",
         "history": "^4.10.1",
         "mobx": "^5.15.4",

@@ -34,26 +34,26 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
-    const [findDirty, setFindDirty] = React.useState(JSON.stringify(cardStore.find, null, 2))
+    const [dirty, setDirty] = React.useState(JSON.stringify(cardStore.find, null, 2))
 
     let dirtyOk: {} | null
     try {
-        dirtyOk = JSON.parse(findDirty)
+        dirtyOk = JSON.parse(dirty)
     } catch(err) {
         dirtyOk = null
     }
 
-    const reset = () => setFindDirty(JSON.stringify(cardStore.find, null, 2))
+    const reset = () => setDirty(JSON.stringify(cardStore.find, null, 2))
     React.useEffect(() => autorun(reset, {name: `${__filename}: autorun(reset)`}), [])
 
 
     const handleRawFind = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         const value = event.target.value
-        setFindDirty(value)
+        setDirty(value)
     }
 
     const applyAdvancedFilter = () => {
-        cardStore.setFind(JSON.parse(findDirty))
+        cardStore.querryFindBuilder.replaceFilter(JSON.parse(dirty))
         reset()
     }
 
@@ -68,7 +68,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         id='outlined-multiline-flexible'
                         multiline
                         rows='12'
-                        value={findDirty}
+                        value={dirty}
                         onChange={handleRawFind}
                         margin='normal'
                         variant='outlined'

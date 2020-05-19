@@ -2,7 +2,7 @@ import { History } from 'history'
 import * as React from 'react'
 import { Redirect, Route, Router, Switch } from 'react-router-dom'
 
-import { ROUTES } from 'src/constants/routes'
+import { ROUTE } from 'src/constants'
 
 import App from './containers/App'
 import Blueprint from './containers/Blueprint'
@@ -16,22 +16,22 @@ export default (history: History) => (
     <Router history={history}>
         <App>
             <Switch>
-                <Route path={ROUTES.ANALYSE}>
+                <Route path={ROUTE.ANALYSE}>
                     <Blueprint />
                 </Route>
-                <Route path={ROUTES.BROWSE}>
+                <Route path={ROUTE.BROWSE}>
                     <Browse />
                 </Route>
-                <Route path={ROUTES.COMPARE}>
+                <Route path={ROUTE.COMPARE}>
                     <Compare />
                 </Route>
-                <Route path={ROUTES.INFO}>
+                <Route path={ROUTE.INFO}>
                     <Info />
                 </Route>
-                <Route path={ROUTES.HOME}>
+                <Route path={ROUTE.HOME}>
                     <Home />
                 </Route>
-                <Redirect from='*' to={ROUTES.HOME} />
+                <Redirect from='*' to={ROUTE.HOME} />
             </Switch>
         </App>
     </Router>

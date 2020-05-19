@@ -12,7 +12,7 @@
         "paths": {
             "src/common": ["src/common"],
             "src/components/*": ["src/components/*"],
-            "src/constants/*": ["src/constants/*"],
+            "src/constants": ["src/constants"],
             "src/layouts/*": ["src/layouts/*"],
             "src/models": ["src/models"],
             "src/stores": ["src/stores"],

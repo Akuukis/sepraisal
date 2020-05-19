@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { fade } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import { ROUTES } from 'src/constants/routes'
+import { ROUTE } from 'src/constants'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -52,7 +52,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <NavLink
-            to={ROUTES.HOME}
+            to={ROUTE.HOME}
             className={classes.root}
             activeClassName={classes.active}
             exact

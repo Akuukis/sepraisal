@@ -61,15 +61,14 @@ const presetFighter: FindQueryPreset = [
     blockGroupToQuery(BLOCK_GROUPS.WEAPON_FIXED),
 ]
 
-const genFighterPreset = (...args): IFindRootQuery =>
-    ({$and: [
+const genFighterPreset = (...args): FindQuery[] => [
         ...presetFighter,
         {'sbc.blockCount': {$gte: args[0], $lte: args[1] } },
         {'sbc.blockMass' : {$gte: args[2], $lte: args[3] } },
         {'sbc.blockPCU'  : {$gte: args[4], $lte: args[5] } },
         {'sbc.oreVolume' : {$gte: args[6], $lte: args[7] } },
         // {'sbc.gridCount' : {$gte: args[8], $lte: args[9] } },
-    ]})
+    ]
 
 
 // tslint:disable: object-literal-sort-keys
@@ -77,8 +76,8 @@ export const PRESET = {
     // fighter50:    genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
     fighter/* 80 */: genFighterPreset(103, 1197, 9053 , 80361 , 1205, 6546 , 7102 , 59263 , 0, 2),
     // fighter95:    genFighterPreset(72 , 3059, 6430 , 180955, 891 , 11889, 5065 , 129737, 0, 3),
-    ship: {$and: [...presetShip]} as IFindRootQuery,
-    none: {$and: [...presetUpToDate]} as IFindRootQuery,
+    ship: [...presetShip] as FindQuery[],
+    none: [...presetUpToDate] as FindQuery[],
 }
 // tslint:enable: object-literal-sort-keys
 
@@ -110,9 +109,9 @@ const sortFindAnd = ($and: FindQueryPreset): FindQueryPreset => {
 }
 
 const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
-    fighter: JSON.stringify(sortFindAnd(PRESET.fighter.$and)),
-    none: JSON.stringify(sortFindAnd(PRESET.none.$and)),
-    ship: JSON.stringify(sortFindAnd(PRESET.ship.$and)),
+    fighter: JSON.stringify(sortFindAnd(PRESET.fighter)),
+    none: JSON.stringify(sortFindAnd(PRESET.none)),
+    ship: JSON.stringify(sortFindAnd(PRESET.ship)),
 }
 
 /**
@@ -160,12 +159,21 @@ export class QueryFindBuilder {
     @computed public get find(): IFindRootQuery { return this._find }
 
     @computed public get findStringified() {
-        return JSON.stringify(sortFindAnd(this.find.$and))
+        const queriesSorted = sortFindAnd(this.find.$and)
+        return JSON.stringify(queriesSorted)
+    }
+
+    @computed public get findStringifiedOnlyQueries() {
+        const queriesSorted = sortFindAnd(this.find.$and)
+        const queriesFiltered = queriesSorted
+            .filter((query) => Object.keys(query).pop() !== 'steam.author.title')
+            .filter((query) => Object.keys(query).pop() !== 'steam.collections.title')
+        return JSON.stringify(queriesFiltered)
     }
 
     @computed public get selectedPreset() {
         const foundPreset = (Object.keys(PRESET) as Array<keyof typeof PRESET>)
-            .find((key) => this.findStringified === PRESET_STRINGIFIED[key])
+            .find((key) => this.findStringifiedOnlyQueries === PRESET_STRINGIFIED[key])
 
         return foundPreset ?? 'custom'
     }
@@ -182,7 +190,7 @@ export class QueryFindBuilder {
     @observable public cardsPerPage = 12
     @observable public count: null | number = null
 
-    @observable protected _find: IFindRootQuery = PRESET.none
+    @observable protected _find: IFindRootQuery = {$and: PRESET.none}
     @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
     protected disposers: IReactionDisposer[] = []
 
@@ -261,7 +269,20 @@ export class QueryFindBuilder {
         }
     }
 
-    @action public setFind(diff: Partial<IFindRootQuery>) {
+    @action public replaceQueries(queries: FindQuery[]): void {
+        // Leave author's & collections unchanged, because they are manipulated in search bar, not filter sidepanel.
+        const authors = this.getCriterion('steam.author.title')
+        const collections = this.getCriterion('steam.collections.title')
+        this.replaceFilter({$and: queries})
+        this.setCriterion('steam.author.title', authors)
+        this.setCriterion('steam.collections.title', collections)
+    }
+
+    @action public replaceSearch($search?: string) {
+        this.replaceFilter({$text: $search === undefined ? undefined : {$search}})
+    }
+
+    @action public replaceFilter(diff: Partial<IFindRootQuery>) {
         // If changed, automatically trigger query via mobx due reaction above on `this.find.$and`.
         if('$and' in diff && diff.$and) {
             this._find.$and = sortFindAnd(diff.$and)

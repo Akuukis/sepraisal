@@ -1,6 +1,7 @@
 import Filters from '@sepraisal/app/lib/containers/Browse/Filters'
 import { Card } from '@sepraisal/app/lib/models'
 import { CardStore } from '@sepraisal/app/lib/stores/CardStore'
+import { PiwikStore } from '@sepraisal/app/lib/stores/PiwikStore'
 import { action as storyAction } from '@storybook/addon-actions'
 import { withKnobs } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react'
@@ -13,7 +14,6 @@ import { Aragath } from '../../../blueprints/Aragath'
 import { Wyvern } from '../../../blueprints/Wyvern'
 import { ProviderDecorator } from '../../ProviderDecorator'
 import Theme from '../../ThemeDecorator'
-import { PiwikStore } from '@sepraisal/app/lib/stores/PiwikStore'
 
 
 class MockCardStore extends CardStore {
@@ -36,9 +36,9 @@ class MockCardStore extends CardStore {
         })
     }
 
-    public setFind(value: Parameters<CardStore['setFind']>[0]) {
-        super.setFind(value)
-        storyAction('setFind')(JSON.stringify(super.find), super.find)
+    public setFilter(value: Parameters<CardStore['setFilter']>[0]) {
+        super.setFilter(value)
+        storyAction('setFilter')(JSON.stringify(super.find), super.find)
     }
 }
 
@@ -52,6 +52,6 @@ storiesOf('Containers|BrowseFilters', module)
         const toggleDrawer = storyAction('toggleDrawer')
 
         return (
-            <Filters toggleDrawer={toggleDrawer} />
+            <Filters />
         )
     })

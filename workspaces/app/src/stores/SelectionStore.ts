@@ -2,7 +2,7 @@ import { ObservableMap } from '@sepraisal/common'
 import { action, computed, IObservableArray, observable } from 'mobx'
 
 interface IItem {
-    id: number
+    id: number | string
     name: string
 }
 
