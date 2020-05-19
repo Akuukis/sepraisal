@@ -39,7 +39,12 @@ export class Block<T extends CubeType = CubeType> {
     public constructor(dto: Block<T> | BlockDefinition<T>, cubeStore: Map<string, Cube<T>>) {
         if(dto instanceof Block) {
             this.raw = dto.raw
+
+            this.type = dto.type
+            this.subtype = dto.subtype
+            this.title = dto.title
             this.cube = dto.cube
+
             this.x = dto.x
             this.y = dto.y
             this.z = dto.z
@@ -51,8 +56,11 @@ export class Block<T extends CubeType = CubeType> {
             this.raw = dto
             const {$, SubtypeName, Min, BlockOrientation, ColorMaskHSV, ...rest} = dto
 
+            this.type = $['xsi:type'].replace('MyObjectBuilder_', '') as T
+            this.subtype = SubtypeName[0]!
+            this.title = `${String(this.type)}/${String(this.subtype)}`
             // tslint:disable-next-line: strict-boolean-expressions
-            this.cube = cubeStore.get(`${$['xsi:type'].replace('MyObjectBuilder_', '')}/${SubtypeName[0]}`) || null
+            this.cube = cubeStore.get(this.title) || null
 
             this.x = Number(Min !== undefined ? Min[0].$.x : 0)
             this.y = Number(Min !== undefined ? Min[0].$.y : 0)
@@ -73,11 +81,8 @@ export class Block<T extends CubeType = CubeType> {
         this.pcu            = this.cube ? this.cube.pcu           : null
         this.prerequisites  = this.cube ? this.cube.prerequisites : null
         this.size           = this.cube ? this.cube.size          : null
-        this.subtype        = this.cube ? this.cube.subtype       : null
         this.time           = this.cube ? this.cube.time          : null
-        this.type           = this.cube ? this.cube.type          : null
         this.volume         = this.cube ? this.cube.volume        : null
-        this.title = `${String(this.type)}/${String(this.subtype)}`
     }
 
     public isType<TNarrow extends T>(type: TNarrow): this is Block<TNarrow> {
