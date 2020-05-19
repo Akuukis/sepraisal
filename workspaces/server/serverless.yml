@@ -29,7 +29,7 @@ package:
 
 functions:
   hello:
-    handler: src/handler.hello
+    handler: src/lambdas.hello
     memorySize: 128
     events:
       - http:

@@ -1,21 +1,9 @@
 import { DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
 import { APIGatewayProxyHandler } from 'aws-lambda'
 import { MongoClient } from 'mongodb'
-import { Primitive } from 'utility-types'
 
+import { flattenProjection } from './common'
 
-const flattenProjection = (objOrPrimitive: object | Primitive | null): string[] => {
-    if(objOrPrimitive === null) return []
-    if(typeof objOrPrimitive !== 'object') return []
-
-    const keys: string[] = []
-    for(const [key, value] of Object.entries(objOrPrimitive)) {
-        const subkeys = flattenProjection(value as object | Primitive | null)
-        keys.push(key, ...subkeys.map((subkey) => `${key}.${String(subkey)}`))
-    }
-
-    return keys
-}
 
 export const hello: APIGatewayProxyHandler = async (event) => {
     try {
