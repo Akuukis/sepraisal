@@ -1,7 +1,7 @@
 import { exec, execSync } from 'child_process'
-import { lstat, Stats } from 'fs'
+import { existsSync, lstat, Stats } from 'fs'
 import { FilterQuery } from 'mongodb'
-import { join } from 'path'
+import { dirname, join } from 'path'
 
 
 export const execAsync = async (cmd: string) =>
@@ -41,6 +41,15 @@ export const thumbLink = (idPair: string) => [
         ...idPair.split('-'),
         `?imw=268&imh=151&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true`,
     ].join('/')
+
+export const mkdirpSync = (path: string) => {
+    if(!existsSync(dirname(path))) {
+        execSync((`mkdir -p ${dirname(path)}`))
+        return true
+    } else {
+        return false
+    }
+}
 
 export const prepareQuery = <TProjection extends object>(query: {$nor: unknown[]}) => {
 

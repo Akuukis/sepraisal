@@ -3,7 +3,7 @@ import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
 
 import { QUERIES } from '../queries'
-import { execAsync, execAsyncBuffer, lstatAsync, prepareQuery, thumbLink, thumbPath } from '../utils'
+import { execAsync, execAsyncBuffer, lstatAsync, mkdirpSync, prepareQuery, thumbLink, thumbPath } from '../utils'
 
 // tslint:disable:no-unsafe-any - because `response` is not typed.
 // tslint:disable:object-literal-sort-keys member-ordering max-line-length
@@ -35,6 +35,7 @@ const output = (char: string) => {
 export const thumbConvert = async (idPair: string) => {
     if(idPair.includes('steam_workshop_default_image')) return null
     const safeFilename = thumbPath(idPair)
+    mkdirpSync(safeFilename)
 
     if(!await lstatAsync(safeFilename)) {
         await execAsync(`curl -s '${thumbLink(idPair)}' -o '${safeFilename}'`)

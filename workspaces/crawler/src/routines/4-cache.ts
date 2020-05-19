@@ -1,13 +1,13 @@
 import { DB_NAME, DB_URL, toMinSec, Work, Worker } from '@sepraisal/common'
 import { exec, execSync } from 'child_process'
-import { existsSync, lstatSync, readdirSync } from 'fs'
+import { lstatSync, readdirSync } from 'fs'
 import { MongoClient } from 'mongodb'
 import pad from 'pad'
-import { dirname, join } from 'path'
+import { join } from 'path'
 import { Tail } from 'tail'
 
 import { QUERIES } from '../queries'
-import { asCrawlerUser, prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
+import { asCrawlerUser, mkdirpSync, prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
 // tslint:disable:no-unsafe-any - because `response` is not typed.
 // tslint:disable:object-literal-sort-keys member-ordering max-line-length
@@ -24,14 +24,17 @@ const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '
 
 const fromSteamtoCache = (doc: IProjection) => {
     const blueprintDir = join(steamDownloadsDir, String(doc._id))
-    const cacheFile = sbcPath(doc)
+
+    const cacheFilename = sbcPath(doc)
+    mkdirpSync(cacheFilename)
+
     const contents = readdirSync(blueprintDir)
     if(contents.some((filename) => filename.includes('_legacy.bin'))) {
-        execSync(`cp ${blueprintDir}/*_legacy.bin ${cacheFile}`)
+        execSync(`cp ${blueprintDir}/*_legacy.bin ${cacheFilename}`)
     } else if(contents.includes('bp.sbc')) {
-        execSync(`zip ${cacheFile} ${blueprintDir}/bp.sbc`)
+        execSync(`(cd ${blueprintDir} && zip ${cacheFilename} bp.sbc)`)
     } else if(contents.includes('BP.sbc')) {
-        execSync(`zip ${cacheFile} ${blueprintDir}/BP.sbc`)
+        execSync(`(cd ${blueprintDir} && zip ${cacheFilename} BP.sbc)`)
     } else {
         throw new Error(`Unrecognized mod contents: ${contents.join(', ')}`)
     }
@@ -57,10 +60,7 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
     const steamcmdQuery = docs.reduce((query, bufferedDoc) => `${query} +workshop_download_item 244850 ${bufferedDoc._id}`, '')
 
     // In first run, logfile may not exist.
-    if(!existsSync(steamLogFile)) {
-        execSync(asCrawlerUser(`mkdir -p ${dirname(steamLogFile)}`))
-        execSync(asCrawlerUser(`touch ${steamLogFile}`))
-    }
+    if(mkdirpSync(steamLogFile)) execSync(asCrawlerUser(`touch ${steamLogFile}`))
     const tail = new Tail(steamLogFile)
 
     process.stdout.write(`${(new Date()).toISOString()} #${pad(String(index), 4)} x${docs.length}: `)
