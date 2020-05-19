@@ -1,10 +1,9 @@
 import { DB_NAME, DB_URL, IBlueprint, toMinSec, Work, Worker } from '@sepraisal/common'
 import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
-import { join } from 'path'
 
 import { QUERIES } from '../queries'
-import { execAsync, execAsyncBuffer, lstatAsync, prepareQuery, THUMB_DIR } from '../utils'
+import { execAsync, execAsyncBuffer, lstatAsync, mkdirpSync, prepareQuery, thumbLink, thumbPath } from '../utils'
 
 // tslint:disable:no-unsafe-any - because `response` is not typed.
 // tslint:disable:object-literal-sort-keys member-ordering max-line-length
@@ -35,15 +34,11 @@ const output = (char: string) => {
 
 export const thumbConvert = async (idPair: string) => {
     if(idPair.includes('steam_workshop_default_image')) return null
-    const safeFilename = join(THUMB_DIR, `${idPair.replace('/', '_')}.jpg`)
+    const safeFilename = thumbPath(idPair)
+    mkdirpSync(safeFilename)
 
     if(!await lstatAsync(safeFilename)) {
-        const link = [
-                `https://steamuserimages-a.akamaihd.net/ugc`,
-                ...idPair.split('-'),
-                `?imw=268&imh=151&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true`,
-            ].join('/')
-        await execAsync(`curl -s '${link}' -o '${safeFilename}'`)
+        await execAsync(`curl -s '${thumbLink(idPair)}' -o '${safeFilename}'`)
     }
 
     const format = (await execAsync(`identify -format "%m\n" ${safeFilename} | head -n1`)).trim() as 'PNG' | 'JPEG' | 'GIF'

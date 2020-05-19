@@ -9,12 +9,12 @@
             "name": "app"
         },
         {
-            "path": "../workspaces/cli",
-            "name": "cli"
+            "path": "../workspaces/crawler",
+            "name": "crawler"
         },
         {
-            "path": "../workspaces/lambdas",
-            "name": "lambdas"
+            "path": "../workspaces/server",
+            "name": "server"
         },
         {
             "path": "../workspaces/praisal",

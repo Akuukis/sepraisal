@@ -2,7 +2,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import cors from 'cors'
 import express from 'express'
 
-import { hello } from './handler'
+import { hello } from './lambdas'
 
 const app = express()
 app.use(cors({credentials: true, origin: true}))

@@ -1,7 +1,7 @@
-Space Engineers Praisal: CLI
+SEPraisal Crawler
 ================================================================================
 
-
+SEPraisal Crawler populates a database with praisals, that's served by [SEPraisal Server](../server/README.md).
 
 
 ## Status of Blueprint
@@ -55,14 +55,37 @@ PATH=/bin:/usr/bin:/usr/games/:/usr/local/bin/
 
 # Run scripts in order: info, discover, scrape, thumbnail, cache, praise.
 # If run that often, they shouldn't have much to do.
- 0 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 0 >> out-0.log 2>> err-0.log < /dev/null)
- 2 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 1 >> out-1.log 2>> err-1.log < /dev/null)
- 5 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 2 >> out-2.log 2>> err-2.log < /dev/null)
-25 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 3 >> out-3.log 2>> err-3.log < /dev/null)
-30 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 4 >> out-4.log 2>> err-4.log < /dev/null)
-45 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 5 >> out-5.log 2>> err-5.log < /dev/null)
+ 0 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 0 >> out-0.log 2>> err-0.log < /dev/null)
+ 2 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 1 >> out-1.log 2>> err-1.log < /dev/null)
+ 5 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 2 >> out-2.log 2>> err-2.log < /dev/null)
+25 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 3 >> out-3.log 2>> err-3.log < /dev/null)
+30 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 4 >> out-4.log 2>> err-4.log < /dev/null)
+45 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 5 >> out-5.log 2>> err-5.log < /dev/null)
 ```
 
+Note: it takes *few days* to go from empty database to everything fully praised.
+
+## Database
+
+> MongoDB seems a bad DB choice post-factum, but hey - I just wanted to try it out. Sane argumentation and PRs are welcome.
+
+FYI: Currently (May, 2020), with 115000 blueprints and `cwebp -size 10000 ..` thumbnail size whole database takes almost 4GB of space.
+
+
+Have a MongoDB:
+- managed ([MongoDB Atlas](https://docs.atlas.mongodb.com/tutorial/deploy-free-tier-cluster/) free tier has 512 MB limit, good enough for testing).
+- remote (you will need connection url anyways, just like with Atlas)
+- local (need to install)
+
+```sh
+# https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo service mongod status  # Verify db server status.
+# Use `db_url='mongodb://127.0.0.1:27017'` in .env file.
+```
 
 
 ## Routines
@@ -72,8 +95,8 @@ PATH=/bin:/usr/bin:/usr/games/:/usr/local/bin/
 | `info`       | N/A             | prints human-readable databse summary of all blueprints and their states. |
 | `discover`   | N/A             | Check 1670 steam blueprint pages with 30 items each (steam limit) and save newly found IDs. |
 | `scrape`     | `pendingScrape` | Look at Steam page of blueprint to save and analyse everything. |
-| `thumbnail`  | `pendingThumb`  | Download thumbnail for mods from Steam and converts to `.webp` format. |
-| `cache`      | `pendingPraise` | Use steamcmd and Steam account with SE to locally download newest version of mods. |
+| `thumbnail`  | `pendingThumb`  | Download thumbnail for mods from Steam and convert them to `.webp` format. |
+| `cache`      | `pendingPraise` | Use steamcmd and Steam account with SE to download newest workshop item as "SEPraisal Cache" file. |
 | `praise`     | `pendingPraise` | Parse blueprint `.sbc` file to count and analyse everything. |
 | `categorize` | N/A             | Create categories using Big Data of 25k+ blueprints, R language and pragmatic common sense. |
 | `classify`   | `pendingClass`  | Make a score how good the blueprint fits into one of classes. |
@@ -99,19 +122,28 @@ sudo ldconfig
 
 Install imagemagick
 ```
-sudo apt-get install imagemagick
+sudo apt-get install -y imagemagick
 ```
 
 
 ### Script `cache`
+
+"SEPraisal Cache" is a zip archive with only one file inside that contains an unmodified blueprint, called `bp.sbc`.
+
 
 Install dependencies
 
 ```sh
 sudo apt-get install -y zip
 
-# TODO: add user 'steam'.
-# TODO: install steamcmd.
+groupadd steam
+useradd -m steam -g steam
+
+# Install steamcmd - https://developer.valvesoftware.com/wiki/SteamCMD#Linux
+# OR, if already installed (e.g. to your current user):
+sudo -u steam mkdir -p /home/steam/.steam
+
+# Then, run `yarn launch 4` manually for first time - you will need to login and that requires interactive sheel.
 ```
 
 
