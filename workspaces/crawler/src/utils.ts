@@ -1,4 +1,4 @@
-import { exec } from 'child_process'
+import { exec, execSync } from 'child_process'
 import { lstat, Stats } from 'fs'
 import { FilterQuery } from 'mongodb'
 import { join } from 'path'
@@ -14,21 +14,33 @@ export const lstatAsync = async (path: string) =>
     new Promise<false | Stats>((res, rej) => lstat(path, (err, stats) => res(err instanceof Error ? false : stats)))
 
 // tslint:disable-next-line: naming-convention
-const {steam_dir, sbc_dir, thumb_dir, steam_username} = process.env
-if(steam_dir === undefined
-    || sbc_dir === undefined
-    || thumb_dir === undefined
+const {crawler_user, crawler_steam_dir, crawler_downloads_dir, steam_username} = process.env
+if(crawler_user === undefined
+    || crawler_steam_dir === undefined
+    || crawler_downloads_dir === undefined
     || steam_username === undefined
 ) {
     throw new Error(`Missing environment variables, check your ".env" file.`)
 }
+
 export const STEAM_USERNAME = steam_username
-export const STEAM_DIR = steam_dir
-export const SBC_DIR = sbc_dir
-export const THUMB_DIR = thumb_dir
+export const STEAM_DIR = crawler_steam_dir
+
+export const asCrawlerUser = (cmd: string) => {
+    const whoami = execSync(`whoami`).toString().trim()
+
+    return whoami === crawler_user ? cmd : `sudo su ${crawler_user} -c '${cmd}'`
+}
 
 export const sbcName = (datum: {_id: number, steam: {revision: number}}) => `${datum._id}.${datum.steam.revision}.zip`
-export const sbcPath = (datum: {_id: number, steam: {revision: number}}) => join(SBC_DIR, sbcName(datum))
+export const sbcPath = (datum: {_id: number, steam: {revision: number}}) => join(crawler_downloads_dir, 'steam-sbc', sbcName(datum))
+export const thumbName = (idPair: string) => `${idPair.replace('/', '_')}.jpg`  // JPG is a lie, it may be PNG or GIF too.
+export const thumbPath = (idPair: string) => join(crawler_downloads_dir, 'steam-thumb', thumbName(idPair))
+export const thumbLink = (idPair: string) => [
+        `https://steamuserimages-a.akamaihd.net/ugc`,
+        ...idPair.split('-'),
+        `?imw=268&imh=151&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true`,
+    ].join('/')
 
 export const prepareQuery = <TProjection extends object>(query: {$nor: unknown[]}) => {
 

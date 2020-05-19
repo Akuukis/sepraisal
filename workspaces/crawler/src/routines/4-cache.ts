@@ -1,13 +1,13 @@
 import { DB_NAME, DB_URL, toMinSec, Work, Worker } from '@sepraisal/common'
 import { exec, execSync } from 'child_process'
-import { lstatSync, readdirSync } from 'fs'
+import { existsSync, lstatSync, readdirSync } from 'fs'
 import { MongoClient } from 'mongodb'
 import pad from 'pad'
-import { join } from 'path'
+import { dirname, join } from 'path'
 import { Tail } from 'tail'
 
 import { QUERIES } from '../queries'
-import { prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
+import { asCrawlerUser, prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
 // tslint:disable:no-unsafe-any - because `response` is not typed.
 // tslint:disable:object-literal-sort-keys member-ordering max-line-length
@@ -22,11 +22,6 @@ const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
     .find((folder) => folder.toLowerCase() === 'steamapps')!
 const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '244850')
 
-const asSteam = (cmd: string) => {
-    const username = execSync(`whoami`).toString().trim()
-
-    return username === 'steam' ? cmd : `sudo su steam -c '${cmd}'`
-}
 const fromSteamtoCache = (doc: IProjection) => {
     const blueprintDir = join(steamDownloadsDir, String(doc._id))
     const cacheFile = sbcPath(doc)
@@ -40,7 +35,7 @@ const fromSteamtoCache = (doc: IProjection) => {
     } else {
         throw new Error(`Unrecognized mod contents: ${contents.join(', ')}`)
     }
-    execSync(asSteam(`rm -rf ${blueprintDir}`))
+    execSync(asCrawlerUser(`rm -rf ${blueprintDir}`))
 }
 
 interface IProjection {
@@ -56,10 +51,16 @@ type IWorkItem = [number, IProjection[]]
 const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
 
     // Cleanup Steam cache otherwise it slows down 5x already after 500 downloads.
-    execSync(asSteam(`rm -rf ${join(STEAM_DIR, 'userdata', '*', 'ugc', 'consumed.vdf')}`))
-    execSync(asSteam(`rm -rf ${join(STEAM_DIR, steamAppsDir, 'workshop', 'appworkshop_244850.acf')}`))
+    execSync(asCrawlerUser(`rm -rf ${join(STEAM_DIR, 'userdata', '*', 'ugc', 'consumed.vdf')}`))
+    execSync(asCrawlerUser(`rm -rf ${join(STEAM_DIR, steamAppsDir, 'workshop', 'appworkshop_244850.acf')}`))
 
     const steamcmdQuery = docs.reduce((query, bufferedDoc) => `${query} +workshop_download_item 244850 ${bufferedDoc._id}`, '')
+
+    // In first run, logfile may not exist.
+    if(!existsSync(steamLogFile)) {
+        execSync(asCrawlerUser(`mkdir -p ${dirname(steamLogFile)}`))
+        execSync(asCrawlerUser(`touch ${steamLogFile}`))
+    }
     const tail = new Tail(steamLogFile)
 
     process.stdout.write(`${(new Date()).toISOString()} #${pad(String(index), 4)} x${docs.length}: `)
@@ -67,7 +68,7 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
     await Promise.all<unknown>([
         new Promise<void>((resolve, reject) => {
             exec(
-                asSteam(`steamcmd +login ${STEAM_USERNAME} ${steamcmdQuery} validate +exit`),
+                asCrawlerUser(`steamcmd +login ${STEAM_USERNAME} ${steamcmdQuery} validate +exit`),
                 {maxBuffer: Infinity},
                 (err) => err ? reject(err) : resolve(),  // tslint:disable-line:no-void-expression
             )
@@ -157,7 +158,7 @@ export const main = async () => {
     console.info(`But too big (>${MAX_SIZE}MB) are ${docsNew.length - docs.length} blueprints.`)
 
     console.info('Checking passwords...')
-    execSync(asSteam(`steamcmd +login ${STEAM_USERNAME} +exit`), {stdio: 'inherit'})
+    execSync(asCrawlerUser(`steamcmd +login ${STEAM_USERNAME} +exit`), {stdio: 'inherit'})
 
     console.info(`Caching ${docs.length} blueprints...`)
 
