@@ -22,19 +22,31 @@ const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
     .find((folder) => folder.toLowerCase() === 'steamapps')!
 const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '244850')
 
+/**
+ * Normalize various steam workshop item formats into a unified "SEPraisal Cache" format.
+ *
+ * "SEPraisal Cache" is a zip archive with only one file inside that contains an unmodified blueprint, called `bp.sbc`.
+ *
+ */
 const fromSteamtoCache = (doc: IProjection) => {
     const blueprintDir = join(steamDownloadsDir, String(doc._id))
 
     const cacheFilename = sbcPath(doc)
     mkdirpSync(cacheFilename)
 
+    // Old steam mod format had archive, now they don't but are (de)compressed transparently.
+    if(readdirSync(blueprintDir).some((filename) => filename.includes('_legacy.bin'))) {
+        execSync(asCrawlerUser(`(cd ${blueprintDir} && unzip *_legacy.bin)`))
+    }
+
+    // Normalize to lowercase, if needed.
+    if(readdirSync(blueprintDir).includes('BP.sbc')) {
+        execSync(asCrawlerUser(`(cd ${blueprintDir} && mv BP.sbc bp.sbc)`))
+    }
+
     const contents = readdirSync(blueprintDir)
-    if(contents.some((filename) => filename.includes('_legacy.bin'))) {
-        execSync(`cp ${blueprintDir}/*_legacy.bin ${cacheFilename}`)
-    } else if(contents.includes('bp.sbc')) {
+    if(contents.includes('bp.sbc')) {
         execSync(`(cd ${blueprintDir} && zip ${cacheFilename} bp.sbc)`)
-    } else if(contents.includes('BP.sbc')) {
-        execSync(`(cd ${blueprintDir} && zip ${cacheFilename} BP.sbc)`)
     } else {
         throw new Error(`Unrecognized mod contents: ${contents.join(', ')}`)
     }
