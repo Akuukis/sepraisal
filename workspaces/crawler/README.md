@@ -1,7 +1,7 @@
-Space Engineers Praisal: CLI
+SEPraisal Crawler
 ================================================================================
 
-
+SEPraisal Crawler populates a database with praisals, that's served by [SEPraisal Server](../server/README.md).
 
 
 ## Status of Blueprint
@@ -55,12 +55,12 @@ PATH=/bin:/usr/bin:/usr/games/:/usr/local/bin/
 
 # Run scripts in order: info, discover, scrape, thumbnail, cache, praise.
 # If run that often, they shouldn't have much to do.
- 0 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 0 >> out-0.log 2>> err-0.log < /dev/null)
- 2 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 1 >> out-1.log 2>> err-1.log < /dev/null)
- 5 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 2 >> out-2.log 2>> err-2.log < /dev/null)
-25 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 3 >> out-3.log 2>> err-3.log < /dev/null)
-30 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 4 >> out-4.log 2>> err-4.log < /dev/null)
-45 */6 * * * (cd sepraisal/workspaces/cli && timeout 5h yarn launch 5 >> out-5.log 2>> err-5.log < /dev/null)
+ 0 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 0 >> out-0.log 2>> err-0.log < /dev/null)
+ 2 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 1 >> out-1.log 2>> err-1.log < /dev/null)
+ 5 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 2 >> out-2.log 2>> err-2.log < /dev/null)
+25 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 3 >> out-3.log 2>> err-3.log < /dev/null)
+30 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 4 >> out-4.log 2>> err-4.log < /dev/null)
+45 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 5 >> out-5.log 2>> err-5.log < /dev/null)
 ```
 
 
