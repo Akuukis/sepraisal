@@ -183,6 +183,10 @@ export namespace IBlueprint {
         ores: Record<string, number>,  // key = subtype
 
         orientation: IOrientation,
+        length: number,
+        width: number,
+        height: number,
+
         thrustAtmospheric: Partial<Record<Direction, number>>
         thrustHydrogen: Partial<Record<Direction, number>>
         thrustIon: Partial<Record<Direction, number>>

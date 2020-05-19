@@ -331,6 +331,12 @@ export class Praisal {
         const flagsYellow = []
         const flagsGreen = []
 
+        const blockSize = this.blummary.gridSize === 'Small' ? 0.5 : 2.5
+        const integrityPlanes = this.integrityPlanes
+        const length = integrityPlanes.top[0].length * blockSize
+        const width = integrityPlanes.top.length * blockSize
+        const height = integrityPlanes.side.length * blockSize
+
         return {
             gridTitle: this.blummary.title,
 
@@ -351,8 +357,12 @@ export class Praisal {
             unknownDefinitions,
             vanilla,
 
-            integrityPlanes: this.integrityPlanes,
             orientation: this.orientation,
+            integrityPlanes: this.integrityPlanes,
+            length,
+            width,
+            height,
+
             thrustAtmospheric: mapToRecord(this.thrustAtmospheric),
             thrustHydrogen: mapToRecord(this.thrustHydrogen),
             thrustIon: mapToRecord(this.thrustIon),
