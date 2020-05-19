@@ -14,7 +14,7 @@ import { asCrawlerUser, prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from 
 const BATCH_SIZE = 50
 const MAX_SIZE = 20
 
-const steamLogFile = join('/', 'home', 'steam', '.steam', 'logs', 'workshop_log.txt')
+const steamLogFile = join(STEAM_DIR, 'logs', 'workshop_log.txt')
 // tslint:disable-next-line: no-non-null-assertion
 const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
     .split('\n')
