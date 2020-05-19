@@ -190,7 +190,6 @@ export const useWindowDimensions = () => {
     return windowDimensions
 }
 
-const toSafeString = (obj: unknown): string => encodeURIComponent(JSON.stringify(obj))
 // tslint:disable-next-line: max-func-args
 export const getApiUrl = (
         find: object,
@@ -200,17 +199,12 @@ export const getApiUrl = (
         skip?: number,
     ) => {
 
-    const urlParts = [
-            API_URL,
-            `?`,
-            `find=${toSafeString(find)}`,
-            `&projection=${toSafeString(projection)}`,
-            sort !== undefined ? `&sort=${toSafeString(sort)}` : null,
-            skip !== undefined ? `&skip=${toSafeString(skip)}` : null,
-            limit !== undefined ? `&limit=${toSafeString(limit)}` : null,
-        ]
-        .filter((part) => typeof part === 'string')
-    
-    return urlParts.join('')
+    const searchParams = new URLSearchParams()
+    searchParams.set('find', JSON.stringify(find))
+    if(projection   ) searchParams.set('projection', JSON.stringify(projection))
+    if(sort         ) searchParams.set('sort', JSON.stringify(sort))
+    if(skip         ) searchParams.set('skip', JSON.stringify(skip))
+    if(limit        ) searchParams.set('limit', JSON.stringify(limit))
 
+    return `${API_URL}?${searchParams.toString()}`
 }
