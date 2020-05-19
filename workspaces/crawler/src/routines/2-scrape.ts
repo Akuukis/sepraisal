@@ -57,13 +57,13 @@ export const ratingStarsConvert = (input: string) => input.includes('not-yet') ?
 export const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
 export const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
 // tslint:enable: strict-boolean-expressions
-export const dateConvert = (steamDate?: string) => {
-    if(typeof steamDate !== 'string') return null
 
-    return steamDate.includes(',') ?
-        moment(`${steamDate} +3:00`, 'DD MMM, YYYY @ h:ma ZZ').toDate()
-        :
-        moment(`${steamDate} +3:00 2019`, 'DD MMM @ h:ma ZZ 2019').toDate()
+export const dateConvert = (steamDate: string) => {
+    if(steamDate === '') return null
+
+    return moment(steamDate, steamDate.includes(',') ? 'DD MMM, YYYY @ h:ma' : 'DD MMM @ h:ma')
+        .utc()  // Steam shows local time, so convert back to UTC.
+        .toDate()
 }
 
 const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
@@ -133,7 +133,7 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         _thumbName: dataRaw._thumbName,
         _updated: new Date(),
         postedDate: dataRaw.postedDate,
-        updatedDate: dataRaw.updatedDate,
+        updatedDate: dataRaw.updatedDate || dataRaw.postedDate,  // UpdatedDate doesn't exist if posted but not updated.
         sizeMB: dataRaw.sizeMB,
         revision: dataRaw.revision,
         mods: dataRaw.mods,
