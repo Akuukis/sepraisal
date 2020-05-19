@@ -1,6 +1,5 @@
 import './rhlConfig'
 
-import { MATOMO_PARAMS } from '@sepraisal/common'
 import { configure } from 'mobx'
 import * as React from 'react'
 import { render } from 'react-dom'
@@ -9,6 +8,7 @@ import { CONTEXT } from 'src/stores'
 import { PiwikStore } from 'src/stores/PiwikStore'
 import RouterStore from 'src/stores/RouterStore'
 
+import { MATOMO_PARAMS } from './constants'
 import routes from './routes'
 
 // enable MobX strict mode

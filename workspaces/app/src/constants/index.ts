@@ -19,3 +19,12 @@ export enum BROWSE_PARTS {
     FILTER = 'filter',
     SORT = 'sort',
 }
+
+// TODO: Validate.
+export const API_URL = process.env.API!
+export const SERVICE_DESK_EMAIL = process.env.SERVICE_DESK_EMAIL!
+export const MATOMO_PARAMS = {
+    // TODO: Do not hardcode this.
+    siteId: Number(process.env.MATAMO_SITE_ID!),
+    url: process.env.MATAMO_URL!,
+} as const
