@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+require('dotenv').config()
 
 
 const sourcePath = path.join(__dirname, './src');
@@ -81,6 +82,10 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(IS_PRODUCTION ? 'production' : 'development'),
+            'process.env.API': JSON.stringify(process.env.API),
+            'process.env.SERVICE_DESK_EMAIL': JSON.stringify(process.env.SERVICE_DESK_EMAIL),
+            'process.env.MATAMO_SITE_ID': JSON.stringify(process.env.MATAMO_SITE_ID),
+            'process.env.MATAMO_URL': JSON.stringify(process.env.MATAMO_URL),
         }),
         new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json'), tsconfig: 'tsconfig.json'}),
         new webpack.NamedModulesPlugin(),

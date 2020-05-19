@@ -1,7 +1,9 @@
-import { API_URL, IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
+import { IBlueprint, ObservableMap, RequiredSome } from '@sepraisal/common'
 import { Praisal } from '@sepraisal/praisal'
 import { action, computed, runInAction } from 'mobx'
 import moment from 'moment'
+
+import { getApiUrl } from 'src/common'
 
 import { FavoriteStore } from './FavoriteStore'
 
@@ -117,8 +119,7 @@ export class BlueprintStore {
     }
 
     @action public async fetch(id: number) {
-        const find = encodeURIComponent(JSON.stringify({_id: id}))
-        const res = await fetch(`${API_URL}?find=${find}&limit=${1}`)
+        const res = await fetch(getApiUrl({_id: id}, undefined, undefined, 1))
         const {docs} = await res.json() as {docs: Array<RequiredSome<IBlueprint, 'sbc' | 'steam'>>}
         const doc = docs.pop()
 

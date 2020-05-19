@@ -2,6 +2,8 @@ import BigNumber from 'bignumber.js'
 import moment from 'moment'
 import { DependencyList, useEffect, useState } from 'react'
 
+import { API_URL } from 'src/constants'
+
 export * from './Component'
 export * from './ComponentRouted'
 export * from './blockGroups'
@@ -186,4 +188,29 @@ export const useWindowDimensions = () => {
     }, [])
 
     return windowDimensions
+}
+
+const toSafeString = (obj: unknown): string => encodeURIComponent(JSON.stringify(obj))
+// tslint:disable-next-line: max-func-args
+export const getApiUrl = (
+        find: object,
+        projection?: object,
+        sort?: object,
+        limit?: number,
+        skip?: number,
+    ) => {
+
+    const urlParts = [
+            API_URL,
+            `?`,
+            `find=${toSafeString(find)}`,
+            `&projection=${toSafeString(projection)}`,
+            sort !== undefined ? `&sort=${toSafeString(sort)}` : null,
+            skip !== undefined ? `&skip=${toSafeString(skip)}` : null,
+            limit !== undefined ? `&limit=${toSafeString(limit)}` : null,
+        ]
+        .filter((part) => typeof part === 'string')
+    
+    return urlParts.join('')
+
 }

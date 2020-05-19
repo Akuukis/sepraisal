@@ -1,4 +1,4 @@
-import { CLASSES, getApiUrl, IBlueprint } from '@sepraisal/common'
+import { CLASSES, IBlueprint } from '@sepraisal/common'
 import FormData from 'form-data'
 import { createReadStream, readFileSync, writeFileSync } from 'fs'
 import fetch from 'node-fetch'
@@ -6,7 +6,6 @@ import { join } from 'path'
 
 import { lstatAsync } from '../utils'
 
-export const API_URL = 'https://db.spaceengineerspraisal.net/hello'
 const HOST = 'http://localhost:8004/ocpu/'
 
 interface IScriptVariables {
@@ -121,13 +120,15 @@ export const main = async () => {
 
                 let page = 0
                 while(page >= 0) {
-                    const res = await fetch(getApiUrl(group.criteriaToTrain, projection, undefined, 100, page * 100))
-                    const {docs: docsPage} = await res.json() as {count: number, docs: IBlueprint[] }
-                    docs.push(...docsPage)
-                    page += 1
+                    // TODO: use mongodb directly.
 
-                    process.stdout.write('.')
-                    if(docsPage.length === 0) page = -1
+                    // const res = await fetch(getApiUrl(group.criteriaToTrain, projection, undefined, 100, page * 100))
+                    // const {docs: docsPage} = await res.json() as {count: number, docs: IBlueprint[] }
+                    // docs.push(...docsPage)
+                    // page += 1
+
+                    // process.stdout.write('.')
+                    // if(docsPage.length === 0) page = -1
                 }
 
                 // const docs = (await collection

@@ -1,4 +1,3 @@
-import { getApiUrl } from '@sepraisal/common'
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -14,7 +13,7 @@ import {
     RadioGroup,
 } from '@material-ui/core'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { ASYNC_STATE, createSmartFC, createStyles, getApiUrl, IMyTheme } from 'src/common'
 import { getPresetTitle, PRESET } from 'src/stores/CardStore'
 
 const styles = (theme: IMyTheme) => createStyles({

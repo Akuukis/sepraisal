@@ -1,10 +1,10 @@
-import { SERVICE_DESK_EMAIL } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { SERVICE_DESK_EMAIL } from 'src/constants'
 
 import InfoCard from './InfoCard'
 
