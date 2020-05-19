@@ -63,6 +63,29 @@ PATH=/bin:/usr/bin:/usr/games/:/usr/local/bin/
 45 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 5 >> out-5.log 2>> err-5.log < /dev/null)
 ```
 
+Note: it takes *few days* to go from empty database to everything fully praised.
+
+## Database
+
+> MongoDB seems a bad DB choice post-factum, but hey - I just wanted to try it out. Sane argumentation and PRs are welcome.
+
+FYI: Currently (May, 2020), with 115000 blueprints and `cwebp -size 10000 ..` thumbnail size whole database takes almost 4GB of space.
+
+
+Have a MongoDB:
+- managed ([MongoDB Atlas](https://docs.atlas.mongodb.com/tutorial/deploy-free-tier-cluster/) free tier has 512 MB limit, good enough for testing).
+- remote (you will need connection url anyways, just like with Atlas)
+- local (need to install)
+
+```sh
+# https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo service mongod status  # Verify db server status.
+# Use `db_url='mongodb://127.0.0.1:27017'` in .env file.
+```
 
 
 ## Routines
