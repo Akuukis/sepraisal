@@ -137,7 +137,7 @@ export const main = async () => {
     const docsNew = docsAll
         .filter((doc) => {
             try {
-                lstatSync(join(STEAM_DIR, String(doc._id)))
+                lstatSync(join(steamDownloadsDir, String(doc._id)))
                 fromSteamtoCache(doc)
                 console.info(`Moved ${doc._id} from steam to cache.`)
             } catch (err) {
