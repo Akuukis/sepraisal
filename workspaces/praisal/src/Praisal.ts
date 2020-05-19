@@ -2,6 +2,13 @@ import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap } from '@
 
 import { Blueprint, Component, Cube, Group, ICoords, Ingot, Ore, Orientation, TranslationMinEnum } from './models'
 import { Block } from './models/Block'
+import {
+    SIMILAR_HEAVY_ARMOR,
+    SIMILAR_INTERIOR_LIGHT,
+    SIMILAR_LIGHT_ARMOR,
+    SIMILAR_TEXT_PANEL,
+    SIMILAR_WINDOW,
+} from './similarBlocks'
 import { BlueprintBlockDirectionEnum } from './xmlns/BlueprintDefinition'
 import { CubeDTO } from './xmlns/CubeDefinition'
 import { CubeType } from './xmlns/CubeType'
@@ -311,11 +318,13 @@ export class Praisal {
         const blocks = Object.create(null) as Record<string, number>
         Object.entries(this.blockAll).forEach(([key, count]) => {
             let realKey = key
-            // Merge few groups to lower spam.
-            if(key.includes('CubeBlock/')) realKey = 'CubeBlock/*'
-            if(key.includes('InteriorLight/')) realKey = 'InteriorLight/*'
-            if(key.includes('TextPanel/')) realKey = 'TextPanel/*'
-            if(key.includes('Wheel/')) realKey = 'Wheel/*'
+
+            // Merge some similar blocks to lower spam.
+            if(SIMILAR_WINDOW.includes(key)) realKey = '<Vanilla Window blocks>'
+            if(SIMILAR_LIGHT_ARMOR.includes(key)) realKey = '<Vanilla Light Armor blocks>'
+            if(SIMILAR_HEAVY_ARMOR.includes(key)) realKey = '<Vanilla Heavy Armor blocks>'
+            if(SIMILAR_INTERIOR_LIGHT.includes(key)) realKey = '<Vanilla Interior Light blocks>'
+            if(SIMILAR_TEXT_PANEL.includes(key)) realKey = '<Vanilla Text Panel blocks>'
 
             blocks[realKey] = (realKey in blocks ? blocks[realKey] : 0) + count
         })
