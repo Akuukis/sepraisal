@@ -1,7 +1,7 @@
 {
-    "name": "@sepraisal/cli",
+    "name": "@sepraisal/crawler",
     "version": "0.0.1",
-    "description": "SE Praisal - command line interface.",
+    "description": "SE Praisal Crawler.",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "author": "Akuukis",
