@@ -9,6 +9,9 @@
         "type": "git",
         "url": "https://gitlab.com/space-engineers-community/sepraisal"
     },
+    "engines": {
+        "node": "^12"
+    },
     "license": "GPL-3.0",
     "private": true,
     "scripts": {

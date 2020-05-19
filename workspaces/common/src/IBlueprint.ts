@@ -139,6 +139,9 @@ export namespace IBlueprint {
     }
 
     export interface IMaterialGroup {
+        /**
+         * Excludes blocks with missing definitions. See also `blockCountTotal`.
+         */
         blockCount: number,
         blockMass: number,
         blockPCU: number,
@@ -183,7 +186,11 @@ export namespace IBlueprint {
         gridCount: number,
         gridStatic: boolean,
 
-        missingDefinitions: IDefinitions
+        missingDefinitions: IDefinitions,
+        /**
+         * Includes blocks with missing definitions. See also `blockCount`.
+         */
+        blockCountTotal: number,
 
         orientation: IOrientation,
         length: number,

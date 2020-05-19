@@ -305,6 +305,8 @@ export class Praisal {
             && this.ingotErrors.length === 0
             && this.oreErrors.length === 0
 
+        const blockCountTotal = this.blockCount + this.blocksErrors.reduce((sum, [, count]) => sum + count, 0)
+
         const missingDefinitions: IBlueprint.IDefinitions = {
             blocks: Object.fromEntries(this.blocksErrors),
             components: Object.fromEntries(this.componentErrors),
@@ -352,6 +354,7 @@ export class Praisal {
             components,
             ingots,
             ores,
+            blockCountTotal,
 
             _revision: revision,
             _version: IBlueprint.VERSION.sbc,
