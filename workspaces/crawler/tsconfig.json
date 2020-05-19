@@ -10,6 +10,6 @@
     ],
     "references": [
         { "path": "../common/tsconfig-src.json" },
-        { "path": "../praisal/tsconfig-src.json" }
+        { "path": "../praisal/tsconfig.json" }
     ]
 }
