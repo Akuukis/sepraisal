@@ -6,7 +6,7 @@
         { "path": "./workspaces/common/tsconfig-src.json" },
         { "path": "./workspaces/app/tsconfig.json" },
         { "path": "./workspaces/cli/tsconfig-src.json" },
-        { "path": "./workspaces/server/tsconfig-src.json" },
+        { "path": "./workspaces/server/tsconfig.json" },
         { "path": "./workspaces/praisal/tsconfig-src.json" },
         { "path": "./workspaces/storybook/tsconfig-src.json" },
     ]
