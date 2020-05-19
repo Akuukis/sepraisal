@@ -1,7 +1,7 @@
 {
-    "name": "@sepraisal/lambdas",
+    "name": "@sepraisal/server",
     "version": "0.0.1",
-    "description": "SE Praisal - Lambdas.",
+    "description": "SE Praisal - Server",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "author": "Akuukis",

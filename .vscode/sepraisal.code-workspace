@@ -13,8 +13,8 @@
             "name": "cli"
         },
         {
-            "path": "../workspaces/lambdas",
-            "name": "lambdas"
+            "path": "../workspaces/server",
+            "name": "server"
         },
         {
             "path": "../workspaces/praisal",
