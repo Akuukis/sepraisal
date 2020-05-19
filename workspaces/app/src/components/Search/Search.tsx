@@ -71,7 +71,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     React.useEffect(() => {
         cardStore.querryFindBuilder.setCriterion('steam.author.title', authors.length > 0 ? {$in: authors} : null)
         cardStore.querryFindBuilder.setCriterion('steam.collections.title', collections.length > 0 ? {$in: collections} : null)
-        updateUrlParams(searchParams.get(BROWSE_PARTS.SEARCH))
+        const newSearch = searchParams.get(BROWSE_PARTS.SEARCH)
+        cardStore.querryFindBuilder.replaceSearch(newSearch ?? undefined)
+        setValue(newSearch ? {type: OPTION_TYPE.OTHER, value: newSearch} : null)
     }, [])
 
     const updateUrlParams = (newSearch: string | null) => {
