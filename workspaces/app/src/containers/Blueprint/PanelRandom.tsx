@@ -58,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setStatus({code: ASYNC_STATE.Doing, text: 'Randomizing blueprint id ...'})
         try {
             const skip = Math.floor(Math.random() * 3800)  // Random blueprint out of first 90k blueprints.
-            const res = await fetch(getApiUrl(preset, {_id: true}, undefined, 1, skip))
+            const res = await fetch(getApiUrl(preset, {projection: {_id: true}, limit: 1, skip}))
             const {docs} = await res.json() as {docs: [{_id: number}]}
             const id = docs[0]._id
             select(id)

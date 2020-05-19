@@ -3,6 +3,7 @@ import moment from 'moment'
 import { DependencyList, useEffect, useState } from 'react'
 
 import { API_URL } from 'src/constants'
+import { FindQuery, IFindRootQuery } from 'src/models'
 
 export * from './Component'
 export * from './ComponentRouted'
@@ -190,14 +191,17 @@ export const useWindowDimensions = () => {
     return windowDimensions
 }
 
+interface ApiProps {
+    $search?: string,
+    projection?: object,
+    sort?: object,
+    limit?: number,
+    skip?: number,
+}
 // tslint:disable-next-line: max-func-args
-export const getApiUrl = (
-        find: object,
-        projection?: object,
-        sort?: object,
-        limit?: number,
-        skip?: number,
-    ) => {
+export const getApiUrl = (queries: FindQuery[], {$search,projection,sort,limit,skip}: ApiProps) => {
+    const find: IFindRootQuery = {$and: queries}
+    if($search) find.$text = {$search}
 
     const searchParams = new URLSearchParams()
     searchParams.set('find', JSON.stringify(find))

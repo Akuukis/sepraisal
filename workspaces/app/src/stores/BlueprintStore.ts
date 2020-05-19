@@ -119,7 +119,7 @@ export class BlueprintStore {
     }
 
     @action public async fetch(id: number) {
-        const res = await fetch(getApiUrl({_id: id}, undefined, undefined, 1))
+        const res = await fetch(getApiUrl([{_id: {$eq: id}}], {limit: 1}))
         const {docs} = await res.json() as {docs: Array<RequiredSome<IBlueprint, 'sbc' | 'steam'>>}
         const doc = docs.pop()
 
