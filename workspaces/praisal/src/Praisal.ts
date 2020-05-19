@@ -305,18 +305,17 @@ export class Praisal {
             && this.ingotErrors.length === 0
             && this.oreErrors.length === 0
 
-        const errors = ([] as Array<[string, number]>)
-            .concat(this.blocksErrors)
-            .concat(this.componentErrors)
-            .concat(this.ingotErrors)
-            .concat(this.oreErrors)
-        const unknownDefinitions = errors
-            .map((titleAndCount) => titleAndCount[0])
-        const unknownDefinitionCount = errors
-            .reduce((sum, titleAndCount) => sum + titleAndCount[1], 0)
+        const missingDefinitions: IBlueprint.IDefinitions = {
+            blocks: Object.fromEntries(this.blocksErrors),
+            components: Object.fromEntries(this.componentErrors),
+            ingots: Object.fromEntries(this.ingotErrors),
+            ores: Object.fromEntries(this.oreErrors),
+        }
 
         const blocks = Object.create(null) as Record<string, number>
         Object.entries(this.blockAll).forEach(([key, count]) => {
+            if(!this.cubeDefs.has(key)) return
+
             let realKey = key
 
             // Merge some similar blocks to lower spam.
@@ -325,8 +324,6 @@ export class Praisal {
             if(SIMILAR_HEAVY_ARMOR.includes(key)) realKey = '<Vanilla Heavy Armor blocks>'
             if(SIMILAR_INTERIOR_LIGHT.includes(key)) realKey = '<Vanilla Interior Light blocks>'
             if(SIMILAR_TEXT_PANEL.includes(key)) realKey = '<Vanilla Text Panel blocks>'
-
-            blocks[realKey] = (realKey in blocks ? blocks[realKey] : 0) + count
         })
 
         const components = Object.create(null) as Record<string, number>
@@ -349,6 +346,8 @@ export class Praisal {
         return {
             gridTitle: this.blummary.title,
 
+            missingDefinitions,
+
             blocks,
             components,
             ingots,
@@ -362,8 +361,6 @@ export class Praisal {
             gridCount: this.blummary.grids.length,
             gridSize: this.blummary.gridSize,
             gridStatic: this.blummary.hasStaticGrid,
-            unknownDefinitionCount,
-            unknownDefinitions,
             vanilla,
 
             orientation: this.orientation,

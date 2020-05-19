@@ -168,19 +168,22 @@ export namespace IBlueprint {
     export type SbcFlagsGreen =
         |''
 
-    export interface ISbc extends IProp, IMaterialGroupFull {
+    export interface IDefinitions {
+        blocks: Record<string, number>,  // key = CubeType + '/' + subtype
+        components: Record<string, number>,  // key = subtype
+        ingots: Record<string, number>,  // key = subtype
+        ores: Record<string, number>,  // key = subtype
+    }
+
+    export interface ISbc extends IProp, IDefinitions, IMaterialGroupFull {
         _revision: number,
         vanilla: boolean,
         gridTitle: string,
         gridSize: GridSize,
         gridCount: number,
         gridStatic: boolean,
-        unknownDefinitions: string[],
-        unknownDefinitionCount: number,
-        blocks: Record<string, number>,  // key = CubeType + '/' + subtype
-        components: Record<string, number>,  // key = subtype
-        ingots: Record<string, number>,  // key = subtype
-        ores: Record<string, number>,  // key = subtype
+
+        missingDefinitions: IDefinitions
 
         orientation: IOrientation,
         length: number,

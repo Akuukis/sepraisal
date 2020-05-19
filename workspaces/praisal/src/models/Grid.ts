@@ -12,17 +12,17 @@ export type GridSize = 'Large' | 'Small' | 'Mixed'
 export class Grid {
 
     public static async parseXml(xml: string, cubeStore: Map<string, Cube>): Promise<Grid> {
-            return new Promise((resolve: (value: Grid) => void, reject: (reason: Error) => void) => {
-                    parseString(xml, (parseError: Error | undefined, bp: IBlueprintCubeGrid) => {
-                        if(parseError) reject(parseError)
-                        try {
-                                resolve(new Grid(bp, cubeStore))
-                        } catch(transformError) {
-                                console.error(transformError, bp)
-                                reject(transformError as Error)
-                        }
-                    })
+        return new Promise((resolve: (value: Grid) => void, reject: (reason: Error) => void) => {
+            parseString(xml, (parseError: Error | undefined, bp: IBlueprintCubeGrid) => {
+                if(parseError) reject(parseError)
+                try {
+                    resolve(new Grid(bp, cubeStore))
+                } catch(transformError) {
+                    console.error(transformError, bp)
+                    reject(transformError as Error)
+                }
             })
+        })
     }
 
 
@@ -31,10 +31,10 @@ export class Grid {
         const blockcount = this.blocks
             .map((cubeBlock) => cubeBlock.title)
             .reduce((blockcountMap, block) => {
-                    if(!(block in blockcountMap)) blockcountMap[block] = 0
-                    blockcountMap[block] += 1
+                if(!(block in blockcountMap)) blockcountMap[block] = 0
+                blockcountMap[block] += 1
 
-                    return blockcountMap
+                return blockcountMap
             }, Object.create(null) as Record<string, number>)
 
         return obj2mapArray(blockcount)
