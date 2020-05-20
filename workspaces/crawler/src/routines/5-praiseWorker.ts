@@ -1,4 +1,4 @@
-import { BLOCK_GROUPS, DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
+import { BLOCK_GROUPS, DB_NAME, DB_URL, IBlueprint, VENDOR_MOD } from '@sepraisal/common'
 import { PraisalManager, unzipCachedSbc } from '@sepraisal/praisal'
 import { readFileSync } from 'fs'
 import { Collection, MongoClient } from 'mongodb'
@@ -24,32 +24,32 @@ let collection: Collection<IProjection>
 
 
 const init = (async () => {
-    const componentsXml = readFileSync(join(VENDOR_DIR, 'Components.sbc')).toString()
-    const materialsXml = readFileSync(join(VENDOR_DIR, 'Blueprints.sbc')).toString()
-    const physicalItemsXml = readFileSync(join(VENDOR_DIR, 'PhysicalItems.sbc')).toString()
+    const componentsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
+    const materialsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+    const physicalItemsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
     const cubeBlocksXmls = [
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Automation.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Communications.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Control.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Doors.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Energy.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Extras.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Gravity.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Interiors.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_LCDPanels.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Lights.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Logistics.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Mechanical.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Medical.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Production.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Thrusters.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Tools.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Utility.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Weapons.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Communications.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Control.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Doors.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Energy.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Extras.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Gravity.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Interiors.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_LCDPanels.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Lights.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Logistics.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Mechanical.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Medical.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Production.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Thrusters.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Tools.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Utility.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Weapons.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
+        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
     ]
     await sePraisal.addOres(physicalItemsXml)
     await sePraisal.addIngots(physicalItemsXml, materialsXml)
