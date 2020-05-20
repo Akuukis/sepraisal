@@ -11,7 +11,7 @@ export type GridSize = 'Large' | 'Small' | 'Mixed'
 // tslint:disable-next-line: min-class-cohesion
 export class Grid {
 
-    public static async parseXml(xml: string, cubeStore: Map<string, Cube>): Promise<Grid> {
+    public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Grid> {
         return new Promise((resolve: (value: Grid) => void, reject: (reason: Error) => void) => {
             parseString(xml, (parseError: Error | undefined, bp: IBlueprintCubeGrid) => {
                 if(parseError) reject(parseError)

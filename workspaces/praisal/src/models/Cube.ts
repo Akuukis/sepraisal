@@ -14,7 +14,7 @@ type Omits = 'BuildTimeSeconds' | 'CubeSize' | 'DisplayName' | 'Id' | 'PCU' | 'S
 // tslint:disable-next-line: min-class-cohesion
 export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJSON' | 'health' | 'maxIntegrity'> {
 
-    public static async parseXml(xml: string, componentStore: Map<string, Component>): Promise<Cube[]> {
+    public static async parseSbc(xml: string, componentStore: Map<string, Component>): Promise<Cube[]> {
         return new Promise((resolve: (value: Cube[]) => void, reject: (reason: Error) => void) => {
             parseString(xml, (parseError, bp: ICubeDefinition) => {
                 try {

@@ -16,8 +16,8 @@ beforeEach(() => {
 
 describe('PraisalManager.addOres', () => {
     test('should succeed based on vendor assets', async () => {
-        const physicalItemsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-        await sepraisal.addOres(physicalItemsXml)
+        const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
+        await sepraisal.addOres(physicalItemsSbc)
         expect([...sepraisal.ores.entries()][0]).toMatchSnapshot()
         expect([...sepraisal.ores.keys()]).toMatchSnapshot()
         expect(sepraisal.ores.size).toEqual(13)
@@ -25,9 +25,9 @@ describe('PraisalManager.addOres', () => {
 })
 describe('PraisalManager.addIngots', () => {
     test('should succeed based on vendor assets', async () => {
-        const materialsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-        const physicalItemsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-        await sepraisal.addIngots(physicalItemsXml, materialsXml)
+        const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+        const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
+        await sepraisal.addIngots(physicalItemsSbc, blueprintsSbc)
         expect([...sepraisal.ingots.entries()][0]).toMatchSnapshot()
         expect([...sepraisal.ingots.keys()]).toMatchSnapshot()
         expect(sepraisal.ingots.size).toEqual(10)
@@ -35,9 +35,9 @@ describe('PraisalManager.addIngots', () => {
 })
 describe('PraisalManager.addComponents', () => {
     test('should succeed based on vendor assets', async () => {
-        const componentsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-        const materialsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-        await sepraisal.addComponents(materialsXml, componentsXml)
+        const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
+        const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+        await sepraisal.addComponents(blueprintsSbc, componentsSbc)
         expect([...sepraisal.components.entries()][0]).toMatchSnapshot()
         expect([...sepraisal.components.keys()]).toMatchSnapshot()
         expect(sepraisal.components.size).toEqual(23)
@@ -45,7 +45,7 @@ describe('PraisalManager.addComponents', () => {
 })
 describe('PraisalManager.addCubes', () => {
     test('should succeed based on vendor assets', async () => {
-        const cubeBlocksXmls = [
+        const cubeBlocksSbcs = [
             readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
             readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
             readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')).toString(),
@@ -69,7 +69,7 @@ describe('PraisalManager.addCubes', () => {
             readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
             readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
         ]
-        for(const cubeBlocksXml of cubeBlocksXmls) await sepraisal.addCubes(cubeBlocksXml)
+        for(const cubeBlocksSbc of cubeBlocksSbcs) await sepraisal.addCubes(cubeBlocksSbc)
         expect([...sepraisal.cubes.entries()][2]).toMatchSnapshot()
         expect([...sepraisal.cubes.keys()]).toMatchSnapshot()
         expect(sepraisal.cubes.size).toMatchSnapshot()

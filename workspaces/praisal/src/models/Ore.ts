@@ -10,8 +10,8 @@ export interface IOreDTO {
 
 export class Ore implements IOreDTO {
 
-    public static async parseXml(physicalItemsXml: string): Promise<Ore[]> {
-        const oreDtos = await parsePhysicalItemsSbc(physicalItemsXml, 'Ore')
+    public static async parseSbc(physicalItemsSbc: string): Promise<Ore[]> {
+        const oreDtos = await parsePhysicalItemsSbc(physicalItemsSbc, 'Ore')
 
         return oreDtos.map((blockDto) => new Ore(blockDto))
     }

@@ -7,7 +7,7 @@ import { PraisalManager } from '../src'
 export const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
 export const NewPraisalManager = () => {
-    const cubeBlocksXmls = [
+    const cubeBlocksSbcs = [
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')).toString(),
@@ -31,16 +31,16 @@ export const NewPraisalManager = () => {
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
     ]
-    const componentsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-    const materialsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-    const physicalItemsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
+    const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
+    const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+    const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
 
     return async () => {
         const sepraisal = new PraisalManager()
-        await sepraisal.addOres(physicalItemsXml)
-        await sepraisal.addIngots(physicalItemsXml, materialsXml)
-        await sepraisal.addComponents(materialsXml, componentsXml)
-        for(const cubeBlocksXml of cubeBlocksXmls) await sepraisal.addCubes(cubeBlocksXml)
+        await sepraisal.addOres(physicalItemsSbc)
+        await sepraisal.addIngots(physicalItemsSbc, blueprintsSbc)
+        await sepraisal.addComponents(blueprintsSbc, componentsSbc)
+        for(const cubeBlocksSbc of cubeBlocksSbcs) await sepraisal.addCubes(cubeBlocksSbc)
         sepraisal.addGroups(BLOCK_GROUPS)
 
         return sepraisal

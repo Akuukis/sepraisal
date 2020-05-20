@@ -15,9 +15,9 @@ export class Item implements IItemDTO {
      */
     public static readonly ITEM_TYPES: ['OxygenContainerObject', 'GasContainerObject', 'PhysicalGunObject', 'AmmoMagazine']
 
-    public static async parseXml(physicalItemsXml: string, blueprintXml: string): Promise<Item[]> {
-        const itemDtos1 = await parseBlueprintSbc(blueprintXml, Item.ITEM_TYPES)
-        const itemDtos2 = await parsePhysicalItemsSbc(physicalItemsXml, 'Ingot')
+    public static async parseSbc(physicalItemsSbc: string, blueprintsSbc: string): Promise<Item[]> {
+        const itemDtos1 = await parseBlueprintSbc(blueprintsSbc, Item.ITEM_TYPES)
+        const itemDtos2 = await parsePhysicalItemsSbc(physicalItemsSbc, 'Ingot')
 
         return itemDtos2
             .filter((itemDto2) => itemDto2.subtype !== 'Scrap')

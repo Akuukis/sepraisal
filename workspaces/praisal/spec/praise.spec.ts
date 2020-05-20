@@ -18,7 +18,7 @@ beforeEach(async () => {
 
 const testBlueprint = (title: string, path: string) => {
     test(`should succeed to praise ${title}`, async () => {
-        const praisal = await sepraisal.praiseXml(readFileSync(path, 'utf-8'))
+        const praisal = await sepraisal.praiseSbc(readFileSync(path, 'utf-8'))
         expect(praisal.toBlueprintSbc(0)).toMatchSnapshot({
             integrityPlanes: {
                 front: expect.any(Array),
@@ -33,7 +33,7 @@ const testBlueprint = (title: string, path: string) => {
     })
 }
 
-describe('PraisalManager.praiseXml', () => {
+describe('PraisalManager.praiseSbc', () => {
     testBlueprint('AtmosphericLander', join(PREFABS_DIR, 'AtmosphericLander.sbc'))
     testBlueprint('RespawnShip', join(PREFABS_DIR, 'RespawnShip.sbc'))
     testBlueprint('dekartaTests', join(MY_BLUEPRINTS_DIR, 'dekartaTests.sbc'))

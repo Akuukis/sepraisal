@@ -16,8 +16,8 @@ export interface IComponentDTO {
 export class Component implements IComponentDTO {
 
 
-    public static async parseXml(materialXml: string, componentXml: string): Promise<Component[]> {
-        const componentDtos = await parseBlueprintSbc(materialXml, ['Component'])
+    public static async parseSbc(blueprintsSbc: string, componentXml: string): Promise<Component[]> {
+        const componentDtos = await parseBlueprintSbc(blueprintsSbc, ['Component'])
         const componentMap = new Map(componentDtos.map<[string, Partial<IComponentDTO>]>((val) => [val.subtype, val]))
 
         const comp2s = await parseComponentSbc(componentXml)

@@ -65,7 +65,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     useAsyncEffectOnce(async () => {
         try {
-            const [componentsXml, materialsXml, physicalItemsXml, ...cubeBlocksXmls] = await Promise.all([
+            const [componentsSbc, blueprintsSbc, physicalItemsSbc, ...cubeBlocksSbcs] = await Promise.all([
                 fetch(ComponentsLink).then((res) => res.text()),
                 fetch(MaterialsLink).then((res) => res.text()),
                 fetch(PhysicalItemsLink).then((res) => res.text()),
@@ -94,10 +94,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksWindowsLink).then((res) => res.text()),
             ])
             const praisalManager = new PraisalManager()
-            await praisalManager.addOres(physicalItemsXml)
-            await praisalManager.addIngots(physicalItemsXml, materialsXml)
-            await praisalManager.addComponents(materialsXml, componentsXml)
-            for(const cubeBlocksXml of cubeBlocksXmls) await praisalManager.addCubes(cubeBlocksXml)
+            await praisalManager.addOres(physicalItemsSbc)
+            await praisalManager.addIngots(physicalItemsSbc, blueprintsSbc)
+            await praisalManager.addComponents(blueprintsSbc, componentsSbc)
+            for(const cubeBlocksSbc of cubeBlocksSbcs) await praisalManager.addCubes(cubeBlocksSbc)
             praisalManager.addGroups(BLOCK_GROUPS)
             setPraisalManager(praisalManager)
         } catch(err) {

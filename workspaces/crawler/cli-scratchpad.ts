@@ -9,10 +9,10 @@ const VENDOR_DIR = join(require.resolve('@sepraisal/praisal'), '..', '..', 'vend
 (async () => {
     const sePraisal = new PraisalManager()
 
-    const componentsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-    const materialsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-    const physicalItemsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-    const cubeBlocksXmls = [
+    const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
+    const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+    const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
+    const cubeBlocksSbcs = [
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')).toString(),
@@ -36,14 +36,14 @@ const VENDOR_DIR = join(require.resolve('@sepraisal/praisal'), '..', '..', 'vend
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
     ]
-    await sePraisal.addOres(physicalItemsXml)
-    await sePraisal.addIngots(physicalItemsXml, materialsXml)
-    await sePraisal.addComponents(materialsXml, componentsXml)
-    for(const cubeBlocksXml of cubeBlocksXmls) await sePraisal.addCubes(cubeBlocksXml)
+    await sePraisal.addOres(physicalItemsSbc)
+    await sePraisal.addIngots(physicalItemsSbc, blueprintsSbc)
+    await sePraisal.addComponents(blueprintsSbc, componentsSbc)
+    for(const cubeBlocksSbc of cubeBlocksSbcs) await sePraisal.addCubes(cubeBlocksSbc)
     sePraisal.addGroups(BLOCK_GROUPS)
 
-    const praisal = await sePraisal.praiseXml(readFileSync(join(VENDOR_DIR, 'prefabs', 'AtmosphericLander.sbc'), 'utf-8'))
-    // const praisal = await sepraisal.praiseXml(readFileSync(join(__dirname, 'assets', 'blueprints', 'dekartaTests.sbc'), 'utf-8'))
+    const praisal = await sePraisal.praiseSbc(readFileSync(join(VENDOR_DIR, 'prefabs', 'AtmosphericLander.sbc'), 'utf-8'))
+    // const praisal = await sepraisal.praiseSbc(readFileSync(join(__dirname, 'assets', 'blueprints', 'dekartaTests.sbc'), 'utf-8'))
     // console.log(praisal.blummary.count)
     // console.log([...praisal.groups.entries()].map(([key, group]) => `${key}: ${group.blockCount}`))
     console.log(praisal.integrityPlanes.maxValue)

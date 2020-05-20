@@ -11,9 +11,9 @@ export interface IIngotDTO {
 
 export class Ingot implements IIngotDTO {
 
-    public static async parseXml(physicalItemsXml: string, blueprintXml: string): Promise<Ingot[]> {
-        const ingotDtos1 = await parseBlueprintSbc(blueprintXml, ['Ingot'])
-        const ingotDtos2 = await parsePhysicalItemsSbc(physicalItemsXml, 'Ingot')
+    public static async parseSbc(physicalItemsSbc: string, blueprintsSbc: string): Promise<Ingot[]> {
+        const ingotDtos1 = await parseBlueprintSbc(blueprintsSbc, ['Ingot'])
+        const ingotDtos2 = await parsePhysicalItemsSbc(physicalItemsSbc, 'Ingot')
 
         return ingotDtos2
             .filter((ingotDto2) => ingotDto2.subtype !== 'Scrap')

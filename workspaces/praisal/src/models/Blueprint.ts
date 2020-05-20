@@ -17,7 +17,7 @@ const isPrefab = (def: IBlueprintShipOrPrefab): def is IBlueprintPrefabBlueprint
 // tslint:disable-next-line: min-class-cohesion
 export class Blueprint {
 
-    public static async parseXml(xml: string, cubeStore: Map<string, Cube>): Promise<Blueprint> {
+    public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Blueprint> {
             return new Promise((resolve: (value: Blueprint) => void, reject: (reason: Error) => void) => {
                 parseString(xml, (parseError: Error | undefined, bp: IBlueprintShipOrPrefab) => {
                     if(parseError) reject(parseError)

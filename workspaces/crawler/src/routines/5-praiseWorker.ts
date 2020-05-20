@@ -24,10 +24,10 @@ let collection: Collection<IProjection>
 
 
 const init = (async () => {
-    const componentsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-    const materialsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-    const physicalItemsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-    const cubeBlocksXmls = [
+    const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
+    const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+    const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
+    const cubeBlocksSbcs = [
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')).toString(),
@@ -51,10 +51,10 @@ const init = (async () => {
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
         readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
     ]
-    await sePraisal.addOres(physicalItemsXml)
-    await sePraisal.addIngots(physicalItemsXml, materialsXml)
-    await sePraisal.addComponents(materialsXml, componentsXml)
-    for(const cubeBlocksXml of cubeBlocksXmls) await sePraisal.addCubes(cubeBlocksXml)
+    await sePraisal.addOres(physicalItemsSbc)
+    await sePraisal.addIngots(physicalItemsSbc, blueprintsSbc)
+    await sePraisal.addComponents(blueprintsSbc, componentsSbc)
+    for(const cubeBlocksSbc of cubeBlocksSbcs) await sePraisal.addCubes(cubeBlocksSbc)
     sePraisal.addGroups(BLOCK_GROUPS)
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     // console.info(`Database connection established (fork ${process.pid}).`)
@@ -88,7 +88,7 @@ export = async (index: number, doc: IProjection, callback: (err: Error | void) =
 
     let sbc: IBlueprint.ISbc
     try {
-        const praisal = await sePraisal.praiseXml(xml)
+        const praisal = await sePraisal.praiseSbc(xml)
         sbc = praisal.toBlueprintSbc(doc.steam.revision)
     } catch(err) {
         err.type = 'praise'

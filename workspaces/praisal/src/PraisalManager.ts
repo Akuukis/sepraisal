@@ -14,16 +14,16 @@ export class PraisalManager {
     public readonly ores = new ObservableMap<Ore>()
     public readonly praisals = new ObservableMap<Praisal>()
 
-    public async addComponents(materialsXml: string, componentsXml: string) {
-        const components = await Component.parseXml(materialsXml, componentsXml)
-        runInAction('SEPraisal.addXmlComponent', () => {
+    public async addComponents(blueprintsSbc: string, componentsSbc: string) {
+        const components = await Component.parseSbc(blueprintsSbc, componentsSbc)
+        runInAction('PraisalManager.addComponents', () => {
             components.forEach((component) => this.components.set(component.title, component))
         })
 
     }
-    public async addCubes(cubeBlocksXml: string) {
-        const cubes = await Cube.parseXml(cubeBlocksXml, this.components)
-        runInAction('SEPraisal.addXmlCube', () => {
+    public async addCubes(cubeBlocksSbc: string) {
+        const cubes = await Cube.parseSbc(cubeBlocksSbc, this.components)
+        runInAction('PraisalManager.addCubes', () => {
             cubes.forEach((cube) => this.cubes.set(cube.title, cube))
         })
 
@@ -32,17 +32,17 @@ export class PraisalManager {
     @action public addGroups(groups2: typeof BLOCK_GROUPS) {
         groups2.forEach((groupDto) => this.groups.set(groupDto.title, new Group(groupDto)))
     }
-    public async addIngots(physicalItemsXml: string, materialsXml: string) {
-        const ingots = await Ingot.parseXml(physicalItemsXml, materialsXml)
-        runInAction('SEPraisal.addXmlIngot', () => {
+    public async addIngots(physicalItemsSbc: string, blueprintsSbc: string) {
+        const ingots = await Ingot.parseSbc(physicalItemsSbc, blueprintsSbc)
+        runInAction('PraisalManager.addIngots', () => {
             ingots.forEach((ingot) => this.ingots.set(ingot.title, ingot))
         })
 
     }
 
-    public async addOres(physicalItemsXml: string) {
-        const ores = await Ore.parseXml(physicalItemsXml)
-        runInAction('SEPraisal.addXmlOre', () => {
+    public async addOres(physicalItemsSbc: string) {
+        const ores = await Ore.parseSbc(physicalItemsSbc)
+        runInAction('PraisalManager.addOres', () => {
             ores.forEach((ore) => this.ores.set(ore.title, ore))
         })
     }
@@ -54,8 +54,8 @@ export class PraisalManager {
         return praisal
     }
 
-    public async praiseXml(xml: string): Promise<Praisal> {
-        const blueprint = await Blueprint.parseXml(xml, this.cubes)
+    public async praiseSbc(xml: string): Promise<Praisal> {
+        const blueprint = await Blueprint.parseSbc(xml, this.cubes)
 
         return this.praise(blueprint)
     }

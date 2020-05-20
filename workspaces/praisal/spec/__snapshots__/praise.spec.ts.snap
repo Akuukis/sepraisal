@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PraisalManager.praiseXml should succeed to praise AtmosphericLander 1`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise AtmosphericLander 1`] = `
 Object {
   "_revision": 0,
   "_version": 6,
@@ -180,7 +180,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise AtmosphericLander 2`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise AtmosphericLander 2`] = `
 ".....AA.AA.....
 ....AAAAAAA....
 ....AAAAAAA....
@@ -193,7 +193,7 @@ AAAAAAAAAAAAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise AtmosphericLander 3`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise AtmosphericLander 3`] = `
 "..AAAA.....
 .AAAAAAA...
 .AAAAAAAA..
@@ -206,7 +206,7 @@ A..AAA.A.AA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise AtmosphericLander 4`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise AtmosphericLander 4`] = `
 "......AAA......
 ....AAAAAAA....
 ....ABAAABA....
@@ -221,7 +221,7 @@ AAAAACAAAAAAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise EveryLargeBlockOnce 1`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise EveryLargeBlockOnce 1`] = `
 Object {
   "_revision": 0,
   "_version": 6,
@@ -475,7 +475,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise EveryLargeBlockOnce 2`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise EveryLargeBlockOnce 2`] = `
 "............AA........
 ............AAAAA.....
 ...........AABAAA.....
@@ -495,7 +495,7 @@ AABAAABBBAAAABAAAAAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise EveryLargeBlockOnce 3`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise EveryLargeBlockOnce 3`] = `
 "........A....
 .......AAA...
 .......AAAA..
@@ -515,7 +515,7 @@ AAAAAABBCBAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise EveryLargeBlockOnce 4`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise EveryLargeBlockOnce 4`] = `
 ".........AA...........
 .........AA...........
 .........AA...........
@@ -532,7 +532,7 @@ AAAAA..AAA...AAAAAA...
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise RespawnShip 1`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise RespawnShip 1`] = `
 Object {
   "_revision": 0,
   "_version": 6,
@@ -708,7 +708,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise RespawnShip 2`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise RespawnShip 2`] = `
 "AAAAA
 ABBAA
 BBBBB
@@ -717,7 +717,7 @@ ABBAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise RespawnShip 3`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise RespawnShip 3`] = `
 "....AAAAA..
 AAAAAAAAAAA
 AABAAAAABBC
@@ -726,7 +726,7 @@ AAAAAAAAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise RespawnShip 4`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise RespawnShip 4`] = `
 ".ABAA
 .BBBA
 ABBBA
@@ -735,7 +735,7 @@ ABBBA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise dekartaTests 1`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise dekartaTests 1`] = `
 Object {
   "_revision": 0,
   "_version": 6,
@@ -862,7 +862,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise dekartaTests 2`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise dekartaTests 2`] = `
 "BB..
 BAAA
 BAAA
@@ -878,7 +878,7 @@ AA..
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise dekartaTests 3`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise dekartaTests 3`] = `
 "AAAAAAAAAAAAA
 AAAAAAAAAAAAA
 AAAAAAAAAAAAA
@@ -894,7 +894,7 @@ AAAAA....AAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise dekartaTests 4`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise dekartaTests 4`] = `
 "BBBBAAAAAAAAA
 BAAAAAAAAAAAA
 .AA....AAAAA.
