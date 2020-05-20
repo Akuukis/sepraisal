@@ -18,9 +18,9 @@ describe('PraisalManager.addOres', () => {
     test('should succeed based on vendor assets', async () => {
         const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
         await sepraisal.addOres(physicalItemsSbc)
-        expect([...sepraisal.ores.entries()][0]).toMatchSnapshot()
+        expect(sepraisal.ores.size).toMatchSnapshot()
         expect([...sepraisal.ores.keys()]).toMatchSnapshot()
-        expect(sepraisal.ores.size).toEqual(13)
+        expect([...sepraisal.ores.values()]).toMatchSnapshot()
     })
 })
 describe('PraisalManager.addIngots', () => {
@@ -28,9 +28,9 @@ describe('PraisalManager.addIngots', () => {
         const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
         const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
         await sepraisal.addIngots(physicalItemsSbc, blueprintsSbc)
-        expect([...sepraisal.ingots.entries()][0]).toMatchSnapshot()
+        expect(sepraisal.ingots.size).toMatchSnapshot()
         expect([...sepraisal.ingots.keys()]).toMatchSnapshot()
-        expect(sepraisal.ingots.size).toEqual(10)
+        expect([...sepraisal.ingots.values()]).toMatchSnapshot()
     })
 })
 describe('PraisalManager.addComponents', () => {
@@ -38,9 +38,9 @@ describe('PraisalManager.addComponents', () => {
         const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
         const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
         await sepraisal.addComponents(blueprintsSbc, componentsSbc)
-        expect([...sepraisal.components.entries()][0]).toMatchSnapshot()
+        expect(sepraisal.components.size).toMatchSnapshot()
         expect([...sepraisal.components.keys()]).toMatchSnapshot()
-        expect(sepraisal.components.size).toEqual(23)
+        expect([...sepraisal.components.values()]).toMatchSnapshot()
     })
 })
 describe('PraisalManager.addCubes', () => {
