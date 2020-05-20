@@ -54,8 +54,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {collection.title ?? collection.id}
         </Link>)
     ))
-    const author = (<Link variant='body2' {...linkAuthorProps(bp.steam.author.id)}>
-            {bp.steam.author.title ?? bp.steam.author.id}
+    const author = (<Link variant='body2' {...linkAuthorProps(bp.steam.authors[0]?.id)}>
+            {bp.steam.authors[0]?.title ?? bp.steam.authors[0]?.id}
         </Link>)
 
     const placeholderThumb = `//via.placeholder.com/${THUMB_WIDTH}x${THUMB_HEIGHT}?text=No+Image`
@@ -119,7 +119,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 
 type ProjectionCardSteam =
-    | 'author'
+    | 'authors'
     | 'collections'
     | 'commentCount'
     | 'favoriteCount'

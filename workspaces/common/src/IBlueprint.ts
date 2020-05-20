@@ -99,7 +99,7 @@ export namespace IBlueprint {
     export interface ISteam extends IProp {
         id: number,
         title: string,
-        author: IRefItem,
+        authors: IRefItem[],
         description: string,
         _thumbName: string | null,
         _updated: Date,  // Info may be outdated because time has passed.

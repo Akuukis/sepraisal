@@ -65,8 +65,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const title = steam?.title ?? String(id)
 
-    const author = (<Link className={classes.collection} variant='caption' noWrap {...linkAuthorProps(steam!.author.id)}>
-            {steam!.author.title ?? steam!.author.id}
+    const author = (<Link className={classes.collection} variant='caption' noWrap {...linkAuthorProps(steam!.authors[0]?.id)}>
+            {steam!.authors[0]?.title ?? steam!.authors[0]?.id}
         </Link>)
 
     const subheader = steam === null ? 'Analysis in progress...' : steam.collections.length > 0

@@ -13,7 +13,7 @@ export class Analysis<T extends BpProjectionAnalysis = BpProjectionAnalysis> {
     public get id() { return this.dto.steam.id }
     public get title() { return this.dto.steam.title }
     public get postedDate() { return this.dto.steam.postedDate }
-    public get authorTitle() { return this.dto.steam.author.title }
+    public get authorTitle() { return this.dto.steam.authors[0].title }
     public get collections() { return this.dto.steam.collections }
     public get oreVolume() { return this.dto.sbc.oreVolume }
     public get blockPCU() { return this.dto.sbc.blockPCU }

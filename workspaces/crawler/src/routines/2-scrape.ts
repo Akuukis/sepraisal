@@ -77,22 +77,21 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         | '_version'
         | 'activityMax'
         | 'activityTotal'
-        | 'author'
         | 'exposureMax'
         | 'exposureTotal'
         | 'popularity'
     interface IScrapeSteamData extends Omit<IFlagParam, IScrapeSteamDataOmits> {
         // _id: number,
-        authorId: number,
-        authorTitle: string,
     }
 
     // tslint:disable-next-line:no-object-literal-type-assertion
     const {data: dataRaw} = await scrapeIt<IScrapeSteamData>(url, {
         id: {selector: 'a.sectionTab:nth-child(1)', attr: 'href', convert: idFromHref},
         title: {selector: '.workshopItemTitle'},
-        authorId: {selector: '.friendBlockLinkOverlay', attr: 'href', convert: authorIdConvert},
-        authorTitle: {selector: '.friendBlockContent', convert: authorTitleConvert},
+        authors: {listItem: 'div.creatorsBlock > div.friendBlock', data: {
+            id: {selector: '.friendBlockLinkOverlay', attr: 'href', convert: authorIdConvert},
+            title: {selector: '.friendBlockContent', convert: authorTitleConvert},
+        }},
         ratingStars: {selector: '.ratingSection img', attr: 'src', convert: ratingStarsConvert},
         ratingCount: {selector: '.ratingSection .numRatings', convert: ratingCountConvert},
         commentCount: {selector: 'a.sectionTab:nth-child(3) > span:nth-child(1) > span:nth-child(1)', convert: commaNumber},
@@ -117,14 +116,12 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
 
     // Check that data actually is there.
     ;([
-        'authorTitle',
         'description',
         'title',
     ] as Array<keyof PickByValueExact<IScrapeSteamData, string>>).forEach((prop) => {
         if(typeof dataRaw[prop] !== 'string') throw new Error(`Field ${prop} failed to scrape.`)
     })
     ;([
-        'authorId',
         'commentCount',
         'favoriteCount',
         'id',
@@ -153,10 +150,7 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
     const dataForFlags: IFlagParam = {
         id,
         title: dataRaw.title,
-        author: {
-            id: dataRaw.authorId,
-            title: dataRaw.authorTitle,
-        },
+        authors: dataRaw.authors,
         description: dataRaw.description,
         _thumbName: dataRaw._thumbName,
         _updated: new Date(),
@@ -279,8 +273,10 @@ export const main = async () => {
     const works: IWorkItem[] = []
     const errors: Error[] = []
 
+    const query = prepareQuery<IProjection>(QUERIES.pendingScrape)
+
     const docs = await collection
-        .find(prepareQuery<IProjection>(QUERIES.pendingScrape))
+        .find(query)
         // .limit(1000)
         // .sort({subscriberCount: -1})
         .project({
@@ -289,6 +285,15 @@ export const main = async () => {
             'steam._version': true,
         })
         .toArray()
+
+    //// For debugging.
+    // const docs = [{
+    //     _id: 1643843099,
+    //     steam: {
+    //         revision: 1,
+    //         _version: 1,
+    //     }
+    // }]
     console.info(`Scraping ${docs.length} blueprints...`)
 
     for(const [i, doc] of docs.entries()) {
