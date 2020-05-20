@@ -1,4 +1,4 @@
-import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap } from '@sepraisal/common'
+import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap, VENDOR_MOD } from '@sepraisal/common'
 import fromEntries from 'object.fromentries'
 
 import { Blueprint, Component, Cube, Group, ICoords, Ingot, Ore, Orientation, TranslationMinEnum } from './models'
@@ -315,13 +315,14 @@ export class Praisal {
             ores: fromEntries(this.oreErrors),
         }
 
+        const dlcs = new Set<VENDOR_MOD>()
         const blocks = Object.create(null) as Record<string, number>
         Object.entries(this.blockAll).forEach(([key, count]) => {
-            if(!this.cubeDefs.has(key)) return
-
-            let realKey = key
+            const cube = this.cubeDefs.get(key)
+            if(!cube) return
 
             // Merge some similar blocks to lower spam.
+            let realKey = key
             if(SIMILAR_WINDOW.includes(key)) realKey = '<Vanilla Window blocks>'
             if(SIMILAR_LIGHT_ARMOR.includes(key)) realKey = '<Vanilla Light Armor blocks>'
             if(SIMILAR_HEAVY_ARMOR.includes(key)) realKey = '<Vanilla Heavy Armor blocks>'
@@ -329,6 +330,7 @@ export class Praisal {
             if(SIMILAR_TEXT_PANEL.includes(key)) realKey = '<Vanilla Text Panel blocks>'
 
             blocks[realKey] = (realKey in blocks ? blocks[realKey] : 0) + count
+            dlcs.add(cube.mod)
         })
 
         const components = Object.create(null) as Record<string, number>
@@ -352,6 +354,8 @@ export class Praisal {
             gridTitle: this.blummary.title,
 
             missingDefinitions,
+            vanilla,
+            DLCs: [...dlcs.values()].filter((dlc) => dlc !== VENDOR_MOD.VANILLA),
 
             blocks,
             components,
@@ -367,7 +371,6 @@ export class Praisal {
             gridCount: this.blummary.grids.length,
             gridSize: this.blummary.gridSize,
             gridStatic: this.blummary.hasStaticGrid,
-            vanilla,
 
             orientation: this.orientation,
             integrityPlanes: this.integrityPlanes,

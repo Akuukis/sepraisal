@@ -1,3 +1,5 @@
+import { VENDOR_MOD } from './constants'
+
 
 // tslint:disable:member-ordering id-length
 
@@ -181,6 +183,8 @@ export namespace IBlueprint {
     export interface ISbc extends IProp, IDefinitions, IMaterialGroupFull {
         _revision: number,
         vanilla: boolean,
+        DLCs: VENDOR_MOD[],
+
         gridTitle: string,
         gridSize: GridSize,
         gridCount: number,
