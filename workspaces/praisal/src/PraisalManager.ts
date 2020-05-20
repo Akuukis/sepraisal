@@ -31,19 +31,19 @@ export class PraisalManager {
 
     public readonly praisals = new ObservableMap<Praisal>()
 
-    public async addBlueprintsSbc(blueprintsSbc: string, mod: VENDOR_MOD) {
+    @action public async addBlueprintsSbc(blueprintsSbc: string, mod: VENDOR_MOD) {
         const blueprintSbcs = await parseBlueprintSbc(blueprintsSbc, mod)
         this.blueprintSbcs.merge(blueprintSbcs.map((sbc) => [sbc.fullType, sbc]))
     }
-    public async addComponentsSbc(componentsSbc: string, mod: VENDOR_MOD) {
+    @action public async addComponentsSbc(componentsSbc: string, mod: VENDOR_MOD) {
         const componentsSbcs = await parseComponentSbc(componentsSbc, mod)
         this.componentSbcs.merge(componentsSbcs.map((sbc) => [sbc.fullType, sbc]))
     }
-    public async addPhysicalItemsSbc(physicalItemsSbc: string, mod: VENDOR_MOD) {
+    @action public async addPhysicalItemsSbc(physicalItemsSbc: string, mod: VENDOR_MOD) {
         const physicalItemsSbcs = await parsePhysicalItemsSbc(physicalItemsSbc, mod)
         this.physicalItemSbcs.merge(physicalItemsSbcs.map((sbc) => [sbc.fullType, sbc]))
     }
-    public async addCubeBlocksSbc(cubeBlocksSbc: string, mod: VENDOR_MOD) {
+    @action public async addCubeBlocksSbc(cubeBlocksSbc: string, mod: VENDOR_MOD) {
         const cubeBlocksSbcs = await parseCubeBlocksSbc(cubeBlocksSbc, mod)
         this.cubeBlocksSbcs.merge(cubeBlocksSbcs.map((sbc) => [`${String(sbc.Id[0].TypeId[0])}/${sbc.Id[0].SubtypeId[0]}`, sbc]))
     }
