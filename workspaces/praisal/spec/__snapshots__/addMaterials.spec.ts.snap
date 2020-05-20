@@ -1,526 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PraisalManager.addCubes should succeed based on vendor assets 1`] = `
-Array [
-  "DebugSphere2/DebugSphereLarge",
-  Object {
-    "$": Object {
-      "xsi:type": "MyObjectBuilder_DebugSphere2Definition",
-    },
-    "BlockTopology": Array [
-      "TriangleMesh",
-    ],
-    "BuildProgressModels": Array [
-      Object {
-        "Model": Array [
-          Object {
-            "$": Object {
-              "BuildPercentUpperBound": "1.00",
-              "File": "Models\\\\Debug\\\\RenderDebugSpheresMetallic.mwm",
-            },
-          },
-        ],
-      },
-    ],
-    "BuildTimeSeconds": Array [
-      10,
-    ],
-    "Components": Array [
-      Object {
-        "Component": Array [
-          Object {
-            "$": Object {
-              "Count": "10",
-              "Subtype": "SteelPlate",
-            },
-          },
-          Object {
-            "$": Object {
-              "Count": "20",
-              "Subtype": "Computer",
-            },
-          },
-        ],
-      },
-    ],
-    "CriticalComponent": Array [
-      Object {
-        "$": Object {
-          "Index": "0",
-          "Subtype": "Computer",
-        },
-      },
-    ],
-    "CubeSize": Array [
-      "Large",
-    ],
-    "DisplayName": Array [
-      "DisplayName_Block_DebugSphere2",
-    ],
-    "EdgeType": Array [
-      "Light",
-    ],
-    "Icon": Array [
-      "Textures\\\\GUI\\\\Icons\\\\Cubes\\\\SpaceBall.dds",
-    ],
-    "Id": Array [
-      Object {
-        "SubtypeId": Array [
-          "DebugSphereLarge",
-        ],
-        "TypeId": Array [
-          "MyObjectBuilder_DebugSphere2",
-        ],
-      },
-    ],
-    "IsAirTight": Array [
-      "false",
-    ],
-    "Model": Array [
-      "Models\\\\Debug\\\\RenderDebugSpheresMetallic.mwm",
-    ],
-    "ModelOffset": Array [
-      Object {
-        "$": Object {
-          "x": "0",
-          "y": "0",
-          "z": "0",
-        },
-      },
-    ],
-    "MountPoints": Array [
-      Object {
-        "MountPoint": Array [
-          Object {
-            "$": Object {
-              "EndX": "2",
-              "EndY": "1",
-              "Side": "Left",
-              "StartX": "0.0",
-              "StartY": "0.0",
-            },
-          },
-          Object {
-            "$": Object {
-              "EndX": "2",
-              "EndY": "1",
-              "Side": "Right",
-              "StartX": "0.0",
-              "StartY": "0.0",
-            },
-          },
-          Object {
-            "$": Object {
-              "EndX": "2",
-              "EndY": "1",
-              "Side": "Back",
-              "StartX": "0.0",
-              "StartY": "0.0",
-            },
-          },
-          Object {
-            "$": Object {
-              "EndX": "2",
-              "EndY": "1",
-              "Side": "Front",
-              "StartX": "0.0",
-              "StartY": "0.0",
-            },
-          },
-          Object {
-            "$": Object {
-              "EndX": "2",
-              "EndY": "2",
-              "Side": "Top",
-              "StartX": "0.0",
-              "StartY": "0.0",
-            },
-          },
-          Object {
-            "$": Object {
-              "EndX": "2",
-              "EndY": "2",
-              "Side": "Bottom",
-              "StartX": "0.0",
-              "StartY": "0.0",
-            },
-          },
-        ],
-      },
-    ],
-    "PCU": Array [
-      0,
-    ],
-    "Public": Array [
-      "false",
-    ],
-    "RequiredPowerInput": Array [
-      "0.0",
-    ],
-    "Size": Array [
-      Object {
-        "$": Object {
-          "x": 2,
-          "y": 1,
-          "z": 2,
-        },
-      },
-    ],
-  },
-]
-`;
+exports[`PraisalManager with economy materials only should build all components 1`] = `0`;
 
-exports[`PraisalManager.addCubes should succeed based on vendor assets 2`] = `
-Array [
-  "CubeBlock/LargeRailStraight",
-  "DebugSphere1/DebugSphereLarge",
-  "DebugSphere2/DebugSphereLarge",
-  "DebugSphere3/DebugSphereLarge",
-  "CubeBlock/LargeBlockArmorBlock",
-  "CubeBlock/LargeBlockArmorSlope",
-  "CubeBlock/LargeBlockArmorCorner",
-  "CubeBlock/LargeBlockArmorCornerInv",
-  "CubeBlock/LargeRoundArmor_Slope",
-  "CubeBlock/LargeRoundArmor_Corner",
-  "CubeBlock/LargeRoundArmor_CornerInv",
-  "CubeBlock/LargeHeavyBlockArmorBlock",
-  "CubeBlock/LargeHeavyBlockArmorSlope",
-  "CubeBlock/LargeHeavyBlockArmorCorner",
-  "CubeBlock/LargeHeavyBlockArmorCornerInv",
-  "CubeBlock/SmallBlockArmorBlock",
-  "CubeBlock/SmallBlockArmorSlope",
-  "CubeBlock/SmallBlockArmorCorner",
-  "CubeBlock/SmallBlockArmorCornerInv",
-  "CubeBlock/SmallHeavyBlockArmorBlock",
-  "CubeBlock/SmallHeavyBlockArmorSlope",
-  "CubeBlock/SmallHeavyBlockArmorCorner",
-  "CubeBlock/SmallHeavyBlockArmorCornerInv",
-  "CubeBlock/LargeHalfArmorBlock",
-  "CubeBlock/LargeHeavyHalfArmorBlock",
-  "CubeBlock/LargeHalfSlopeArmorBlock",
-  "CubeBlock/LargeHeavyHalfSlopeArmorBlock",
-  "CubeBlock/HalfArmorBlock",
-  "CubeBlock/HeavyHalfArmorBlock",
-  "CubeBlock/HalfSlopeArmorBlock",
-  "CubeBlock/HeavyHalfSlopeArmorBlock",
-  "CubeBlock/LargeBlockArmorRoundSlope",
-  "CubeBlock/LargeBlockArmorRoundCorner",
-  "CubeBlock/LargeBlockArmorRoundCornerInv",
-  "CubeBlock/LargeHeavyBlockArmorRoundSlope",
-  "CubeBlock/LargeHeavyBlockArmorRoundCorner",
-  "CubeBlock/LargeHeavyBlockArmorRoundCornerInv",
-  "CubeBlock/SmallBlockArmorRoundSlope",
-  "CubeBlock/SmallBlockArmorRoundCorner",
-  "CubeBlock/SmallBlockArmorRoundCornerInv",
-  "CubeBlock/SmallHeavyBlockArmorRoundSlope",
-  "CubeBlock/SmallHeavyBlockArmorRoundCorner",
-  "CubeBlock/SmallHeavyBlockArmorRoundCornerInv",
-  "CubeBlock/LargeBlockArmorSlope2Base",
-  "CubeBlock/LargeBlockArmorSlope2Tip",
-  "CubeBlock/LargeBlockArmorCorner2Base",
-  "CubeBlock/LargeBlockArmorCorner2Tip",
-  "CubeBlock/LargeBlockArmorInvCorner2Base",
-  "CubeBlock/LargeBlockArmorInvCorner2Tip",
-  "CubeBlock/LargeHeavyBlockArmorSlope2Base",
-  "CubeBlock/LargeHeavyBlockArmorSlope2Tip",
-  "CubeBlock/LargeHeavyBlockArmorCorner2Base",
-  "CubeBlock/LargeHeavyBlockArmorCorner2Tip",
-  "CubeBlock/LargeHeavyBlockArmorInvCorner2Base",
-  "CubeBlock/LargeHeavyBlockArmorInvCorner2Tip",
-  "CubeBlock/SmallBlockArmorSlope2Base",
-  "CubeBlock/SmallBlockArmorSlope2Tip",
-  "CubeBlock/SmallBlockArmorCorner2Base",
-  "CubeBlock/SmallBlockArmorCorner2Tip",
-  "CubeBlock/SmallBlockArmorInvCorner2Base",
-  "CubeBlock/SmallBlockArmorInvCorner2Tip",
-  "CubeBlock/SmallHeavyBlockArmorSlope2Base",
-  "CubeBlock/SmallHeavyBlockArmorSlope2Tip",
-  "CubeBlock/SmallHeavyBlockArmorCorner2Base",
-  "CubeBlock/SmallHeavyBlockArmorCorner2Tip",
-  "CubeBlock/SmallHeavyBlockArmorInvCorner2Base",
-  "CubeBlock/SmallHeavyBlockArmorInvCorner2Tip",
-  "MyProgrammableBlock/SmallProgrammableBlock",
-  "MyObjectBuilder_Projector/LargeProjector",
-  "MyObjectBuilder_Projector/SmallProjector",
-  "SensorBlock/SmallBlockSensor",
-  "SensorBlock/LargeBlockSensor",
-  "SoundBlock/SmallBlockSoundBlock",
-  "SoundBlock/LargeBlockSoundBlock",
-  "ButtonPanel/ButtonPanelLarge",
-  "ButtonPanel/ButtonPanelSmall",
-  "TimerBlock/TimerBlockLarge",
-  "TimerBlock/TimerBlockSmall",
-  "MyProgrammableBlock/LargeProgrammableBlock",
-  "RadioAntenna/LargeBlockRadioAntenna",
-  "Beacon/LargeBlockBeacon",
-  "Beacon/SmallBlockBeacon",
-  "RadioAntenna/SmallBlockRadioAntenna",
-  "RemoteControl/LargeBlockRemoteControl",
-  "RemoteControl/SmallBlockRemoteControl",
-  "LaserAntenna/LargeBlockLaserAntenna",
-  "LaserAntenna/SmallBlockLaserAntenna",
-  "TerminalBlock/ControlPanel",
-  "TerminalBlock/SmallControlPanel",
-  "Cockpit/LargeBlockCockpit",
-  "Cockpit/LargeBlockCockpitSeat",
-  "Cockpit/SmallBlockCockpit",
-  "Cockpit/DBSmallBlockFighterCockpit",
-  "Cockpit/CockpitOpen",
-  "Gyro/LargeBlockGyro",
-  "Gyro/SmallBlockGyro",
-  "Cockpit/OpenCockpitSmall",
-  "Cockpit/OpenCockpitLarge",
-  "Door/",
-  "AirtightHangarDoor/",
-  "AirtightSlideDoor/LargeBlockSlideDoor",
-  "CubeBlock/ArmorCenter",
-  "CubeBlock/ArmorCorner",
-  "CubeBlock/ArmorInvCorner",
-  "CubeBlock/ArmorSide",
-  "CubeBlock/SmallArmorCenter",
-  "CubeBlock/SmallArmorCorner",
-  "CubeBlock/SmallArmorInvCorner",
-  "CubeBlock/SmallArmorSide",
-  "BatteryBlock/LargeBlockBatteryBlock",
-  "BatteryBlock/SmallBlockBatteryBlock",
-  "BatteryBlock/SmallBlockSmallBatteryBlock",
-  "Reactor/SmallBlockSmallGenerator",
-  "Reactor/SmallBlockLargeGenerator",
-  "Reactor/LargeBlockSmallGenerator",
-  "Reactor/LargeBlockLargeGenerator",
-  "HydrogenEngine/LargeHydrogenEngine",
-  "HydrogenEngine/SmallHydrogenEngine",
-  "WindTurbine/LargeBlockWindTurbine",
-  "SolarPanel/LargeBlockSolarPanel",
-  "SolarPanel/SmallBlockSolarPanel",
-  "CubeBlock/Monolith",
-  "CubeBlock/Stereolith",
-  "CubeBlock/LargeDeadAstronaut",
-  "GravityGenerator/",
-  "GravityGeneratorSphere/",
-  "VirtualMass/VirtualMassLarge",
-  "VirtualMass/VirtualMassSmall",
-  "SpaceBall/SpaceBallLarge",
-  "SpaceBall/SpaceBallSmall",
-  "Passage/",
-  "CubeBlock/LargeStairs",
-  "CubeBlock/LargeRamp",
-  "CubeBlock/LargeSteelCatwalk",
-  "CubeBlock/LargeSteelCatwalk2Sides",
-  "CubeBlock/LargeSteelCatwalkCorner",
-  "CubeBlock/LargeSteelCatwalkPlate",
-  "CubeBlock/LargeCoverWall",
-  "CubeBlock/LargeCoverWallHalf",
-  "CubeBlock/LargeBlockInteriorWall",
-  "CubeBlock/LargeInteriorPillar",
-  "Cockpit/PassengerSeatLarge",
-  "Cockpit/PassengerSeatSmall",
-  "Ladder2/",
-  "Ladder2/LadderSmall",
-  "TextPanel/SmallTextPanel",
-  "TextPanel/SmallLCDPanelWide",
-  "TextPanel/SmallLCDPanel",
-  "TextPanel/LargeBlockCorner_LCD_1",
-  "TextPanel/LargeBlockCorner_LCD_2",
-  "TextPanel/LargeBlockCorner_LCD_Flat_1",
-  "TextPanel/LargeBlockCorner_LCD_Flat_2",
-  "TextPanel/SmallBlockCorner_LCD_1",
-  "TextPanel/SmallBlockCorner_LCD_2",
-  "TextPanel/SmallBlockCorner_LCD_Flat_1",
-  "TextPanel/SmallBlockCorner_LCD_Flat_2",
-  "TextPanel/LargeTextPanel",
-  "TextPanel/LargeLCDPanel",
-  "TextPanel/LargeLCDPanelWide",
-  "ReflectorLight/LargeBlockFrontLight",
-  "ReflectorLight/SmallBlockFrontLight",
-  "InteriorLight/SmallLight",
-  "InteriorLight/SmallBlockSmallLight",
-  "InteriorLight/LargeBlockLight_1corner",
-  "InteriorLight/LargeBlockLight_2corner",
-  "InteriorLight/SmallBlockLight_1corner",
-  "InteriorLight/SmallBlockLight_2corner",
-  "OxygenTank/OxygenTankSmall",
-  "OxygenTank/",
-  "OxygenTank/LargeHydrogenTank",
-  "OxygenTank/LargeHydrogenTankSmall",
-  "OxygenTank/SmallHydrogenTank",
-  "OxygenTank/SmallHydrogenTankSmall",
-  "AirVent/",
-  "AirVent/SmallAirVent",
-  "CargoContainer/SmallBlockSmallContainer",
-  "CargoContainer/SmallBlockMediumContainer",
-  "CargoContainer/SmallBlockLargeContainer",
-  "CargoContainer/LargeBlockSmallContainer",
-  "CargoContainer/LargeBlockLargeContainer",
-  "Conveyor/SmallBlockConveyor",
-  "Conveyor/LargeBlockConveyor",
-  "Collector/Collector",
-  "Collector/CollectorSmall",
-  "ShipConnector/Connector",
-  "ShipConnector/ConnectorSmall",
-  "ShipConnector/ConnectorMedium",
-  "ConveyorConnector/ConveyorTube",
-  "ConveyorConnector/ConveyorTubeSmall",
-  "ConveyorConnector/ConveyorTubeMedium",
-  "ConveyorConnector/ConveyorFrameMedium",
-  "ConveyorConnector/ConveyorTubeCurved",
-  "ConveyorConnector/ConveyorTubeSmallCurved",
-  "ConveyorConnector/ConveyorTubeCurvedMedium",
-  "Conveyor/SmallShipConveyorHub",
-  "ConveyorSorter/LargeBlockConveyorSorter",
-  "ConveyorSorter/MediumBlockConveyorSorter",
-  "ConveyorSorter/SmallBlockConveyorSorter",
-  "PistonBase/LargePistonBase",
-  "ExtendedPistonBase/LargePistonBase",
-  "PistonTop/LargePistonTop",
-  "PistonBase/SmallPistonBase",
-  "ExtendedPistonBase/SmallPistonBase",
-  "PistonTop/SmallPistonTop",
-  "MotorStator/LargeStator",
-  "MotorRotor/LargeRotor",
-  "MotorStator/SmallStator",
-  "MotorRotor/SmallRotor",
-  "MotorAdvancedStator/LargeAdvancedStator",
-  "MotorAdvancedRotor/LargeAdvancedRotor",
-  "MotorAdvancedStator/SmallAdvancedStator",
-  "MotorAdvancedRotor/SmallAdvancedRotor",
-  "MedicalRoom/LargeMedicalRoom",
-  "CryoChamber/LargeBlockCryoChamber",
-  "CryoChamber/SmallBlockCryoChamber",
-  "Refinery/LargeRefinery",
-  "Refinery/Blast Furnace",
-  "OxygenGenerator/",
-  "OxygenGenerator/OxygenGeneratorSmall",
-  "Assembler/LargeAssembler",
-  "Assembler/BasicAssembler",
-  "SurvivalKit/SurvivalKitLarge",
-  "SurvivalKit/SurvivalKit",
-  "OxygenFarm/LargeBlockOxygenFarm",
-  "UpgradeModule/LargeProductivityModule",
-  "UpgradeModule/LargeEffectivenessModule",
-  "UpgradeModule/LargeEnergyModule",
-  "Thrust/SmallBlockSmallThrust",
-  "Thrust/SmallBlockLargeThrust",
-  "Thrust/LargeBlockSmallThrust",
-  "Thrust/LargeBlockLargeThrust",
-  "Thrust/LargeBlockLargeHydrogenThrust",
-  "Thrust/LargeBlockSmallHydrogenThrust",
-  "Thrust/SmallBlockLargeHydrogenThrust",
-  "Thrust/SmallBlockSmallHydrogenThrust",
-  "Thrust/LargeBlockLargeAtmosphericThrust",
-  "Thrust/LargeBlockSmallAtmosphericThrust",
-  "Thrust/SmallBlockLargeAtmosphericThrust",
-  "Thrust/SmallBlockSmallAtmosphericThrust",
-  "Drill/SmallBlockDrill",
-  "Drill/LargeBlockDrill",
-  "ShipGrinder/LargeShipGrinder",
-  "ShipGrinder/SmallShipGrinder",
-  "ShipWelder/LargeShipWelder",
-  "ShipWelder/SmallShipWelder",
-  "OreDetector/LargeOreDetector",
-  "OreDetector/SmallBlockOreDetector",
-  "LandingGear/LargeBlockLandingGear",
-  "LandingGear/SmallBlockLandingGear",
-  "JumpDrive/LargeJumpDrive",
-  "CameraBlock/SmallCameraBlock",
-  "CameraBlock/LargeCameraBlock",
-  "MergeBlock/LargeShipMergeBlock",
-  "MergeBlock/SmallShipMergeBlock",
-  "Parachute/LgParachute",
-  "Parachute/SmParachute",
-  "Warhead/LargeWarhead",
-  "Warhead/SmallWarhead",
-  "Decoy/LargeDecoy",
-  "Decoy/SmallDecoy",
-  "LargeGatlingTurret/",
-  "LargeGatlingTurret/SmallGatlingTurret",
-  "LargeMissileTurret/",
-  "LargeMissileTurret/SmallMissileTurret",
-  "InteriorTurret/LargeInteriorTurret",
-  "SmallMissileLauncher/",
-  "SmallMissileLauncher/LargeMissileLauncher",
-  "SmallMissileLauncherReload/SmallRocketLauncherReload",
-  "SmallGatlingGun/",
-  "MotorSuspension/Suspension3x3",
-  "MotorSuspension/Suspension5x5",
-  "MotorSuspension/Suspension1x1",
-  "MotorSuspension/SmallSuspension3x3",
-  "MotorSuspension/SmallSuspension5x5",
-  "MotorSuspension/SmallSuspension1x1",
-  "MotorSuspension/Suspension3x3mirrored",
-  "MotorSuspension/Suspension5x5mirrored",
-  "MotorSuspension/Suspension1x1mirrored",
-  "MotorSuspension/SmallSuspension3x3mirrored",
-  "MotorSuspension/SmallSuspension5x5mirrored",
-  "MotorSuspension/SmallSuspension1x1mirrored",
-  "Wheel/SmallRealWheel1x1",
-  "Wheel/SmallRealWheel",
-  "Wheel/SmallRealWheel5x5",
-  "Wheel/RealWheel1x1",
-  "Wheel/RealWheel",
-  "Wheel/RealWheel5x5",
-  "Wheel/SmallRealWheel1x1mirrored",
-  "Wheel/SmallRealWheelmirrored",
-  "Wheel/SmallRealWheel5x5mirrored",
-  "Wheel/RealWheel1x1mirrored",
-  "Wheel/RealWheelmirrored",
-  "Wheel/RealWheel5x5mirrored",
-  "Wheel/Wheel1x1",
-  "Wheel/SmallWheel1x1",
-  "Wheel/Wheel3x3",
-  "Wheel/SmallWheel3x3",
-  "Wheel/Wheel5x5",
-  "Wheel/SmallWheel5x5",
-  "CubeBlock/LargeWindowSquare",
-  "CubeBlock/LargeWindowEdge",
-  "CubeBlock/Window1x2Slope",
-  "CubeBlock/Window1x2Inv",
-  "CubeBlock/Window1x2Face",
-  "CubeBlock/Window1x2SideLeft",
-  "CubeBlock/Window1x2SideLeftInv",
-  "CubeBlock/Window1x2SideRight",
-  "CubeBlock/Window1x2SideRightInv",
-  "CubeBlock/Window1x1Slope",
-  "CubeBlock/Window1x1Face",
-  "CubeBlock/Window1x1Side",
-  "CubeBlock/Window1x1SideInv",
-  "CubeBlock/Window1x1Inv",
-  "CubeBlock/Window1x2Flat",
-  "CubeBlock/Window1x2FlatInv",
-  "CubeBlock/Window1x1Flat",
-  "CubeBlock/Window1x1FlatInv",
-  "CubeBlock/Window3x3Flat",
-  "CubeBlock/Window3x3FlatInv",
-  "CubeBlock/Window2x3Flat",
-  "CubeBlock/Window2x3FlatInv",
-  "CubeBlock/SmallWindow1x2Slope",
-  "CubeBlock/SmallWindow1x2Inv",
-  "CubeBlock/SmallWindow1x2Face",
-  "CubeBlock/SmallWindow1x2SideLeft",
-  "CubeBlock/SmallWindow1x2SideLeftInv",
-  "CubeBlock/SmallWindow1x2SideRight",
-  "CubeBlock/SmallWindow1x2SideRightInv",
-  "CubeBlock/SmallWindow1x1Slope",
-  "CubeBlock/SmallWindow1x1Face",
-  "CubeBlock/SmallWindow1x1Side",
-  "CubeBlock/SmallWindow1x1SideInv",
-  "CubeBlock/SmallWindow1x1Inv",
-  "CubeBlock/SmallWindow1x2Flat",
-  "CubeBlock/SmallWindow1x2FlatInv",
-  "CubeBlock/SmallWindow1x1Flat",
-  "CubeBlock/SmallWindow1x1FlatInv",
-  "CubeBlock/SmallWindow3x3Flat",
-  "CubeBlock/SmallWindow3x3FlatInv",
-  "CubeBlock/SmallWindow2x3Flat",
-  "CubeBlock/SmallWindow2x3FlatInv",
-]
-`;
+exports[`PraisalManager with economy materials only should build all components 2`] = `Array []`;
 
-exports[`PraisalManager.addCubes should succeed based on vendor assets 3`] = `341`;
+exports[`PraisalManager with economy materials only should build all components 3`] = `Array []`;
 
-exports[`PraisalManager.addSbc should build all components 1`] = `22`;
+exports[`PraisalManager with economy materials only should build all ingots 1`] = `0`;
 
-exports[`PraisalManager.addSbc should build all components 2`] = `
+exports[`PraisalManager with economy materials only should build all ingots 2`] = `Array []`;
+
+exports[`PraisalManager with economy materials only should build all ingots 3`] = `Array []`;
+
+exports[`PraisalManager with economy materials only should build all ores 1`] = `0`;
+
+exports[`PraisalManager with economy materials only should build all ores 2`] = `Array []`;
+
+exports[`PraisalManager with economy materials only should build all ores 3`] = `Array []`;
+
+exports[`PraisalManager with vanilla materials only should build all components 1`] = `22`;
+
+exports[`PraisalManager with vanilla materials only should build all components 2`] = `
 Array [
   "Component/Construction",
   "Component/Girder",
@@ -547,7 +47,7 @@ Array [
 ]
 `;
 
-exports[`PraisalManager.addSbc should build all components 3`] = `
+exports[`PraisalManager with vanilla materials only should build all components 3`] = `
 Array [
   Object {
     "health": 18,
@@ -949,9 +449,9 @@ Array [
 ]
 `;
 
-exports[`PraisalManager.addSbc should build all ingots 1`] = `10`;
+exports[`PraisalManager with vanilla materials only should build all ingots 1`] = `10`;
 
-exports[`PraisalManager.addSbc should build all ingots 2`] = `
+exports[`PraisalManager with vanilla materials only should build all ingots 2`] = `
 Array [
   "Ingot/Stone",
   "Ingot/Iron",
@@ -966,7 +466,7 @@ Array [
 ]
 `;
 
-exports[`PraisalManager.addSbc should build all ingots 3`] = `
+exports[`PraisalManager with vanilla materials only should build all ingots 3`] = `
 Array [
   Object {
     "mass": 1,
@@ -1071,9 +571,9 @@ Array [
 ]
 `;
 
-exports[`PraisalManager.addSbc should build all ores 1`] = `13`;
+exports[`PraisalManager with vanilla materials only should build all ores 1`] = `13`;
 
-exports[`PraisalManager.addSbc should build all ores 2`] = `
+exports[`PraisalManager with vanilla materials only should build all ores 2`] = `
 Array [
   "Ore/Stone",
   "Ore/Iron",
@@ -1091,7 +591,7 @@ Array [
 ]
 `;
 
-exports[`PraisalManager.addSbc should build all ores 3`] = `
+exports[`PraisalManager with vanilla materials only should build all ores 3`] = `
 Array [
   Object {
     "mass": 1,

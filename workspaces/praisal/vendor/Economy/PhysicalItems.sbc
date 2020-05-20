@@ -1,0 +1,117 @@
+﻿<?xml version="1.0"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <PhysicalItems>
+        <PhysicalItem xsi:type="MyObjectBuilder_DatapadDefinition">
+            <Id>
+                <TypeId>Datapad</TypeId>
+                <SubtypeId>Datapad</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Datapad</DisplayName>
+            <Description>Description_Datapad</Description>
+            <Icon>Textures\GUI\Icons\Items\Datapad_Item.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.1</Y>
+                <Z>0.2</Z>
+            </Size>
+            <Mass>0.2</Mass>
+            <Volume>0.4</Volume>
+            <Model>Models\Items\Datapad_Item.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>20</MaximumOfferAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem>
+
+        <PhysicalItem xsi:type="MyObjectBuilder_PackageDefinition">
+            <Id>
+                <TypeId>Package</TypeId>
+                <SubtypeId>Package</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Package</DisplayName>
+            <Description>Description_Package</Description>
+            <Icon>Textures\GUI\Icons\Items\ContractPackage.dds</Icon>
+            <Size>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>0.5</Z>
+            </Size>
+            <Mass>100</Mass>
+            <Volume>125</Volume>
+            <Model>Models\Components\ContractPackage.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+        </PhysicalItem>
+        <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+            <Id>
+                <TypeId>ConsumableItem</TypeId>
+                <SubtypeId>Medkit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Medkit</DisplayName>
+            <Description>Description_Medkit</Description>
+            <Icon>Textures\GUI\Icons\Items\MedKit.dds</Icon>
+            <Size>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>0.5</Z>
+            </Size>
+            <Mass>10</Mass>
+            <Volume>12</Volume>
+            <Model>Models\Items\Medkit_Item.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <Stats>
+                <Stat Name="Health" Value ="0.05" Time="5"/>
+            </Stats>
+
+            <MinimalPricePerUnit>750</MinimalPricePerUnit>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem>
+        <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+            <Id>
+                <TypeId>ConsumableItem</TypeId>
+                <SubtypeId>Powerkit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Powerkit</DisplayName>
+            <Description>Description_Powerkit</Description>
+            <Icon>Textures\GUI\Icons\Items\PowerKit.dds</Icon>
+            <Size>
+                <X>0.14</X>
+                <Y>0.43</Y>
+                <Z>0.14</Z>
+            </Size>
+            <Mass>9</Mass>
+            <Volume>9</Volume>
+            <Model>Models\Items\PowerKit.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <Stats>
+                <Stat Name="BatteryCharge" Value ="0.05" Time="5"/>
+            </Stats>
+            
+            <MinimalPricePerUnit>1000</MinimalPricePerUnit>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem>
+        <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
+            <Id>
+                <TypeId>PhysicalObject</TypeId>
+                <SubtypeId>SpaceCredit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_SpaceCredit</DisplayName>
+            <Description>Description_SpaceCredit</Description>
+            <Icon>Textures\GUI\Icons\Items\SpaceCredit.dds</Icon>
+            <Size>
+                <X>0.001</X>
+                <Y>0.001</Y>
+                <Z>0.001</Z>
+            </Size>
+            <Mass>0.001</Mass>
+            <Volume>0.001</Volume>
+            <MaxStackAmount>1000000</MaxStackAmount>
+            <Model>Models\Components\SpaceCredit.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+        </PhysicalItem>
+    </PhysicalItems>
+</Definitions>

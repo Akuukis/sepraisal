@@ -8,7 +8,7 @@ export enum VENDOR_MOD {
 
     ECONOMY = 'Economy',
     FROSTBITE = 'Frostbite',
-    DECORATIVE_1 = 'DecorativePack1',
+    DECORATIVE_1 = 'DecorativePack',
     DECORATIVE_2 = 'DecorativePack2',
 }
 

@@ -8,22 +8,16 @@ import { PraisalManager } from '../src'
 // tslint:disable: no-duplicate-string
 const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
+const physicalItemsSbcVanilla = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
+const materialsSbcVanilla = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+const componentsSbcVanilla = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
+const physicalItemsSbcEconomy = readFileSync(join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'PhysicalItems.sbc')).toString()
+const materialsSbcEconomy = readFileSync(join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'Blueprints.sbc')).toString()
+const componentsSbcEconomy = readFileSync(join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'Components.sbc')).toString()
 
 let sepraisal: PraisalManager
-beforeEach(async () => {
-    sepraisal = new PraisalManager()
-    const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-    const materialsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-    const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-    await sepraisal.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)
-    await sepraisal.addBlueprintsSbc(materialsSbc, VENDOR_MOD.VANILLA)
-    await sepraisal.addComponentsSbc(componentsSbc, VENDOR_MOD.VANILLA)
-    sepraisal.build()
-})
 
-describe('PraisalManager.addSbc', () => {
-    beforeAll(async () => {
-    })
+const testMaterials = () => {
     test('should build all ores', async () => {
         expect(sepraisal.ores.size).toMatchSnapshot()
         expect([...sepraisal.ores.keys()]).toMatchSnapshot()
@@ -39,36 +33,25 @@ describe('PraisalManager.addSbc', () => {
         expect([...sepraisal.components.keys()]).toMatchSnapshot()
         expect([...sepraisal.components.values()]).toMatchSnapshot()
     })
-})
-describe('PraisalManager.addCubes', () => {
-    test('should succeed based on vendor assets', async () => {
-        const cubeBlocksSbcs = [
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Communications.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Control.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Doors.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Energy.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Extras.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Gravity.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Interiors.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_LCDPanels.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Lights.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Logistics.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Mechanical.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Medical.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Production.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Thrusters.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Tools.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Utility.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Weapons.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
-            readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
-        ]
-        for(const cubeBlocksSbc of cubeBlocksSbcs) await sepraisal.addCubes(cubeBlocksSbc)
-        expect([...sepraisal.cubes.entries()][2]).toMatchSnapshot()
-        expect([...sepraisal.cubes.keys()]).toMatchSnapshot()
-        expect(sepraisal.cubes.size).toMatchSnapshot()
+}
+
+describe('PraisalManager with vanilla materials only', () => {
+    beforeEach(async () => {
+        sepraisal = new PraisalManager()
+        await sepraisal.addPhysicalItemsSbc(physicalItemsSbcVanilla, VENDOR_MOD.VANILLA)
+        await sepraisal.addBlueprintsSbc(materialsSbcVanilla, VENDOR_MOD.VANILLA)
+        await sepraisal.addComponentsSbc(componentsSbcVanilla, VENDOR_MOD.VANILLA)
+        sepraisal.build()
     })
+    testMaterials()
+})
+describe('PraisalManager with economy materials only', () => {
+    beforeEach(async () => {
+        sepraisal = new PraisalManager()
+        await sepraisal.addPhysicalItemsSbc(physicalItemsSbcEconomy, VENDOR_MOD.ECONOMY)
+        await sepraisal.addBlueprintsSbc(materialsSbcEconomy, VENDOR_MOD.ECONOMY)
+        await sepraisal.addComponentsSbc(componentsSbcEconomy, VENDOR_MOD.ECONOMY)
+        sepraisal.build()
+    })
+    testMaterials()
 })

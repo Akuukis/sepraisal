@@ -65,7 +65,7 @@ export class PraisalManager {
 
     public async addCubes(cubeBlocksSbc: string) {
         const cubes = await Cube.parseSbc(cubeBlocksSbc, this.components)
-        runInAction('SEPraisal.addSbcCube', () => {
+        runInAction('PraisalManager.addCubes', () => {
             cubes.forEach((cube) => this.cubes.set(cube.title, cube))
         })
 
