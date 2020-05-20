@@ -2,7 +2,7 @@ import { BLOCK_GROUPS, VENDOR_MOD } from '@sepraisal/common'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
-import { PraisalManager } from '../src'
+import { PraisalManager } from './PraisalManager'
 
 export const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
