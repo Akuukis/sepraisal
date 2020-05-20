@@ -1,5 +1,3 @@
-import { ObservableMap } from '@sepraisal/common/src'
-
 import { IParsePhysicalItemsSbc } from '../parsers'
 
 
@@ -12,7 +10,7 @@ export interface IOreDTO {
 
 export class Ore implements IOreDTO {
 
-    public static fromSbcs(physicalItemsSbcs: ObservableMap<IParsePhysicalItemsSbc>): Ore[] {
+    public static fromSbcs(physicalItemsSbcs: Map<string, IParsePhysicalItemsSbc>): Ore[] {
         return [...physicalItemsSbcs.values()]
             .filter((sbc) => sbc.type === 'Ore')
             .map((blockDto) => new Ore(blockDto))

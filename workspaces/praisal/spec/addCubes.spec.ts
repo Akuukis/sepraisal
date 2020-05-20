@@ -17,7 +17,8 @@ let sepraisalManager: PraisalManager
 const testCubeBlocksFile = (mod: VENDOR_MOD, path: string) => {
     test(`should add ${mod} "${basename(path)}"`, async () => {
         const cubeBlocksSbcs = readFileSync(path).toString()
-        await sepraisalManager.addCubes(cubeBlocksSbcs)
+        await sepraisalManager.addCubeBlocksSbc(cubeBlocksSbcs, mod)
+        sepraisalManager.build()
         expect(sepraisalManager.cubes.size).toMatchSnapshot()
         expect([...sepraisalManager.cubes.keys()]).toMatchSnapshot()
         ;[...sepraisalManager.cubes.values()].forEach((cube) => {

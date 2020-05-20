@@ -1,5 +1,5 @@
 import { BLOCK_GROUPS, ObservableMap, VENDOR_MOD } from '@sepraisal/common'
-import { action, runInAction } from 'mobx'
+import { action } from 'mobx'
 
 import { Blueprint, Component, Cube, Group, Ingot, Ore } from './models'
 import {
@@ -10,13 +10,16 @@ import {
     parseComponentSbc,
     parsePhysicalItemsSbc,
 } from './parsers'
+import { parseCubeBlocksSbc } from './parsers/parseCubeBlocksSbc'
 import { Praisal } from './Praisal'
+import { CubeDTO } from './xmlns/CubeDefinition'
 
 // tslint:disable-next-line: min-class-cohesion
 export class PraisalManager {
     private readonly blueprintSbcs = new ObservableMap<IParseBlueprintSbc>()
     private readonly physicalItemSbcs = new ObservableMap<IParsePhysicalItemsSbc>()
     private readonly componentSbcs = new ObservableMap<IParseComponentSbc>()
+    private readonly cubeBlocksSbcs = new ObservableMap<CubeDTO>()
 
     public readonly components = new ObservableMap<Component>()
     public readonly ingots = new ObservableMap<Ingot>()
@@ -40,12 +43,16 @@ export class PraisalManager {
         const physicalItemsSbcs = await parsePhysicalItemsSbc(physicalItemsSbc)
         this.physicalItemSbcs.merge(physicalItemsSbcs.map((sbc) => [sbc.fullType, sbc]))
     }
+    public async addCubeBlocksSbc(cubeBlocksSbc: string, mod: VENDOR_MOD) {
+        const cubeBlocksSbcs = await parseCubeBlocksSbc(cubeBlocksSbc)
+        this.cubeBlocksSbcs.merge(cubeBlocksSbcs.map((sbc) => [`${String(sbc.Id[0].TypeId[0])}/${sbc.Id[0].SubtypeId[0]}`, sbc]))
+    }
 
     @action public build() {
         this.buildOres()
         this.buildIngots()
         this.buildComponents()
-        // this.buildCubes()
+        this.buildCubes()
     }
 
     @action private buildOres() {
@@ -63,12 +70,9 @@ export class PraisalManager {
         this.components.merge(components.map((component) => [component.title, component]))
     }
 
-    public async addCubes(cubeBlocksSbc: string) {
-        const cubes = await Cube.parseSbc(cubeBlocksSbc, this.components)
-        runInAction('PraisalManager.addCubes', () => {
-            cubes.forEach((cube) => this.cubes.set(cube.title, cube))
-        })
-
+    @action private buildCubes() {
+        const cubes = Cube.fromSbcs(this.components, this.cubeBlocksSbcs)
+        this.cubes.merge(cubes.map((component) => [component.title, component]))
     }
 
     @action public addGroups(groups2: typeof BLOCK_GROUPS) {

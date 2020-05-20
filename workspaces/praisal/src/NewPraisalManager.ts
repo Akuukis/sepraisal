@@ -45,8 +45,8 @@ export const NewPraisalManager = () => {
         await sepraisal.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)
         await sepraisal.addBlueprintsSbc(blueprintsSbc, VENDOR_MOD.VANILLA)
         await sepraisal.addComponentsSbc(componentsSbc, VENDOR_MOD.VANILLA)
+        for(const [mod, cubeBlocksSbc] of cubeBlocksSbcs) await sepraisal.addCubeBlocksSbc(cubeBlocksSbc, VENDOR_MOD.VANILLA)
         sepraisal.build()
-        for(const [mod, cubeBlocksSbc] of cubeBlocksSbcs) await sepraisal.addCubes(cubeBlocksSbc)
         sepraisal.addGroups(BLOCK_GROUPS)
 
         return sepraisal

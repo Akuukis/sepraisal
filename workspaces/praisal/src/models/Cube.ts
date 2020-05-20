@@ -1,8 +1,7 @@
 import { Omit } from 'utility-types'
-import { parseString } from 'xml2js'
 
-import { CubeDTO, ICubeDefinition } from '..//xmlns/CubeDefinition'
-import { CubeType } from '..//xmlns/CubeType'
+import { CubeDTO } from '../xmlns/CubeDefinition'
+import { CubeType } from '../xmlns/CubeType'
 import { Component } from './Component'
 
 
@@ -14,20 +13,9 @@ type Omits = 'BuildTimeSeconds' | 'CubeSize' | 'DisplayName' | 'Id' | 'PCU' | 'S
 // tslint:disable-next-line: min-class-cohesion
 export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJSON' | 'health' | 'maxIntegrity'> {
 
-    public static async parseSbc(xml: string, componentStore: Map<string, Component>): Promise<Cube[]> {
-        return new Promise((resolve: (value: Cube[]) => void, reject: (reason: Error) => void) => {
-            parseString(xml, (parseError, bp: ICubeDefinition) => {
-                try {
-                    resolve(bp.Definitions.CubeBlocks[0].Definition
-                        .filter((cubeDto) => cubeDto.Id['0'].SubtypeId['0'] !== 'DeadAstronaut')
-                        .map((cubeDto) => new Cube(cubeDto, componentStore)))
-                } catch(err) {
-                    reject(err as Error)
-                }
-            })
-        })
+    public static fromSbcs(componentStore: Map<string, Component>, cubeBlocksSbcs: Map<string, CubeDTO>): Cube[] {
+        return [...cubeBlocksSbcs.values()].map((cubeDto) => new Cube(cubeDto, componentStore))
     }
-
 
     public get title() { return `${String(this.type)}/${this.subtype}`}
     public readonly data: Omit<CubeDTO<T>, Omits>

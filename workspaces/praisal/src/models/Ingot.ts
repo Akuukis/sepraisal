@@ -1,5 +1,3 @@
-import { ObservableMap } from '@sepraisal/common/src'
-
 import { IParseBlueprintSbc, IParsePhysicalItemsSbc } from '../parsers'
 
 export interface IIngotDTO {
@@ -14,8 +12,8 @@ export interface IIngotDTO {
 export class Ingot implements IIngotDTO {
 
     public static fromSbcs(
-        physicalItemsSbcs: ObservableMap<IParsePhysicalItemsSbc>,
-        blueprintSbcs: ObservableMap<IParseBlueprintSbc>
+        physicalItemsSbcs: Map<string, IParsePhysicalItemsSbc>,
+        blueprintSbcs: Map<string, IParseBlueprintSbc>
     ): Ingot[] {
         const fullTypes = new Set(([] as Array<{fullType: string}>)
             .concat([...physicalItemsSbcs.values()].filter((sbc) => sbc.type === 'Ingot' && sbc.subtype !== 'Scrap'))

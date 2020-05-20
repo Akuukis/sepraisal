@@ -1,5 +1,3 @@
-import { ObservableMap } from '@sepraisal/common/src'
-
 import { IParseBlueprintSbc, IParseComponentSbc } from '../parsers'
 
 export interface IComponentDTO {
@@ -18,8 +16,8 @@ export interface IComponentDTO {
 export class Component implements IComponentDTO {
 
     public static fromSbcs(
-        blueprintSbcs: ObservableMap<IParseBlueprintSbc>,
-        componentSbcs: ObservableMap<IParseComponentSbc>
+        blueprintSbcs: Map<string, IParseBlueprintSbc>,
+        componentSbcs: Map<string, IParseComponentSbc>
     ): Component[] {
         const fullTypes = new Set(([] as Array<{fullType: string}>)
             .concat([...blueprintSbcs.values()].filter((sbc) => sbc.type === 'Component' && sbc.subtype !== 'ZoneChip'))
