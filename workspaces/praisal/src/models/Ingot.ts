@@ -1,3 +1,5 @@
+import { VENDOR_MOD } from '@sepraisal/common/src'
+
 import { IParseBlueprintSbc, IParsePhysicalItemsSbc } from '../parsers'
 
 export interface IIngotDTO {
@@ -32,7 +34,7 @@ export class Ingot implements IIngotDTO {
                     ...blueprintSbc,
                 }
             })
-            .map((dto) => new Ingot(dto))
+            .map((dto) => new Ingot(dto, dto.mod))
     }
 
     public readonly mass: number  // kg.
@@ -45,14 +47,16 @@ export class Ingot implements IIngotDTO {
     public readonly time: number  // Seconds to build, baseBuildTime.
     public readonly type: string
     public readonly volume: number  // l.
+    public readonly mod: VENDOR_MOD
 
-    public constructor(dto: IIngotDTO) {
+    public constructor(dto: IIngotDTO, mod: VENDOR_MOD) {
         this.type = dto.type
         this.subtype = dto.subtype
         this.mass = dto.mass
         this.volume = dto.volume
         this.time = dto.time
         this.prerequisites = dto.prerequisites
+        this.mod = mod
     }
 
     public toJSON(): IIngotDTO {

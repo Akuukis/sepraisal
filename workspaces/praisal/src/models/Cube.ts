@@ -1,5 +1,7 @@
+import { VENDOR_MOD } from '@sepraisal/common/src'
 import { Omit } from 'utility-types'
 
+import { IParseCubeBlocksSbc } from '../parsers/parseCubeBlocksSbc'
 import { CubeDTO } from '../xmlns/CubeDefinition'
 import { CubeType } from '../xmlns/CubeType'
 import { Component } from './Component'
@@ -13,8 +15,8 @@ type Omits = 'BuildTimeSeconds' | 'CubeSize' | 'DisplayName' | 'Id' | 'PCU' | 'S
 // tslint:disable-next-line: min-class-cohesion
 export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJSON' | 'health' | 'maxIntegrity'> {
 
-    public static fromSbcs(componentStore: Map<string, Component>, cubeBlocksSbcs: Map<string, CubeDTO>): Cube[] {
-        return [...cubeBlocksSbcs.values()].map((cubeDto) => new Cube(cubeDto, componentStore))
+    public static fromSbcs(componentStore: Map<string, Component>, cubeBlocksSbcs: Map<string, IParseCubeBlocksSbc>): Cube[] {
+        return [...cubeBlocksSbcs.values()].map((cubeDto) => new Cube(cubeDto, componentStore, cubeDto.mod))
     }
 
     public get title() { return `${String(this.type)}/${this.subtype}`}
@@ -30,10 +32,12 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
     public readonly time: number  // Seconds to build, baseBuildTime.
     public readonly type: T
     public readonly volume: number
+    public readonly mod: VENDOR_MOD
 
-    public constructor(cubeDto: CubeDTO<T>, componentStore: Map<string, Component>) {
+    public constructor(cubeDto: CubeDTO<T>, componentStore: Map<string, Component>, mod: VENDOR_MOD) {
         const {BuildTimeSeconds, CubeSize, DisplayName, Id, PCU, Size, ...other} = cubeDto
         this.data = other as this['data']
+        this.mod = mod
 
         const prerequisites = other.Components[0].Component.reduce((req, comp) => {
                 const title = `Component/${comp.$.Subtype}`
@@ -80,8 +84,8 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
             return sum + (component ? component.maxIntegrity * amount : 0)
         }, 0)
 
-        const mod = this.gridSize === 'Large' ? 2.5 : 0.5
-        this.volume = (mod * this.size.X) * (mod * this.size.Y) * (mod * this.size.Z) * 1000  // volume is in liters.
+        const blockSize = this.gridSize === 'Large' ? 2.5 : 0.5
+        this.volume = (blockSize * this.size.X) * (blockSize * this.size.Y) * (blockSize * this.size.Z) * 1000  // volume is in liters.
     }
 
     public toJSON(): CubeDTO<T> {

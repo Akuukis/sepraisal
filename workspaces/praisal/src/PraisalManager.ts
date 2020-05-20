@@ -5,21 +5,21 @@ import { Blueprint, Component, Cube, Group, Ingot, Ore } from './models'
 import {
     IParseBlueprintSbc,
     IParseComponentSbc,
+    IParseCubeBlocksSbc,
     IParsePhysicalItemsSbc,
     parseBlueprintSbc,
     parseComponentSbc,
+    parseCubeBlocksSbc,
     parsePhysicalItemsSbc,
 } from './parsers'
-import { parseCubeBlocksSbc } from './parsers/parseCubeBlocksSbc'
 import { Praisal } from './Praisal'
-import { CubeDTO } from './xmlns/CubeDefinition'
 
 // tslint:disable-next-line: min-class-cohesion
 export class PraisalManager {
     private readonly blueprintSbcs = new ObservableMap<IParseBlueprintSbc>()
     private readonly physicalItemSbcs = new ObservableMap<IParsePhysicalItemsSbc>()
     private readonly componentSbcs = new ObservableMap<IParseComponentSbc>()
-    private readonly cubeBlocksSbcs = new ObservableMap<CubeDTO>()
+    private readonly cubeBlocksSbcs = new ObservableMap<IParseCubeBlocksSbc>()
 
     public readonly components = new ObservableMap<Component>()
     public readonly ingots = new ObservableMap<Ingot>()

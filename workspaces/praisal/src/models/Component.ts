@@ -1,3 +1,5 @@
+import { VENDOR_MOD } from '@sepraisal/common/src'
+
 import { IParseBlueprintSbc, IParseComponentSbc } from '../parsers'
 
 export interface IComponentDTO {
@@ -43,7 +45,7 @@ export class Component implements IComponentDTO {
                     volume: componentSbc.volume,
                 }
             })
-            .map((dto) => new Component(dto))
+            .map((dto) => new Component(dto, dto.mod))
     }
 
 
@@ -58,8 +60,9 @@ export class Component implements IComponentDTO {
     public readonly time: number  // Seconds to build, baseBuildTime.
     public readonly type: string
     public readonly volume: number  // l.
+    public readonly mod: VENDOR_MOD
 
-    public constructor(dto: IComponentDTO) {
+    public constructor(dto: IComponentDTO, mod: VENDOR_MOD) {
         this.type = dto.type
         this.subtype = dto.subtype
         this.mass = dto.mass
@@ -69,6 +72,7 @@ export class Component implements IComponentDTO {
         this.health = dto.health
         this.maxIntegrity = dto.maxIntegrity
         this.size = dto.size
+        this.mod = mod
     }
 
     public toJSON(): IComponentDTO {
