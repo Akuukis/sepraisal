@@ -10,34 +10,31 @@ const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
 
 let sepraisal: PraisalManager
-beforeEach(() => {
+beforeEach(async () => {
     sepraisal = new PraisalManager()
+    const physicalItemsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
+    const materialsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+    const componentsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
+    await sepraisal.addPhysicalItemsSbc(physicalItemsXml, VENDOR_MOD.VANILLA)
+    await sepraisal.addBlueprintsSbc(materialsXml, VENDOR_MOD.VANILLA)
+    await sepraisal.addComponentsSbc(componentsXml, VENDOR_MOD.VANILLA)
+    sepraisal.build()
 })
 
-describe('PraisalManager.addOres', () => {
-    test('should succeed based on vendor assets', async () => {
-        const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-        await sepraisal.addOres(physicalItemsSbc)
+describe('PraisalManager.addSbc', () => {
+    beforeAll(async () => {
+    })
+    test('should build all ores', async () => {
         expect(sepraisal.ores.size).toMatchSnapshot()
         expect([...sepraisal.ores.keys()]).toMatchSnapshot()
         expect([...sepraisal.ores.values()]).toMatchSnapshot()
     })
-})
-describe('PraisalManager.addIngots', () => {
-    test('should succeed based on vendor assets', async () => {
-        const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-        const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-        await sepraisal.addIngots(physicalItemsSbc, blueprintsSbc)
+    test('should build all ingots', async () => {
         expect(sepraisal.ingots.size).toMatchSnapshot()
         expect([...sepraisal.ingots.keys()]).toMatchSnapshot()
         expect([...sepraisal.ingots.values()]).toMatchSnapshot()
     })
-})
-describe('PraisalManager.addComponents', () => {
-    test('should succeed based on vendor assets', async () => {
-        const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-        const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-        await sepraisal.addComponents(blueprintsSbc, componentsSbc)
+    test('should build all components', async () => {
         expect(sepraisal.components.size).toMatchSnapshot()
         expect([...sepraisal.components.keys()]).toMatchSnapshot()
         expect([...sepraisal.components.values()]).toMatchSnapshot()

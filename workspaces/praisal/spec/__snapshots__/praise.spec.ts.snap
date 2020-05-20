@@ -104,7 +104,7 @@ Object {
     "blockCount": 5,
     "blockMass": 20173,
     "blockPCU": 85,
-    "oreVolume": 63392,
+    "oreVolume": 11275,
   },
   "groupProduction": Object {
     "blockCount": 3,
@@ -127,7 +127,7 @@ Object {
   "height": 22.5,
   "ingotCount": 296582,
   "ingotMass": 296582,
-  "ingotTime": 55931,
+  "ingotTime": 36131,
   "ingotVolume": 40611,
   "ingots": Object {
     "Cobalt": 1086,
@@ -151,16 +151,16 @@ Object {
     "ingots": Object {},
     "ores": Object {},
   },
-  "oreCount": 593935,
-  "oreMass": 593935,
-  "oreVolume": 219756,
+  "oreCount": 453078,
+  "oreMass": 453078,
+  "oreVolume": 167639,
   "ores": Object {
     "Cobalt": 3620,
     "Iron": 376464,
     "Nickel": 49750,
     "Silicon": 13244,
     "Silver": 8000,
-    "Stone": 142857,
+    "Stone": 2000,
   },
   "orientation": Orientation {
     "Forward": "Backward",
@@ -391,7 +391,7 @@ Object {
     "blockCount": 4,
     "blockMass": 82950,
     "blockPCU": 120,
-    "oreVolume": 1189723,
+    "oreVolume": 95263,
   },
   "groupProduction": Object {
     "blockCount": 8,
@@ -414,7 +414,7 @@ Object {
   "height": 40,
   "ingotCount": 411404,
   "ingotMass": 411404,
-  "ingotTime": 501120,
+  "ingotTime": 85320,
   "ingotVolume": 62862,
   "ingots": Object {
     "Cobalt": 13307,
@@ -443,9 +443,9 @@ Object {
     "ingots": Object {},
     "ores": Object {},
   },
-  "oreCount": 3892033,
-  "oreMass": 3892033,
-  "oreVolume": 1440052,
+  "oreCount": 934033,
+  "oreMass": 934033,
+  "oreVolume": 345592,
   "ores": Object {
     "Cobalt": 44357,
     "Gold": 148000,
@@ -455,7 +455,7 @@ Object {
     "Platinum": 83200,
     "Silicon": 6214,
     "Silver": 108600,
-    "Stone": 3000000,
+    "Stone": 42000,
   },
   "orientation": Orientation {
     "Forward": "Forward",
@@ -627,7 +627,7 @@ Object {
     "blockCount": 1,
     "blockMass": 4793,
     "blockPCU": 25,
-    "oreVolume": 56843,
+    "oreVolume": 4726,
   },
   "groupProduction": Object {
     "blockCount": 3,
@@ -650,7 +650,7 @@ Object {
   "height": 12.5,
   "ingotCount": 164466,
   "ingotMass": 164466,
-  "ingotTime": 65779,
+  "ingotTime": 45979,
   "ingotVolume": 21285,
   "ingots": Object {
     "Cobalt": 11364,
@@ -676,9 +676,9 @@ Object {
     "ingots": Object {},
     "ores": Object {},
   },
-  "oreCount": 582959,
-  "oreMass": 582959,
-  "oreVolume": 215695,
+  "oreCount": 442102,
+  "oreMass": 442102,
+  "oreVolume": 163578,
   "ores": Object {
     "Cobalt": 37880,
     "Gold": 102000,
@@ -687,7 +687,7 @@ Object {
     "Platinum": 76800,
     "Silicon": 1186,
     "Silver": 8300,
-    "Stone": 142857,
+    "Stone": 2000,
   },
   "orientation": Orientation {
     "Forward": "Left",

@@ -1,450 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PraisalManager.addComponents should succeed based on vendor assets 1`] = `23`;
-
-exports[`PraisalManager.addComponents should succeed based on vendor assets 2`] = `
-Array [
-  "Component/Construction",
-  "Component/Girder",
-  "Component/MetalGrid",
-  "Component/InteriorPlate",
-  "Component/SteelPlate",
-  "Component/SmallTube",
-  "Component/LargeTube",
-  "Component/Motor",
-  "Component/Display",
-  "Component/BulletproofGlass",
-  "Component/Computer",
-  "Component/Reactor",
-  "Component/Thrust",
-  "Component/GravityGenerator",
-  "Component/Medical",
-  "Component/RadioCommunication",
-  "Component/Detector",
-  "Component/Canvas",
-  "Component/Explosives",
-  "Component/SolarCell",
-  "Component/PowerCell",
-  "Component/Superconductor",
-  "Component/ZoneChip",
-]
-`;
-
-exports[`PraisalManager.addComponents should succeed based on vendor assets 3`] = `
-Array [
-  Object {
-    "health": 18,
-    "mass": 8,
-    "maxIntegrity": 30,
-    "prerequisites": Object {
-      "Ingot/Iron": 8,
-    },
-    "size": Object {
-      "X": 0.2,
-      "Y": 0.1,
-      "Z": 0.1,
-    },
-    "subtype": "Construction",
-    "time": 1,
-    "type": "Component",
-    "volume": 2,
-  },
-  Object {
-    "health": 0,
-    "mass": 6,
-    "maxIntegrity": 15,
-    "prerequisites": Object {
-      "Ingot/Iron": 6,
-    },
-    "size": Object {
-      "X": 0.05,
-      "Y": 0.05,
-      "Z": 1,
-    },
-    "subtype": "Girder",
-    "time": 1,
-    "type": "Component",
-    "volume": 2,
-  },
-  Object {
-    "health": 69,
-    "mass": 6,
-    "maxIntegrity": 30,
-    "prerequisites": Object {
-      "Ingot/Cobalt": 3,
-      "Ingot/Iron": 12,
-      "Ingot/Nickel": 5,
-    },
-    "size": Object {
-      "X": 0.5,
-      "Y": 0.5,
-      "Z": 0.05,
-    },
-    "subtype": "MetalGrid",
-    "time": 2,
-    "type": "Component",
-    "volume": 15,
-  },
-  Object {
-    "health": 36,
-    "mass": 3,
-    "maxIntegrity": 15,
-    "prerequisites": Object {
-      "Ingot/Iron": 3,
-    },
-    "size": Object {
-      "X": 0.5,
-      "Y": 0.5,
-      "Z": 0.05,
-    },
-    "subtype": "InteriorPlate",
-    "time": 1,
-    "type": "Component",
-    "volume": 5,
-  },
-  Object {
-    "health": 53,
-    "mass": 20,
-    "maxIntegrity": 100,
-    "prerequisites": Object {
-      "Ingot/Iron": 21,
-    },
-    "size": Object {
-      "X": 0.5,
-      "Y": 0.5,
-      "Z": 0.01,
-    },
-    "subtype": "SteelPlate",
-    "time": 1,
-    "type": "Component",
-    "volume": 3,
-  },
-  Object {
-    "health": 18,
-    "mass": 4,
-    "maxIntegrity": 15,
-    "prerequisites": Object {
-      "Ingot/Iron": 5,
-    },
-    "size": Object {
-      "X": 1,
-      "Y": 0.04,
-      "Z": 0.04,
-    },
-    "subtype": "SmallTube",
-    "time": 1,
-    "type": "Component",
-    "volume": 2,
-  },
-  Object {
-    "health": 22,
-    "mass": 25,
-    "maxIntegrity": 60,
-    "prerequisites": Object {
-      "Ingot/Iron": 30,
-    },
-    "size": Object {
-      "X": 1,
-      "Y": 0.2,
-      "Z": 0.2,
-    },
-    "subtype": "LargeTube",
-    "time": 2,
-    "type": "Component",
-    "volume": 38,
-  },
-  Object {
-    "health": 14,
-    "mass": 24,
-    "maxIntegrity": 40,
-    "prerequisites": Object {
-      "Ingot/Iron": 20,
-      "Ingot/Nickel": 5,
-    },
-    "size": Object {
-      "X": 0.2,
-      "Y": 0.2,
-      "Z": 0.2,
-    },
-    "subtype": "Motor",
-    "time": 3,
-    "type": "Component",
-    "volume": 8,
-  },
-  Object {
-    "health": 12,
-    "mass": 8,
-    "maxIntegrity": 5,
-    "prerequisites": Object {
-      "Ingot/Iron": 1,
-      "Ingot/Silicon": 5,
-    },
-    "size": Object {
-      "X": 0.3,
-      "Y": 0.4,
-      "Z": 0.05,
-    },
-    "subtype": "Display",
-    "time": 1,
-    "type": "Component",
-    "volume": 6,
-  },
-  Object {
-    "health": 14,
-    "mass": 15,
-    "maxIntegrity": 60,
-    "prerequisites": Object {
-      "Ingot/Silicon": 15,
-    },
-    "size": Object {
-      "X": 0.5,
-      "Y": 0.5,
-      "Z": 0.03,
-    },
-    "subtype": "BulletproofGlass",
-    "time": 1,
-    "type": "Component",
-    "volume": 8,
-  },
-  Object {
-    "health": 11,
-    "mass": 0.2,
-    "maxIntegrity": 1,
-    "prerequisites": Object {
-      "Ingot/Iron": 0.5,
-      "Ingot/Silicon": 0.2,
-    },
-    "size": Object {
-      "X": 0.1,
-      "Y": 0.1,
-      "Z": 0.02,
-    },
-    "subtype": "Computer",
-    "time": 1,
-    "type": "Component",
-    "volume": 1,
-  },
-  Object {
-    "health": 14,
-    "mass": 25,
-    "maxIntegrity": 20,
-    "prerequisites": Object {
-      "Ingot/Iron": 15,
-      "Ingot/Silver": 5,
-      "Ingot/Stone": 20,
-    },
-    "size": Object {
-      "X": 0.2,
-      "Y": 0.2,
-      "Z": 0.2,
-    },
-    "subtype": "Reactor",
-    "time": 8,
-    "type": "Component",
-    "volume": 8,
-  },
-  Object {
-    "health": 12,
-    "mass": 40,
-    "maxIntegrity": 30,
-    "prerequisites": Object {
-      "Ingot/Cobalt": 10,
-      "Ingot/Gold": 1,
-      "Ingot/Iron": 30,
-      "Ingot/Platinum": 0.4,
-    },
-    "size": Object {
-      "X": 0.2,
-      "Y": 0.2,
-      "Z": 0.2,
-    },
-    "subtype": "Thrust",
-    "time": 4,
-    "type": "Component",
-    "volume": 10,
-  },
-  Object {
-    "health": 12,
-    "mass": 800,
-    "maxIntegrity": 500,
-    "prerequisites": Object {
-      "Ingot/Cobalt": 220,
-      "Ingot/Gold": 10,
-      "Ingot/Iron": 600,
-      "Ingot/Silver": 5,
-    },
-    "size": Object {
-      "X": 1,
-      "Y": 0.7,
-      "Z": 0.4,
-    },
-    "subtype": "GravityGenerator",
-    "time": 10,
-    "type": "Component",
-    "volume": 200,
-  },
-  Object {
-    "health": 12,
-    "mass": 150,
-    "maxIntegrity": 70,
-    "prerequisites": Object {
-      "Ingot/Iron": 60,
-      "Ingot/Nickel": 70,
-      "Ingot/Silver": 20,
-    },
-    "size": Object {
-      "X": 1,
-      "Y": 0.4,
-      "Z": 0.4,
-    },
-    "subtype": "Medical",
-    "time": 6,
-    "type": "Component",
-    "volume": 160,
-  },
-  Object {
-    "health": 11,
-    "mass": 8,
-    "maxIntegrity": 15,
-    "prerequisites": Object {
-      "Ingot/Iron": 8,
-      "Ingot/Silicon": 1,
-    },
-    "size": Object {
-      "X": 1,
-      "Y": 0.5,
-      "Z": 0.4,
-    },
-    "subtype": "RadioCommunication",
-    "time": 4,
-    "type": "Component",
-    "volume": 70,
-  },
-  Object {
-    "health": 11,
-    "mass": 5,
-    "maxIntegrity": 4,
-    "prerequisites": Object {
-      "Ingot/Iron": 5,
-      "Ingot/Nickel": 15,
-    },
-    "size": Object {
-      "X": 0.15,
-      "Y": 0.15,
-      "Z": 0.4,
-    },
-    "subtype": "Detector",
-    "time": 4,
-    "type": "Component",
-    "volume": 6,
-  },
-  Object {
-    "health": 14,
-    "mass": 15,
-    "maxIntegrity": 5,
-    "prerequisites": Object {
-      "Ingot/Iron": 2,
-      "Ingot/Silicon": 35,
-    },
-    "size": Object {
-      "X": 0.25,
-      "Y": 0.25,
-      "Z": 0.03,
-    },
-    "subtype": "Canvas",
-    "time": 4,
-    "type": "Component",
-    "volume": 8,
-  },
-  Object {
-    "health": 21,
-    "mass": 2,
-    "maxIntegrity": 5,
-    "prerequisites": Object {
-      "Ingot/Magnesium": 2,
-      "Ingot/Silicon": 0.5,
-    },
-    "size": Object {
-      "X": 0.2,
-      "Y": 0.2,
-      "Z": 0.1,
-    },
-    "subtype": "Explosives",
-    "time": 6,
-    "type": "Component",
-    "volume": 2,
-  },
-  Object {
-    "health": 11,
-    "mass": 6,
-    "maxIntegrity": 1,
-    "prerequisites": Object {
-      "Ingot/Nickel": 3,
-      "Ingot/Silicon": 6,
-    },
-    "size": Object {
-      "X": 1,
-      "Y": 0.5,
-      "Z": 0.05,
-    },
-    "subtype": "SolarCell",
-    "time": 2,
-    "type": "Component",
-    "volume": 12,
-  },
-  Object {
-    "health": 14,
-    "mass": 25,
-    "maxIntegrity": 50,
-    "prerequisites": Object {
-      "Ingot/Iron": 10,
-      "Ingot/Nickel": 2,
-      "Ingot/Silicon": 1,
-    },
-    "size": Object {
-      "X": 0.5,
-      "Y": 0.3,
-      "Z": 0.3,
-    },
-    "subtype": "PowerCell",
-    "time": 4,
-    "type": "Component",
-    "volume": 40,
-  },
-  Object {
-    "health": 14,
-    "mass": 15,
-    "maxIntegrity": 5,
-    "prerequisites": Object {
-      "Ingot/Gold": 2,
-      "Ingot/Iron": 10,
-    },
-    "size": Object {
-      "X": 0.5,
-      "Y": 0.5,
-      "Z": 0.03,
-    },
-    "subtype": "Superconductor",
-    "time": 8,
-    "type": "Component",
-    "volume": 8,
-  },
-  Object {
-    "health": undefined,
-    "mass": undefined,
-    "maxIntegrity": undefined,
-    "prerequisites": Object {
-      "Component/ZoneChip": 1,
-    },
-    "size": undefined,
-    "subtype": "ZoneChip",
-    "time": 99999,
-    "type": "Component",
-    "volume": undefined,
-  },
-]
-`;
-
 exports[`PraisalManager.addCubes should succeed based on vendor assets 1`] = `
 Array [
   "DebugSphere2/DebugSphereLarge",
@@ -963,9 +518,440 @@ Array [
 
 exports[`PraisalManager.addCubes should succeed based on vendor assets 3`] = `341`;
 
-exports[`PraisalManager.addIngots should succeed based on vendor assets 1`] = `10`;
+exports[`PraisalManager.addSbc should build all components 1`] = `22`;
 
-exports[`PraisalManager.addIngots should succeed based on vendor assets 2`] = `
+exports[`PraisalManager.addSbc should build all components 2`] = `
+Array [
+  "Component/Construction",
+  "Component/Girder",
+  "Component/MetalGrid",
+  "Component/InteriorPlate",
+  "Component/SteelPlate",
+  "Component/SmallTube",
+  "Component/LargeTube",
+  "Component/Motor",
+  "Component/Display",
+  "Component/BulletproofGlass",
+  "Component/Computer",
+  "Component/Reactor",
+  "Component/Thrust",
+  "Component/GravityGenerator",
+  "Component/Medical",
+  "Component/RadioCommunication",
+  "Component/Detector",
+  "Component/Canvas",
+  "Component/Explosives",
+  "Component/SolarCell",
+  "Component/PowerCell",
+  "Component/Superconductor",
+]
+`;
+
+exports[`PraisalManager.addSbc should build all components 3`] = `
+Array [
+  Object {
+    "health": 18,
+    "mass": 8,
+    "maxIntegrity": 30,
+    "prerequisites": Object {
+      "Ingot/Iron": 8,
+    },
+    "size": Object {
+      "X": 0.2,
+      "Y": 0.1,
+      "Z": 0.1,
+    },
+    "subtype": "Construction",
+    "time": 1,
+    "type": "Component",
+    "volume": 2,
+  },
+  Object {
+    "health": 0,
+    "mass": 6,
+    "maxIntegrity": 15,
+    "prerequisites": Object {
+      "Ingot/Iron": 6,
+    },
+    "size": Object {
+      "X": 0.05,
+      "Y": 0.05,
+      "Z": 1,
+    },
+    "subtype": "Girder",
+    "time": 1,
+    "type": "Component",
+    "volume": 2,
+  },
+  Object {
+    "health": 69,
+    "mass": 6,
+    "maxIntegrity": 30,
+    "prerequisites": Object {
+      "Ingot/Cobalt": 3,
+      "Ingot/Iron": 12,
+      "Ingot/Nickel": 5,
+    },
+    "size": Object {
+      "X": 0.5,
+      "Y": 0.5,
+      "Z": 0.05,
+    },
+    "subtype": "MetalGrid",
+    "time": 2,
+    "type": "Component",
+    "volume": 15,
+  },
+  Object {
+    "health": 36,
+    "mass": 3,
+    "maxIntegrity": 15,
+    "prerequisites": Object {
+      "Ingot/Iron": 3,
+    },
+    "size": Object {
+      "X": 0.5,
+      "Y": 0.5,
+      "Z": 0.05,
+    },
+    "subtype": "InteriorPlate",
+    "time": 1,
+    "type": "Component",
+    "volume": 5,
+  },
+  Object {
+    "health": 53,
+    "mass": 20,
+    "maxIntegrity": 100,
+    "prerequisites": Object {
+      "Ingot/Iron": 21,
+    },
+    "size": Object {
+      "X": 0.5,
+      "Y": 0.5,
+      "Z": 0.01,
+    },
+    "subtype": "SteelPlate",
+    "time": 1,
+    "type": "Component",
+    "volume": 3,
+  },
+  Object {
+    "health": 18,
+    "mass": 4,
+    "maxIntegrity": 15,
+    "prerequisites": Object {
+      "Ingot/Iron": 5,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 0.04,
+      "Z": 0.04,
+    },
+    "subtype": "SmallTube",
+    "time": 1,
+    "type": "Component",
+    "volume": 2,
+  },
+  Object {
+    "health": 22,
+    "mass": 25,
+    "maxIntegrity": 60,
+    "prerequisites": Object {
+      "Ingot/Iron": 30,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 0.2,
+      "Z": 0.2,
+    },
+    "subtype": "LargeTube",
+    "time": 2,
+    "type": "Component",
+    "volume": 38,
+  },
+  Object {
+    "health": 14,
+    "mass": 24,
+    "maxIntegrity": 40,
+    "prerequisites": Object {
+      "Ingot/Iron": 20,
+      "Ingot/Nickel": 5,
+    },
+    "size": Object {
+      "X": 0.2,
+      "Y": 0.2,
+      "Z": 0.2,
+    },
+    "subtype": "Motor",
+    "time": 3,
+    "type": "Component",
+    "volume": 8,
+  },
+  Object {
+    "health": 12,
+    "mass": 8,
+    "maxIntegrity": 5,
+    "prerequisites": Object {
+      "Ingot/Iron": 1,
+      "Ingot/Silicon": 5,
+    },
+    "size": Object {
+      "X": 0.3,
+      "Y": 0.4,
+      "Z": 0.05,
+    },
+    "subtype": "Display",
+    "time": 1,
+    "type": "Component",
+    "volume": 6,
+  },
+  Object {
+    "health": 14,
+    "mass": 15,
+    "maxIntegrity": 60,
+    "prerequisites": Object {
+      "Ingot/Silicon": 15,
+    },
+    "size": Object {
+      "X": 0.5,
+      "Y": 0.5,
+      "Z": 0.03,
+    },
+    "subtype": "BulletproofGlass",
+    "time": 1,
+    "type": "Component",
+    "volume": 8,
+  },
+  Object {
+    "health": 11,
+    "mass": 0.2,
+    "maxIntegrity": 1,
+    "prerequisites": Object {
+      "Ingot/Iron": 0.5,
+      "Ingot/Silicon": 0.2,
+    },
+    "size": Object {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.02,
+    },
+    "subtype": "Computer",
+    "time": 1,
+    "type": "Component",
+    "volume": 1,
+  },
+  Object {
+    "health": 14,
+    "mass": 25,
+    "maxIntegrity": 20,
+    "prerequisites": Object {
+      "Ingot/Iron": 15,
+      "Ingot/Silver": 5,
+      "Ingot/Stone": 20,
+    },
+    "size": Object {
+      "X": 0.2,
+      "Y": 0.2,
+      "Z": 0.2,
+    },
+    "subtype": "Reactor",
+    "time": 8,
+    "type": "Component",
+    "volume": 8,
+  },
+  Object {
+    "health": 12,
+    "mass": 40,
+    "maxIntegrity": 30,
+    "prerequisites": Object {
+      "Ingot/Cobalt": 10,
+      "Ingot/Gold": 1,
+      "Ingot/Iron": 30,
+      "Ingot/Platinum": 0.4,
+    },
+    "size": Object {
+      "X": 0.2,
+      "Y": 0.2,
+      "Z": 0.2,
+    },
+    "subtype": "Thrust",
+    "time": 4,
+    "type": "Component",
+    "volume": 10,
+  },
+  Object {
+    "health": 12,
+    "mass": 800,
+    "maxIntegrity": 500,
+    "prerequisites": Object {
+      "Ingot/Cobalt": 220,
+      "Ingot/Gold": 10,
+      "Ingot/Iron": 600,
+      "Ingot/Silver": 5,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 0.7,
+      "Z": 0.4,
+    },
+    "subtype": "GravityGenerator",
+    "time": 10,
+    "type": "Component",
+    "volume": 200,
+  },
+  Object {
+    "health": 12,
+    "mass": 150,
+    "maxIntegrity": 70,
+    "prerequisites": Object {
+      "Ingot/Iron": 60,
+      "Ingot/Nickel": 70,
+      "Ingot/Silver": 20,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 0.4,
+      "Z": 0.4,
+    },
+    "subtype": "Medical",
+    "time": 6,
+    "type": "Component",
+    "volume": 160,
+  },
+  Object {
+    "health": 11,
+    "mass": 8,
+    "maxIntegrity": 15,
+    "prerequisites": Object {
+      "Ingot/Iron": 8,
+      "Ingot/Silicon": 1,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 0.5,
+      "Z": 0.4,
+    },
+    "subtype": "RadioCommunication",
+    "time": 4,
+    "type": "Component",
+    "volume": 70,
+  },
+  Object {
+    "health": 11,
+    "mass": 5,
+    "maxIntegrity": 4,
+    "prerequisites": Object {
+      "Ingot/Iron": 5,
+      "Ingot/Nickel": 15,
+    },
+    "size": Object {
+      "X": 0.15,
+      "Y": 0.15,
+      "Z": 0.4,
+    },
+    "subtype": "Detector",
+    "time": 4,
+    "type": "Component",
+    "volume": 6,
+  },
+  Object {
+    "health": 14,
+    "mass": 15,
+    "maxIntegrity": 5,
+    "prerequisites": Object {
+      "Ingot/Iron": 2,
+      "Ingot/Silicon": 35,
+    },
+    "size": Object {
+      "X": 0.25,
+      "Y": 0.25,
+      "Z": 0.03,
+    },
+    "subtype": "Canvas",
+    "time": 4,
+    "type": "Component",
+    "volume": 8,
+  },
+  Object {
+    "health": 21,
+    "mass": 2,
+    "maxIntegrity": 5,
+    "prerequisites": Object {
+      "Ingot/Magnesium": 2,
+      "Ingot/Silicon": 0.5,
+    },
+    "size": Object {
+      "X": 0.2,
+      "Y": 0.2,
+      "Z": 0.1,
+    },
+    "subtype": "Explosives",
+    "time": 6,
+    "type": "Component",
+    "volume": 2,
+  },
+  Object {
+    "health": 11,
+    "mass": 6,
+    "maxIntegrity": 1,
+    "prerequisites": Object {
+      "Ingot/Nickel": 3,
+      "Ingot/Silicon": 6,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 0.5,
+      "Z": 0.05,
+    },
+    "subtype": "SolarCell",
+    "time": 2,
+    "type": "Component",
+    "volume": 12,
+  },
+  Object {
+    "health": 14,
+    "mass": 25,
+    "maxIntegrity": 50,
+    "prerequisites": Object {
+      "Ingot/Iron": 10,
+      "Ingot/Nickel": 2,
+      "Ingot/Silicon": 1,
+    },
+    "size": Object {
+      "X": 0.5,
+      "Y": 0.3,
+      "Z": 0.3,
+    },
+    "subtype": "PowerCell",
+    "time": 4,
+    "type": "Component",
+    "volume": 40,
+  },
+  Object {
+    "health": 14,
+    "mass": 15,
+    "maxIntegrity": 5,
+    "prerequisites": Object {
+      "Ingot/Gold": 2,
+      "Ingot/Iron": 10,
+    },
+    "size": Object {
+      "X": 0.5,
+      "Y": 0.5,
+      "Z": 0.03,
+    },
+    "subtype": "Superconductor",
+    "time": 8,
+    "type": "Component",
+    "volume": 8,
+  },
+]
+`;
+
+exports[`PraisalManager.addSbc should build all ingots 1`] = `10`;
+
+exports[`PraisalManager.addSbc should build all ingots 2`] = `
 Array [
   "Ingot/Stone",
   "Ingot/Iron",
@@ -980,15 +966,15 @@ Array [
 ]
 `;
 
-exports[`PraisalManager.addIngots should succeed based on vendor assets 3`] = `
+exports[`PraisalManager.addSbc should build all ingots 3`] = `
 Array [
   Object {
     "mass": 1,
     "prerequisites": Object {
-      "Ore/Stone": 71.42857142857143,
+      "Ore/Stone": 1,
     },
     "subtype": "Stone",
-    "time": 10,
+    "time": 0.1,
     "type": "Ingot",
     "volume": 0.37,
   },
@@ -1085,9 +1071,9 @@ Array [
 ]
 `;
 
-exports[`PraisalManager.addOres should succeed based on vendor assets 1`] = `13`;
+exports[`PraisalManager.addSbc should build all ores 1`] = `13`;
 
-exports[`PraisalManager.addOres should succeed based on vendor assets 2`] = `
+exports[`PraisalManager.addSbc should build all ores 2`] = `
 Array [
   "Ore/Stone",
   "Ore/Iron",
@@ -1105,7 +1091,7 @@ Array [
 ]
 `;
 
-exports[`PraisalManager.addOres should succeed based on vendor assets 3`] = `
+exports[`PraisalManager.addSbc should build all ores 3`] = `
 Array [
   Object {
     "mass": 1,

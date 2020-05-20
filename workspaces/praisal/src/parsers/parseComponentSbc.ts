@@ -2,7 +2,7 @@ import { parseString } from 'xml2js'
 
 import { IComponentDefinition } from '..//xmlns/ComponentDefinition'
 
-interface IParseComponentSbc {
+export interface IParseComponentSbc {
     displayName: string
     health: number
     mass: number
@@ -11,6 +11,7 @@ interface IParseComponentSbc {
     subtype: string
     type: string
     volume: number
+    fullType: string
 }
 
 export const parseComponentSbc = async (xml: string): Promise<IParseComponentSbc[]> =>
@@ -33,6 +34,7 @@ export const parseComponentSbc = async (xml: string): Promise<IParseComponentSbc
                             subtype: comp.Id[0].SubtypeId[0],
                             type: comp.Id[0].TypeId[0],
                             volume: Number(comp.Volume[0]),
+                            fullType: `${comp.Id[0].TypeId[0]}/${comp.Id[0].SubtypeId[0]}`
                         }))
                 resolve(components)
             } catch(transformError) {

@@ -1,4 +1,6 @@
-import { parsePhysicalItemsSbc } from '../parsers'
+import { ObservableMap } from '@sepraisal/common/src'
+
+import { IParsePhysicalItemsSbc } from '../parsers'
 
 
 export interface IOreDTO {
@@ -10,10 +12,10 @@ export interface IOreDTO {
 
 export class Ore implements IOreDTO {
 
-    public static async parseSbc(physicalItemsSbc: string): Promise<Ore[]> {
-        const oreDtos = await parsePhysicalItemsSbc(physicalItemsSbc, 'Ore')
-
-        return oreDtos.map((blockDto) => new Ore(blockDto))
+    public static fromSbcs(physicalItemsSbcs: ObservableMap<IParsePhysicalItemsSbc>): Ore[] {
+        return [...physicalItemsSbcs.values()]
+            .filter((sbc) => sbc.type === 'Ore')
+            .map((blockDto) => new Ore(blockDto))
     }
 
 
