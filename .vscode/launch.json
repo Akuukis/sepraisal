@@ -7,24 +7,24 @@
             "port": 49999,
             "sourceMaps": true,
             "outFiles": [
-                "${workspaceFolder}/workspaces/cli/build/**/*.js"
+                "${workspaceFolder}/workspaces/crawler/build/**/*.js"
             ],
             "timeout": 15000,
-            "name": "cli:praise",
-            "program": "${workspaceFolder}/workspaces/cli/src/index.ts",
+            "name": "crawler:praise",
+            "program": "${workspaceFolder}/workspaces/crawler/src/index.ts",
             "args": [
                 "5",
                 "--debug"
             ],
-            "envFile": "${workspaceFolder}/workspaces/cli/.env",
+            "envFile": "${workspaceFolder}/workspaces/crawler/.env",
             "preLaunchTask": "build",
             "console": "integratedTerminal",
             "sourceMapPathOverrides": {
-                "${workspaceFolder}/workspaces/cli/build/*": "${workspaceFolder}/workspaces/cli/src/*",
+                "${workspaceFolder}/workspaces/crawler/build/*": "${workspaceFolder}/workspaces/crawler/src/*",
                 "${workspaceFolder}/workspaces/praisal/lib/*": "${workspaceFolder}/workspaces/praisal/src/*",
                 "${workspaceFolder}/workspaces/common/lib/*": "${workspaceFolder}/workspaces/common/src/*"
             },
-            "cwd": "${workspaceFolder}/workspaces/cli"
+            "cwd": "${workspaceFolder}/workspaces/crawler"
         },
         {
             "type": "node",

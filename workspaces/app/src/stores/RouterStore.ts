@@ -16,7 +16,7 @@ export class RouterStore extends BaseRouterStore {
     }
 
     public goBlueprint(id: number) {
-        const path = `${ROUTE.ANALYSE}?id=${id}`
+        const path = `${ROUTE.ANALYSE}?steam=${id}`
 
         this.piwikStore.track({path})
         this.push(path)

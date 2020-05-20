@@ -7,7 +7,7 @@ export type ProjectionCardSteam =
     | '_thumbName'
     | '_updated'
     | '_version'
-    | 'author'
+    | 'authors'
     | 'collections'
     | 'flagsGreen'
     | 'flagsRed'

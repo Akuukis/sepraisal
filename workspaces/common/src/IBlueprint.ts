@@ -99,7 +99,7 @@ export namespace IBlueprint {
     export interface ISteam extends IProp {
         id: number,
         title: string,
-        author: IRefItem,
+        authors: IRefItem[],
         description: string,
         _thumbName: string | null,
         _updated: Date,  // Info may be outdated because time has passed.
@@ -139,6 +139,9 @@ export namespace IBlueprint {
     }
 
     export interface IMaterialGroup {
+        /**
+         * Excludes blocks with missing definitions. See also `blockCountTotal`.
+         */
         blockCount: number,
         blockMass: number,
         blockPCU: number,
@@ -168,21 +171,32 @@ export namespace IBlueprint {
     export type SbcFlagsGreen =
         |''
 
-    export interface ISbc extends IProp, IMaterialGroupFull {
+    export interface IDefinitions {
+        blocks: Record<string, number>,  // key = CubeType + '/' + subtype
+        components: Record<string, number>,  // key = subtype
+        ingots: Record<string, number>,  // key = subtype
+        ores: Record<string, number>,  // key = subtype
+    }
+
+    export interface ISbc extends IProp, IDefinitions, IMaterialGroupFull {
         _revision: number,
         vanilla: boolean,
         gridTitle: string,
         gridSize: GridSize,
         gridCount: number,
         gridStatic: boolean,
-        unknownDefinitions: string[],
-        unknownDefinitionCount: number,
-        blocks: Record<string, number>,  // key = CubeType + '/' + subtype
-        components: Record<string, number>,  // key = subtype
-        ingots: Record<string, number>,  // key = subtype
-        ores: Record<string, number>,  // key = subtype
+
+        missingDefinitions: IDefinitions,
+        /**
+         * Includes blocks with missing definitions. See also `blockCount`.
+         */
+        blockCountTotal: number,
 
         orientation: IOrientation,
+        length: number,
+        width: number,
+        height: number,
+
         thrustAtmospheric: Partial<Record<Direction, number>>
         thrustHydrogen: Partial<Record<Direction, number>>
         thrustIon: Partial<Record<Direction, number>>

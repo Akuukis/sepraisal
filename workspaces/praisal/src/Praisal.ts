@@ -2,6 +2,13 @@ import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap } from '@
 
 import { Blueprint, Component, Cube, Group, ICoords, Ingot, Ore, Orientation, TranslationMinEnum } from './models'
 import { Block } from './models/Block'
+import {
+    SIMILAR_HEAVY_ARMOR,
+    SIMILAR_INTERIOR_LIGHT,
+    SIMILAR_LIGHT_ARMOR,
+    SIMILAR_TEXT_PANEL,
+    SIMILAR_WINDOW,
+} from './similarBlocks'
 import { BlueprintBlockDirectionEnum } from './xmlns/BlueprintDefinition'
 import { CubeDTO } from './xmlns/CubeDefinition'
 import { CubeType } from './xmlns/CubeType'
@@ -298,24 +305,27 @@ export class Praisal {
             && this.ingotErrors.length === 0
             && this.oreErrors.length === 0
 
-        const errors = ([] as Array<[string, number]>)
-            .concat(this.blocksErrors)
-            .concat(this.componentErrors)
-            .concat(this.ingotErrors)
-            .concat(this.oreErrors)
-        const unknownDefinitions = errors
-            .map((titleAndCount) => titleAndCount[0])
-        const unknownDefinitionCount = errors
-            .reduce((sum, titleAndCount) => sum + titleAndCount[1], 0)
+        const blockCountTotal = this.blockCount + this.blocksErrors.reduce((sum, [, count]) => sum + count, 0)
+
+        const missingDefinitions: IBlueprint.IDefinitions = {
+            blocks: Object.fromEntries(this.blocksErrors),
+            components: Object.fromEntries(this.componentErrors),
+            ingots: Object.fromEntries(this.ingotErrors),
+            ores: Object.fromEntries(this.oreErrors),
+        }
 
         const blocks = Object.create(null) as Record<string, number>
         Object.entries(this.blockAll).forEach(([key, count]) => {
+            if(!this.cubeDefs.has(key)) return
+
             let realKey = key
-            // Merge few groups to lower spam.
-            if(key.includes('CubeBlock/')) realKey = 'CubeBlock/*'
-            if(key.includes('InteriorLight/')) realKey = 'InteriorLight/*'
-            if(key.includes('TextPanel/')) realKey = 'TextPanel/*'
-            if(key.includes('Wheel/')) realKey = 'Wheel/*'
+
+            // Merge some similar blocks to lower spam.
+            if(SIMILAR_WINDOW.includes(key)) realKey = '<Vanilla Window blocks>'
+            if(SIMILAR_LIGHT_ARMOR.includes(key)) realKey = '<Vanilla Light Armor blocks>'
+            if(SIMILAR_HEAVY_ARMOR.includes(key)) realKey = '<Vanilla Heavy Armor blocks>'
+            if(SIMILAR_INTERIOR_LIGHT.includes(key)) realKey = '<Vanilla Interior Light blocks>'
+            if(SIMILAR_TEXT_PANEL.includes(key)) realKey = '<Vanilla Text Panel blocks>'
 
             blocks[realKey] = (realKey in blocks ? blocks[realKey] : 0) + count
         })
@@ -331,13 +341,22 @@ export class Praisal {
         const flagsYellow = []
         const flagsGreen = []
 
+        const blockSize = this.blummary.gridSize === 'Small' ? 0.5 : 2.5
+        const integrityPlanes = this.integrityPlanes
+        const length = integrityPlanes.top[0].length * blockSize
+        const width = integrityPlanes.top.length * blockSize
+        const height = integrityPlanes.side.length * blockSize
+
         return {
             gridTitle: this.blummary.title,
+
+            missingDefinitions,
 
             blocks,
             components,
             ingots,
             ores,
+            blockCountTotal,
 
             _revision: revision,
             _version: IBlueprint.VERSION.sbc,
@@ -347,12 +366,14 @@ export class Praisal {
             gridCount: this.blummary.grids.length,
             gridSize: this.blummary.gridSize,
             gridStatic: this.blummary.hasStaticGrid,
-            unknownDefinitionCount,
-            unknownDefinitions,
             vanilla,
 
-            integrityPlanes: this.integrityPlanes,
             orientation: this.orientation,
+            integrityPlanes: this.integrityPlanes,
+            length,
+            width,
+            height,
+
             thrustAtmospheric: mapToRecord(this.thrustAtmospheric),
             thrustHydrogen: mapToRecord(this.thrustHydrogen),
             thrustIon: mapToRecord(this.thrustIon),

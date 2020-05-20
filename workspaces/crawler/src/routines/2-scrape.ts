@@ -3,7 +3,7 @@ import moment from 'moment'
 import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
 import scrapeIt from 'scrape-it'
-import { Omit } from 'utility-types'
+import { Omit, PickByValueExact } from 'utility-types'
 
 import { QUERIES } from '../queries'
 import { prepareQuery } from '../utils'
@@ -57,13 +57,13 @@ export const ratingStarsConvert = (input: string) => input.includes('not-yet') ?
 export const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
 export const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
 // tslint:enable: strict-boolean-expressions
-export const dateConvert = (steamDate?: string) => {
-    if(typeof steamDate !== 'string') return null
 
-    return steamDate.includes(',') ?
-        moment(`${steamDate} +3:00`, 'DD MMM, YYYY @ h:ma ZZ').toDate()
-        :
-        moment(`${steamDate} +3:00 2019`, 'DD MMM @ h:ma ZZ 2019').toDate()
+export const dateConvert = (steamDate: string) => {
+    if(steamDate === '') return null
+
+    return moment(steamDate, steamDate.includes(',') ? 'DD MMM, YYYY @ h:ma' : 'DD MMM @ h:ma')
+        .utc()  // Steam shows local time, so convert back to UTC.
+        .toDate()
 }
 
 const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
@@ -77,22 +77,21 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         | '_version'
         | 'activityMax'
         | 'activityTotal'
-        | 'author'
         | 'exposureMax'
         | 'exposureTotal'
         | 'popularity'
     interface IScrapeSteamData extends Omit<IFlagParam, IScrapeSteamDataOmits> {
         // _id: number,
-        authorId: number,
-        authorTitle: string,
     }
 
     // tslint:disable-next-line:no-object-literal-type-assertion
     const {data: dataRaw} = await scrapeIt<IScrapeSteamData>(url, {
         id: {selector: 'a.sectionTab:nth-child(1)', attr: 'href', convert: idFromHref},
         title: {selector: '.workshopItemTitle'},
-        authorId: {selector: '.friendBlockLinkOverlay', attr: 'href', convert: authorIdConvert},
-        authorTitle: {selector: '.friendBlockContent', convert: authorTitleConvert},
+        authors: {listItem: 'div.creatorsBlock > div.friendBlock', data: {
+            id: {selector: '.friendBlockLinkOverlay', attr: 'href', convert: authorIdConvert},
+            title: {selector: '.friendBlockContent', convert: authorTitleConvert},
+        }},
         ratingStars: {selector: '.ratingSection img', attr: 'src', convert: ratingStarsConvert},
         ratingCount: {selector: '.ratingSection .numRatings', convert: ratingCountConvert},
         commentCount: {selector: 'a.sectionTab:nth-child(3) > span:nth-child(1) > span:nth-child(1)', convert: commaNumber},
@@ -115,6 +114,32 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         description: {selector: '.workshopItemDescription', how: 'html'},
     } as Record<keyof IScrapeSteamData, scrapeIt.ScrapeOptions>)
 
+    // Check that data actually is there.
+    ;([
+        'description',
+        'title',
+    ] as Array<keyof PickByValueExact<IScrapeSteamData, string>>).forEach((prop) => {
+        if(typeof dataRaw[prop] !== 'string') throw new Error(`Field ${prop} failed to scrape.`)
+    })
+    ;([
+        'commentCount',
+        'favoriteCount',
+        'id',
+        'revision',
+        'sizeMB',
+        'subscriberCount',
+        'visitorCount',
+    ] as Array<keyof PickByValueExact<IScrapeSteamData, number>>).forEach((prop) => {
+        if(typeof dataRaw[prop] !== 'number') throw new Error(`Field ${prop} failed to scrape.`)
+    })
+    ;([
+        'postedDate',
+        // 'updatedDate',  // OK to be null, then defaults to postedDate.
+    ] as Array<keyof PickByValueExact<IScrapeSteamData, Date>>).forEach((prop) => {
+        if(!(dataRaw[prop] instanceof Date)) throw new Error(`Field ${prop} failed to scrape.`)
+    })
+
+
     const ratingCount = (dataRaw.ratingCount !== null ? dataRaw.ratingCount : 0)
     const exposureMax = Math.max(dataRaw.visitorCount, dataRaw.subscriberCount)
     const exposureTotal = dataRaw.visitorCount + dataRaw.subscriberCount
@@ -125,15 +150,12 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
     const dataForFlags: IFlagParam = {
         id,
         title: dataRaw.title,
-        author: {
-            id: dataRaw.authorId,
-            title: dataRaw.authorTitle,
-        },
+        authors: dataRaw.authors,
         description: dataRaw.description,
         _thumbName: dataRaw._thumbName,
         _updated: new Date(),
         postedDate: dataRaw.postedDate,
-        updatedDate: dataRaw.updatedDate,
+        updatedDate: dataRaw.updatedDate || dataRaw.postedDate,  // UpdatedDate doesn't exist if posted but not updated.
         sizeMB: dataRaw.sizeMB,
         revision: dataRaw.revision,
         mods: dataRaw.mods,
@@ -251,8 +273,10 @@ export const main = async () => {
     const works: IWorkItem[] = []
     const errors: Error[] = []
 
+    const query = prepareQuery<IProjection>(QUERIES.pendingScrape)
+
     const docs = await collection
-        .find(prepareQuery<IProjection>(QUERIES.pendingScrape))
+        .find(query)
         // .limit(1000)
         // .sort({subscriberCount: -1})
         .project({
@@ -261,6 +285,15 @@ export const main = async () => {
             'steam._version': true,
         })
         .toArray()
+
+    //// For debugging.
+    // const docs = [{
+    //     _id: 1643843099,
+    //     steam: {
+    //         revision: 1,
+    //         _version: 1,
+    //     }
+    // }]
     console.info(`Scraping ${docs.length} blueprints...`)
 
     for(const [i, doc] of docs.entries()) {

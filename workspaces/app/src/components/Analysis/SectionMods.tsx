@@ -101,7 +101,9 @@ type ProjectionCardSteam =
     | 'mods'
 
 type ProjectionCardSbc =
-    | 'unknownDefinitions'
+    | 'blockCount'
+    | 'blockCountTotal'
+    | 'missingDefinitions'
     | 'vanilla'
 
 interface IBpProjectionRow {

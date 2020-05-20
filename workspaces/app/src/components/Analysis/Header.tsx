@@ -37,7 +37,7 @@ const styles = (theme: IMyTheme) => createStyles({
 interface IProps {
     state: {code: ASYNC_STATE, text?: string}
     bpId: number|string
-    blueprint: IBlueprint | null
+    blueprint: IBpProjectionRow | null
 }
 
 
@@ -104,21 +104,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 type ProjectionCardSteam =
     | 'id'
     | 'title'
-    | 'description'
-    | 'author'
-    | 'collections'
-    | 'subscriberCount'
-    | 'visitorCount'
-    | 'postedDate'
-    | 'updatedDate'
-    | 'commentCount'
-    | 'popularity'
-
-type ProjectionCardSbc =
-    | 'gridTitle'
 
 interface IBpProjectionRow {
     _id?: number
-    sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]}
     steam?: {[key in keyof Pick<IBlueprint.ISteam, ProjectionCardSteam>]: IBlueprint.ISteam[key]}
 }

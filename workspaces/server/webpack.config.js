@@ -16,7 +16,7 @@ module.exports = {
   target: "node",
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: "ts-loader", options: { configFile: "tsconfig-src.json" }},
+      { test: /\.tsx?$/, loader: "ts-loader", options: { configFile: "tsconfig.json" }},
     ],
   },
 };
