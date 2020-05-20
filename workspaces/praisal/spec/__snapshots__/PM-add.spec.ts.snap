@@ -320,6 +320,7 @@ Array [
   "Gyro/LargeBlockGyro",
   "Gyro/SmallBlockGyro",
   "Cockpit/OpenCockpitSmall",
+  "Cockpit/OpenCockpitLarge",
   "Door/",
   "AirtightHangarDoor/",
   "AirtightSlideDoor/LargeBlockSlideDoor",
@@ -392,7 +393,9 @@ Array [
   "OxygenTank/OxygenTankSmall",
   "OxygenTank/",
   "OxygenTank/LargeHydrogenTank",
+  "OxygenTank/LargeHydrogenTankSmall",
   "OxygenTank/SmallHydrogenTank",
+  "OxygenTank/SmallHydrogenTankSmall",
   "AirVent/",
   "AirVent/SmallAirVent",
   "CargoContainer/SmallBlockSmallContainer",
@@ -541,10 +544,30 @@ Array [
   "CubeBlock/Window3x3FlatInv",
   "CubeBlock/Window2x3Flat",
   "CubeBlock/Window2x3FlatInv",
+  "CubeBlock/SmallWindow1x2Slope",
+  "CubeBlock/SmallWindow1x2Inv",
+  "CubeBlock/SmallWindow1x2Face",
+  "CubeBlock/SmallWindow1x2SideLeft",
+  "CubeBlock/SmallWindow1x2SideLeftInv",
+  "CubeBlock/SmallWindow1x2SideRight",
+  "CubeBlock/SmallWindow1x2SideRightInv",
+  "CubeBlock/SmallWindow1x1Slope",
+  "CubeBlock/SmallWindow1x1Face",
+  "CubeBlock/SmallWindow1x1Side",
+  "CubeBlock/SmallWindow1x1SideInv",
+  "CubeBlock/SmallWindow1x1Inv",
+  "CubeBlock/SmallWindow1x2Flat",
+  "CubeBlock/SmallWindow1x2FlatInv",
+  "CubeBlock/SmallWindow1x1Flat",
+  "CubeBlock/SmallWindow1x1FlatInv",
+  "CubeBlock/SmallWindow3x3Flat",
+  "CubeBlock/SmallWindow3x3FlatInv",
+  "CubeBlock/SmallWindow2x3Flat",
+  "CubeBlock/SmallWindow2x3FlatInv",
 ]
 `;
 
-exports[`PraisalManager.addCubes should succeed based on vendor assets 3`] = `318`;
+exports[`PraisalManager.addCubes should succeed based on vendor assets 3`] = `341`;
 
 exports[`PraisalManager.addIngots should succeed based on vendor assets 1`] = `
 Array [

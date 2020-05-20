@@ -160,6 +160,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <NavigationDefinition>Default</NavigationDefinition>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>true</IsAirTight>
     </Definition>
     <Definition>
@@ -294,6 +295,7 @@
       <BuildTimeSeconds>4</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -398,6 +400,7 @@
       <BuildTimeSeconds>3</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -561,6 +564,7 @@
       <BuildTimeSeconds>7</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -620,6 +624,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <Public>false</Public>
       <PCU>1</PCU>      
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -682,6 +687,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <Public>false</Public>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -751,6 +757,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <Public>false</Public>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -920,6 +927,7 @@
       <DisassembleRatio>3</DisassembleRatio>
       <GeneralDamageMultiplier>0.5</GeneralDamageMultiplier>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>true</IsAirTight>
     </Definition>
     <Definition>
@@ -1056,6 +1064,7 @@
       <BuildTimeSeconds>15</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -1162,6 +1171,7 @@
       <BuildTimeSeconds>8</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -1327,6 +1337,7 @@
       <BuildTimeSeconds>16</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -1492,6 +1503,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <EdgeType>Light</EdgeType>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>true</IsAirTight>
     </Definition>
     <Definition>
@@ -1625,6 +1637,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <EdgeType>Light</EdgeType>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -1722,6 +1735,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <EdgeType>Light</EdgeType>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -1884,6 +1898,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <EdgeType>Light</EdgeType>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -2051,6 +2066,7 @@
       <DisassembleRatio>3</DisassembleRatio>
       <EdgeType>Heavy</EdgeType>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>true</IsAirTight>
     </Definition>
     <Definition>
@@ -2186,6 +2202,7 @@
       <DisassembleRatio>3</DisassembleRatio>
       <EdgeType>Heavy</EdgeType>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -2285,6 +2302,7 @@
       <DisassembleRatio>3</DisassembleRatio>
       <EdgeType>Heavy</EdgeType>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -2449,6 +2467,7 @@
       <DisassembleRatio>3</DisassembleRatio>
       <EdgeType>Heavy</EdgeType>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
 
     <Definition>
@@ -2612,6 +2631,7 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -2775,6 +2795,7 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
 
     <Definition>
@@ -2940,6 +2961,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <NavigationDefinition>Default</NavigationDefinition>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
 
@@ -3107,6 +3129,7 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
 
@@ -3271,6 +3294,7 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -3434,6 +3458,7 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
 
     <Definition>
@@ -3598,6 +3623,7 @@
       <DisassembleRatio>2.5</DisassembleRatio>
       <NavigationDefinition>Default</NavigationDefinition>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
 
@@ -3765,6 +3791,7 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
 
@@ -3902,6 +3929,7 @@
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -4006,6 +4034,7 @@
       <BuildTimeSeconds>3</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -4169,6 +4198,7 @@
       <BuildTimeSeconds>8</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!--    End region LARGE LIGHT -->
     <!--    Region LARGE HEAVY -->
@@ -4305,6 +4335,7 @@
       <BuildTimeSeconds>12</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -4411,6 +4442,7 @@
       <BuildTimeSeconds>8</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -4576,6 +4608,7 @@
       <BuildTimeSeconds>20</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!--    End region LARGE HEAVY -->
     <!--    Region SMALL LIGHT -->
@@ -4709,6 +4742,7 @@
       <BuildTimeSeconds>2</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -4812,6 +4846,7 @@
       <BuildTimeSeconds>1</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -4974,6 +5009,7 @@
       <BuildTimeSeconds>3</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!--    End region SMALL LIGHT -->
     <!--    Region SMALL HEAVY-->
@@ -5109,6 +5145,7 @@
       <BuildTimeSeconds>4</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -5214,6 +5251,7 @@
       <BuildTimeSeconds>2</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -5378,6 +5416,7 @@
       <BuildTimeSeconds>6</BuildTimeSeconds>
       <DisassembleRatio>3</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!--    End region SMALL HEAVY-->
     <!-- End region ROUND ARMOR -->
@@ -5554,6 +5593,7 @@
       <BuildTimeSeconds>6</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -5689,6 +5729,7 @@
       <BuildTimeSeconds>2</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!--    2x1x1 CORNER-->
     <Definition>
@@ -5827,6 +5868,7 @@
       <BuildTimeSeconds>4</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -5930,6 +5972,7 @@
       <BuildTimeSeconds>2</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <!--    2x1x1 INV. CORNER-->
@@ -6093,6 +6136,7 @@
       <BuildTimeSeconds>8</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -6255,6 +6299,7 @@
       <BuildTimeSeconds>6</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
 
     <!--    Large Heavy    -->
@@ -6429,6 +6474,7 @@
       <BuildTimeSeconds>15</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -6565,6 +6611,7 @@
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!--    2x1x1 CORNER-->
     <Definition>
@@ -6704,6 +6751,7 @@
       <BuildTimeSeconds>10</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -6808,6 +6856,7 @@
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <!--    2x1x1 INV. CORNER-->
@@ -6972,6 +7021,7 @@
       <BuildTimeSeconds>20</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -7135,6 +7185,7 @@
       <BuildTimeSeconds>15</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
 
     <!--    Small Light    -->
@@ -7307,6 +7358,7 @@
       <BuildTimeSeconds>3</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -7439,6 +7491,7 @@
       <BuildTimeSeconds>1</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!--    2x1x1 CORNER-->
     <Definition>
@@ -7576,6 +7629,7 @@
       <BuildTimeSeconds>2</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -7677,6 +7731,7 @@
       <BuildTimeSeconds>1</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <!--    2x1x1 INV. CORNER-->
@@ -7839,6 +7894,7 @@
       <BuildTimeSeconds>3</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -8000,6 +8056,7 @@
       <BuildTimeSeconds>2</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
 
     <!--    Small Heavy    -->
@@ -8174,6 +8231,7 @@
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -8308,6 +8366,7 @@
       <BuildTimeSeconds>2</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!--    2x1x1 CORNER-->
     <Definition>
@@ -8447,6 +8506,7 @@
       <BuildTimeSeconds>3</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <Definition>
@@ -8550,6 +8610,7 @@
       <BuildTimeSeconds>2</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
       <IsAirTight>false</IsAirTight>
     </Definition>
     <!--    2x1x1 INV. CORNER-->
@@ -8714,6 +8775,7 @@
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -8877,6 +8939,7 @@
       <BuildTimeSeconds>4</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <PCU>1</PCU>
+      <PCUConsole>2</PCUConsole>
     </Definition>
     <!-- Region NON-DEFORMING SLOPED ARMOR -->
   </CubeBlocks>

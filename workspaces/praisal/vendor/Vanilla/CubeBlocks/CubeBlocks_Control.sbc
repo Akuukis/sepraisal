@@ -151,6 +151,7 @@
       </RaycastOffset>
       <PCU>50</PCU>
       <IsAirTight>false</IsAirTight>      
+	  <IsDefault3rdView>true</IsDefault3rdView>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
       <Id>
@@ -608,6 +609,7 @@
           <Component Subtype="Motor" Count="1" />
           <Component Subtype="Computer" Count="15" />
           <Component Subtype="Display" Count="2" />
+          <Component Subtype="Construction" Count="5" />
           <Component Subtype="InteriorPlate" Count="10" />
       </Components>
       <CriticalComponent Subtype="Display" Index="0" />
@@ -619,8 +621,9 @@
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\OpenCockpitSmallConstruction_1.mwm" />
         <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\OpenCockpitSmallConstruction_2.mwm" />
       </BuildProgressModels>
+      <BlockPairName>OpenCockpit</BlockPairName>
      <ScreenAreas>
-         <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" />
+         <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" Script="TSS_ArtificialHorizon"  />
      </ScreenAreas>     
      <VoxelPlacement>
           <StaticMode>
@@ -641,12 +644,79 @@
       <EnableShipControl>true</EnableShipControl>
       <EnableBuilderCockpit>false</EnableBuilderCockpit>
       <IsPressurized>false</IsPressurized>
-      <BuildTimeSeconds>14</BuildTimeSeconds>
+      <BuildTimeSeconds>20</BuildTimeSeconds>
       <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
       <DamagedSound>ParticleElectrical</DamagedSound>
       <PCU>50</PCU>
       <IsAirTight>false</IsAirTight>
     </Definition>
+
+      <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+          <Id>
+              <TypeId>Cockpit</TypeId>
+              <SubtypeId>OpenCockpitLarge</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_OpenCockpitLarge</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\OpenCockpitLarge.dds</Icon>
+          <Description>Description_OpenCockpitLarge</Description>
+          <CubeSize>Large</CubeSize>
+          <GuiVisible>false</GuiVisible>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <Model>Models\Cubes\Large\OpenCockpitLarge.mwm</Model>
+          <CharacterAnimation>FighterCockpitPosture</CharacterAnimation>
+          <ModelOffset x="0" y="0" z="0" />
+          <Components>
+              <Component Subtype="InteriorPlate" Count="10" />
+              <Component Subtype="Construction" Count="20" />
+              <Component Subtype="Motor" Count="2" />
+              <Component Subtype="Computer" Count="100" />
+              <Component Subtype="Display" Count="6" />
+              <Component Subtype="Construction" Count="10" />
+              <Component Subtype="InteriorPlate" Count="20" />
+          </Components>
+          <CriticalComponent Subtype="Display" Index="0" />
+          <MountPoints>
+              <MountPoint Side="Bottom" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\OpenCockpitLargeConstruction_1.mwm" />
+              <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\OpenCockpitLargeConstruction_2.mwm" />
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\OpenCockpitLargeConstruction_3.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>OpenCockpit</BlockPairName>
+          <ScreenAreas>
+              <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" Script="TSS_ArtificialHorizon" />
+              <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_TopLeft" TextureResolution="256" ScreenWidth="3" ScreenHeight="2" Script="TSS_EnergyHydrogen" />
+              <ScreenArea Name="CockpitScreen_03" DisplayName="DisplayName_Screen_TopRight" TextureResolution="256" ScreenWidth="3" ScreenHeight="2"  Script="TSS_Gravity" />
+              <ScreenArea Name="CockpitScreen_04" DisplayName="DisplayName_Screen_BottomLeft" TextureResolution="256" ScreenWidth="3" ScreenHeight="4" Script="TSS_ClockAnalog"/>
+              <ScreenArea Name="CockpitScreen_05" DisplayName="DisplayName_Screen_BottomRight" TextureResolution="256" ScreenWidth="4" ScreenHeight="3" />
+          </ScreenAreas>
+          <VoxelPlacement>
+              <StaticMode>
+                  <PlacementMode>OutsideVoxel</PlacementMode>
+                  <MaxAllowed>0.2</MaxAllowed>
+                  <MinAllowed>0</MinAllowed>
+              </StaticMode>
+              <DynamicMode>
+                  <PlacementMode>OutsideVoxel</PlacementMode>
+                  <MaxAllowed>0.2</MaxAllowed>
+                  <MinAllowed>0</MinAllowed>
+              </DynamicMode>
+          </VoxelPlacement>
+          <MirroringZ>Y</MirroringZ>
+          <MirroringY>Z</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <EnableFirstPerson>true</EnableFirstPerson>
+          <EnableShipControl>true</EnableShipControl>
+          <EnableBuilderCockpit>false</EnableBuilderCockpit>
+          <IsPressurized>false</IsPressurized>
+          <BuildTimeSeconds>32</BuildTimeSeconds>
+          <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+          <DamagedSound>ParticleElectrical</DamagedSound>
+          <PCU>150</PCU>
+          <IsAirTight>false</IsAirTight>
+      </Definition>
 
   </CubeBlocks>
 </Definitions>

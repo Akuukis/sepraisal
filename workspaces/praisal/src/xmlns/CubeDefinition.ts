@@ -65,6 +65,7 @@ export namespace CubeDTOCategory {
     readonly MountPoints: unknown,
     readonly NavigationDefinition: readonly ['Default'],
     readonly PCU: readonly [number],
+    readonly PCUConsole?: readonly [number],
     readonly Size: readonly [ICubeSize1 | ICubeSize2],
     readonly Skeleton: unknown,
     readonly Variants: unknown,
