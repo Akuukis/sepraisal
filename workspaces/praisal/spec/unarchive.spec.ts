@@ -1,10 +1,10 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
+import { NewPraisalManager } from '../src/NewPraisalManager'
 import { unzipCachedSbc } from '../src/unzipCachedSbc'
 
 import { PraisalManager } from '../src'
-import { NewPraisalManager } from './_utils'
 
 
 const FIXTURES_DIR = join(__dirname, 'fixtures')

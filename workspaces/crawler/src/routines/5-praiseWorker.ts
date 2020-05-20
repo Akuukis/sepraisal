@@ -1,9 +1,9 @@
-import { BLOCK_GROUPS, DB_NAME, DB_URL, IBlueprint, VENDOR_MOD } from '@sepraisal/common'
-import { PraisalManager, unzipCachedSbc } from '@sepraisal/praisal'
+import { DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
+import { unzipCachedSbc } from '@sepraisal/praisal'
+import { NewPraisalManager } from '@sepraisal/praisal/lib/NewPraisalManager'
 import { readFileSync } from 'fs'
 import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
-import { join } from 'path'
 
 import { sbcPath } from '../utils'
 
@@ -17,54 +17,21 @@ interface IProjection {
 }
 
 
-const VENDOR_DIR = join(require.resolve('@sepraisal/praisal'), '..', '..', 'vendor')
-const sePraisal = new PraisalManager()
 // tslint:disable-next-line: no-unused - TODO: this is bug.
 let collection: Collection<IProjection>
 
 
 const init = (async () => {
-    const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-    const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-    const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-    const cubeBlocksSbcs = [
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Communications.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Control.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Doors.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Energy.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Extras.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Gravity.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Interiors.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_LCDPanels.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Lights.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Logistics.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Mechanical.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Medical.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Production.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Thrusters.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Tools.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Utility.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Weapons.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')).toString(),
-        readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')).toString(),
-    ]
-    await sePraisal.addOres(physicalItemsSbc)
-    await sePraisal.addIngots(physicalItemsSbc, blueprintsSbc)
-    await sePraisal.addComponents(blueprintsSbc, componentsSbc)
-    for(const cubeBlocksSbc of cubeBlocksSbcs) await sePraisal.addCubes(cubeBlocksSbc)
-    sePraisal.addGroups(BLOCK_GROUPS)
+    const sePraisal = NewPraisalManager()()
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     // console.info(`Database connection established (fork ${process.pid}).`)
     const db = client.db(DB_NAME)
     collection = db.collection<IProjection>('blueprints')
-
+    return sePraisal
 })()
 
 export = async (index: number, doc: IProjection, callback: (err: Error | void) => unknown) => {
-    await init
+    const sePraisal = await init
     const timer = Date.now()
 
     const prefix = () => [

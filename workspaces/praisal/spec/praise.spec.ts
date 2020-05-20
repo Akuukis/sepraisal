@@ -1,8 +1,9 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
+import { NewPraisalManager, VENDOR_DIR } from '../src/NewPraisalManager'
+
 import { PraisalManager } from '../src'
-import { NewPraisalManager, VENDOR_DIR } from './_utils'
 
 
 const PREFABS_DIR = join(VENDOR_DIR, 'prefabs')
