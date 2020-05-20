@@ -168,7 +168,7 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         favoriteCount: dataRaw.favoriteCount,
 
         _revision: null,
-        _version: 1,
+        _version: IBlueprint.VERSION.steam,
         activityMax,
         activityTotal,
         exposureMax,
