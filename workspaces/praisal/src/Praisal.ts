@@ -326,6 +326,8 @@ export class Praisal {
             if(SIMILAR_HEAVY_ARMOR.includes(key)) realKey = '<Vanilla Heavy Armor blocks>'
             if(SIMILAR_INTERIOR_LIGHT.includes(key)) realKey = '<Vanilla Interior Light blocks>'
             if(SIMILAR_TEXT_PANEL.includes(key)) realKey = '<Vanilla Text Panel blocks>'
+
+            blocks[realKey] = (realKey in blocks ? blocks[realKey] : 0) + count
         })
 
         const components = Object.create(null) as Record<string, number>
