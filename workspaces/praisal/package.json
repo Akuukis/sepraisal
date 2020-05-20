@@ -10,7 +10,7 @@
         "url": "https://gitlab.com/space-engineers-community/sepraisal"
     },
     "engines": {
-        "node": "^12"
+        "node": "~10"
     },
     "license": "GPL-3.0",
     "private": true,
@@ -32,10 +32,12 @@
         "@sepraisal/common": "^0.0.1",
         "jszip": "^3.2.2",
         "mobx": "^5.15.4",
+        "object.fromentries": "^2.0.2",
         "xml2js": "^0.4.23"
     },
     "devDependencies": {
         "@types/jszip": "^3.1.7",
+        "@types/object.fromentries": "^2.0.0",
         "@types/xml2js": "^0.4.5",
         "utility-types": "^3.10.0"
     }

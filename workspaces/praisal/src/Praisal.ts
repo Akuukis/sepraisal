@@ -1,4 +1,5 @@
 import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap } from '@sepraisal/common'
+import fromEntries from 'object.fromentries'
 
 import { Blueprint, Component, Cube, Group, ICoords, Ingot, Ore, Orientation, TranslationMinEnum } from './models'
 import { Block } from './models/Block'
@@ -308,10 +309,10 @@ export class Praisal {
         const blockCountTotal = this.blockCount + this.blocksErrors.reduce((sum, [, count]) => sum + count, 0)
 
         const missingDefinitions: IBlueprint.IDefinitions = {
-            blocks: Object.fromEntries(this.blocksErrors),
-            components: Object.fromEntries(this.componentErrors),
-            ingots: Object.fromEntries(this.ingotErrors),
-            ores: Object.fromEntries(this.oreErrors),
+            blocks: fromEntries(this.blocksErrors),
+            components: fromEntries(this.componentErrors),
+            ingots: fromEntries(this.ingotErrors),
+            ores: fromEntries(this.oreErrors),
         }
 
         const blocks = Object.create(null) as Record<string, number>
