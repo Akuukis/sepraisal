@@ -13,7 +13,7 @@
     "private": true,
     "scripts": {
         "start": "yarn run express",
-        "build": "tsc -v && tsc",
+        "build": "tsc -v && tsc -b",
         "clean": "rm -rf coverage lib tmp tsconfig.tsbuildinfo",
         "express": "yarn run build && yarn run express:launch",
         "express:launch": "yarn run ts-node -r dotenv/config src/express.ts",
@@ -25,7 +25,7 @@
         "test": "echo 'no tests :('",
         "test:coverage": "yarn run test --coverage",
         "watch": "yarn run watch:src",
-        "watch:src": "tsc --watch  # --preserveWatchOutput",
+        "watch:src": "tsc -b --watch  # --preserveWatchOutput",
         "watch:test": "yarn run test --watch"
     },
     "dependencies": {

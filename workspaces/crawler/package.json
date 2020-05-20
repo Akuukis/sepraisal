@@ -13,7 +13,7 @@
     "private": true,
     "scripts": {
         "start": "yarn run build && yarn run lint && yarn run test",
-        "build": "yarn run tsc -v && yarn run tsc",
+        "build": "yarn run tsc -v && yarn run tsc -b",
         "clean": "rm -rf coverage lib tmp tsconfig.tsbuildinfo",
         "cli": "ts-node -r dotenv/config src/cli/index.ts",
         "lint": "tslint",
@@ -24,7 +24,7 @@
         "test": "echo 'no tests :('",
         "test:coverage": "yarn run test --coverage",
         "watch": "yarn run watch:src",
-        "watch:src": "yarn run tsc --watch  # --preserveWatchOutput",
+        "watch:src": "yarn run tsc -b --watch  # --preserveWatchOutput",
         "watch:test": "yarn run test --watch"
     },
     "dependencies": {
