@@ -3,7 +3,7 @@ import moment from 'moment'
 import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
 import scrapeIt from 'scrape-it'
-import { Omit } from 'utility-types'
+import { Omit, PickByValueExact } from 'utility-types'
 
 import { QUERIES } from '../queries'
 import { prepareQuery } from '../utils'
@@ -114,6 +114,34 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         favoriteCount: {selector: '.stats_table tr:nth-child(3) > td:nth-child(1)', convert: commaNumber},
         description: {selector: '.workshopItemDescription', how: 'html'},
     } as Record<keyof IScrapeSteamData, scrapeIt.ScrapeOptions>)
+
+    // Check that data actually is there.
+    ;([
+        'authorTitle',
+        'description',
+        'title',
+    ] as Array<keyof PickByValueExact<IScrapeSteamData, string>>).forEach((prop) => {
+        if(typeof dataRaw[prop] !== 'string') throw new Error(`Field ${prop} failed to scrape.`)
+    })
+    ;([
+        'authorId',
+        'commentCount',
+        'favoriteCount',
+        'id',
+        'revision',
+        'sizeMB',
+        'subscriberCount',
+        'visitorCount',
+    ] as Array<keyof PickByValueExact<IScrapeSteamData, number>>).forEach((prop) => {
+        if(typeof dataRaw[prop] !== 'number') throw new Error(`Field ${prop} failed to scrape.`)
+    })
+    ;([
+        'postedDate',
+        // 'updatedDate',  // OK to be null, then defaults to postedDate.
+    ] as Array<keyof PickByValueExact<IScrapeSteamData, Date>>).forEach((prop) => {
+        if(!(dataRaw[prop] instanceof Date)) throw new Error(`Field ${prop} failed to scrape.`)
+    })
+
 
     const ratingCount = (dataRaw.ratingCount !== null ? dataRaw.ratingCount : 0)
     const exposureMax = Math.max(dataRaw.visitorCount, dataRaw.subscriberCount)
