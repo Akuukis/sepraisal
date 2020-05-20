@@ -1,3 +1,4 @@
+import { VENDOR_MOD } from '@sepraisal/common/src'
 import { parseString } from 'xml2js'
 
 import { IMaterialBlueprint, IMaterialDefinition, IMaterialItem } from '../xmlns/MaterialDefinition'
@@ -8,6 +9,7 @@ export interface IParseBlueprintSbc {
     time: number
     type: string
     fullType: string
+    mod: VENDOR_MOD
 }
 
 //   <Results>
@@ -21,7 +23,7 @@ export interface IParseBlueprintSbc {
 //   </Results>
 //   <Result Amount="0.7" TypeId="Ingot" SubtypeId="Iron" />
 
-export const parseBlueprintSbc = async (xml: string): Promise<IParseBlueprintSbc[]> =>
+export const parseBlueprintSbc = async (xml: string, mod: VENDOR_MOD): Promise<IParseBlueprintSbc[]> =>
     new Promise((resolve: (value: IParseBlueprintSbc[]) => void, reject: (reason: Error) => void) => {
         parseString(xml, (parseError: Error | undefined, bp: IMaterialDefinition) => {
             if(parseError) reject(parseError)
@@ -49,7 +51,8 @@ export const parseBlueprintSbc = async (xml: string): Promise<IParseBlueprintSbc
                             subtype: resultItem.SubtypeId,
                             time: Number(material.BaseProductionTimeInSeconds[0]),
                             type: resultItem.TypeId,
-                            fullType: `${resultItem.TypeId}/${resultItem.SubtypeId}`
+                            fullType: `${resultItem.TypeId}/${resultItem.SubtypeId}`,
+                            mod,
                         }))
                     .filter((blueprintSbc) => {
                         if(blueprintSbc.type !== 'Ingot') return true

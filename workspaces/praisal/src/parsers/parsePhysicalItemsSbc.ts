@@ -1,3 +1,4 @@
+import { VENDOR_MOD } from '@sepraisal/common/src'
 import { parseString } from 'xml2js'
 
 import { IPhysicalItemDefinition } from '../xmlns/PhysicalItems'
@@ -10,9 +11,10 @@ export interface IParsePhysicalItemsSbc {
     type: string
     volume: number
     fullType: string
+    mod: VENDOR_MOD
 }
 
-export const parsePhysicalItemsSbc = async (xml: string): Promise<IParsePhysicalItemsSbc[]> =>
+export const parsePhysicalItemsSbc = async (xml: string, mod: VENDOR_MOD): Promise<IParsePhysicalItemsSbc[]> =>
     new Promise((resolve: (value: IParsePhysicalItemsSbc[]) => void, reject: (reason: Error) => void) => {
         parseString(xml, (parseError: Error | undefined, bp: IPhysicalItemDefinition) => {
             if(parseError) reject(parseError)
@@ -30,7 +32,8 @@ export const parsePhysicalItemsSbc = async (xml: string): Promise<IParsePhysical
                             subtype: item.Id[0].SubtypeId[0],
                             type: item.Id[0].TypeId[0],
                             volume: Number(item.Volume[0]),
-                            fullType: `${item.Id[0].TypeId[0]}/${item.Id[0].SubtypeId[0]}`
+                            fullType: `${item.Id[0].TypeId[0]}/${item.Id[0].SubtypeId[0]}`,
+                            mod,
                         }))
                 resolve(items)
             } catch(transformError) {
