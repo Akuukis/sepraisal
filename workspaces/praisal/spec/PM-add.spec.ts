@@ -12,12 +12,12 @@ const VENDOR_DIR = join(__dirname, '..', 'vendor')
 let sepraisal: PraisalManager
 beforeEach(async () => {
     sepraisal = new PraisalManager()
-    const physicalItemsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
-    const materialsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
-    const componentsXml = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-    await sepraisal.addPhysicalItemsSbc(physicalItemsXml, VENDOR_MOD.VANILLA)
-    await sepraisal.addBlueprintsSbc(materialsXml, VENDOR_MOD.VANILLA)
-    await sepraisal.addComponentsSbc(componentsXml, VENDOR_MOD.VANILLA)
+    const physicalItemsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
+    const materialsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
+    const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
+    await sepraisal.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)
+    await sepraisal.addBlueprintsSbc(materialsSbc, VENDOR_MOD.VANILLA)
+    await sepraisal.addComponentsSbc(componentsSbc, VENDOR_MOD.VANILLA)
     sepraisal.build()
 })
 
