@@ -89,6 +89,7 @@
             "workspaces/": true,
         },
         "search.exclude": {
+            "tmp/": true,
             "*.snap": true,
             ".nyc_output/": true,
             "yarn-error.log": true,
