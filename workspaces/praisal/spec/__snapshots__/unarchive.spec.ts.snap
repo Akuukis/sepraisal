@@ -2,8 +2,9 @@
 
 exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 1`] = `
 Object {
+  "DLCs": Array [],
   "_revision": 0,
-  "_version": 6,
+  "_version": 7,
   "blockCount": 16420,
   "blockCountTotal": 16423,
   "blockIntegrity": 68286137,
@@ -323,8 +324,9 @@ AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBABBBBBBAAAAAAAAAAAAAAAAAAAAAAAAB
 
 exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (PZK PCS - T340) 1`] = `
 Object {
+  "DLCs": Array [],
   "_revision": 0,
-  "_version": 6,
+  "_version": 7,
   "blockCount": 1623,
   "blockCountTotal": 1624,
   "blockIntegrity": 717500,
@@ -560,8 +562,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 1`] = `
 Object {
+  "DLCs": Array [],
   "_revision": 0,
-  "_version": 6,
+  "_version": 7,
   "blockCount": 440,
   "blockCountTotal": 440,
   "blockIntegrity": 1416513,

@@ -2,8 +2,9 @@
 
 exports[`PraisalManager.praiseSbc should succeed to praise AtmosphericLander 1`] = `
 Object {
+  "DLCs": Array [],
   "_revision": 0,
-  "_version": 6,
+  "_version": 7,
   "blockCount": 261,
   "blockCountTotal": 261,
   "blockIntegrity": 1052364,
@@ -223,8 +224,9 @@ AAAAACAAAAAAAAA
 
 exports[`PraisalManager.praiseSbc should succeed to praise EveryLargeBlockOnce 1`] = `
 Object {
+  "DLCs": Array [],
   "_revision": 0,
-  "_version": 6,
+  "_version": 7,
   "blockCount": 121,
   "blockCountTotal": 122,
   "blockIntegrity": 1134866,
@@ -534,8 +536,9 @@ AAAAA..AAA...AAAAAA...
 
 exports[`PraisalManager.praiseSbc should succeed to praise RespawnShip 1`] = `
 Object {
+  "DLCs": Array [],
   "_revision": 0,
-  "_version": 6,
+  "_version": 7,
   "blockCount": 118,
   "blockCountTotal": 118,
   "blockIntegrity": 531409,
@@ -737,8 +740,9 @@ ABBBA
 
 exports[`PraisalManager.praiseSbc should succeed to praise dekartaTests 1`] = `
 Object {
+  "DLCs": Array [],
   "_revision": 0,
-  "_version": 6,
+  "_version": 7,
   "blockCount": 180,
   "blockCountTotal": 180,
   "blockIntegrity": 550400,

@@ -42,8 +42,8 @@ export namespace IBlueprint {
     // tslint:disable-next-line: no-object-literal-type-assertion
     export const VERSION = {
         classes: 1,
-        sbc: 6,
-        steam: 1,
+        sbc: 7,
+        steam: 2,
         thumb: 2,
     } as const
 
