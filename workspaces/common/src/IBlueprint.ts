@@ -113,6 +113,7 @@ export namespace IBlueprint {
         revision: number,
         mods: IRefItem[],
         collections: IRefItem[],
+        DLCs: VENDOR_MOD[],
 
         ratingStars: number | null,
         ratingCount: number | null,
