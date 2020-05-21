@@ -3493,8 +3493,8 @@ exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 2`] = `
 Array [
   "MyProgrammableBlock/SmallProgrammableBlock",
-  "MyObjectBuilder_Projector/LargeProjector",
-  "MyObjectBuilder_Projector/SmallProjector",
+  "Projector/LargeProjector",
+  "Projector/SmallProjector",
   "SensorBlock/SmallBlockSensor",
   "SensorBlock/LargeBlockSensor",
   "SoundBlock/SmallBlockSoundBlock",
@@ -3559,62 +3559,6 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc": MyObjectBuilder_Projector/LargeProjector 1`] = `
-Object {
-  "data": Any<Object>,
-  "displayName": "DisplayName_Block_Projector",
-  "gridSize": "Large",
-  "integrity": 2382,
-  "mass": 526.4,
-  "mod": "Vanilla",
-  "pcu": 50,
-  "prerequisites": Object {
-    "Component/Computer": 2,
-    "Component/Construction": 4,
-    "Component/LargeTube": 2,
-    "Component/Motor": 1,
-    "Component/SteelPlate": 21,
-  },
-  "size": Object {
-    "X": 1,
-    "Y": 1,
-    "Z": 1,
-  },
-  "subtype": "LargeProjector",
-  "time": 20,
-  "type": "MyObjectBuilder_Projector",
-  "volume": 15625,
-}
-`;
-
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc": MyObjectBuilder_Projector/SmallProjector 1`] = `
-Object {
-  "data": Any<Object>,
-  "displayName": "DisplayName_Block_Projector",
-  "gridSize": "Small",
-  "integrity": 422,
-  "mass": 130.4,
-  "mod": "Vanilla",
-  "pcu": 50,
-  "prerequisites": Object {
-    "Component/Computer": 2,
-    "Component/Construction": 2,
-    "Component/LargeTube": 2,
-    "Component/Motor": 1,
-    "Component/SteelPlate": 2,
-  },
-  "size": Object {
-    "X": 1,
-    "Y": 1,
-    "Z": 1,
-  },
-  "subtype": "SmallProjector",
-  "time": 12,
-  "type": "MyObjectBuilder_Projector",
-  "volume": 125,
-}
-`;
-
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc": MyProgrammableBlock/LargeProgrammableBlock 1`] = `
 Object {
   "data": Any<Object>,
@@ -3669,6 +3613,62 @@ Object {
   "subtype": "SmallProgrammableBlock",
   "time": 8,
   "type": "MyProgrammableBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc": Projector/LargeProjector 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Projector",
+  "gridSize": "Large",
+  "integrity": 2382,
+  "mass": 526.4,
+  "mod": "Vanilla",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 4,
+    "Component/LargeTube": 2,
+    "Component/Motor": 1,
+    "Component/SteelPlate": 21,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeProjector",
+  "time": 20,
+  "type": "Projector",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc": Projector/SmallProjector 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Projector",
+  "gridSize": "Small",
+  "integrity": 422,
+  "mass": 130.4,
+  "mod": "Vanilla",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 2,
+    "Component/LargeTube": 2,
+    "Component/Motor": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallProjector",
+  "time": 12,
+  "type": "Projector",
   "volume": 125,
 }
 `;

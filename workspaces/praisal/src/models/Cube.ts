@@ -49,7 +49,7 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
         const time = Number(!Array.isArray(BuildTimeSeconds) ? 0 : BuildTimeSeconds[0])  // Default = 0
         const pcu = Number(!Array.isArray(PCU) ? 0 : PCU[0])  // Default = 0
 
-        this.type = Id[0].TypeId[0] as T
+        this.type = Id[0].TypeId[0].replace('MyObjectBuilder_', '') as T
         this.subtype = Id[0].SubtypeId[0]
         this.displayName = DisplayName[0]
         this.gridSize = CubeSize[0]
