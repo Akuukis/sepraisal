@@ -1,4 +1,3 @@
-import { idFromHref } from '@sepraisal/common'
 import clsx from 'clsx'
 import { autorun } from 'mobx'
 import * as React from 'react'
@@ -9,6 +8,7 @@ import { FormControl, FormHelperText, FormLabel, InputAdornment, TextField, Typo
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
+import { PROVIDER } from 'src/constants'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -41,7 +41,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     React.useEffect(() => {
         return autorun(() => {
             if(location.search === '') return
-            setText(String(validateId(idFromHref(location.search))))
+            setText(String(validateId(extractId(`${document.location.origin}${location.search}`))))
         })
     }, [])
 
@@ -112,10 +112,10 @@ const extractId = (text: string) => {
     } catch(err) {
     }
     if(url) {
-        const id = idFromHref(url.href)
-        if(!id) throw new Error(`URL doesn't contain search parameter "id".`)
+        const id = url.searchParams.get(PROVIDER.STEAM)
+        if(!id) throw new Error(`URL doesn't contain search parameter "${PROVIDER.STEAM}".`)
 
-        return id
+        return Number(id)
     }
 
     const id = Math.round(Number(text))
