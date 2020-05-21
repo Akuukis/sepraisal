@@ -88,6 +88,10 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         | 'exposureMax'
         | 'exposureTotal'
         | 'popularity'
+        | 'authorsCount'
+        | 'collectionsCount'
+        | 'DLCsCount'
+        | 'modsCount'
     interface IScrapeSteamData extends Omit<IFlagParam, IScrapeSteamDataOmits> {
         // _id: number,
     }
@@ -157,6 +161,10 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
     const activityMax = Math.max(ratingCount, dataRaw.commentCount, dataRaw.favoriteCount)
     const activityTotal = ratingCount + dataRaw.commentCount + dataRaw.favoriteCount
     const popularity = dataRaw.subscriberCount / Math.sqrt(Math.min(30, moment().diff(dataRaw.postedDate, 'd')))
+    const authorsCount = dataRaw.authors.length
+    const collectionsCount = dataRaw.collections.length
+    const DLCsCount = dataRaw.DLCs.length
+    const modsCount = dataRaw.mods.length
 
     const dataForFlags: IFlagParam = {
         id,
@@ -186,6 +194,11 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         exposureMax,
         exposureTotal,
         popularity,
+
+        authorsCount,
+        collectionsCount,
+        DLCsCount,
+        modsCount,
     }
 
     return {
