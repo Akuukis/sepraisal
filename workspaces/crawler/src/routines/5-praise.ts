@@ -90,12 +90,27 @@ export const main = async () => {
 
     console.info(`Praising ${docs.length} blueprints...`)
     await Promise.all([...docs.entries()].map(async ([index, doc]) => {
-        const prefix = `#${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |  ${(farmOptions.maxCallTime / 1000).toFixed(0)}s |`
+        const prefix = `#${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |`
         try {
             console.info(await queueWork(index, doc))
             praised.set(doc._id, null)
         } catch(err) {
-            console.error(`${prefix} ${(err as Error).name}: ${(err as Error).message}`)
+            if(['read', 'praise', 'update'].includes(err.type)) {
+                console.error(prefix, (err as Error).message)
+            } else if(err.type === 'TimeoutError') {
+                console.error(
+                    prefix,
+                    pad(5, `${(farmOptions.maxCallTime / 1000).toFixed(0)}s`),
+                    `${(err as Error).name}:`,
+                    `${(err as Error).message}`,
+                )
+            } else {
+                console.error(
+                    prefix,
+                    `${(err as Error).name}:`,
+                    `${(err as Error).message}`,
+                )
+            }
             praised.set(doc._id, err.type || err.name || 'UnknownError')
             try {
                 await collection.updateOne({ _id: doc._id }, { $set: {sbc: {_error: IBlueprint.VERSION.sbc, _errorDetails: err.type}}})
