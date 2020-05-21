@@ -51,7 +51,7 @@ export = async (index: number, doc: IProjection, callback: (err: Error | null, m
         xml = await unzipCachedSbc(readFileSync(sbcPath(doc)))
     } catch(err) {
         err.type = 'read'
-        console.warn(prefix(), `Reading Error: failed to open archive: ${err.message}`)
+        err.message = `${prefix()} Reading Error: failed to open archive: ${err.message}`
 
         return callback(err as Error)
     }
@@ -62,27 +62,27 @@ export = async (index: number, doc: IProjection, callback: (err: Error | null, m
         sbc = praisal.toBlueprintSbc(doc.steam.revision)
     } catch(err) {
         err.type = 'praise'
-        console.error(prefix(), `Praisal Error: ${err.message.replace(/\n/g, '|')}`)
+        err.message = `${prefix()} Praisal Error: ${err.message.replace(/\n/g, '|')}`
 
-        return callback(err)
+        return callback(err as Error)
     }
 
     try {
         await collection.updateOne({ _id: doc._id }, { $set: {sbc}})
     } catch(err) {
         err.type = 'update'
-        console.error(prefix(), `Update Error: ${err.message.replace(/\n/g, '|')}`)
+        err.message = `${prefix()} Update Error: ${err.message.replace(/\n/g, '|')}`
 
-        return callback(err)
+        return callback(err as Error)
     }
 
-    console.info(
+    const msg = [
         prefix(),
         pad(6, String(sbc.blockCount)),
         sbc.gridSize === 'Small' ? 'SG' : 'LG',
         `|`,
         `${sbc.gridTitle}`,
-    )
+    ].join(' ')
     // console.info(JSON.stringify(sbc))
-    callback(undefined)
+    callback(null, msg)
 }
