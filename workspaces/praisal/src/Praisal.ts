@@ -198,8 +198,8 @@ export class Praisal {
 
         let leftoverBlueprint = blueprint
         for(const group of groupsOrdered) {
-            const matchedBlueprint = new Blueprint(leftoverBlueprint, this.cubeDefs)
-            const otherBlueprint = new Blueprint(leftoverBlueprint, this.cubeDefs)
+            const matchedBlueprint = new Blueprint(leftoverBlueprint)
+            const otherBlueprint = new Blueprint(leftoverBlueprint)
             leftoverBlueprint.grids.forEach((grid, i) => {
                 const {matched, other} = group.match(leftoverBlueprint.grids[i].blocks)
                 matchedBlueprint.grids[i].blocks = matched
@@ -362,6 +362,7 @@ export class Praisal {
 
         return {
             gridTitle: this.blummary.title,
+            sizeMB: Math.round(this.blummary.originalSize / 1000 / 1000 * 100) / 100,
 
             missingDefinitions,
             missingDefinitionsCount,

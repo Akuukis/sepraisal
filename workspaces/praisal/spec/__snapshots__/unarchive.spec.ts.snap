@@ -204,6 +204,7 @@ Object {
     "Forward": "Forward",
     "Up": "Up",
   },
+  "sizeMB": 7.96,
   "thrustAtmospheric": Object {},
   "thrustHydrogen": Object {},
   "thrustIon": Object {
@@ -509,6 +510,7 @@ Object {
     "Forward": "Forward",
     "Up": "Up",
   },
+  "sizeMB": 1.17,
   "thrustAtmospheric": Object {},
   "thrustHydrogen": Object {
     "Down": 590400,
@@ -746,6 +748,7 @@ Object {
     "Forward": "Forward",
     "Up": "Up",
   },
+  "sizeMB": 0.28,
   "thrustAtmospheric": Object {
     "Backward": 3888000,
     "Forward": 5184000,

@@ -188,6 +188,7 @@ export namespace IBlueprint {
 
     export interface ISbc extends IProp, IDefinitions, IMaterialGroupFull {
         _revision: number,
+        sizeMB: number,
         vanilla: boolean,
         DLCs: VENDOR_MOD[],
         DLCsCount: number,

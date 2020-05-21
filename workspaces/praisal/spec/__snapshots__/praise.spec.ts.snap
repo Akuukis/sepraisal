@@ -172,6 +172,7 @@ Object {
     "Forward": "Backward",
     "Up": "Up",
   },
+  "sizeMB": 0.13,
   "thrustAtmospheric": Object {
     "Backward": 1296000,
     "Forward": 1296000,
@@ -472,6 +473,7 @@ Object {
     "Forward": "Forward",
     "Up": "Up",
   },
+  "sizeMB": 0.14,
   "thrustAtmospheric": Object {
     "Forward": 7128000,
   },
@@ -710,6 +712,7 @@ Object {
     "Forward": "Left",
     "Up": "Up",
   },
+  "sizeMB": 0.12,
   "thrustAtmospheric": Object {},
   "thrustHydrogen": Object {},
   "thrustIon": Object {
@@ -877,6 +880,7 @@ Object {
     "Forward": "Forward",
     "Up": "Up",
   },
+  "sizeMB": 0.05,
   "thrustAtmospheric": Object {},
   "thrustHydrogen": Object {},
   "thrustIon": Object {},
