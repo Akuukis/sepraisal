@@ -30,16 +30,19 @@ const init = (async () => {
     return sePraisal
 })()
 
-export = async (index: number, doc: IProjection, callback: (err: Error | void) => unknown) => {
-    const sePraisal = await init
+export = async (index: number, doc: IProjection, callback: (err: Error | null, msg?: string) => unknown) => {
     const timer = Date.now()
+    const sePraisal = await init
+    const loaded = (Date.now() - timer) / 1000
 
     const prefix = () => [
         `#${pad(String(index), 5)}`,
         `|`,
         `${pad(String(doc._id), 10)}`,
         `|`,
-        pad(5, `${((Date.now() - timer) / 1000).toFixed(1)}s`),
+        pad(5, `${loaded.toFixed(1)}s`),
+        `|`,
+        pad(5, `${((Date.now() - timer) / 1000 - loaded).toFixed(1)}s`),
         `|`,
     ].join(' ')
 

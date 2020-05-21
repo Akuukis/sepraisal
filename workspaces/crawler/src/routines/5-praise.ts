@@ -24,11 +24,11 @@ const farmOptions = {
     workerOptions               : {
         ...(isDebug ? {execArgv: ['--inspect-brk=49999']} : {}),
     },
-    maxCallsPerWorker           : 1,
+    maxCallsPerWorker           : Infinity,
     maxConcurrentWorkers        : isDebug ? 1 : cpus().length,
     maxConcurrentCallsPerWorker : 1,
     maxConcurrentCalls          : Infinity,
-    maxCallTime                 : isDebug ? Infinity : 10 * 1000,
+    maxCallTime                 : isDebug ? Infinity : 30 * 1000,
     maxRetries                  : 1,
     autoStart                   : false,
 }
