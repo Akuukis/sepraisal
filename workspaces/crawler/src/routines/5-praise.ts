@@ -64,7 +64,7 @@ export const main = async () => {
         ]}
 
     const docsAll = await collection
-        .find(query)
+        .find()
         .project({
             '_id': true,
             'steam.revision': true,
@@ -95,9 +95,8 @@ export const main = async () => {
             console.info(await queueWork(index, doc))
             praised.set(doc._id, null)
         } catch(err) {
-            if(err.type === 'TimeoutError') err.message = `${prefix} Error: ${err.type}`
-            console.error(err)
-            praised.set(doc._id, err.type)
+            console.error(`${prefix} ${(err as Error).name}: ${(err as Error).message}`)
+            praised.set(doc._id, err.type ?? err.name ?? 'UnknownError')
             try {
                 await collection.updateOne({ _id: doc._id }, { $set: {sbc: {_error: IBlueprint.VERSION.sbc, _errorDetails: err.type}}})
             } catch(err) {
