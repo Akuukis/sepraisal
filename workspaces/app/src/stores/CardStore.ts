@@ -42,7 +42,7 @@ const cardProjection: {[key in Exclude<keyof IBpProjectionCard, '_id'>]: {[key2 
         _thumbName: true,
         _updated: true,
         _version: true,
-        author: true,
+        authors: true,
         collections: true,
         flagsGreen: true,
         flagsRed: true,
