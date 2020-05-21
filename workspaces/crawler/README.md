@@ -46,6 +46,22 @@ Each praised blueprint has a calculated freshness (in the given order):
 
 
 
+## Host spec requirements.
+
+Crawler will be either CPU bound while working (praising) or network bound (downloading workshop or thumbs).
+
+To be on safe side, have free RAM for crawler at least of 1,5 GB per CPU core.
+For example, I'm using 3 CPU cores and 8 GB RAM virtual machine that hosts both crawler and MongoDB server (which uses ~4GB of it).
+
+Memory requirements depends on amount of workers (that equals CPU cores).
+With 3 cores, praisal routine fluctuates between 2.5 - 4 GB RAM usage.
+If worker goes out of memory, it briefly freezes the machine, dies, and parent process tags blueprint as TimeoutError-ed.
+That's a false positive, because it's flaky (depends on what other workers do) and given enogh CPU & RAM it would succeed.
+
+If machine has not enough RAM for CPU cores (e.g. 4 cores with free 4GB or less RAM) then praisal routine WONT gracefully use less CPU and will throttle the machine. You have been warned, PRs welcome.
+
+
+
 ## Host setup
 
 Crontab example
