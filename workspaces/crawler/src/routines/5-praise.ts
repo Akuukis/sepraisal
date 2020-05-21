@@ -64,7 +64,7 @@ export const main = async () => {
         ]}
 
     const docsAll = await collection
-        .find()
+        .find(query)
         .project({
             '_id': true,
             'steam.revision': true,
