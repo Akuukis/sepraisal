@@ -20,7 +20,6 @@ export { GridSize } from '@material-ui/core/Grid'
 // tslint:enable: no-submodule-imports
 
 export const VERSION =           2
-export const MATOMO_URL = 'https://'
 
 export const padTo2 = (value: number | string) => {
     const string = value.toString()
