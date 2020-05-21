@@ -109,6 +109,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 await praisalManager.addCubeBlocksSbc(cubeBlocksSbc, mod)
             }
             praisalManager.addGroups(BLOCK_GROUPS)
+            praisalManager.build()
             setPraisalManager(praisalManager)
         } catch(err) {
             console.error(err)
