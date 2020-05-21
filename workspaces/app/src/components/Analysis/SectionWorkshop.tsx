@@ -12,16 +12,17 @@ import {
     formatDecimal,
     IMyTheme,
     linkAuthorProps,
+    linkBpProps,
     linkCollectionProps,
     THUMB_HEIGHT,
     THUMB_WIDTH,
 } from 'src/common'
 import ValueCell from 'src/components/Cell/ValueCell'
 
-import CenterCell from '../Cell/CenterCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import Table from '../Table'
 import MySection from './MySection'
 
 
@@ -33,6 +34,9 @@ const styles = (theme: IMyTheme) => createStyles({
         width: '100%',
         height: '100%',
         objectFit: 'fill',
+    },
+    contentTable: {
+        width: '100%',
     },
 })
 
@@ -49,11 +53,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
-    const collections = bp.steam.collections.map((collection, i) => (
-        (<Link key={i} variant='body2' noWrap {...linkCollectionProps(collection.id)}>
-            {collection.title ?? collection.id}
-        </Link>)
-    ))
     const author = (<Link variant='body2' {...linkAuthorProps(bp.steam.authors[0]?.id)}>
             {bp.steam.authors[0]?.title ?? bp.steam.authors[0]?.id}
         </Link>)
@@ -106,10 +105,39 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <MyBoxColumn height={1} width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
-                        <ValueCell label={`if any`} value={'Collections:'} alignItems='flex-end'/>
-                        <CenterCell width={2} padded direction='column' justify='flex-start' alignItems='flex-start' wrap='nowrap'>
-                            {collections}
-                        </CenterCell>
+                        <ValueCell width={3} label={`listed DLCs`} value={bp.steam.DLCsCount || '-'}/>
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <Table
+                            className={classes.contentTable}
+                            columns={['collection']}
+                            headers={{collection: `Listed Collections (${bp.steam.collections.length})`}}
+                            data={bp.steam.collections.map((collection, i) => ({
+                                collection: (<Link key={i} variant='body2' noWrap {...linkCollectionProps(collection.id)}>
+                                    {collection.title ?? collection.id}
+                                </Link>)
+                            }))}
+                        />
+                    </MyBox>
+                </MyBoxRow>
+            </MyBoxColumn>
+            <MyBoxColumn height={3} width={3}>
+                <MyBoxRow width={3}>
+                    <MyBox width={3}>
+                        <Table
+                            className={classes.contentTable}
+                            columns={['mod']}
+                            headers={{mod: `Listed Mods (${bp.steam.mods.length})`}}
+                            data={bp.steam.mods.map((mod) => ({
+                                mod: (<Link variant='body2' noWrap {...linkBpProps(mod.id as number)}>
+                                    {mod.title ?? mod.id}
+                                </Link>)
+                            }))}
+                        />
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
@@ -121,10 +149,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 type ProjectionCardSteam =
     | 'authors'
     | 'collections'
+    | 'collectionsCount'
     | 'commentCount'
     | 'favoriteCount'
     | 'revision'
     | 'mods'
+    | 'modsCount'
+    | 'DLCs'
+    | 'DLCsCount'
     | 'id'
     | 'popularity'
     | 'postedDate'

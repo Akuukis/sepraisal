@@ -3,9 +3,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link } from '@material-ui/core'
-
-import { createSmartFC, createStyles, IMyTheme, linkBpProps } from 'src/common'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import ValueCell from 'src/components/Cell/ValueCell'
 
 import MyBox from '../MyBox'
@@ -43,11 +41,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {bp, className, long, ...otherProps} = props
 
 
-    const mods = bp.steam.mods.map((mod) => ({
-        mod: (<Link variant='body2' noWrap {...linkBpProps(mod.id as number)}>
-            {mod.title ?? mod.id}
-        </Link>)
-    }))
+    const moddedBlocks = Object.entries(bp.sbc.missingDefinitions.blocks)
+        .map(([fullType, amount]) => ({fullType, amount}))
+    const totalModdedBlocks = bp.sbc.blockCountTotal - bp.sbc.blockCount
 
     // TODO: Fix backend to have "unknownBlocks" just like "blocks".
 
@@ -61,23 +57,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <MySection heading='Mods' label='status' value={bp.sbc.vanilla ? 'Vanilla' : 'Modded'} className={clsx(classes.root, className)} {...otherProps}>
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
-                    <MyBox>
-                        <ValueCell label={`listed mods`} value={mods.length}/>
-                    </MyBox>
-                    <MyBox width={2}>
-                        <ValueCell label={`unique m.blocks`} value={'?'}/>
-                        <ValueCell label={`total m.blocks`} value={'?'}/>
+                    <MyBox width={3}>
+                        <ValueCell label={`req. DLCs`} value={bp.sbc.DLCsCount || '-'}/>
+                        <ValueCell label={`unique m.blocks`} value={bp.sbc.missingDefinitionsCount || '-'}/>
+                        <ValueCell label={`total m.blocks`} value={totalModdedBlocks || '-'}/>
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-            <MyBoxColumn height={4} width={6}>
-                <MyBoxRow height={4} width={6}>
+            <MyBoxColumn height={5} width={6}>
+                <MyBoxRow height={5} width={6}>
                     <MyBox width={6}>
                         <Table
                             className={classes.contentTable}
-                            columns={['mod']}
-                            headers={{mod: 'listed Mods'}}
-                            data={mods}
+                            columns={['fullType', 'amount']}
+                            headers={{fullType: 'Modded Block Type', amount: 'Amount'}}
+                            data={moddedBlocks}
                         />
                     </MyBox>
                 </MyBoxRow>
@@ -97,16 +91,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 
-type ProjectionCardSteam =
-    | 'mods'
-
 type ProjectionCardSbc =
     | 'blockCount'
     | 'blockCountTotal'
     | 'missingDefinitions'
+    | 'missingDefinitionsCount'
+    | 'DLCs'
+    | 'DLCsCount'
     | 'vanilla'
 
 interface IBpProjectionRow {
-    steam: {[key in keyof Pick<IBlueprint.ISteam, ProjectionCardSteam>]: IBlueprint.ISteam[key]}
     sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]}
 }

@@ -81,7 +81,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, className)}
             {...otherProps}
         >
-            <MyBoxColumn height={xlUp && long ? 0 : 4} width={6}>
+            <MyBoxColumn height={xlUp && long ? 0 : 7} width={6}>
                 <MyBoxRow width={6}>
                     <MyBox width={6} classes={{root: classes.box, paper: classes.paper}}>
                         <Paper square className={classes.corner}>
