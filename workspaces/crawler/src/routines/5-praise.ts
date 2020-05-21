@@ -34,8 +34,7 @@ const farmOptions = {
 }
 const workers = workerFarm(farmOptions, require.resolve(`./5-praiseWorker.${__filename.slice(-2)}`))
 const queueWork = async (index: number, doc: IProjection) => new Promise<string>(
-        // tslint:disable-next-line:no-void-expression
-        (resolve, reject) => workers(index, doc, (err: Error | void, msg: string) => err ? reject(err) : resolve(msg)),
+        (resolve, reject) => workers(index, doc, (err: Error | null, msg?: string) => err ? reject(err) : resolve(msg)),
     )
 
 
