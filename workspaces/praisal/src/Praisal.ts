@@ -350,13 +350,24 @@ export class Praisal {
         const width = integrityPlanes.top.length * blockSize
         const height = integrityPlanes.side.length * blockSize
 
+        const missingDefinitionsCount = 0
+            + Object.keys(missingDefinitions.blocks).length
+            + Object.keys(missingDefinitions.components).length
+            + Object.keys(missingDefinitions.ingots).length
+            + Object.keys(missingDefinitions.ores).length
+        const DLCsCount = dlcs.size
+        const flagsRedCount = flagsRed.length
+        const flagsYellowCount = flagsYellow.length
+        const flagsGreenCount = flagsGreen.length
+
         return {
             gridTitle: this.blummary.title,
 
             missingDefinitions,
+            missingDefinitionsCount,
             vanilla,
             DLCs: [...dlcs.values()].filter((dlc) => dlc !== VENDOR_MOD.VANILLA),
-
+            DLCsCount,
             blocks,
             components,
             ingots,
@@ -368,6 +379,9 @@ export class Praisal {
             flagsGreen,
             flagsRed,
             flagsYellow,
+            flagsRedCount,
+            flagsYellowCount,
+            flagsGreenCount,
             gridCount: this.blummary.grids.length,
             gridSize: this.blummary.gridSize,
             gridStatic: this.blummary.hasStaticGrid,

@@ -190,6 +190,7 @@ export namespace IBlueprint {
         _revision: number,
         vanilla: boolean,
         DLCs: VENDOR_MOD[],
+        DLCsCount: number,
 
         gridTitle: string,
         gridSize: GridSize,
@@ -197,6 +198,7 @@ export namespace IBlueprint {
         gridStatic: boolean,
 
         missingDefinitions: IDefinitions,
+        missingDefinitionsCount: number,
         /**
          * Includes blocks with missing definitions. See also `blockCount`.
          */
@@ -221,6 +223,9 @@ export namespace IBlueprint {
         flagsRed: Flags<SbcFlagsRed>,
         flagsYellow: Flags<SbcFlagsYellow>,
         flagsGreen: Flags<SbcFlagsGreen>,
+        flagsRedCount: number,
+        flagsYellowCount: number,
+        flagsGreenCount: number,
 
         groupPower: IMaterialGroup,
         groupLifeSupport: IMaterialGroup,
