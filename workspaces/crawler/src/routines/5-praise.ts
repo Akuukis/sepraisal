@@ -96,7 +96,7 @@ export const main = async () => {
             praised.set(doc._id, null)
         } catch(err) {
             console.error(`${prefix} ${(err as Error).name}: ${(err as Error).message}`)
-            praised.set(doc._id, err.type ?? err.name ?? 'UnknownError')
+            praised.set(doc._id, err.type || err.name || 'UnknownError')
             try {
                 await collection.updateOne({ _id: doc._id }, { $set: {sbc: {_error: IBlueprint.VERSION.sbc, _errorDetails: err.type}}})
             } catch(err) {
