@@ -92,7 +92,7 @@ export const main = async () => {
     await Promise.all([...docs.entries()].map(async ([index, doc]) => {
         const prefix = `#${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |`
         try {
-            console.info(await queueWork(index, doc))
+            console.info(prefix, await queueWork(index, doc))
             praised.set(doc._id, null)
         } catch(err) {
             if(['read', 'praise', 'update'].includes(err.type)) {
