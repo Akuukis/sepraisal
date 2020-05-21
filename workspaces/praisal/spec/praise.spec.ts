@@ -1,8 +1,9 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
+import { NewPraisalManager, VENDOR_DIR } from '../src/NewPraisalManager'
+
 import { PraisalManager } from '../src'
-import { NewPraisalManager, VENDOR_DIR } from './_utils'
 
 
 const PREFABS_DIR = join(VENDOR_DIR, 'prefabs')
@@ -18,7 +19,7 @@ beforeEach(async () => {
 
 const testBlueprint = (title: string, path: string) => {
     test(`should succeed to praise ${title}`, async () => {
-        const praisal = await sepraisal.praiseXml(readFileSync(path, 'utf-8'))
+        const praisal = await sepraisal.praiseSbc(readFileSync(path, 'utf-8'))
         expect(praisal.toBlueprintSbc(0)).toMatchSnapshot({
             integrityPlanes: {
                 front: expect.any(Array),
@@ -33,7 +34,7 @@ const testBlueprint = (title: string, path: string) => {
     })
 }
 
-describe('PraisalManager.praiseXml', () => {
+describe('PraisalManager.praiseSbc', () => {
     testBlueprint('AtmosphericLander', join(PREFABS_DIR, 'AtmosphericLander.sbc'))
     testBlueprint('RespawnShip', join(PREFABS_DIR, 'RespawnShip.sbc'))
     testBlueprint('dekartaTests', join(MY_BLUEPRINTS_DIR, 'dekartaTests.sbc'))

@@ -1,4 +1,5 @@
-import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap } from '@sepraisal/common'
+import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap, VENDOR_MOD } from '@sepraisal/common'
+import fromEntries from 'object.fromentries'
 
 import { Blueprint, Component, Cube, Group, ICoords, Ingot, Ore, Orientation, TranslationMinEnum } from './models'
 import { Block } from './models/Block'
@@ -197,8 +198,8 @@ export class Praisal {
 
         let leftoverBlueprint = blueprint
         for(const group of groupsOrdered) {
-            const matchedBlueprint = new Blueprint(leftoverBlueprint, this.cubeDefs)
-            const otherBlueprint = new Blueprint(leftoverBlueprint, this.cubeDefs)
+            const matchedBlueprint = new Blueprint(leftoverBlueprint)
+            const otherBlueprint = new Blueprint(leftoverBlueprint)
             leftoverBlueprint.grids.forEach((grid, i) => {
                 const {matched, other} = group.match(leftoverBlueprint.grids[i].blocks)
                 matchedBlueprint.grids[i].blocks = matched
@@ -308,19 +309,20 @@ export class Praisal {
         const blockCountTotal = this.blockCount + this.blocksErrors.reduce((sum, [, count]) => sum + count, 0)
 
         const missingDefinitions: IBlueprint.IDefinitions = {
-            blocks: Object.fromEntries(this.blocksErrors),
-            components: Object.fromEntries(this.componentErrors),
-            ingots: Object.fromEntries(this.ingotErrors),
-            ores: Object.fromEntries(this.oreErrors),
+            blocks: fromEntries(this.blocksErrors),
+            components: fromEntries(this.componentErrors),
+            ingots: fromEntries(this.ingotErrors),
+            ores: fromEntries(this.oreErrors),
         }
 
+        const dlcs = new Set<VENDOR_MOD>()
         const blocks = Object.create(null) as Record<string, number>
         Object.entries(this.blockAll).forEach(([key, count]) => {
-            if(!this.cubeDefs.has(key)) return
-
-            let realKey = key
+            const cube = this.cubeDefs.get(key)
+            if(!cube) return
 
             // Merge some similar blocks to lower spam.
+            let realKey = key
             if(SIMILAR_WINDOW.includes(key)) realKey = '<Vanilla Window blocks>'
             if(SIMILAR_LIGHT_ARMOR.includes(key)) realKey = '<Vanilla Light Armor blocks>'
             if(SIMILAR_HEAVY_ARMOR.includes(key)) realKey = '<Vanilla Heavy Armor blocks>'
@@ -328,6 +330,7 @@ export class Praisal {
             if(SIMILAR_TEXT_PANEL.includes(key)) realKey = '<Vanilla Text Panel blocks>'
 
             blocks[realKey] = (realKey in blocks ? blocks[realKey] : 0) + count
+            dlcs.add(cube.mod)
         })
 
         const components = Object.create(null) as Record<string, number>
@@ -347,11 +350,25 @@ export class Praisal {
         const width = integrityPlanes.top.length * blockSize
         const height = integrityPlanes.side.length * blockSize
 
+        const missingDefinitionsCount = 0
+            + Object.keys(missingDefinitions.blocks).length
+            + Object.keys(missingDefinitions.components).length
+            + Object.keys(missingDefinitions.ingots).length
+            + Object.keys(missingDefinitions.ores).length
+        const DLCsCount = dlcs.size - 1  // Minus Vanilla.
+        const flagsRedCount = flagsRed.length
+        const flagsYellowCount = flagsYellow.length
+        const flagsGreenCount = flagsGreen.length
+
         return {
             gridTitle: this.blummary.title,
+            sizeMB: Math.round(this.blummary.originalSize / 1000 / 1000 * 100) / 100,
 
             missingDefinitions,
-
+            missingDefinitionsCount,
+            vanilla,
+            DLCs: [...dlcs.values()].filter((dlc) => dlc !== VENDOR_MOD.VANILLA),
+            DLCsCount,
             blocks,
             components,
             ingots,
@@ -363,10 +380,12 @@ export class Praisal {
             flagsGreen,
             flagsRed,
             flagsYellow,
+            flagsRedCount,
+            flagsYellowCount,
+            flagsGreenCount,
             gridCount: this.blummary.grids.length,
             gridSize: this.blummary.gridSize,
             gridStatic: this.blummary.hasStaticGrid,
-            vanilla,
 
             orientation: this.orientation,
             integrityPlanes: this.integrityPlanes,

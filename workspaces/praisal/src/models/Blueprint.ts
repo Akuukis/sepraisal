@@ -17,19 +17,20 @@ const isPrefab = (def: IBlueprintShipOrPrefab): def is IBlueprintPrefabBlueprint
 // tslint:disable-next-line: min-class-cohesion
 export class Blueprint {
 
-    public static async parseXml(xml: string, cubeStore: Map<string, Cube>): Promise<Blueprint> {
-            return new Promise((resolve: (value: Blueprint) => void, reject: (reason: Error) => void) => {
-                parseString(xml, (parseError: Error | undefined, bp: IBlueprintShipOrPrefab) => {
-                    if(parseError) reject(parseError)
+    public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Blueprint> {
+        const originalSize = xml.length
+        return new Promise((resolve: (value: Blueprint) => void, reject: (reason: Error) => void) => {
+            parseString(xml, (parseError: Error | undefined, bp: IBlueprintShipOrPrefab) => {
+                if(parseError) reject(parseError)
 
-                    try {
-                        resolve(new Blueprint(bp, cubeStore))
-                    } catch(transformError) {
-                        console.info(transformError, bp)
-                        reject(transformError as Error)
-                    }
-                })
+                try {
+                    resolve(new Blueprint(bp, originalSize, cubeStore))
+                } catch(transformError) {
+                    console.info(transformError, bp)
+                    reject(transformError as Error)
+                }
             })
+        })
     }
 
     // Methods for analysis.
@@ -66,23 +67,31 @@ export class Blueprint {
     public title: string
     public variant: 'prefab' | 'ship'
     public workshopId?: number
+    public originalSize: number
 
-    public constructor(dto: Blueprint | IBlueprintShipOrPrefab, cubeStore: Map<string, Cube>) {
-        this.cubeStore = cubeStore
+    public constructor(dto: Blueprint)
+    public constructor(dto: IBlueprintShipOrPrefab, originalSize: number, cubeStore: Map<string, Cube>)
+    public constructor(dto: Blueprint | IBlueprintShipOrPrefab, originalSize?: number, cubeStore?: Map<string, Cube>) {
 
         if(dto instanceof Blueprint) {
+            this.originalSize = dto.originalSize
+            this.cubeStore = dto.cubeStore
             this.variant = dto.variant
             this.title = dto.title
-            this.grids = dto.grids.map((grid) => new Grid(grid, cubeStore))
+            this.grids = dto.grids.map((grid) => new Grid(grid, this.cubeStore))
             this.rest = {...dto.rest}
         } else if(isPrefab(dto)) {
+            this.originalSize = originalSize!
+            this.cubeStore = cubeStore!
             this.variant = 'prefab'
             const {Id, CubeGrids, ...rest} = dto.Definitions.Prefabs[0].Prefab[0]
             this.title = Id[0].SubtypeId[0]
             this.grids = CubeGrids[0].CubeGrid
-                .map((gridDto) => new Grid(gridDto, cubeStore))
+                .map((gridDto) => new Grid(gridDto, this.cubeStore))
             this.rest = rest
         } else {
+            this.originalSize = originalSize!
+            this.cubeStore = cubeStore!
             this.variant = 'ship'
             const blueprint = dto.Definitions.ShipBlueprints[0].ShipBlueprint[0]
             const {Id, CubeGrids, DisplayName, WorkshopId, OwnerSteamId, ...rest} = blueprint
@@ -91,7 +100,7 @@ export class Blueprint {
             this.displayName = DisplayName[0]
             this.title = 'TypeId' in Id[0] ? Id[0].SubtypeId[0] : Id[0].$.Subtype
             this.grids = CubeGrids[0].CubeGrid
-                .map((gridDto) => new Grid(gridDto, cubeStore))
+                .map((gridDto) => new Grid(gridDto, this.cubeStore))
             this.rest = rest
         }
 

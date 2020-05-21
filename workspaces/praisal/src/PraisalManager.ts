@@ -1,50 +1,90 @@
-import { BLOCK_GROUPS, ObservableMap } from '@sepraisal/common'
+import { BLOCK_GROUPS, ObservableMap, VENDOR_MOD } from '@sepraisal/common'
 import { action, runInAction } from 'mobx'
 
 import { Blueprint, Component, Cube, Group, Ingot, Ore } from './models'
+import {
+    IParseBlueprintSbc,
+    IParseComponentSbc,
+    IParseCubeBlocksSbc,
+    IParsePhysicalItemsSbc,
+    parseBlueprintSbc,
+    parseComponentSbc,
+    parseCubeBlocksSbc,
+    parsePhysicalItemsSbc,
+} from './parsers'
 import { Praisal } from './Praisal'
 
 // tslint:disable-next-line: min-class-cohesion
 export class PraisalManager {
-    public readonly components = new ObservableMap<Component>()
-    public readonly cubes = new ObservableMap<Cube>()
-    public readonly groups = new ObservableMap<Group>()
-    public readonly ingots = new ObservableMap<Ingot>()
+    private readonly blueprintSbcs = new ObservableMap<IParseBlueprintSbc>()
+    private readonly physicalItemSbcs = new ObservableMap<IParsePhysicalItemsSbc>()
+    private readonly componentSbcs = new ObservableMap<IParseComponentSbc>()
+    private readonly cubeBlocksSbcs = new ObservableMap<IParseCubeBlocksSbc>()
 
+    public readonly components = new ObservableMap<Component>()
+    public readonly ingots = new ObservableMap<Ingot>()
     public readonly ores = new ObservableMap<Ore>()
+
+    public readonly cubes = new ObservableMap<Cube>()
+
+    public readonly groups = new ObservableMap<Group>()
+
     public readonly praisals = new ObservableMap<Praisal>()
 
-    public async addComponents(materialsXml: string, componentsXml: string) {
-        const components = await Component.parseXml(materialsXml, componentsXml)
-        runInAction('SEPraisal.addXmlComponent', () => {
-            components.forEach((component) => this.components.set(component.title, component))
+    public async addBlueprintsSbc(blueprintsSbc: string, mod: VENDOR_MOD) {
+        const blueprintSbcs = await parseBlueprintSbc(blueprintsSbc, mod)
+        runInAction('PraisalManager.addBlueprintsSbc', () => {
+            this.blueprintSbcs.merge(blueprintSbcs.map((sbc) => [sbc.fullType, sbc]))
         })
-
     }
-    public async addCubes(cubeBlocksXml: string) {
-        const cubes = await Cube.parseXml(cubeBlocksXml, this.components)
-        runInAction('SEPraisal.addXmlCube', () => {
-            cubes.forEach((cube) => this.cubes.set(cube.title, cube))
+    public async addComponentsSbc(componentsSbc: string, mod: VENDOR_MOD) {
+        const componentsSbcs = await parseComponentSbc(componentsSbc, mod)
+        runInAction('PraisalManager.addComponentsSbc', () => {
+            this.componentSbcs.merge(componentsSbcs.map((sbc) => [sbc.fullType, sbc]))
         })
+    }
+    public async addPhysicalItemsSbc(physicalItemsSbc: string, mod: VENDOR_MOD) {
+        const physicalItemsSbcs = await parsePhysicalItemsSbc(physicalItemsSbc, mod)
+        runInAction('PraisalManager.addPhysicalItemsSbc', () => {
+            this.physicalItemSbcs.merge(physicalItemsSbcs.map((sbc) => [sbc.fullType, sbc]))
+        })
+    }
+    public async addCubeBlocksSbc(cubeBlocksSbc: string, mod: VENDOR_MOD) {
+        const cubeBlocksSbcs = await parseCubeBlocksSbc(cubeBlocksSbc, mod)
+        runInAction('PraisalManager.addCubeBlocksSbc', () => {
+            this.cubeBlocksSbcs.merge(cubeBlocksSbcs.map((sbc) => [`${String(sbc.Id[0].TypeId[0])}/${sbc.Id[0].SubtypeId[0]}`, sbc]))
+        })
+    }
 
+    @action public build() {
+        this.buildOres()
+        this.buildIngots()
+        this.buildComponents()
+        this.buildCubes()
+    }
+
+    @action private buildOres() {
+        const ore = Ore.fromSbcs(this.physicalItemSbcs)
+        this.ores.merge(ore.map((ore) => [ore.title, ore]))
+    }
+
+    @action private buildIngots() {
+        const ingots = Ingot.fromSbcs(this.physicalItemSbcs, this.blueprintSbcs)
+        this.ingots.merge(ingots.map((ingot) => [ingot.title, ingot]))
+    }
+
+    @action private buildComponents() {
+        const components = Component.fromSbcs(this.blueprintSbcs, this.componentSbcs)
+        this.components.merge(components.map((component) => [component.title, component]))
+    }
+
+    @action private buildCubes() {
+        const cubes = Cube.fromSbcs(this.components, this.cubeBlocksSbcs)
+        this.cubes.merge(cubes.map((component) => [component.title, component]))
     }
 
     @action public addGroups(groups2: typeof BLOCK_GROUPS) {
         groups2.forEach((groupDto) => this.groups.set(groupDto.title, new Group(groupDto)))
-    }
-    public async addIngots(physicalItemsXml: string, materialsXml: string) {
-        const ingots = await Ingot.parseXml(physicalItemsXml, materialsXml)
-        runInAction('SEPraisal.addXmlIngot', () => {
-            ingots.forEach((ingot) => this.ingots.set(ingot.title, ingot))
-        })
-
-    }
-
-    public async addOres(physicalItemsXml: string) {
-        const ores = await Ore.parseXml(physicalItemsXml)
-        runInAction('SEPraisal.addXmlOre', () => {
-            ores.forEach((ore) => this.ores.set(ore.title, ore))
-        })
     }
 
     @action public praise(blueprint: Blueprint): Praisal {
@@ -54,8 +94,8 @@ export class PraisalManager {
         return praisal
     }
 
-    public async praiseXml(xml: string): Promise<Praisal> {
-        const blueprint = await Blueprint.parseXml(xml, this.cubes)
+    public async praiseSbc(sbc: string): Promise<Praisal> {
+        const blueprint = await Blueprint.parseSbc(sbc, this.cubes)
 
         return this.praise(blueprint)
     }

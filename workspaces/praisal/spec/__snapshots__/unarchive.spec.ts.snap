@@ -1,16 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 1`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 1`] = `
 Object {
+  "DLCs": Array [],
+  "DLCsCount": 0,
   "_revision": 0,
-  "_version": 6,
-  "blockCount": 16420,
+  "_version": 7,
+  "blockCount": 16423,
   "blockCountTotal": 16423,
-  "blockIntegrity": 68286137,
-  "blockMass": 14928888,
-  "blockPCU": 51845,
-  "blockTime": 164748,
-  "blockVolume": 276781250,
+  "blockIntegrity": 68293283,
+  "blockMass": 14930468,
+  "blockPCU": 51995,
+  "blockTime": 164808,
+  "blockVolume": 276828125,
   "blocks": Object {
     "<Vanilla Heavy Armor blocks>": 1900,
     "<Vanilla Interior Light blocks>": 377,
@@ -53,6 +55,7 @@ Object {
     "MyProgrammableBlock/LargeProgrammableBlock": 3,
     "Passage/": 12,
     "PistonTop/LargePistonTop": 1,
+    "Projector/LargeProjector": 3,
     "RadioAntenna/LargeBlockRadioAntenna": 2,
     "Reactor/LargeBlockLargeGenerator": 3,
     "Refinery/Blast Furnace": 1,
@@ -66,42 +69,45 @@ Object {
     "TimerBlock/TimerBlockLarge": 2,
     "VirtualMass/VirtualMassLarge": 18,
   },
-  "componentCount": 852729,
-  "componentMass": 14928888,
-  "componentTime": 1060437,
-  "componentVolume": 3975389,
+  "componentCount": 852819,
+  "componentMass": 14930468,
+  "componentTime": 1060539,
+  "componentVolume": 3975860,
   "components": Object {
     "BulletproofGlass": 3134,
-    "Computer": 3992,
-    "Construction": 39284,
+    "Computer": 3998,
+    "Construction": 39296,
     "Display": 360,
     "Girder": 1138,
     "GravityGenerator": 282,
     "InteriorPlate": 56996,
-    "LargeTube": 1956,
+    "LargeTube": 1962,
     "Medical": 30,
     "MetalGrid": 82566,
-    "Motor": 3039,
+    "Motor": 3042,
     "PowerCell": 320,
     "RadioCommunication": 120,
     "Reactor": 6000,
     "SmallTube": 8145,
-    "SteelPlate": 622547,
+    "SteelPlate": 622610,
     "Superconductor": 660,
     "Thrust": 22160,
   },
   "flagsGreen": Array [],
+  "flagsGreenCount": 0,
   "flagsRed": Array [],
+  "flagsRedCount": 0,
   "flagsYellow": Array [],
+  "flagsYellowCount": 0,
   "gridCount": 3,
   "gridSize": "Large",
   "gridStatic": false,
   "gridTitle": "O.S.C. Aldebaran-Class Heavy Cruiser",
   "groupControl": Object {
-    "blockCount": 41,
-    "blockMass": 19697,
-    "blockPCU": 1260,
-    "oreVolume": 11341,
+    "blockCount": 44,
+    "blockMass": 21276,
+    "blockPCU": 1410,
+    "oreVolume": 12234,
   },
   "groupLifeSupport": Object {
     "blockCount": 456,
@@ -131,7 +137,7 @@ Object {
     "blockCount": 7,
     "blockMass": 236765,
     "blockPCU": 135,
-    "oreVolume": 3399181,
+    "oreVolume": 272152,
   },
   "groupProduction": Object {
     "blockCount": 3,
@@ -152,17 +158,17 @@ Object {
     "oreVolume": 17017,
   },
   "height": 85,
-  "ingotCount": 16854793,
-  "ingotMass": 16854793,
-  "ingotTime": 3960243,
-  "ingotVolume": 2166696,
+  "ingotCount": 16856472,
+  "ingotMass": 16856472,
+  "ingotTime": 2772337,
+  "ingotVolume": 2166909,
   "ingots": Object {
     "Cobalt": 531338,
     "Gold": 26300,
-    "Iron": 15655468,
-    "Nickel": 430765,
+    "Iron": 15657130,
+    "Nickel": 430780,
     "Platinum": 8864,
-    "Silicon": 50048,
+    "Silicon": 50050,
     "Silver": 32010,
     "Stone": 120000,
   },
@@ -175,30 +181,30 @@ Object {
   },
   "length": 282.5,
   "missingDefinitions": Object {
-    "blocks": Object {
-      "Projector/LargeProjector": 3,
-    },
+    "blocks": Object {},
     "components": Object {},
     "ingots": Object {},
     "ores": Object {},
   },
-  "oreCount": 38578820,
-  "oreMass": 38578820,
-  "oreVolume": 14274163,
+  "missingDefinitionsCount": 0,
+  "oreCount": 30129806,
+  "oreMass": 30129806,
+  "oreVolume": 11148028,
   "ores": Object {
     "Cobalt": 1771127,
     "Gold": 2630000,
-    "Iron": 22364954,
-    "Nickel": 1076913,
+    "Iron": 22367329,
+    "Nickel": 1076950,
     "Platinum": 1772800,
-    "Silicon": 71497,
+    "Silicon": 71500,
     "Silver": 320100,
-    "Stone": 8571429,
+    "Stone": 120000,
   },
   "orientation": Orientation {
     "Forward": "Forward",
     "Up": "Up",
   },
+  "sizeMB": 7.96,
   "thrustAtmospheric": Object {},
   "thrustHydrogen": Object {},
   "thrustIon": Object {
@@ -209,12 +215,12 @@ Object {
     "Right": 2764800,
     "Up": 34560000,
   },
-  "vanilla": false,
+  "vanilla": true,
   "width": 67.5,
 }
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 2`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 2`] = `
 "................AA.........
 ................AA.........
 ................AA.........
@@ -252,7 +258,7 @@ BFPAAAAAFCBCBCBCCCFAAAAAPFB
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 3`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 3`] = `
 ".................A...............................................................................................
 .................A...............................................................................................
 .................A...............................................................................................
@@ -290,7 +296,7 @@ AAAAAAAAAAAABBBBBDDDDDDDBABBBBBBBBBBAAAAAAAAAAAAAAAAAAADDDDDEAAAAAAAAAAAAAAAAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 4`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 4`] = `
 "..................A.A.A.A.A.A.A.A.A.A.....................................D......D.....D......D......D.....D.....
 ..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................................DED....DED...DED....DED....DED...DED....
 ..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............................FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
@@ -321,17 +327,19 @@ AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBABBBBBBAAAAAAAAAAAAAAAAAAAAAAAAB
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (PZK PCS - T340) 1`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (PZK PCS - T340) 1`] = `
 Object {
+  "DLCs": Array [],
+  "DLCsCount": 0,
   "_revision": 0,
-  "_version": 6,
-  "blockCount": 1623,
+  "_version": 7,
+  "blockCount": 1624,
   "blockCountTotal": 1624,
-  "blockIntegrity": 717500,
-  "blockMass": 152479,
-  "blockPCU": 11176,
-  "blockTime": 7947,
-  "blockVolume": 288625,
+  "blockIntegrity": 717922,
+  "blockMass": 152609,
+  "blockPCU": 11226,
+  "blockTime": 7959,
+  "blockVolume": 288750,
   "blocks": Object {
     "<Vanilla Heavy Armor blocks>": 1223,
     "<Vanilla Interior Light blocks>": 7,
@@ -359,6 +367,7 @@ Object {
     "MyProgrammableBlock/SmallProgrammableBlock": 8,
     "OreDetector/SmallBlockOreDetector": 1,
     "PistonTop/SmallPistonTop": 9,
+    "Projector/SmallProjector": 1,
     "RadioAntenna/SmallBlockRadioAntenna": 1,
     "Reactor/SmallBlockSmallGenerator": 8,
     "ReflectorLight/SmallBlockFrontLight": 2,
@@ -374,38 +383,41 @@ Object {
     "Wheel/SmallWheel1x1": 9,
     "Wheel/SmallWheel3x3": 1,
   },
-  "componentCount": 10354,
-  "componentMass": 152479,
-  "componentTime": 13086,
-  "componentVolume": 60693,
+  "componentCount": 10363,
+  "componentMass": 152609,
+  "componentTime": 13099,
+  "componentVolume": 60789,
   "components": Object {
     "BulletproofGlass": 60,
-    "Computer": 419,
-    "Construction": 1188,
+    "Computer": 421,
+    "Construction": 1190,
     "Detector": 19,
     "Display": 129,
     "InteriorPlate": 192,
-    "LargeTube": 98,
+    "LargeTube": 100,
     "MetalGrid": 1823,
-    "Motor": 137,
+    "Motor": 138,
     "PowerCell": 80,
     "RadioCommunication": 24,
     "Reactor": 24,
     "SmallTube": 150,
-    "SteelPlate": 6011,
+    "SteelPlate": 6013,
   },
   "flagsGreen": Array [],
+  "flagsGreenCount": 0,
   "flagsRed": Array [],
+  "flagsRedCount": 0,
   "flagsYellow": Array [],
+  "flagsYellowCount": 0,
   "gridCount": 29,
   "gridSize": "Small",
   "gridStatic": false,
   "gridTitle": "PZK PCS - T340",
   "groupControl": Object {
-    "blockCount": 31,
-    "blockMass": 3279,
-    "blockPCU": 1565,
-    "oreVolume": 2103,
+    "blockCount": 32,
+    "blockMass": 3410,
+    "blockPCU": 1615,
+    "oreVolume": 2181,
   },
   "groupLifeSupport": Object {
     "blockCount": 63,
@@ -435,7 +447,7 @@ Object {
     "blockCount": 12,
     "blockMass": 6386,
     "blockPCU": 260,
-    "oreVolume": 16249,
+    "oreVolume": 3740,
   },
   "groupProduction": Object {
     "blockCount": 0,
@@ -456,14 +468,14 @@ Object {
     "oreVolume": 538,
   },
   "height": 5.5,
-  "ingotCount": 184450,
-  "ingotMass": 184450,
-  "ingotTime": 37449,
-  "ingotVolume": 23826,
+  "ingotCount": 184594,
+  "ingotMass": 184594,
+  "ingotTime": 32707,
+  "ingotVolume": 23844,
   "ingots": Object {
     "Cobalt": 5469,
-    "Iron": 166403,
-    "Nickel": 10245,
+    "Iron": 166542,
+    "Nickel": 10250,
     "Silicon": 1733,
     "Silver": 120,
     "Stone": 480,
@@ -477,39 +489,39 @@ Object {
   },
   "length": 14,
   "missingDefinitions": Object {
-    "blocks": Object {
-      "Projector/SmallProjector": 1,
-    },
+    "blocks": Object {},
     "components": Object {},
     "ingots": Object {},
     "ores": Object {},
   },
-  "oreCount": 319524,
-  "oreMass": 319524,
-  "oreVolume": 118224,
+  "missingDefinitionsCount": 0,
+  "oreCount": 285928,
+  "oreMass": 285928,
+  "oreVolume": 105793,
   "ores": Object {
     "Cobalt": 18230,
-    "Iron": 237719,
-    "Nickel": 25613,
+    "Iron": 237917,
+    "Nickel": 25625,
     "Silicon": 2476,
     "Silver": 1200,
-    "Stone": 34286,
+    "Stone": 480,
   },
   "orientation": Orientation {
     "Forward": "Forward",
     "Up": "Up",
   },
+  "sizeMB": 1.17,
   "thrustAtmospheric": Object {},
   "thrustHydrogen": Object {
     "Down": 590400,
   },
   "thrustIon": Object {},
-  "vanilla": false,
+  "vanilla": true,
   "width": 7.5,
 }
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (PZK PCS - T340) 2`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (PZK PCS - T340) 2`] = `
 "....AAAAAAA....
 .AAAAAAAAAAAAA.
 AAAAAAAAAAAAAAA
@@ -524,7 +536,7 @@ A..AAAAAAAAA..A
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (PZK PCS - T340) 3`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (PZK PCS - T340) 3`] = `
 "......AAAAAAAAAAA..A........
 .AAAAAAAAAAAAAAAAAAAAAA.....
 .AAAAAAAAAAAAAAAAAAAAAAAAAA.
@@ -539,7 +551,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (PZK PCS - T340) 4`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (PZK PCS - T340) 4`] = `
 ".AAAAAAAAAAAAAAAAAAAAAAAAAA.
 AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -558,10 +570,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 1`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 1`] = `
 Object {
+  "DLCs": Array [],
+  "DLCsCount": 0,
   "_revision": 0,
-  "_version": 6,
+  "_version": 7,
   "blockCount": 440,
   "blockCountTotal": 440,
   "blockIntegrity": 1416513,
@@ -626,8 +640,11 @@ Object {
     "Superconductor": 80,
   },
   "flagsGreen": Array [],
+  "flagsGreenCount": 0,
   "flagsRed": Array [],
+  "flagsRedCount": 0,
   "flagsYellow": Array [],
+  "flagsYellowCount": 0,
   "gridCount": 1,
   "gridSize": "Large",
   "gridStatic": false,
@@ -666,7 +683,7 @@ Object {
     "blockCount": 5,
     "blockMass": 21121,
     "blockPCU": 95,
-    "oreVolume": 118598,
+    "oreVolume": 14364,
   },
   "groupProduction": Object {
     "blockCount": 9,
@@ -689,7 +706,7 @@ Object {
   "height": 15,
   "ingotCount": 410502,
   "ingotMass": 410502,
-  "ingotTime": 93867,
+  "ingotTime": 54267,
   "ingotVolume": 58385,
   "ingots": Object {
     "Cobalt": 1794,
@@ -714,9 +731,10 @@ Object {
     "ingots": Object {},
     "ores": Object {},
   },
-  "oreCount": 926088,
-  "oreMass": 926088,
-  "oreVolume": 342653,
+  "missingDefinitionsCount": 0,
+  "oreCount": 644374,
+  "oreMass": 644374,
+  "oreVolume": 238418,
   "ores": Object {
     "Cobalt": 5980,
     "Gold": 16000,
@@ -724,12 +742,13 @@ Object {
     "Nickel": 67225,
     "Silicon": 27270,
     "Silver": 13600,
-    "Stone": 285714,
+    "Stone": 4000,
   },
   "orientation": Orientation {
     "Forward": "Forward",
     "Up": "Up",
   },
+  "sizeMB": 0.28,
   "thrustAtmospheric": Object {
     "Backward": 3888000,
     "Forward": 5184000,
@@ -744,7 +763,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 2`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 2`] = `
 "...AAAAAAAA...
 AAAABBBBBBAAAA
 AAABBBCCBBBAAA
@@ -754,7 +773,7 @@ AAAABBBBBBAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 3`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 3`] = `
 "......AAAAAA..AA.AAAA...
 ..AAAAAAAAABBBAAAAAAAAA.
 AAAAAABBBBEBBBAAAAAAAAAA
@@ -764,7 +783,7 @@ AAAAAABBBBEBBBAAAAAAAAAA
 "
 `;
 
-exports[`PraisalManager.praiseXml should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 4`] = `
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 4`] = `
 "..........AAAAAAAA.A....
 ............AAAAAAAA....
 ............AAAAAAAAAA..

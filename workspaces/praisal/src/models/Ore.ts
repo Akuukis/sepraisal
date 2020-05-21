@@ -1,4 +1,6 @@
-import { parsePhysicalItemsSbc } from '../parsers'
+import { VENDOR_MOD } from '@sepraisal/common/src'
+
+import { IParsePhysicalItemsSbc } from '../parsers'
 
 
 export interface IOreDTO {
@@ -10,10 +12,10 @@ export interface IOreDTO {
 
 export class Ore implements IOreDTO {
 
-    public static async parseXml(physicalItemsXml: string): Promise<Ore[]> {
-        const oreDtos = await parsePhysicalItemsSbc(physicalItemsXml, 'Ore')
-
-        return oreDtos.map((blockDto) => new Ore(blockDto))
+    public static fromSbcs(physicalItemsSbcs: Map<string, IParsePhysicalItemsSbc>): Ore[] {
+        return [...physicalItemsSbcs.values()]
+            .filter((sbc) => sbc.type === 'Ore')
+            .map((blockDto) => new Ore(blockDto, blockDto.mod))
     }
 
 
@@ -22,12 +24,14 @@ export class Ore implements IOreDTO {
     public readonly subtype: string
     public readonly type: string
     public readonly volume: number  // l.
+    public readonly mod: VENDOR_MOD
 
-    public constructor(dto: IOreDTO) {
+    public constructor(dto: IOreDTO, mod: VENDOR_MOD) {
         this.type = dto.type
         this.subtype = dto.subtype
         this.mass = dto.mass
         this.volume = dto.volume
+        this.mod = mod
     }
 
     public toJSON(): IOreDTO {

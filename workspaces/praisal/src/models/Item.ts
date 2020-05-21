@@ -1,3 +1,5 @@
+import { VENDOR_MOD } from '@sepraisal/common/src'
+
 import { parseBlueprintSbc, parsePhysicalItemsSbc } from '../parsers'
 
 export interface IItemDTO {
@@ -15,9 +17,12 @@ export class Item implements IItemDTO {
      */
     public static readonly ITEM_TYPES: ['OxygenContainerObject', 'GasContainerObject', 'PhysicalGunObject', 'AmmoMagazine']
 
-    public static async parseXml(physicalItemsXml: string, blueprintXml: string): Promise<Item[]> {
-        const itemDtos1 = await parseBlueprintSbc(blueprintXml, Item.ITEM_TYPES)
-        const itemDtos2 = await parsePhysicalItemsSbc(physicalItemsXml, 'Ingot')
+    /**
+     * BROKEN. TODO: Fix.
+     */
+    public static async parseSbc(physicalItemsSbc: string, blueprintsSbc: string): Promise<Item[]> {
+        const itemDtos1 = await parseBlueprintSbc(blueprintsSbc, VENDOR_MOD.VANILLA, /* , Item.ITEM_TYPES */)
+        const itemDtos2 = await parsePhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA, /* , 'Ingot' */)
 
         return itemDtos2
             .filter((itemDto2) => itemDto2.subtype !== 'Scrap')

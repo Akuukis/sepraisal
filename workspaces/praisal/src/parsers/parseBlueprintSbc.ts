@@ -1,12 +1,15 @@
+import { VENDOR_MOD } from '@sepraisal/common/src'
 import { parseString } from 'xml2js'
 
 import { IMaterialBlueprint, IMaterialDefinition, IMaterialItem } from '../xmlns/MaterialDefinition'
 
-interface IParseBlueprintSbc {
+export interface IParseBlueprintSbc {
     prerequisites: Record<string, number>
     subtype: string
     time: number
     type: string
+    fullType: string
+    mod: VENDOR_MOD
 }
 
 //   <Results>
@@ -20,13 +23,13 @@ interface IParseBlueprintSbc {
 //   </Results>
 //   <Result Amount="0.7" TypeId="Ingot" SubtypeId="Iron" />
 
-export const parseBlueprintSbc = async (xml: string, filters: string[]): Promise<IParseBlueprintSbc[]> =>
+export const parseBlueprintSbc = async (xml: string, mod: VENDOR_MOD): Promise<IParseBlueprintSbc[]> =>
     new Promise((resolve: (value: IParseBlueprintSbc[]) => void, reject: (reason: Error) => void) => {
         parseString(xml, (parseError: Error | undefined, bp: IMaterialDefinition) => {
             if(parseError) reject(parseError)
             try {
                 const blockDtos = bp.Definitions.Blueprints[0].Blueprint
-                    .filter((material) => !material.Results || material.Results.length === 1)  // Filter out stone.
+                    .filter((material) => !material.Results || material.Results.length === 1)  // Skip stone.
                     .map<[IMaterialBlueprint, IMaterialItem['$']]>((material) => {
                         const resultItem = material.Result ? material.Result[0].$
                             : material.Results ? material.Results[0].Item[0].$
@@ -38,7 +41,6 @@ export const parseBlueprintSbc = async (xml: string, filters: string[]): Promise
 
                         return [material, resultItem]
                     })
-                    .filter(([, resultItem]) => filters.includes(resultItem.TypeId))
                     .map(([material, resultItem]) => ({
                             prerequisites: material.Prerequisites[0].Item.reduce((req, item) => {
                                 const title = `${item.$.TypeId}/${item.$.SubtypeId}`
@@ -49,7 +51,20 @@ export const parseBlueprintSbc = async (xml: string, filters: string[]): Promise
                             subtype: resultItem.SubtypeId,
                             time: Number(material.BaseProductionTimeInSeconds[0]),
                             type: resultItem.TypeId,
+                            fullType: `${resultItem.TypeId}/${resultItem.SubtypeId}`,
+                            mod,
                         }))
+                    .filter((blueprintSbc) => {
+                        if(blueprintSbc.type !== 'Ingot') return true
+
+                        const reqs = Object.keys(blueprintSbc.prerequisites)
+                        if(reqs.length > 1) return false
+                        if(!reqs[0].includes('Ore')) return false
+                        if(reqs[0] === 'Ore/Ice') return false
+                        if(reqs[0] === 'Ore/Scrap') return false
+
+                        return true
+                    })
                 resolve(blockDtos)
             } catch(transformError) {
                 console.error(transformError, bp)

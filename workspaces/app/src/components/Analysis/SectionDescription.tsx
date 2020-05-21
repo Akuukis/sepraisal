@@ -23,7 +23,9 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     paper: {
         display: 'block',
-        height: 'unset',
+        [theme.breakpoints.up('xl')]: {
+            height: 'unset',
+        },
     },
 
     corner: {
@@ -50,8 +52,10 @@ const styles = (theme: IMyTheme) => createStyles({
         '& > a:visited': {
             color: darken(theme.palette.primary.light, 0.5),
         },
-        minHeight: `10em`,
-        // height: `calc(100% - ${theme.spacing(2) * 2}px)`,
+        minHeight: `calc(100% - ${theme.spacing(2) * 2}px)`,
+        [theme.breakpoints.up('xl')]: {
+            minHeight: `15em`,
+        },
         width: `calc(100% - ${theme.spacing(2) * 2}px)`,
         overflow: 'unset',  // Required for floating corner.
     },
@@ -77,7 +81,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={clsx(classes.root, className)}
             {...otherProps}
         >
-            <MyBoxColumn height={xlUp && long ? 0 : 4} width={6}>
+            <MyBoxColumn height={xlUp && long ? 0 : 7} width={6}>
                 <MyBoxRow width={6}>
                     <MyBox width={6} classes={{root: classes.box, paper: classes.paper}}>
                         <Paper square className={classes.corner}>

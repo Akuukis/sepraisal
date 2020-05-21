@@ -523,8 +523,8 @@
             <FuelProductionToCapacityMultiplier>0.005</FuelProductionToCapacityMultiplier>
             <PrimarySound>ArcBlockHydrogenEngine</PrimarySound>
 
-            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
-            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
             <DestroyEffect>Explosion_Warhead_02</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
 
@@ -613,9 +613,9 @@
             <FuelProductionToCapacityMultiplier>0.005</FuelProductionToCapacityMultiplier>
             <PrimarySound>ArcBlockHydrogenEngine</PrimarySound>
 
-            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
-            <DamagedSound>ParticleHeavyMech</DamagedSound>
-            <DestroyEffect>Explosion_Warhead_02</DestroyEffect>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
 
             <AnimationSpeed>20</AnimationSpeed>

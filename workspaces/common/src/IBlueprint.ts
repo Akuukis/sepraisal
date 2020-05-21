@@ -1,3 +1,5 @@
+import { VENDOR_MOD } from './constants'
+
 
 // tslint:disable:member-ordering id-length
 
@@ -40,8 +42,8 @@ export namespace IBlueprint {
     // tslint:disable-next-line: no-object-literal-type-assertion
     export const VERSION = {
         classes: 1,
-        sbc: 6,
-        steam: 1,
+        sbc: 7,
+        steam: 2,
         thumb: 2,
     } as const
 
@@ -111,6 +113,12 @@ export namespace IBlueprint {
         revision: number,
         mods: IRefItem[],
         collections: IRefItem[],
+        DLCs: VENDOR_MOD[],
+
+        authorsCount: number,
+        collectionsCount: number,
+        DLCsCount: number,
+        modsCount: number,
 
         ratingStars: number | null,
         ratingCount: number | null,
@@ -180,13 +188,18 @@ export namespace IBlueprint {
 
     export interface ISbc extends IProp, IDefinitions, IMaterialGroupFull {
         _revision: number,
+        sizeMB: number,
         vanilla: boolean,
+        DLCs: VENDOR_MOD[],
+        DLCsCount: number,
+
         gridTitle: string,
         gridSize: GridSize,
         gridCount: number,
         gridStatic: boolean,
 
         missingDefinitions: IDefinitions,
+        missingDefinitionsCount: number,
         /**
          * Includes blocks with missing definitions. See also `blockCount`.
          */
@@ -211,6 +224,9 @@ export namespace IBlueprint {
         flagsRed: Flags<SbcFlagsRed>,
         flagsYellow: Flags<SbcFlagsYellow>,
         flagsGreen: Flags<SbcFlagsGreen>,
+        flagsRedCount: number,
+        flagsYellowCount: number,
+        flagsGreenCount: number,
 
         groupPower: IMaterialGroup,
         groupLifeSupport: IMaterialGroup,

@@ -365,6 +365,13 @@
         <Y>3</Y>
       </Position>
     </BlockPosition>
+    <BlockPosition>
+      <Name>OpenCockpit</Name>
+      <Position>
+        <X>2</X>
+        <Y>3</Y>
+      </Position>
+    </BlockPosition>
     <!--End Region Row 3-->
     <!--Region Row 4-->
     <BlockPosition>
@@ -526,6 +533,13 @@
       </Position>
     </BlockPosition>
     <BlockPosition>
+      <Name>AntennaDish</Name>
+      <Position>
+        <X>4</X>
+        <Y>6</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
       <Name>Beacon</Name>
       <Position>
         <X>2</X>
@@ -610,6 +624,13 @@
       <Name>SmallCargoContainer</Name>
       <Position>
         <X>0</X>
+        <Y>8</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>DeadBody01</Name>
+      <Position>
+        <X>1</X>
         <Y>8</Y>
       </Position>
     </BlockPosition>

@@ -1,4 +1,6 @@
-import { parseBlueprintSbc, parsePhysicalItemsSbc } from '../parsers'
+import { VENDOR_MOD } from '@sepraisal/common/src'
+
+import { IParseBlueprintSbc, IParsePhysicalItemsSbc } from '../parsers'
 
 export interface IIngotDTO {
     mass: number  // kg.
@@ -11,22 +13,28 @@ export interface IIngotDTO {
 
 export class Ingot implements IIngotDTO {
 
-    public static async parseXml(physicalItemsXml: string, blueprintXml: string): Promise<Ingot[]> {
-        const ingotDtos1 = await parseBlueprintSbc(blueprintXml, ['Ingot'])
-        const ingotDtos2 = await parsePhysicalItemsSbc(physicalItemsXml, 'Ingot')
-
-        return ingotDtos2
-            .filter((ingotDto2) => ingotDto2.subtype !== 'Scrap')
-            .map((ingotDto2) => {
-                const ingotDto1 = ingotDtos1.find((inner) => inner.subtype === ingotDto2.subtype)
-                if(!ingotDto1) throw new Error('Ingot not found in "Blueprint.sbc".')
+    public static fromSbcs(
+        physicalItemsSbcs: Map<string, IParsePhysicalItemsSbc>,
+        blueprintSbcs: Map<string, IParseBlueprintSbc>
+    ): Ingot[] {
+        const fullTypes = new Set(([] as Array<{fullType: string}>)
+            .concat([...physicalItemsSbcs.values()].filter((sbc) => sbc.type === 'Ingot' && sbc.subtype !== 'Scrap'))
+            .concat([...blueprintSbcs.values()].filter((sbc) => sbc.type === 'Ingot'))
+            .map((sbc) => sbc.fullType)
+        )
+        return [...fullTypes.values()]
+            .map((fullType) => {
+                const physicalItemsSbc = physicalItemsSbcs.get(fullType)
+                if(!physicalItemsSbc) throw new Error(`Ingot "${fullType}" not found in "PhysicalItems.sbc".`)
+                const blueprintSbc = blueprintSbcs.get(fullType)
+                if(!blueprintSbc) throw new Error(`Ingot "${fullType}" not found in "Blueprint.sbc".`)
 
                 return {
-                    ...ingotDto1,
-                    ...ingotDto2,
+                    ...physicalItemsSbc,
+                    ...blueprintSbc,
                 }
             })
-            .map((ingotDto) => new Ingot(ingotDto))
+            .map((dto) => new Ingot(dto, dto.mod))
     }
 
     public readonly mass: number  // kg.
@@ -39,14 +47,16 @@ export class Ingot implements IIngotDTO {
     public readonly time: number  // Seconds to build, baseBuildTime.
     public readonly type: string
     public readonly volume: number  // l.
+    public readonly mod: VENDOR_MOD
 
-    public constructor(dto: IIngotDTO) {
+    public constructor(dto: IIngotDTO, mod: VENDOR_MOD) {
         this.type = dto.type
         this.subtype = dto.subtype
         this.mass = dto.mass
         this.volume = dto.volume
         this.time = dto.time
         this.prerequisites = dto.prerequisites
+        this.mod = mod
     }
 
     public toJSON(): IIngotDTO {

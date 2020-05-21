@@ -1,4 +1,6 @@
-import { parseBlueprintSbc, parseComponentSbc } from '../parsers'
+import { VENDOR_MOD } from '@sepraisal/common/src'
+
+import { IParseBlueprintSbc, IParseComponentSbc } from '../parsers'
 
 export interface IComponentDTO {
     health: number
@@ -15,26 +17,35 @@ export interface IComponentDTO {
 
 export class Component implements IComponentDTO {
 
+    public static fromSbcs(
+        blueprintSbcs: Map<string, IParseBlueprintSbc>,
+        componentSbcs: Map<string, IParseComponentSbc>
+    ): Component[] {
+        const fullTypes = new Set(([] as Array<{fullType: string}>)
+            .concat([...blueprintSbcs.values()].filter((sbc) => sbc.type === 'Component' && sbc.subtype !== 'ZoneChip'))
+            .concat([...componentSbcs.values()].filter((sbc) => sbc.type === 'Component' && sbc.subtype !== 'ZoneChip'))
+            .map((sbc) => sbc.fullType)
+        )
 
-    public static async parseXml(materialXml: string, componentXml: string): Promise<Component[]> {
-        const componentDtos = await parseBlueprintSbc(materialXml, ['Component'])
-        const componentMap = new Map(componentDtos.map<[string, Partial<IComponentDTO>]>((val) => [val.subtype, val]))
+        return [...fullTypes.values()]
+            .map((fullType) => {
+                const blueprintSbc = blueprintSbcs.get(fullType)
+                if(!blueprintSbc) throw new Error(`Component "${fullType}" not found in "Blueprints.sbc".`)
+                const componentSbc = componentSbcs.get(fullType)
+                if(!componentSbc) throw new Error(`Component "${fullType}" not found in "Components.sbc".`)
 
-        const comp2s = await parseComponentSbc(componentXml)
-        comp2s.forEach((comp2) => {
-            const comp = componentMap.get(comp2.subtype)
-            if(!comp) throw new Error(`Component ${comp2.subtype} not found.`)
-
-            comp.health = comp2.health
-            comp.maxIntegrity = comp2.maxIntegrity
-            comp.mass = comp2.mass
-            comp.size = comp2.size
-            comp.subtype = comp2.subtype
-            comp.type = comp2.type
-            comp.volume = comp2.volume
-        })
-
-        return ([...componentMap.values()] as IComponentDTO[]).map((blockDto) => new Component(blockDto))
+                return {
+                    ...blueprintSbc,
+                    health: componentSbc.health,
+                    maxIntegrity: componentSbc.maxIntegrity,
+                    mass: componentSbc.mass,
+                    size: componentSbc.size,
+                    subtype: componentSbc.subtype,
+                    type: componentSbc.type,
+                    volume: componentSbc.volume,
+                }
+            })
+            .map((dto) => new Component(dto, dto.mod))
     }
 
 
@@ -49,8 +60,9 @@ export class Component implements IComponentDTO {
     public readonly time: number  // Seconds to build, baseBuildTime.
     public readonly type: string
     public readonly volume: number  // l.
+    public readonly mod: VENDOR_MOD
 
-    public constructor(dto: IComponentDTO) {
+    public constructor(dto: IComponentDTO, mod: VENDOR_MOD) {
         this.type = dto.type
         this.subtype = dto.subtype
         this.mass = dto.mass
@@ -60,6 +72,7 @@ export class Component implements IComponentDTO {
         this.health = dto.health
         this.maxIntegrity = dto.maxIntegrity
         this.size = dto.size
+        this.mod = mod
     }
 
     public toJSON(): IComponentDTO {

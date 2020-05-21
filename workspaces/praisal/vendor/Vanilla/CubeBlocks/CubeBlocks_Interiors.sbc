@@ -154,12 +154,10 @@
       <CriticalComponent Subtype="SmallTube" Index="0" />
       <MountPoints>
         <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.1" EndX="0.1" EndY="0.33" />
         <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.1" EndX="1" EndY="0.33" />
         <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.43" />
         <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.4" />
       </MountPoints>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SteelCatwalkConstruction_1.mwm" />
@@ -198,13 +196,11 @@
       </Components>
       <CriticalComponent Subtype="SmallTube" Index="0" />
       <MountPoints>
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.1" EndX="0.1" EndY="0.33" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.1" EndX="1" EndY="0.33" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.43" />
-        <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+          <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.4" />
+          <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.4" />
       </MountPoints>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SteelCatwalk_2SidesConstruction_1.mwm" />
@@ -242,13 +238,11 @@
       </Components>
       <CriticalComponent Subtype="SmallTube" Index="0" />
       <MountPoints>
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.1" EndX="0.1" EndY="0.33" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.1" EndX="1" EndY="0.33" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.43" />
-        <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.4" />
+          <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+          <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.4" />
       </MountPoints>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SteelCatwalk_CornerConstruction_1.mwm" />
@@ -288,13 +282,11 @@
       </Components>
       <CriticalComponent Subtype="SmallTube" Index="0" />
       <MountPoints>
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.1" EndX="0.1" EndY="0.33" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.1" EndX="1" EndY="0.33" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.43" />
-        <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+          <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+          <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.1" />
       </MountPoints>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SteelCatwalk_PlateConstruction_1.mwm" />

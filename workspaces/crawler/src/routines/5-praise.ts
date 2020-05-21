@@ -24,18 +24,17 @@ const farmOptions = {
     workerOptions               : {
         ...(isDebug ? {execArgv: ['--inspect-brk=49999']} : {}),
     },
-    maxCallsPerWorker           : 1,
+    maxCallsPerWorker           : Infinity,
     maxConcurrentWorkers        : isDebug ? 1 : cpus().length,
     maxConcurrentCallsPerWorker : 1,
     maxConcurrentCalls          : Infinity,
-    maxCallTime                 : isDebug ? Infinity : 10 * 1000,
+    maxCallTime                 : isDebug ? Infinity : 30 * 1000,
     maxRetries                  : 1,
     autoStart                   : false,
 }
 const workers = workerFarm(farmOptions, require.resolve(`./5-praiseWorker.${__filename.slice(-2)}`))
-const queueWork = async (index: number, doc: IProjection) => new Promise<void>(
-        // tslint:disable-next-line:no-void-expression
-        (resolve, reject) => workers(index, doc, (err: Error | void, msg: void) => err ? reject(err) : resolve(msg)),
+const queueWork = async (index: number, doc: IProjection) => new Promise<string>(
+        (resolve, reject) => workers(index, doc, (err: Error | null, msg?: string) => err ? reject(err) : resolve(msg)),
     )
 
 
@@ -93,10 +92,11 @@ export const main = async () => {
     await Promise.all([...docs.entries()].map(async ([index, doc]) => {
         const prefix = `#${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |  ${(farmOptions.maxCallTime / 1000).toFixed(0)}s |`
         try {
-            await queueWork(index, doc)
+            console.info(await queueWork(index, doc))
             praised.set(doc._id, null)
         } catch(err) {
-            if(err.type === 'TimeoutError') console.warn(prefix, 'Error:', err.type)
+            if(err.type === 'TimeoutError') err.message = `${prefix} Error: ${err.type}`
+            console.error(err)
             praised.set(doc._id, err.type)
             try {
                 await collection.updateOne({ _id: doc._id }, { $set: {sbc: {_error: IBlueprint.VERSION.sbc, _errorDetails: err.type}}})

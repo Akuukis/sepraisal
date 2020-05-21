@@ -1,4 +1,4 @@
-import { DB_NAME, DB_URL, IBlueprint, idFromHref, timeout, toMinSec, Work, Worker } from '@sepraisal/common'
+import { DB_NAME, DB_URL, IBlueprint, idFromHref, timeout, toMinSec, VENDOR_MOD, Work, Worker } from '@sepraisal/common'
 import moment from 'moment'
 import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
@@ -48,6 +48,13 @@ const flagItGreen = [
     flagIt(IBlueprint.SteamFlagsGreen.RevisedInYear, (datum) => moment().diff(datum.updatedDate, 'days') < 365),
 ]
 
+const VENDOR_ID_TO_MOD = {
+    1135960: VENDOR_MOD.ECONOMY,
+    1241550: VENDOR_MOD.FROSTBITE,
+    1049790: VENDOR_MOD.DECORATIVE_1,
+    1167910: VENDOR_MOD.DECORATIVE_2,
+}
+
 // tslint:disable: strict-boolean-expressions
 export const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`
 export const commaNumber = (rawNumber: string) => Number(rawNumber.replace(',', ''))
@@ -56,6 +63,7 @@ export const authorTitleConvert = (input: string) => (input.match(/(.*?)\r/) || 
 export const ratingStarsConvert = (input: string) => input.includes('not-yet') ? null : Number((input.match(/(\d)-star_large\.png/) || [null])[1])
 export const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
 export const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
+export const dlcsConvert = (input: string): VENDOR_MOD => VENDOR_ID_TO_MOD[Number(input.split('/').pop())]
 // tslint:enable: strict-boolean-expressions
 
 export const dateConvert = (steamDate: string) => {
@@ -80,6 +88,10 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         | 'exposureMax'
         | 'exposureTotal'
         | 'popularity'
+        | 'authorsCount'
+        | 'collectionsCount'
+        | 'DLCsCount'
+        | 'modsCount'
     interface IScrapeSteamData extends Omit<IFlagParam, IScrapeSteamDataOmits> {
         // _id: number,
     }
@@ -103,6 +115,9 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         mods: {listItem: '#RequiredItems > a', data: {
             id: {attr: 'href', convert: idFromHref},
             title: {selector: '.requiredItem'},
+        }},
+        DLCs: {listItem: '.requiredDLCContainer > .requiredDLCItem > a', data: {
+            id: {attr: 'href', convert: dlcsConvert}
         }},
         collections: {listItem: 'div.parentCollections > div.parentCollection', data: {
             id: {attr: 'onclick', convert: idFromHref},
@@ -146,6 +161,10 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
     const activityMax = Math.max(ratingCount, dataRaw.commentCount, dataRaw.favoriteCount)
     const activityTotal = ratingCount + dataRaw.commentCount + dataRaw.favoriteCount
     const popularity = dataRaw.subscriberCount / Math.sqrt(Math.min(30, moment().diff(dataRaw.postedDate, 'd')))
+    const authorsCount = dataRaw.authors.length
+    const collectionsCount = dataRaw.collections.length
+    const DLCsCount = dataRaw.DLCs.length
+    const modsCount = dataRaw.mods.length
 
     const dataForFlags: IFlagParam = {
         id,
@@ -159,6 +178,7 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         sizeMB: dataRaw.sizeMB,
         revision: dataRaw.revision,
         mods: dataRaw.mods,
+        DLCs: dataRaw.DLCs.map(({id}: any) => id),
         collections: dataRaw.collections,
         ratingStars: dataRaw.ratingStars,
         ratingCount: dataRaw.ratingCount,
@@ -168,12 +188,17 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         favoriteCount: dataRaw.favoriteCount,
 
         _revision: null,
-        _version: 1,
+        _version: IBlueprint.VERSION.steam,
         activityMax,
         activityTotal,
         exposureMax,
         exposureTotal,
         popularity,
+
+        authorsCount,
+        collectionsCount,
+        DLCsCount,
+        modsCount,
     }
 
     return {

@@ -28,3 +28,8 @@ Set up environment
 
 *Note:* As I'm developing on Linux machine only, I may have forgotten some cross-compatibility and it may not work out as smooth for Windows users. In that case, just open a issue or even better add PR if you know how to fix that.
 
+
+Node v10
+--------------------------------------------------------------------------------
+
+Because [`weak` doesn't support node v12](https://github.com/TooTallNate/node-weak/issues/99).

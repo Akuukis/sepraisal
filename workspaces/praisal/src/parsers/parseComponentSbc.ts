@@ -1,8 +1,9 @@
+import { VENDOR_MOD } from '@sepraisal/common/src'
 import { parseString } from 'xml2js'
 
 import { IComponentDefinition } from '..//xmlns/ComponentDefinition'
 
-interface IParseComponentSbc {
+export interface IParseComponentSbc {
     displayName: string
     health: number
     mass: number
@@ -11,9 +12,11 @@ interface IParseComponentSbc {
     subtype: string
     type: string
     volume: number
+    fullType: string
+    mod: VENDOR_MOD
 }
 
-export const parseComponentSbc = async (xml: string): Promise<IParseComponentSbc[]> =>
+export const parseComponentSbc = async (xml: string, mod: VENDOR_MOD): Promise<IParseComponentSbc[]> =>
     new Promise((resolve: (value: IParseComponentSbc[]) => void, reject: (reason: Error) => void) => {
         parseString(xml, (parseError: Error | undefined, bp: IComponentDefinition) => {
             if(parseError) reject(parseError)
@@ -33,6 +36,8 @@ export const parseComponentSbc = async (xml: string): Promise<IParseComponentSbc
                             subtype: comp.Id[0].SubtypeId[0],
                             type: comp.Id[0].TypeId[0],
                             volume: Number(comp.Volume[0]),
+                            fullType: `${comp.Id[0].TypeId[0]}/${comp.Id[0].SubtypeId[0]}`,
+                            mod,
                         }))
                 resolve(components)
             } catch(transformError) {
