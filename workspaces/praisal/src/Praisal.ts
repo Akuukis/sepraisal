@@ -355,7 +355,7 @@ export class Praisal {
             + Object.keys(missingDefinitions.components).length
             + Object.keys(missingDefinitions.ingots).length
             + Object.keys(missingDefinitions.ores).length
-        const DLCsCount = dlcs.size
+        const DLCsCount = dlcs.size - 1  // Minus Vanilla.
         const flagsRedCount = flagsRed.length
         const flagsYellowCount = flagsYellow.length
         const flagsGreenCount = flagsGreen.length
