@@ -106,7 +106,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             await praisalManager.addBlueprintsSbc(blueprintsSbc, VENDOR_MOD.VANILLA)
             await praisalManager.addComponentsSbc(componentsSbc, VENDOR_MOD.VANILLA)
             for(const [cubeBlocksSbc, mod] of cubeBlocksSbcsPairs) {
-                console.log(mod, cubeBlocksSbc.slice(0, 100))
                 await praisalManager.addCubeBlocksSbc(cubeBlocksSbc, mod)
             }
             praisalManager.addGroups(BLOCK_GROUPS)
