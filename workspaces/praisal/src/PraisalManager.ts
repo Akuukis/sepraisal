@@ -1,5 +1,5 @@
 import { BLOCK_GROUPS, ObservableMap, VENDOR_MOD } from '@sepraisal/common'
-import { action } from 'mobx'
+import { action, runInAction } from 'mobx'
 
 import { Blueprint, Component, Cube, Group, Ingot, Ore } from './models'
 import {
@@ -31,21 +31,29 @@ export class PraisalManager {
 
     public readonly praisals = new ObservableMap<Praisal>()
 
-    @action public async addBlueprintsSbc(blueprintsSbc: string, mod: VENDOR_MOD) {
+    public async addBlueprintsSbc(blueprintsSbc: string, mod: VENDOR_MOD) {
         const blueprintSbcs = await parseBlueprintSbc(blueprintsSbc, mod)
-        this.blueprintSbcs.merge(blueprintSbcs.map((sbc) => [sbc.fullType, sbc]))
+        runInAction('PraisalManager.addBlueprintsSbc', () => {
+            this.blueprintSbcs.merge(blueprintSbcs.map((sbc) => [sbc.fullType, sbc]))
+        })
     }
-    @action public async addComponentsSbc(componentsSbc: string, mod: VENDOR_MOD) {
+    public async addComponentsSbc(componentsSbc: string, mod: VENDOR_MOD) {
         const componentsSbcs = await parseComponentSbc(componentsSbc, mod)
-        this.componentSbcs.merge(componentsSbcs.map((sbc) => [sbc.fullType, sbc]))
+        runInAction('PraisalManager.addComponentsSbc', () => {
+            this.componentSbcs.merge(componentsSbcs.map((sbc) => [sbc.fullType, sbc]))
+        })
     }
-    @action public async addPhysicalItemsSbc(physicalItemsSbc: string, mod: VENDOR_MOD) {
+    public async addPhysicalItemsSbc(physicalItemsSbc: string, mod: VENDOR_MOD) {
         const physicalItemsSbcs = await parsePhysicalItemsSbc(physicalItemsSbc, mod)
-        this.physicalItemSbcs.merge(physicalItemsSbcs.map((sbc) => [sbc.fullType, sbc]))
+        runInAction('PraisalManager.addPhysicalItemsSbc', () => {
+            this.physicalItemSbcs.merge(physicalItemsSbcs.map((sbc) => [sbc.fullType, sbc]))
+        })
     }
-    @action public async addCubeBlocksSbc(cubeBlocksSbc: string, mod: VENDOR_MOD) {
+    public async addCubeBlocksSbc(cubeBlocksSbc: string, mod: VENDOR_MOD) {
         const cubeBlocksSbcs = await parseCubeBlocksSbc(cubeBlocksSbc, mod)
-        this.cubeBlocksSbcs.merge(cubeBlocksSbcs.map((sbc) => [`${String(sbc.Id[0].TypeId[0])}/${sbc.Id[0].SubtypeId[0]}`, sbc]))
+        runInAction('PraisalManager.addCubeBlocksSbc', () => {
+            this.cubeBlocksSbcs.merge(cubeBlocksSbcs.map((sbc) => [`${String(sbc.Id[0].TypeId[0])}/${sbc.Id[0].SubtypeId[0]}`, sbc]))
+        })
     }
 
     @action public build() {
