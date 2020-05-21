@@ -1,4 +1,5 @@
 import { APIGatewayProxyEvent } from 'aws-lambda'
+import fetch from 'node-fetch'
 import { Primitive } from 'utility-types'
 
 const MATOMO_PARAMS = {
