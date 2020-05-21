@@ -29,8 +29,6 @@ export class PraisalManager {
 
     public readonly groups = new ObservableMap<Group>()
 
-    public readonly praisals = new ObservableMap<Praisal>()
-
     public async addBlueprintsSbc(blueprintsSbc: string, mod: VENDOR_MOD) {
         const blueprintSbcs = await parseBlueprintSbc(blueprintsSbc, mod)
         runInAction('PraisalManager.addBlueprintsSbc', () => {
@@ -89,7 +87,6 @@ export class PraisalManager {
 
     @action public praise(blueprint: Blueprint): Praisal {
         const praisal = new Praisal(blueprint, this, this.groups)
-        this.praisals.set(blueprint.title, praisal)
 
         return praisal
     }
