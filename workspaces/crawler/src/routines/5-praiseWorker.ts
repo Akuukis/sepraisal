@@ -36,10 +36,6 @@ export = async (index: number, doc: IProjection, callback: (err: Error | null, m
     const loaded = (Date.now() - timer) / 1000
 
     const prefix = () => [
-        `#${pad(String(index), 5)}`,
-        `|`,
-        `${pad(String(doc._id), 10)}`,
-        `|`,
         pad(5, `${loaded.toFixed(1)}s`),
         `|`,
         pad(5, `${((Date.now() - timer) / 1000 - loaded).toFixed(1)}s`),
@@ -51,7 +47,8 @@ export = async (index: number, doc: IProjection, callback: (err: Error | null, m
         xml = await unzipCachedSbc(readFileSync(sbcPath(doc)))
     } catch(err) {
         err.type = 'read'
-        err.message = `${prefix()} Reading Error: failed to open archive: ${err.message}`
+        err.name = `ReadingError`
+        err.message = `${prefix()} ReadingError: failed to open archive: ${err.message}`
 
         return callback(err as Error)
     }
@@ -62,7 +59,8 @@ export = async (index: number, doc: IProjection, callback: (err: Error | null, m
         sbc = praisal.toBlueprintSbc(doc.steam.revision)
     } catch(err) {
         err.type = 'praise'
-        err.message = `${prefix()} Praisal Error: ${err.message.replace(/\n/g, '|')}`
+        err.name = `PraisalError`
+        err.message = `${prefix()} PraisalError: ${err.message.replace(/\n/g, '|')}`
 
         return callback(err as Error)
     }
@@ -71,7 +69,8 @@ export = async (index: number, doc: IProjection, callback: (err: Error | null, m
         await collection.updateOne({ _id: doc._id }, { $set: {sbc}})
     } catch(err) {
         err.type = 'update'
-        err.message = `${prefix()} Update Error: ${err.message.replace(/\n/g, '|')}`
+        err.name = `UpdateError`
+        err.message = `${prefix()} UpdateError: ${err.message.replace(/\n/g, '|')}`
 
         return callback(err as Error)
     }
