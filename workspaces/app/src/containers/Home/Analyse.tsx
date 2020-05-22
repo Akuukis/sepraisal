@@ -35,8 +35,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const getRandom = async () => {
         setStatus(ASYNC_STATE.Doing)
         try {
-            const skip = Math.floor(Math.random() * 90000)  // Random blueprint out of first 90k blueprints.
-            const res = await fetch(getApiUrl(PRESET.none, {limit: 1, skip}))
+            const skip = Math.floor(Math.random() * 3000)  // Random fighter out of first 3k fighters.
+            const res = await fetch(getApiUrl(PRESET.fighter, {limit: 1, skip}))
             const {docs} = await res.json() as {docs: [Required<IBlueprint>]}
             const doc = docs[0]
             routerStore.goBlueprint(doc._id)
