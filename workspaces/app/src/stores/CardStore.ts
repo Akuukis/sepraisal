@@ -1,6 +1,7 @@
 import { ObservableMap } from '@sepraisal/common'
 import { IFind } from '@sepraisal/common/lib/classificator/Class'
-import { action, autorun, computed, IReactionDisposer, observable, runInAction } from 'mobx'
+import { autorun, computed, IReactionDisposer, observable, runInAction } from 'mobx'
+
 import { getApiUrl } from 'src/common'
 
 import {
@@ -127,42 +128,39 @@ export class CardStore {
         for(const disposer of this.disposers) disposer()
     }
 
-    @action public async nextPage() {
+    public async nextPage() {
         const skip = this.cards.size
         const limit = this.cardsPerPage
-        try {
-            const timer = Date.now()
+        const timer = Date.now()
 
-            const res = await fetch(getApiUrl(this.find.$and, {
-                    $search: this.find.$text?.$search,
-                    projection: cardProjection,
-                    sort: this.sort,
-                    limit,
-                    skip
-                }))
-            const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[] }
+        const res = await fetch(getApiUrl(this.find.$and, {
+                $search: this.find.$text?.$search,
+                projection: cardProjection,
+                sort: this.sort,
+                limit,
+                skip
+            }))
+        const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[] }
 
-            // TODO: handle non-ok cards
-            const cards = docs
-                .map<[number, Card<CardStatus.ok>]>((doc) => [doc._id, new Card(doc)])
-                .filter(([id, card]) => card.isStatus(CardStatus.praisedOnce))
+        // TODO: handle non-ok cards
+        const cards = docs
+            .map<[number, Card<CardStatus.ok>]>((doc) => [doc._id, new Card(doc)])
+            .filter(([id, card]) => card.isStatus(CardStatus.praisedOnce))
 
-            runInAction(`${__filename}: .nextPage()`, () => this.cards.merge(cards))
+        runInAction(`${__filename}: .nextPage()`, () => {
+            this.count = count
+            this.cards.merge(cards)
+        })
 
-            this.piwikStore.push([
-                'trackEvent',
-                'load-time',
-                this.selectedPreset,
-                this.selectedPreset !== 'custom' ? undefined : this.querryFindBuilder.findStringified,
-                (Date.now() - timer) / 1000,
-            ])
+        this.piwikStore.push([
+            'trackEvent',
+            'load-time',
+            this.selectedPreset,
+            this.selectedPreset !== 'custom' ? undefined : this.querryFindBuilder.findStringified,
+            (Date.now() - timer) / 1000,
+        ])
 
-            return {count, limit, skip}
-        } catch(err) {
-            console.error(err)
-
-            return {count: 0, limit, skip}
-        }
+        return {count, limit, skip}
     }
 
     private fetch = async () => {

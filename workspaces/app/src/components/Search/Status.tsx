@@ -26,7 +26,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Typography className={classes.root} component='span' variant='subtitle1' align='left'>
-            {cardStore.count && `${cardStore.cards.size} of ${cardStore.count} results`}
+            {cardStore.count && cardStore.count > 0 && `${cardStore.cards.size} of ${cardStore.count} results`}
         </Typography>
     )
 })) /* ============================================================================================================= */

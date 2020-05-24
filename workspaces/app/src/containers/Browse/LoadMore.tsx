@@ -38,15 +38,17 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
-
-    const state = cardStore.cards.size === 0 ? ASYNC_STATE.Doing
-        : cardStore.cards.size === -1 ? ASYNC_STATE.Error
-        : cardStore.cards.size === cardStore.count ? ASYNC_STATE.Idle
-        : ASYNC_STATE.Done
+    const [state, setState] = React.useState<ASYNC_STATE>(ASYNC_STATE.Idle)
 
 
     const myAdd = async () => {
-        await cardStore.nextPage()
+        try {
+            setState(ASYNC_STATE.Doing)
+            await cardStore.nextPage()
+            setState(ASYNC_STATE.Done)
+        } catch(err) {
+            setState(ASYNC_STATE.Error)
+        }
     }
 
     const wrap = (content: JSX.Element) => (
@@ -54,6 +56,22 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {content}
         </Grid>
     )
+
+    if(cardStore.cards.size === -1 || state === ASYNC_STATE.Error) {
+        return wrap((
+            <Button fullWidth className={clsx(classes.button, classes.error)} variant='outlined' onClick={myAdd}>
+                {`Error. Retry?`}
+            </Button>
+        ))
+    }
+
+    if(cardStore.cards.size === cardStore.count) {
+        return wrap((
+            <Button fullWidth className={clsx(classes.button, classes.idle)} variant='text' disabled>
+                {`All ${cardStore.cards.size}/${cardStore.count} loaded.`}
+            </Button>
+        ))
+    }
 
     if(cardStore.count === null) {
         return wrap((
@@ -63,27 +81,18 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         ))
     }
 
-    switch(state) {
-        case(ASYNC_STATE.Idle): return wrap((
-            <Button fullWidth className={clsx(classes.button, classes.idle)} variant='text' disabled>
-                {`${cardStore.cards.size}/${cardStore.count}`}
-            </Button>
-        ))
-        case(ASYNC_STATE.Done): return wrap((
-            <Button fullWidth className={clsx(classes.button, classes.done)} variant='outlined' onClick={myAdd} color='inherit'>
-                {`(${cardStore.cards.size}/${cardStore.count}) Load more`}
-            </Button>
-        ))
-        case(ASYNC_STATE.Doing): return wrap((
+    if(state === ASYNC_STATE.Doing) {
+        return wrap((
             <Button fullWidth className={clsx(classes.button, classes.doing)} variant='text' disabled>
                 {`Loading next ${cardStore.cardsPerPage} blueprints ...`}
             </Button>
         ))
-        case(ASYNC_STATE.Error): return wrap((
-            <Button fullWidth className={clsx(classes.button, classes.error)} variant='outlined' onClick={myAdd}>
-                {`Error. Retry?`}
-            </Button>
-        ))
-        default: return null
     }
+
+    return wrap((
+        <Button fullWidth className={clsx(classes.button, classes.done)} variant='outlined' onClick={myAdd} color='inherit'>
+            {`Load more`}
+        </Button>
+    ))
+
 })) /* ============================================================================================================= */
