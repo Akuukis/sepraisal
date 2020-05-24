@@ -22,7 +22,7 @@ module.exports = {
         publicPath: '/',
         filename: '[name].js',
     },
-    devtool: 'inline-source-map',
+    devtool: IS_PRODUCTION ? false : 'inline-source-map',
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
         alias: {
