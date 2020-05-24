@@ -7,8 +7,7 @@ require('dotenv').config()
 
 
 const sourcePath = path.join(__dirname, './src');
-const IS_PRODUCTION = process.argv.indexOf('production') >= 0;
-
+const IS_PRODUCTION = process.argv.indexOf('--production') >= 0;
 
 module.exports = {
     mode: IS_PRODUCTION ? 'production' : 'development',
