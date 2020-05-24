@@ -19,3 +19,7 @@ declare module '*.sbc' {
   const content: string;
   export default content;
 }
+declare module '*.data' {
+  const content: string;
+  export default content;
+}

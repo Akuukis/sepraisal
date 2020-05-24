@@ -5,15 +5,15 @@ import { hot } from 'react-hot-loader/root'
 import { Chip, InputAdornment, TextField } from '@material-ui/core'
 import Autocomplete, { AutocompleteProps, createFilterOptions } from '@material-ui/lab/Autocomplete'
 
-import { createSmartFC, createStyles, IMyTheme } from 'src/common'
-import { AUTOCOMPLETE_AUTHORS } from 'src/common/authors'
-import { AUTOCOMPLETE_COLLECTIONS } from 'src/common/collections'
+import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import IconCollection from 'src/components/icons/IconCollection'
 import IconPerson from 'src/components/icons/IconPerson'
 import { BROWSE_PARTS, ROUTE } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
+import AUTOCOMPLETE_AUTHORS from '../../../static/authors.data'
+import AUTOCOMPLETE_COLLECTIONS from '../../../static/collections.data'
 import { ListboxComponent, renderGroup } from './SearchVirtualized'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -55,6 +55,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {className, ...otherProps} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const routerStore = React.useContext(CONTEXT.ROUTER)
+    const [options, setOptions] = React.useState<IOption[]>([])
 
     const searchParams = new URLSearchParams(routerStore.location.search)
     const authors = searchParams.getAll(BROWSE_PARTS.AUTHOR)
@@ -67,6 +68,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setInput(newInputValue)
     }
 
+    useAsyncEffectOnce(async () => {
+        const [authors, collections] = await Promise.all([
+            fetch(AUTOCOMPLETE_AUTHORS)
+                .then((req) => req.json() as Promise<IOption[]>)
+                .then((authorsRaw): IOption[] => authorsRaw.map<IOption>((entry) => ({type: OPTION_TYPE.AUTHOR, ...entry}))),
+            fetch(AUTOCOMPLETE_COLLECTIONS)
+                .then((req) => req.json() as Promise<IOption[]>)
+                .then((collectionsRaw): IOption[] => collectionsRaw.map<IOption>((entry) => ({type: OPTION_TYPE.COLLECTION, ...entry}))),
+        ])
+
+        setOptions([
+            ...authors,
+            ...collections,
+        ])
+    })
 
     React.useEffect(() => {
         cardStore.querryFindBuilder.setCriterion('steam.author.title', authors.length > 0 ? {$in: authors} : null)
@@ -163,7 +179,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             selectOnFocus
             clearOnEscape
             disableClearable
-            options={AUTOCOMPLETE}
+            options={options}
             getOptionLabel={(option: string | IOption) => {
                 if (typeof option === 'string') return option  // Value selected with enter, right from the input
 
@@ -245,8 +261,3 @@ interface IOption {
 }
 
 const filter = createFilterOptions<IOption>()
-
-const AUTOCOMPLETE: IOption[] = [
-    ...AUTOCOMPLETE_AUTHORS.map<IOption>((entry) => ({type: OPTION_TYPE.AUTHOR, ...entry})),
-    ...AUTOCOMPLETE_COLLECTIONS.map<IOption>((entry) => ({type: OPTION_TYPE.COLLECTION, ...entry})),
-]
