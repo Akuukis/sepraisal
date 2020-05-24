@@ -10,6 +10,7 @@ import MyExpansionPanel, { IMyExpansionPanelProps } from 'src/components/MyExpan
 import { CONTEXT } from 'src/stores'
 
 import PanelSelectedRow from './PanelSelectedRow'
+import PanelSelectedSubheading from './PanelSelectedSubheading'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -30,14 +31,13 @@ interface IProps extends Omit<IMyExpansionPanelProps, 'header' | 'subheader'> {
 
 export default cold(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const { className, ...otherProps } = props
-    const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
     return (
         <MyExpansionPanel
             className={clsx(classes.root, className)}
             header='Selected'
-            subheader={`${selectionStore.selected.length}`}
+            subheader={<PanelSelectedSubheading />}
             {...otherProps}
         >
             <List dense className={classes.list}>

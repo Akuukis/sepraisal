@@ -4,7 +4,7 @@ import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link } from '@material-ui/core'
+import { Link, useMediaQuery } from '@material-ui/core'
 
 import {
     createSmartFC,
@@ -50,7 +50,6 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {bp, className, long, ...otherProps} = props
 
-
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
     const author = (<Link variant='body2' {...linkAuthorProps(bp.steam.authors[0]?.id)}>
@@ -58,6 +57,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </Link>)
 
     const placeholderThumb = `//via.placeholder.com/${THUMB_WIDTH}x${THUMB_HEIGHT}?text=No+Image`
+
+    const smUp = useMediaQuery(theme.breakpoints.up('sm'), { noSsr: true })
+    const showThumb = smUp && !otherProps.narrow
 
     return (
         <MySection
@@ -84,15 +86,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </MyBoxRow>
             </>)}
         >
-            <MyBoxColumn height={3} width={3}>
-                <MyBox width={3}>
-                    <img
-                        className={classes.img}
-                        src={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : placeholderThumb}
-                        alt={bp.steam.title}
-                    />
-                </MyBox>
-            </MyBoxColumn>
+            {showThumb && (
+                <MyBoxColumn height={3} width={3}>
+                    <MyBox width={3}>
+                        <img
+                            className={classes.img}
+                            src={bp.thumb.webp ? `data:image/png;base64,${bp.thumb.webp.toString('base64')}` : placeholderThumb}
+                            alt={bp.steam.title}
+                        />
+                    </MyBox>
+                </MyBoxColumn>
+            )}
             <MyBoxColumn height={1} width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
