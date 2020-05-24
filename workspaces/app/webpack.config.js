@@ -7,8 +7,7 @@ require('dotenv').config()
 
 
 const sourcePath = path.join(__dirname, './src');
-const IS_PRODUCTION = process.argv.indexOf('production') >= 0;
-
+const IS_PRODUCTION = process.argv.indexOf('--production') >= 0;
 
 module.exports = {
     mode: IS_PRODUCTION ? 'production' : 'development',
@@ -23,7 +22,7 @@ module.exports = {
         publicPath: '/',
         filename: '[name].js',
     },
-    devtool: 'inline-source-map',
+    devtool: IS_PRODUCTION ? false : 'inline-source-map',
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
         alias: {
@@ -49,6 +48,7 @@ module.exports = {
             { test: /\.woff2?$/, use: 'file-loader?name=fonts/[name].[ext]?[hash]' },
             // { test: /\.png$/, use: 'url-loader?limit=10000' },
             { test: /\.sbc$/, loader: 'file-loader?name=data/[name].[ext]?[hash]' },
+            { test: /\.data$/, loader: 'file-loader?name=data/[name].[ext]?[hash]' },
 
             {
                 test: /\.(j|t)sx?$/,
