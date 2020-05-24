@@ -26,7 +26,7 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         padding: theme.spacing(1, 0),
         width: `100%`,
-        minWidth: `${theme.shape.boxWidth}px`,
+        minWidth: `${theme.shape.boxWidth/2}px`,
     },
 
     expansionPanel: {

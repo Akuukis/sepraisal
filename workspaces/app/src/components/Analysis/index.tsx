@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, GridProps } from '@material-ui/core'
+import { Grid, GridProps, useMediaQuery } from '@material-ui/core'
 import { StyledComponentProps } from '@material-ui/core/styles'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
@@ -26,6 +26,7 @@ import SectionMods from './SectionMods'
 import SectionOffensive from './SectionOffensive'
 import SectionPlaceholder from './SectionPlaceholder'
 import SectionPrintable from './SectionPrintable'
+import SectionThumbNarrow from './SectionThumbNarrow'
 import SectionUtils from './SectionUtils'
 import SectionWorkshop from './SectionWorkshop'
 
@@ -33,6 +34,10 @@ const styles = (theme: IMyTheme) => createStyles({
     root: {
         maxWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2 * 1,
         minWidth: theme.spacing(1) * 2 + theme.shape.boxWidth * 2 * 1,
+        [theme.breakpoints.down('xs')]: {
+            maxWidth: theme.spacing(1) * 4 + theme.shape.boxWidth * 2 * 1,
+            minWidth: theme.spacing(1) * 4 + theme.shape.boxWidth * 2 * 0.5,
+        },
     },
     rootLg: {
         [theme.breakpoints.up('lg')]: {
@@ -129,6 +134,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </Grid>
     )
 
+    const smUp = useMediaQuery(theme.breakpoints.up('sm'), { noSsr: true })
+    const hideThumb = smUp && maxWidth !== 0.5
+
     return (
         <Grid
             id={String(bpId)}
@@ -153,8 +161,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         {icons}
                     </Header>
                 </Grid>
-                {!blueprint || blueprint?.steam ? sectionGroup([['Workshop', SectionWorkshop as Section]]) : null}
-                {!blueprint || blueprint?.steam ? sectionGroup([['Description', SectionDescription as Section]]) : null}
+                {(!blueprint || blueprint?.steam) && !hideThumb ? sectionGroup([['Thumb', SectionThumbNarrow as Section]]) : null}
+                {(!blueprint || blueprint?.steam) ? sectionGroup([['Workshop', SectionWorkshop as Section]]) : null}
+                {(!blueprint || blueprint?.steam) ? sectionGroup([['Description', SectionDescription as Section]]) : null}
             </Grid>
             <Grid
                 item
