@@ -23,9 +23,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     paper: {
         display: 'block',
-        [theme.breakpoints.up('xl')]: {
-            height: 'unset',
-        },
+        height: 'unset',
     },
 
     corner: {
