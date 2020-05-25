@@ -41,9 +41,7 @@ interface IMyFindCriterion {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title, criterionId, step: stepRaw, zeroes} = props
-    const min = moment(DATES[0][0])
     const max = moment()
-    const step = stepRaw ?? 1
 
     const piwikStore = React.useContext(CONTEXT.PIWIK)
     const cardStore = React.useContext(CONTEXT.CARDS)
@@ -53,16 +51,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         const criterion = cardStore.querryFindBuilder.getCriterion<IMyFindCriterion>(criterionId)
 
         return [
-            min.diff(criterion?.$gte ?? min, 'days'),
-            -min.diff(criterion?.$lte ?? max, 'days'),
+            toValue(criterion?.$gte ?? MIN),
+            toValue(criterion?.$lte ?? max),
         ]
     }
 
     const [value, setValue] = React.useState<[number, number]>(getState())
 
     let criterion: IMyFindCriterion | null = {}
-    if(value[0] !== 0) criterion.$gte = moment(min).add(value[0], 'days').toISOString(false)
-    if(value[1] !== max.diff(min, 'days')) criterion.$lte = moment(min).add(value[1], 'days').toISOString(false)
+    if(value[0] !== 0) criterion.$gte = toDate(value[0]).toISOString(false)
+    if(value[1] !== toValue(max)) criterion.$lte = toDate(value[1]).toISOString(false)
     criterion = Object.keys(criterion).length > 0 ? criterion : null
     runInAction(() => formGroupScope.set(criterionId, undefined))
 
@@ -96,9 +94,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         cardStore.querryFindBuilder.setCriterion(criterionId, criterion)
     })
 
-    const from = criterion?.$gte !== undefined ? `from ${format(-min.diff(criterion.$gte, 'days'))}` : ''
-    const to = criterion?.$lte !== undefined ? `to ${format(-min.diff(criterion.$lte, 'days'))}` : ''
-    console.log(min.toISOString(), max.toISOString(), value)
+    const from = criterion?.$gte !== undefined ? `from ${formatValue(toValue(criterion.$gte!))}` : ''
+    const to = criterion?.$lte !== undefined ? `to ${formatValue(toValue(criterion.$lte!))}` : ''
+
     return (
         <Grid container justify='space-between' className={classes.root}>
             <Grid item>
@@ -116,7 +114,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <Slider
                     className={clsx(!criterion && classes.inactiveSlider)}
                     min={0}
-                    max={max.diff(min, 'days')}
+                    max={toValue(max)}
                     step={1}
                     // marks={(max-min)/step < 50}
                     value={value}
@@ -124,7 +122,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     onChangeCommitted={onChangeCommitted}
                     valueLabelDisplay='auto'
                     aria-labelledby='linear-slider'
-                    valueLabelFormat={format}
+                    valueLabelFormat={formatValue}
                 />
             </Grid>
         </Grid>
@@ -132,9 +130,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 })) /* ============================================================================================================= */
 
+const MIN = moment('2013-10-23')
+const toValue = (date: string | moment.Moment) => moment(date).diff(MIN, 'days')
+const toDate = (value: number) => moment(MIN).add(value, 'days')
+const formatValue = (daysSinceMin: number) => toDate(daysSinceMin).format('D MMM, YYYY')
 
-const format = (daysSinceMin: number) => moment(DATES[0][0]).add(daysSinceMin, 'days').format('D MMM, YYYY')
+interface IMark {
+    value: number,
+    label: string
+}
 
-const DATES = [
-    [moment('2013-10-23'), 'Early Access'],  // https://www.spaceengineersgame.com/space-engineers-ndash-released-on-steam-early-access.html
+const MARKS: IMark[] = [
+    {value: toValue('2013-10-23'), label: 'Early Access'},  // https://www.spaceengineersgame.com/space-engineers-ndash-released-on-steam-early-access.html
+    {value: toValue('2017-11-17'), label: 'Physics'},  // 
+    {value: toValue('2018-02-02'), label: 'Wheels'},  // 
+    {value: toValue('2018-07-19'), label: 'Multiplayer'},  // 
+    {value: toValue('2019-02-28'), label: 'Survival'},  // 
+    {value: toValue('2019-04-08'), label: 'LCDs'},  // 
 ]
