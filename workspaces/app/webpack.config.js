@@ -6,8 +6,8 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 require('dotenv').config()
 
 
-const sourcePath = path.join(__dirname, './src');
-const IS_PRODUCTION = process.argv.indexOf('--production') >= 0;
+const sourcePath = path.join(__dirname, './src')
+const IS_PRODUCTION = process.argv.some((arg) => arg === 'production' || arg === '--production')
 
 module.exports = {
     mode: IS_PRODUCTION ? 'production' : 'development',
@@ -82,7 +82,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(IS_PRODUCTION ? 'production' : 'development'),
-            'process.env.API': JSON.stringify(process.env.API),
+            'process.env.API': JSON.stringify(IS_PRODUCTION ? 'https://db.spaceengineerspraisal.net/hello' : process.env.API),
             'process.env.SERVICE_DESK_EMAIL': JSON.stringify(process.env.SERVICE_DESK_EMAIL),
             'process.env.MATAMO_SITE_ID': JSON.stringify(process.env.MATAMO_SITE_ID),
             'process.env.MATAMO_URL': JSON.stringify(process.env.MATAMO_URL),
