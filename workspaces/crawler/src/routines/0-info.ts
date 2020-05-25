@@ -31,7 +31,7 @@ export const main = async () => {
     // console.log(await db.collection('blueprints').createIndex({
     //         '_id': 'text',
     //         'steam.title': 'text',
-    //         'steam.author.title': 'text',
+    //         'steam.authors.title': 'text',
     //         'steam.description': 'text',
     //         'sbc.gridTitle': 'text',
     //     },
@@ -40,7 +40,7 @@ export const main = async () => {
     //         weights: {
     //             '_id': 16,
     //             'steam.title': 8,
-    //             'steam.author.title': 4,
+    //             'steam.authors.title': 4,
     //             'sbc.gridTitle': 2,
     //             'steam.description': 1,
     //         }

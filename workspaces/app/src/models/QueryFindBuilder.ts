@@ -166,7 +166,7 @@ export class QueryFindBuilder {
     @computed public get findStringifiedOnlyQueries() {
         const queriesSorted = sortFindAnd(this.find.$and)
         const queriesFiltered = queriesSorted
-            .filter((query) => Object.keys(query).pop() !== 'steam.author.title')
+            .filter((query) => Object.keys(query).pop() !== 'steam.authors.title')
             .filter((query) => Object.keys(query).pop() !== 'steam.collections.title')
         return JSON.stringify(queriesFiltered)
     }
@@ -271,10 +271,10 @@ export class QueryFindBuilder {
 
     @action public replaceQueries(queries: FindQuery[]): void {
         // Leave author's & collections unchanged, because they are manipulated in search bar, not filter sidepanel.
-        const authors = this.getCriterion('steam.author.title')
+        const authors = this.getCriterion('steam.authors.title')
         const collections = this.getCriterion('steam.collections.title')
         this.replaceFilter({$and: queries})
-        this.setCriterion('steam.author.title', authors)
+        this.setCriterion('steam.authors.title', authors)
         this.setCriterion('steam.collections.title', collections)
     }
 

@@ -52,7 +52,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     // Once, try to load filter query.
     React.useEffect(() => {
-        const searchParams = new URLSearchParams(location.search)
+        const searchParams = new URLSearchParams(routerStore.location.search)
 
         const sort = searchParams.get(BROWSE_PARTS.SORT)
         if(sort) cardStore.sort = JSON.parse(sort)
@@ -70,7 +70,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const copy = () => {
         const partialQueryBuilder = new QueryFindBuilder()
         partialQueryBuilder.replaceQueries(cardStore.querryFindBuilder.find.$and)
-        partialQueryBuilder.setCriterion('steam.author.title', null)  // Already in url.
+        partialQueryBuilder.setCriterion('steam.authors.title', null)  // Already in url.
         partialQueryBuilder.setCriterion('steam.collections.title', null)  // Already in url.
 
         const searchParams = new URLSearchParams(location.search)

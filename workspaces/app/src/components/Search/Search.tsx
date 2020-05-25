@@ -85,7 +85,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     })
 
     React.useEffect(() => {
-        cardStore.querryFindBuilder.setCriterion('steam.author.title', authors.length > 0 ? {$in: authors} : null)
+        cardStore.querryFindBuilder.setCriterion('steam.authors.title', authors.length > 0 ? {$in: authors} : null)
         cardStore.querryFindBuilder.setCriterion('steam.collections.title', collections.length > 0 ? {$in: collections} : null)
         const newSearch = searchParams.get(BROWSE_PARTS.SEARCH)
         cardStore.querryFindBuilder.replaceSearch(newSearch ?? undefined)
@@ -97,7 +97,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setValue(newSearch ? {type: OPTION_TYPE.OTHER, value: newSearch} : null)
         setInput('')
 
-        const newAuthors = (cardStore.querryFindBuilder.getCriterion('steam.author.title')?.$in ?? []) as string[]
+        const newAuthors = (cardStore.querryFindBuilder.getCriterion('steam.authors.title')?.$in ?? []) as string[]
         const newCollections = (cardStore.querryFindBuilder.getCriterion('steam.collections.title')?.$in ?? []) as string[]
         const newSearchParams = new URLSearchParams(routerStore.location.search)
         newSearchParams.delete(BROWSE_PARTS.AUTHOR)
@@ -118,7 +118,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else if(typeof newValue === 'string') {  // Pressed ENTER and so we receive plain string.
             updateUrlParams(newValue)
         } else if(newValue.type === OPTION_TYPE.AUTHOR || newValue.subtype === OPTION_TYPE.AUTHOR) {
-            cardStore.querryFindBuilder.setCriterion('steam.author.title', {$in: [...authors, newValue.value]})
+            cardStore.querryFindBuilder.setCriterion('steam.authors.title', {$in: [...authors, newValue.value]})
             updateUrlParams(null)
         } else if(newValue.type === OPTION_TYPE.COLLECTION || newValue.subtype === OPTION_TYPE.COLLECTION) {
             cardStore.querryFindBuilder.setCriterion('steam.collections.title', {$in: [...collections, newValue.value]})
@@ -131,7 +131,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const HandleDelete = (option: IOption) => () => {
         if(option.type === OPTION_TYPE.AUTHOR) {
             const newCriteria = {$in: authors.filter((author) => author !== option.value)}
-            cardStore.querryFindBuilder.setCriterion('steam.author.title', newCriteria.$in.length > 0 ? newCriteria : null)
+            cardStore.querryFindBuilder.setCriterion('steam.authors.title', newCriteria.$in.length > 0 ? newCriteria : null)
         } else if(option.type === OPTION_TYPE.COLLECTION) {
             const newCriteria = {$in: collections.filter((collection) => collection !== option.value)}
             cardStore.querryFindBuilder.setCriterion('steam.collections.title', newCriteria.$in.length > 0 ? newCriteria : null)
