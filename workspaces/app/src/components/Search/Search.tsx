@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -84,21 +85,33 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         ])
     })
 
-    React.useEffect(() => {
-        cardStore.querryFindBuilder.setCriterion('steam.author.title', authors.length > 0 ? {$in: authors} : null)
-        cardStore.querryFindBuilder.setCriterion('steam.collections.title', collections.length > 0 ? {$in: collections} : null)
+    const setCriterion = (authors: string[], collections: string[]) => {
+        if(authors.length === 0 && collections.length === 0) {
+            cardStore.querryFindBuilder.setCriterion(CRITERIA_ID, null)
+        } else {
+            cardStore.querryFindBuilder.setCriterion(CRITERIA_ID, [
+                {'steam.authors.title': {$in: authors}},
+                {'steam.collections.title': {$in: collections!}},
+            ])
+        }
+    }
+
+    React.useEffect(() => autorun(() => {
+        setCriterion(authors, collections)
+        const searchParams = new URLSearchParams(routerStore.location.search)
         const newSearch = searchParams.get(BROWSE_PARTS.SEARCH)
         cardStore.querryFindBuilder.replaceSearch(newSearch ?? undefined)
         setValue(newSearch ? {type: OPTION_TYPE.OTHER, value: newSearch} : null)
-    }, [])
+    }))
 
     const updateUrlParams = (newSearch: string | null) => {
         cardStore.querryFindBuilder.replaceSearch(newSearch ?? undefined)
         setValue(newSearch ? {type: OPTION_TYPE.OTHER, value: newSearch} : null)
         setInput('')
 
-        const newAuthors = (cardStore.querryFindBuilder.getCriterion('steam.author.title')?.$in ?? []) as string[]
-        const newCollections = (cardStore.querryFindBuilder.getCriterion('steam.collections.title')?.$in ?? []) as string[]
+        const criterion = cardStore.querryFindBuilder.getCriterion<IMyFindCriterionGroup>(CRITERIA_ID)
+        const newAuthors = criterion?.[0]['steam.authors.title'].$in ?? [] as string[]
+        const newCollections = criterion?.[1]['steam.collections.title'].$in ?? [] as string[]
         const newSearchParams = new URLSearchParams(routerStore.location.search)
         newSearchParams.delete(BROWSE_PARTS.AUTHOR)
         newSearchParams.delete(BROWSE_PARTS.COLLECTION)
@@ -118,10 +131,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else if(typeof newValue === 'string') {  // Pressed ENTER and so we receive plain string.
             updateUrlParams(newValue)
         } else if(newValue.type === OPTION_TYPE.AUTHOR || newValue.subtype === OPTION_TYPE.AUTHOR) {
-            cardStore.querryFindBuilder.setCriterion('steam.author.title', {$in: [...authors, newValue.value]})
+            setCriterion([...authors, newValue.value], collections)
             updateUrlParams(null)
         } else if(newValue.type === OPTION_TYPE.COLLECTION || newValue.subtype === OPTION_TYPE.COLLECTION) {
-            cardStore.querryFindBuilder.setCriterion('steam.collections.title', {$in: [...collections, newValue.value]})
+            setCriterion(authors, [...collections, newValue.value])
             updateUrlParams(null)
         } else if(newValue.type === OPTION_TYPE.OTHER) {
             updateUrlParams(newValue.value)
@@ -129,15 +142,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const HandleDelete = (option: IOption) => () => {
+        let newAuthors: string[] = authors
+        let newCollections: string[] = collections
         if(option.type === OPTION_TYPE.AUTHOR) {
-            const newCriteria = {$in: authors.filter((author) => author !== option.value)}
-            cardStore.querryFindBuilder.setCriterion('steam.author.title', newCriteria.$in.length > 0 ? newCriteria : null)
+            newAuthors = authors.filter((author) => author !== option.value)
         } else if(option.type === OPTION_TYPE.COLLECTION) {
-            const newCriteria = {$in: collections.filter((collection) => collection !== option.value)}
-            cardStore.querryFindBuilder.setCriterion('steam.collections.title', newCriteria.$in.length > 0 ? newCriteria : null)
+            newCollections = collections.filter((collection) => collection !== option.value)
         } else {
             throw new Error('catch me')
         }
+        setCriterion(newAuthors, newCollections)
         updateUrlParams(input !== '' ? input : null)
     }
 
@@ -261,3 +275,12 @@ interface IOption {
 }
 
 const filter = createFilterOptions<IOption>()
+
+const CRITERIA_ID = [
+    'steam.authors.title',
+    'steam.collections.title',
+]
+type IMyFindCriterionGroup = [
+    {'steam.authors.title': {$in: string[] }},
+    {'steam.collections.title': {$in: string[] }},
+]

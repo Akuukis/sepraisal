@@ -12,7 +12,7 @@
 // var db = db.getSiblingDB('default')
 // var cursor = db.blueprints.aggregate([
 //     { $match: { steam: {$exists: true} } },
-//     { $group: { _id: "$steam.author.title", count: { $sum: 1 } } },
+//     { $group: { _id: "$steam.authors.title", count: { $sum: 1 } } },
 //     { $match: { count: {$gte: 10} } },
 //     { $sort : { count: -1 } },
 // ])
