@@ -113,12 +113,12 @@ export const vegaSpecHeatmap: Vega.Spec = {
 
 export const vegaSpecHeatmapLegend: Vega.Spec = {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
-    // width: 67,
-    height: 151 - 16,
+    width: MY_LIGHT_THEME.shape.boxWidth * 1 - 40,
+    height: MY_LIGHT_THEME.shape.boxHeight * 1 - 44,
     padding: {
-        left: 49,
-        top: 8,
-        right: 0,
+        left: 20,
+        top: 0,
+        right: 20,
         bottom: 0,
     },
     signals: [
@@ -151,12 +151,13 @@ export const vegaSpecHeatmapLegend: Vega.Spec = {
     ],
     legends: [
         {
-            orient: 'none',
-            fill: 'color',
             type: 'gradient',
+            direction: 'horizontal',
+            orient: 'bottom',
+            fill: 'color',
             tickCount: 5,
             gradientLength: {
-                signal: 'height',
+                signal: 'width',
             },
             encode: {
                 legend: {
@@ -167,11 +168,11 @@ export const vegaSpecHeatmapLegend: Vega.Spec = {
                 },
                 labels: {
                     enter: {
-                        dx: {value: -22},
-                        dy: {value: 0},
+                        dx: {value: 0},
+                        dy: {value: -28},
                     },
                     update: {
-                        align: {value: 'right'},
+                        align: {value: 'center'},
                         baseline: {value: 'middle'},
                         text: {
                             // tslint:disable-next-line: max-line-length
@@ -183,3 +184,4 @@ export const vegaSpecHeatmapLegend: Vega.Spec = {
         },
     ],
 }
+console.log(JSON.stringify(vegaSpecHeatmapLegend))
