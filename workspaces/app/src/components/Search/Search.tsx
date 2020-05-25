@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -95,12 +96,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     }
 
-    React.useEffect(() => {
+    React.useEffect(() => autorun(() => {
         setCriterion(authors, collections)
+        const searchParams = new URLSearchParams(routerStore.location.search)
         const newSearch = searchParams.get(BROWSE_PARTS.SEARCH)
         cardStore.querryFindBuilder.replaceSearch(newSearch ?? undefined)
         setValue(newSearch ? {type: OPTION_TYPE.OTHER, value: newSearch} : null)
-    }, [])
+    }))
 
     const updateUrlParams = (newSearch: string | null) => {
         cardStore.querryFindBuilder.replaceSearch(newSearch ?? undefined)
