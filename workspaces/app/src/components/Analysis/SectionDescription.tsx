@@ -21,11 +21,12 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: 0,
         overflowY: 'scroll',
     },
+    boxXl: {
+        overflowY: 'unset',
+    },
     paper: {
         display: 'block',
-        [theme.breakpoints.up('xl')]: {
-            height: 'unset',
-        },
+        height: 'unset',
     },
 
     corner: {
@@ -83,7 +84,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <MyBoxColumn height={xlUp && long ? 0 : 7} width={6}>
                 <MyBoxRow width={6}>
-                    <MyBox width={6} classes={{root: classes.box, paper: classes.paper}}>
+                    <MyBox
+                        width={6}
+                        classes={{
+                            root: clsx(classes.box, xlUp && long && classes.boxXl),
+                            paper: classes.paper,
+                        }}
+                    >
                         <Paper square className={classes.corner}>
                             <IconButton size='medium' color='inherit' {...linkBpProps(bp.steam.id)}>
                                 <IconSteam fontSize='inherit' />

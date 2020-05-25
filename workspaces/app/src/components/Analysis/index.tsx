@@ -172,19 +172,43 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
                 container
             >
-                {sectionGroup([['Integrity', SectionIntegrity as Section]])}
-                {sectionGroup([['Mods', SectionMods as Section]])}
-                {sectionGroup([['Offensive', SectionOffensive as Section],
-                               ['Defensive', SectionDefensive as Section]])}
-                {sectionGroup([['Cargo', SectionCargo as Section]])}
-                {sectionGroup([['Mobility', SectionMobility as Section]])}
-                {sectionGroup([['Printable', SectionPrintable as Section],
-                               ['Costs', SectionCosts as Section]])}
-                {sectionGroup([['Utils', SectionUtils as Section]])}
-                {sectionGroup([['Electricity', SectionElectricity as Section],
-                               ['Automation', SectionAutomation as Section]])}
-                {sectionGroup([['Materials', SectionMaterials as Section]])}
-                {sectionGroup([['Blocks', SectionBlocks as Section]])}
+                {sectionGroup([
+                    ['Integrity', SectionIntegrity as Section],  // 6
+                ])}
+                {sectionGroup([
+                    ['Costs', SectionCosts as Section],  // 3
+                    ['Printable', SectionPrintable as Section],  // 2
+                ])}
+
+                {sectionGroup([
+                    ['Offensive', SectionOffensive as Section],  // 3
+                    ['Defensive', SectionDefensive as Section],  // 1
+                    ['Cargo', SectionCargo as Section],  // 4
+                ])}
+                {sectionGroup([
+                    ['Mobility', SectionMobility as Section],  // 7
+                ])}
+
+                {sectionGroup([
+                    ['Electricity', SectionElectricity as Section],  // 2
+                ])}
+                {sectionGroup([
+                    ['Automation', SectionAutomation as Section],  // 2
+                ])}
+
+                {sectionGroup([
+                    ['Utils', SectionUtils as Section],  // 4
+                ])}
+                {sectionGroup([
+                    ['Mods', SectionMods as Section],  // 4-6
+                ])}
+
+                {sectionGroup([
+                    ['Materials', SectionMaterials as Section],  // INF
+                ])}
+                {sectionGroup([
+                    ['Blocks', SectionBlocks as Section],  // INF
+                ])}
             </Grid>
         </Grid>
     )

@@ -64,8 +64,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </MyBox>
                 </MyBoxRow>
             </MyBoxColumn>
-            <MyBoxColumn height={5} width={6}>
-                <MyBoxRow height={5} width={6}>
+            <MyBoxColumn height={3} width={6}>
+                <MyBoxRow height={3} width={6}>
                     <MyBox width={6}>
                         <Table
                             className={classes.contentTable}

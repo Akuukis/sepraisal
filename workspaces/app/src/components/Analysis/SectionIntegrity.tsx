@@ -6,6 +6,7 @@ import Vega from 'react-vega'
 
 import { createSmartFC, createStyles, IMyTheme, vegaSpecHeatmapLegend } from 'src/common'
 
+import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
@@ -46,8 +47,17 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
             className={clsx(classes.root, className)}
             {...otherProps}
             MyBoxColumnProps={{height: 3}}
-            innerChildren={(
-                <MyBoxRow height={2} width={3}>
+            innerChildren={(<>
+                <MyBoxRow height={1} width={3}>
+                    <MyBox width={3}>
+                        <LegendCell
+                            width={3}
+                            legend='At the dark spots there are more blocks with more integrity.'
+                            legendProps={{noWrap: false, align: 'center'}}
+                        />
+                    </MyBox>
+                </MyBoxRow>
+                <MyBoxRow height={1} width={3}>
                     <MyBox width={3}>
                         <Vega
                             data={{
@@ -57,7 +67,7 @@ export default cold(createSmartFC(styles, __filename)<IProps>(({children, classe
                         />
                     </MyBox>
                 </MyBoxRow>
-            )}
+            </>)}
         >
             <MyBoxColumn height={3} width={3}>
                 <MyBoxRow height={3} width={3}>
