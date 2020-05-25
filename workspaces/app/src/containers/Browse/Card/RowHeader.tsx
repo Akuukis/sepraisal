@@ -1,14 +1,16 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { Link } from 'react-router-dom'
 
-import { fade, Link } from '@material-ui/core'
+import { fade } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkAuthorProps, linkCollectionProps } from 'src/common'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import CenterCell from 'src/components/Cell/CenterCell'
 import ValueCell from 'src/components/Cell/ValueCell'
 import MyBox from 'src/components/MyBox'
 import MyBoxColumn from 'src/components/MyBoxColumn'
 import MyBoxRow from 'src/components/MyBoxRow'
+import { BROWSE_PARTS, ROUTE } from 'src/constants'
 import { CardStatus, ICard } from 'src/models/Card'
 
 import SteamBadge from './SteamBadge'
@@ -25,6 +27,10 @@ const styles = (theme: IMyTheme) => createStyles({
     },
     collection: {
         color: fade(theme.palette.success.contrastText, 0.9),
+        textDecoration: 'unset',
+        '&:hover': {
+            textDecoration: 'underline',
+        },
     },
     CenterCell: {
         padding: theme.spacing(0),
@@ -65,13 +71,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const title = steam?.title ?? String(id)
 
-    const author = (<Link className={classes.collection} variant='caption' noWrap {...linkAuthorProps(steam!.authors[0]?.id)}>
+    const author = (<Link className={classes.collection} to={`${ROUTE.BROWSE}?${BROWSE_PARTS.AUTHOR}=${steam!.authors[0]?.title}`}>
             {steam!.authors[0]?.title ?? steam!.authors[0]?.id}
         </Link>)
 
     const subheader = steam === null ? 'Analysis in progress...' : steam.collections.length > 0
         ?
-            (<Link className={classes.collection} variant='caption' noWrap {...linkCollectionProps(steam.collections[0].id)}>
+            (<Link className={classes.collection} to={`${ROUTE.BROWSE}?${BROWSE_PARTS.COLLECTION}=${steam.collections[0].title}`}>
                 {steam.collections[0].title ?? steam.collections[0].id}
             </Link>)
         :
