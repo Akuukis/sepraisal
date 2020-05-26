@@ -9,6 +9,8 @@ import { Grid, Slider, Typography } from '@material-ui/core'
 import { createSmartFC, createStyles, formatFloat, IMyTheme } from 'src/common'
 import { CONTEXT } from 'src/stores'
 
+import SliderLabel from './SliderLabel'
+
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -130,6 +132,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     valueLabelDisplay='auto'
                     aria-labelledby='log-slider'
                     valueLabelFormat={format}
+                    ValueLabelComponent={SliderLabel}
                 />
             </Grid>
         </Grid>

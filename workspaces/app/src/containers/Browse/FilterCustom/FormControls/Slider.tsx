@@ -10,6 +10,8 @@ import { createSmartFC, createStyles, formatDecimal, IMyTheme } from 'src/common
 import { FindCriterionDirect } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
+import SliderLabel from './SliderLabel'
+
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -128,6 +130,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     valueLabelDisplay='auto'
                     aria-labelledby='linear-slider'
                     valueLabelFormat={format}
+                    ValueLabelComponent={SliderLabel}
                 />
             </Grid>
         </Grid>
