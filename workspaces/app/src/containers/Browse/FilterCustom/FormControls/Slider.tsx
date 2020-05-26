@@ -4,16 +4,18 @@ import { action, reaction, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Slider, Typography } from '@material-ui/core'
+import { Grid, Slider, Typography, ValueLabelProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, formatDecimal, IMyTheme } from 'src/common'
 import { FindCriterionDirect } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
+import SliderLabel from './SliderLabel'
+
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        marginTop: theme.spacing(1),
+        marginTop: theme.spacing(2),
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
     },
@@ -103,7 +105,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const to = criterion?.$lte !== undefined ? `to ${format(criterion.$lte)}` : ''
 
     return (
-        <Grid container justify='space-between' className={classes.root}>
+        <Grid container justify='space-between' alignItems='center' className={classes.root}>
             <Grid item>
                 <Typography
                     id='linear-slider'
@@ -128,10 +130,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     valueLabelDisplay='auto'
                     aria-labelledby='linear-slider'
                     valueLabelFormat={format}
+                    ValueLabelComponent={SliderLabel as React.ElementType<ValueLabelProps>}
                 />
             </Grid>
         </Grid>
     )
 
 })) /* ============================================================================================================= */
-
