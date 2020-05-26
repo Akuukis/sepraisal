@@ -13,7 +13,7 @@ import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        marginTop: theme.spacing(1),
+        marginTop: theme.spacing(2),
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
     },
