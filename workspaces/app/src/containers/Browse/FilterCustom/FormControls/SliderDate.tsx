@@ -119,7 +119,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     };
 
     return (
-        <Grid container justify='space-between' className={classes.root}>
+        <Grid container justify='space-between' alignItems='center' className={classes.root}>
             <Grid item>
                 <Typography
                     id='linear-slider'
