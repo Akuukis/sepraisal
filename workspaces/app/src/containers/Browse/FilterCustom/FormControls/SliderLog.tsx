@@ -4,7 +4,7 @@ import { action, reaction, runInAction } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Slider, Typography } from '@material-ui/core'
+import { Grid, Slider, Typography, ValueLabelProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, formatFloat, IMyTheme } from 'src/common'
 import { CONTEXT } from 'src/stores'
@@ -132,7 +132,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     valueLabelDisplay='auto'
                     aria-labelledby='log-slider'
                     valueLabelFormat={format}
-                    ValueLabelComponent={SliderLabel}
+                    ValueLabelComponent={SliderLabel as React.ElementType<ValueLabelProps>}
                 />
             </Grid>
         </Grid>

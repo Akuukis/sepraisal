@@ -4,11 +4,13 @@ import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Slider, TextField, Typography } from '@material-ui/core'
+import { Grid, Slider, TextField, Typography, ValueLabelProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { FindCriterionDirect } from 'src/models'
 import { CONTEXT } from 'src/stores'
+
+import SliderLabel from './SliderLabel'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -144,6 +146,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     valueLabelDisplay='auto'
                     aria-labelledby='linear-slider'
                     valueLabelFormat={formatValue}
+                    ValueLabelComponent={SliderLabel as React.ElementType<ValueLabelProps>}
                 />
             </Grid>
             <TextField
