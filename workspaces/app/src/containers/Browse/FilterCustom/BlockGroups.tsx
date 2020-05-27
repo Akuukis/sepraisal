@@ -63,6 +63,7 @@ const BLOCK_GROUP_NAMES: Record<keyof typeof BLOCK_GROUPS, string> = {
     WEAPON_TURRET           : 'Any Weapon (turrets)',
     WEAPON_FIXED            : 'Any Weapon (fixed)',
     WEAPON                  : 'Any Weapon',
+    GYRO                    : 'Any Gyroscope',
     RESPAWN                 : 'Any Respawn (medical, survival kit)',
     RENEWABLES              : 'Any Renewables (solar, wind)',
 }
