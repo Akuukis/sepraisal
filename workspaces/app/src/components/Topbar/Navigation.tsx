@@ -8,6 +8,7 @@ import { ROUTE } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import IconAnalyse from '../icons/IconAnalyse'
+import IconBlog from '../icons/IconBlog'
 import IconBrowse from '../icons/IconBrowse'
 import IconCompare from '../icons/IconCompare'
 import IconInfo from '../icons/IconInfo'
@@ -41,6 +42,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Badge classes={{badge: classes.badge}} badgeContent={selectionStore.selected.length} color="secondary">
                 <NavigationButton to={ROUTE.COMPARE} Icon={IconCompare} title='Compare' />
             </Badge>
+            <NavigationButton to={ROUTE.BLOG} Icon={IconBlog} title='Blog' />
             <NavigationButton to={ROUTE.INFO} Icon={IconInfo} title='Info' />
         </nav>
     )

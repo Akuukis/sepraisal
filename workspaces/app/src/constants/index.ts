@@ -3,6 +3,7 @@ export enum ROUTE {
   ANALYSE = '/analyse',
   BROWSE = '/browse',
   COMPARE = '/compare',
+  BLOG = '/blog',
   INFO = '/info',
 }
 
