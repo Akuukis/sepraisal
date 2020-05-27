@@ -185,5 +185,74 @@ db.blueprints.aggregate([
     ...fleetMatchers,
     {$sort: {subscriberCountAvg: -1}},
 ]).toArray().length
+```
 
+
+### 4. Add informative columns
+
+1. Let's add in authors.
+2. Let's count large grid vs small grid.
+3. Let's count how many ship uses atmo/hydro/ion/wheel propulsion.
+
+```js
+// see `tagValidShips` and `fleetMatchers` in snippet above.
+db.blueprints.aggregate([
+    tagValidShips,
+    {$unwind: "$steam.collections"},
+    {$group: {
+        _id: "$steam.collections.id",
+        amount: {$sum: {$toInt: '$validShip'}},
+        total: {$sum: 1},
+        subscriberCountAvg: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
+        smallGrid: {$sum: {$toInt: {$and: ['$validShip', {$eq: ['$sbc.gridSize', 'Small']}]}}},
+        largeGrid: {$sum: {$toInt: {$and: ['$validShip', {$ne: ['$sbc.gridSize', 'Small']}]}}},  // Count Mixed too.
+        atmo: {$sum: {$toInt: {$and: ['$validShip', {$or: [
+            {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeAtmosphericThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallAtmosphericThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeAtmosphericThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallAtmosphericThrust', 0]},
+        ]}]}}},
+        hydro: {$sum: {$toInt: {$and: ['$validShip', {$or: [
+            {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeHydrogenThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallHydrogenThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeHydrogenThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallHydrogenThrust', 0]},
+        ]}]}}},
+        ion: {$sum: {$toInt: {$and: ['$validShip', {$or: [
+            {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeThrust', 0]},
+            {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallThrust', 0]},
+        ]}]}}},
+        wheel: {$sum: {$toInt: {$and: ['$validShip', {$or: [
+            {$gt: ["$sbc.blocks.MotorSuspension/Suspension3x3", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/Suspension5x5", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/Suspension1x1", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension3x3", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/Suspension3x3mirrored", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/Suspension5x5mirrored", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/Suspension1x1mirrored", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension3x3mirrored", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5mirrored", 0]},
+            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1mirrored", 0]},
+        ]}]}}},
+        title: {$first: '$steam.collections.title'},
+        // authors: {$addToSet: '$steam.authors'},
+    }},
+    {$set: {
+        subscriberCountAvg: {$round: ['$subscriberCountAvg', 0]},  // Round number.
+        smallGrid: {$round: [{$divide: ['$smallGrid', '$amount']}, 2]},
+        largeGrid: {$round: [{$divide: ['$largeGrid', '$amount']}, 2]},
+        atmo     : {$round: [{$divide: ['$atmo'     , '$amount']}, 2]},
+        hydro    : {$round: [{$divide: ['$hydro'    , '$amount']}, 2]},
+        ion      : {$round: [{$divide: ['$ion'      , '$amount']}, 2]},
+        wheel    : {$round: [{$divide: ['$wheel'    , '$amount']}, 2]},
+    }},
+    // Remove duplicate author entries.
+    // {$set: {authors: {$reduce: { input: '$authors', initialValue: [], in: { $setUnion : ["$$value", "$$this"] } }}}},
+    ...fleetMatchers,
+    {$sort: {subscriberCountAvg: -1}},
+])
 ```
