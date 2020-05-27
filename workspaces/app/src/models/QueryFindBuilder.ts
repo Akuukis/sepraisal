@@ -44,7 +44,7 @@ const presetUpToDate: FindQueryPreset = [
 const presetShip: FindQueryPreset = [
     ...presetUpToDate,
     {'sbc.vanilla': {$eq: true}},
-    {'sbc.blocks.Gyro/SmallBlockGyro': {$exists: true}},
+    blockGroupToQuery(BLOCK_GROUPS.GYRO),
     blockGroupToQuery(BLOCK_GROUPS.POWER),
     blockGroupToQuery(BLOCK_GROUPS.THRUSTER),
     blockGroupToQuery(BLOCK_GROUPS.COCKPIT),
@@ -54,7 +54,7 @@ const presetFighter: FindQueryPreset = [
     ...presetUpToDate,
     {'sbc.vanilla': {$eq: true}},
     {'sbc.gridSize': {$eq: 'Small'}},
-    {'sbc.blocks.Gyro/SmallBlockGyro': {$exists: true}},
+    blockGroupToQuery(BLOCK_GROUPS.GYRO),
     blockGroupToQuery(BLOCK_GROUPS.POWER),
     blockGroupToQuery(BLOCK_GROUPS.THRUSTER),
     blockGroupToQuery(BLOCK_GROUPS.COCKPIT_CLOSED),

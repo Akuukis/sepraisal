@@ -30,7 +30,10 @@
         "watch": "yarn run watch:src",
         "watch:hot": "webpack-dev-server --mode development --hot",
         "watch:src": "tsc -b --watch  # --preserveWatchOutput",
-        "watch:test": "yarn run test --watch"
+        "watch:test": "yarn run test --watch",
+        "update": "yarn run update:authors && yarn run update:collections",
+        "update:authors": "bash scripts/generate.sh authors",
+        "update:collections": "bash scripts/generate.sh collections"
     },
     "dependencies": {
         "@material-ui/core": "^4.9.5",

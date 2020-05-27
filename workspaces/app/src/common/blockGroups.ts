@@ -71,6 +71,11 @@ const WEAPON = ([] as string[])
     .concat(WEAPON_TURRET)
     .concat(WEAPON_FIXED)
 
+const GYRO = [
+    'Gyro/LargeBlockGyro',
+    'Gyro/SmallBlockGyro',
+]
+
 const RESPAWN = [
     'MedicalRoom/LargeMedicalRoom',
     'SurvivalKit/SurvivalKitLarge',
@@ -97,6 +102,7 @@ export const BLOCK_GROUPS = {
     WEAPON,
     WEAPON_FIXED,
     WEAPON_TURRET,
+    GYRO,
     RESPAWN,
     RENEWABLES,
 }
