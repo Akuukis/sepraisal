@@ -21,7 +21,7 @@ interface Datum {
     title: string,
     authors: Author[]
 }
-const data = dataRaw as Datum[]
+export const data = dataRaw as Datum[]
 
 const columns = [
     ['#',                   '----:'],
@@ -64,4 +64,4 @@ const result = [
     ...rows,
 ].join('\n')
 
-writeFileSync(join(__dirname, 'dist.md'), result)
+writeFileSync(join(__dirname, 'dist-blog.md'), result)
