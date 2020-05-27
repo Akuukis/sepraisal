@@ -49,6 +49,7 @@ module.exports = {
             // { test: /\.png$/, use: 'url-loader?limit=10000' },
             { test: /\.sbc$/, loader: 'file-loader?name=data/[name].[ext]?[hash]' },
             { test: /\.data$/, loader: 'file-loader?name=data/[name].[ext]?[hash]' },
+            { test: /\.md$/, loader: 'file-loader?name=data/[name].[ext]?[hash]' },
 
             {
                 test: /\.(j|t)sx?$/,
