@@ -169,7 +169,7 @@ var tagValidShips = {$set: {validShip: {$and: [
 var fleetMatchers = [
     {$match: {amount: {$gte: 5}}},  // 8. Filter collections with 3 or more valid blueprints.
     {$match: {$expr: {$gte: [{$divide: ['$amount', '$total']}, 0.8]}}},  // 9. Filter collections with 50%+ valid ships.
-    {$match: {subscriberCountAvg: {$gte: 20}}},  // 10. Filter collections with 10 or more average subscribers.
+    {$match: {subs: {$gte: 20}}},  // 10. Filter collections with 10 or more average subscribers.
 ]
 
 db.blueprints.aggregate([
@@ -179,11 +179,11 @@ db.blueprints.aggregate([
         _id: "$steam.collections.id",
         amount: {$sum: {$toInt: '$validShip'}},
         total: {$sum: 1},
-        subscriberCountAvg: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
+        subs: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
         title: {$first: '$steam.collections.title'},
     }},
     ...fleetMatchers,
-    {$sort: {subscriberCountAvg: -1}},
+    {$sort: {subs: -1}},
 ]).toArray().length
 ```
 
@@ -201,9 +201,9 @@ db.blueprints.aggregate([
     {$unwind: "$steam.collections"},
     {$group: {
         _id: "$steam.collections.id",
+        subs: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
         amount: {$sum: {$toInt: '$validShip'}},
         total: {$sum: 1},
-        subscriberCountAvg: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
         smallGrid: {$sum: {$toInt: {$and: ['$validShip', {$eq: ['$sbc.gridSize', 'Small']}]}}},
         largeGrid: {$sum: {$toInt: {$and: ['$validShip', {$ne: ['$sbc.gridSize', 'Small']}]}}},  // Count Mixed too.
         atmo: {$sum: {$toInt: {$and: ['$validShip', {$or: [
@@ -239,10 +239,10 @@ db.blueprints.aggregate([
             {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1mirrored", 0]},
         ]}]}}},
         title: {$first: '$steam.collections.title'},
-        // authors: {$addToSet: '$steam.authors'},
+        authors: {$addToSet: '$steam.authors'},
     }},
     {$set: {
-        subscriberCountAvg: {$round: ['$subscriberCountAvg', 0]},  // Round number.
+        subs: {$round: ['$subs', 0]},  // Round number.
         smallGrid: {$round: [{$divide: ['$smallGrid', '$amount']}, 2]},
         largeGrid: {$round: [{$divide: ['$largeGrid', '$amount']}, 2]},
         atmo     : {$round: [{$divide: ['$atmo'     , '$amount']}, 2]},
@@ -251,8 +251,8 @@ db.blueprints.aggregate([
         wheel    : {$round: [{$divide: ['$wheel'    , '$amount']}, 2]},
     }},
     // Remove duplicate author entries.
-    // {$set: {authors: {$reduce: { input: '$authors', initialValue: [], in: { $setUnion : ["$$value", "$$this"] } }}}},
+    {$set: {authors: {$reduce: { input: '$authors', initialValue: [], in: { $setUnion : ["$$value", "$$this"] } }}}},
     ...fleetMatchers,
-    {$sort: {subscriberCountAvg: -1}},
+    {$sort: {subs: -1}},
 ])
 ```
