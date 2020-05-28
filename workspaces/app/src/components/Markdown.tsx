@@ -58,17 +58,18 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps extends Omit<React.ComponentProps<typeof ReactMarkdown>, 'source'> {
+    skipH2?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {className} = props
+    const {skipH2, className} = props
 
     return (
         <ReactMarkdown
             renderers={{
-                root: ({children}) => (<Paper className={clsx(classes.root, className)}>{children}</Paper>),
-                heading: ({children, level}) => (<Typography variant={`h${level}` as 'h1'}>{children}</Typography>),
+                root: ({children}) => className ? (<Paper className={clsx(classes.root, className)}>{children}</Paper>) : children,
+                heading: ({children, level}) => skipH2 && level === 2 ? null : (<Typography variant={`h${level}` as 'h1'}>{children}</Typography>),
                 paragraph: ({children}) => (<Typography paragraph>{children}</Typography>),
                 // text,
                 // break,

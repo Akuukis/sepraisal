@@ -3,7 +3,7 @@ import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Typography } from '@material-ui/core'
+import { Card, CardContent, CardHeader, Typography } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import Markdown from 'src/components/Markdown'
@@ -12,13 +12,12 @@ import { CONTEXT } from 'src/stores'
 const styles = (theme: IMyTheme) => createStyles({
     root: {
         width: '100%',
-        boxSizing: 'border-box',
-        padding: theme.spacing(2),
-        [theme.breakpoints.up('sm')]: {
-            padding: theme.spacing(4),
-        },
     },
 
+    header: {
+    },
+    content: {
+    },
     hidden: {
         display: 'none',
     }
@@ -60,26 +59,40 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         })()
     })
 
+    const wrapper = (children: JSX.Element) => (
+        <Card component='article' className={clsx(classes.root, hidden ? classes.hidden : undefined)}>
+            <CardHeader
+                className={classes.header}
+                title={article.title}
+                subheader={`${article.authors.join(', ')}, ${article.date.format('MMM D, YYYY')}`}
+                titleTypographyProps={{component: 'h2', variant: 'h2'} as any}  // Looks like Typing bug.
+            />
+            <CardContent component='main' className={classes.content}>
+                {children}
+            </CardContent>
+        </Card>
+    )
+
     switch(state) {
         case(ASYNC_STATE.Idle): {
             return null
         }
         case(ASYNC_STATE.Doing): {
-            return (
-                <Markdown className={clsx(classes.root, hidden ? classes.hidden : undefined)}>
+            return wrapper(
+                <Markdown skipH2>
                     {'*Loading*'}
                 </Markdown>
             )
         }
         case(ASYNC_STATE.Done): {
-            return (
-                <Markdown className={clsx(classes.root, hidden ? classes.hidden : undefined)}>
+            return wrapper(
+                <Markdown skipH2>
                     {text}
                 </Markdown>
             )
         }
         case(ASYNC_STATE.Error): {
-            return hidden ? null : (
+            return hidden ? null : wrapper(
                 <Typography color='error'>
                     Something went wrong
                 </Typography>
