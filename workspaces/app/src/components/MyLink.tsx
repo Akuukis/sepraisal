@@ -3,7 +3,7 @@ import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { Link as LinkRouter } from 'react-router-dom'
 
-import { Link as LinkMaterial, Tooltip } from '@material-ui/core'
+import { Link as LinkMaterial, LinkProps, Tooltip } from '@material-ui/core'
 
 import { createSmartFC, createStyles, DUD_URL, IMyTheme } from 'src/common'
 
@@ -28,11 +28,12 @@ const styles = (theme: IMyTheme) => createStyles({
 interface IProps extends Omit<React.ComponentProps<'a'>, 'ref' | 'color'> {
     href: string
     title?: string
+    variant?: LinkProps['variant']
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {href, title, className, ...otherProps} = props
+    const {href, title, variant, className, ...otherProps} = props
 
     let to: null | string = null
 
@@ -61,6 +62,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <LinkRouter
                 className={clsx(classes.root, classes.router, className)}
                 to={to}
+                style={variant ? theme.typography[variant] : {}}
                 {...otherProps}
             >
                 {children}
@@ -71,6 +73,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         return wrapper(
             <LinkMaterial
                 className={clsx(classes.root, classes.material, className)}
+                variant={variant}
                 href={href}
                 {...(href === DUD_URL ? {} : {target: '_blank', rel: 'noreferrer noopener'})}
                 {...otherProps}
