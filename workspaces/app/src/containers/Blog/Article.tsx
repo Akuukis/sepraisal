@@ -11,9 +11,11 @@ import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        margin: theme.spacing(1),
+        width: '100%',
+        boxSizing: 'border-box',
+        padding: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
-            margin: theme.spacing(2),
+            padding: theme.spacing(4),
         },
     },
 
@@ -36,7 +38,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [text, setText] = React.useState('')
 
     const selected = (new URLSearchParams(routerStore.location.search)).get('article')!
-    const hidden = selected === article.id
+    const hidden = selected !== article.id
 
     React.useEffect(() => {
         // Fetch only when visible and not fetched yet. Short-circuit so that only the visible article gets loaded.

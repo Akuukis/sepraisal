@@ -14,15 +14,27 @@ import TableOfContents from './TableOfContents'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        margin: theme.spacing(1),
-        [theme.breakpoints.up('sm')]: {
-            margin: theme.spacing(2),
-        },
     },
 
-    paper: {
-        padding: theme.spacing(2),
-    }
+    article: {
+        maxWidth: '760px',
+        minWidth: '300px',
+        flexBasis: '400px',
+        flexShrink: 1,
+        flexGrow: 100,
+        [theme.breakpoints.up('sm')]: {
+            minWidth: '384px',
+            flexBasis: '384px',
+        },
+    },
+    toc: {
+        flexBasis: '200px',
+        flexShrink: 100,
+        flexGrow: 1,
+        [theme.breakpoints.up('sm')]: {
+            maxWidth: '300px',
+        },
+    },
 })
 
 
@@ -34,14 +46,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <DefaultLayout className={classes.root}>
-            <Grid container spacing={4} justify='center'>
-                <Grid item>
+            <Grid container spacing={4} justify='center' direction='row-reverse'>
+                <Grid className={classes.toc} item>
+                    <TableOfContents articles={articles} />
+                </Grid>
+                <Grid className={classes.article} item xs>
                     {articles.map((article) => (
                         <Article key={article.id} article={article} />
                     ))}
-                </Grid>
-                <Grid item>
-                    <TableOfContents articles={articles} />
                 </Grid>
             </Grid>
         </DefaultLayout>

@@ -11,9 +11,6 @@ import MyLink from './MyLink'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        // Width as Github.
-        maxWidth: '760px',
-        padding: theme.spacing(4),
     },
 
     code: {
