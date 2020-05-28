@@ -215,7 +215,7 @@ export const MY_LIGHT_THEME = createMuiTheme({
 
         // Custom style for monospace, e.g. raw filters textarea.
         mono: {
-            fontFamily: '"Roboto Mono", Roboto',
+            fontFamily: '"Roboto Mono", monospace',
             fontWeight: FONT_WEIGHT_REGULAR,
             fontSize: '0.75rem',  // 11px
             lineHeight: 1.2,
