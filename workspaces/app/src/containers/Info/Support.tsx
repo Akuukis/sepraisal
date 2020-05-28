@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader/root'
 import { Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import MyLink from 'src/components/MyLink'
 import { SERVICE_DESK_EMAIL } from 'src/constants'
 
 import InfoCard from './InfoCard'
@@ -26,9 +27,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 Found a bug? Something is confusing?
             </Typography>
             <Typography paragraph>
-                Please send an email to <a href={`mailto:${SERVICE_DESK_EMAIL}`}>{SERVICE_DESK_EMAIL}</a> describing it.
+                Please send an email to <MyLink href={`mailto:${SERVICE_DESK_EMAIL}`}>{SERVICE_DESK_EMAIL}</MyLink> describing it.
                 It helps a lot if you are explicit and add screenshots.
-                Your email will create an issue ticket <a href='//gitlab.com/akuukis/sepraisal/issues'>here</a> that you can follow and respond to.
+                Your email will create an issue ticket <MyLink href='https://gitlab.com/akuukis/sepraisal/issues'>here</MyLink> that you can follow and respond to.
             </Typography>
             <Typography paragraph>
                 Thank you!

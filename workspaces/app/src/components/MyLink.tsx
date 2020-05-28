@@ -5,7 +5,7 @@ import { Link as LinkRouter } from 'react-router-dom'
 
 import { Link as LinkMaterial, Tooltip } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { createSmartFC, createStyles, DUD_URL, IMyTheme } from 'src/common'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -72,6 +72,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <LinkMaterial
                 className={clsx(classes.root, classes.material, className)}
                 href={href}
+                {...(href === DUD_URL ? {} : {target: '_blank', rel: 'noreferrer noopener'})}
                 {...otherProps}
             >
                 {children}

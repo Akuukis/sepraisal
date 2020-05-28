@@ -6,6 +6,7 @@ import { Button, Grid, TextField, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyExpansionPanel from 'src/components/MyExpansionPanel'
+import MyLink from 'src/components/MyLink'
 import { CONTEXT } from 'src/stores'
 
 
@@ -95,4 +96,4 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 })) /* ============================================================================================================= */
 
-const helperText = (<span>Query for ".find()". Learn more at <a href='https://docs.mongodb.com/manual/tutorial/query-documents/'>MongoDB docs</a>.</span>)
+const helperText = (<span>Query for ".find()". Learn more at <MyLink href='https://docs.mongodb.com/manual/tutorial/query-documents/'>MongoDB docs</MyLink>.</span>)

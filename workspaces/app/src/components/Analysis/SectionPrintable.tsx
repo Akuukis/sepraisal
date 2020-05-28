@@ -3,15 +3,14 @@ import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link } from '@material-ui/core'
-
-import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkBpProps } from 'src/common'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme, linkBp } from 'src/common'
 import ValueCell from 'src/components/Cell/ValueCell'
 
 import LegendCell from '../Cell/LegendCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MyLink from '../MyLink'
 import MySection from './MySection'
 
 
@@ -55,9 +54,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const output = printable ? `Yes, ${weldersHorizontally}x${weldersVertically}${weldersDeep >= 2 ? ' long' : ''}` : '-'
 
     const apLink = (
-        <Link {...linkBpProps(2066785552)}>
+        <MyLink href={linkBp(2066785552)}>
             AutoPrinter (3x2):
-        </Link>
+        </MyLink>
     )
     const apCheck = printable && weldersHorizontally <=3 && weldersVertically <=2 && weldersDeep === 1 ? 'Probably' : '-'
 
