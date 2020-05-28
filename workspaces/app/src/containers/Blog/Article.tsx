@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, Typography } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IBlogArticle, IMyTheme } from 'src/common'
 import Markdown from 'src/components/Markdown'
+import { ROUTE } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -40,7 +41,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [state, setState] = React.useState<ASYNC_STATE>(ASYNC_STATE.Idle)
     const [text, setText] = React.useState('')
 
-    const selected = (new URLSearchParams(routerStore.location.search)).get('article')!
+    const selected = routerStore.location.pathname.slice(ROUTE.BLOG.length + 1)
     const hidden = selected !== article.id
 
     React.useEffect(() => {

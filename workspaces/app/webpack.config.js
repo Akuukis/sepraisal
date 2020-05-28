@@ -1,6 +1,7 @@
 /* eslint-disable */
 const path = require('path')
 const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 require('dotenv').config()
@@ -91,7 +92,12 @@ module.exports = {
         new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json'), tsconfig: 'tsconfig.json'}),
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({template: path.join('static', 'index.html') }),
-        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/)  // Leave out moment.js locales.
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),  // Leave out moment.js locales.
+        new CopyWebpackPlugin({ patterns: [{
+            from: path.join('static', 'articles', '**', '*.png'),
+            to: 'blog',
+            flatten: true,
+        }]}),
     ],
 
     // Move modules that occur in multiple entry chunks to a new entry chunk (the commons chunk).

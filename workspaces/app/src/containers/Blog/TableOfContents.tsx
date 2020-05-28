@@ -46,7 +46,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {articles} = props
 
     const routerStore = React.useContext(CONTEXT.ROUTER)
-    const selected = (new URLSearchParams(routerStore.location.search)).get('article')!
+    const selected = routerStore.location.pathname.slice(ROUTE.BLOG.length + 1)
 
     const title = (
         <Typography className={classes.heading} variant='h2'>
@@ -59,7 +59,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <CardHeader className={classes.header} title={title} />
             {articles.map((article) => (
                 <CardContent className={clsx(classes.content, article.id === selected && classes.contentSelected)}>
-                    <MyLink variant='h3' href={`${ROUTE.BLOG}?article=${article.id}`}>
+                    <MyLink variant='h3' href={`${ROUTE.BLOG}/${article.id}`}>
                         {article.title}
                     </MyLink>
                     <Typography>
