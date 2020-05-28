@@ -209,3 +209,11 @@ export const getApiUrl = (queries: FindQuery[], {$search,projection,sort,limit,s
 
     return `${API_URL}?${searchParams.toString()}`
 }
+
+export interface IBlogArticle {
+    id: string,
+    title: string,
+    authors: string[],
+    date: moment.Moment
+    link: string
+}

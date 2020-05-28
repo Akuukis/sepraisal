@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Grid } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { createSmartFC, createStyles, IBlogArticle, IMyTheme } from 'src/common'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 
 import postFleetsLink from '../../../static/articles/fleets/fleets.md'
@@ -60,15 +60,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 })) /* ============================================================================================================= */
 
-interface IArticle {
-    id: string,
-    title: string,
-    authors: string[],
-    date: moment.Moment
-    link: string
-}
-
-const articles: IArticle[] = [
+const articles: IBlogArticle[] = [
     {id: 'test', date: moment('2000-01-01'), link: postTestLink, authors: ['Test'], title: 'Test'},
     {id: 'fleets', date: moment('2019-09-09'), link: postFleetsLink, authors: ['Akuukis'], title: 'TOP Fleets of Space Engineers'},
 ]

@@ -1,11 +1,10 @@
 import clsx from 'clsx'
-import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { Card, CardContent, CardHeader, Typography } from '@material-ui/core'
 
-import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { ASYNC_STATE, createSmartFC, createStyles, IBlogArticle, IMyTheme } from 'src/common'
 import Markdown from 'src/components/Markdown'
 import { CONTEXT } from 'src/stores'
 
@@ -25,7 +24,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps {
-    article: IArticle
+    article: IBlogArticle
 }
 
 
@@ -102,11 +101,3 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
 })) /* ============================================================================================================= */
-
-interface IArticle {
-    id: string,
-    title: string,
-    authors: string[],
-    date: moment.Moment
-    link: string
-}
