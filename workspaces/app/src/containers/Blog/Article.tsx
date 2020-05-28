@@ -64,7 +64,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <CardHeader
                 className={classes.header}
                 title={article.title}
-                subheader={`${article.authors.join(', ')}, ${article.date.format('MMM D, YYYY')}`}
+                subheader={`${article.date.format('MMM D, YYYY')} (by ${article.authors.join(', ')})`}
                 titleTypographyProps={{component: 'h2', variant: 'h2'} as any}  // Looks like Typing bug.
             />
             <CardContent component='main' className={classes.content}>
