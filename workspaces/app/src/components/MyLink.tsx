@@ -19,8 +19,12 @@ const styles = (theme: IMyTheme) => createStyles({
             textDecoration: 'underline',
         }
     },
-
     material: {
+    },
+    noWrap: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap'
     },
 })
 
@@ -29,11 +33,12 @@ interface IProps extends Omit<React.ComponentProps<'a'>, 'ref' | 'color'> {
     href: string
     title?: string
     variant?: LinkProps['variant']
+    noWrap?: LinkProps['noWrap']
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {href, title, variant, className, ...otherProps} = props
+    const {href, noWrap, title, variant, className, ...otherProps} = props
 
     let to: null | string = null
 
@@ -60,7 +65,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         // Relateive path only. Will not refresh.
         return wrapper(
             <LinkRouter
-                className={clsx(classes.root, classes.router, className)}
+                className={clsx(classes.root, classes.router, noWrap && classes.noWrap, className)}
                 to={to}
                 style={variant ? theme.typography[variant] : {}}
                 {...otherProps}
@@ -74,6 +79,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <LinkMaterial
                 className={clsx(classes.root, classes.material, className)}
                 variant={variant}
+                noWrap={noWrap}
                 href={href}
                 {...(href === DUD_URL ? {} : {target: '_blank', rel: 'noreferrer noopener'})}
                 {...otherProps}
