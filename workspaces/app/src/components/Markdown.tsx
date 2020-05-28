@@ -73,6 +73,12 @@ const styles = (theme: IMyTheme) => createStyles({
         height: '24px',
         verticalAlign: 'text-bottom',
     },
+    blockquote: {
+        color: theme.palette.text.secondary,
+        margin: theme.spacing(2, 0),
+        padding: theme.spacing(0, 8),
+        borderLeft: `${theme.spacing(1)}px solid ${theme.palette.primary.light}`,
+    },
 })
 
 
@@ -122,11 +128,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     </div>
                 ),
                 imageReference: ({src, alt, title}) => <img className={classes.imgInline} alt={alt} src={`${src}`} />,
+                blockquote: ({children}) => <blockquote className={classes.blockquote}>{children}</blockquote>,
 
                 //// ABOVE: Done & for others defaults looks ok.
                 //// BELOW: TODO: Looks bad. This will be useful: `(props) => console.log(props) || null`
                 // definition,
-                // blockquote,
 
                 //// Not implemented.
                 html: () => {throw new Error('Not implemented.')},
