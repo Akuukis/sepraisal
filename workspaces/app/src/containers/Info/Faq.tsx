@@ -6,10 +6,6 @@ import { Typography } from '@material-ui/core'
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import MyLink from 'src/components/MyLink'
 
-import imageFighterBlockCount from '../../../static/fighter-blockCount.png'
-import imageFighterBlockMass from '../../../static/fighter-blockMass.png'
-import imageFighterBlockPCU from '../../../static/fighter-blockPCU.png'
-import imageFighterOreVolume from '../../../static/fighter-oreVolume.png'
 import FaqItem from './FaqItem'
 import InfoCard from './InfoCard'
 
@@ -34,96 +30,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
 
     return (
         <InfoCard className={classes.root} heading='Questions & Answers'>
-            <FaqItem no={1} title='How does SEPraisal categorize all blueprints?'>
-                <Typography paragraph component='div'>
-                    SEPraisal plans to categorize blueprints in three levels:
-                    <ul>
-                        <li>Primary level is type: <strong>V</strong>ehicle or <strong>B</strong>uilding</li>
-                        <li>Secondary level is size <strong>C</strong>lass: from C1 to C8</li>
-                        <li>Tertiary level is purpose.</li>
-                    </ul>
-                </Typography>
-                <Typography paragraph>
-                    Let's go through this with this (TODO: link) blueprint.
-                    First, the automatic logic downloads and analyses it.
-                    Second, script checks grid type that is "dynamic", so script concludes it is a Vehicle (V).
-                    Third, script checks it against class size definition (more on it below) - and classifies blueprint as size Class 1 (C1).
-                    Fourth, script checks it against several purpose definitions within that class - and assigns to it the "Fighter" purpose.
-                    So, blueprint is classified as "VC1 Fighter".
-                </Typography>
-                <Typography paragraph>
-                    For the starters, SEPraisal have only filter presets for "Vehicle", "Vehicle Class 1", and "VC1 Fighter".
-                    On the other hand, SEPraisal has many filters and you should be able to combine almost anything you may need.
-                </Typography>
-                <Typography paragraph component='div'>
-                    Here's some more examples how it would generally look:
-                    <ul>
-                        <li>VC1 is tiny small-block vehicle: Torpedo, Missile, Drone, etc.</li>
-                        <li>VC2 is small small-block vehicle: Fighter, Bomber, Scout, Dropship, etc.</li>
-                        <li>VC3 is medium small-block vehicle: Heavy Fighter, Heavy Dropship, etc.</li>
-                        <li>VC4 is medium large-block vehicle without jump drive: Corvette, etc.</li>
-                        <li>VC5 is large large-block vehicle: Industrial Frigate, Torpedo Frigate, etc.</li>
-                        <li>VC6 is huge large-block vehicle: Destroyer, Cruiser, Carrier, etc.</li>
-                        <li>VC7 is enourmous large-block vehicle that's guild-effort: Battleship, Dreadnought, etc.</li>
-                        <li>VC8 is ridiculous large-block vehicle that's killing the server performance-wise. No examples.</li>
-                    </ul>
-                </Typography>
-                <Typography paragraph>
-                    I came up with these categories by reading all categorization guides on Steam Workshop.
-                    They mostly concern with size and purpose/role, and mostly agree with each other.
-                    But they propose only ship categorization, therefore I expanded categories to cover not only ships.
-                    Also I focused on those properties of blueprint that are possible to categorize automatically (sorry, no aesthetics here!).
-                </Typography>
-                <Typography paragraph>
-                    Categorization is not even close to be finished.
-                    I assume most could agree that a given vehicle class includes the few examples above.
-                    But there's yet much to explore and analyse until we can arrive at exhaustive list of purposes within each VC.
-                    If you want to help, please contact me and let's talk!
-                </Typography>
-            </FaqItem>
-            <FaqItem no={2} title='How SEPraisal determines "size" of each size class?'>
-                <Typography paragraph component='div'>
-                    SEPraisal defines "size" as a combination of 4 properties:
-                    <ul>
-                        <li>Block count</li>
-                        <li>Dry mass</li>
-                        <li>PCU</li>
-                        <li>Ore volume (that's required to build blueprint)</li>
-                    </ul>
-                </Typography>
-                <Typography paragraph>
-                    SEPraisal statistically analyses whole Steam Workshop to find out the exact numbers for each size class.
-                    Read on for nice charts and more details.
-                </Typography>
-                <Typography paragraph>
-                    In a simplified version, for each size class, the analysis goes like this:
-                    <ol>
-                        <li>Define few class-specific filter criteria (e.g. small blocks vs large blocks)</li>
-                        <li>Add several search keywords for expected blueprints in that class (e.g. "fighter" for VC2)</li>
-                        <li>Filter whole Steam Workshop</li>
-                        <li>See how many blocks (or mass, PCU, ore volume) the results have</li>
-                        <li>Find a range for the most typical results (80%)</li>
-                    </ol>
-                    There's quite a lot statistics involved, but here's a nice chart on how many block count has "VC2 Fighter":
-                </Typography>
-                <img src={imageFighterBlockCount} className={classes.chart} />
-                <Typography paragraph>
-                    The bars are frequency of block count amount and the blue line shows an approximated model of the results.
-                    The colors show zones of "typicality".
-                    For example, blueprints in green area (135 to 554 blocks) are the most typical ones
-                        - half of blueprints are in this area.
-                    <strong> 4 out of 5 blueprints are in green and yellow area (103 to 1,197 blocks).
-                    They are typical enough to be considered "VC2 Fighter"</strong>.
-                    The remaining 15% falls in red zone, 3% in grey zone, and 2% are off the chart.
-                </Typography>
-                <Typography paragraph>
-                    Here's the rest of "VC2 Fighter" charts for mass, PCU and required ore volume:
-                </Typography>
-                <img src={imageFighterBlockMass} className={classes.chart} />
-                <img src={imageFighterBlockPCU} className={classes.chart} />
-                <img src={imageFighterOreVolume} className={classes.chart} />
-            </FaqItem>
-            <FaqItem no={3} title='What filters exactly are under "Any ship, vanilla"?'>
+            <FaqItem no={1} title='What filters exactly are under "Any ship, vanilla"?'>
                 <Typography paragraph>
                     To be specific, here's the full list of filter that defines what "Any ship, vanilla" is:
                     <ul>
@@ -139,7 +46,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                     Except, the vanilla filter is used because SEPraisal doesn't support modded blocks, yet.
                 </Typography>
             </FaqItem>
-            <FaqItem no={4} title='What filters exactly are under "Fighter, vanilla"?'>
+            <FaqItem no={2} title='What filters exactly are under "Fighter, vanilla"?'>
                 <Typography paragraph>
                     To be specific, here's the full list of filter that defines what "Figher, vanilla" is:
                     <ol>
@@ -164,7 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                         by first 1-7 criteria and keywords like "fighter" and similar.
                 </Typography>
             </FaqItem>
-            <FaqItem no={5} title='How much blueprints does SE-Praisal have?'>
+            <FaqItem no={3} title='How much blueprints does SE-Praisal have?'>
                 <Typography paragraph>
                     SE-Praisal has 99,999 blueprints and growing (updated Feb 29, 2020), minus few hundred with errors -
                         missing or corrupt blueprint inside workshop file,
@@ -172,7 +79,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                         and misc technical problems.
                 </Typography>
             </FaqItem>
-            <FaqItem no={6} title='How often SEPraisal is updated?'>
+            <FaqItem no={4} title='How often SEPraisal is updated?'>
                 <Typography paragraph>
                     Four times a day SEPraisal adds all new browse-able blueprints to it's database.
                 </Typography>
@@ -180,7 +87,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                     Once in a week SEPraisal updates each blueprint.
                 </Typography>
             </FaqItem>
-            <FaqItem no={7} title='Does SE-Praisal has all blueprints?'>
+            <FaqItem no={5} title='Does SE-Praisal has all blueprints?'>
                 <Typography paragraph>
                     Yes, sort of.
                 </Typography>
@@ -205,7 +112,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                     Because of that one may joke that SEPraisal has more than all blueprints :)
                 </Typography>
             </FaqItem>
-            <FaqItem no={8} title='Can I use your data for my research?'>
+            <FaqItem no={6} title='Can I use your data for my research?'>
                 <Typography paragraph>
                     Most likely yes, please contact Akuukis and let's talk!
                 </Typography>
