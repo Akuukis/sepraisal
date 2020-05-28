@@ -1,4 +1,3 @@
-# Heading Very long sentence, yay 1
 ## Heading Very long sentence, yay 2
 ### Heading Very long sentence, yay 3
 #### Heading Very long sentence, yay 4
@@ -6,9 +5,6 @@
 ###### Heading Very long sentence, yay 6
 
 Alternatively, for H1 and H2, an underline-ish style:
-
-Alt-H1
-======
 
 Alt-H2
 ------
@@ -27,7 +23,7 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 1. First ordered list item
 2. Another item
     * Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
+3. Actual numbers don't matter, just that it's a number
     1. Ordered sub-list
 4. And another item.
 
