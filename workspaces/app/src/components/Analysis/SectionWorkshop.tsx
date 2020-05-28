@@ -4,16 +4,16 @@ import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link, useMediaQuery } from '@material-ui/core'
+import { useMediaQuery } from '@material-ui/core'
 
 import {
     createSmartFC,
     createStyles,
     formatDecimal,
     IMyTheme,
-    linkAuthorProps,
-    linkBpProps,
-    linkCollectionProps,
+    linkAuthor,
+    linkBp,
+    linkCollection,
     THUMB_HEIGHT,
     THUMB_WIDTH,
 } from 'src/common'
@@ -22,8 +22,10 @@ import ValueCell from 'src/components/Cell/ValueCell'
 import MyBox from '../MyBox'
 import MyBoxColumn from '../MyBoxColumn'
 import MyBoxRow from '../MyBoxRow'
+import MyLink from '../MyLink'
 import Table from '../Table'
 import MySection from './MySection'
+
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -52,9 +54,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
-    const author = (<Link variant='body2' {...linkAuthorProps(bp.steam.authors[0]?.id)}>
+    const author = (<MyLink variant='body2' href={linkAuthor(bp.steam.authors[0]?.id)}>
             {bp.steam.authors[0]?.title ?? bp.steam.authors[0]?.id}
-        </Link>)
+        </MyLink>)
 
     const placeholderThumb = `//via.placeholder.com/${THUMB_WIDTH}x${THUMB_HEIGHT}?text=No+Image`
 
@@ -121,9 +123,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             columns={['collection']}
                             headers={{collection: `Listed Collections (${bp.steam.collections.length})`}}
                             data={bp.steam.collections.map((collection, i) => ({
-                                collection: (<Link key={i} variant='body2' noWrap {...linkCollectionProps(collection.id)}>
+                                collection: (<MyLink key={i} variant='body2' noWrap href={linkCollection(collection.id)}>
                                     {collection.title ?? collection.id}
-                                </Link>)
+                                </MyLink>)
                             }))}
                         />
                     </MyBox>
@@ -137,9 +139,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             columns={['mod']}
                             headers={{mod: `Listed Mods (${bp.steam.mods.length})`}}
                             data={bp.steam.mods.map((mod) => ({
-                                mod: (<Link variant='body2' noWrap {...linkBpProps(mod.id as number)}>
+                                mod: (<MyLink variant='body2' noWrap href={linkBp(mod.id as number)}>
                                     {mod.title ?? mod.id}
-                                </Link>)
+                                </MyLink>)
                             }))}
                         />
                     </MyBox>
