@@ -4,11 +4,12 @@ import * as React from 'react'
 import { useDropzone } from 'react-dropzone'
 import { hot } from 'react-hot-loader/root'
 
-import { Link, ListItem, Typography } from '@material-ui/core'
+import { ListItem, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, DUD_URL, IMyTheme } from 'src/common'
 import { CONTEXT } from 'src/stores'
 
+import MyLink from '../MyLink'
 import SelectorDnDOverlay from './DnDOverlay'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -79,7 +80,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <input {...getInputProps()} />
             {isDragActive ? <SelectorDnDOverlay /> :  null}
             <Typography className={classes.text} variant='body1' align='center'>
-                Drop .sbc file here or&nbsp;<Link href={DUD_URL} onClick={browseFiles}>click to upload</Link>.
+                Drop .sbc file here or&nbsp;<MyLink href={DUD_URL} onClick={browseFiles}>click to upload</MyLink>.
             </Typography>
         </ListItem>
     )

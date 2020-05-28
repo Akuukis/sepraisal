@@ -1,12 +1,13 @@
 import { IBlueprint } from '@sepraisal/common'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
-import { Link } from 'react-router-dom'
 
 import { AppBar, darken, Toolbar, Typography } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { PROVIDER, ROUTE } from 'src/constants'
+
+import MyLink from '../MyLink'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -21,9 +22,6 @@ const styles = (theme: IMyTheme) => createStyles({
         minHeight: 56,
     },
     header: {
-        '&:hover': {
-            textDecoration: 'underline',
-        },
         '&:visited': {
             color: darken(theme.palette.success.contrastText, 0.05),
         },
@@ -58,13 +56,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 if(!blueprint) throw new Error('catch me')
                 return 'steam' in blueprint && blueprint.steam !== undefined
                     ?
-                        (<Link className={classes.header} to={`${ROUTE.ANALYSE}?${PROVIDER.STEAM}=${bpId}`}>
+                        (<MyLink className={classes.header} href={`${ROUTE.ANALYSE}?${PROVIDER.STEAM}=${bpId}`}>
                             {blueprint.steam.title}
-                        </Link>)
+                        </MyLink>)
                     :
-                        (<Link className={classes.header} to={`${ROUTE.ANALYSE}?${PROVIDER.LOCAL}=${bpId}`}>
+                        (<MyLink className={classes.header} href={`${ROUTE.ANALYSE}?${PROVIDER.LOCAL}=${bpId}`}>
                             {bpId}
-                        </Link>)
+                        </MyLink>)
             }
             default: {
                 throw new Error('catch me')

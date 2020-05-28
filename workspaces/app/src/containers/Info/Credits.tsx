@@ -1,12 +1,13 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Link, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, IMyTheme, linkProps } from 'src/common'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconDiscord from 'src/components/icons/IconDiscord'
 import IconGithub from 'src/components/icons/IconGithub'
 import IconGitlab from 'src/components/icons/IconGitlab'
+import MyLink from 'src/components/MyLink'
 
 import InfoCard from './InfoCard'
 
@@ -40,28 +41,28 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                     <li>
                         <IconDiscord fontSize='default' className={classes.icon} />
                         &nbsp;
-                        <strong>Akuukis#6154</strong> (<Link {...linkProps('//discord.gg/98VJRWf')}>on KeenSW Server</Link>)
+                        <strong>Akuukis#6154</strong> (<MyLink href='https://discord.gg/98VJRWf'>on KeenSW Server</MyLink>)
                     </li>
                     <li>
                         <IconGitlab fontSize='default' className={classes.icon} />
                         &nbsp;
-                        <Link {...linkProps('//gitlab.com/Akuukis')}><strong>Akuukis</strong></Link>
+                        <MyLink href='https://gitlab.com/Akuukis'><strong>Akuukis</strong></MyLink>
                     </li>
                     <li>
                         <IconGithub fontSize='default' className={classes.icon} />
                         &nbsp;
-                        <Link {...linkProps('//github.com/Akuukis')}><strong>Akuukis</strong></Link>
+                        <MyLink href='https://github.com/Akuukis'><strong>Akuukis</strong></MyLink>
                     </li>
                 </ul>
             </Typography>
             <Typography variant='h3'>Keen Software House</Typography>
             <Typography paragraph>
-                <a href='https://www.keenswh.com/'>You</a> are great! Thanks for making <a href='https://www.spaceengineersgame.com/'>Space Engineers</a> :)
+                <MyLink href='https://www.keenswh.com/'>You</MyLink> are great! Thanks for making <MyLink href='https://www.spaceengineersgame.com/'>Space Engineers</MyLink> :)
             </Typography>
             <Typography variant='h3'>Legal</Typography>
             <Typography paragraph>
-                This website is open-source (<a href='//choosealicense.com/licenses/gpl-3.0/'>GPLv3</a>).
-                You can find source code at <a href='//gitlab.com/akuukis/sepraisal'>Gitlab</a>.
+                This website is open-source (<MyLink href='//choosealicense.com/licenses/gpl-3.0/'>GPLv3</MyLink>).
+                You can find source code at <MyLink href='//gitlab.com/akuukis/sepraisal'>Gitlab</MyLink>.
             </Typography>
             <Typography paragraph>
                 The name ("Space Engineers Praisal") and associated domain belongs to Akuukis.
