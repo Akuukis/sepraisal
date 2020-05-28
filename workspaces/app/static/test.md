@@ -1,9 +1,9 @@
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+# Heading Very long sentence, yay 1
+## Heading Very long sentence, yay 2
+### Heading Very long sentence, yay 3
+#### Heading Very long sentence, yay 4
+##### Heading Very long sentence, yay 5
+###### Heading Very long sentence, yay 6
 
 Alternatively, for H1 and H2, an underline-ish style:
 
@@ -26,16 +26,16 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 1. First ordered list item
 2. Another item
-⋅⋅* Unordered sub-list. 
+    * Unordered sub-list. 
 1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
+    1. Ordered sub-list
 4. And another item.
 
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+    To have a line break without a paragraph, you will need to use two trailing spaces.  
+    Note that this line is separate, but within the same paragraph.  
+    (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
 
 * Unordered list can use asterisks
 - Or minuses
@@ -50,6 +50,11 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 [I'm a reference-style link][Arbitrary case-insensitive reference text]
 
 [I'm a relative reference to a repository file](../blob/master/LICENSE)
+
+[I'm a absolute link but really a relative one via localhost](https://localhost:8080/browse)
+
+[I'm a absolute link but really a relative one via spaceengineerspraisal.net](https://spaceengineerspraisal.net/browse)
+
 
 [You can use numbers for reference-style link definitions][1]
 
@@ -94,7 +99,7 @@ print s
 ```
  
 ```
-No language indicated, so no syntax highlighting. 
+No language indicated, so no syntax highlighting. But let's throw a really long line here: There must be at least 3 dashes separating each header cell. The outer pipes (|) are optional, and you don't need to make the  raw Markdown line up prettily. You can also use inline Markdown.
 But let's throw in a <b>tag</b>.
 ```
 
@@ -102,11 +107,17 @@ But let's throw in a <b>tag</b>.
 
 Colons can be used to align columns.
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Tables        | Are           | Cool  | Cool  | Cool  |
+| ------------- |:-------------:| -----:| -----:| -----:|
+| col 3 is      | right-aligned | $1600 | $1600 | $1600 |
+| col 2 is      | centered      |   $12 |   $12 |   $12 |
+| zebra stripes | are neat      |    $1 |    $1 |    $1 |
+| col 3 is      | right-aligned | $1600 | $1600 | $1600 |
+| col 2 is      | centered      |   $12 |   $12 |   $12 |
+| zebra stripes | are neat      |    $1 |    $1 |    $1 |
+| col 3 is      | right-aligned | $1600 | $1600 | $1600 |
+| col 2 is      | centered      |   $12 |   $12 |   $12 |
+| zebra stripes | are neat      |    $1 |    $1 |    $1 |
 
 There must be at least 3 dashes separating each header cell.
 The outer pipes (|) are optional, and you don't need to make the 
