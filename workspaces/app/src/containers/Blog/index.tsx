@@ -32,7 +32,7 @@ const styles = (theme: IMyTheme) => createStyles({
         flexShrink: 100,
         flexGrow: 1,
         [theme.breakpoints.up('sm')]: {
-            maxWidth: '300px',
+            maxWidth: '400px',
         },
     },
 })

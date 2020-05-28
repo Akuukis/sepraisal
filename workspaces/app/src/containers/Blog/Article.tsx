@@ -14,8 +14,13 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     header: {
+        padding: theme.spacing(8, 8, 0, 8),
     },
     content: {
+        padding: theme.spacing(8),
+        '&:last-child': {
+            paddingBottom: theme.spacing(12),
+        }
     },
     hidden: {
         display: 'none',
@@ -64,7 +69,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 className={classes.header}
                 title={article.title}
                 subheader={`${article.date.format('MMM D, YYYY')} (by ${article.authors.join(', ')})`}
-                titleTypographyProps={{component: 'h2', variant: 'h2'} as any}  // Looks like Typing bug.
+                titleTypographyProps={{component: 'h2', variant: 'h2', align: 'left', gutterBottom: true} as any}  // Looks like Typing bug.
             />
             <CardContent component='main' className={classes.content}>
                 {children}
