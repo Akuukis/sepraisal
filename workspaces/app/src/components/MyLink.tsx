@@ -34,11 +34,12 @@ interface IProps extends Omit<React.ComponentProps<'a'>, 'ref' | 'color'> {
     title?: string
     variant?: LinkProps['variant']
     noWrap?: LinkProps['noWrap']
+    blank?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {href, noWrap, title, variant, className, ...otherProps} = props
+    const {blank, href, noWrap, title, variant, className, ...otherProps} = props
 
     let to: null | string = null
 
@@ -68,6 +69,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 className={clsx(classes.root, classes.router, noWrap && classes.noWrap, className)}
                 to={to}
                 style={variant ? theme.typography[variant] : {}}
+                {...(blank ? {target: '_blank', rel: 'noreferrer noopener'} : {})}
                 {...otherProps}
             >
                 {children}

@@ -5,6 +5,7 @@ import { Redirect, Route, Router, Switch } from 'react-router-dom'
 import { ROUTE } from 'src/constants'
 
 import App from './containers/App'
+import Blog from './containers/Blog'
 import Blueprint from './containers/Blueprint'
 import Browse from './containers/Browse'
 import Compare from './containers/Compare'
@@ -24,6 +25,9 @@ export default (history: History) => (
                 </Route>
                 <Route path={ROUTE.COMPARE}>
                     <Compare />
+                </Route>
+                <Route path={ROUTE.BLOG}>
+                    <Blog />
                 </Route>
                 <Route path={ROUTE.INFO}>
                     <Info />

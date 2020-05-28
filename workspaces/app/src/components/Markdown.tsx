@@ -6,14 +6,12 @@ import ReactMarkdown from 'react-markdown'
 import { Divider, Paper, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import { CONTEXT } from 'src/stores'
 
 import MyLink from './MyLink'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        // Width as Github.
-        maxWidth: '760px',
-        padding: theme.spacing(4),
     },
 
     code: {
@@ -57,21 +55,47 @@ const styles = (theme: IMyTheme) => createStyles({
         height: 2,
         margin: theme.spacing(8, 0),
     },
+    imgFullWidthContainer: {
+        display: 'block',
+        width: 'calc(100% + 64px)',  // Equals padding on the blog card.
+        margin: theme.spacing(0, -8),
+    },
+    imgFullWidth: {
+        display: 'block',
+        margin: `0px auto`,
+        width: '100%',
+        maxWidth: 'max-content',
+    },
+    imgFullWidthCaption: {
+        margin: theme.spacing(2, 8),
+    },
+    imgInline: {
+        height: '24px',
+        verticalAlign: 'text-bottom',
+    },
+    blockquote: {
+        color: theme.palette.text.secondary,
+        margin: theme.spacing(2, 0),
+        padding: theme.spacing(0, 8),
+        borderLeft: `${theme.spacing(1)}px solid ${theme.palette.primary.light}`,
+    },
 })
 
 
 interface IProps extends Omit<React.ComponentProps<typeof ReactMarkdown>, 'source'> {
+    skipH2?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {className} = props
+    const {location} = React.useContext(CONTEXT.ROUTER)
+    const {skipH2, className} = props
 
     return (
         <ReactMarkdown
             renderers={{
-                root: ({children}) => (<Paper className={clsx(classes.root, className)}>{children}</Paper>),
-                heading: ({children, level}) => (<Typography variant={`h${level}` as 'h1'}>{children}</Typography>),
+                root: ({children}) => className ? (<Paper className={clsx(classes.root, className)}>{children}</Paper>) : children,
+                heading: ({children, level}) => skipH2 && level === 2 ? null : (<Typography variant={`h${level}` as 'h1'}>{children}</Typography>),
                 paragraph: ({children}) => (<Typography paragraph>{children}</Typography>),
                 // text,
                 // break,
@@ -94,13 +118,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 inlineCode: ({children, inline, value}) => <code className={classes.code}>{value}</code>,
                 code: ({language, value}) => <pre className={classes.pre}>{value}</pre>,
                 thematicBreak: () => <Divider className={classes.divider} />,
+                image: ({src, alt, title}) => (
+                    <div className={classes.imgFullWidthContainer}>
+                        <img className={classes.imgFullWidth} alt={alt} src={`${src}`} />
+                        <Typography className={classes.imgFullWidthCaption} variant='caption'>
+                            {title ?? ''}
+                            &nbsp;(<MyLink blank href={`${location.pathname.match(/.*\//)![0]}${src}`}>full size image</MyLink>)
+                        </Typography>
+                    </div>
+                ),
+                imageReference: ({src, alt, title}) => <img className={classes.imgInline} alt={alt} src={`${src}`} />,
+                blockquote: ({children}) => <blockquote className={classes.blockquote}>{children}</blockquote>,
 
                 //// ABOVE: Done & for others defaults looks ok.
                 //// BELOW: TODO: Looks bad. This will be useful: `(props) => console.log(props) || null`
-                // image,
-                // imageReference,
                 // definition,
-                // blockquote,
 
                 //// Not implemented.
                 html: () => {throw new Error('Not implemented.')},
