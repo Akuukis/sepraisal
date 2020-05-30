@@ -1,4 +1,3 @@
-
 ### How does SEPraisal categorize all blueprints?
 
 SEPraisal plans to categorize blueprints in three levels:
@@ -71,3 +70,4 @@ Here's the rest of "VC2 Fighter" charts for mass, PCU and required ore volume:
 ![chart](./fighter-blockPCU.png "Distribution of block PCU for blueprints called Fighter and similar.")
 
 ![chart](./fighter-oreVolume.png "Distribution of ore volume for blueprints called Fighter and similar.")
+

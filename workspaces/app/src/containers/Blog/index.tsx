@@ -9,7 +9,7 @@ import { ROUTE } from 'src/constants'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 import { CONTEXT } from 'src/stores'
 
-import postCategorizationLink from '../../../static/articles/categorization/categorization.md'
+import postClassificationLink from '../../../static/articles/classification/classification.md'
 import postFleetsLink from '../../../static/articles/fleets/fleets.md'
 import postLaunch2Link from '../../../static/articles/launch2/launch2.md'
 import postTestLink from '../../../static/articles/test/test.md'
@@ -71,7 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
 const articles: IBlogArticle[] = [
     {id: 'launch2', date: moment('2020-06-03'), link: postLaunch2Link, authors: ['Akuukis'], title: 'SE Praisal V2 launched!'},
-    {id: 'categorization', date: moment('2020-05-27'), link: postCategorizationLink, authors: ['Akuukis'], title: 'Ship categorization and classification'},
+    {id: 'classification', date: moment('2020-05-18'), link: postClassificationLink, authors: ['Akuukis'], title: 'Ship Classification'},
 ]
 
 const hidden: IBlogArticle[] = [
