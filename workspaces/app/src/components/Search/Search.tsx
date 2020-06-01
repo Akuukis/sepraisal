@@ -91,7 +91,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else {
             cardStore.querryFindBuilder.setCriterion(CRITERIA_ID, [
                 {'steam.authors.title': {$in: authors}},
-                {'steam.collections.title': {$in: collections!}},
+                {'steam.collections.title': {$in: collections}},
             ])
         }
     }
@@ -126,19 +126,39 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
+        // Clicked clear button OR backspaced whole search text.
         if(newValue === null) {
-            updateUrlParams(null)
-        } else if(typeof newValue === 'string') {  // Pressed ENTER and so we receive plain string.
-            updateUrlParams(newValue)
-        } else if(newValue.type === OPTION_TYPE.AUTHOR || newValue.subtype === OPTION_TYPE.AUTHOR) {
-            setCriterion([...authors, newValue.value], collections)
-            updateUrlParams(null)
-        } else if(newValue.type === OPTION_TYPE.COLLECTION || newValue.subtype === OPTION_TYPE.COLLECTION) {
-            setCriterion(authors, [...collections, newValue.value])
-            updateUrlParams(null)
-        } else if(newValue.type === OPTION_TYPE.OTHER) {
-            updateUrlParams(newValue.value)
+            return updateUrlParams(null)
         }
+
+        // Pressed ENTER and so we receive plain string.
+        if(typeof newValue === 'string') {
+            return updateUrlParams(newValue)
+        }
+
+        // Selected either author, collection of other from the dropdown.
+        if(typeof newValue === 'object') {
+            const type = (newValue.type !== OPTION_TYPE.OTHER || newValue.subtype === 'Anywhere by')
+                ? newValue.type
+                : newValue.subtype
+
+            switch(type) {
+                case(OPTION_TYPE.AUTHOR): {
+                    setCriterion([...authors, newValue.value], collections)
+                    return updateUrlParams(null)
+                }
+                case(OPTION_TYPE.COLLECTION): {
+                    setCriterion(authors, [...collections, newValue.value])
+                    return updateUrlParams(null)
+                }
+                case(OPTION_TYPE.OTHER): {
+                    return updateUrlParams(newValue.value)
+                }
+                default: throw new Error('catch me')
+            }
+        }
+
+        throw new Error('catch me')
     }
 
     const HandleDelete = (option: IOption) => () => {
