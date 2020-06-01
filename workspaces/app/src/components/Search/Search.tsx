@@ -98,8 +98,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     React.useEffect(() => autorun(() => {
         setCriterion(authors, collections)
-        const searchParams = new URLSearchParams(routerStore.location.search)
-        const newSearch = searchParams.get(BROWSE_PARTS.SEARCH)
+        const oldSearch = (new URLSearchParams(document.location.search)).get(BROWSE_PARTS.SEARCH)
+        const newSearch = (new URLSearchParams(routerStore.location.search)).get(BROWSE_PARTS.SEARCH)
+        if(newSearch === oldSearch && newSearch === value?.value) return
+
         cardStore.querryFindBuilder.replaceSearch(newSearch ?? undefined)
         setValue(newSearch ? {type: OPTION_TYPE.OTHER, value: newSearch} : null)
     }))
@@ -126,7 +128,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
-        // Clicked clear button OR backspaced whole search text.
+        // Backspaced whole search text.
         if(newValue === null) {
             return updateUrlParams(null)
         }
