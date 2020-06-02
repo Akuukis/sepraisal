@@ -63,8 +63,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 const articles: IBlogArticle[] = [
-    {id: 'test', date: moment('2000-01-01'), link: postTestLink, authors: ['Test'], title: 'Test'},
-    {id: 'fleets', date: moment('2019-09-09'), link: postFleetsLink, authors: ['Akuukis'], title: 'TOP Fleets of Space Engineers'},
-    {id: 'categorization', date: moment('2019-09-09'), link: postCategorizationLink, authors: ['Akuukis'], title: 'Ship categorization and classification'},
     {id: 'launch2', date: moment('2020-06-03'), link: postLaunch2Link, authors: ['Akuukis'], title: 'SE Praisal V2 launched!'},
+    {id: 'categorization', date: moment('2020-05-27'), link: postCategorizationLink, authors: ['Akuukis'], title: 'Ship categorization and classification'},
+]
+
+const hidden: IBlogArticle[] = [
+    {id: 'fleets', date: moment('2019-09-09'), link: postFleetsLink, authors: ['Akuukis'], title: 'TOP Fleets of Space Engineers'},
+    {id: 'test', date: moment('2000-01-01'), link: postTestLink, authors: ['Test'], title: 'Test'},
 ]
