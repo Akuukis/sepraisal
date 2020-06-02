@@ -25,31 +25,6 @@ export const main = async () => {
     const db = client.db(DB_NAME)
     const collection = db.collection<IBlueprint>('blueprints')
 
-    // tslint:disable-next-line: no-commented-code - Snippets for database indexing.
-    // console.log(await db.indexInformation('blueprints'))
-    // console.log(await db.collection('blueprints').dropIndex('TextIndex'))
-    // console.log(await db.collection('blueprints').createIndex({
-    //         '_id': 'text',
-    //         'steam.title': 'text',
-    //         'steam.authors.title': 'text',
-    //         'steam.description': 'text',
-    //         'sbc.gridTitle': 'text',
-    //     },
-    //     {
-    //         name: 'TextIndex',
-    //         weights: {
-    //             '_id': 16,
-    //             'steam.title': 8,
-    //             'steam.authors.title': 4,
-    //             'sbc.gridTitle': 2,
-    //             'steam.description': 1,
-    //         }
-    //     } as any))
-
-    // Snippet for pruning the database.
-    // const deleted = await collection.deleteMany({'steam.subscriberCount': {$lt: 100}})
-    // console.log(`Pruned: ${deleted.result.n}`)
-
 
     const filters: Array<keyof typeof QUERIES> = [
         'ok',
