@@ -94,7 +94,7 @@ module.exports = {
         new HtmlWebpackPlugin({template: path.join('static', 'index.html') }),
         new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),  // Leave out moment.js locales.
         new CopyWebpackPlugin({ patterns: [{
-            from: path.join('static', 'articles', '**', '*.png'),
+            from: path.join('static', 'articles', '**', '*.(png|jpg)'),
             to: 'blog',
             flatten: true,
         }]}),
