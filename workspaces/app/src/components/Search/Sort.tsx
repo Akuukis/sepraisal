@@ -130,9 +130,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
                 transformOrigin={{vertical: 'top', horizontal: 'right'}}
             >
-                {renderSortItem('steam.title')}
                 {renderSortItem('steam.subscriberCount')}
                 {renderSortItem('sbc.blockCount')}
+                {renderSortItem('sbc.blockMass')}
                 {renderSortItem('sbc.blockPCU')}
                 {renderSortItem('sbc.oreVolume')}
             </Menu>
@@ -141,9 +141,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 const TITLES = {
-    'steam.title': 'Blueprint Title',
     'steam.subscriberCount': 'Subscribers',
     'sbc.blockCount': 'Blocks',
+    'sbc.blockMass': 'Mass (kg)',
     'sbc.blockPCU': 'PCU',
-    'sbc.oreVolume': 'Ore, m\u00B3',
+    'sbc.oreVolume': 'Spent Ore',
 }

@@ -105,7 +105,7 @@ export class CardStore {
 
     @observable public autoQuerry = true
     @observable public cards: ObservableMap<ICard<CardStatus.ok>> = new ObservableMap()
-    @observable public cardsPerPage = 12
+    @observable public cardsPerPage = 24
     @observable public count: null | number = null
 
     @observable protected _sort: IBrowserStoreSort = {'steam.subscriberCount': -1}

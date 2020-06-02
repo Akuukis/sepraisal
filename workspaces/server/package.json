@@ -22,6 +22,7 @@
         "lint:fix": "yarn run lint --fix",
         "lint:summary": "yarn lint:verbose | grep ERROR | sed -r 's/ERROR: \\((.*)\\)\\s\\/.*/\\1/' | sort | uniq -c | sort -nr",
         "lint:verbose": "yarn run lint -t verbose",
+        "reindex": "ts-node -r dotenv/config src/reindex.ts",
         "test": "echo 'no tests :('",
         "test:coverage": "yarn run test --coverage",
         "watch": "yarn run watch:src",
