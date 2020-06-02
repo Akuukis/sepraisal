@@ -35,6 +35,7 @@ interface IProps extends Omit<React.ComponentProps<'a'>, 'ref' | 'color'> {
     variant?: LinkProps['variant']
     noWrap?: LinkProps['noWrap']
     blank?: boolean
+    referrerpolicy?: string  // Should have been part of <a>?
 }
 
 
