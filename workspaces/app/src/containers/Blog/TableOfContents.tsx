@@ -58,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <Card className={classes.root}>
             <CardHeader className={classes.header} title={title} />
             {articles.map((article) => (
-                <CardContent className={clsx(classes.content, article.id === selected && classes.contentSelected)}>
+                <CardContent key={article.id} className={clsx(classes.content, article.id === selected && classes.contentSelected)}>
                     <MyLink variant='h3' href={`${ROUTE.BLOG}/${article.id}`}>
                         {article.title}
                     </MyLink>
