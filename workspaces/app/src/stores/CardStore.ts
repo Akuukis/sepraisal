@@ -13,7 +13,7 @@ import {
     PRESET as PRESET_REEXPORT,
     QueryFindBuilder,
 } from '../models'
-import { PiwikStore } from './PiwikStore'
+import { AbstractAnalyticsStore } from './Analytics/AbstractAnalyticsStore'
 
 const cardProjection: {[key in Exclude<keyof IBpProjectionCard, '_id'>]: {[key2 in keyof IBpProjectionCard[key]]: true}} = {
     classes: {
@@ -110,10 +110,10 @@ export class CardStore {
 
     @observable protected _sort: IBrowserStoreSort = {'steam.subscriberCount': -1}
     protected disposers: IReactionDisposer[] = []
-    private analyticsStore: PiwikStore
+    private analyticsStore: AbstractAnalyticsStore
     private abortController: AbortController | null = null
 
-    public constructor(analyticsStore: PiwikStore) {
+    public constructor(analyticsStore: AbstractAnalyticsStore) {
         this.analyticsStore = analyticsStore
         this.disposers.push(autorun(
             () => JSON.stringify(this.find) && this.fetch(),
@@ -156,7 +156,7 @@ export class CardStore {
             'trackEvent',
             'load-time',
             this.selectedPreset,
-            this.selectedPreset !== 'custom' ? undefined : this.querryFindBuilder.findStringified,
+            this.selectedPreset !== 'custom' ? '<stripped>' : this.querryFindBuilder.findStringified,
             (Date.now() - timer) / 1000,
         ])
 
@@ -223,7 +223,7 @@ export class CardStore {
                     'trackSiteSearch',
                     this.find.$text?.$search,
                     this.selectedPreset,
-                    this.count,
+                    count,
                 ])
             }
 
@@ -231,7 +231,7 @@ export class CardStore {
                 'trackEvent',
                 'load-time',
                 this.selectedPreset,
-                this.selectedPreset !== 'custom' ? undefined : this.querryFindBuilder.findStringified,
+                this.selectedPreset !== 'custom' ? '<stripped>' : this.querryFindBuilder.findStringified,
                 (Date.now() - timer) / 1000,
             ])
         } catch(err) {

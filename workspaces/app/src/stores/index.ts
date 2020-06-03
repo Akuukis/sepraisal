@@ -4,11 +4,11 @@ import { createContext } from 'react'
 
 import { GridSizeColumns } from 'src/common'
 
+import { PiwikAnalyticsStore } from './Analytics/PiwikAnalyticsStore'
 import { BlueprintStore } from './BlueprintStore'
 import { CardStore } from './CardStore'
 import { ExclusiveScopeStore } from './ExclusiveScopeStore'
 import { FavoriteStore } from './FavoriteStore'
-import { PiwikStore } from './PiwikStore'
 import { RouterStore } from './RouterStore'
 import { SelectionStore } from './SelectionStore'
 
@@ -20,7 +20,7 @@ export const CONTEXT = {
     PARENT_COLUMNS: createContext<{parentColumns: GridSizeColumns, maxWidth: 1|2|3|4|5|6}>(null as any),
     FORM_GROUP_SCOPE: createContext<ObservableMap<boolean | undefined>>(null as any),
     EXCLUSIVE_SCOPE: createContext<ExclusiveScopeStore>(undefined as any),
-    ANALYTICS: createContext<PiwikStore>(null as any),
+    ANALYTICS: createContext<PiwikAnalyticsStore>(null as any),
     PRAISAL_MANAGER: createContext<PraisalManager | null>(null),
     ROUTER: createContext<RouterStore>(null as any),
     SELECTION: createContext<SelectionStore>(null as any),

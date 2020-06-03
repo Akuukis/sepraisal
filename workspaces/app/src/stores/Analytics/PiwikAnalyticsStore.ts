@@ -1,5 +1,6 @@
 import { computed } from 'mobx'
-import { join } from 'path'
+
+import { AbstractAnalyticsStore, IAnalyticsStoreOpts } from './AbstractAnalyticsStore'
 
 
 declare interface IWindowWithPiwik extends Window {
@@ -7,12 +8,6 @@ declare interface IWindowWithPiwik extends Window {
 }
 declare var window: IWindowWithPiwik & typeof globalThis
 
-const noop = () => undefined
-
-const getEnvironment = () => {
-    // tslint:disable-next-line: strict-boolean-expressions
-    return process && process.env && process.env.NODE_ENV ? process.env.NODE_ENV.toLowerCase() : 'development'
-}
 
 const getBaseUrl = (url: string) => {
     if(url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1) {
@@ -55,37 +50,32 @@ const piwikIsAlreadyInitialized = () => {
     return false
 }
 
-interface IPiwikStoreOpts {
+interface IPiwikStoreOpts extends IAnalyticsStoreOpts {
     clientTrackerName?: string,
     enableHeartBeatTimer?: boolean,
     enableLinkTracking?: boolean,
     injectScript?: boolean,
     serverTrackerName?: string,
     siteId?: number,
-    trackErrorHandler?: PiwikStore['trackError'],
-    trackErrors?: boolean,
     updateDocumentTitle?: boolean,
-    url?: string,
     userId?: string | number,
 }
 
 // tslint:disable-next-line: min-class-cohesion
-export class PiwikStore {
+export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
     // tslint:disable-next-line: naming-convention
-    public readonly _isShim: boolean = false
     @computed public get isLoaded(): boolean {
         // This store sets `_paq` as simple Array.
         // Injected Piwik code will replace it with specialized class which is not Array.
-        // TODO: Distinguish between "not yet loaded" vs "blocked by adblock".
+        // TODO: Distinguish between 'not yet loaded' vs 'blocked by adblock'.
         return !Array.isArray(window._paq)
     }
 
-    private listeners: Array<() => void> = []
-    private previousPath = ''
     private updateDocumentTitle: boolean
 
     // tslint:disable-next-line: mccabe-complexity cognitive-complexity
     public constructor(rawOpts: IPiwikStoreOpts = {}) {
+        super()
         const siteId = rawOpts.siteId
         const url = rawOpts.url
         const userId = rawOpts.userId
@@ -94,19 +84,25 @@ export class PiwikStore {
         const enableHeartBeatTimer = rawOpts.enableHeartBeatTimer ?? true
         const injectScript = rawOpts.injectScript ?? true
         const serverTrackerName = rawOpts.serverTrackerName ?? 'piwik.php'
-        const trackErrorHandler = rawOpts.trackErrorHandler ?? this.trackError.bind(this) as PiwikStore['trackError']
-        const trackErrors = rawOpts.trackErrors ?? false
         this.updateDocumentTitle = rawOpts.updateDocumentTitle ?? true
 
-        if (trackErrors) {
-            if (window.addEventListener) {
-                window.addEventListener('error', trackErrorHandler, false)
-                this.listeners.push(() => window.removeEventListener('error', trackErrorHandler))
-            } else {
-                const prev = window.onerror
-                window.onerror = trackErrorHandler
-                this.listeners.push(() => window.onerror = prev)
+        const trackViewHandler = this.trackView.bind(this)
+
+        // Listen to History.pushState
+        // The same behavior as with SimpleAnalytics - https://github.com/simpleanalytics/scripts/blob/4ad5c1b6cb4c42ae2e483dc43a578e25399d53a4/src/default.js#L120-L137.
+        if (Event && window.dispatchEvent && window.history ? window.history.pushState : null) {
+            var stateListener = (type: string) => {
+                var orig = window.history[type]
+                return function(this: History) {
+                    var rv = orig.apply(this, arguments)
+                    trackViewHandler(window.location)
+                    return rv
+                }
             }
+            window.history.pushState = stateListener('pushState')
+            window.addEventListener('pushState', () => {
+                trackViewHandler(window.location)
+            })
         }
 
         const alreadyInitialized = piwikIsAlreadyInitialized()
@@ -115,23 +111,9 @@ export class PiwikStore {
             // tslint:disable-next-line: no-string-literal
             window['_paq'] = window['_paq'] || []
 
-            if (typeof url !== 'string' || typeof siteId !== 'number' || !injectScript) {
-                // Only return warning if this is not in the test environment as it can break the Tests/CI.
-                if (getEnvironment() !== 'test') {
-                    console.warn('PiwikTracker cannot be initialized! You haven\'t passed a url and siteId to it.')
-                }
+            if (this._isShim) return
 
-                // api shim. used for serverside rendering and misconfigured tracker instances
-                this._isShim = true
-                // this.track = noop
-                this.push = (arg) => console.debug(`PIWIK.push():`, arg)
-                this.setUserId = noop
-                this.trackError = noop
-
-                return
-            }
-
-            const baseUrl = getBaseUrl(url)
+            const baseUrl = getBaseUrl(url!)
             this.push(['setSiteId', siteId])
             this.push(['setTrackerUrl', `${baseUrl}${serverTrackerName}`])
 
@@ -189,7 +171,6 @@ export class PiwikStore {
      * @see https://developer.piwik.org/guides/tracking-javascript-guide
      */
     public push(args: unknown[]) {
-        // tslint:disable-next-line: no-string-literal
         window['_paq'].push(args)
     }
 
@@ -206,62 +187,9 @@ export class PiwikStore {
     /**
      * Adds a page view for the given location
      */
-    public track(location: Location | {path: string} | Location & {basename: string}, documentTitle = document.title) {
-        let currentPath: string
-
-        if ('path' in location) {
-            currentPath = location.path
-        } else if ('basename' in location) {
-            currentPath = join(location.basename, location.pathname, location.search)
-        } else {
-            currentPath = join(location.pathname, location.search)
-        }
-
-        if (this.previousPath === currentPath) {
-            return
-        }
-
-        if (this.updateDocumentTitle) {
-            this.push(['setDocumentTitle', documentTitle])
-        }
-        this.push(['setCustomUrl', currentPath])
-        this.push(['trackPageView'])
-
-        this.previousPath = currentPath
-    }
-
-    /**
-     * Tracks occurring javascript errors as a `JavaScript Error` piwik event.
-     *
-     * @see http://davidwalsh.name/track-errors-google-analytics
-     */
-    // tslint:disable: max-func-args
-    public trackError(event: Event | string, source?: string, lineno?: number, colno?: number, error?: Error): void
-    public trackError(errorEvent: ErrorEvent, eventName?: string): void
-    public trackError(eventSomething: ErrorEvent | Event | string, sourceOrEventName?: string, lineno?: number, colno?: number, error?: Error): void {
-        if(typeof eventSomething === 'string') {
-            this.push([
-                'trackEvent',
-                'JavaScript Error',
-                eventSomething,
-                `${sourceOrEventName}:${lineno}:${colno}`,
-            ])
-        } else if(!('message' in eventSomething)) {
-            this.push([
-                'trackEvent',
-                'JavaScript Error',
-                error!.message,  // tslint:disable-line: no-useless-cast no-non-null-assertion
-                `${sourceOrEventName}:${lineno}:${colno}`,
-            ])
-        } else {
-            this.push([
-                'trackEvent',
-                sourceOrEventName ?? 'JavaScript Error',
-                eventSomething.message,
-                `${eventSomething.filename}:${eventSomething.lineno}`,
-            ])
-
-        }
+    public trackView(location: Location | {path: string} | Location & {basename: string}, documentTitle = document.title) {
+        if (this.updateDocumentTitle) this.push(['setDocumentTitle', documentTitle])
+        super.trackView(location)
     }
 
 }

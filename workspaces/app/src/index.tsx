@@ -5,7 +5,7 @@ import * as React from 'react'
 import { render } from 'react-dom'
 
 import { CONTEXT } from 'src/stores'
-import { PiwikStore } from 'src/stores/PiwikStore'
+import { PiwikAnalyticsStore } from 'src/stores/Analytics/PiwikAnalyticsStore'
 import RouterStore from 'src/stores/RouterStore'
 
 import { MATOMO_PARAMS } from './constants'
@@ -15,7 +15,7 @@ import routes from './routes'
 configure({ enforceActions: 'always' })
 
 // prepare MobX stores
-const analyticsStore = new PiwikStore(process.env.NODE_ENV === 'development' ? {} : MATOMO_PARAMS)
+const analyticsStore = new PiwikAnalyticsStore(process.env.NODE_ENV === 'development' ? {} : MATOMO_PARAMS)
 const routerStore = new RouterStore(analyticsStore)
 
 render((
