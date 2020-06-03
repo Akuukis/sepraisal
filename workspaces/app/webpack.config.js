@@ -92,7 +92,10 @@ module.exports = {
         }),
         new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json'), tsconfig: 'tsconfig.json'}),
         new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({template: path.join('static', 'index.html') }),
+        new HtmlWebpackPlugin({
+            favicon: path.join('static', 'favicon.ico'),
+            template: path.join('static', 'index.html'),
+        }),
         new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),  // Leave out moment.js locales.
         new CopyWebpackPlugin({ patterns: [{
             from: path.join('static', 'articles', '**', '*.(png|jpg)'),
