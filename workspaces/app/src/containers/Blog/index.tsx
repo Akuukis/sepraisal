@@ -5,7 +5,9 @@ import { hot } from 'react-hot-loader/root'
 import { Grid } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IBlogArticle, IMyTheme } from 'src/common'
+import { ROUTE } from 'src/constants'
 import DefaultLayout from 'src/layouts/DefaultLayout'
+import { CONTEXT } from 'src/stores'
 
 import postCategorizationLink from '../../../static/articles/categorization/categorization.md'
 import postFleetsLink from '../../../static/articles/fleets/fleets.md'
@@ -45,6 +47,11 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+    const routerStore = React.useContext(CONTEXT.ROUTER)
+    const selectedArticleId = routerStore.location.pathname.slice(ROUTE.BLOG.length + 1)
+    if(!articles.find((article) => article.id === selectedArticleId)) {
+        routerStore.replace(`${ROUTE.BLOG}/${articles[0].id}`)
+    }
 
     return (
         <DefaultLayout className={classes.root}>
