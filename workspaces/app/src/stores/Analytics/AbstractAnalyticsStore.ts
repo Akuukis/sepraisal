@@ -60,13 +60,13 @@ export abstract class AbstractAnalyticsStore {
         this.listeners.forEach((listener) => listener())
     }
 
-    public abstract push(args: ['trackPageView']): void
-    public abstract push(args: ['trackEvent']): void
-    public abstract push(args: ['trackEvent', string]): void
-    public abstract push(args: ['trackEvent', string, string]): void
-    public abstract push(args: ['trackEvent', string, string, string | number]): void
-    public abstract push(args: ['trackEvent', string, string, string, string | number]): void
-    public abstract push(args: ['trackSiteSearch', string, string, number]): void
+    protected abstract push(args: ['trackPageView']): void
+    protected abstract push(args: ['trackEvent']): void
+    protected abstract push(args: ['trackEvent', string]): void
+    protected abstract push(args: ['trackEvent', string, string]): void
+    protected abstract push(args: ['trackEvent', string, string, string | number]): void
+    protected abstract push(args: ['trackEvent', string, string, string, string | number]): void
+    protected abstract push(args: ['trackSiteSearch', string, string, number]): void
     // public abstract push(args: ['trackPageView' | 'trackEvent' | 'trackSiteSearch', string?, string?, (string | number)?])
 
     /**

@@ -165,7 +165,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
      *
      * @see https://developer.piwik.org/guides/tracking-javascript-guide
      */
-    public push(args: unknown[]) {
+    protected push(args: unknown[]) {
         window['_paq'].push(args)
     }
 

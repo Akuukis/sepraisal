@@ -54,32 +54,29 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         if(index === -1) {
             runInAction(() => selectionStore.selected.push(id))
-            analyticsStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'workshop',
                 id === title ? 'select-upload' : 'select-recent',
                 id,
                 undefined,
-            ])
+            )
         } else {
-            analyticsStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'workshop',
                 id === title ? 'deselect-upload' : 'deselect-recent',
                 id,
                 undefined,
-            ])
+            )
             runInAction(() => selectionStore.selected.remove(id))
         }
     }
     const handleDelete = () => {
-        analyticsStore.push([
-            'trackEvent',
+        analyticsStore.trackEvent(
             'workshop',
             id === title ? 'delete-upload' : 'delete-recent',
             id,
             undefined,
-        ])
+        )
         runInAction(() => {
             selectionStore.selected.remove(id)
             blueprintStore.deleteSomething(id)

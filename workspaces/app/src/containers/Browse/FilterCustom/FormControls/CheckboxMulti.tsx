@@ -60,12 +60,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionIds), state !== null))
 
     const toggleChecked = action(() => {
-        analyticsStore.push([
-            'trackEvent',
-            'custom-filter',
-            criterionIds,
-            JSON.stringify(nextState(state)),
-        ])
+        analyticsStore.trackEvent('custom-filter', criterionIds.join(','), JSON.stringify(nextState(state)))
 
         switch(state) {
             case(true): {

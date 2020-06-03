@@ -86,13 +86,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const setHoverOff = () => setHover(false)
 
     const goAnalysis = () => {
-        analyticsStore.push([
-            'trackEvent',
-            'browse',
-            'click-analysis',
-            id,
-            index,
-        ])
+        analyticsStore.trackEvent('browse', 'click-analysis', String(id), index)
         routerStore.goBlueprint(id)
     }
 

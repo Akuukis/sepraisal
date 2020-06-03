@@ -49,7 +49,7 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
 
     }
 
-    public push([type, ...opts]: ['trackPageView' | 'trackEvent' | 'trackSiteSearch', string?, string?, (string | number)?, (string | number)?]) {
+    protected push([type, ...opts]: ['trackPageView' | 'trackEvent' | 'trackSiteSearch', string?, string?, (string | number)?, (string | number)?]) {
         switch(type) {
             case('trackPageView'): return  // Do nothing here, History is already watched automatically.
             case('trackEvent'): return window.sa_event(opts.slice(3).join('__'))

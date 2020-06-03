@@ -80,23 +80,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const onChangeCommitted = action(() => {
         if(zeroes !== undefined && logValue[0] === 0 && logValue[1] === 0) {
-            analyticsStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'custom-filter',
                 criterionId,
                 String(zeroes),
-            ])
+            )
             cardStore.querryFindBuilder.setCriterion(criterionId, zeroes)
 
             return
         }
 
-        analyticsStore.push([
-            'trackEvent',
+        analyticsStore.trackEvent(
             'custom-filter',
             criterionId,
             criterion ? `${criterion.$gte} to ${criterion.$lte}` : JSON.stringify(null),
-        ])
+        )
         cardStore.querryFindBuilder.setCriterion(criterionId, criterion)
     })
 

@@ -59,12 +59,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionId), state !== null))
 
     const toggleChecked = action(() => {
-        analyticsStore.push([
-            'trackEvent',
+        analyticsStore.trackEvent(
             'custom-filter',
-            criterionId,
+            Array.isArray(criterionId) ? criterionId.join(',') : criterionId,
             JSON.stringify(nextState(state)),
-        ])
+        )
         cardStore.querryFindBuilder.setCriterion(criterionId, getCriteria(nextState(state)))
     })
 

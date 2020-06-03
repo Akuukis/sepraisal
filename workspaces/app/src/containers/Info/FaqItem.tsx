@@ -29,22 +29,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const handleClick = () => {
         if(!open) {
-            analyticsStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'info',
                 'faq-open',
                 title,
                 undefined,
-            ])
+            )
             setOpenedOn(Date.now())
         } else {
-            analyticsStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'info',
                 'faq-close',
                 title,
                 (Date.now() - openedOn!) / 1000,  // tslint:disable-line: no-non-null-assertion
-            ])
+            )
             setOpenedOn(null)
         }
         setOpen(!open)

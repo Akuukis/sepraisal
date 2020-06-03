@@ -152,13 +152,12 @@ export class CardStore {
             this.cards.merge(cards)
         })
 
-        this.analyticsStore.push([
-            'trackEvent',
+        this.analyticsStore.trackEvent(
             'load-time',
             this.selectedPreset,
             this.selectedPreset !== 'custom' ? '<stripped>' : this.querryFindBuilder.findStringified,
             (Date.now() - timer) / 1000,
-        ])
+        )
 
         return {count, limit, skip}
     }
@@ -196,44 +195,40 @@ export class CardStore {
                 this.cards.replace(cards)
             })
 
-            // this.analyticsStore.push([
-            //     'trackEvent',
+            // this.analyticsStore.trackEvent(
             //     'selected-preset',
             //     this.selectedPreset,
             //     this.selectedPreset !== 'custom' ? undefined : this.findStringified,
             //     this.count,
-            // ])
+            // )
 
             // tslint:disable-next-line: no-commented-code
             // if(this.selectedPreset === 'custom') {
             //     for(const filter of this.find.$and) {
             //         // tslint:disable-next-line: no-non-null-assertion
             //         const [filterName, filterValue] = Object.entries(filter).shift()!
-            //         this.analyticsStore.push([
-            //             'trackEvent',
+            //         this.analyticsStore.trackEvent(
             //             'custom-filter',
             //             filterName,
             //             JSON.stringify(filterValue),
-            //         ])
+            //         )
             //     }
             // }
 
             if(typeof this.find.$text?.$search === 'string') {
-                this.analyticsStore.push([
-                    'trackSiteSearch',
+                this.analyticsStore.trackSiteSearch(
                     this.find.$text?.$search,
                     this.selectedPreset,
                     count,
-                ])
+                )
             }
 
-            this.analyticsStore.push([
-                'trackEvent',
+            this.analyticsStore.trackEvent(
                 'load-time',
                 this.selectedPreset,
                 this.selectedPreset !== 'custom' ? '<stripped>' : this.querryFindBuilder.findStringified,
                 (Date.now() - timer) / 1000,
-            ])
+            )
         } catch(err) {
             if((err as Error).name === 'AbortError') {
                 // Don't report aborted fetches as failed.

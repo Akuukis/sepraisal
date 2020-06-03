@@ -42,21 +42,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const handleToggle = () => {
         if(index === -1) {
             runInAction(() => selectionStore.selected.push(id))
-            analyticsStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'workshop',
                 id === name ? 'select-upload' : 'select-recent',
-                id,
+                String(id),
                 undefined,
-            ])
+            )
         } else {
-            analyticsStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'workshop',
                 id === name ? 'deselect-upload' : 'deselect-recent',
-                id,
+                String(id),
                 undefined,
-            ])
+            )
             runInAction(() => selectionStore.selected.remove(id))
         }
     }

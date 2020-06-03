@@ -35,22 +35,20 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         runInAction(() => {
             selectionStore.selected.push(title)
         })
-        analyticsStore.push([
-            'trackEvent',
+        analyticsStore.trackEvent(
             'workshop',
             'upload-successful',
             title,
             undefined,
-        ])
+        )
     }
     const onError = (error: Error) => {
-        analyticsStore.push([
-            'trackEvent',
+        analyticsStore.trackEvent(
             'workshop',
             'upload-failed',
             error.message,
             undefined,
-        ])
+        )
     }
 
     return (
