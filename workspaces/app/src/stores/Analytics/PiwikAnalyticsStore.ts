@@ -102,7 +102,11 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
             })
         }
 
-        if (this._isShim) return
+        if (this._isShim) {
+            this.push = (args: unknown[]) => console.info(`AnalyticsStore.push():`, ...args)
+
+            return
+        }
 
         if (!piwikIsAlreadyInitialized()) {
             // tslint:disable-next-line: no-string-literal

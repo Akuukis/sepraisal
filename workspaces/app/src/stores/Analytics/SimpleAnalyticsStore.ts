@@ -22,14 +22,20 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
     public constructor(rawOpts: ISimpleAnalyticsStoreOpts = {}) {
         super(rawOpts)
 
-        if (this._isShim) return
+        if (this._isShim) {
+            window.sa_event = function (eventName: string) {
+                console.info(`SimpleAnalyticsStore.push():`, ...eventName)
+            } as any
+
+            return
+        }
 
         if (!simpleAnalyticsAlreadyInitialized()) {
             // Adapted from https://docs.simpleanalytics.com/events.
             window.sa_event = window.sa_event || function() {
                 if(!window.sa_event.q) window.sa_event.q = []
                 window.sa_event.q.push([].slice.call(arguments))
-            };
+            }
 
             const firstScript = document.getElementsByTagName('script')[0]
             const element = document.createElement('script')

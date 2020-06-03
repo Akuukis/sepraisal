@@ -47,11 +47,10 @@ export abstract class AbstractAnalyticsStore {
             }
         }
 
+        // api shim. used for serverside rendering, misconfigured trackers, or in development environment.
         if (this.url === null) {
             console.info('AnalyticsStore: using shim.')
-            // api shim. used for serverside rendering and misconfigured tracker instances
             this._isShim = true
-            this.push = (args: unknown[]) => console.debug(`AnalyticsStore.push():`, ...args)
 
             return
         }
