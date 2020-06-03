@@ -103,7 +103,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
         }
 
         if (this._isShim) {
-            this.push = (args: unknown[]) => console.info(`AnalyticsStore.push():`, ...args)
+            this.push = (args: unknown[]) => console.info(`PiwikAnalyticsStore.push():`, ...args)
 
             return
         }
