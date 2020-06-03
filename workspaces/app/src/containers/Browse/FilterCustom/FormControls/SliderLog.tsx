@@ -43,7 +43,7 @@ interface IQuery {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title, criterionId, min, max, zeroes} = props
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
     const safeMin = min === 0 ? 0 : Math.log10(min)

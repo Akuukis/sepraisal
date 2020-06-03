@@ -19,13 +19,13 @@ const piwikStore = new PiwikStore(process.env.NODE_ENV === 'development' ? {} : 
 const routerStore = new RouterStore(piwikStore)
 
 render((
-        <CONTEXT.PIWIK.Provider value={piwikStore}>
+        <CONTEXT.ANALYTICS.Provider value={piwikStore}>
         <CONTEXT.ROUTER.Provider value={routerStore}>
 
         {routes(routerStore.history)}
 
         </CONTEXT.ROUTER.Provider>
-        </CONTEXT.PIWIK.Provider>
+        </CONTEXT.ANALYTICS.Provider>
     ),
     document.getElementById('root'),
 )

@@ -28,7 +28,7 @@ interface IProps extends Omit<IMyExpansionPanelProps, 'header' | 'subheader'> {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const { className, ...otherProps } = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
     const onUpload = (title: string) => {

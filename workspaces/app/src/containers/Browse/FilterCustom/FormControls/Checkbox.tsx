@@ -32,7 +32,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title, criterionId, yes, no} = props
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 

@@ -48,7 +48,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const step = stepRaw ?? 1
     const dp = step < 1 ? 1 : 0
 
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 

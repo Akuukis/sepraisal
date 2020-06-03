@@ -20,7 +20,7 @@ export const CONTEXT = {
     PARENT_COLUMNS: createContext<{parentColumns: GridSizeColumns, maxWidth: 1|2|3|4|5|6}>(null as any),
     FORM_GROUP_SCOPE: createContext<ObservableMap<boolean | undefined>>(null as any),
     EXCLUSIVE_SCOPE: createContext<ExclusiveScopeStore>(undefined as any),
-    PIWIK: createContext<PiwikStore>(null as any),
+    ANALYTICS: createContext<PiwikStore>(null as any),
     PRAISAL_MANAGER: createContext<PraisalManager | null>(null),
     ROUTER: createContext<RouterStore>(null as any),
     SELECTION: createContext<SelectionStore>(null as any),

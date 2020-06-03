@@ -36,7 +36,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {id} = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
     const blueprint = blueprintStore.getSomething(id)!

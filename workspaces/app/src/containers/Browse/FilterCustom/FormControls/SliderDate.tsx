@@ -44,7 +44,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {title, criterionId, zeroes} = props
     const max = moment()
 
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 
