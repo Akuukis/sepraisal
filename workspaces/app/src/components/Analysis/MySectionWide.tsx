@@ -31,6 +31,7 @@ const styles = (theme: IMyTheme) => createStyles({
     heading: {
         width: '100%',
         color: theme.palette.success.contrastText,
+        textTransform: 'uppercase',
     },
     MyBoxColumn: {
     },
