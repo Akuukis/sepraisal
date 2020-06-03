@@ -79,7 +79,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <LegendCell width={2} legendProps={{align: 'right'}} legend={`Turrets:`} />
                         <ValueCell label={`turret DPS`} value={formatDecimal(turretDPS)} />
                         <ValueCell label={`gatling`} value={(turret.smallGatling + turret.largeGatling) || '-'} />
-                        <ValueCell label={`rocket`} value={(turret.smallMissile + fixed.largeMissile) || '-'} />
+                        <ValueCell label={`rocket`} value={(turret.smallMissile + turret.largeMissile) || '-'} />
                         <ValueCell label={`interior`} value={turret.interior || '-'} />
                     </MyBox>
                 </MyBoxRow>
