@@ -48,14 +48,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             runInAction(() => selectionStore.selected.push(id))
             analyticsStore.trackEvent(
                 'workshop',
-                id === title ? 'select-upload' : 'select-recent',
+                id === title ? 'selectUpload' : 'selectRecent',
                 String(id),
                 undefined,
             )
         } else {
             analyticsStore.trackEvent(
                 'workshop',
-                id === title ? 'deselect-upload' : 'deselect-recent',
+                id === title ? 'deselectUpload' : 'deselectRecent',
                 String(id),
                 undefined,
             )
@@ -65,7 +65,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const handleDelete = () => {
         analyticsStore.trackEvent(
             'workshop',
-            id === title ? 'delete-upload' : 'delete-recent',
+            id === title ? 'deleteUpload' : 'deleteRecent',
             String(id),
             undefined,
         )

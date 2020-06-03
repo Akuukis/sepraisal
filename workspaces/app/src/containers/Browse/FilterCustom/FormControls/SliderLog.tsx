@@ -81,7 +81,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const onChangeCommitted = action(() => {
         if(zeroes !== undefined && logValue[0] === 0 && logValue[1] === 0) {
             analyticsStore.trackEvent(
-                'custom-filter',
+                'customFilter',
                 criterionId,
                 String(zeroes),
             )
@@ -91,7 +91,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
 
         analyticsStore.trackEvent(
-            'custom-filter',
+            'customFilter',
             criterionId,
             criterion ? `${criterion.$gte} to ${criterion.$lte}` : JSON.stringify(null),
         )

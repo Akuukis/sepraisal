@@ -37,7 +37,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         })
         analyticsStore.trackEvent(
             'workshop',
-            'upload-successful',
+            'uploadSuccessful',
             title,
             undefined,
         )
@@ -45,7 +45,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const onError = (error: Error) => {
         analyticsStore.trackEvent(
             'workshop',
-            'upload-failed',
+            'uploadFailed',
             error.message,
             undefined,
         )

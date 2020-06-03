@@ -44,14 +44,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             runInAction(() => selectionStore.selected.push(id))
             analyticsStore.trackEvent(
                 'workshop',
-                id === name ? 'select-upload' : 'select-recent',
+                id === name ? 'selectUpload' : 'selectRecent',
                 String(id),
                 undefined,
             )
         } else {
             analyticsStore.trackEvent(
                 'workshop',
-                id === name ? 'deselect-upload' : 'deselect-recent',
+                id === name ? 'deselectUpload' : 'deselectRecent',
                 String(id),
                 undefined,
             )

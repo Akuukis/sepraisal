@@ -153,7 +153,7 @@ export class CardStore {
         })
 
         this.analyticsStore.trackEvent(
-            'load-time',
+            'loadTime',
             this.selectedPreset,
             this.selectedPreset !== 'custom' ? '<stripped>' : this.querryFindBuilder.findStringified,
             (Date.now() - timer) / 1000,
@@ -208,7 +208,7 @@ export class CardStore {
             //         // tslint:disable-next-line: no-non-null-assertion
             //         const [filterName, filterValue] = Object.entries(filter).shift()!
             //         this.analyticsStore.trackEvent(
-            //             'custom-filter',
+            //             'customFilter',
             //             filterName,
             //             JSON.stringify(filterValue),
             //         )
@@ -224,7 +224,7 @@ export class CardStore {
             }
 
             this.analyticsStore.trackEvent(
-                'load-time',
+                'loadTime',
                 this.selectedPreset,
                 this.selectedPreset !== 'custom' ? '<stripped>' : this.querryFindBuilder.findStringified,
                 (Date.now() - timer) / 1000,

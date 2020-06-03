@@ -60,7 +60,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const toggleChecked = action(() => {
         analyticsStore.trackEvent(
-            'custom-filter',
+            'customFilter',
             Array.isArray(criterionId) ? criterionId.join(',') : criterionId,
             JSON.stringify(nextState(state)),
         )
