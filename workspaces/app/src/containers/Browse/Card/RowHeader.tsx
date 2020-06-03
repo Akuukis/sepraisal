@@ -32,7 +32,8 @@ const styles = (theme: IMyTheme) => createStyles({
         padding: theme.spacing(0),
         flexGrow: 0,
         flexShrink: 0,
-        flexBasis: 'content',
+        flexBasis: 'auto',
+        width: 'unset',
     },
     ValueCell: {
         flexGrow: 1,
