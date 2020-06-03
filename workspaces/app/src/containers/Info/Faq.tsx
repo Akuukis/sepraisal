@@ -31,7 +31,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
     return (
         <InfoCard className={classes.root} heading='Questions & Answers'>
             <FaqItem no={1} title='What filters exactly are under "Any ship, vanilla"?'>
-                <Typography paragraph>
+                <Typography paragraph component='div'>
                     To be specific, here's the full list of filter that defines what "Any ship, vanilla" is:
                     <ul>
                         <li>Has grid type only "dynamic"</li>
@@ -47,7 +47,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                 </Typography>
             </FaqItem>
             <FaqItem no={2} title='What filters exactly are under "Fighter, vanilla"?'>
-                <Typography paragraph>
+                <Typography paragraph component='div'>
                     To be specific, here's the full list of filter that defines what "Figher, vanilla" is:
                     <ol>
                         <li>Has grid type only "dynamic"</li>
