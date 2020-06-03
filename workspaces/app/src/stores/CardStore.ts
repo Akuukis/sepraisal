@@ -232,7 +232,7 @@ export class CardStore {
         } catch(err) {
             if((err as Error).name === 'AbortError') {
                 // Don't report aborted fetches as failed.
-                console.log(`Previous fetch was aborted due changes in the query.`)
+                console.warn(`Previous fetch was aborted due changes in the query.`)
 
                 return
             }

@@ -68,8 +68,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 props.selected!.clear()
                 setSelectAll(0)
             }
-        } catch(e) {
-            console.error(e)
+        } catch(err) {
+            console.error(err)
         }
     }
 

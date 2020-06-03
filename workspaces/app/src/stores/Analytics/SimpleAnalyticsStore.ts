@@ -24,7 +24,7 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
 
         if (this._isShim) {
             window.sa_event = function (eventName: string) {
-                console.info(`SimpleAnalyticsStore.push():`, eventName)
+                console.debug(`SimpleAnalyticsStore.push():`, eventName)
             } as any
 
             const trackViewHandler = this.trackView.bind(this)
@@ -70,7 +70,7 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
     protected push([type, ...opts]: ['trackPageView' | 'trackEvent' | 'trackSiteSearch', string?, string?, (string | number)?, (string | number)?]) {
         switch(type) {
             case('trackPageView'): {
-                if(this._isShim) console.info(`SimpleAnalyticsStore.trackView()`)
+                if(this._isShim) console.debug(`SimpleAnalyticsStore.trackView()`)
                 // Do nothing here, History is already watched automatically.
                 return
             }

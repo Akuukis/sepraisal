@@ -124,9 +124,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         Clear All
                     </Button>
                 </Grid>
-                <FilterPresets/>
+                <FilterPresets />
                 <Divider />
-                <FilterCustom/>
+                <FilterCustom />
                 <Divider />
                 <FilterRaw />
             </CONTEXT.EXCLUSIVE_SCOPE.Provider>

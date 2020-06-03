@@ -102,7 +102,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const currentKey = Object.keys(cardStore.sort).pop()
-    console.log(currentKey, {...cardStore.sort})
+
     const icon =
         currentKey === undefined ? <IconSort /> :
         cardStore.sort[currentKey] === -1 ? <IconSortDescending /> :

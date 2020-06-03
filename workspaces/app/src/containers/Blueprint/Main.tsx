@@ -29,15 +29,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     // Try steam id.
     if(!bpId) {
-        bpId = urlParams.get(PROVIDER.STEAM)
-        console.info(`Found steam id: "${bpId}"`)
-        bpId = Number(bpId)
+        bpId = Number(urlParams.get(PROVIDER.STEAM))
+        // if(bpId) console.debug(`Found steam id: "${bpId}"`)
     }
 
     // Try upload title.
     if(!bpId) {
         bpId = urlParams.get(PROVIDER.LOCAL)
-        if(bpId) console.info(`Found upload id: "${bpId}"`)
+        // if(bpId) console.debug(`Found upload id: "${bpId}"`)
     }
 
 

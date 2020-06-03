@@ -53,7 +53,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                                 const out = Pako.inflate(result, {to: 'string'})
                                 resolve(out)
                             } catch(error) {
-                                console.error(`inflate failed ${error}`)
+                                // console.error(`inflate failed ${error}`)
                                 const out = result.toString('utf-8')
                                 resolve(out)
                             }

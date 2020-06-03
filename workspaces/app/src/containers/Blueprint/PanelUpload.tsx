@@ -41,7 +41,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         select(title)
     }
     const onError = (error: Error) => {
-        console.log(error)
+        console.error(error)
     }
 
     return (
