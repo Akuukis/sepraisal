@@ -61,9 +61,7 @@ interface IPiwikStoreOpts extends IAnalyticsStoreOpts {
     userId?: string | number,
 }
 
-// tslint:disable-next-line: min-class-cohesion
 export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
-    // tslint:disable-next-line: naming-convention
     @computed public get isLoaded(): boolean {
         // This store sets `_paq` as simple Array.
         // Injected Piwik code will replace it with specialized class which is not Array.
@@ -73,9 +71,8 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
 
     private updateDocumentTitle: boolean
 
-    // tslint:disable-next-line: mccabe-complexity cognitive-complexity
     public constructor(rawOpts: IPiwikStoreOpts = {}) {
-        super()
+        super(rawOpts)
         const siteId = rawOpts.siteId
         const url = rawOpts.url
         const userId = rawOpts.userId
@@ -105,13 +102,11 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
             })
         }
 
-        const alreadyInitialized = piwikIsAlreadyInitialized()
-        if (!alreadyInitialized) {
+        if (this._isShim) return
 
+        if (!piwikIsAlreadyInitialized()) {
             // tslint:disable-next-line: no-string-literal
             window['_paq'] = window['_paq'] || []
-
-            if (this._isShim) return
 
             const baseUrl = getBaseUrl(url!)
             this.push(['setSiteId', siteId])
@@ -141,10 +136,6 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
             this.push(['enableHeartBeatTimer'])
         }
 
-    }
-
-    public deconstructor() {
-        this.listeners.forEach((listener) => listener())
     }
 
     public async getVisitorId(): Promise<string | null> {

@@ -68,7 +68,7 @@ export abstract class AbstractAnalyticsStore {
     public abstract push(args: ['trackEvent', string, string, string | number]): void
     public abstract push(args: ['trackEvent', string, string, string, string | number]): void
     public abstract push(args: ['trackSiteSearch', string, string, number]): void
-    // public abstract push(args: ['trackPageView' | 'trackEvent', string?, string?, (string | number)?])
+    // public abstract push(args: ['trackPageView' | 'trackEvent' | 'trackSiteSearch', string?, string?, (string | number)?])
 
     /**
      * Adds a page view for the given location
