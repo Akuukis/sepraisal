@@ -110,11 +110,11 @@ export class CardStore {
 
     @observable protected _sort: IBrowserStoreSort = {'steam.subscriberCount': -1}
     protected disposers: IReactionDisposer[] = []
-    private piwikStore: PiwikStore
+    private analyticsStore: PiwikStore
     private abortController: AbortController | null = null
 
-    public constructor(piwikStore: PiwikStore) {
-        this.piwikStore = piwikStore
+    public constructor(analyticsStore: PiwikStore) {
+        this.analyticsStore = analyticsStore
         this.disposers.push(autorun(
             () => JSON.stringify(this.find) && this.fetch(),
             {
@@ -152,7 +152,7 @@ export class CardStore {
             this.cards.merge(cards)
         })
 
-        this.piwikStore.push([
+        this.analyticsStore.push([
             'trackEvent',
             'load-time',
             this.selectedPreset,
@@ -196,7 +196,7 @@ export class CardStore {
                 this.cards.replace(cards)
             })
 
-            // this.piwikStore.push([
+            // this.analyticsStore.push([
             //     'trackEvent',
             //     'selected-preset',
             //     this.selectedPreset,
@@ -209,7 +209,7 @@ export class CardStore {
             //     for(const filter of this.find.$and) {
             //         // tslint:disable-next-line: no-non-null-assertion
             //         const [filterName, filterValue] = Object.entries(filter).shift()!
-            //         this.piwikStore.push([
+            //         this.analyticsStore.push([
             //             'trackEvent',
             //             'custom-filter',
             //             filterName,
@@ -219,7 +219,7 @@ export class CardStore {
             // }
 
             if(typeof this.find.$text?.$search === 'string') {
-                this.piwikStore.push([
+                this.analyticsStore.push([
                     'trackSiteSearch',
                     this.find.$text?.$search,
                     this.selectedPreset,
@@ -227,7 +227,7 @@ export class CardStore {
                 ])
             }
 
-            this.piwikStore.push([
+            this.analyticsStore.push([
                 'trackEvent',
                 'load-time',
                 this.selectedPreset,

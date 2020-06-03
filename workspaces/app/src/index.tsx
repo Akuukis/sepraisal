@@ -15,11 +15,11 @@ import routes from './routes'
 configure({ enforceActions: 'always' })
 
 // prepare MobX stores
-const piwikStore = new PiwikStore(process.env.NODE_ENV === 'development' ? {} : MATOMO_PARAMS)
-const routerStore = new RouterStore(piwikStore)
+const analyticsStore = new PiwikStore(process.env.NODE_ENV === 'development' ? {} : MATOMO_PARAMS)
+const routerStore = new RouterStore(analyticsStore)
 
 render((
-        <CONTEXT.ANALYTICS.Provider value={piwikStore}>
+        <CONTEXT.ANALYTICS.Provider value={analyticsStore}>
         <CONTEXT.ROUTER.Provider value={routerStore}>
 
         {routes(routerStore.history)}

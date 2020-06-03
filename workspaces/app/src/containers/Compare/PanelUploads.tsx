@@ -28,14 +28,14 @@ interface IProps extends Omit<IMyExpansionPanelProps, 'header' | 'subheader'> {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const { className, ...otherProps } = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
     const onUpload = (title: string) => {
         runInAction(() => {
             selectionStore.selected.push(title)
         })
-        piwikStore.push([
+        analyticsStore.push([
             'trackEvent',
             'workshop',
             'upload-successful',
@@ -44,7 +44,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         ])
     }
     const onError = (error: Error) => {
-        piwikStore.push([
+        analyticsStore.push([
             'trackEvent',
             'workshop',
             'upload-failed',

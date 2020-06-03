@@ -36,7 +36,7 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {id} = props
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
     const blueprint = blueprintStore.getSomething(id)!
@@ -46,7 +46,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const handleToggle = () => {
         if(index === -1) {
             runInAction(() => selectionStore.selected.push(id))
-            piwikStore.push([
+            analyticsStore.push([
                 'trackEvent',
                 'workshop',
                 id === title ? 'select-upload' : 'select-recent',
@@ -54,7 +54,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 undefined,
             ])
         } else {
-            piwikStore.push([
+            analyticsStore.push([
                 'trackEvent',
                 'workshop',
                 id === title ? 'deselect-upload' : 'deselect-recent',
@@ -65,7 +65,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         }
     }
     const handleDelete = () => {
-        piwikStore.push([
+        analyticsStore.push([
             'trackEvent',
             'workshop',
             id === title ? 'delete-upload' : 'delete-recent',

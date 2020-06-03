@@ -55,11 +55,11 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const [favoriteStore] = React.useState(() => new FavoriteStore())
     const [blueprintStore] = React.useState(() => new BlueprintStore(favoriteStore))
     const [selectionStore] = React.useState(() => new SelectionStore())
-    const [cardStore] = React.useState(() => new CardStore(piwikStore))
+    const [cardStore] = React.useState(() => new CardStore(analyticsStore))
     const [praisalManager, setPraisalManager] = React.useState<PraisalManager | null>(null)
 
     React.useEffect(() => {

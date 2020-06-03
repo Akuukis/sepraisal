@@ -23,13 +23,13 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {no, title} = props
-    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const [openedOn, setOpenedOn] = React.useState<null | number>(null)
     const [open, setOpen] = React.useState(false)
 
     const handleClick = () => {
         if(!open) {
-            piwikStore.push([
+            analyticsStore.push([
                 'trackEvent',
                 'info',
                 'faq-open',
@@ -38,7 +38,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             ])
             setOpenedOn(Date.now())
         } else {
-            piwikStore.push([
+            analyticsStore.push([
                 'trackEvent',
                 'info',
                 'faq-close',

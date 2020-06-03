@@ -7,23 +7,23 @@ import { PiwikStore } from './PiwikStore'
 
 
 export class RouterStore extends BaseRouterStore {
-    private piwikStore: PiwikStore
+    private analyticsStore: PiwikStore
 
-    public constructor(piwikStore: PiwikStore) {
+    public constructor(analyticsStore: PiwikStore) {
         super()
-        this.piwikStore = piwikStore
+        this.analyticsStore = analyticsStore
         this.history = syncHistoryWithStore(createBrowserHistory(), this)
     }
 
     public goBlueprint(id: number) {
         const path = `${ROUTE.ANALYSE}?steam=${id}`
 
-        this.piwikStore.track({path})
+        this.analyticsStore.track({path})
         this.push(path)
     }
 
     public goView(path: string): void {
-        this.piwikStore.track({path})
+        this.analyticsStore.track({path})
         this.push(path)
     }
 }

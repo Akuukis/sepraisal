@@ -76,7 +76,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const routerStore = React.useContext(CONTEXT.ROUTER)
-    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const {blueprint, index} = props
     const {id, steam} = blueprint
 
@@ -86,7 +86,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const setHoverOff = () => setHover(false)
 
     const goAnalysis = () => {
-        piwikStore.push([
+        analyticsStore.push([
             'trackEvent',
             'browse',
             'click-analysis',

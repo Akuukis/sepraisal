@@ -48,7 +48,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const step = stepRaw ?? 1
     const dp = step < 1 ? 1 : 0
 
-    const piwikStore = React.useContext(CONTEXT.ANALYTICS)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 
@@ -81,7 +81,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const onChangeCommitted = action(() => {
         if(zeroes !== undefined && value[0] === 0 && value[1] === 0) {
-            piwikStore.push([
+            analyticsStore.push([
                 'trackEvent',
                 'custom-filter',
                 criterionId,
@@ -92,7 +92,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             return
         }
 
-        piwikStore.push([
+        analyticsStore.push([
             'trackEvent',
             'custom-filter',
             criterionId,
