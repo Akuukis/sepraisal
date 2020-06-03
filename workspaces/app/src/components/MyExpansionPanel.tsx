@@ -72,12 +72,15 @@ export interface IMyExpansionPanelProps extends Omit<ExpansionPanelProps, 'title
 
 
 export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({children, classes, theme, ...props}) => {
-    const { id, header, subheader, className, icon, ...otherProps } = props
+    const { id, header, subheader, className, icon, onChange, ...otherProps } = props
 
     const unique = id ?? String(header)
     const exclusiveScopeStore = React.useContext(CONTEXT.EXCLUSIVE_SCOPE)
 
-    const handleToggle = () => exclusiveScopeStore!.setValue(exclusiveScopeStore!.value === unique ? null : unique)
+    const handleToggle = (event: React.ChangeEvent<{}>, expanded: boolean) => {
+        exclusiveScopeStore!.setValue(exclusiveScopeStore!.value === unique ? null : unique)
+        if(onChange) onChange(event, exclusiveScopeStore.value !== unique)
+    }
 
     React.useEffect(() => {
         if(exclusiveScopeStore && props.defaultExpanded) {
@@ -92,7 +95,7 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
                 root: clsx(classes.root, className),
                 expanded: clsx(classes.expanded),
             }}
-            expanded={exclusiveScopeStore && exclusiveScopeStore.value === header}
+            expanded={exclusiveScopeStore && exclusiveScopeStore.value === unique}
             onChange={exclusiveScopeStore && handleToggle}
             {...otherProps}
         >

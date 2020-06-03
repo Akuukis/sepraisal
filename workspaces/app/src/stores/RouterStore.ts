@@ -3,27 +3,27 @@ import { RouterStore as BaseRouterStore, syncHistoryWithStore } from 'mobx-react
 
 import { ROUTE } from 'src/constants'
 
-import { PiwikStore } from './PiwikStore'
+import { AbstractAnalyticsStore } from './Analytics/AbstractAnalyticsStore'
 
 
 export class RouterStore extends BaseRouterStore {
-    private piwikStore: PiwikStore
+    private analyticsStore: AbstractAnalyticsStore
 
-    public constructor(piwikStore: PiwikStore) {
+    public constructor(analyticsStore: AbstractAnalyticsStore) {
         super()
-        this.piwikStore = piwikStore
+        this.analyticsStore = analyticsStore
         this.history = syncHistoryWithStore(createBrowserHistory(), this)
     }
 
     public goBlueprint(id: number) {
         const path = `${ROUTE.ANALYSE}?steam=${id}`
 
-        this.piwikStore.track({path})
+        this.analyticsStore.trackView({path})
         this.push(path)
     }
 
     public goView(path: string): void {
-        this.piwikStore.track({path})
+        this.analyticsStore.trackView({path})
         this.push(path)
     }
 }

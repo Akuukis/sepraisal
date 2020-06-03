@@ -42,7 +42,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
     const [edit, setEdit] = React.useState<string | null>(null)
 
@@ -54,32 +54,29 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         if(index === -1) {
             runInAction(() => selectionStore.selected.push(id))
-            piwikStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'workshop',
-                id === title ? 'select-upload' : 'select-recent',
+                id === title ? 'selectUpload' : 'selectRecent',
                 id,
                 undefined,
-            ])
+            )
         } else {
-            piwikStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'workshop',
-                id === title ? 'deselect-upload' : 'deselect-recent',
+                id === title ? 'deselectUpload' : 'deselectRecent',
                 id,
                 undefined,
-            ])
+            )
             runInAction(() => selectionStore.selected.remove(id))
         }
     }
     const handleDelete = () => {
-        piwikStore.push([
-            'trackEvent',
+        analyticsStore.trackEvent(
             'workshop',
-            id === title ? 'delete-upload' : 'delete-recent',
+            id === title ? 'deleteUpload' : 'deleteRecent',
             id,
             undefined,
-        ])
+        )
         runInAction(() => {
             selectionStore.selected.remove(id)
             blueprintStore.deleteSomething(id)

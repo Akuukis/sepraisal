@@ -88,6 +88,7 @@ module.exports = {
             'process.env.SERVICE_DESK_EMAIL': JSON.stringify(process.env.SERVICE_DESK_EMAIL),
             'process.env.MATAMO_SITE_ID': JSON.stringify(process.env.MATAMO_SITE_ID),
             'process.env.MATAMO_URL': JSON.stringify(process.env.MATAMO_URL),
+            'process.env.SIMPLE_ANALYTICS_URL': JSON.stringify(process.env.SIMPLE_ANALYTICS_URL),
         }),
         new ForkTsCheckerWebpackPlugin({silent: process.argv.includes('--json'), tsconfig: 'tsconfig.json'}),
         new webpack.NamedModulesPlugin(),

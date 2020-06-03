@@ -32,7 +32,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title, criterionId, yes, no} = props
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
 
@@ -59,12 +59,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     runInAction(() => formGroupScope.set(QueryFindBuilder.serializeId(criterionId), state !== null))
 
     const toggleChecked = action(() => {
-        piwikStore.push([
-            'trackEvent',
-            'custom-filter',
-            criterionId,
+        analyticsStore.trackEvent(
+            'customFilter',
+            Array.isArray(criterionId) ? criterionId.join(',') : criterionId,
             JSON.stringify(nextState(state)),
-        ])
+        )
         cardStore.querryFindBuilder.setCriterion(criterionId, getCriteria(nextState(state)))
     })
 

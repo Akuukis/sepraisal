@@ -13,7 +13,7 @@ import {
     PRESET as PRESET_REEXPORT,
     QueryFindBuilder,
 } from '../models'
-import { PiwikStore } from './PiwikStore'
+import { AbstractAnalyticsStore } from './Analytics/AbstractAnalyticsStore'
 
 const cardProjection: {[key in Exclude<keyof IBpProjectionCard, '_id'>]: {[key2 in keyof IBpProjectionCard[key]]: true}} = {
     classes: {
@@ -110,11 +110,11 @@ export class CardStore {
 
     @observable protected _sort: IBrowserStoreSort = {'steam.subscriberCount': -1}
     protected disposers: IReactionDisposer[] = []
-    private piwikStore: PiwikStore
+    private analyticsStore: AbstractAnalyticsStore
     private abortController: AbortController | null = null
 
-    public constructor(piwikStore: PiwikStore) {
-        this.piwikStore = piwikStore
+    public constructor(analyticsStore: AbstractAnalyticsStore) {
+        this.analyticsStore = analyticsStore
         this.disposers.push(autorun(
             () => JSON.stringify(this.find) && this.fetch(),
             {
@@ -152,13 +152,12 @@ export class CardStore {
             this.cards.merge(cards)
         })
 
-        this.piwikStore.push([
-            'trackEvent',
-            'load-time',
+        this.analyticsStore.trackEvent(
+            'loadTime',
             this.selectedPreset,
-            this.selectedPreset !== 'custom' ? undefined : this.querryFindBuilder.findStringified,
+            this.selectedPreset !== 'custom' ? '<stripped>' : this.querryFindBuilder.findStringified,
             (Date.now() - timer) / 1000,
-        ])
+        )
 
         return {count, limit, skip}
     }
@@ -196,44 +195,40 @@ export class CardStore {
                 this.cards.replace(cards)
             })
 
-            // this.piwikStore.push([
-            //     'trackEvent',
+            // this.analyticsStore.trackEvent(
             //     'selected-preset',
             //     this.selectedPreset,
             //     this.selectedPreset !== 'custom' ? undefined : this.findStringified,
             //     this.count,
-            // ])
+            // )
 
             // tslint:disable-next-line: no-commented-code
             // if(this.selectedPreset === 'custom') {
             //     for(const filter of this.find.$and) {
             //         // tslint:disable-next-line: no-non-null-assertion
             //         const [filterName, filterValue] = Object.entries(filter).shift()!
-            //         this.piwikStore.push([
-            //             'trackEvent',
-            //             'custom-filter',
+            //         this.analyticsStore.trackEvent(
+            //             'customFilter',
             //             filterName,
             //             JSON.stringify(filterValue),
-            //         ])
+            //         )
             //     }
             // }
 
             if(typeof this.find.$text?.$search === 'string') {
-                this.piwikStore.push([
-                    'trackSiteSearch',
+                this.analyticsStore.trackSiteSearch(
                     this.find.$text?.$search,
                     this.selectedPreset,
-                    this.count,
-                ])
+                    count,
+                )
             }
 
-            this.piwikStore.push([
-                'trackEvent',
-                'load-time',
+            this.analyticsStore.trackEvent(
+                'loadTime',
                 this.selectedPreset,
-                this.selectedPreset !== 'custom' ? undefined : this.querryFindBuilder.findStringified,
+                this.selectedPreset !== 'custom' ? '<stripped>' : this.querryFindBuilder.findStringified,
                 (Date.now() - timer) / 1000,
-            ])
+            )
         } catch(err) {
             if((err as Error).name === 'AbortError') {
                 // Don't report aborted fetches as failed.

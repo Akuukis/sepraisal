@@ -23,37 +23,35 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {no, title} = props
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const [openedOn, setOpenedOn] = React.useState<null | number>(null)
-    const [open, setOpen] = React.useState(false)
 
-    const handleClick = () => {
-        if(!open) {
-            piwikStore.push([
-                'trackEvent',
+    const trackChange = (event, expanded: boolean) => {
+        if(!expanded) {
+            analyticsStore.trackEvent(
                 'info',
-                'faq-open',
+                `faqOpen-${title}`,
                 title,
                 undefined,
-            ])
+            )
             setOpenedOn(Date.now())
         } else {
-            piwikStore.push([
-                'trackEvent',
+            analyticsStore.trackEvent(
                 'info',
-                'faq-close',
+                `faqClose-${title}`,
                 title,
                 (Date.now() - openedOn!) / 1000,  // tslint:disable-line: no-non-null-assertion
-            ])
+            )
             setOpenedOn(null)
         }
-        setOpen(!open)
     }
 
     return (
         <MyExpansionPanel
+            id={title}
             header={<><strong>{no}.</strong> {title}</>}
             classes={{root: classes.root, expanded: classes.expanded}}
+            onChange={trackChange}
         >
             {children}
         </MyExpansionPanel>

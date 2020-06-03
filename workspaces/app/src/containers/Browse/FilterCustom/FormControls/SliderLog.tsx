@@ -43,7 +43,7 @@ interface IQuery {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {title, criterionId, min, max, zeroes} = props
-    const piwikStore = React.useContext(CONTEXT.PIWIK)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const cardStore = React.useContext(CONTEXT.CARDS)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
     const safeMin = min === 0 ? 0 : Math.log10(min)
@@ -80,23 +80,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const onChangeCommitted = action(() => {
         if(zeroes !== undefined && logValue[0] === 0 && logValue[1] === 0) {
-            piwikStore.push([
-                'trackEvent',
-                'custom-filter',
+            analyticsStore.trackEvent(
+                'customFilter',
                 criterionId,
                 String(zeroes),
-            ])
+            )
             cardStore.querryFindBuilder.setCriterion(criterionId, zeroes)
 
             return
         }
 
-        piwikStore.push([
-            'trackEvent',
-            'custom-filter',
+        analyticsStore.trackEvent(
+            'customFilter',
             criterionId,
             criterion ? `${criterion.$gte} to ${criterion.$lte}` : JSON.stringify(null),
-        ])
+        )
         cardStore.querryFindBuilder.setCriterion(criterionId, criterion)
     })
 
