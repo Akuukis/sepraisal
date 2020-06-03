@@ -8,6 +8,7 @@ import IconDiscord from 'src/components/icons/IconDiscord'
 import IconGithub from 'src/components/icons/IconGithub'
 import IconGitlab from 'src/components/icons/IconGitlab'
 import MyLink from 'src/components/MyLink'
+import { ROUTE } from 'src/constants'
 
 import InfoCard from './InfoCard'
 
@@ -58,6 +59,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Typography variant='h3'>Keen Software House</Typography>
             <Typography paragraph>
                 <MyLink href='https://www.keenswh.com/'>You</MyLink> are great! Thanks for making <MyLink href='https://www.spaceengineersgame.com/'>Space Engineers</MyLink> :)
+            </Typography>
+            <Typography variant='h3'>Image of front page</Typography>
+            <Typography paragraph>
+                Credits goes to <MyLink href='https://steamcommunity.com/id/IratusAvis'>IratusAvis</MyLink> who made the gorgeous image seen on the front page.
+                The ship in the image is <MyLink href={`${ROUTE.ANALYSE}?steam=1532840584`}>Red Destroyer</MyLink>,
+                that got 2nd place in <MyLink href='https://blog.marekrosa.org/2018/06/the-results-of-space-engineers-nvidia.html'>Space Engineers NVIDIA Ansel Contest</MyLink>.
             </Typography>
             <Typography variant='h3'>License</Typography>
             <Typography paragraph>
