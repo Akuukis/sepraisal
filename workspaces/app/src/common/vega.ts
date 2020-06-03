@@ -184,4 +184,3 @@ export const vegaSpecHeatmapLegend: Vega.Spec = {
         },
     ],
 }
-console.log(JSON.stringify(vegaSpecHeatmapLegend))

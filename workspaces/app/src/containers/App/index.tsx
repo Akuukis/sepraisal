@@ -112,7 +112,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             praisalManager.build()
             setPraisalManager(praisalManager)
         } catch(err) {
-            console.error(err)
+            console.error('Failed to initialise Praisal Manager', err)
         }
     })
 

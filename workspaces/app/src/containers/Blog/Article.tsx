@@ -50,16 +50,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         (async () => {
             setState(ASYNC_STATE.Doing)
-            console.log(article.link, 'ASYNC_STATE.Doing')
             try {
                 const response = await fetch(article.link)
                 const markdown = await response.text()
                 setText(markdown)
                 setState(ASYNC_STATE.Done)
-                console.log(article.link, 'ASYNC_STATE.Done')
             } catch(err) {
                 setState(ASYNC_STATE.Error)
-                console.log(article.link, 'ASYNC_STATE.Error')
             }
         })()
     })
