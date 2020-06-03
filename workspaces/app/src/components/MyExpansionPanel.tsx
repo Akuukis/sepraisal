@@ -78,8 +78,8 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
     const exclusiveScopeStore = React.useContext(CONTEXT.EXCLUSIVE_SCOPE)
 
     const handleToggle = (event: React.ChangeEvent<{}>, expanded: boolean) => {
-        if(onChange) onChange(event, expanded)
         exclusiveScopeStore!.setValue(exclusiveScopeStore!.value === unique ? null : unique)
+        if(onChange) onChange(event, exclusiveScopeStore.value !== unique)
     }
 
     React.useEffect(() => {
@@ -95,7 +95,7 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
                 root: clsx(classes.root, className),
                 expanded: clsx(classes.expanded),
             }}
-            expanded={exclusiveScopeStore && exclusiveScopeStore.value === header}
+            expanded={exclusiveScopeStore && exclusiveScopeStore.value === unique}
             onChange={exclusiveScopeStore && handleToggle}
             {...otherProps}
         >

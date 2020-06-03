@@ -30,7 +30,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         if(!expanded) {
             analyticsStore.trackEvent(
                 'info',
-                'faqOpen',
+                `faqOpen-${title}`,
                 title,
                 undefined,
             )
@@ -38,7 +38,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else {
             analyticsStore.trackEvent(
                 'info',
-                'faqClose',
+                `faqClose-${title}`,
                 title,
                 (Date.now() - openedOn!) / 1000,  // tslint:disable-line: no-non-null-assertion
             )
@@ -48,6 +48,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <MyExpansionPanel
+            id={title}
             header={<><strong>{no}.</strong> {title}</>}
             classes={{root: classes.root, expanded: classes.expanded}}
             onChange={trackChange}
