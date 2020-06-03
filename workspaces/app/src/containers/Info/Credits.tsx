@@ -86,14 +86,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <Grid item xs={6}>
                     <MyLink
                         href='https://simpleanalytics.com/spaceengineerspraisal.net?utm_source=spaceengineerspraisal.net&utm_content=badge'
-                        referrerpolicy='origin'
+                        referrerPolicy='origin'
                         rel='noopener'  // Override noreferrer.
                     >
                         <img
                             src='https://simpleanalyticsbadge.com/spaceengineerspraisal.net'
                             loading='lazy'
-                            {...{referrerpolicy:'no-referrer'} as any}  // TODO: missing type?
-                            crossorigin='anonymous'
+                            {...{referrerPolicy:'no-referrer'} as any}  // TODO: missing type?
+                            crossOrigin='anonymous'
                         />
                     </MyLink>
                 </Grid>
