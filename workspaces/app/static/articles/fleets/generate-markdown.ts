@@ -64,4 +64,4 @@ const result = [
     ...rows,
 ].join('\n')
 
-writeFileSync(join(__dirname, 'dist-blog.md'), result)
+writeFileSync(join(__dirname, 'fleets-table.md'), result)
