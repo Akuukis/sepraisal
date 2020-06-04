@@ -13,7 +13,7 @@
         "reinstall": "yarn run uninstall && yarn run bootstrap",
         "test": "jest",
         "test:coverage": "yarn run test --coverage",
-        "uninstall": "lerna clean --yes && rm -rf node_modules",
+        "uninstall": "lerna clean --yes; rm -rf node_modules",
         "watch": "concurrently -p '[{name}]' -n 'TS,JEST' 'yarn run watch:src --preserveWatchOutput' 'yarn run watch:test'",
         "watch:src": "tsc -b tsconfig-src.json --watch  # --preserveWatchOutput",
         "watch:test": "yarn run test --watch"
