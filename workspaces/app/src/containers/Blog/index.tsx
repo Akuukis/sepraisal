@@ -49,15 +49,16 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const routerStore = React.useContext(CONTEXT.ROUTER)
     const selectedArticleId = routerStore.location.pathname.slice(ROUTE.BLOG.length + 1)
+
     if(!articles.find((article) => article.id === selectedArticleId)) {
-        routerStore.replace(`${ROUTE.BLOG}/${articles[0].id}`)
+        routerStore.replace(`${ROUTE.BLOG}/${published[0].id}`)
     }
 
     return (
         <DefaultLayout className={classes.root}>
             <Grid container spacing={4} justify='center' direction='row-reverse'>
                 <Grid className={classes.toc} item>
-                    <TableOfContents articles={articles} />
+                    <TableOfContents articles={published} />
                 </Grid>
                 <Grid className={classes.article} item xs>
                     {articles.map((article) => (
@@ -69,12 +70,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     )
 })) /* ============================================================================================================= */
 
-const articles: IBlogArticle[] = [
+const published: IBlogArticle[] = [
     {id: 'launch2', date: moment('2020-06-03'), link: postLaunch2Link, authors: ['Akuukis'], title: 'SE Praisal V2 launched!'},
-    {id: 'classification', date: moment('2020-05-18'), link: postClassificationLink, authors: ['Akuukis'], title: 'Ship Classification'},
 ]
 
 const hidden: IBlogArticle[] = [
+    {id: 'classification', date: moment('2020-06-10'), link: postClassificationLink, authors: ['Akuukis'], title: 'Ship Classification'},
     {id: 'fleets', date: moment('2019-09-09'), link: postFleetsLink, authors: ['Akuukis'], title: 'TOP Fleets of Space Engineers'},
     {id: 'test', date: moment('2000-01-01'), link: postTestLink, authors: ['Test'], title: 'Test'},
 ]
+
+const articles = [...published, ...hidden]

@@ -111,6 +111,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             praisalManager.addGroups(BLOCK_GROUPS)
             praisalManager.build()
             setPraisalManager(praisalManager)
+            console.info('Praisal Manager initialized, now it\'s ready to praise uploads.')
         } catch(err) {
             console.error('Failed to initialise Praisal Manager', err)
         }

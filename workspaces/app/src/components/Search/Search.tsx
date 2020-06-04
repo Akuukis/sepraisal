@@ -10,7 +10,7 @@ import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/c
 import IconBrowse from 'src/components/icons/IconBrowse'
 import IconCollection from 'src/components/icons/IconCollection'
 import IconPerson from 'src/components/icons/IconPerson'
-import { BROWSE_PARTS, ROUTE } from 'src/constants'
+import { BROWSE_PARTS, PROVIDER, ROUTE } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import AUTOCOMPLETE_AUTHORS from '../../../static/authors.data'
@@ -135,6 +135,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         // Pressed ENTER and so we receive plain string.
         if(typeof newValue === 'string') {
+
+            // Allow to short-circuit to analysis.
+            const id = isThisSteamUrlOrID(newValue)
+            if(id) return routerStore.goView(`${ROUTE.ANALYSE}?${PROVIDER.STEAM}=${id}`)
+
             return updateUrlParams(newValue)
         }
 
@@ -163,6 +168,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         throw new Error('catch me')
     }
 
+    const handlePaste = (event: React.ClipboardEvent<{}>) => {
+        // Allow to short-circuit to analysis.
+        const id = isThisSteamUrlOrID(event.clipboardData.getData('text'))
+        if(id) return routerStore.goView(`${ROUTE.ANALYSE}?${PROVIDER.STEAM}=${id}`)
+    }
+
     const HandleDelete = (option: IOption) => () => {
         let newAuthors: string[] = authors
         let newCollections: string[] = collections
@@ -186,6 +197,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             value={value}
             freeSolo
             onChange={handleChange}
+            onPaste={handlePaste}
             filterOptions={(options: IOption[], params) => {
                 if (params.inputValue !== '') {
                     options.push(
@@ -306,3 +318,22 @@ type IMyFindCriterionGroup = [
     {'steam.authors.title': {$in: string[] }},
     {'steam.collections.title': {$in: string[] }},
 ]
+
+const isThisSteamUrlOrID = (text: string): null | number => {
+    let id: number | null = null
+    try {
+        id = Number(new URL(text).searchParams.get('id'))
+    } catch(err) {
+    }
+
+    if(!id) {
+        const maybeId = Math.round(Number(text))
+        if(text === maybeId.toString()) id = maybeId
+    }
+
+    if(id && id.toString().length >= 9 && id.toString().length <= 10) {
+        return id
+    } else {
+        return null
+    }
+}

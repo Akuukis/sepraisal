@@ -41,7 +41,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const blueprintStore = React.useContext(CONTEXT.BLUEPRINTS)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
 
-    const onDrop = React.useCallback(async (acceptedFiles, rejectedFiles) => {
+    const onDrop = async (acceptedFiles, rejectedFiles) => {
         for(const file of acceptedFiles) {
             try {
                 const reader = new FileReader()
@@ -70,7 +70,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 onError(err)
             }
         }
-    }, [])
+    }
 
 
     const {getRootProps, getInputProps, isDragActive, open: browseFiles} = useDropzone({onDrop})

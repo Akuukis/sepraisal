@@ -3,6 +3,7 @@ Space Engineers Praisal
 
 Space Engineers Praisal (or SEPraisal, or SEP) is a website with a database behind it.
 
+https://spaceengineerspraisal.net
 
 
 

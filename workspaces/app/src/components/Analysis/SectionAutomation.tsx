@@ -28,7 +28,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {bp, className, long, ...otherProps} = props
     const sbc = bp.sbc
 
-    const progBlocks = (sbc.blocks['MyProgrammableBlock/LargeProgrammableBlock'] ?? 0) + (sbc.blocks['ProgrammableBlock/SmallProgrammableBlock'] ?? 0)
+    const progBlocks = (sbc.blocks['MyProgrammableBlock/LargeProgrammableBlock'] ?? 0) + (sbc.blocks['MyProgrammableBlock/SmallProgrammableBlock'] ?? 0)
     const sensors = (sbc.blocks['SensorBlock/LargeBlockSensor'] ?? 0) + (sbc.blocks['SensorBlock/SmallBlockSensor'] ?? 0)
     const timers = (sbc.blocks['TimerBlock/TimerBlockLarge'] ?? 0) + (sbc.blocks['TimerBlock/TimerBlockSmall'] ?? 0)
 

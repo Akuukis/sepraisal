@@ -41,7 +41,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     React.useEffect(() => {
         return autorun(() => {
             if(location.search === '') return
-            setText(String(validateId(extractId(`${document.location.origin}${location.search}`))))
+            setText(String(validateId(extractSteam(`${document.location.origin}${location.search}`))))
         })
     }, [])
 
@@ -106,6 +106,25 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 const extractId = (text: string) => {
+    let url: URL | null = null
+    try {
+        url = new URL(text)
+    } catch(err) {
+    }
+    if(url) {
+        const id = url.searchParams.get('id')
+        if(!id) throw new Error(`URL doesn't contain search parameter "${PROVIDER.STEAM}".`)
+
+        return Number(id)
+    }
+
+    const id = Math.round(Number(text))
+    if(text === id.toString()) return id
+
+    throw new Error(`Invalid ID value.`)
+}
+
+const extractSteam = (text: string) => {
     let url: URL | null = null
     try {
         url = new URL(text)

@@ -48,7 +48,7 @@ module.exports = {
             { test: /\.png$/, use: 'file-loader?name=img/[name].[ext]?[hash]' },
             { test: /\.woff2?$/, use: 'file-loader?name=fonts/[name].[ext]?[hash]' },
             // { test: /\.png$/, use: 'url-loader?limit=10000' },
-            { test: /\.sbc$/, loader: 'file-loader?name=data/[name].[ext]?[hash]' },
+            { test: /\.sbc$/, loader: 'file-loader?name=data/[name].[hash].[ext]' },  // Because CubeBlocks name conflict.
             { test: /\.data$/, loader: 'file-loader?name=data/[name].[ext]?[hash]' },
             { test: /\.md$/, loader: 'file-loader?name=articles/[name].[ext]?[hash]' },
 

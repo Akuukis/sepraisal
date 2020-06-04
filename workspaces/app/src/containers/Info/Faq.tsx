@@ -34,7 +34,37 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
     return (
         <InfoCard className={classes.root} heading='Questions & Answers'>
             <CONTEXT.EXCLUSIVE_SCOPE.Provider value={exclusiveScopeStore}>
-                <FaqItem no={1} title='What filters exactly are under "Any ship, vanilla"?'>
+                <FaqItem no={1} title='Will anyone else see my blueprint if I upload it to SE Praisal?'>
+                    <Typography paragraph>
+                        No.
+                    </Typography>
+                    <Typography paragraph>
+                        In this case, "Upload" means to move a blueprint file from filesystem into a browser.
+                        Your blueprint doesn't leave your browser.
+                        It is never sent anywhere.
+                        In fact, your blueprint isn't even saved in your browser, only the analysis of it is.
+                        For the same reason you can't share uploads.
+                        The website praises your blueprint locally, and it doesn't need internet for that.
+                    </Typography>
+                    <Typography paragraph component='div'>
+                        But anyways, if you wish to take precautions, here are the instructions:
+                        <ol>
+                            <li>
+                                Open the website, and give it 5-10 seconds to load fully.
+                                In console (F12 -> Console) it should say "Praisal Manager initialized, now it's ready to praise uploads."
+                            </li>
+                            <li>Unplug the internet</li>
+                            <li>Upload your blueprint</li>
+                            <li>
+                                When you're done, delete the analysis of your blueprint.
+                                Or delete the whole localStorage (F12 -> Storage -> Application -> Local Storage -> [url] -> right click & "Clear")
+                            </li>
+                            <li>Close the website</li>
+                            <li>Plug back internet</li>
+                        </ol>
+                    </Typography>
+                </FaqItem>
+                <FaqItem no={2} title='What filters exactly are under "Any ship, vanilla"?'>
                     <Typography paragraph component='div'>
                         To be specific, here's the full list of filter that defines what "Any ship, vanilla" is:
                         <ul>
@@ -50,7 +80,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                         Except, the vanilla filter is used because SEPraisal doesn't support modded blocks, yet.
                     </Typography>
                 </FaqItem>
-                <FaqItem no={2} title='What filters exactly are under "Fighter, vanilla"?'>
+                <FaqItem no={3} title='What filters exactly are under "Fighter, vanilla"?'>
                     <Typography paragraph component='div'>
                         To be specific, here's the full list of filter that defines what "Figher, vanilla" is:
                         <ol>
@@ -75,7 +105,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                             by first 1-7 criteria and keywords like "fighter" and similar.
                     </Typography>
                 </FaqItem>
-                <FaqItem no={3} title='How much blueprints does SE-Praisal have?'>
+                <FaqItem no={4} title='How much blueprints does SE-Praisal have?'>
                     <Typography paragraph>
                         SE-Praisal has 99,999 blueprints and growing (updated Feb 29, 2020), minus few hundred with errors -
                             missing or corrupt blueprint inside workshop file,
@@ -83,7 +113,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                             and misc technical problems.
                     </Typography>
                 </FaqItem>
-                <FaqItem no={4} title='How often SEPraisal is updated?'>
+                <FaqItem no={5} title='How often SEPraisal is updated?'>
                     <Typography paragraph>
                         Four times a day SEPraisal adds all new browse-able blueprints to it's database.
                     </Typography>
@@ -91,7 +121,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                         Once in a week SEPraisal updates each blueprint.
                     </Typography>
                 </FaqItem>
-                <FaqItem no={5} title='Does SE-Praisal has all blueprints?'>
+                <FaqItem no={6} title='Does SE-Praisal has all blueprints?'>
                     <Typography paragraph>
                         Yes, sort of.
                     </Typography>
@@ -116,7 +146,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
                         Because of that one may joke that SEPraisal has more than all blueprints :)
                     </Typography>
                 </FaqItem>
-                <FaqItem no={6} title='Can I use your data for my research?'>
+                <FaqItem no={7} title='Can I use your data for my research?'>
                     <Typography paragraph>
                         Most likely yes, please contact Akuukis and let's talk!
                     </Typography>
