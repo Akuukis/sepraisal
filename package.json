@@ -44,8 +44,7 @@
         "tslint-react": "^4.0.0",
         "tslint-sonarts": "^1.9.0",
         "typescript": "^3.8.3",
-        "typescript-tslint-plugin": "^0.5.5",
-        "weak": "^1.0.1"
+        "typescript-tslint-plugin": "^0.5.5"
     },
     "workspaces": [
         "workspaces/*"
