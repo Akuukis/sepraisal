@@ -3,14 +3,6 @@
     "extends": "./tsconfig-common.json",
     // No files or includes specified: linter will lint everything.
     "compilerOptions": {
-        "plugins": [
-            {
-                "name": "typescript-tslint-plugin",
-                "alwaysShowRuleFailuresAsWarnings": true,
-                "ignoreDefinitionFiles": true,
-                "suppressWhileTypeErrorsPresent": true
-            }
-        ],
         "baseUrl": "./",
         "composite": false,
         "declarationMap": false,
