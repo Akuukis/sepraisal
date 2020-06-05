@@ -54,12 +54,9 @@ jobs:
       if: steps.libs.outputs.cache-hit != 'true'
       run: yarn build --verbose
 
-    - name: Test Praisal
-      working-directory: ./workspaces/praisal
-      run: yarn test:coverage
-
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
+    - name: Test Praisal & report coverage
+      uses: paambaati/codeclimate-action@v2.6.0
+      env:
+        CC_TEST_REPORTER_ID: 73ce349159b6e9697d0c0a094ee7ee7e812762200f48696fba8eae814183d5fd
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./workspaces/praisal/coverage/lcov.info
+        coverageCommand: yarn test:coverage
