@@ -61,3 +61,14 @@ jobs:
         CC_TEST_REPORTER_ID: 73ce349159b6e9697d0c0a094ee7ee7e812762200f48696fba8eae814183d5fd
       with:
         coverageCommand: yarn test:coverage
+
+
+  editor-config:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Lint EditorConfig
+      uses: greut/eclint-action@v0

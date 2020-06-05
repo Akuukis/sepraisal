@@ -64,7 +64,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Grid item xs container justify='center' className={classes.bottom}>
                 <Grid item xs={12} sm={6} md={4} xl={3}>
                     <Browse />
-               </Grid>
+                </Grid>
                 <Grid item xs={12} sm={6} md={4} xl={3}>
                     <Analyse />
                 </Grid>

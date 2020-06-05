@@ -10,7 +10,7 @@ assignees: ''
 <!--
 Please replace the placeholder text in the template below.
 Feel free to leave blank sections you don't know, but it helps a lot to have everything.
- -->
+-->
 
 ### Summary
 <!-- A clear and concise one sentence of what the bug is (it's ok to have title the same).-->
@@ -29,9 +29,9 @@ Feel free to leave blank sections you don't know, but it helps a lot to have eve
 <!-- If applicable, add screenshots to help explain your problem. -->
 
 ### Your Device (please complete the following information):
- - OS: [e.g. Windows, iOS, etc.]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+- OS: [e.g. Windows, iOS, etc.]
+- Browser [e.g. chrome, safari]
+- Version [e.g. 22]
 
 ### Additional context
 <!-- Add any other context about the problem here. -->

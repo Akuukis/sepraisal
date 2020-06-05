@@ -70,14 +70,14 @@ Depending on order choice, we can more or less easily narrow down to the bluepri
 Does this line of thought makes sense?
 
 1. TSR:
-   1. Which type do you want? [ship]
-   2. Which size of it do you want? [small]
-   3. Which role of it do you want? [fighter]
+    1. Which type do you want? [ship]
+    2. Which size of it do you want? [small]
+    3. Which role of it do you want? [fighter]
 
 2. TRS:
-   1. Which type do you want? [ship]
-   2. Which role of it do you want? [fighter]
-   3. Which size of it do you want? [amm.. aren't all fighters small?]
+    1. Which type do you want? [ship]
+    2. Which role of it do you want? [fighter]
+    3. Which size of it do you want? [amm.. aren't all fighters small?]
 
 At least for me, in both cases Type-Size-Role feels better than Type-Role-Size.
 So let's roll with it.
@@ -101,13 +101,13 @@ Second type is a **Car**.
 I put it seperately instead of having a joint **Vehicle** type because **Car** subtypes intuitively differ from **Ship** subtypes.
 But nevertheless, having **Car** separate is tricky for two reasons:
 1. Not straight-forward to classify.
-   As ships don't need wheels, we could easily classify blueprints as cars by checking whether they have wheel suspensions.
-   But what about mechs (and others) that don't have wheel suspensions?
-   But what about ships that for some reason do have wheel suspensions?
-   It surely will lead to misclassification, but it is better to start with something and then figure out how to improve on that.
+    As ships don't need wheels, we could easily classify blueprints as cars by checking whether they have wheel suspensions.
+    But what about mechs (and others) that don't have wheel suspensions?
+    But what about ships that for some reason do have wheel suspensions?
+    It surely will lead to misclassification, but it is better to start with something and then figure out how to improve on that.
 2. Not sure where to put blueprints like [Adventurer](steamcommunity.com/sharedfiles/filedetails/?id=875117366).
-   Are they wheeled-ships or flying cars?
-   These cases are ambigious, although not many.
+    Are they wheeled-ships or flying cars?
+    These cases are ambigious, although not many.
 
 Third type is a **Building**.
 At first it seems easy - just take static grids and voilà.
@@ -158,8 +158,7 @@ But 2 options is not enough.
 
 I can also show you how NOT to create classes: select a magic number of block amount or something else.
 This is a lazy category thinking.
-To make a category one would do a research about clusters of stuff and select numbers based on that research,
-  like [I did with fighters here](./fighters).
+To make a category one would do a research about clusters of stuff and select numbers based on that research, like [I did with fighters here](./fighters).
 But we are creating classes that can provide a "YES" or "NO" answers to criteria, like small or large grid.
 So, what other critearia do we have?
 

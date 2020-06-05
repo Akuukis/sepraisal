@@ -9,7 +9,7 @@ app.use(cors({credentials: true, origin: true}))
 
 // The HelloWorld
 app.get('/', (req, res) => {
-  res.send('Space Engineers Praisal database API.')
+    res.send('Space Engineers Praisal database API.')
 })
 
 app.get('/hello', (req, res) => {
@@ -47,5 +47,5 @@ app.get('/hello', (req, res) => {
 const port = 'PORT' in process.env ? Number(process.env.PORT) : 3000
 
 app.listen(port, () => {
-  console.info(`App listening on http://localhost:${port}`)
+    console.info(`App listening on http://localhost:${port}`)
 })

@@ -141,16 +141,16 @@ export const MY_LIGHT_THEME = createMuiTheme({
     spacing: SPACING,
 
     /**
-     * 10px = 0.625rem
-     * 12px = 0.75rem
-     * 14px = 0.875rem
-     * 16px = 1rem (base)
-     * 18px = 1.125rem
-     * 20px = 1.25rem
-     * 24px = 1.5rem
-     * 30px = 1.875rem
-     * 32px = 2rem
-     */
+    * 10px = 0.625rem
+    * 12px = 0.75rem
+    * 14px = 0.875rem
+    * 16px = 1rem (base)
+    * 18px = 1.125rem
+    * 20px = 1.25rem
+    * 24px = 1.5rem
+    * 30px = 1.875rem
+    * 32px = 2rem
+    */
     typography: {
         // Reserved: not visible because button's active state signals current page.
         h1: {},

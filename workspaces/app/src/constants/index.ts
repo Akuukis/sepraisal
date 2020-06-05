@@ -1,10 +1,10 @@
 export enum ROUTE {
-  HOME = '/',
-  ANALYSE = '/analyse',
-  BROWSE = '/browse',
-  COMPARE = '/compare',
-  BLOG = '/blog',
-  INFO = '/info',
+    HOME = '/',
+    ANALYSE = '/analyse',
+    BROWSE = '/browse',
+    COMPARE = '/compare',
+    BLOG = '/blog',
+    INFO = '/info',
 }
 
 export enum PROVIDER {

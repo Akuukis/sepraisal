@@ -148,66 +148,66 @@ const getVolumeAmmo = (blockMap: IBlueprint.ISbc['blocks']) => blocks(blockMap).
 const getVolumeMissile = (blockMap: IBlueprint.ISbc['blocks']) => blocks(blockMap).reduce((sum, block) => sum + (STORAGE_MISSILE[block.type] || 0) * block.amount, 0)
 
 const STORAGE_OXYGEN = {
-  "OxygenTank/": 100000,
-  "OxygenTank/OxygenTankSmall": 50000,
-  "Cockpit/LargeBlockCockpit": 60,
-  "Cockpit/SmallBlockCockpit": 60,
-  "Cockpit/DBSmallBlockFighterCockpit": 60,
+    "OxygenTank/": 100000,
+    "OxygenTank/OxygenTankSmall": 50000,
+    "Cockpit/LargeBlockCockpit": 60,
+    "Cockpit/SmallBlockCockpit": 60,
+    "Cockpit/DBSmallBlockFighterCockpit": 60,
 } as const
 
 const STORAGE_HYDROGEN = {
-  "OxygenTank/LargeHydrogenTank": 5000000,
-  "OxygenTank/SmallHydrogenTank": 160000,
-  "OxygenTank/LargeHydrogenTankSmall": 350000,
-  "OxygenTank/SmallHydrogenTankSmall": 7000,
+    "OxygenTank/LargeHydrogenTank": 5000000,
+    "OxygenTank/SmallHydrogenTank": 160000,
+    "OxygenTank/LargeHydrogenTankSmall": 350000,
+    "OxygenTank/SmallHydrogenTankSmall": 7000,
 } as const
 
 const STORAGE_ANY = {
-  "CargoContainer/SmallBlockSmallContainer": 125,
-  "CargoContainer/SmallBlockMediumContainer": 3375,
-  "CargoContainer/SmallBlockLargeContainer": 15625,
-  "CargoContainer/LargeBlockSmallContainer": 15625,
-  "CargoContainer/LargeBlockLargeContainer": 421875,
-  "Collector/Collector": 1575,
-  "Collector/CollectorSmall": 1575,
-  "ShipConnector/Connector": 8000,
-  "ShipConnector/ConnectorMedium": 1152,
+    "CargoContainer/SmallBlockSmallContainer": 125,
+    "CargoContainer/SmallBlockMediumContainer": 3375,
+    "CargoContainer/SmallBlockLargeContainer": 15625,
+    "CargoContainer/LargeBlockSmallContainer": 15625,
+    "CargoContainer/LargeBlockLargeContainer": 421875,
+    "Collector/Collector": 1575,
+    "Collector/CollectorSmall": 1575,
+    "ShipConnector/Connector": 8000,
+    "ShipConnector/ConnectorMedium": 1152,
 } as const
 
 const STORAGE_MISC = {
-  "InteriorTurret/LargeInteriorTurret": 384,
-  "Refinery/LargeRefinery": 7500,
-  "Refinery/Blast Furnace": 4000,
-  "Assembler/LargeAssembler": 4000,
-  "Assembler/BasicAssembler": 2000,
-  "SurvivalKit/SurvivalKitLarge": 2000,
-  "SurvivalKit/SurvivalKit": 1000,
-  "ShipGrinder/LargeShipGrinder": 31250,
-  "ShipGrinder/SmallShipGrinder": 6750,
-  "ShipWelder/LargeShipWelder": 31250,
-  "ShipWelder/SmallShipWelder": 6750,
+    "InteriorTurret/LargeInteriorTurret": 384,
+    "Refinery/LargeRefinery": 7500,
+    "Refinery/Blast Furnace": 4000,
+    "Assembler/LargeAssembler": 4000,
+    "Assembler/BasicAssembler": 2000,
+    "SurvivalKit/SurvivalKitLarge": 2000,
+    "SurvivalKit/SurvivalKit": 1000,
+    "ShipGrinder/LargeShipGrinder": 31250,
+    "ShipGrinder/SmallShipGrinder": 6750,
+    "ShipWelder/LargeShipWelder": 31250,
+    "ShipWelder/SmallShipWelder": 6750,
 }
 
 const STORAGE_ORE = {
-  "Drill/LargeBlockDrill": 23437.50,
-  "Drill/SmallBlockDrill": 3375,
+    "Drill/LargeBlockDrill": 23437.50,
+    "Drill/SmallBlockDrill": 3375,
 }
 
 const STORAGE_ICE = {
-  "OxygenGenerator/": 4000,
-  "OxygenGenerator/OxygenGeneratorSmall": 1000,
+    "OxygenGenerator/": 4000,
+    "OxygenGenerator/OxygenGeneratorSmall": 1000,
 }
 
 const STORAGE_AMMO = {
-  "LargeGatlingTurret/": 384,
-  "LargeGatlingTurret/SmallGatlingTurret": 84,
-  "SmallGatlingGun/": 64,
+    "LargeGatlingTurret/": 384,
+    "LargeGatlingTurret/SmallGatlingTurret": 84,
+    "SmallGatlingGun/": 64,
 }
 
 const STORAGE_MISSILE = {
-  "LargeMissileTurret/": 384,
-  "LargeMissileTurret/SmallMissileTurret": 120,
-  "SmallMissileLauncher/": 240,
-  "SmallMissileLauncher/LargeMissileLauncher": 1140,
-  "SmallMissileLauncherReload/SmallRocketLauncherReload": 240,
+    "LargeMissileTurret/": 384,
+    "LargeMissileTurret/SmallMissileTurret": 120,
+    "SmallMissileLauncher/": 240,
+    "SmallMissileLauncher/LargeMissileLauncher": 1140,
+    "SmallMissileLauncherReload/SmallRocketLauncherReload": 240,
 }

@@ -9,25 +9,25 @@ SEPraisal Crawler populates a database with praisals, that's served by [SEPraisa
 Command Line Interface performs all backend functions. They perform one of the steps in the blueprint pipeline. To track status of blueprint a virtual properties is derived: `status`. Below at first indent are `status` possible values, and at second indent are reasons why blueprint is in given status. The order matters at both levels, and `status` value is the first value with truthy reason.
 
 1. `pendingScrape`: Scrape Steam page for meta (version, mods, collections, and various stats).
-   - `initial`: hasn't been scraped at all.
-   - `outdated`: scraped with older version of algorithm.
-   - `stale`: hasn't been scraped for a week.
-   - `error`: tried to scrape but got error.
+    - `initial`: hasn't been scraped at all.
+    - `outdated`: scraped with older version of algorithm.
+    - `stale`: hasn't been scraped for a week.
+    - `error`: tried to scrape but got error.
 2. `pendingThumb`: Download and put into cache thumbnail of mod.
-   - `initial`: doesn't have a thumb.
-   - `outdated`: thumbed with older version of algorithm.
-   - `stale`: is known to have newer thumb but thumb not updated yet.
-   - `error`: tried to thumb but got error.
+    - `initial`: doesn't have a thumb.
+    - `outdated`: thumbed with older version of algorithm.
+    - `stale`: is known to have newer thumb but thumb not updated yet.
+    - `error`: tried to thumb but got error.
 3. `pendingPraise`: Praise Blueprint (grids, blocks, ingots, ores - grouped and summarized).
-   - `initial`: doesn't have the praisal.
-   - `outdated`: thumbed with older version of algorithm.
-   - `stale`: is known to have newer sbc but praisal is not updated yet.
-   - `error`: tried to praise but got error.
+    - `initial`: doesn't have the praisal.
+    - `outdated`: thumbed with older version of algorithm.
+    - `stale`: is known to have newer sbc but praisal is not updated yet.
+    - `error`: tried to praise but got error.
 4. `pendingClass`: Categorize Blueprint against classes and sub-classes.
-   - `initial`: doesn't have classes.
-   - `outdated`: classified with older version of algorithm *or* against previous era.
-   - `stale`: is known to have changed but classes are not updated yet.
-   - `error`: tried to classify but got error.
+    - `initial`: doesn't have classes.
+    - `outdated`: classified with older version of algorithm *or* against previous era.
+    - `stale`: is known to have changed but classes are not updated yet.
+    - `error`: tried to classify but got error.
 5. `ok`: nothing to do.
 
 
@@ -71,9 +71,9 @@ PATH=/bin:/usr/bin:/usr/games/:/usr/local/bin/
 
 # Run scripts in order: info, discover, scrape, thumbnail, cache, praise.
 # If run that often, they shouldn't have much to do.
- 0 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 0 >> out-0.log 2>> err-0.log < /dev/null)
- 2 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 1 >> out-1.log 2>> err-1.log < /dev/null)
- 5 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 2 >> out-2.log 2>> err-2.log < /dev/null)
+0  */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 0 >> out-0.log 2>> err-0.log < /dev/null)
+2  */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 1 >> out-1.log 2>> err-1.log < /dev/null)
+5  */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 2 >> out-2.log 2>> err-2.log < /dev/null)
 25 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 3 >> out-3.log 2>> err-3.log < /dev/null)
 30 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 4 >> out-4.log 2>> err-4.log < /dev/null)
 45 */6 * * * (cd sepraisal/workspaces/crawler && timeout 5h yarn launch 5 >> out-5.log 2>> err-5.log < /dev/null)

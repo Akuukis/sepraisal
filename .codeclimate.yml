@@ -1,5 +1,3 @@
 plugins:
-  editorconfig:
-    enabled: false
   fixme:
     enabled: false

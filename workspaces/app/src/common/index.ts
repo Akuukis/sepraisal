@@ -30,8 +30,8 @@ export type GridSizeColumns = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
 type NumberAlike = string | number | BigNumber
 /**
- * Always give a valid number, and never ever give more than 4 decimals.
- */
+* Always give a valid number, and never ever give more than 4 decimals.
+*/
 const addThousandSeperators = (value: string, seperator = '\u2009', recursive = 4): string => {
     const oneCommaMore = value.toString().replace(/.*(?:\d\d|^\d)(?=(\d{3}))/g, `$&${seperator}`)
 
@@ -46,13 +46,13 @@ export const formatDecimal = (amount: NumberAlike, dp: number = 0): string => {
 }
 
 /**
- * - `499` -> `499`
- * - `500` -> `0.5k`
- * - `9999` -> `9.9k`
- * - `10000` -> `10k`
- * - `499999` -> `499k`
- * - `500000` -> `0.5m`
- */
+* - `499` -> `499`
+* - `500` -> `0.5k`
+* - `9999` -> `9.9k`
+* - `10000` -> `10k`
+* - `499999` -> `499k`
+* - `500000` -> `0.5m`
+*/
 export const formatFloat = (amount: NumberAlike, wholeNumbers = true): string => {
     const raw = new BigNumber(amount)
     let scaled: BigNumber
@@ -149,12 +149,12 @@ export const linkCollectionProps = (id: string | number) => linkProps(linkCollec
 
 
 /**
- * As hacky for material-ui paper shadows as it can be: don't use elsewhere!
- *
- * Example (elevation 16):
- *     IN: "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)"
- *     OUT: 
- */
+* As hacky for material-ui paper shadows as it can be: don't use elsewhere!
+*
+* Example (elevation 16):
+*     IN: "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)"
+*     OUT: 
+*/
 export const dropShadowFromBoxShadow = (css: string): string => {
     const boxShadows = css.match(/(\w+ \S+ \S+ \S+ \S+?\))/g) as string[]
     const dropShadows = boxShadows.map((boxShadow) => {

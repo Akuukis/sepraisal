@@ -473,7 +473,7 @@ Object {
     "Forward": "Forward",
     "Up": "Up",
   },
-  "sizeMB": 0.14,
+  "sizeMB": 0.13,
   "thrustAtmospheric": Object {
     "Forward": 7128000,
   },
