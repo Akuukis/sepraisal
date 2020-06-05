@@ -163,9 +163,9 @@ sudo -u steam mkdir -p /home/steam/.steam
 ```
 
 
-### Script `categorize.ts`
+### Script `categorize.ts` **OUTDATED**
 
-*TL;DR*: Create categories using Big Data of 25k+ blueprints, R language and pragmatic common sense.
+*TL;DR*: Create categories using Big Data of 100k+ blueprints, R language and pragmatic common sense.
 
 There's 3 things
 
