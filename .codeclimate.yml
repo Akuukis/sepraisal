@@ -1,0 +1,5 @@
+plugins:
+  editorconfig:
+    enabled: true
+  fixme:
+    enabled: true
