@@ -3,7 +3,7 @@
         "tslint:all",
         "tslint-sonarts"
     ],
-   "rulesDirectory": [
+    "rulesDirectory": [
         "tslint-consistent-codestyle",
         "node_modules/tslint-clean-code/dist/src"
     ],

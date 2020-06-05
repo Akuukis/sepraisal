@@ -7,16 +7,16 @@ import scrapeIt from 'scrape-it'
 // tslint:disable:object-literal-sort-keys member-ordering max-line-length
 
 /**
- * For first run, use `TYPE = 'totaluniquesubscribers'` and `MAX_PAGES = 1670`.
- * For second run, use `TYPE = 'mostrecent'` and `MAX_PAGES = 1670`.
- * Afterwards leave to `TYPE = 'mostrecent'` and `MAX_PAGES = 10` to run regularly.
- *
- * Notes:
- * 1. Mongo free 512MB is too small for infinite blueprints. For 512MB database I recommend to
- * regularly run only 500-700 pages of 'totaluniquesubscribers' only, and at 3kb thumbs (see 3rd script).
- * 2. In 2019 Q4, it's 2-5 pages of new blueprint per day.
- * 3. Note steam sorting algorithm - it works but it's not perfect!
- */
+* For first run, use `TYPE = 'totaluniquesubscribers'` and `MAX_PAGES = 1670`.
+* For second run, use `TYPE = 'mostrecent'` and `MAX_PAGES = 1670`.
+* Afterwards leave to `TYPE = 'mostrecent'` and `MAX_PAGES = 10` to run regularly.
+*
+* Notes:
+* 1. Mongo free 512MB is too small for infinite blueprints. For 512MB database I recommend to
+* regularly run only 500-700 pages of 'totaluniquesubscribers' only, and at 3kb thumbs (see 3rd script).
+* 2. In 2019 Q4, it's 2-5 pages of new blueprint per day.
+* 3. Note steam sorting algorithm - it works but it's not perfect!
+*/
 const TYPE = 'mostrecent'
 const MAX_PAGES = 10  // MAX is 1670 due how steam workshop works.
 const SKIP_PAGES = 0

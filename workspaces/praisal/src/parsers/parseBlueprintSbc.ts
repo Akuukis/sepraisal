@@ -72,4 +72,3 @@ export const parseBlueprintSbc = async (xml: string, mod: VENDOR_MOD): Promise<I
             }
         })
     })
-

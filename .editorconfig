@@ -1,19 +1,92 @@
-
-
 # EditorConfig is awesome: https://EditorConfig.org
-
-# top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
-[*]
+
+## Defaults
+[**]
 end_of_line = lf
 insert_final_newline = true
-
-# Matches multiple files with brace expansion notation
-# Set default charset
 charset = utf-8
-
-# 4 space indentation
 indent_style = space
 indent_size = 4
+
+[**.yml]
+indent_size = 2
+
+
+
+
+## Ignore some checked in paths.
+
+[LICENSE]
+indent_style = unset
+indent_size = unset
+
+[yarn.lock]
+indent_style = unset
+indent_size = unset
+
+[**/__snapshots__/**]
+indent_style = unset
+indent_size = unset
+
+[workspaces/praisal/vendor/**]
+indent_style = unset
+indent_size = unset
+
+[workspaces/app/src/types/react-table.d.ts]
+indent_style = unset
+indent_size = unset
+
+## Ignore some temporary paths.
+
+[**/node_modules/**]
+indent_style = unset
+indent_size = unset
+end_of_line = unset
+insert_final_newline = unset
+charset = unset
+
+[**/build/**]
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+
+[**/lib/**]
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+
+[**/dist/**]
+indent_style = unset
+indent_size = unset
+charset = unset
+
+[**/coverage/**]
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+
+[**/tmp/**]
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+
+[**/.webpack/**]
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+
+[**/.serverless/**]
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset
+
+[**.log]
+indent_style = unset
+indent_size = unset
+
+[**.tsbuildinfo]
+indent_style = unset
+indent_size = unset
+insert_final_newline = unset

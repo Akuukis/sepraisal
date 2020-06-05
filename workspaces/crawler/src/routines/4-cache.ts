@@ -23,11 +23,11 @@ const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
 const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '244850')
 
 /**
- * Normalize various steam workshop item formats into a unified "SEPraisal Cache" format.
- *
- * "SEPraisal Cache" is a zip archive with only one file inside that contains an unmodified blueprint, called `bp.sbc`.
- *
- */
+* Normalize various steam workshop item formats into a unified "SEPraisal Cache" format.
+*
+* "SEPraisal Cache" is a zip archive with only one file inside that contains an unmodified blueprint, called `bp.sbc`.
+*
+*/
 const fromSteamtoCache = (doc: IProjection) => {
     const blueprintDir = join(steamDownloadsDir, String(doc._id))
 

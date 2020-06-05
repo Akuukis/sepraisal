@@ -115,26 +115,26 @@ const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
 }
 
 /**
- * Create and edit a valid MongoDB find() querry using Filter controls.
- *
- * Goals:
- * - Editable by form controls
- * - Editable directly by User with minimally limited MongoDB syntax freedom.
- * - both changes are synced
- *
- * Restrictions:
- * - Valid MongoDB syntax as source of truth (so User can read it docs and do magic)
- * - top-level `$and` operator (it's just convenient for form controls)
- *
- * Form controls (a React component) adds, edits and removes criteria (a object within `$and` array).
- * One Form control may manage one criterion (e.g. "sbc.vanilla") or many criteria (e.g. "sbc.blocks.*").
-
- * Those criteria must have IDs so that Form control can find it within the `$and` array. There are two ways:
- * - when criterion has one-to-one relationship with a field, that field can be used as ID (e.g. "sbc.vanilla").
- * - when criterion has one-to-many relationship with multiple known fields as part of `$or` group,
- *   the list fields are sort alphabetically and concatenated using `,` seperator into a ID.
- * - NOT USED/SUPPORTED: when criterion has one-to-many relationship with changing amount of fields.
- */
+* Create and edit a valid MongoDB find() querry using Filter controls.
+*
+* Goals:
+* - Editable by form controls
+* - Editable directly by User with minimally limited MongoDB syntax freedom.
+* - both changes are synced
+*
+* Restrictions:
+* - Valid MongoDB syntax as source of truth (so User can read it docs and do magic)
+* - top-level `$and` operator (it's just convenient for form controls)
+*
+* Form controls (a React component) adds, edits and removes criteria (a object within `$and` array).
+* One Form control may manage one criterion (e.g. "sbc.vanilla") or many criteria (e.g. "sbc.blocks.*").
+*
+* Those criteria must have IDs so that Form control can find it within the `$and` array. There are two ways:
+* - when criterion has one-to-one relationship with a field, that field can be used as ID (e.g. "sbc.vanilla").
+* - when criterion has one-to-many relationship with multiple known fields as part of `$or` group,
+*   the list fields are sort alphabetically and concatenated using `,` seperator into a ID.
+* - NOT USED/SUPPORTED: when criterion has one-to-many relationship with changing amount of fields.
+*/
 export class QueryFindBuilder {
     static serializeId = (idOrIds: string | string[]) => {
         if(!Array.isArray(idOrIds)) return idOrIds

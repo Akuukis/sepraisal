@@ -70,8 +70,8 @@ export abstract class AbstractAnalyticsStore {
     // public abstract push(args: ['trackPageView' | 'trackEvent' | 'trackSiteSearch', string?, string?, (string | number)?])
 
     /**
-     * Adds a page view for the given location
-     */
+    * Adds a page view for the given location
+    */
     public trackView(location: Location | {path: string} | Location & {basename: string}) {
         let currentPath: string
 
@@ -114,10 +114,10 @@ export abstract class AbstractAnalyticsStore {
     }
 
     /**
-     * Tracks occurring javascript errors as a `JavaScript Error` piwik event.
-     *
-     * @see http://davidwalsh.name/track-errors-google-analytics
-     */
+    * Tracks occurring javascript errors as a `JavaScript Error` piwik event.
+    *
+    * @see http://davidwalsh.name/track-errors-google-analytics
+    */
     // tslint:disable: max-func-args
     public trackError(event: Event | string, source?: string, lineno?: number, colno?: number, error?: Error): void
     public trackError(errorEvent: ErrorEvent, eventName?: string): void

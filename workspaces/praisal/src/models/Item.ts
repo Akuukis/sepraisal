@@ -13,13 +13,13 @@ export interface IItemDTO {
 
 export class Item implements IItemDTO {
     /**
-     * TODO: Probably need to have seperate models but this is a quickfix.
-     */
+    * TODO: Probably need to have seperate models but this is a quickfix.
+    */
     public static readonly ITEM_TYPES: ['OxygenContainerObject', 'GasContainerObject', 'PhysicalGunObject', 'AmmoMagazine']
 
     /**
-     * BROKEN. TODO: Fix.
-     */
+    * BROKEN. TODO: Fix.
+    */
     public static async parseSbc(physicalItemsSbc: string, blueprintsSbc: string): Promise<Item[]> {
         const itemDtos1 = await parseBlueprintSbc(blueprintsSbc, VENDOR_MOD.VANILLA, /* , Item.ITEM_TYPES */)
         const itemDtos2 = await parsePhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA, /* , 'Ingot' */)

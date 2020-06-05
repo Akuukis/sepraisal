@@ -70,4 +70,3 @@ storiesOf('Analysis|By Parts', module)
             <RowIngotsOres width={12} bp={Aragath} />
         </Grid>
     ))
-

@@ -22,9 +22,9 @@ const styles = (theme: IMyTheme) => createStyles({
     material: {
     },
     noWrap: {
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap'
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap'
     },
 })
 

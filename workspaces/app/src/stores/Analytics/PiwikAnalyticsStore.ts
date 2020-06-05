@@ -160,28 +160,28 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
     }
 
     /*
-     * Pushes the specified args to the piwik tracker.
-     * You can use this method as the low-level api to call methods from the piwik API or call custom functions
-     *
-     * @see https://developer.piwik.org/guides/tracking-javascript-guide
-     */
+    * Pushes the specified args to the piwik tracker.
+    * You can use this method as the low-level api to call methods from the piwik API or call custom functions
+    *
+    * @see https://developer.piwik.org/guides/tracking-javascript-guide
+    */
     protected push(args: unknown[]) {
         window['_paq'].push(args)
     }
 
     /**
-     * Sets a user ID to the piwik tracker.
-     * This method can be used after PiwikReactRouter is instantiated, for example after a user has logged in
-     *
-     * @see https://developer.piwik.org/guides/tracking-javascript-guide#user-id
-     */
+    * Sets a user ID to the piwik tracker.
+    * This method can be used after PiwikReactRouter is instantiated, for example after a user has logged in
+    *
+    * @see https://developer.piwik.org/guides/tracking-javascript-guide#user-id
+    */
     public setUserId(userId: string | number) {
         window._paq.push(['setUserId', userId])
     }
 
     /**
-     * Adds a page view for the given location
-     */
+    * Adds a page view for the given location
+    */
     public trackView(location: Location | {path: string} | Location & {basename: string}, documentTitle = document.title) {
         if (this.updateDocumentTitle) this.push(['setDocumentTitle', documentTitle])
         super.trackView(location)

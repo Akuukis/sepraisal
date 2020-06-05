@@ -49,16 +49,16 @@ export namespace IBlueprint {
 
     interface IProp {
         /**
-         * Info may be outdated because of newer data model (relative to hardcoded values in code).
-         */
+        * Info may be outdated because of newer data model (relative to hardcoded values in code).
+        */
         _version: number,
         /**
-         * Blueprint may have changed (relative to `steamData._thumbName` or `steamData.revision`).
-         */
+        * Blueprint may have changed (relative to `steamData._thumbName` or `steamData.revision`).
+        */
         _revision: number | string | null,
         /**
-         * Info may be non-abtainable due error that implies it's pointless to try again.
-         */
+        * Info may be non-abtainable due error that implies it's pointless to try again.
+        */
         _error?: number,  // Version at which it happened. Try again with newer versions.
         _errorDetails?: string,  // Human-readable details. Helps to debug.
     }
@@ -148,8 +148,8 @@ export namespace IBlueprint {
 
     export interface IMaterialGroup {
         /**
-         * Excludes blocks with missing definitions. See also `blockCountTotal`.
-         */
+        * Excludes blocks with missing definitions. See also `blockCountTotal`.
+        */
         blockCount: number,
         blockMass: number,
         blockPCU: number,
@@ -201,8 +201,8 @@ export namespace IBlueprint {
         missingDefinitions: IDefinitions,
         missingDefinitionsCount: number,
         /**
-         * Includes blocks with missing definitions. See also `blockCount`.
-         */
+        * Includes blocks with missing definitions. See also `blockCount`.
+        */
         blockCountTotal: number,
 
         orientation: IOrientation,

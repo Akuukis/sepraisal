@@ -21,4 +21,3 @@ export abstract class AbstractBpClass<TTitle extends string = string, TParent ex
         }
     }
 }
-
