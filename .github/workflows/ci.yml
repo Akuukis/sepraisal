@@ -45,9 +45,11 @@ jobs:
         path: |
           **/lib
           **/*.tsbuildinfo
-        key: ${{ runner.os }}-lib-${{ hashFiles('**/src') }}
+        key: ${{ runner.os }}-${{ matrix.node-version }}-lib-${{ hashFiles('**/tsconfig.json') }}-${{ hashFiles('**/src') }}
         restore-keys: |
-          ${{ runner.os }}-lib-
+          ${{ runner.os }}-${{ matrix.node-version }}-lib-${{ hashFiles('**/tsconfig.json') }}-
+          ${{ runner.os }}-${{ matrix.node-version }}-lib-
 
     - name: Build All
+      if: steps.libs.outputs.cache-hit != 'true'
       run: yarn build --verbose
