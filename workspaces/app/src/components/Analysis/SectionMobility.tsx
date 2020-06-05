@@ -185,13 +185,13 @@ const averageThrust = (directions: Partial<Record<Direction, number>>) => {
     return total / 6
 }
 
-const speedToFixed = (speed: number | undefined, mass: number, toFixed: number = 2) => {
+const speedToFixed = (speed: number | undefined, mass: number, toFixed = 2) => {
     if(speed === undefined || speed === 0) return '-'
 
     return `${(speed / mass).toFixed(toFixed)}`
 }
 
-const gyros = (mass: number, gridSize: GridSize, blocks: Partial<Record<string, number>>, toFixed: number = 2) => {
+const gyros = (mass: number, gridSize: GridSize, blocks: Partial<Record<string, number>>, toFixed = 2) => {
     const result = blocks[gridSize === 'Small' ? 'Gyro/SmallBlockGyro' : 'Gyro/LargeBlockGyro']
     if(result === undefined) return '-'
 
@@ -202,7 +202,7 @@ const gyros = (mass: number, gridSize: GridSize, blocks: Partial<Record<string, 
     return result
 }
 
-const terminalVelocity = (mass: number, blocks: {'Parachute/LgParachute'?: number, 'Parachute/SmParachute'?: number}, toFixed: number = 1) => {
+const terminalVelocity = (mass: number, blocks: {'Parachute/LgParachute'?: number, 'Parachute/SmParachute'?: number}, toFixed = 1) => {
     const largeHatches = blocks['Parachute/LgParachute'] ?? 0
     const smallHatches = blocks['Parachute/SmParachute'] ?? 0
     if(largeHatches === 0 && smallHatches === 0) return '-'

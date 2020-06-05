@@ -39,7 +39,7 @@ const addThousandSeperators = (value: string, seperator = '\u2009', recursive = 
 }
 
 
-export const formatDecimal = (amount: NumberAlike, dp: number = 0): string => {
+export const formatDecimal = (amount: NumberAlike, dp = 0): string => {
     const bn = new BigNumber(amount)
 
     return addThousandSeperators(bn.toFixed(dp))

@@ -5,7 +5,7 @@ import { join } from 'path'
 declare interface IWindowWithPiwik extends Window {
     _paq: unknown[][]
 }
-declare var window: IWindowWithPiwik & typeof globalThis
+declare let window: IWindowWithPiwik & typeof globalThis
 
 const noop = () => undefined
 

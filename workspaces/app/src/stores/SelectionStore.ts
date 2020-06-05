@@ -9,7 +9,7 @@ interface IItem {
 export class SelectionStore {
     // public readonly selected: IObservableArray<RequiredSome<IBlueprint, "sbc">> = observable([])
     public readonly selected: IObservableArray<string | number> = observable([])
-    @observable public narrow: boolean = false
+    @observable public narrow = false
     public readonly expanded = new ObservableMap<boolean>()
 
     @computed public get selectedItems(): IItem[] {

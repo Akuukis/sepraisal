@@ -92,9 +92,7 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         | 'collectionsCount'
         | 'DLCsCount'
         | 'modsCount'
-    interface IScrapeSteamData extends Omit<IFlagParam, IScrapeSteamDataOmits> {
-        // _id: number,
-    }
+    type IScrapeSteamData = Omit<IFlagParam, IScrapeSteamDataOmits>
 
     // tslint:disable-next-line:no-object-literal-type-assertion
     const {data: dataRaw} = await scrapeIt<IScrapeSteamData>(url, {

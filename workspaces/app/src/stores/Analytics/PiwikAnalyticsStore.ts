@@ -6,7 +6,7 @@ import { AbstractAnalyticsStore, IAnalyticsStoreOpts } from './AbstractAnalytics
 declare interface IWindowWithPiwik extends Window {
     _paq: unknown[][]
 }
-declare var window: IWindowWithPiwik & typeof globalThis
+declare let window: IWindowWithPiwik & typeof globalThis
 
 
 const getBaseUrl = (url: string) => {
@@ -88,10 +88,10 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
         // Listen to History.pushState
         // The same behavior as with SimpleAnalytics - https://github.com/simpleanalytics/scripts/blob/4ad5c1b6cb4c42ae2e483dc43a578e25399d53a4/src/default.js#L120-L137.
         if (Event && window.dispatchEvent && window.history ? window.history.pushState : null) {
-            var stateListener = (type: string) => {
-                var orig = window.history[type]
+            const stateListener = (type: string) => {
+                const orig = window.history[type]
                 return function(this: History) {
-                    var rv = orig.apply(this, arguments)
+                    const rv = orig.apply(this, arguments)
                     trackViewHandler(window.location)
                     return rv
                 }
