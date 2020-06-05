@@ -7,7 +7,7 @@
         "bootstrap": "yarn && lerna bootstrap",
         "build": "yarn run tsc -v && yarn run tsc -b tsconfig-src.json",
         "clean": "lerna exec --parallel -- yarn run clean",
-        "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
+        "lint": "eslint $(git ls-files '*.ts' '*.tsx' '*.js' '*.jsx')",
         "lint:fix": "yarn run lint --fix",
         "lint:summary": "yarn run lint --format compact | grep '(@' | grep ' - ' | sed -r 's/.* (\\w+ -) .*(\\(@.*)$/\\1 \\2/' | sort | uniq -c | sort -nr",
         "reinstall": "yarn run uninstall && yarn run bootstrap",
