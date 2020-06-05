@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  install-n-build:
+  install-build-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -53,3 +53,13 @@ jobs:
     - name: Build All
       if: steps.libs.outputs.cache-hit != 'true'
       run: yarn build --verbose
+
+    - name: Test Praisal
+      working-directory: ./workspaces/praisal
+      run: yarn test:coverage
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ./workspaces/praisal/coverage/lcov.info

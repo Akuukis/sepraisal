@@ -14,7 +14,7 @@ module.exports.globalConfig = {
         "text",
         "text-summary",
         // "json",
-        // "lcov",
+        "lcov",
         // "clover",
     ],
 }
