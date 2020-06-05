@@ -1,4 +1,5 @@
-/* eslint-disable */
+/* eslint-env node */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -96,7 +97,7 @@ module.exports = {
             favicon: path.join('static', 'favicon.ico'),
             template: path.join('static', 'index.html'),
         }),
-        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en-gb/),  // Leave out moment.js locales.
+        new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en-gb/),  // Leave out moment.js locales.
         new CopyWebpackPlugin({ patterns: [{
             from: path.join('static', 'articles', '**', '*.(png|jpg)'),
             to: 'blog',

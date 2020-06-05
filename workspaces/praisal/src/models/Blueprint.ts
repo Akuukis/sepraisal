@@ -1,6 +1,7 @@
 import { GridSize } from '@sepraisal/common'
 import { parseString } from 'xml2js'
 
+import { CubeType } from '../xmlns/CubeType'
 import { IBlueprintPrefabBlueprintDefinition } from '../xmlns/PrefabBlueprintDefinition'
 import { IBlueprintShipDefinition } from '../xmlns/ShipBlueprintDefinition'
 import { Block } from './Block'
@@ -34,7 +35,7 @@ export class Blueprint {
     }
 
     // Methods for analysis.
-    public get blockcount() {
+    public get blockcount(): [string, number][] {
         const blockcount = this.blocks
             .map((cubeBlock) => cubeBlock.title)
             .reduce<Record<string, number>>((blockcountMap, block) => {
@@ -46,30 +47,32 @@ export class Blueprint {
 
         return obj2mapArray(blockcount)
     }
-    public get blocks() { return this.grids.reduce((blocks: Block[], grid: Grid) => blocks.concat(grid.blocks), []) }
+    public get blocks(): Block<CubeType>[] { return this.grids.reduce((blocks: Block[], grid: Grid) => blocks.concat(grid.blocks), []) }
 
     public get count(): number { return this.blocks.length }
-    public get gridSize() {
+    public get gridSize(): GridSize {
         return this.gridSizes.reduce(
             (final, current) => final === current ? final : GridSize.MIXED,
             this.gridSizes[0] as GridSize,
         )
     }
 
-    public get gridSizes() { return this.grids.map((grid) => grid.gridSizeEnum) }
-    public get hasStaticGrid() { return this.grids.some((grid) => grid.isStatic) }
+    public get gridSizes(): ("Large" | "Small")[] { return this.grids.map((grid) => grid.gridSizeEnum) }
+    public get hasStaticGrid(): boolean { return this.grids.some((grid) => grid.isStatic) }
 
     public readonly cubeStore: Map<string, Cube>
     public displayName?: string
     public grids: Grid[]
     public ownerSteamId?: number
-    public rest: object
+    public rest: Record<string, unknown>
     public title: string
     public variant: 'prefab' | 'ship'
     public workshopId?: number
     public originalSize: number
 
+    /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */  // Bug in Eslint?
     public constructor(dto: Blueprint)
+    /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */  // Bug in Eslint?
     public constructor(dto: IBlueprintShipOrPrefab, originalSize: number, cubeStore: Map<string, Cube>)
     public constructor(dto: Blueprint | IBlueprintShipOrPrefab, originalSize?: number, cubeStore?: Map<string, Cube>) {
 
@@ -81,17 +84,17 @@ export class Blueprint {
             this.grids = dto.grids.map((grid) => new Grid(grid, this.cubeStore))
             this.rest = {...dto.rest}
         } else if(isPrefab(dto)) {
-            this.originalSize = originalSize!
-            this.cubeStore = cubeStore!
+            this.originalSize = originalSize!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
+            this.cubeStore = cubeStore!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
             this.variant = 'prefab'
             const {Id, CubeGrids, ...rest} = dto.Definitions.Prefabs[0].Prefab[0]
             this.title = Id[0].SubtypeId[0]
             this.grids = CubeGrids[0].CubeGrid
                 .map((gridDto) => new Grid(gridDto, this.cubeStore))
-            this.rest = rest
+            this.rest = rest as Record<string, any>  /* eslint-disable-line @typescript-eslint/no-explicit-any */  // TODO: better typing
         } else {
-            this.originalSize = originalSize!
-            this.cubeStore = cubeStore!
+            this.originalSize = originalSize!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
+            this.cubeStore = cubeStore!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
             this.variant = 'ship'
             const blueprint = dto.Definitions.ShipBlueprints[0].ShipBlueprint[0]
             const {Id, CubeGrids, DisplayName, WorkshopId, OwnerSteamId, ...rest} = blueprint
@@ -101,7 +104,7 @@ export class Blueprint {
             this.title = 'TypeId' in Id[0] ? Id[0].SubtypeId[0] : Id[0].$.Subtype
             this.grids = CubeGrids[0].CubeGrid
                 .map((gridDto) => new Grid(gridDto, this.cubeStore))
-            this.rest = rest
+            this.rest = rest as Record<string, any>  /* eslint-disable-line @typescript-eslint/no-explicit-any */  // TODO: better typing
         }
 
     }
@@ -122,8 +125,7 @@ export class Blueprint {
                             ...this.rest,
                         }],
                     }],
-                // tslint:disable-next-line: no-any
-                }} as any
+                }} as never
             case('ship'): return {
                 Definitions: {
                     $: {
@@ -141,8 +143,7 @@ export class Blueprint {
                         }],
                     }],
                 },
-                // tslint:disable-next-line: no-any
-            } as any
+            } as never
             default: throw new Error(`Passthrough: ${this.variant}`)
         }
 

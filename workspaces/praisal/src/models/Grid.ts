@@ -27,7 +27,7 @@ export class Grid {
 
 
     // Methods for analysis.
-    public get blockcount() {
+    public get blockcount(): [string, number][] {
         const blockcount = this.blocks
             .map((cubeBlock) => cubeBlock.title)
             .reduce((blockcountMap, block) => {
@@ -52,7 +52,7 @@ export class Grid {
     public readonly isStatic: boolean
     public readonly oxygenAmount: unknown
     public readonly persistentFlags: string[]
-    public readonly rest: object
+    public readonly rest: Record<string, unknown>
     private readonly cubeStore: Map<string, Cube>
 
     public constructor(dto: Grid | IBlueprintCubeGrid, cubeStore: Map<string, Cube>) {
@@ -100,7 +100,7 @@ export class Grid {
             this.isStatic = IsStatic ? IsStatic[0] === 'true' : false
             this.oxygenAmount = OxygenAmount
             this.persistentFlags = PersistentFlags[0].split(' ')
-            this.rest = rest
+            this.rest = rest as Record<string, any>  /* eslint-disable-line @typescript-eslint/no-explicit-any */  // TODO: better typing
         }
     }
 

@@ -19,7 +19,7 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
         return [...cubeBlocksSbcs.values()].map((cubeDto) => new Cube(cubeDto, componentStore, cubeDto.mod))
     }
 
-    public get title() { return `${String(this.type)}/${this.subtype}`}
+    public get title(): string { return `${String(this.type)}/${this.subtype}`}
     public readonly data: Omit<CubeDTO<T>, Omits>
     public readonly displayName: string
     public readonly gridSize: CubeBlockGridSize
@@ -108,7 +108,7 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
 
             ...this.data,
         // tslint:disable-next-line: no-any
-        } as any
+        } as never
     }
 
 }

@@ -2,21 +2,25 @@ import { DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
 import { Collection, IndexOptions, MongoClient } from 'mongodb'
 
 
-const recreateIndex = async (collection: Collection<IBlueprint>, fieldOrSpec: string | any, options: IndexOptions & {name: string}) => {
-    const indexName =  options.name
-    try {
-        await collection.dropIndex(indexName)
-        console.info(`Index "${indexName}" dropped.`)
-    } catch(err) {
-        if(err.codeName !== 'IndexNotFound') throw err
-        console.info(`Index "${indexName}" not found.`)
-    }
-    await collection.createIndex(fieldOrSpec, options)
-    console.info(`Index "${indexName}" created.`)
+const recreateIndex = async (
+        collection: Collection<IBlueprint>,
+        fieldOrSpec: string | Record<string, string | number>,
+        options: IndexOptions & {name: string},
+    ) => {
+        const indexName =  options.name
+        try {
+            await collection.dropIndex(indexName)
+            console.info(`Index "${indexName}" dropped.`)
+        } catch(err) {
+            if(err.codeName !== 'IndexNotFound') throw err
+            console.info(`Index "${indexName}" not found.`)
+        }
+        await collection.createIndex(fieldOrSpec, options)
+        console.info(`Index "${indexName}" created.`)
 }
 
 // Use connect method to connect to the server
-export const main = async () => {
+export const main = async (): Promise<void> => {
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Connected successfully to server')
     const db = client.db(DB_NAME)
@@ -42,7 +46,7 @@ export const main = async () => {
                 'sbc.gridTitle': 2,
                 'steam.description': 1,
             }
-        } as any)
+        } as any)  /* eslint-disable-line @typescript-eslint/no-explicit-any */  // TODO: Is that bad upstream types?
 
     // Snippet for pruning the database.
     // const deleted = await collection.deleteMany({'steam.subscriberCount': {$lt: 100}})

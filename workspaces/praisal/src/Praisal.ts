@@ -14,7 +14,9 @@ import { BlueprintBlockDirectionEnum } from './xmlns/BlueprintDefinition'
 import { CubeDTO } from './xmlns/CubeDefinition'
 import { CubeType } from './xmlns/CubeType'
 
-// tslint:disable: max-line-length no-non-null-assertion
+// TODO: Split this grown-too-big-god-class.
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 
 
 export type MaterialMap = ObservableMap<Component> | ObservableMap<Ingot> | ObservableMap<Ore> | ObservableMap<Cube>
@@ -26,7 +28,7 @@ export interface IAnalysisSources {
         ores: ObservableMap<Ore>
 }
 
-const getMaterialAll = (outerEntries: Array<[Cube | Component | Ingot, number]>, innerStore: MaterialMap): Record<string, number> => {
+const getMaterialAll = (outerEntries: Array<[Cube | Component | Ingot, number]>): Record<string, number> => {
     const struct = Object.create(null) as Record<string, number>
     for(const [material, outerCount] of outerEntries) {
         for(const [innerName, innerCount] of Object.entries(material.prerequisites)) {
@@ -95,7 +97,7 @@ export class Praisal {
     public get blockStruct() { return getMaterials(this.blockAll, this.cubeDefs) }
     public get blockTime()      { return this.blocks.reduce((sum, [material, count]) => sum + material.time * count, 0)}
     public get blockVolume()    { return this.blocks.reduce((sum, [material, count]) => sum + material.volume * count, 0)}
-    public get componentAll() { return getMaterialAll(this.blocks, this.cubeDefs) }
+    public get componentAll() { return getMaterialAll(this.blocks) }
 
     public get componentCount()  { return this.components.reduce((sum, [, count]) => sum + count, 0)}
     public get componentErrors() { return Object.entries(this.componentErrorsStruct) }
@@ -130,7 +132,7 @@ export class Praisal {
             rotated,
         }
     }
-    public get ingotAll() { return getMaterialAll(this.components, this.componentDefs) }
+    public get ingotAll() { return getMaterialAll(this.components) }
 
     public get ingotCount()  { return this.ingots.reduce((sum, [, count]) => sum + count, 0)}
     public get ingotErrors() { return Object.entries(this.ingotErrorsStruct) }
@@ -148,7 +150,7 @@ export class Praisal {
     }
 
     public get integritySpace() { return this.densitySpace((block) => block.integrity !== null ? block.integrity : 0) }
-    public get oreAll() { return getMaterialAll(this.ingots, this.ingotDefs) }
+    public get oreAll() { return getMaterialAll(this.ingots) }
 
     public get oreCount()  { return this.ores.reduce((sum, [, count]) => sum + count, 0)}
     public get oreErrors() { return Object.entries(this.oreErrorsStruct) }

@@ -49,7 +49,7 @@ export class Component implements IComponentDTO {
     }
 
 
-    public get title() { return `${this.type}/${this.subtype}`}
+    public get title(): string { return `${this.type}/${this.subtype}`}
 
     public readonly health: number
     public readonly mass: number  // kg.

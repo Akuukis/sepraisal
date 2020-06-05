@@ -41,7 +41,7 @@ export class Item implements IItemDTO {
     public readonly mass: number  // kg.
 
 
-    public get title() { return `${this.type}/${this.subtype}`}
+    public get title(): string { return `${this.type}/${this.subtype}`}
 
     public readonly prerequisites: Record<string, number>
     public readonly subtype: string

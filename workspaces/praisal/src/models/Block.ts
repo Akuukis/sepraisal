@@ -57,7 +57,7 @@ export class Block<T extends CubeType = CubeType> {
             const {$, SubtypeName, Min, BlockOrientation, ColorMaskHSV, ...rest} = dto
 
             this.type = $['xsi:type'].replace('MyObjectBuilder_', '') as T
-            this.subtype = SubtypeName[0]!
+            this.subtype = SubtypeName[0] ?? null
             this.title = `${String(this.type)}/${String(this.subtype)}`
             // tslint:disable-next-line: strict-boolean-expressions
             this.cube = cubeStore.get(this.title) || null
@@ -103,8 +103,7 @@ export class Block<T extends CubeType = CubeType> {
             }}],
             SubtypeName: [this.subtype],
             ...this.data,
-        // tslint:disable-next-line: no-any - TODO
-        } as any
+        } as never
     }
 
 }

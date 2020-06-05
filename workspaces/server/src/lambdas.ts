@@ -1,4 +1,4 @@
-import { DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
+import { DB_NAME, DB_URL, IBlueprint, RequiredSome } from '@sepraisal/common'
 import { APIGatewayProxyEvent, APIGatewayProxyHandler } from 'aws-lambda'
 import { MongoClient, RootQuerySelector } from 'mongodb'
 
@@ -16,15 +16,15 @@ export const hello: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent)
         const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true })
 
         // tslint:disable:no-unsafe-any
-        const find: RootQuerySelector<IBlueprint> = 'find' in params ? JSON.parse(params.find) : {}
+        const find: RequiredSome<RootQuerySelector<IBlueprint>, '$and'> = 'find' in params ? JSON.parse(params.find) : {}
         const skip: number = 'skip' in params ? JSON.parse(params.skip) : 0
-        const sort: object = 'sort' in params ? JSON.parse(params.sort) : {}
-        const projectionRaw: object = 'projection' in params ? JSON.parse(params.projection) : {}
+        const sort: Record<string, string> = 'sort' in params ? JSON.parse(params.sort) : {}
+        const projectionRaw: Record<string, string> = 'projection' in params ? JSON.parse(params.projection) : {}
         const limitRaw: number = 'limit' in params ? JSON.parse(params.limit) : 100
         // tslint:enable:no-unsafe-any
 
         // MongoDB wants Date objects instead of strings, so replace some known ones.
-        for(const criterion of find.$and!) {
+        for(const criterion of find.$and) {
             const key = Object.keys(criterion).pop()
             if(key === 'steam.postedDate' || key === 'steam.updatedDate') {
                 const subkeys = Object.keys(criterion[key])  // $gte, $lte, $eq, and the like.
