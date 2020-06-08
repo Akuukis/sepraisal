@@ -27,8 +27,6 @@
             "@sepraisal/server/lib/*": ["workspaces/server/src/*"],
             "@sepraisal/praisal": ["workspaces/praisal/src"],
             "@sepraisal/praisal/lib/*": ["workspaces/praisal/src/*"],
-            "@sepraisal/storybook": ["workspaces/storybook/src"],
-            "@sepraisal/storybook/lib/*": ["workspaces/storybook/src/*"]
         }
     },
     "include": [
