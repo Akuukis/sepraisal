@@ -71,7 +71,6 @@ const genFighterPreset = (...args): FindQuery[] => [
     ]
 
 
-// tslint:disable: object-literal-sort-keys
 export const PRESET = {
     // fighter50:    genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
     fighter/* 80 */: genFighterPreset(103, 1197, 9053 , 80361 , 1205, 6546 , 7102 , 59263 , 0, 2),
@@ -79,7 +78,6 @@ export const PRESET = {
     ship: [...presetShip] as FindQuery[],
     none: [...presetUpToDate] as FindQuery[],
 }
-// tslint:enable: object-literal-sort-keys
 
 export const getPresetTitle = (id: keyof typeof PRESET | 'custom'): string => {
     switch(id) {

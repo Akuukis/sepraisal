@@ -9,7 +9,6 @@ export interface IGroupDTO {
     types: string[],
 }
 
-// tslint:disable-next-line: min-class-cohesion
 export class Group {
     public readonly priority: number
     public readonly title: GroupTitle

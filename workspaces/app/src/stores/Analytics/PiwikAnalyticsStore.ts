@@ -18,7 +18,6 @@ const getBaseUrl = (url: string) => {
 }
 
 const piwikIsAlreadyInitialized = () => {
-    // tslint:disable-next-line: no-unbound-method
     if (typeof window._paq === 'undefined' || typeof window._paq.push !== 'function') {
         return false
     }
@@ -32,7 +31,6 @@ const piwikIsAlreadyInitialized = () => {
 
     let hasSiteId = false
     let hasTrackerUrl = false
-    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < window._paq.length; i += 1) {
         if (window._paq[i].indexOf('setSiteId') !== -1) {
             hasSiteId = true
@@ -109,7 +107,6 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
         }
 
         if (!piwikIsAlreadyInitialized()) {
-            // tslint:disable-next-line: no-string-literal
             window['_paq'] = window['_paq'] || []
 
             const baseUrl = getBaseUrl(url)
@@ -123,7 +120,6 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
                 element.defer = true
                 element.async = true
                 element.src = `${baseUrl}${clientTrackerName}`
-                // tslint:disable-next-line: no-useless-cast no-non-null-assertion
                 firstScript.parentNode?.insertBefore(element, firstScript)
             }
         }
@@ -147,10 +143,8 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
         if(!this.isLoaded) return null
 
         return new Promise<string>((resolve, reject) => {
-            // tslint:disable-next-line: no-any
             this.push([ function(this: {getVisitorId(): string}) {
                 try {
-                    // tslint:disable-next-line: no-unsafe-any
                     resolve(this.getVisitorId())
                 } catch(err) {
                     reject(err)

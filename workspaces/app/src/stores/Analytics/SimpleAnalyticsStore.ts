@@ -62,7 +62,6 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
             element.async = true
             element.setAttribute('data-skip-dnt', 'true')  // Because SA doesn't track visitors to begin with.
             element.src = `https://${this.url}/latest.js`
-            // tslint:disable-next-line: no-useless-cast no-non-null-assertion
             firstScript.parentNode?.insertBefore(element, firstScript)
         }
     }

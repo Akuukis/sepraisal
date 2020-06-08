@@ -14,7 +14,6 @@ import {
 } from './parsers'
 import { Praisal } from './Praisal'
 
-// tslint:disable-next-line: min-class-cohesion
 export class PraisalManager {
     private readonly blueprintSbcs = new ObservableMap<IParseBlueprintSbc>()
     private readonly physicalItemSbcs = new ObservableMap<IParsePhysicalItemsSbc>()

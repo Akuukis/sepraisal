@@ -7,7 +7,6 @@ import { getApiUrl } from 'src/common'
 
 import { FavoriteStore } from './FavoriteStore'
 
-// tslint:disable-next-line: min-class-cohesion
 export class BlueprintStore {
     public readonly recent = new ObservableMap<BlueprintStore.ICachedSteamBlueprint, number>()
     public readonly uploads = new ObservableMap<BlueprintStore.ICachedUploadBlueprint>()

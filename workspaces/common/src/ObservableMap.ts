@@ -4,7 +4,6 @@ export class ObservableMap<TValue, TKey extends number|string = string> extends 
 
     public map<T>(callback: (value: TValue, key: TKey) => T): T[] {
         const results: T[] = []
-        // tslint:disable-next-line:no-for-each-push - because observableMap doesn't have map natively.
         this.forEach((value: TValue, key: TKey) => results.push(callback(value, key)))
 
         return results

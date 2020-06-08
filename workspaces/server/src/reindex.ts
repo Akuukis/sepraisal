@@ -26,7 +26,6 @@ export const main = async (): Promise<void> => {
     const db = client.db(DB_NAME)
     const collection = db.collection<IBlueprint>('blueprints')
 
-    // tslint:disable-next-line: no-commented-code - Snippets for database indexing.
     await recreateIndex(collection, { 'steam.subscriberCount': 1 }, { name: "SubscriberCountIndex" })
     await recreateIndex(collection, { 'sbc.blockCount': 1 }, { name: "BlockCountIndex" })
     await recreateIndex(collection, { 'sbc.blockMass': 1 }, { name: "BlockMassIndex" })

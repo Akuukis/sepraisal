@@ -266,7 +266,6 @@ const getRequiredParachutes = (targetVelocity: number, mass: number, gridSize: G
     return amount
 }
 
-// tslint:disable-next-line: mccabe-complexity
 const hydroFuel = (gridSize: GridSize, blocks: Partial<Record<string, number>>, thrust: Partial<Record<Direction, number>>) => {
     const tanks = blocks[gridSize === 'Small' ? 'OxygenTank/SmallHydrogenTank' : 'OxygenTank/LargeHydrogenTank']
     if(tanks === undefined) return '-'

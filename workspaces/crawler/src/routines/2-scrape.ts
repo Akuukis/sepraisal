@@ -8,8 +8,6 @@ import { Omit, PickByValueExact } from 'utility-types'
 import { QUERIES } from '../queries'
 import { prepareQuery } from '../utils'
 
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length object-shorthand-properties-first
 
 type IFlagParam = Omit<IBlueprint.ISteam, 'flagsRed' | 'flagsYellow' | 'flagsGreen'>
 interface IProjection extends Pick<IBlueprint, '_id'> {
@@ -55,7 +53,6 @@ const VENDOR_ID_TO_MOD = {
     1167910: VENDOR_MOD.DECORATIVE_2,
 }
 
-// tslint:disable: strict-boolean-expressions
 const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`
 const commaNumber = (rawNumber: string) => Number(rawNumber.replace(',', ''))
 const authorIdConvert = (input: string) => (input.match(/com\/(.*)/) || [''])[1]
@@ -64,7 +61,6 @@ const ratingStarsConvert = (input: string) => input.includes('not-yet') ? null :
 const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
 const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
 const dlcsConvert = (input: string): VENDOR_MOD => VENDOR_ID_TO_MOD[Number(input.split('/').pop())]
-// tslint:enable: strict-boolean-expressions
 
 const dateConvert = (steamDate: string) => {
     if(steamDate === '') return null
@@ -94,7 +90,6 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         | 'modsCount'
     type IScrapeSteamData = Omit<IFlagParam, IScrapeSteamDataOmits>
 
-    // tslint:disable-next-line:no-object-literal-type-assertion
     const {data: dataRaw} = await scrapeIt<IScrapeSteamData>(url, {
         id: {selector: 'a.sectionTab:nth-child(1)', attr: 'href', convert: idFromHref},
         title: {selector: '.workshopItemTitle'},
@@ -212,7 +207,6 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
 
 const removeRemoved = async (collection: Collection<IBlueprint>, doc: IProjection, prefix: string): Promise<boolean> => {
     const url = `https://steamcommunity.com/sharedfiles/filedetails/?id=${doc._id}`
-    // tslint:disable-next-line:no-object-literal-type-assertion no-any
     const {data} = await scrapeIt<{adultGate: boolean, removed: boolean, breadcumb: string}>(url, {
         adultGate: {selector: '.adult_content_age_gate', attr: 'class', convert: (str) => str === 'adult_content_age_gate'},
         breadcumb: {selector: '.breadcrumbs > a:nth-child(1)'},

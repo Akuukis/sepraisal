@@ -9,13 +9,10 @@ import { Tail } from 'tail'
 import { QUERIES } from '../queries'
 import { asCrawlerUser, mkdirpSync, prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 const BATCH_SIZE = 50
 const MAX_SIZE = 20
 
 const steamLogFile = join(STEAM_DIR, 'logs', 'workshop_log.txt')
-// tslint:disable-next-line: no-non-null-assertion
 const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
     .split('\n')
     .concat('SteamApps')
@@ -83,7 +80,7 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
             exec(
                 asCrawlerUser(`steamcmd +login ${STEAM_USERNAME} ${steamcmdQuery} validate +exit`),
                 {maxBuffer: Infinity},
-                (err) => err ? reject(err) : resolve(),  // tslint:disable-line:no-void-expression
+                (err) => err ? reject(err) : resolve(),
             )
         }),
         new Promise<void>((resolve) => {

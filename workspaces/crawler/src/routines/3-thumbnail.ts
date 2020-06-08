@@ -5,8 +5,6 @@ import pad from 'pad'
 import { QUERIES } from '../queries'
 import { execAsync, execAsyncBuffer, lstatAsync, mkdirpSync, prepareQuery, thumbLink, thumbPath } from '../utils'
 
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 
 const QUALITY = 10000  // In bytes. 3000 is the lowest that doesn't make eyes bleed.
 

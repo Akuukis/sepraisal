@@ -88,7 +88,6 @@ const sortFindAnd = ($and: Record<string, unknown>[]): Record<string, unknown>[]
     })
 }
 
-// tslint:disable-next-line: min-class-cohesion
 export class CardStore {
     public readonly querryFindBuilder = new QueryFindBuilder()
 
@@ -202,10 +201,8 @@ export class CardStore {
             //     this.count,
             // )
 
-            // tslint:disable-next-line: no-commented-code
             // if(this.selectedPreset === 'custom') {
             //     for(const filter of this.find.$and) {
-            //         // tslint:disable-next-line: no-non-null-assertion
             //         const [filterName, filterValue] = Object.entries(filter).shift()!
             //         this.analyticsStore.trackEvent(
             //             'customFilter',

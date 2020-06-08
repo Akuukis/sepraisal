@@ -16,9 +16,7 @@ export interface IAnalyticsStoreOpts {
     url?: string,
 }
 
-// tslint:disable-next-line: min-class-cohesion
 export abstract class AbstractAnalyticsStore {
-    // tslint:disable-next-line: naming-convention
     @computed public get isLoaded(): boolean {
         // This store sets `_paq` as simple Array.
         // Injected Piwik code will replace it with specialized class which is not Array.
@@ -31,7 +29,6 @@ export abstract class AbstractAnalyticsStore {
     protected previousPath = ''
     protected url: string | null
 
-    // tslint:disable-next-line: mccabe-complexity cognitive-complexity
     public constructor(rawOpts: IAnalyticsStoreOpts = {}) {
         this.url = rawOpts.url || null
 
@@ -118,7 +115,6 @@ export abstract class AbstractAnalyticsStore {
     *
     * @see http://davidwalsh.name/track-errors-google-analytics
     */
-    // tslint:disable: max-func-args
     public trackError(event: Event | string, source?: string, lineno?: number, colno?: number, error?: Error): void
     public trackError(errorEvent: ErrorEvent, eventName?: string): void
     public trackError(eventSomething: ErrorEvent | Event | string, sourceOrEventName?: string, lineno?: number, colno?: number, error?: Error): void {

@@ -1,6 +1,5 @@
 import { Direction, IOrientation } from '@sepraisal/common'
 
-// tslint:disable: no-duplicate-string
 
 export type TranslationEnum = '+x' | '+y' | '+z' | '-x' | '-y' | '-z'
 export type TranslationMinEnum = 'x' | 'y' | 'z'
@@ -59,7 +58,6 @@ const oppositeTo = (direction: Direction): Direction => {
     }
 }
 
-// tslint:disable-next-line: cyclomatic-complexity mccabe-complexity
 const rightOf = ({Forward, Up}: Orientation): Direction => {
     switch(`${Forward}-${Up}` as OrientationEnum) {
         case('Forward-Up'): return Direction.Right
@@ -90,7 +88,6 @@ const rightOf = ({Forward, Up}: Orientation): Direction => {
     }
 }
 
-// tslint:disable-next-line: cyclomatic-complexity mccabe-complexity
 const leftOf = ({Forward, Up}: Orientation): Direction => {
     switch(`${Forward}-${Up}` as OrientationEnum) {
         case('Forward-Up'): return Direction.Left
@@ -121,7 +118,6 @@ const leftOf = ({Forward, Up}: Orientation): Direction => {
     }
 }
 
-// tslint:disable: member-ordering
 export class Orientation implements IOrientation {
     public Forward: Direction
     public Up: Direction
@@ -163,7 +159,6 @@ export class Orientation implements IOrientation {
         return new Orientation(this.Forward, leftOf(this))
     }
 
-    // tslint:disable-next-line: cyclomatic-complexity mccabe-complexity
     public translateForMin(): ITranslationMin {
         switch(`${this.Forward}-${this.Up}`) {
             case('Forward-Up'): return {x: 'x', y: 'y', z: 'z'}  //
@@ -194,7 +189,6 @@ export class Orientation implements IOrientation {
         }
     }
 
-    // tslint:disable-next-line: cyclomatic-complexity mccabe-complexity
     public translate(coords: ICoords): ICoords {
         switch(`${this.Forward}-${this.Up}`) {
             case('Forward-Up'): return {x:  coords.x,    y:  coords.y,    z:  coords.z}  //

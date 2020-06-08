@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 
 app.get('/hello', (req, res) => {
     (async () => {
-        // tslint:disable: id-length no-any no-unsafe-any
         const awsRequest: APIGatewayProxyEvent = {
             body: req.body,
             headers: req.headers as Record<string, string>,
@@ -30,7 +29,6 @@ app.get('/hello', (req, res) => {
             stageVariables: null,
         }
         const result = await hello(awsRequest, null as never, null as never) as APIGatewayProxyResult
-        // tslint:enable: id-length no-any no-unsafe-any
         if(result.headers) {
             Object.entries(result.headers).forEach(([key, value]) => res.setHeader(key, value as string | number))
         }

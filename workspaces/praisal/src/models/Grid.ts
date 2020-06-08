@@ -8,7 +8,6 @@ const obj2mapArray = (obj: Record<string, number>) => Object.keys(obj).map<[stri
 
 export type GridSize = 'Large' | 'Small' | 'Mixed'
 
-// tslint:disable-next-line: min-class-cohesion
 export class Grid {
 
     public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Grid> {
@@ -105,7 +104,6 @@ export class Grid {
     }
 
     public toJSON(): IBlueprintCubeGrid {
-        // tslint:disable-next-line: no-object-literal-type-assertion
         return {
             BlockGroups: [{MyObjectBuilder_BlockGroup: this.blockGroups}],
             CubeBlocks: [{

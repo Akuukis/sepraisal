@@ -5,7 +5,6 @@ import { join } from 'path'
 import { PraisalManager } from '../src'
 
 
-// tslint:disable: no-duplicate-string
 const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
 const physicalItemsSbcVanilla = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()

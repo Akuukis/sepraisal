@@ -28,7 +28,6 @@ export const createSmartFC = <TClasses extends string>(
                     const theme = useTheme<IMyTheme>()
                     const classes = useStyles(props)
 
-                    // tslint:disable-next-line: no-object-literal-type-assertion
                     return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
                 }
                 wrapperFC.displayName = name
@@ -48,12 +47,10 @@ export const createDumbFC = <TClasses extends string>(
             const name = filepath && basename(filepath, '.tsx')
             const useStyles = makeStyles(styles, {name})
 
-            // tslint:disable-next-line: no-identical-functions - Because closure matters.
             const wrapperFC = (props: TProps) => {
                 const theme = useTheme<IMyTheme>()
                 const classes = useStyles(props)
 
-                // tslint:disable-next-line: no-object-literal-type-assertion
                 return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
             }
             wrapperFC.displayName = name

@@ -2,8 +2,6 @@ import { BigNumber as BN } from 'bignumber.js'
 import pad from 'pad'
 import { PromiseType } from 'utility-types'
 
-// tslint:disable:max-line-length
-// tslint:disable:no-void-expression id-length
 
 export const ZERO = new BN(0)
 export const ONE = new BN(1)
@@ -33,7 +31,6 @@ export const Worker = <T extends unknown[]>(work: Work<T>, errors?: Error[]) => 
     while(true) {
         const params = works.shift()
         if(!params) return track
-        // tslint:disable-next-line:try-catch-first
         try {
             await work(...params)
         } catch(err) {

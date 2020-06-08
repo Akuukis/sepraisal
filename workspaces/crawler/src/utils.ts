@@ -13,7 +13,6 @@ export const execAsyncBuffer = async (cmd: string): Promise<Buffer> =>
 export const lstatAsync = async (path: string): Promise<false | Stats> =>
     new Promise<false | Stats>((res) => lstat(path, (err, stats) => res(err instanceof Error ? false : stats)))
 
-// tslint:disable-next-line: naming-convention
 const {crawler_user, crawler_steam_dir, crawler_downloads_dir, steam_username} = process.env
 if(crawler_user === undefined
     || crawler_steam_dir === undefined
@@ -54,7 +53,6 @@ export const mkdirpSync = (path: string): boolean => {
 export const prepareQuery = <TProjection extends unknown>(query: {$nor: unknown[]}): FilterQuery<TProjection> => {
 
     if(process.argv.includes('--force')) {  // Use '--force' to ignore errored cases.
-        // tslint:disable-next-line: no-object-literal-type-assertion
         return {...query, $nor: query.$nor.slice(1)} as FilterQuery<TProjection>
     }
 

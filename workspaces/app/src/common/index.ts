@@ -12,10 +12,8 @@ export * from './createFC'
 export * from './myTheme'
 export * from './vega'
 
-// tslint:disable: no-submodule-imports
 export { createStyles } from '@material-ui/core/styles'  // TODO: '@material-ui/styles'
 export { GridSize } from '@material-ui/core/Grid'
-// tslint:enable: no-submodule-imports
 
 export const VERSION =           2
 
@@ -118,7 +116,6 @@ export const useAsyncEffect = (afn: () => Promise<void>, deps?: DependencyList):
 }
 export const useAsyncEffectOnce = (afn: () => Promise<void>): void => useAsyncEffect(afn, [])
 
-// tslint:disable-next-line: naming-convention no-object-literal-type-assertion
 export const ASYNC_STATE = {
     Idle: 0,
 
@@ -128,7 +125,6 @@ export const ASYNC_STATE = {
 
     Error: 3,
 } as const
-// tslint:disable-next-line: naming-convention
 export type ASYNC_STATE =
     | typeof ASYNC_STATE['Idle']
     | typeof ASYNC_STATE['Doing']
@@ -204,7 +200,6 @@ interface ApiProps {
     limit?: number,
     skip?: number,
 }
-// tslint:disable-next-line: max-func-args
 export const getApiUrl = (queries: FindQuery[], {$search,projection,sort,limit,skip}: ApiProps): string => {
     const find: IFindRootQuery = {$and: queries}
     if($search) find.$text = {$search}

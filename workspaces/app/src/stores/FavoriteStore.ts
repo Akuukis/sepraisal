@@ -5,7 +5,6 @@ export interface IFavorite {
     name: string
 }
 
-// tslint:disable-next-line: min-class-cohesion
 export class FavoriteStore {
     public readonly favorites = observable<IFavorite>([], {deep: false})
 

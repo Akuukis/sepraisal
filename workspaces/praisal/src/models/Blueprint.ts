@@ -12,10 +12,8 @@ const obj2mapArray = (obj: Record<string, number>) => Object.keys(obj).map<[stri
 
 type IBlueprintShipOrPrefab = IBlueprintShipDefinition | IBlueprintPrefabBlueprintDefinition
 
-// tslint:disable-next-line: max-line-length
 const isPrefab = (def: IBlueprintShipOrPrefab): def is IBlueprintPrefabBlueprintDefinition => 'Prefabs' in def.Definitions
 
-// tslint:disable-next-line: min-class-cohesion
 export class Blueprint {
 
     public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Blueprint> {

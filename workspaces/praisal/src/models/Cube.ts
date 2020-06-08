@@ -12,7 +12,6 @@ export type CubeBlockGridSize = 'Large' | 'Small'
 
 type Omits = 'BuildTimeSeconds' | 'CubeSize' | 'DisplayName' | 'Id' | 'PCU' | 'Size'
 
-// tslint:disable-next-line: min-class-cohesion
 export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJSON' | 'health' | 'maxIntegrity'> {
 
     public static fromSbcs(componentStore: Map<string, Component>, cubeBlocksSbcs: Map<string, IParseCubeBlocksSbc>): Cube[] {
@@ -107,7 +106,6 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
             }],
 
             ...this.data,
-        // tslint:disable-next-line: no-any
         } as never
     }
 

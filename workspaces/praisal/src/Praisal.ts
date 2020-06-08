@@ -68,7 +68,6 @@ const squeezePraisal = (praisal: Praisal): IBlueprint.IMaterialGroup =>
         oreVolume: Math.round(praisal.oreVolume),
     })
 
-// tslint:disable-next-line: min-class-cohesion
 export class Praisal {
 
     public get blockAll(): Record<string, number> {
@@ -215,7 +214,6 @@ export class Praisal {
         this.groups = groups
     }
 
-    // tslint:disable-next-line: cognitive-complexity
     public densitySpace(getDensity: (block: Block) => number) {
         const space = new Map<[number, number, number], number>()
 
@@ -438,7 +436,6 @@ export class Praisal {
             if(cube.data.ThrusterType[0] !== type) continue
 
             const {Forward} = new Orientation(block.forward, block.up).turnAround()
-            // tslint:disable-next-line: no-non-null-assertion
             thrust.set(Forward, (thrust.has(Forward) ? thrust.get(Forward)! : 0) + Number(cube.data.ForceMagnitude[0]))
         }
 

@@ -7,7 +7,6 @@ import pad from 'pad'
 
 import { sbcPath } from '../utils'
 
-// tslint:disable: no-submodule-imports
 
 interface IProjection {
     _id: number,
@@ -17,7 +16,6 @@ interface IProjection {
 }
 
 
-// tslint:disable-next-line: no-unused - TODO: this is bug.
 let collection: Collection<IProjection>
 
 

@@ -8,8 +8,6 @@ import workerFarm from 'worker-farm'
 import { QUERIES } from '../queries'
 import { prepareQuery, sbcPath } from '../utils'
 
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 
 interface IProjection {
     _id: number,
@@ -56,7 +54,6 @@ export const main = async (): Promise<void> => {
         ? prepareQuery<IProjection>(QUERIES.pendingPraise)
         : {$or: [
             // For debug, use storybook ships.
-            // tslint:disable-next-line: no-duplicate-string
             {'steam.title': {$regex: '^Cursor$'}},
             // {'steam.title': {$regex: '\\[NO MODS\\] Wyvern - Atmospheric Survival Ship'}},
             // {'steam.title': {$regex: 'IMDC A-1 \'Aegir\' Fighter'}},
