@@ -53,6 +53,9 @@ jobs:
       if: steps.libs.outputs.cache-hit != 'true'
       run: yarn build --verbose
 
+    - name: Lint All
+      run: yarn lint
+
     - name: Test Praisal & report coverage
       uses: paambaati/codeclimate-action@v2.6.0
       env:
