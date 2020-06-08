@@ -42,7 +42,7 @@ type IJobResult = 'TimeoutError' | 'read' | 'praise' | 'update' | null
 const praised = new Map<number, IJobResult>()
 
 
-export const main = async () => {
+export const main = async (): Promise<void> => {
 
     const timer = Date.now()
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })

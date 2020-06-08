@@ -56,17 +56,17 @@ const VENDOR_ID_TO_MOD = {
 }
 
 // tslint:disable: strict-boolean-expressions
-export const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`
-export const commaNumber = (rawNumber: string) => Number(rawNumber.replace(',', ''))
-export const authorIdConvert = (input: string) => (input.match(/com\/(.*)/) || [''])[1]
-export const authorTitleConvert = (input: string) => (input.match(/(.*?)\r/) || [''])[1]
-export const ratingStarsConvert = (input: string) => input.includes('not-yet') ? null : Number((input.match(/(\d)-star_large\.png/) || [null])[1])
-export const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
-export const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
-export const dlcsConvert = (input: string): VENDOR_MOD => VENDOR_ID_TO_MOD[Number(input.split('/').pop())]
+const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`
+const commaNumber = (rawNumber: string) => Number(rawNumber.replace(',', ''))
+const authorIdConvert = (input: string) => (input.match(/com\/(.*)/) || [''])[1]
+const authorTitleConvert = (input: string) => (input.match(/(.*?)\r/) || [''])[1]
+const ratingStarsConvert = (input: string) => input.includes('not-yet') ? null : Number((input.match(/(\d)-star_large\.png/) || [null])[1])
+const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
+const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
+const dlcsConvert = (input: string): VENDOR_MOD => VENDOR_ID_TO_MOD[Number(input.split('/').pop())]
 // tslint:enable: strict-boolean-expressions
 
-export const dateConvert = (steamDate: string) => {
+const dateConvert = (steamDate: string) => {
     if(steamDate === '') return null
 
     return moment(steamDate, steamDate.includes(',') ? 'DD MMM, YYYY @ h:ma' : 'DD MMM @ h:ma')
@@ -176,6 +176,7 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         sizeMB: dataRaw.sizeMB,
         revision: dataRaw.revision,
         mods: dataRaw.mods,
+        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */  // Hack around enforced object due scraping.
         DLCs: dataRaw.DLCs.map(({id}: any) => id),
         collections: dataRaw.collections,
         ratingStars: dataRaw.ratingStars,
@@ -284,7 +285,7 @@ const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, i
 }
 
 
-export const main = async () => {
+export const main = async (): Promise<void> => {
 
 
     const timer = Date.now()
@@ -336,7 +337,7 @@ export const main = async () => {
         worker(works, 7),
     ])
 
-    // tslint:disable:no-unused
+    /* eslint-disable @typescript-eslint/no-unused-vars */
     const found = [...scraped.values()]
         .filter(([prev, curr]) => prev !== null)
         .map(([prev, curr]) => curr)

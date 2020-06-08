@@ -11,8 +11,7 @@ import { join } from 'path'
     if(routinePath === undefined) throw new Error('No routine specified as first argument!')
 
     console.info(new Date(), `Loading routine "${routinePath}"...`)
-    // tslint:disable-next-line: ban
-    const routine = require(join(__dirname, 'routines', routinePath)) as {main(): Promise<unknown>}
+    const routine = await import(join(__dirname, 'routines', routinePath)) as {main(): Promise<unknown>}
     console.info(new Date(), `Executing routine "${routinePath}"...`)
     await routine.main()
     console.info(new Date(), `Done!`)

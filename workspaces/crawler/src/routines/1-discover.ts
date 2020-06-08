@@ -39,14 +39,14 @@ const scrape = async (page: number): Promise<IDiscoverScrapeData> => {
     const url = `https://steamcommunity.com/workshop/browse/?appid=244850&requiredtags%5B0%5D=Blueprint&actualsort=$TYPE&browsesort=${TYPE}&p=${page}`
 
     // tslint:disable-next-line:no-object-literal-type-assertion no-any no-unused no-dead-store
-    const {data, response} = await scrapeIt<IDiscoverScrapeData>(url, {
+    const {data} = await scrapeIt<IDiscoverScrapeData>(url, {
         items: {listItem: '.workshopItem', data: {
             _id: {selector: 'a:nth-child(1)', attr: 'data-publishedfileid', convert: Number},
             title: {selector: 'div.workshopItemTitle'},
             authorId: {selector: 'div.workshopItemAuthorName > a', attr: 'href', convert: idFromHref},
             authorTitle: {selector: 'div.workshopItemAuthorName > a'},
         }},
-    } as any)  // tslint:disable-line:no-any
+    })
 
     return {
         ...data,
@@ -75,7 +75,7 @@ const work: Work<IWorkItem> = async (collection: Collection<{_id: number}>, inde
 }
 
 
-export const main = async () => {
+export const main = async (): Promise<void> => {
 
     const timer = Date.now()
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })

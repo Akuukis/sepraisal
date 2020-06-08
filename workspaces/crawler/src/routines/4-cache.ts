@@ -19,7 +19,8 @@ const steamLogFile = join(STEAM_DIR, 'logs', 'workshop_log.txt')
 const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
     .split('\n')
     .concat('SteamApps')
-    .find((folder) => folder.toLowerCase() === 'steamapps')!
+    .find((folder) => folder.toLowerCase() === 'steamapps')
+if(!steamAppsDir) throw new Error(`Steam directory "${STEAM_DIR}" doesn't contain subdirectory 'steamapps' in either lower or upper case.`)
 const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '244850')
 
 /**
@@ -85,7 +86,7 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
                 (err) => err ? reject(err) : resolve(),  // tslint:disable-line:no-void-expression
             )
         }),
-        new Promise<void>((resolve, reject) => {
+        new Promise<void>((resolve) => {
             let remaining = docs.length
             tail.on('line', (line: string) => {
                 const match = line.match(/Download item (\d+) result : (.*)/)
@@ -122,7 +123,7 @@ const work: Work<IWorkItem> = async (index: number, docs: IProjection[]) => {
 }
 
 
-export const main = async () => {
+export const main = async (): Promise<void> => {
 
 
     const timer = Date.now()

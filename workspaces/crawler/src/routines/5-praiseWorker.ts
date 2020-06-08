@@ -30,7 +30,7 @@ const init = (async () => {
     return sePraisal
 })()
 
-export = async (index: number, doc: IProjection, callback: (err: Error | null, msg?: string) => unknown) => {
+export = async (index: number, doc: IProjection, callback: (err: Error | null, msg?: string) => void): Promise<void> => {
     const timer = Date.now()
     const sePraisal = await init
     const loaded = (Date.now() - timer) / 1000
