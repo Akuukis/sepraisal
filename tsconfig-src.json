@@ -8,6 +8,5 @@
         { "path": "./workspaces/crawler/tsconfig.json" },
         { "path": "./workspaces/server/tsconfig.json" },
         { "path": "./workspaces/praisal/tsconfig.json" },
-        // { "path": "./workspaces/storybook/tsconfig-src.json" },
     ]
 }

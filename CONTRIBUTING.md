@@ -27,3 +27,9 @@ Set up environment
 
 
 *Note:* As I'm developing on Linux machine only, I may have forgotten some cross-compatibility and it may not work out as smooth for Windows users. In that case, just open a issue or even better add PR if you know how to fix that.
+
+### Storybook
+
+I used storybook at the beggining, but lately it got abadonded.
+If you wish to revive it, it shouldn't be that hard.
+Revert merge `remove-storybook`, and start from there.

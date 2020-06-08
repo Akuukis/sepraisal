@@ -21,10 +21,6 @@
             "name": "praisal"
         },
         {
-            "path": "../workspaces/storybook",
-            "name": "storybook"
-        },
-        {
             "path": "..",
             "name": "<root>"
         }
