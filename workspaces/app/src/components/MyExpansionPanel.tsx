@@ -77,8 +77,9 @@ export default hot(createSmartFC(styles, __filename)<IMyExpansionPanelProps>(({c
     const unique = id ?? String(header)
     const exclusiveScopeStore = React.useContext(CONTEXT.EXCLUSIVE_SCOPE)
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     const handleToggle = (event: React.ChangeEvent<{}>, expanded: boolean) => {
-        exclusiveScopeStore!.setValue(exclusiveScopeStore!.value === unique ? null : unique)
+        exclusiveScopeStore.setValue(exclusiveScopeStore.value === unique ? null : unique)
         if(onChange) onChange(event, exclusiveScopeStore.value !== unique)
     }
 

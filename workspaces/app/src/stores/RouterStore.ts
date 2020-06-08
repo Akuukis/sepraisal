@@ -15,7 +15,7 @@ export class RouterStore extends BaseRouterStore {
         this.history = syncHistoryWithStore(createBrowserHistory(), this)
     }
 
-    public goBlueprint(id: number) {
+    public goBlueprint(id: number): void {
         const path = `${ROUTE.ANALYSE}?steam=${id}`
 
         this.analyticsStore.trackView({path})

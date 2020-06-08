@@ -74,7 +74,7 @@ interface IBrowserStoreSort {
     [field: string]: -1 | 1
 }
 
-const sortFindAnd = ($and: object[]) => {
+const sortFindAnd = ($and: Record<string, unknown>[]): Record<string, unknown>[] => {
     const clone = [...$and]
 
     return clone.sort((a, b) => {
@@ -93,9 +93,9 @@ export class CardStore {
     public readonly querryFindBuilder = new QueryFindBuilder()
 
     @computed public get find(): IFind { return this.querryFindBuilder.find }
-    @computed public get selectedPreset() { return this.querryFindBuilder.selectedPreset }
+    @computed public get selectedPreset(): QueryFindBuilder['selectedPreset'] { return this.querryFindBuilder.selectedPreset }
 
-    @computed public get sort() { return this._sort }
+    @computed public get sort(): IBrowserStoreSort { return this._sort }
     public set sort(value: IBrowserStoreSort) {
         this._sort = value
     }
@@ -124,11 +124,11 @@ export class CardStore {
         ))
     }
 
-    public deconstructor() {
+    public deconstructor(): void {
         for(const disposer of this.disposers) disposer()
     }
 
-    public async nextPage() {
+    public async nextPage(): Promise<{count: number, limit: number, skip: number}> {
         const skip = this.cards.size
         const limit = this.cardsPerPage
         const timer = Date.now()

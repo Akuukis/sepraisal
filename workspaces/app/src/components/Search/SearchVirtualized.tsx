@@ -85,7 +85,7 @@ export const ListboxComponent = React.forwardRef<HTMLDivElement>((props, ref) =>
     )
 })
 
-export const renderGroup = (params: RenderGroupParams) => [
+export const renderGroup = (params: RenderGroupParams): (Record<string, unknown> | null | undefined)[] => [
     <ListSubheader key={params.key} component='div'>
         {params.key}
     </ListSubheader>,

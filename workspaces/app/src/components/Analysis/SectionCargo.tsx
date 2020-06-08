@@ -30,16 +30,17 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {bp, className, long, ...otherProps} = props
     const {sbc} = bp
 
-    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)!
+    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
+    if(!praisalManager) return null
 
     // Taken from wiki
-    const spendRateLarge = 1670 / 9
-    const spendRateSmall = 830 / 9
     const iceToGas = 9
     const ammoVolume = 16  // TODO: praisalManager.?.get(`Component/NATO_25x184mmMagazine`)!.volume
     const missileVolume = 60  // TODO: praisalManager.?.get(`Component/Missile200mm`)!.volume
 
-    const oreVolume = praisalManager.ores.get(`Ore/Ice`)!.volume
+    const oreDef = praisalManager.ores.get(`Ore/Ice`)
+    if(!oreDef) return null
+    const oreVolume = oreDef.volume
 
     const anyVolume = getVolumeAny(sbc.blocks)
     const miscVolume = getVolumeMisc(sbc.blocks)

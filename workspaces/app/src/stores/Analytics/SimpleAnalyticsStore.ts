@@ -25,7 +25,7 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
         if (this._isShim) {
             window.sa_event = function (eventName: string) {
                 console.debug(`SimpleAnalyticsStore.push():`, eventName)
-            } as any
+            } as never
 
             const trackViewHandler = this.trackView.bind(this)
             // Listen to History.pushState
@@ -33,8 +33,8 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
             if (Event && window.dispatchEvent && window.history ? window.history.pushState : null) {
                 const stateListener = (type: string) => {
                     const orig = window.history[type]
-                    return function(this: History) {
-                        const rv = orig.apply(this, arguments)
+                    return function(this: History, ...args) {
+                        const rv = orig.apply(this, args)
                         trackViewHandler(window.location)
                         return rv
                     }
@@ -50,9 +50,9 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
 
         if (!simpleAnalyticsAlreadyInitialized()) {
             // Adapted from https://docs.simpleanalytics.com/events.
-            window.sa_event = window.sa_event || function() {
+            window.sa_event = window.sa_event || function(...args) {
                 if(!window.sa_event.q) window.sa_event.q = []
-                window.sa_event.q.push([].slice.call(arguments))
+                window.sa_event.q.push([].slice.call(args))
             }
 
             const firstScript = document.getElementsByTagName('script')[0]
@@ -63,11 +63,11 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
             element.setAttribute('data-skip-dnt', 'true')  // Because SA doesn't track visitors to begin with.
             element.src = `https://${this.url}/latest.js`
             // tslint:disable-next-line: no-useless-cast no-non-null-assertion
-            firstScript.parentNode!.insertBefore(element, firstScript)
+            firstScript.parentNode?.insertBefore(element, firstScript)
         }
     }
 
-    protected push([type, ...opts]: ['trackPageView' | 'trackEvent' | 'trackSiteSearch', string?, string?, (string | number)?, (string | number)?]) {
+    protected push([type, ...opts]: ['trackPageView' | 'trackEvent' | 'trackSiteSearch', string?, string?, (string | number)?, (string | number)?]): void {
         switch(type) {
             case('trackPageView'): {
                 if(this._isShim) console.debug(`SimpleAnalyticsStore.trackView()`)

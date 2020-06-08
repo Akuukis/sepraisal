@@ -90,8 +90,8 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
         if (Event && window.dispatchEvent && window.history ? window.history.pushState : null) {
             const stateListener = (type: string) => {
                 const orig = window.history[type]
-                return function(this: History) {
-                    const rv = orig.apply(this, arguments)
+                return function(this: History, ...args) {
+                    const rv = orig.apply(this, args)
                     trackViewHandler(window.location)
                     return rv
                 }
@@ -102,7 +102,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
             })
         }
 
-        if (this._isShim) {
+        if (this._isShim || !url) {
             this.push = (args: unknown[]) => console.debug(`PiwikAnalyticsStore.push():`, ...args)
 
             return
@@ -112,7 +112,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
             // tslint:disable-next-line: no-string-literal
             window['_paq'] = window['_paq'] || []
 
-            const baseUrl = getBaseUrl(url!)
+            const baseUrl = getBaseUrl(url)
             this.push(['setSiteId', siteId])
             this.push(['setTrackerUrl', `${baseUrl}${serverTrackerName}`])
 
@@ -124,7 +124,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
                 element.async = true
                 element.src = `${baseUrl}${clientTrackerName}`
                 // tslint:disable-next-line: no-useless-cast no-non-null-assertion
-                firstScript.parentNode!.insertBefore(element, firstScript)
+                firstScript.parentNode?.insertBefore(element, firstScript)
             }
         }
 
@@ -148,7 +148,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
 
         return new Promise<string>((resolve, reject) => {
             // tslint:disable-next-line: no-any
-            this.push([ function(this: any) {
+            this.push([ function(this: {getVisitorId(): string}) {
                 try {
                     // tslint:disable-next-line: no-unsafe-any
                     resolve(this.getVisitorId())
@@ -165,7 +165,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
     *
     * @see https://developer.piwik.org/guides/tracking-javascript-guide
     */
-    protected push(args: unknown[]) {
+    protected push(args: unknown[]): void {
         window['_paq'].push(args)
     }
 
@@ -175,14 +175,14 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
     *
     * @see https://developer.piwik.org/guides/tracking-javascript-guide#user-id
     */
-    public setUserId(userId: string | number) {
+    public setUserId(userId: string | number): void {
         window._paq.push(['setUserId', userId])
     }
 
     /**
     * Adds a page view for the given location
     */
-    public trackView(location: Location | {path: string} | Location & {basename: string}, documentTitle = document.title) {
+    public trackView(location: Location | {path: string} | Location & {basename: string}, documentTitle = document.title): void {
         if (this.updateDocumentTitle) this.push(['setDocumentTitle', documentTitle])
         super.trackView(location)
     }

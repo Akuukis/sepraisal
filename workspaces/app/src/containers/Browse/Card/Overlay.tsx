@@ -108,7 +108,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         if(favorited) {
             favoriteStore.shift(id)
         } else {
-            favoriteStore.push({id, name: steam!.title})
+            favoriteStore.push({id, name: steam?.title ?? String(id)})
         }
     })
 

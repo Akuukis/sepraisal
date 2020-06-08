@@ -40,7 +40,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 'info',
                 `faqClose-${title}`,
                 title,
-                (Date.now() - openedOn!) / 1000,  // tslint:disable-line: no-non-null-assertion
+                openedOn ? (Date.now() - openedOn) / 1000 : undefined,
             )
             setOpenedOn(null)
         }

@@ -157,7 +157,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             >
                 <Grid item className={classes.item} xs={12} style={{maxWidth: '100%'}}>
                     <Header bpId={bpId} blueprint={blueprint} state={!praisalManager ? {code: ASYNC_STATE.Doing} : state}>
-                        {blueprint && <FavoriteButton bpId={blueprint._id!} name={blueprint?.steam?.title || blueprint?.sbc?.gridTitle || '?'} />}
+                        {blueprint && <FavoriteButton bpId={blueprint._id} name={blueprint?.steam?.title || blueprint?.sbc?.gridTitle || '?'} />}
                         {icons}
                     </Header>
                 </Grid>

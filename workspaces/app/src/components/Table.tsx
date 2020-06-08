@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+/* eslint-disable @typescript-eslint/ban-types */
+// TODO: This file needs decent update.
+// TODO: Upgrade to v7.
 import 'react-table/react-table.css'
 
 import { ObservableMap } from 'mobx'
@@ -9,8 +14,6 @@ import { Checkbox } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from '../common/'
 
-// tslint:disable
-// TODO: This file needs decent update.
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {

@@ -7,6 +7,7 @@ import { hot } from 'react-hot-loader/root'
 import { Grid, Slider, Typography, ValueLabelProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, formatFloat, IMyTheme } from 'src/common'
+import { FindCriterionDirect } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
 import SliderLabel from './SliderLabel'
@@ -33,7 +34,7 @@ interface IProps {
     max: number,
     min: number,
     title: string,
-    zeroes?: object
+    zeroes?: FindCriterionDirect
 }
 
 interface IQuery {

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { runInAction } from 'mobx'
+import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
@@ -39,8 +40,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
-    const blueprint = blueprintStore.getSomething(id)!
-    const title = String(blueprint.steam?.title ?? id)
+    const blueprint = blueprintStore.getSomething(id)
+    const title = String(blueprint?.steam?.title ?? id)
     const index = selectionStore.selected.indexOf(id)
 
     const handleToggle = () => {
@@ -87,7 +88,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 primaryTypographyProps={{variant: 'body1'}}
             />
             <ListItemSecondaryAction>
-                <FromNow variant='caption' moment={blueprint._cached} />
+                <FromNow variant='caption' moment={blueprint?._cached ?? moment()} />
                 <FavoriteButton bpId={id} name={title} edge='end' />
             </ListItemSecondaryAction>
         </ListItem>

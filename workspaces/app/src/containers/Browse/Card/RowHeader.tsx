@@ -68,11 +68,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const title = steam?.title ?? String(id)
 
-    const author = (<MyLink className={classes.collection} href={`${ROUTE.BROWSE}?${BROWSE_PARTS.AUTHOR}=${steam!.authors[0]?.title}`}>
-            {steam!.authors[0]?.title ?? steam!.authors[0]?.id}
-        </MyLink>)
+    const author = steam === null ? 'Analysis in progress...' : steam.collections.length > 0
+        ?
+            (<MyLink className={classes.collection} href={`${ROUTE.BROWSE}?${BROWSE_PARTS.AUTHOR}=${steam.authors[0]?.title}`}>
+                {steam.authors[0]?.title ?? steam.authors[0]?.id}
+            </MyLink>)
+        :
+            '-'
 
-    const subheader = steam === null ? 'Analysis in progress...' : steam.collections.length > 0
+    const collection = steam === null ? 'Analysis in progress...' : steam.collections.length > 0
         ?
             (<MyLink className={classes.collection} href={`${ROUTE.BROWSE}?${BROWSE_PARTS.COLLECTION}=${steam.collections[0].title}`}>
                 {steam.collections[0].title ?? steam.collections[0].id}
@@ -91,11 +95,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             value: classes.ValueCellValue,
                         }}
                         width={4}
-                        label={(<>{author} | {subheader}</>)}
+                        label={(<>{author} | {collection}</>)}
                         value={title}
                         alignItems='flex-start'
                         justify='space-between'
-                        valueProps={{variant: 'h5', component: 'h3'} as any}
+                        valueProps={{variant: 'h5', component: 'h3'} as never}
                     />
                     <CenterCell
                         className={classes.CenterCell}
@@ -103,7 +107,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         alignItems='flex-start'
                         justify='flex-end'
                     >
-                        <SteamBadge id={id} amount={steam?.subscriberCount!} />
+                        <SteamBadge id={id} amount={steam?.subscriberCount ?? 0} />
                     </CenterCell>
                 </MyBox>
             </MyBoxRow>

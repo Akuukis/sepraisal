@@ -109,7 +109,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {heading, value, label, MyBoxColumnProps, className, innerChildren, ...otherProps} = props
     const selectionStore = React.useContext(CONTEXT.SELECTION)
 
-    const setExpaned = (event: React.ChangeEvent<{}>, expanded: boolean) => {
+    const setExpaned = (event: React.ChangeEvent<unknown>, expanded: boolean) => {
         selectionStore.setExpanded(heading, expanded)
     }
 

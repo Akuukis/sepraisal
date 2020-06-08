@@ -47,6 +47,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else if(typeof id === 'string') {
             routerStore.replace({...location, search: `?${PROVIDER.LOCAL}=${id}`})
         } else {
+            throw new Error('catch me')
         }
     }
 

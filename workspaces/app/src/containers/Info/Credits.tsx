@@ -99,7 +99,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <img
                             src='https://simpleanalyticsbadge.com/spaceengineerspraisal.net'
                             loading='lazy'
-                            {...{referrerPolicy:'no-referrer'} as any}  // TODO: missing type?
+                            referrerPolicy='no-referrer'
                             crossOrigin='anonymous'
                         />
                     </MyLink>

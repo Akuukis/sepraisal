@@ -56,7 +56,7 @@ export abstract class AbstractAnalyticsStore {
         }
     }
 
-    public deconstructor() {
+    public deconstructor(): void {
         this.listeners.forEach((listener) => listener())
     }
 
@@ -72,7 +72,7 @@ export abstract class AbstractAnalyticsStore {
     /**
     * Adds a page view for the given location
     */
-    public trackView(location: Location | {path: string} | Location & {basename: string}) {
+    public trackView(location: Location | {path: string} | Location & {basename: string}): void {
         let currentPath: string
 
         if ('path' in location) {
@@ -89,7 +89,7 @@ export abstract class AbstractAnalyticsStore {
         this.push(['trackPageView'])
     }
 
-    public trackEvent(category: string, action?: string, name?: string, value?: string | number) {
+    public trackEvent(category: string, action?: string, name?: string, value?: string | number): void {
         if(value !== undefined) {
             if(typeof name === 'undefined') throw new Error('AnalyticsStore.trackEvent requires name when value is provided.')
             if(typeof action === 'undefined') throw new Error('AnalyticsStore.trackEvent requires action when value is provided.')
@@ -104,7 +104,7 @@ export abstract class AbstractAnalyticsStore {
         }
     }
 
-    public trackSiteSearch(keyword: string, category: string, count: number) {
+    public trackSiteSearch(keyword: string, category: string, count: number): void {
         this.push([
             'trackSiteSearch',
             keyword,
@@ -133,7 +133,7 @@ export abstract class AbstractAnalyticsStore {
             this.push([
                 'trackEvent',
                 'JavaScript Error',
-                error!.message,  // tslint:disable-line: no-useless-cast no-non-null-assertion
+                error?.message ?? '',
                 `${sourceOrEventName}:${lineno}:${colno}`,
             ])
         } else {

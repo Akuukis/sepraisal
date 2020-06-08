@@ -47,7 +47,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 const reader = new FileReader()
                 const xml = await new Promise((resolve: (res: string) => void, reject) => {
                     reader.onload = (event) => {
-                            // tslint:disable-next-line: no-any - TODO fix typings
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
                             const {result}: any = event.target
                             try {
                                 const out = Pako.inflate(result, {to: 'string'})
@@ -64,6 +64,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 })
 
                 // TODO: Guard against not-yet-loaded praisalManagaer, but practically good luck dropping before that.
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 const title = blueprintStore.setUpload(await praisalManager!.praiseSbc(xml))
                 onUpload(title)
             } catch(err) {
