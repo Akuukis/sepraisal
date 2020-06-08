@@ -1,3 +1,14 @@
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/1e4d306797a8e7014688/maintainability)](https://codeclimate.com/github/Akuukis/sepraisal/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/1e4d306797a8e7014688/test_coverage)](https://codeclimate.com/github/Akuukis/sepraisal/test_coverage)
+![CI](https://github.com/Akuukis/sepraisal/workflows/CI/badge.svg)
+[![Simple Analytics](https://img.shields.io/badge/dynamic/json?label=simpleanalytics&query=pageviews&suffix=%20views%2Fmo&url=https%3A%2F%2Fsimpleanalytics.com%2Fspaceengineerspraisal.net.json)](https://simpleanalytics.com/spaceengineerspraisal.net)
+
+[![SE Praisal Total](https://img.shields.io/badge/dynamic/json?color=%231767ae&label=SEPraisal%20Total&query=count&suffix=%20blueprints&url=https%3A%2F%2Fdb.spaceengineerspraisal.net%2Fhello%3Ffind%3D%257B%257D%26limit%3D1)](https://spaceengineerspraisal.net/browse?ref=badge)
+[![SE Praisal Blueprints OK](https://img.shields.io/badge/dynamic/json?color=%23417e3b&label=SEPraisal%20OK&query=count&suffix=%20blueprints&url=https%3A%2F%2Fdb.spaceengineerspraisal.net%2Fhello%3Fprojection%3D%257B%2522_id%2522%253Atrue%257D%26limit%3D1%26find%3D%257B%2522%2524and%2522%253A%255B%257B%2522sbc._version%2522%253A%257B%2522%2524exists%2522%253Atrue%257D%257D%255D%257D)](https://spaceengineerspraisal.net/browse?ref=badge)
+[![SE Praisal Praisal Errors](https://img.shields.io/badge/dynamic/json?color=%23c01118&label=SEPraisal%20Praisal%20Errors&query=count&suffix=%20blueprints&url=https%3A%2F%2Fdb.spaceengineerspraisal.net%2Fhello%3Fprojection%3D%257B%2522_id%2522%253Atrue%257D%26limit%3D1%26find%3D%257B%2522%2524and%2522%253A%255B%257B%2522sbc._error%2522%253A%257B%2522%2524exists%2522%253Atrue%257D%257D%255D%257D)](https://spaceengineerspraisal.net/browse?ref=badge)
+
+
 Space Engineers Praisal
 ================================================================================
 
@@ -36,7 +47,7 @@ You are welcome to contribute. Main areas to help with are:
 - SE gamer: just use it and give feedback. What's broken? What features would you want? What should be done better?
 - SE blueprint creator: help us understand whenever performance or quality reports make sense. Let's discuss.
 - developer: essentially, to implement or improve features. See [CONTRIBUTING](./CONTRIBUTING.md).
-- data scientist: essentially, to assigned class based on big data not only for fighters. See [CONTRIBUTING](./CONTRIBUTING.md).
+- data scientist: essentially, to calculate new metrics and do classification right. See [CONTRIBUTING](./CONTRIBUTING.md).
 
 I started this project as a hobby to pursue my curiousity about new and fancy IT technologies.
 Therefore I see this project as a sandbox for various experiments and to try newest versions.
