@@ -1,0 +1,26 @@
+{
+    "root": true,
+    "env": {
+        "es2020": true
+    },
+    "parser": "@typescript-eslint/parser",
+    // parserOptions: {
+    //     sourceType: "module",
+    //     tsconfigRootDir: __dirname,
+    //     project: [
+    //         // "./tsconfig.json",
+    //         "./workspaces/*/tsconfig.json",
+    //     ],
+    // },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+        // "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    ],
+    "rules": {
+        "@typescript-eslint/no-namespace": 0  // It"s convenient to have joint class/type with namespaces.
+    }
+}

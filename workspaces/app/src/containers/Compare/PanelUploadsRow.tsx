@@ -101,6 +101,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
         if(id !== edit) {
             const blueprint = blueprintStore.getSomething(id)
+            if(blueprint === null) throw new Error('catch me')  // Typeguarding.
+
             runInAction(() => {
                 blueprintStore.deleteUpload(id)
                 selectionStore.selected.remove(id)

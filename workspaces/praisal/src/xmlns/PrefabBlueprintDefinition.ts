@@ -27,7 +27,6 @@ export interface IBlueprintPrefabDefinitions extends IXml2js {
     readonly Prefabs: readonly [IBlueprintPrefabs],
 }
 
-// tslint:disable-next-line: id-length
 export interface IBlueprintPrefabBlueprintDefinition {
     readonly Definitions: IBlueprintPrefabDefinitions,
 }

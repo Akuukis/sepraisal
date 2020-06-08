@@ -5,7 +5,7 @@ import { join } from 'path'
 declare interface IWindowWithPiwik extends Window {
     _paq: unknown[][]
 }
-declare var window: IWindowWithPiwik & typeof globalThis
+declare let window: IWindowWithPiwik & typeof globalThis
 
 const noop = () => undefined
 
@@ -16,9 +16,7 @@ export interface IAnalyticsStoreOpts {
     url?: string,
 }
 
-// tslint:disable-next-line: min-class-cohesion
 export abstract class AbstractAnalyticsStore {
-    // tslint:disable-next-line: naming-convention
     @computed public get isLoaded(): boolean {
         // This store sets `_paq` as simple Array.
         // Injected Piwik code will replace it with specialized class which is not Array.
@@ -31,7 +29,6 @@ export abstract class AbstractAnalyticsStore {
     protected previousPath = ''
     protected url: string | null
 
-    // tslint:disable-next-line: mccabe-complexity cognitive-complexity
     public constructor(rawOpts: IAnalyticsStoreOpts = {}) {
         this.url = rawOpts.url || null
 
@@ -56,7 +53,7 @@ export abstract class AbstractAnalyticsStore {
         }
     }
 
-    public deconstructor() {
+    public deconstructor(): void {
         this.listeners.forEach((listener) => listener())
     }
 
@@ -72,7 +69,7 @@ export abstract class AbstractAnalyticsStore {
     /**
     * Adds a page view for the given location
     */
-    public trackView(location: Location | {path: string} | Location & {basename: string}) {
+    public trackView(location: Location | {path: string} | Location & {basename: string}): void {
         let currentPath: string
 
         if ('path' in location) {
@@ -89,7 +86,7 @@ export abstract class AbstractAnalyticsStore {
         this.push(['trackPageView'])
     }
 
-    public trackEvent(category: string, action?: string, name?: string, value?: string | number) {
+    public trackEvent(category: string, action?: string, name?: string, value?: string | number): void {
         if(value !== undefined) {
             if(typeof name === 'undefined') throw new Error('AnalyticsStore.trackEvent requires name when value is provided.')
             if(typeof action === 'undefined') throw new Error('AnalyticsStore.trackEvent requires action when value is provided.')
@@ -104,7 +101,7 @@ export abstract class AbstractAnalyticsStore {
         }
     }
 
-    public trackSiteSearch(keyword: string, category: string, count: number) {
+    public trackSiteSearch(keyword: string, category: string, count: number): void {
         this.push([
             'trackSiteSearch',
             keyword,
@@ -118,7 +115,6 @@ export abstract class AbstractAnalyticsStore {
     *
     * @see http://davidwalsh.name/track-errors-google-analytics
     */
-    // tslint:disable: max-func-args
     public trackError(event: Event | string, source?: string, lineno?: number, colno?: number, error?: Error): void
     public trackError(errorEvent: ErrorEvent, eventName?: string): void
     public trackError(eventSomething: ErrorEvent | Event | string, sourceOrEventName?: string, lineno?: number, colno?: number, error?: Error): void {
@@ -133,7 +129,7 @@ export abstract class AbstractAnalyticsStore {
             this.push([
                 'trackEvent',
                 'JavaScript Error',
-                error!.message,  // tslint:disable-line: no-useless-cast no-non-null-assertion
+                error?.message ?? '',
                 `${sourceOrEventName}:${lineno}:${colno}`,
             ])
         } else {

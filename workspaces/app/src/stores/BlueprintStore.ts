@@ -7,7 +7,6 @@ import { getApiUrl } from 'src/common'
 
 import { FavoriteStore } from './FavoriteStore'
 
-// tslint:disable-next-line: min-class-cohesion
 export class BlueprintStore {
     public readonly recent = new ObservableMap<BlueprintStore.ICachedSteamBlueprint, number>()
     public readonly uploads = new ObservableMap<BlueprintStore.ICachedUploadBlueprint>()
@@ -42,7 +41,7 @@ export class BlueprintStore {
         })
     }
 
-    @computed public get size() {
+    @computed public get size(): number {
         // Trigger when recent or uploads changes.
         let size = 0 * (this.recent.size + this.uploads.size)
 
@@ -67,10 +66,10 @@ export class BlueprintStore {
         }
     }
 
-    public getSomething(id: number): BlueprintStore.ICachedSteamBlueprint
-    public getSomething(title: string): BlueprintStore.ICachedUploadBlueprint
-    public getSomething(idOrTitle: number | string): BlueprintStore.ICachedSteamBlueprint | BlueprintStore.ICachedUploadBlueprint
-    public getSomething(idOrTitle: number | string) {
+    public getSomething(id: number): null | BlueprintStore.ICachedSteamBlueprint
+    public getSomething(title: string): null | BlueprintStore.ICachedUploadBlueprint
+    public getSomething(idOrTitle: number | string): null | BlueprintStore.ICachedSteamBlueprint | BlueprintStore.ICachedUploadBlueprint
+    public getSomething(idOrTitle: number | string): null | BlueprintStore.ICachedSteamBlueprint | BlueprintStore.ICachedUploadBlueprint {
         if(typeof idOrTitle === 'string') {
             const upload = this.uploads.get(idOrTitle)
             if(upload) return upload
@@ -82,7 +81,7 @@ export class BlueprintStore {
         return null
     }
 
-    @action public deleteRecent(id: number) {
+    @action public deleteRecent(id: number): boolean {
         localStorage.removeItem(`recent/${id}`)
         return this.recent.delete(id)
     }
@@ -102,13 +101,13 @@ export class BlueprintStore {
         })
     })
 
-    @action public deleteUpload(title: string) {
+    @action public deleteUpload(title: string): boolean {
         if(this.favoriteStore.has(title)) this.favoriteStore.shift(title)
         localStorage.removeItem(`upload/${title}`)
         return this.uploads.delete(title)
     }
 
-    @action public setRecent(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>) {
+    @action public setRecent(blueprint: RequiredSome<IBlueprint, 'sbc' | 'steam'>): number {
         const id = blueprint._id
         const _cached = moment()
 
@@ -118,7 +117,7 @@ export class BlueprintStore {
         return id
     }
 
-    @action public async fetch(id: number) {
+    @action public async fetch(id: number): Promise<RequiredSome<IBlueprint, "steam" | "sbc">> {
         const res = await fetch(getApiUrl([{_id: {$eq: id}}], {limit: 1}))
         const {docs} = await res.json() as {docs: Array<RequiredSome<IBlueprint, 'sbc' | 'steam'>>}
         const doc = docs.pop()
@@ -144,7 +143,7 @@ export class BlueprintStore {
                 _cached: moment(),
             }
         } else {
-            titleFinal = title!
+            titleFinal = title!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */
             blueprint = praisalOrCached
         }
         localStorage.setItem(`upload/${titleFinal}`, JSON.stringify({...blueprint, _cached: blueprint._cached.toString()}))

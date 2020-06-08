@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */  // `Record` is not solution because don't need index signature.
 import { FC } from 'react'
 
 import { StyleRulesCallback, WithStyles } from '@material-ui/styles/withStyles'

@@ -63,6 +63,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [praisalManager, setPraisalManager] = React.useState<PraisalManager | null>(null)
 
     React.useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const body = document.getElementById('body')!
         body.className = classes.body
     })
@@ -100,7 +101,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksDecorative2Link     ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_2]),
                 fetch(CubeBlocksEconomyLink         ).then(async (res) => [await res.text(), VENDOR_MOD.ECONOMY]),
                 fetch(CubeBlocksFrostbiteLink       ).then(async (res) => [await res.text(), VENDOR_MOD.FROSTBITE]),
-            ] as any) as [string, string, string, ...[string, VENDOR_MOD][]]
+            ] as never) as [string, string, string, ...[string, VENDOR_MOD][]]
             const praisalManager = new PraisalManager()
             await praisalManager.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)
             await praisalManager.addBlueprintsSbc(blueprintsSbc, VENDOR_MOD.VANILLA)

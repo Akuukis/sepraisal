@@ -5,8 +5,6 @@ import pad from 'pad'
 import { QUERIES } from '../queries'
 import { execAsync, execAsyncBuffer, lstatAsync, mkdirpSync, prepareQuery, thumbLink, thumbPath } from '../utils'
 
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length
 
 const QUALITY = 10000  // In bytes. 3000 is the lowest that doesn't make eyes bleed.
 
@@ -32,7 +30,7 @@ const output = (char: string) => {
     }
 }
 
-export const thumbConvert = async (idPair: string) => {
+const thumbConvert = async (idPair: string) => {
     if(idPair.includes('steam_workshop_default_image')) return null
     const safeFilename = thumbPath(idPair)
     mkdirpSync(safeFilename)
@@ -85,13 +83,13 @@ const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, i
         output('.')
         thumbnailed.set(doc._id, webp ? webp.length : 0)
     } catch(err) {
-        process.stderr.write(`${err}\n`)
+        process.stderr.write(`${index}: ${err}\n`)
         process.stdout.write(`!`)
     }
 }
 
 
-export const main = async () => {
+export const main = async (): Promise<void> => {
 
 
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })

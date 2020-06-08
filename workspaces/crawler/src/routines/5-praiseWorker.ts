@@ -7,7 +7,6 @@ import pad from 'pad'
 
 import { sbcPath } from '../utils'
 
-// tslint:disable: no-submodule-imports
 
 interface IProjection {
     _id: number,
@@ -17,7 +16,6 @@ interface IProjection {
 }
 
 
-// tslint:disable-next-line: no-unused - TODO: this is bug.
 let collection: Collection<IProjection>
 
 
@@ -30,7 +28,7 @@ const init = (async () => {
     return sePraisal
 })()
 
-export = async (index: number, doc: IProjection, callback: (err: Error | null, msg?: string) => unknown) => {
+export = async (index: number, doc: IProjection, callback: (err: Error | null, msg?: string) => void): Promise<void> => {
     const timer = Date.now()
     const sePraisal = await init
     const loaded = (Date.now() - timer) / 1000

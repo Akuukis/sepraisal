@@ -4,7 +4,6 @@ import { CubeType, CubeTypePrefixed } from './CubeType'
 import { IXml2js } from './xml2js'
 
 
-// tslint:disable: max-union-size max-line-length
 
 export type BlueprintBlockDirectionEnum =
     |'Backward'

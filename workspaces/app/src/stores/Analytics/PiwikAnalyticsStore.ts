@@ -6,7 +6,7 @@ import { AbstractAnalyticsStore, IAnalyticsStoreOpts } from './AbstractAnalytics
 declare interface IWindowWithPiwik extends Window {
     _paq: unknown[][]
 }
-declare var window: IWindowWithPiwik & typeof globalThis
+declare let window: IWindowWithPiwik & typeof globalThis
 
 
 const getBaseUrl = (url: string) => {
@@ -18,7 +18,6 @@ const getBaseUrl = (url: string) => {
 }
 
 const piwikIsAlreadyInitialized = () => {
-    // tslint:disable-next-line: no-unbound-method
     if (typeof window._paq === 'undefined' || typeof window._paq.push !== 'function') {
         return false
     }
@@ -32,7 +31,6 @@ const piwikIsAlreadyInitialized = () => {
 
     let hasSiteId = false
     let hasTrackerUrl = false
-    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < window._paq.length; i += 1) {
         if (window._paq[i].indexOf('setSiteId') !== -1) {
             hasSiteId = true
@@ -88,10 +86,10 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
         // Listen to History.pushState
         // The same behavior as with SimpleAnalytics - https://github.com/simpleanalytics/scripts/blob/4ad5c1b6cb4c42ae2e483dc43a578e25399d53a4/src/default.js#L120-L137.
         if (Event && window.dispatchEvent && window.history ? window.history.pushState : null) {
-            var stateListener = (type: string) => {
-                var orig = window.history[type]
-                return function(this: History) {
-                    var rv = orig.apply(this, arguments)
+            const stateListener = (type: string) => {
+                const orig = window.history[type]
+                return function(this: History, ...args) {
+                    const rv = orig.apply(this, args)
                     trackViewHandler(window.location)
                     return rv
                 }
@@ -102,17 +100,16 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
             })
         }
 
-        if (this._isShim) {
+        if (this._isShim || !url) {
             this.push = (args: unknown[]) => console.debug(`PiwikAnalyticsStore.push():`, ...args)
 
             return
         }
 
         if (!piwikIsAlreadyInitialized()) {
-            // tslint:disable-next-line: no-string-literal
             window['_paq'] = window['_paq'] || []
 
-            const baseUrl = getBaseUrl(url!)
+            const baseUrl = getBaseUrl(url)
             this.push(['setSiteId', siteId])
             this.push(['setTrackerUrl', `${baseUrl}${serverTrackerName}`])
 
@@ -123,8 +120,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
                 element.defer = true
                 element.async = true
                 element.src = `${baseUrl}${clientTrackerName}`
-                // tslint:disable-next-line: no-useless-cast no-non-null-assertion
-                firstScript.parentNode!.insertBefore(element, firstScript)
+                firstScript.parentNode?.insertBefore(element, firstScript)
             }
         }
 
@@ -147,10 +143,8 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
         if(!this.isLoaded) return null
 
         return new Promise<string>((resolve, reject) => {
-            // tslint:disable-next-line: no-any
-            this.push([ function(this: any) {
+            this.push([ function(this: {getVisitorId(): string}) {
                 try {
-                    // tslint:disable-next-line: no-unsafe-any
                     resolve(this.getVisitorId())
                 } catch(err) {
                     reject(err)
@@ -165,7 +159,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
     *
     * @see https://developer.piwik.org/guides/tracking-javascript-guide
     */
-    protected push(args: unknown[]) {
+    protected push(args: unknown[]): void {
         window['_paq'].push(args)
     }
 
@@ -175,14 +169,14 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
     *
     * @see https://developer.piwik.org/guides/tracking-javascript-guide#user-id
     */
-    public setUserId(userId: string | number) {
+    public setUserId(userId: string | number): void {
         window._paq.push(['setUserId', userId])
     }
 
     /**
     * Adds a page view for the given location
     */
-    public trackView(location: Location | {path: string} | Location & {basename: string}, documentTitle = document.title) {
+    public trackView(location: Location | {path: string} | Location & {basename: string}, documentTitle = document.title): void {
         if (this.updateDocumentTitle) this.push(['setDocumentTitle', documentTitle])
         super.trackView(location)
     }

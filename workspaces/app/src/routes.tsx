@@ -13,7 +13,7 @@ import Home from './containers/Home'
 import Info from './containers/Info'
 
 
-export default (history: History) => (
+export default (history: History): JSX.Element => (
     <Router history={history}>
         <App>
             <Switch>

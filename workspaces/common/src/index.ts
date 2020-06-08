@@ -1,7 +1,5 @@
 export * from './ObservableMap'
-export * from './classificator'
 export * from './constants'
 export * from './IBlueprint'
-export * from './queries'
 export * from './utils'
 export * from './groups'

@@ -1,3 +1,5 @@
+/* eslint-env commonjs */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { lstatSync, readdirSync } = require("fs");
 const { join } = require("path");
 const { globalConfig, getPojectConfig } = require('./jest.common')

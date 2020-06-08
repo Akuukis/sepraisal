@@ -1,9 +1,7 @@
 import { IBlueprint } from '@sepraisal/common'
 import moment from 'moment'
 
-// tslint:disable: no-object-literal-type-assertion
 
-// tslint:disable:naming-convention
 export namespace QUERIES_RAW {
     export const pendingScrapeError    = {'steam._error': {$eq: IBlueprint.VERSION.steam}}
     export const pendingScrapeInitial  = {steam: {$exists: false}}
@@ -35,7 +33,6 @@ export namespace QUERIES_RAW {
         pendingPraiseStale,
     ]}
 
-    // tslint:disable-next-line: no-commented-code
     // export const pendingClassError     = {'classes._error': {$eq: IBlueprint.VERSION.classes}}
     // export const pendingClassInitial   = {classes: {$exists: false}}
     // export const pendingClassOutdated  = {'classes._version': {$lt: IBlueprint.VERSION.classes}}
@@ -86,12 +83,10 @@ export namespace QUERIES_RAW {
     ]}
 }
 
-// tslint:disable: max-line-length
 export namespace QUERIES {
     export const pendingScrapeError    = {...QUERIES_RAW.pendingScrapeError }
     export const pendingThumbError     = {...QUERIES_RAW.pendingThumbError    , $nor: [QUERIES_RAW.pendingScrapeError] }
     export const pendingPraiseError    = {...QUERIES_RAW.pendingPraiseError   , $nor: [QUERIES_RAW.pendingScrapeError, QUERIES_RAW.pendingThumbError] }
-    // tslint:disable-next-line: no-commented-code
     // export const pendingClassError     = {...QUERIES_RAW.pendingClassError    , $nor: [QUERIES_RAW.pendingScrapeError, QUERIES_RAW.pendingThumbError, QUERIES_RAW.pendingPraiseError] }
 
     export const pendingScrape         = {...QUERIES_RAW.pendingScrape        , $nor: [QUERIES_RAW.pendingScrapeError] }
@@ -109,7 +104,6 @@ export namespace QUERIES {
     export const pendingPraiseOutdated = {...QUERIES_RAW.pendingPraiseOutdated, $nor: [QUERIES_RAW.pendingPraiseError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraiseInitial] }
     export const pendingPraiseStale    = {...QUERIES_RAW.pendingPraiseStale   , $nor: [QUERIES_RAW.pendingPraiseError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraiseInitial, QUERIES_RAW.pendingPraiseOutdated] }
 
-    // tslint:disable-next-line: no-commented-code
     // export const pendingClass          = {...QUERIES_RAW.pendingClass         , $nor: [QUERIES_RAW.pendingClassError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise] }
     // export const pendingClassInitial   = {...QUERIES_RAW.pendingClassInitial  , $nor: [QUERIES_RAW.pendingClassError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise] }
     // export const pendingClassOutdated  = {...QUERIES_RAW.pendingClassOutdated , $nor: [QUERIES_RAW.pendingClassError, QUERIES_RAW.pendingScrape, QUERIES_RAW.pendingThumb, QUERIES_RAW.pendingPraise, QUERIES_RAW.pendingClassInitial] }

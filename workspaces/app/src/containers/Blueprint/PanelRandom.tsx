@@ -39,7 +39,7 @@ interface IProps extends React.ComponentProps<'form'> {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {select, className, ...otherProps} = props
-    const [value, setValue] = React.useState(Object.keys(PRESET).shift()! as keyof typeof PRESET);
+    const [value, setValue] = React.useState(Object.keys(PRESET)[0] as keyof typeof PRESET);
     const [status, setStatus] = React.useState<{code: ASYNC_STATE, text: string}>({code: ASYNC_STATE.Idle, text: ''})
 
     const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {

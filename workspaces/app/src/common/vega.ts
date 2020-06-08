@@ -2,7 +2,6 @@ import * as Vega from 'vega'
 
 import { MY_LIGHT_THEME } from './myTheme'
 
-// tslint:disable: object-literal-sort-keys naming-convention
 export const vegaSpecHeatmap: Vega.Spec = {
     $schema: 'https://vega.github.io/schema/vega/v5.json',
     width: MY_LIGHT_THEME.shape.boxWidth,
@@ -175,7 +174,6 @@ export const vegaSpecHeatmapLegend: Vega.Spec = {
                         align: {value: 'center'},
                         baseline: {value: 'middle'},
                         text: {
-                            // tslint:disable-next-line: max-line-length
                             signal: 'pow(datum.value, 2) < 1000 ? pow(datum.value, 2) + \'\u00A0\u00A0\'  : pow(datum.value, 2) < 1000000 ? floor(pow(datum.value, 2)/1000) + \'k\' : floor(pow(datum.value, 2)/1000000) + \'m\'',
                         },
                     },

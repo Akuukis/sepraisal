@@ -8,8 +8,6 @@ import { Omit, PickByValueExact } from 'utility-types'
 import { QUERIES } from '../queries'
 import { prepareQuery } from '../utils'
 
-// tslint:disable:no-unsafe-any - because `response` is not typed.
-// tslint:disable:object-literal-sort-keys member-ordering max-line-length object-shorthand-properties-first
 
 type IFlagParam = Omit<IBlueprint.ISteam, 'flagsRed' | 'flagsYellow' | 'flagsGreen'>
 interface IProjection extends Pick<IBlueprint, '_id'> {
@@ -55,18 +53,16 @@ const VENDOR_ID_TO_MOD = {
     1167910: VENDOR_MOD.DECORATIVE_2,
 }
 
-// tslint:disable: strict-boolean-expressions
-export const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`
-export const commaNumber = (rawNumber: string) => Number(rawNumber.replace(',', ''))
-export const authorIdConvert = (input: string) => (input.match(/com\/(.*)/) || [''])[1]
-export const authorTitleConvert = (input: string) => (input.match(/(.*?)\r/) || [''])[1]
-export const ratingStarsConvert = (input: string) => input.includes('not-yet') ? null : Number((input.match(/(\d)-star_large\.png/) || [null])[1])
-export const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
-export const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
-export const dlcsConvert = (input: string): VENDOR_MOD => VENDOR_ID_TO_MOD[Number(input.split('/').pop())]
-// tslint:enable: strict-boolean-expressions
+const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`
+const commaNumber = (rawNumber: string) => Number(rawNumber.replace(',', ''))
+const authorIdConvert = (input: string) => (input.match(/com\/(.*)/) || [''])[1]
+const authorTitleConvert = (input: string) => (input.match(/(.*?)\r/) || [''])[1]
+const ratingStarsConvert = (input: string) => input.includes('not-yet') ? null : Number((input.match(/(\d)-star_large\.png/) || [null])[1])
+const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
+const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
+const dlcsConvert = (input: string): VENDOR_MOD => VENDOR_ID_TO_MOD[Number(input.split('/').pop())]
 
-export const dateConvert = (steamDate: string) => {
+const dateConvert = (steamDate: string) => {
     if(steamDate === '') return null
 
     return moment(steamDate, steamDate.includes(',') ? 'DD MMM, YYYY @ h:ma' : 'DD MMM @ h:ma')
@@ -92,11 +88,8 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         | 'collectionsCount'
         | 'DLCsCount'
         | 'modsCount'
-    interface IScrapeSteamData extends Omit<IFlagParam, IScrapeSteamDataOmits> {
-        // _id: number,
-    }
+    type IScrapeSteamData = Omit<IFlagParam, IScrapeSteamDataOmits>
 
-    // tslint:disable-next-line:no-object-literal-type-assertion
     const {data: dataRaw} = await scrapeIt<IScrapeSteamData>(url, {
         id: {selector: 'a.sectionTab:nth-child(1)', attr: 'href', convert: idFromHref},
         title: {selector: '.workshopItemTitle'},
@@ -178,6 +171,7 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         sizeMB: dataRaw.sizeMB,
         revision: dataRaw.revision,
         mods: dataRaw.mods,
+        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */  // Hack around enforced object due scraping.
         DLCs: dataRaw.DLCs.map(({id}: any) => id),
         collections: dataRaw.collections,
         ratingStars: dataRaw.ratingStars,
@@ -213,7 +207,6 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
 
 const removeRemoved = async (collection: Collection<IBlueprint>, doc: IProjection, prefix: string): Promise<boolean> => {
     const url = `https://steamcommunity.com/sharedfiles/filedetails/?id=${doc._id}`
-    // tslint:disable-next-line:no-object-literal-type-assertion no-any
     const {data} = await scrapeIt<{adultGate: boolean, removed: boolean, breadcumb: string}>(url, {
         adultGate: {selector: '.adult_content_age_gate', attr: 'class', convert: (str) => str === 'adult_content_age_gate'},
         breadcumb: {selector: '.breadcrumbs > a:nth-child(1)'},
@@ -286,7 +279,7 @@ const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, i
 }
 
 
-export const main = async () => {
+export const main = async (): Promise<void> => {
 
 
     const timer = Date.now()
@@ -338,7 +331,7 @@ export const main = async () => {
         worker(works, 7),
     ])
 
-    // tslint:disable:no-unused
+    /* eslint-disable @typescript-eslint/no-unused-vars */
     const found = [...scraped.values()]
         .filter(([prev, curr]) => prev !== null)
         .map(([prev, curr]) => curr)

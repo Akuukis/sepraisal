@@ -3,10 +3,8 @@ import { CubeType, CubeTypePrefixedDefinition } from './CubeType'
 import { IXml2js } from './xml2js'
 
 
-// tslint:disable: max-union-size max-line-length
 
 
-// tslint:disable-next-line: no-unused - TODO put in type
 export interface ICubeId<T extends string = string> extends IXml2js {
     readonly SubtypeId: readonly [string],
     readonly TypeId: readonly [string],

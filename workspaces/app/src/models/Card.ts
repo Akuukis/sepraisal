@@ -85,20 +85,17 @@ export class Card<T extends CardStatus = CardStatus.discovered> implements ICard
         return this.status >= status
     }
 
-    public get id() { return this.dto._id }
+    public get id(): number { return this.dto._id }
 
-    // tslint:disable: max-line-length no-non-null-assertion
-    public get steam(): ICard<T>['steam']     { return (this.isStatus(CardStatus.scrapedOnce) ? this.dto.steam!   : null) as ICard<T>['steam'] }
-    public get thumb(): ICard<T>['thumb']     { return (this.isStatus(CardStatus.thumbedOnce) ? this.dto.thumb!   : null) as ICard<T>['thumb'] }
-    public get sbc(): ICard<T>['sbc']         { return (this.isStatus(CardStatus.praisedOnce) ? this.dto.sbc!     : null) as ICard<T>['sbc'] }
-    public get classes(): ICard<T>['classes'] { return (this.isStatus(CardStatus.classedOnce) ? this.dto.classes! : null) as ICard<T>['classes'] }
-    // tslint:enable: max-line-length no-non-null-assertion
+    public get steam(): ICard<T>['steam']     { return (this.isStatus(CardStatus.scrapedOnce) ? this.dto.steam   : null) as ICard<T>['steam'] }
+    public get thumb(): ICard<T>['thumb']     { return (this.isStatus(CardStatus.thumbedOnce) ? this.dto.thumb   : null) as ICard<T>['thumb'] }
+    public get sbc(): ICard<T>['sbc']         { return (this.isStatus(CardStatus.praisedOnce) ? this.dto.sbc     : null) as ICard<T>['sbc'] }
+    public get classes(): ICard<T>['classes'] { return (this.isStatus(CardStatus.classedOnce) ? this.dto.classes : null) as ICard<T>['classes'] }
 
     public toJSON(): IBpProjectionCard {
         return this.dto
     }
 
-    // tslint:disable-next-line: mccabe-complexity cognitive-complexity
     private getStatus(): CardStatus {
         const dto = this.dto
 

@@ -49,7 +49,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         switch(state) {
             case(null): return null
             case(true): return yes
-            case(false): return no!  // nextState() guards this would never happen.
+            case(false): return no ?? null
             default: throw new Error('catch me')
         }
     }

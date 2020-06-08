@@ -9,6 +9,7 @@ import { Autocomplete } from '@material-ui/lab'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
+import { FindCriterion, FindQuery } from 'src/models'
 import { CONTEXT } from 'src/stores'
 
 
@@ -59,14 +60,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const $exists = variant === 'include'
 
     const filtered = cardStore.querryFindBuilder.find.$and
-            .map((criteria: object) => {
-                const key = Object.keys(criteria).pop()!
+            .map((criteria: FindQuery) => {
+                const key = Object.keys(criteria).pop()
                 if(!key) throw Error('catch me')
 
                 const fullType = key.match(/sbc\.blocks\.(.*)/)?.[1]
-                return [fullType, criteria[key] as object] as const
+                return [fullType, criteria[key] as FindCriterion] as const
             })
-            .filter((pair): pair is [string, object] => !!pair[0])
+            .filter((pair): pair is [string, FindCriterion] => !!pair[0])
 
     const disabled = filtered
             .filter(([_, value]) => deep(value, {$exists: !$exists}))
@@ -83,6 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         // Don't bother removing them at next re-render, it's ok.
     })
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     const handleChange = action((event: React.ChangeEvent<{}>, newOptions: IOption[]) => {
         // A lot of overwritting going on because that's cheaper than to identify exact change.
         // As it's within one action it doesn't trigger re-rerenders during the loop.
@@ -95,7 +97,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     })
 
     const handleRemove = action((event: React.SyntheticEvent<Element, Event>) => {
+        /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */  // Hacky.
         const shortType = event.currentTarget.parentElement!.innerText
+        /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */  // Hacky.
         const option = options.find((option) => option.shortType === shortType)!
         cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${option.fullType}`, null)
         formGroupScope.set(`sbc.blocks.${option.fullType}`, undefined)

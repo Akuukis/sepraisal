@@ -77,7 +77,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         handleClose()
     }
     const quickReverse = () => {
-        const key = Object.keys(cardStore.sort).pop()!
+        const key = Object.keys(cardStore.sort)[0]
         cardStore.sort = {[key]: -cardStore.sort[key] as 1 | -1}
     }
 

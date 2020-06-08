@@ -1,4 +1,5 @@
 // Version 2017-05-24, retrieved 2017-09-07.
+/* eslint-disable */
 
 declare module 'react-table' {
     const val: ReactTable;
@@ -271,7 +272,7 @@ declare module ReactTable {
 
     }
 
-    module Column {
+    namespace Column {
         /** Basic column props */
         interface Basics {
             /** Default: true */

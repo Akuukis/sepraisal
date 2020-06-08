@@ -12,14 +12,12 @@ export * from './createFC'
 export * from './myTheme'
 export * from './vega'
 
-// tslint:disable: no-submodule-imports
 export { createStyles } from '@material-ui/core/styles'  // TODO: '@material-ui/styles'
 export { GridSize } from '@material-ui/core/Grid'
-// tslint:enable: no-submodule-imports
 
 export const VERSION =           2
 
-export const padTo2 = (value: number | string) => {
+export const padTo2 = (value: number | string): string => {
     const string = value.toString()
     if(string.length < 2) return padTo2(`0${string}`)
 
@@ -39,7 +37,7 @@ const addThousandSeperators = (value: string, seperator = '\u2009', recursive = 
 }
 
 
-export const formatDecimal = (amount: NumberAlike, dp: number = 0): string => {
+export const formatDecimal = (amount: NumberAlike, dp = 0): string => {
     const bn = new BigNumber(amount)
 
     return addThousandSeperators(bn.toFixed(dp))
@@ -111,14 +109,13 @@ export const formatDuration = (seconds: number): string => {
     return `${time.diff(zero, 'second')}s`
 }
 
-export const useAsyncEffect = (afn: () => Promise<void>, deps?: DependencyList) => {
+export const useAsyncEffect = (afn: () => Promise<void>, deps?: DependencyList): void => {
     useEffect(() => {
         afn().catch((err) => console.error(`Async Effect "${afn.name}" failed:`, err))
     }, deps)
 }
-export const useAsyncEffectOnce = (afn: () => Promise<void>) => useAsyncEffect(afn, [])
+export const useAsyncEffectOnce = (afn: () => Promise<void>): void => useAsyncEffect(afn, [])
 
-// tslint:disable-next-line: naming-convention no-object-literal-type-assertion
 export const ASYNC_STATE = {
     Idle: 0,
 
@@ -128,7 +125,6 @@ export const ASYNC_STATE = {
 
     Error: 3,
 } as const
-// tslint:disable-next-line: naming-convention
 export type ASYNC_STATE =
     | typeof ASYNC_STATE['Idle']
     | typeof ASYNC_STATE['Doing']
@@ -138,14 +134,19 @@ export type ASYNC_STATE =
 export const DUD_URL = 'javascript:;'
 
 
-export const linkBp = (id: number) => `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`
-export const linkAuthor = (idOrProfile: string | number) => `https://steamcommunity.com/${idOrProfile}/myworkshopfiles/?appid=244850`
-export const linkCollection = (id: string | number) => `https://steamcommunity.com/workshop/filedetails/?id=${id}`
+export const linkBp = (id: number): string => `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`
+export const linkAuthor = (idOrProfile: string | number): string => `https://steamcommunity.com/${idOrProfile}/myworkshopfiles/?appid=244850`
+export const linkCollection = (id: string | number): string => `https://steamcommunity.com/workshop/filedetails/?id=${id}`
 
-export const linkProps = (href: string) => ({href, target: '_blank', rel: 'noreferrer noopener'})
-export const linkBpProps = (id: number) => linkProps(linkBp(id))
-export const linkAuthorProps = (id: string | number) => linkProps(linkAuthor(id))
-export const linkCollectionProps = (id: string | number) => linkProps(linkCollection(id))
+interface ILinkProps {
+    href: string
+    target: string
+    rel: string
+}
+export const linkProps = (href: string): ILinkProps => ({href, target: '_blank', rel: 'noreferrer noopener'})
+export const linkBpProps = (id: number): ILinkProps => linkProps(linkBp(id))
+export const linkAuthorProps = (id: string | number): ILinkProps => linkProps(linkAuthor(id))
+export const linkCollectionProps = (id: string | number): ILinkProps => linkProps(linkCollection(id))
 
 
 /**
@@ -165,7 +166,11 @@ export const dropShadowFromBoxShadow = (css: string): string => {
     return dropShadows.join(' ')
 }
 
-const getWindowDimensions = () => {
+interface IWindowDimensions {
+    width: number
+    height: number
+}
+const getWindowDimensions = (): IWindowDimensions => {
     const { innerWidth: width, innerHeight: height } = window
     return {
         width,
@@ -173,7 +178,7 @@ const getWindowDimensions = () => {
     }
 }
 
-export const useWindowDimensions = () => {
+export const useWindowDimensions = (): IWindowDimensions => {
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
 
     useEffect(() => {
@@ -190,13 +195,12 @@ export const useWindowDimensions = () => {
 
 interface ApiProps {
     $search?: string,
-    projection?: object,
-    sort?: object,
+    projection?: Record<string, unknown>,
+    sort?: Record<string, unknown>,
     limit?: number,
     skip?: number,
 }
-// tslint:disable-next-line: max-func-args
-export const getApiUrl = (queries: FindQuery[], {$search,projection,sort,limit,skip}: ApiProps) => {
+export const getApiUrl = (queries: FindQuery[], {$search,projection,sort,limit,skip}: ApiProps): string => {
     const find: IFindRootQuery = {$and: queries}
     if($search) find.$text = {$search}
 

@@ -37,7 +37,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
     const [dirty, setDirty] = React.useState(JSON.stringify(cardStore.find, null, 2))
 
-    let dirtyOk: {} | null
+    let dirtyOk: Record<string, unknown> | null
     try {
         dirtyOk = JSON.parse(dirty)
     } catch(err) {

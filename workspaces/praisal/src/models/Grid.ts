@@ -8,7 +8,6 @@ const obj2mapArray = (obj: Record<string, number>) => Object.keys(obj).map<[stri
 
 export type GridSize = 'Large' | 'Small' | 'Mixed'
 
-// tslint:disable-next-line: min-class-cohesion
 export class Grid {
 
     public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Grid> {
@@ -27,7 +26,7 @@ export class Grid {
 
 
     // Methods for analysis.
-    public get blockcount() {
+    public get blockcount(): [string, number][] {
         const blockcount = this.blocks
             .map((cubeBlock) => cubeBlock.title)
             .reduce((blockcountMap, block) => {
@@ -52,7 +51,7 @@ export class Grid {
     public readonly isStatic: boolean
     public readonly oxygenAmount: unknown
     public readonly persistentFlags: string[]
-    public readonly rest: object
+    public readonly rest: Record<string, unknown>
     private readonly cubeStore: Map<string, Cube>
 
     public constructor(dto: Grid | IBlueprintCubeGrid, cubeStore: Map<string, Cube>) {
@@ -100,12 +99,11 @@ export class Grid {
             this.isStatic = IsStatic ? IsStatic[0] === 'true' : false
             this.oxygenAmount = OxygenAmount
             this.persistentFlags = PersistentFlags[0].split(' ')
-            this.rest = rest
+            this.rest = rest as Record<string, any>  /* eslint-disable-line @typescript-eslint/no-explicit-any */  // TODO: better typing
         }
     }
 
     public toJSON(): IBlueprintCubeGrid {
-        // tslint:disable-next-line: no-object-literal-type-assertion
         return {
             BlockGroups: [{MyObjectBuilder_BlockGroup: this.blockGroups}],
             CubeBlocks: [{

@@ -38,12 +38,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {id, card} = props
     const {sbc, steam} = card
 
-    if(!sbc) {
+    if(!sbc || !steam) {
         // TODO
         return null
     }
 
-    const updatedDate = `${steam!.updatedDate.getUTCFullYear()}-${padTo2(steam!.updatedDate.getMonth() + 1)}`
+    const updatedDate = `${steam.updatedDate.getUTCFullYear()}-${padTo2(steam.updatedDate.getMonth() + 1)}`
     const classesValueCell = {
         label: classes.ValueCellLabel,
         value: classes.ValueCellValue,

@@ -110,6 +110,7 @@ const extractId = (text: string) => {
     try {
         url = new URL(text)
     } catch(err) {
+        // Do nothing.
     }
     if(url) {
         const id = url.searchParams.get('id')
@@ -129,6 +130,7 @@ const extractSteam = (text: string) => {
     try {
         url = new URL(text)
     } catch(err) {
+        // Do nothing.
     }
     if(url) {
         const id = url.searchParams.get(PROVIDER.STEAM)

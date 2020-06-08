@@ -24,7 +24,6 @@ export enum CubeType {
     ButtonPanel = 'ButtonPanel',
 }
 
-// tslint:disable-next-line: naming-convention no-object-literal-type-assertion
 export const CubeTypePrefixed = {
     [CubeType.CubeBlock]: 'MyObjectBuilder_CubeBlock',
     [CubeType.Conveyor]: 'MyObjectBuilder_Conveyor',
@@ -51,7 +50,6 @@ export const CubeTypePrefixed = {
     [CubeType.ButtonPanel]: 'MyObjectBuilder_ButtonPanel',
 } as const
 
-// tslint:disable-next-line: naming-convention no-object-literal-type-assertion
 export const CubeTypePrefixedDefinition = {
     [CubeType.CubeBlock]: 'MyObjectBuilder_CubeBlockDefinition',
     [CubeType.Conveyor]: 'MyObjectBuilder_ConveyorDefinition',

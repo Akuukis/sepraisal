@@ -19,7 +19,7 @@ export class Ore implements IOreDTO {
     }
 
 
-    public get title() { return `${this.type}/${this.subtype}`}
+    public get title(): string { return `${this.type}/${this.subtype}`}
     public readonly mass: number  // kg.
     public readonly subtype: string
     public readonly type: string

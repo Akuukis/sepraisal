@@ -14,23 +14,21 @@ app.get('/', (req, res) => {
 
 app.get('/hello', (req, res) => {
     (async () => {
-        // tslint:disable: id-length no-any no-unsafe-any
         const awsRequest: APIGatewayProxyEvent = {
             body: req.body,
-            headers: req.headers as any,
+            headers: req.headers as Record<string, string>,
             httpMethod: req.method,
             isBase64Encoded: false,
-            multiValueHeaders: req.headers as any,
+            multiValueHeaders: {}, // req.headers,
             multiValueQueryStringParameters: req.query,
             path: req.path,
             pathParameters: req.params,
             queryStringParameters: req.query,
-            requestContext: null as any,
-            resource: null as any,
+            requestContext: null as never,
+            resource: null as never,
             stageVariables: null,
         }
-        const result = await hello(awsRequest, null as any, null as any) as APIGatewayProxyResult
-        // tslint:enable: id-length no-any no-unsafe-any
+        const result = await hello(awsRequest, null as never, null as never) as APIGatewayProxyResult
         if(result.headers) {
             Object.entries(result.headers).forEach(([key, value]) => res.setHeader(key, value as string | number))
         }
@@ -38,8 +36,8 @@ app.get('/hello', (req, res) => {
         res
             .status(result.statusCode)
             .json(JSON.parse(result.body))
-    })().catch((err) => {
-        res.status(501).send()
+    })().catch((err: Error) => {
+        res.status(501).send(`${err.name}: ${err.message}`)
     })
 })
 

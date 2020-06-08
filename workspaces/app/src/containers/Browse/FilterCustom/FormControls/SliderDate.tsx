@@ -60,12 +60,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [value, setValue] = React.useState<[number, number]>(getState())
     const from = MARKS
         .filter((mark) => mark.value - value[0] <= 0)
-        .sort((a, b) => (b.value - value[0]) - (a.value - value[0]))
-        [0]
+        .sort((a, b) => (b.value - value[0]) - (a.value - value[0]))[0]
     const to = MARKS
         .filter((mark) => mark.value - value[1] >= 0)
-        .sort((a, b) => (a.value - value[1]) - (b.value - value[1]))
-        [0]
+        .sort((a, b) => (a.value - value[1]) - (b.value - value[1]))[0]
 
 
     let criterion: IMyFindCriterion | null = {}
@@ -98,17 +96,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         cardStore.querryFindBuilder.setCriterion(criterionId, criterion)
     })
 
-    const fromLabel = criterion?.$gte !== undefined ? `from ${formatValue(toValue(criterion.$gte!))}` : ''
-    const toLabel = criterion?.$lte !== undefined ? `to ${formatValue(toValue(criterion.$lte!))}` : ''
+    const fromLabel = criterion?.$gte !== undefined ? `from ${formatValue(toValue(criterion.$gte))}` : ''
+    const toLabel = criterion?.$lte !== undefined ? `to ${formatValue(toValue(criterion.$lte))}` : ''
 
     const handleFrom = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const mark = MARKS.find((mark) => mark.version === event.target.value)!
+        const mark = MARKS.find((mark) => mark.version === event.target.value)
+        if(!mark) throw new Error('catch me')
         const newValue: [number, number] = [mark.value, value[1]]
         setValue(newValue)
         onChangeCommitted(newValue)()
     };
     const handleTo = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const mark = MARKS.find((mark) => mark.version === event.target.value)!
+        const mark = MARKS.find((mark) => mark.version === event.target.value)
+        if(!mark) throw new Error('catch me')
         const newValue: [number, number] = [value[0], mark.value]
         setValue(newValue)
         onChangeCommitted(newValue)()

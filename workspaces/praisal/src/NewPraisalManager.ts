@@ -6,7 +6,7 @@ import { PraisalManager } from './PraisalManager'
 
 export const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
-export const NewPraisalManager = () => {
+export const NewPraisalManager = (): () => Promise<PraisalManager> => {
     const cubeBlocksSbcs = [
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')],

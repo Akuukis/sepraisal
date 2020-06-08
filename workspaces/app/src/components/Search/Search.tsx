@@ -65,6 +65,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [input, setInput] = React.useState('')
     const [value, setValue] = React.useState<IOption|null>(null)
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     const handleInput = (event: React.ChangeEvent<{}>, newInputValue: string) => {
         setInput(newInputValue)
     }
@@ -127,6 +128,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         routerStore.push({pathname: ROUTE.BROWSE, search: newSearchParams.toString()})
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
         // Backspaced whole search text.
         if(newValue === null) {
@@ -168,6 +170,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         throw new Error('catch me')
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     const handlePaste = (event: React.ClipboardEvent<{}>) => {
         // Allow to short-circuit to analysis.
         const id = isThisSteamUrlOrID(event.clipboardData.getData('text'))
@@ -324,6 +327,7 @@ const isThisSteamUrlOrID = (text: string): null | number => {
     try {
         id = Number(new URL(text).searchParams.get('id'))
     } catch(err) {
+        // Do nothing.
     }
 
     if(!id) {

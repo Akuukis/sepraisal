@@ -1,8 +1,6 @@
 import { VENDOR_MOD } from './constants'
 
 
-// tslint:disable:member-ordering id-length
-
 export enum GridSize {
     Small = 'Small',
     Large = 'Large',
@@ -39,7 +37,6 @@ export interface IBlueprint extends IMongoDbDoc {
 
 export namespace IBlueprint {
 
-    // tslint:disable-next-line: no-object-literal-type-assertion
     export const VERSION = {
         classes: 1,
         sbc: 7,

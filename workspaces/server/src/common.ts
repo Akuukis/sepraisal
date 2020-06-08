@@ -1,35 +1,35 @@
 import { APIGatewayProxyEvent } from 'aws-lambda'
-import fetch from 'node-fetch'
+import fetch, { Response } from 'node-fetch'
 import { Primitive } from 'utility-types'
 
 const MATOMO_PARAMS = {
-    // TODO: Do not hardcode this.
-    siteId: Number(process.env.MATAMO_SITE_ID!),
-    url: process.env.MATAMO_URL!,
+    siteId: Number(process.env.MATAMO_SITE_ID!),  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // dotenv asserts it.
+    url: process.env.MATAMO_URL!,  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // dotenv asserts it.
 } as const
 
-export const flattenProjection = (objOrPrimitive: object | Primitive | null): string[] => {
+export const flattenProjection = (objOrPrimitive: Record<string, unknown> | Primitive | null): string[] => {
     if(objOrPrimitive === null) return []
     if(typeof objOrPrimitive !== 'object') return []
 
     const keys: string[] = []
     for(const [key, value] of Object.entries(objOrPrimitive)) {
-        const subkeys = flattenProjection(value as object | Primitive | null)
+        const subkeys = flattenProjection(value as Record<string, unknown> | Primitive | null)
         keys.push(key, ...subkeys.map((subkey) => `${key}.${String(subkey)}`))
     }
 
     return keys
 }
 
-export const track = async (event: APIGatewayProxyEvent) => {
+export const track = async (event: APIGatewayProxyEvent): Promise<Response> => {
+    const {find, pk_vid} = event.queryStringParameters ?? {}
     const params = [
         `apiv=1`,
         `rec=1`,
         `idsite=${MATOMO_PARAMS.siteId}`,
         `e_c=api`,
         `e_a=querry`,
-        `e_n=${encodeURIComponent(event.queryStringParameters!.find)}`,
-        event.queryStringParameters!.pk_vid ? `_id=${event.queryStringParameters!.pk_vid}` : undefined,
+        `e_n=${encodeURIComponent(find)}`,
+        pk_vid ? `_id=${pk_vid}` : undefined,
         `rand=${Math.random()}`,
     ].filter((part)=>part !== undefined)
 

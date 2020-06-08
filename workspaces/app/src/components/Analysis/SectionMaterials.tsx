@@ -65,7 +65,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         setCopies(Number(event.target.value))
     }
 
-    // tslint:disable: arrow-return-shorthand
     const getComponents = (): IRequirement[] => {
         return Object.entries(sbc.components)
             .map(([blockType, amount]) => ({blockType, amount: amount * copies}))

@@ -71,7 +71,6 @@ const genFighterPreset = (...args): FindQuery[] => [
     ]
 
 
-// tslint:disable: object-literal-sort-keys
 export const PRESET = {
     // fighter50:    genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
     fighter/* 80 */: genFighterPreset(103, 1197, 9053 , 80361 , 1205, 6546 , 7102 , 59263 , 0, 2),
@@ -79,9 +78,8 @@ export const PRESET = {
     ship: [...presetShip] as FindQuery[],
     none: [...presetUpToDate] as FindQuery[],
 }
-// tslint:enable: object-literal-sort-keys
 
-export const getPresetTitle = (id: keyof typeof PRESET | 'custom') => {
+export const getPresetTitle = (id: keyof typeof PRESET | 'custom'): string => {
     switch(id) {
         case 'none': return 'None'
         case 'ship': return 'Any ship, vanilla.'
@@ -136,7 +134,7 @@ const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
 * - NOT USED/SUPPORTED: when criterion has one-to-many relationship with changing amount of fields.
 */
 export class QueryFindBuilder {
-    static serializeId = (idOrIds: string | string[]) => {
+    static serializeId = (idOrIds: string | string[]): string => {
         if(!Array.isArray(idOrIds)) return idOrIds
 
         return idOrIds
@@ -158,12 +156,12 @@ export class QueryFindBuilder {
 
     @computed public get find(): IFindRootQuery { return this._find }
 
-    @computed public get findStringified() {
+    @computed public get findStringified(): string {
         const queriesSorted = sortFindAnd(this.find.$and)
         return JSON.stringify(queriesSorted)
     }
 
-    @computed public get findStringifiedOnlyQueries() {
+    @computed public get findStringifiedOnlyQueries(): string {
         const queriesSorted = sortFindAnd(this.find.$and)
         const queriesFiltered = queriesSorted
             .filter((query) => Object.keys(query).pop() !== 'steam.authors.title')
@@ -171,13 +169,13 @@ export class QueryFindBuilder {
         return JSON.stringify(queriesFiltered)
     }
 
-    @computed public get selectedPreset() {
+    @computed public get selectedPreset(): keyof typeof PRESET | 'custom' {
         const foundPreset = (Object.keys(PRESET) as Array<keyof typeof PRESET>)
             .find((key) => this.findStringifiedOnlyQueries === PRESET_STRINGIFIED[key])
 
         return foundPreset ?? 'custom'
     }
-    @computed public get sort() { return this._sort }
+    @computed public get sort(): IBrowserStoreSort { return this._sort }
     public set sort(value: IBrowserStoreSort) {
         this._sort = value
     }
@@ -194,10 +192,10 @@ export class QueryFindBuilder {
     @observable protected _sort: IBrowserStoreSort = {subscriberCount: -1}
     protected disposers: IReactionDisposer[] = []
 
-    public constructor() {
-    }
+    // public constructor() {
+    // }
 
-    public deconstructor() {
+    public deconstructor(): void {
         for(const disposer of this.disposers) disposer()
     }
 
@@ -208,7 +206,7 @@ export class QueryFindBuilder {
                 if(!key) {
                     const $comment = `Found criteria wrapper without content at position ${i}, ignoring..`
                     console.warn($comment)
-                    return ['__warnings', {$comment}] as [string, {}]
+                    return ['__warnings', {$comment}] as [string, Record<string, unknown>]
                 }
 
                 const criterion = criterionWrapper[key] as FindCriterionDirect
@@ -220,7 +218,7 @@ export class QueryFindBuilder {
 
                 return [QueryFindBuilder.serializeId(innerKeys), criterion] as [string, FindCriterionGroup]
             })
-            .filter((amIundefined) => amIundefined! !== undefined)
+            .filter((amIundefined) => amIundefined !== undefined)
     }
 
     public getCriterion<T extends FindCriterionDirect = FindCriterionDirect>(idOrIds: string): T | null
@@ -278,11 +276,11 @@ export class QueryFindBuilder {
         this.setCriterion('steam.collections.title', collections)
     }
 
-    @action public replaceSearch($search?: string) {
+    @action public replaceSearch($search?: string): void {
         this.replaceFilter({$text: $search === undefined ? undefined : {$search}})
     }
 
-    @action public replaceFilter(diff: Partial<IFindRootQuery>) {
+    @action public replaceFilter(diff: Partial<IFindRootQuery>): void {
         // If changed, automatically trigger query via mobx due reaction above on `this.find.$and`.
         if('$and' in diff && diff.$and) {
             this._find.$and = sortFindAnd(diff.$and)

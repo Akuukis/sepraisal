@@ -15,10 +15,9 @@
         "start": "yarn run build && yarn run lint && yarn run test",
         "build": "tsc -v && tsc -b",
         "clean": "rm -rf coverage lib tmp tsconfig.tsbuildinfo",
-        "lint": "tslint",
+        "lint": "eslint $(git ls-files '*.ts' '*.tsx' '*.js' '*.jsx')",
         "lint:fix": "yarn run lint --fix",
-        "lint:summary": "yarn lint:verbose | grep ERROR | sed -r 's/ERROR: \\((.*)\\)\\s\\/.*/\\1/' | sort | uniq -c | sort -nr",
-        "lint:verbose": "yarn run lint -t verbose",
+        "lint:summary": "yarn lint --format compact | grep '(@' | grep ' - ' | sed -r 's/.* (\\w+ -) .*(\\(@.*)$/\\1 \\2/' | sort | uniq -c | sort -nr",
         "test": "jest",
         "test:coverage": "yarn run test --coverage",
         "watch": "yarn run watch:src",
@@ -36,6 +35,8 @@
         "@types/jszip": "^3.1.7",
         "@types/object.fromentries": "^2.0.0",
         "@types/xml2js": "^0.4.5",
+        "@typescript-eslint/eslint-plugin": "^3.1.0",
+        "@typescript-eslint/parser": "^3.1.0",
         "utility-types": "^3.10.0"
     }
 }

@@ -12,14 +12,13 @@ export type CubeBlockGridSize = 'Large' | 'Small'
 
 type Omits = 'BuildTimeSeconds' | 'CubeSize' | 'DisplayName' | 'Id' | 'PCU' | 'Size'
 
-// tslint:disable-next-line: min-class-cohesion
 export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJSON' | 'health' | 'maxIntegrity'> {
 
     public static fromSbcs(componentStore: Map<string, Component>, cubeBlocksSbcs: Map<string, IParseCubeBlocksSbc>): Cube[] {
         return [...cubeBlocksSbcs.values()].map((cubeDto) => new Cube(cubeDto, componentStore, cubeDto.mod))
     }
 
-    public get title() { return `${String(this.type)}/${this.subtype}`}
+    public get title(): string { return `${String(this.type)}/${this.subtype}`}
     public readonly data: Omit<CubeDTO<T>, Omits>
     public readonly displayName: string
     public readonly gridSize: CubeBlockGridSize
@@ -107,8 +106,7 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
             }],
 
             ...this.data,
-        // tslint:disable-next-line: no-any
-        } as any
+        } as never
     }
 
 }

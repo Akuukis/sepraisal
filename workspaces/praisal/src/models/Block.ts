@@ -7,7 +7,6 @@ import { Cube } from './Cube'
 
 type Omits = '$' | 'SubtypeName' | 'Min' | 'BlockOrientation' | 'ColorMaskHSV'
 
-// tslint:disable-next-line: min-class-cohesion
 export class Block<T extends CubeType = CubeType> {
 
     public static isType<TNarrow extends CubeType>(testType: TNarrow) {
@@ -35,7 +34,6 @@ export class Block<T extends CubeType = CubeType> {
     public readonly y: number
     public readonly z: number
 
-    // tslint:disable-next-line: mccabe-complexity cognitive-complexity
     public constructor(dto: Block<T> | BlockDefinition<T>, cubeStore: Map<string, Cube<T>>) {
         if(dto instanceof Block) {
             this.raw = dto.raw
@@ -57,9 +55,8 @@ export class Block<T extends CubeType = CubeType> {
             const {$, SubtypeName, Min, BlockOrientation, ColorMaskHSV, ...rest} = dto
 
             this.type = $['xsi:type'].replace('MyObjectBuilder_', '') as T
-            this.subtype = SubtypeName[0]!
+            this.subtype = SubtypeName[0] ?? null
             this.title = `${String(this.type)}/${String(this.subtype)}`
-            // tslint:disable-next-line: strict-boolean-expressions
             this.cube = cubeStore.get(this.title) || null
 
             this.x = Number(Min !== undefined ? Min[0].$.x : 0)
@@ -103,8 +100,7 @@ export class Block<T extends CubeType = CubeType> {
             }}],
             SubtypeName: [this.subtype],
             ...this.data,
-        // tslint:disable-next-line: no-any - TODO
-        } as any
+        } as never
     }
 
 }

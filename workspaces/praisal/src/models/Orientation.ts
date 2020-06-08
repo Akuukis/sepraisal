@@ -1,6 +1,5 @@
 import { Direction, IOrientation } from '@sepraisal/common'
 
-// tslint:disable: no-duplicate-string
 
 export type TranslationEnum = '+x' | '+y' | '+z' | '-x' | '-y' | '-z'
 export type TranslationMinEnum = 'x' | 'y' | 'z'
@@ -59,7 +58,6 @@ const oppositeTo = (direction: Direction): Direction => {
     }
 }
 
-// tslint:disable-next-line: cyclomatic-complexity mccabe-complexity
 const rightOf = ({Forward, Up}: Orientation): Direction => {
     switch(`${Forward}-${Up}` as OrientationEnum) {
         case('Forward-Up'): return Direction.Right
@@ -90,7 +88,6 @@ const rightOf = ({Forward, Up}: Orientation): Direction => {
     }
 }
 
-// tslint:disable-next-line: cyclomatic-complexity mccabe-complexity
 const leftOf = ({Forward, Up}: Orientation): Direction => {
     switch(`${Forward}-${Up}` as OrientationEnum) {
         case('Forward-Up'): return Direction.Left
@@ -121,7 +118,6 @@ const leftOf = ({Forward, Up}: Orientation): Direction => {
     }
 }
 
-// tslint:disable: member-ordering
 export class Orientation implements IOrientation {
     public Forward: Direction
     public Up: Direction
@@ -131,39 +127,38 @@ export class Orientation implements IOrientation {
         this.Up = Up
     }
 
-    public turnAround() {
+    public turnAround(): Orientation {
         return new Orientation(oppositeTo(this.Forward), this.Up)
     }
 
-    public upsideDown() {
+    public upsideDown(): Orientation {
         return new Orientation(this.Forward, oppositeTo(this.Up))
     }
 
-    public turnDown() {
+    public turnDown(): Orientation {
         return new Orientation(oppositeTo(this.Up), this.Forward)
     }
 
-    public turnUp() {
+    public turnUp(): Orientation {
         return new Orientation(this.Up, oppositeTo(this.Forward))
     }
 
-    public turnRight() {
+    public turnRight(): Orientation {
         return new Orientation(rightOf(this), this.Up)
     }
 
-    public turnLeft() {
+    public turnLeft(): Orientation {
         return new Orientation(leftOf(this), this.Up)
     }
 
-    public fallRight() {
+    public fallRight(): Orientation {
         return new Orientation(this.Forward, rightOf(this))
     }
 
-    public fallLeft() {
+    public fallLeft(): Orientation {
         return new Orientation(this.Forward, leftOf(this))
     }
 
-    // tslint:disable-next-line: cyclomatic-complexity mccabe-complexity
     public translateForMin(): ITranslationMin {
         switch(`${this.Forward}-${this.Up}`) {
             case('Forward-Up'): return {x: 'x', y: 'y', z: 'z'}  //
@@ -194,7 +189,6 @@ export class Orientation implements IOrientation {
         }
     }
 
-    // tslint:disable-next-line: cyclomatic-complexity mccabe-complexity
     public translate(coords: ICoords): ICoords {
         switch(`${this.Forward}-${this.Up}`) {
             case('Forward-Up'): return {x:  coords.x,    y:  coords.y,    z:  coords.z}  //
@@ -225,15 +219,15 @@ export class Orientation implements IOrientation {
         }
     }
 
-    public x(coords: ICoords = {x: 1, y: 1, z: 1}) {
+    public x(coords: ICoords = {x: 1, y: 1, z: 1}): number {
         return this.translate(coords).x
     }
 
-    public y(coords: ICoords = {x: 1, y: 1, z: 1}) {
+    public y(coords: ICoords = {x: 1, y: 1, z: 1}): number {
         return this.translate(coords).y
     }
 
-    public z(coords: ICoords = {x: 1, y: 1, z: 1}) {
+    public z(coords: ICoords = {x: 1, y: 1, z: 1}): number {
         return this.translate(coords).z
     }
 }

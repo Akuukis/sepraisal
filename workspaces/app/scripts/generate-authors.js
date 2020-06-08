@@ -1,3 +1,5 @@
+/* eslint-env mongo */
+
 // mongo mongo.js > results.json
 var db = db.getSiblingDB('default')
 var cursor = db.blueprints.aggregate([

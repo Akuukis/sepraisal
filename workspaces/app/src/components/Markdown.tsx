@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { dirname } from 'path'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 import ReactMarkdown from 'react-markdown'
@@ -123,7 +124,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <img className={classes.imgFullWidth} alt={alt} src={`${src}`} />
                         <Typography className={classes.imgFullWidthCaption} variant='caption'>
                             {title ?? ''}
-                            &nbsp;(<MyLink blank href={`${location.pathname.match(/.*\//)![0]}${src}`}>full size image</MyLink>)
+                            &nbsp;(<MyLink blank href={`${dirname(location.pathname)}${src}`}>full size image</MyLink>)
                         </Typography>
                     </div>
                 ),

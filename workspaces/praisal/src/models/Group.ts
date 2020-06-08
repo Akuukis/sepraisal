@@ -1,5 +1,6 @@
 import { GroupTitle } from '@sepraisal/common'
 
+import { CubeType } from '../xmlns/CubeType'
 import { Block } from './Block'
 
 export interface IGroupDTO {
@@ -8,7 +9,6 @@ export interface IGroupDTO {
     types: string[],
 }
 
-// tslint:disable-next-line: min-class-cohesion
 export class Group {
     public readonly priority: number
     public readonly title: GroupTitle
@@ -20,7 +20,7 @@ export class Group {
         this.types = new Set(dto.types.map((type) => new RegExp(type)))
     }
 
-    public match(blocks: Block[]) {
+    public match(blocks: Block[]): { matched: Block<CubeType>[]; other: Block<CubeType>[] } {
         const matched: Block[] = []
         const other: Block[] = []
 

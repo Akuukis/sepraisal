@@ -31,7 +31,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {bp, className, long, ...otherProps} = props
     const {sbc} = bp
 
-    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)!
+    const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
+    if(!praisalManager) return null
     const getComponent = (name: string) => praisalManager.components.get(`Component/${name}`) ?? {} as Component
 
     const materials = getCombinedMaterials(sbc)
