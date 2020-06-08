@@ -1,5 +1,4 @@
 import { ObservableMap } from '@sepraisal/common'
-import { IFind } from '@sepraisal/common/lib/classificator/Class'
 import { autorun, computed, IReactionDisposer, observable, runInAction } from 'mobx'
 
 import { getApiUrl } from 'src/common'
@@ -10,6 +9,7 @@ import {
     getPresetTitle as getPresetTitleReexport,
     IBpProjectionCard,
     ICard,
+    IFindRootQuery,
     PRESET as PRESET_REEXPORT,
     QueryFindBuilder,
 } from '../models'
@@ -91,7 +91,7 @@ const sortFindAnd = ($and: Record<string, unknown>[]): Record<string, unknown>[]
 export class CardStore {
     public readonly querryFindBuilder = new QueryFindBuilder()
 
-    @computed public get find(): IFind { return this.querryFindBuilder.find }
+    @computed public get find(): IFindRootQuery { return this.querryFindBuilder.find }
     @computed public get selectedPreset(): QueryFindBuilder['selectedPreset'] { return this.querryFindBuilder.selectedPreset }
 
     @computed public get sort(): IBrowserStoreSort { return this._sort }

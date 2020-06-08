@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  install-build-test:
+  install-build-lint-test:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
