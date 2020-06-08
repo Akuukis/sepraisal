@@ -31,13 +31,13 @@
             "amoosbr.markdown-nomnoml",
             "christian-kohler.npm-intellisense",
             "christian-kohler.path-intellisense",
+            "dbaeumer.vscode-eslint",
             "eamodio.gitlens",
             "eg2.vscode-npm-script",
             "formulahendry.code-runner",
             "joelday.docthis",
             "kaiwood.indentation-level-movement",
             "knisterpeter.vscode-commitizen",
-            "ms-vscode.vscode-typescript-tslint-plugin",
             "ms-vscode.typescript-javascript-grammar",
             "rbbit.typescript-hero",
             "shardulm94.trailing-spaces",
@@ -46,6 +46,9 @@
             "tyriar.sort-lines",
             "wmaurer.change-case",
             "yzhang.markdown-all-in-one"
+        ],
+        "unwantedRecommendations": [
+            "ms-vscode.vscode-typescript-tslint-plugin",
         ]
     },
     "settings": {
@@ -70,7 +73,7 @@
             "wrap"
         ],
         "editor.codeActionsOnSave": {
-            "source.fixAll.tslint": true
+            "source.fixAll": true
         },
         "editor.minimap.maxColumn": 180,
         "editor.wordWrapColumn": 180,
@@ -97,7 +100,7 @@
             "yarn-error.log": true,
         },
         "search.showLineNumbers": true,
-        "tslint.alwaysShowRuleFailuresAsWarnings": true,
+        "eslint.alwaysShowStatus": true,
         "tslint.exclude": [
             "**/build/**",
             "**/dist/**",

@@ -7,6 +7,15 @@
             "command": "yarn build",
             "problemMatcher": [],
             "group": "build"
+        },
+        {
+            "label": "eslint",
+            "type": "shell",
+            "command": "yarn lint",
+            "group": "test",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ]
         }
     ]
 }
