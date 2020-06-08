@@ -69,7 +69,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Typography variant='h3'>License</Typography>
             <Typography paragraph>
                 The website, backend, and praisal library are all open-source (<MyLink href='//choosealicense.com/licenses/gpl-3.0/'>GPLv3</MyLink>).
-                You can find source code at <MyLink href='//gitlab.com/akuukis/sepraisal'>Gitlab</MyLink>.
+                You can find source code at <MyLink href='//github.com/akuukis/sepraisal'><IconGithub fontSize='default' className={classes.icon} /> Github</MyLink>.
             </Typography>
             <Typography paragraph>
                 The name ('Space Engineers Praisal') and associated domain belongs to Akuukis.

@@ -12,7 +12,7 @@ Set up environment
 3. (optional) install [VSCode](https://code.visualstudio.com/Download) to get recommended extensions.
 4. Prepare repository
     ```sh
-    git clone https://gitlab.com/space-engineers-community/sepraisal.git
+    git clone github.com/akuukis/sepraisal.git
     cd sepraisal
     yarn bootstrap
     cp .env.example .env
