@@ -32,9 +32,7 @@ jobs:
         path: |
           ${{ steps.yarn-cache-dir-path.outputs.dir }}
           **/node_modules
-        key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-node_modules-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.node-version }}-yarn-node_modules-
+        key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-node_modules-${{ hashFiles('yarn.lock') }}
 
     - name: Install dependencies
       if: steps.yarn-node_modules.outputs.cache-hit != 'true'
@@ -46,10 +44,10 @@ jobs:
         path: |
           **/lib
           **/*.tsbuildinfo
-        key: ${{ runner.os }}-${{ matrix.node-version }}-lib-${{ hashFiles('**/tsconfig.json') }}-${{ hashFiles('**/src') }}
+        key: ${{ runner.os }}-${{ matrix.node-version }}-lib-${{ hashFiles('yarn.lock') }}-${{ hashFiles('**/tsconfig.json') }}-${{ hashFiles('**/src') }}
         restore-keys: |
-          ${{ runner.os }}-${{ matrix.node-version }}-lib-${{ hashFiles('**/tsconfig.json') }}-
-          ${{ runner.os }}-${{ matrix.node-version }}-lib-
+          ${{ runner.os }}-${{ matrix.node-version }}-lib-${{ hashFiles('yarn.lock') }}-${{ hashFiles('**/tsconfig.json') }}-
+          ${{ runner.os }}-${{ matrix.node-version }}-lib-${{ hashFiles('yarn.lock') }}-
 
     - name: Build All
       if: steps.libs.outputs.cache-hit != 'true'
