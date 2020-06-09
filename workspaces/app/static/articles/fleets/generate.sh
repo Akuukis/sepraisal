@@ -3,12 +3,12 @@ OUT="$MY_DIR/data.json"
 PORT=27019
 
 # ## Open tunnel to MongoDB using "sepraisal" credentials.
-# (ssh -NL $PORT:localhost:27017 sepraisal) &
-# sleep 1
+(ssh -NL $PORT:localhost:27017 sepraisal) &
+sleep 1
 
-# mongo --port $PORT --quiet "$MY_DIR/mongo.js" > $OUT
+mongo --port $PORT --quiet "$MY_DIR/mongo.js" > $OUT
 
-# kill %1  # Close the tunnel (job no.1, created with "&" symbol.)
+kill %1  # Close the tunnel (job no.1, created with "&" symbol.)
 
 
 ## Formatting.

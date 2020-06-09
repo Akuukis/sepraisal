@@ -1,3 +1,5 @@
+/* eslint-env mongo */
+
 var tagValidShips = {$set: {validShip: {$and: [
     {$eq: ['$sbc._version', 7]},  // 2. Analyse-able.
     {$eq: ['$sbc.vanilla', true]},  // 3. Vanilla.

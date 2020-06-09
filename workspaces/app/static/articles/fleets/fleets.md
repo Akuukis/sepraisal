@@ -45,7 +45,6 @@ I will explain how to make such a report.
 In fact, if you will kindly ask, you can have a read-only access so that you can make your own reports too!
 
 The database is MongoDB (I'm still doubting this choice of DB but here we are), so we will use MongoDB Shell.
-For visuals, I'm using R-in-Markdown, but you could take anything, or not have visuals at all (but they really help).
 
 
 ### 1. Setup
@@ -110,12 +109,34 @@ So, let's walk through of how I've done:
    5. Let's filter out "work in progress" and synonyms. That's 1578 collections left.
 7. As we can see, not much people tag their ships with abovementioned keywords. Let's take another cheaper but not that accurate way to spot outdated ships - filter out those not updated for a long time. I pick 22 Oct, 2015, because that's when Keen introduced Hydrogen and removed 10x multiplier to dampeners that d many ships unusable, as well planets came shortly after. And it almost 5 years already! So, that's 1320 collections left.
 8. Collection of one blueprint only isn't really a fleet. Two, I guess, neither. But three, uhm... Ok, let's take collections with at least 5 ships. That's 448 collections left.
-9. After so much filtering I wonder, who would want to look at fleets with 3 valid ships and 97 garbage ships? Not me. So, let's filter fleets that has at least 80% of it's blueprints are valid ships. That's 208 fleets left.
+9. After so much filtering I wonder, who would want to look at fleets with 3 valid ships and 97 garbage ships? Not me. So, let's filter fleets that have at least 80% of it's blueprints as valid ships. That's 208 fleets left.
 10. Furthermore, let's use some community power and filter out fleets with very little subscribers. So let's take fleets with 10 or more average subscribers. That's 190 fleets left.
 
-That's it so far. So we have came to a realistic result: 2732 collections boils down to mere 190 fleets.
+That's it so far. So we have came to a realistic result: 2732 collections boils down to mere 190 fleets. In attachment No.1 you can see the query.
 
 Below is the MongoDB query used:
+
+
+### 4. Describe those fleets
+
+Just a average subscriber count and title is bare basics, but we can do better.
+Let's add some interesting columns.
+
+1. "authors": seen authors within the fleet.
+   As there can be multiple authors, list all of them.
+2. "large grid %": percentage of how many ships are large grid instead of small grid.
+3. "atmo": percentage of how many ships has any atmospheric thruster on it.
+4. "hydro": percentage of how many ships has any hydrogen thruster on it.
+5. "ion": percentage of how many ships has any ion thruster on it.
+6. "wheel": percentage of how many ships has any wheel suspension on it.
+
+You can see the final query [here on Github](https://github.com/Akuukis/sepraisal/tree/master/workspaces/app/static/articles/fleets/mongo.js).
+
+See [**results**]()
+
+### Attachment No.1
+
+Minimal query to test filters.
 
 ```js
 var tagValidShips = {$set: {validShip: {$and: [
@@ -187,74 +208,4 @@ db.blueprints.aggregate([
     ...fleetMatchers,
     {$sort: {subs: -1}},
 ]).toArray().length
-```
-
-
-### 4. Add informative columns
-
-1. Let's add in authors.
-2. Let's count large grid vs small grid.
-3. Let's count how many ship uses atmo/hydro/ion/wheel propulsion.
-
-```js
-// see `tagValidShips` and `fleetMatchers` in snippet above.
-db.blueprints.aggregate([
-    tagValidShips,
-    {$unwind: "$steam.collections"},
-    {$group: {
-        _id: "$steam.collections.id",
-        subs: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
-        amount: {$sum: {$toInt: '$validShip'}},
-        total: {$sum: 1},
-        smallGrid: {$sum: {$toInt: {$and: ['$validShip', {$eq: ['$sbc.gridSize', 'Small']}]}}},
-        largeGrid: {$sum: {$toInt: {$and: ['$validShip', {$ne: ['$sbc.gridSize', 'Small']}]}}},  // Count Mixed too.
-        atmo: {$sum: {$toInt: {$and: ['$validShip', {$or: [
-            {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeAtmosphericThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallAtmosphericThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeAtmosphericThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallAtmosphericThrust', 0]},
-        ]}]}}},
-        hydro: {$sum: {$toInt: {$and: ['$validShip', {$or: [
-            {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeHydrogenThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallHydrogenThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeHydrogenThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallHydrogenThrust', 0]},
-        ]}]}}},
-        ion: {$sum: {$toInt: {$and: ['$validShip', {$or: [
-            {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeThrust', 0]},
-            {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallThrust', 0]},
-        ]}]}}},
-        wheel: {$sum: {$toInt: {$and: ['$validShip', {$or: [
-            {$gt: ["$sbc.blocks.MotorSuspension/Suspension3x3", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/Suspension5x5", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/Suspension1x1", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension3x3", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/Suspension3x3mirrored", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/Suspension5x5mirrored", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/Suspension1x1mirrored", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension3x3mirrored", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5mirrored", 0]},
-            {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1mirrored", 0]},
-        ]}]}}},
-        title: {$first: '$steam.collections.title'},
-        authors: {$addToSet: '$steam.authors'},
-    }},
-    {$set: {
-        subs: {$round: ['$subs', 0]},  // Round number.
-        smallGrid: {$round: [{$divide: ['$smallGrid', '$amount']}, 2]},
-        largeGrid: {$round: [{$divide: ['$largeGrid', '$amount']}, 2]},
-        atmo     : {$round: [{$divide: ['$atmo'     , '$amount']}, 2]},
-        hydro    : {$round: [{$divide: ['$hydro'    , '$amount']}, 2]},
-        ion      : {$round: [{$divide: ['$ion'      , '$amount']}, 2]},
-        wheel    : {$round: [{$divide: ['$wheel'    , '$amount']}, 2]},
-    }},
-    // Remove duplicate author entries.
-    {$set: {authors: {$reduce: { input: '$authors', initialValue: [], in: { $setUnion : ["$$value", "$$this"] } }}}},
-    ...fleetMatchers,
-    {$sort: {subs: -1}},
-])
 ```
