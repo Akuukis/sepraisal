@@ -27,7 +27,7 @@ const farmOptions = {
         ...(isDebug ? {execArgv: ['--inspect-brk=49999']} : {}),
         env: {
             ...process.env,
-            ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=3072"} : {}),  // My server can't handle more.
+            ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=3072 --expose-gc"} : {}),  // My server can't handle more.
         }
     },
     maxCallsPerWorker           : Infinity,

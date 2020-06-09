@@ -30,6 +30,13 @@ const init = (async () => {
 
 export = async (index: number, doc: IProjection, callback: (err: Error | null, msg?: string) => void): Promise<void> => {
     const timer = Date.now()
+
+    // Force GC, if possible, for nicier RAM monitoring.
+    if (global.gc) {
+        global.gc()
+    } else {
+        console.warn('No GC hook! Start your program as `node --expose-gc file.js`.')
+    }
     const sePraisal = await init
     const loaded = (Date.now() - timer) / 1000
 
