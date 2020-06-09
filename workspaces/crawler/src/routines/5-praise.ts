@@ -102,7 +102,7 @@ export const main = async (): Promise<void> => {
     console.info(`Praising ${docs.length} blueprints...`)
     await Promise.all([...docs.entries()].map(async ([index, doc]) => {
         const timer = Date.now()
-        const prefix = () => `${moment().format()} #${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |`
+        const prefix = () => `${moment().toISOString()} | #${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |`
         try {
             console.info(prefix(), await queueWork(index, doc))
             praised.set(doc._id, null)
@@ -112,7 +112,7 @@ export const main = async (): Promise<void> => {
             } else if(err.type === 'TimeoutError') {
                 console.error(
                     prefix(),
-                    pad(12, `${(farmOptions.maxCallTime / 1000).toFixed(0)}s`),
+                    pad(13, `${(farmOptions.maxCallTime / 1000).toFixed(0)}s`),
                     `|`,
                     `${(err as Error).name}:`,
                     `${(err as Error).message}`,
