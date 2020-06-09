@@ -25,9 +25,10 @@ const farmOptions = {
     workerOptions               : {
         stdio: 'ignore' as const,  // It doesn't print anything anyways, and this would hide "JavaScript heap out of memory" too,
         ...(isDebug ? {execArgv: ['--inspect-brk=49999']} : {}),
+        execArgv: ['--expose-gc', ...process.execArgv],
         env: {
             ...process.env,
-            ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=3072 --expose-gc"} : {}),  // My server can't handle more.
+            ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=3072"} : {}),  // My server can't handle more.
         }
     },
     maxCallsPerWorker           : Infinity,
