@@ -23,6 +23,7 @@ const isDebug = process.argv.findIndex((arg) => arg.includes('--debug')) !== -1
 const isSerial = process.argv.findIndex((arg) => arg.includes('--serial')) !== -1
 const farmOptions = {
     workerOptions               : {
+        stdio: 'ignore' as const,  // It doesn't print anything anyways, and this would hide "JavaScript heap out of memory" too,
         ...(isDebug ? {execArgv: ['--inspect-brk=49999']} : {}),
         ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=4096"} : {}),
     },
@@ -103,6 +104,7 @@ export const main = async (): Promise<void> => {
                 console.error(
                     prefix,
                     pad(5, `${(farmOptions.maxCallTime / 1000).toFixed(0)}s`),
+                    `|`,
                     `${(err as Error).name}:`,
                     `${(err as Error).message}`,
                 )
