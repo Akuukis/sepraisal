@@ -1,6 +1,6 @@
 import { DB_NAME, DB_URL, IBlueprint, toMinSec } from '@sepraisal/common'
 import { lstatSync } from 'fs'
-import { MongoClient } from 'mongodb'
+import { FilterQuery, MongoClient } from 'mongodb'
 import { cpus } from 'os'
 import pad from 'pad'
 import workerFarm from 'worker-farm'
@@ -27,7 +27,7 @@ const farmOptions = {
         ...(isDebug ? {execArgv: ['--inspect-brk=49999']} : {}),
         env: {
             ...process.env,
-            ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=4096"} : {}),
+            ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=3072"} : {}),  // My server can't handle more.
         }
     },
     maxCallsPerWorker           : Infinity,
@@ -44,7 +44,7 @@ const queueWork = async (index: number, doc: IProjection) => new Promise<string>
     )
 
 
-type IJobResult = 'TimeoutError' | 'read' | 'praise' | 'update' | null
+type IJobResult = 'ProcessTerminatedError' | 'TimeoutError' | 'read' | 'praise' | 'update' | null
 const praised = new Map<number, IJobResult>()
 
 
@@ -60,15 +60,21 @@ export const main = async (): Promise<void> => {
 
     const errors: Error[] = []
 
-    const query = !isDebug
-        ? prepareQuery<IProjection>(!isSerial ? QUERIES.pendingPraise : QUERIES.pendingPraiseError)
-        : {$or: [
+    let query: FilterQuery<IProjection> = prepareQuery<IProjection>(QUERIES.pendingPraise)
+    if(isDebug) {
+        query = {$or: [
             // For debug, use storybook ships.
             {'steam.title': {$regex: '^Cursor$'}},
             // {'steam.title': {$regex: '\\[NO MODS\\] Wyvern - Atmospheric Survival Ship'}},
             // {'steam.title': {$regex: 'IMDC A-1 \'Aegir\' Fighter'}},
             // {'steam.title': {$regex: 'IMDC A-2 \'Aegir\' Fighter'}},
         ]}
+    } else if (isSerial) {
+        query = {$or: [
+            {'sbc._errorDetails': 'ProcessTerminatedError'},  // Crashed out-of-memory.
+            {'sbc._errorDetails': 'TimeoutError'},  // Exceeded timeout.
+        ]}
+    }
 
     const docsAll = await collection
         .find(query)
@@ -79,7 +85,7 @@ export const main = async (): Promise<void> => {
         .toArray()
     console.info(`Required ${docsAll.length} blueprints.`)
 
-    const docsCached = docsAll
+    const docs = docsAll
         .filter((doc) => {
             try {
                 lstatSync(sbcPath(doc))
@@ -89,11 +95,7 @@ export const main = async (): Promise<void> => {
                 return false
             }
         })
-    console.info(`But not yet cached are ${docsAll.length - docsCached.length} blueprints.`)
-
-    const docs = docsCached
-        // .filter((doc) => lstatSync(sbcPath(doc)).size < 2 * 1024 * 1024)
-    // console.info(`But too large (>2MB) are ${docsCached.length - docs.length} blueprints.`)
+    console.info(`But not yet cached are ${docsAll.length - docs.length} blueprints.`)
 
     console.info(`Praising ${docs.length} blueprints...`)
     await Promise.all([...docs.entries()].map(async ([index, doc]) => {
@@ -132,13 +134,21 @@ export const main = async (): Promise<void> => {
         }
     }))
 
-    const timeoutErrors = [...praised.values()].reduce((sum, val) => sum + (val === 'TimeoutError' ? 1 : 0), 0)
-    const readErrors    = [...praised.values()].reduce((sum, val) => sum + (val === 'read' ? 1 : 0), 0)
-    const praiseErrors  = [...praised.values()].reduce((sum, val) => sum + (val === 'praise' ? 1 : 0), 0)
-    const updateErrors  = [...praised.values()].reduce((sum, val) => sum + (val === 'update' ? 1 : 0), 0)
-    const succeeded     = [...praised.values()].reduce((sum, val) => sum + (val === null ? 1 : 0), 0)
+    const timeoutErrors     = [...praised.values()].reduce((sum, val) => sum + (val === 'TimeoutError' ? 1 : 0), 0)
+    const readErrors        = [...praised.values()].reduce((sum, val) => sum + (val === 'read' ? 1 : 0), 0)
+    const terminatedErrors  = [...praised.values()].reduce((sum, val) => sum + (val === 'ProcessTerminatedError' ? 1 : 0), 0)
+    const praiseErrors      = [...praised.values()].reduce((sum, val) => sum + (val === 'praise' ? 1 : 0), 0)
+    const updateErrors      = [...praised.values()].reduce((sum, val) => sum + (val === 'update' ? 1 : 0), 0)
+    const succeeded         = [...praised.values()].reduce((sum, val) => sum + (val === null ? 1 : 0), 0)
     console.info(`Errors (${errors.length}):`, errors)
-    console.info(`Results: ${succeeded} succeeded, but ${timeoutErrors} timeouted, ${readErrors} unread, ${praiseErrors} unpraised, ${updateErrors} not updated.`)
+    console.info(`Results:\n`, [
+        `- ${succeeded} succeeded`,
+        `- ${timeoutErrors} timeouted`,
+        `- ${readErrors} unread`,
+        `- ${terminatedErrors} run out-of-memory`,
+        `- ${praiseErrors} unpraised`,
+        `- ${updateErrors} not updated`,
+    ].join('\n'))
     console.info(`Praise finished in ${toMinSec((Date.now() - timer) / 1000)}.`)
 
     await client.close()
