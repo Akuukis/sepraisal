@@ -146,7 +146,7 @@ export const main = async (): Promise<void> => {
     const updateErrors      = [...praised.values()].reduce((sum, val) => sum + (val === 'update' ? 1 : 0), 0)
     const succeeded         = [...praised.values()].reduce((sum, val) => sum + (val === null ? 1 : 0), 0)
     console.info(`Errors (${errors.length}):`, errors)
-    console.info(`Results:\n`, [
+    console.info(`Results:`, [``,
         `- ${succeeded} succeeded`,
         `- ${timeoutErrors} timeouted`,
         `- ${readErrors} unread`,
