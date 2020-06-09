@@ -10,7 +10,7 @@ import { QUERIES } from '../queries'
 import { asCrawlerUser, mkdirpSync, prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
 const BATCH_SIZE = 50
-const MAX_SIZE = 20
+const MAX_SIZE = Number.MAX_SAFE_INTEGER  // No limit.
 
 const steamLogFile = join(STEAM_DIR, 'logs', 'workshop_log.txt')
 const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
