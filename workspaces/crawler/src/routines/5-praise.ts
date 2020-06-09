@@ -18,7 +18,7 @@ interface IProjection {
 }
 
 const TIMEOUT_PARALLEL = 10
-const TIMEOUT_SERIAL = 300
+const TIMEOUT_SERIAL = 600
 
 const isDebug = process.argv.some((arg) => arg.includes('--debug'))
 const isSerial = process.argv.some((arg) => arg.includes('--serial'))
@@ -71,11 +71,11 @@ export const main = async (): Promise<void> => {
             // {'steam.title': {$regex: 'IMDC A-1 \'Aegir\' Fighter'}},
             // {'steam.title': {$regex: 'IMDC A-2 \'Aegir\' Fighter'}},
         ]}
-    } else if (isSerial) {
-        query = {$or: [
-            {'sbc._errorDetails': 'ProcessTerminatedError'},  // Crashed out-of-memory.
-            {'sbc._errorDetails': 'TimeoutError'},  // Exceeded timeout.
-        ]}
+    // } else if (isSerial) {
+    //     query = {$or: [
+    //         {'sbc._errorDetails': 'ProcessTerminatedError'},  // Crashed out-of-memory.
+    //         {'sbc._errorDetails': 'TimeoutError'},  // Exceeded timeout.
+    //     ]}
     }
 
     const docsAll = await collection
@@ -127,6 +127,9 @@ export const main = async (): Promise<void> => {
                 )
             }
             praised.set(doc._id, err.type || err.name || 'UnknownError')
+
+            if(!isSerial) return  // Don't tag as errored for parallel runs. Tag errors only if serial can't deal with it.
+
             try {
                 await collection.updateOne({ _id: doc._id }, { $set: {sbc: {_error: IBlueprint.VERSION.sbc, _errorDetails: err.type}}})
             } catch(err) {
