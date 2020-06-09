@@ -31,7 +31,7 @@ const farmOptions = {
             ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=3072"} : {}),  // My server can't handle more.
         }
     },
-    maxCallsPerWorker           : Infinity,
+    maxCallsPerWorker           : isSerial ? 1 : Infinity,  // THIS makes sure that dying worker doesn't pull another job along it.
     maxConcurrentWorkers        : (isDebug || isSerial) ? 1 : cpus().length,
     maxConcurrentCallsPerWorker : 1,
     maxConcurrentCalls          : Infinity,
