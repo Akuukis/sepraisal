@@ -40,7 +40,7 @@ const fromSteamtoCache = (doc: IProjection) => {
 
     // Old steam mod format had archive, now they don't but are (de)compressed transparently.
     if(readdirSync(blueprintDir).some((filename) => filename.includes('_legacy.bin'))) {
-        execSync(asCrawlerUser(`(cd ${blueprintDir} && unzip *_legacy.bin)`))
+        execSync(asCrawlerUser(`(cd ${blueprintDir} && unzip -o *_legacy.bin)`))
     }
 
     // Normalize naming, if needed.
