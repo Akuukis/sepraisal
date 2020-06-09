@@ -20,6 +20,12 @@ const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
 if(!steamAppsDir) throw new Error(`Steam directory "${STEAM_DIR}" doesn't contain subdirectory 'steamapps' in either lower or upper case.`)
 const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '244850')
 
+const normalizeName = (blueprintDir: string, name: string) => {
+    if(readdirSync(blueprintDir).includes(name)) {
+        execSync(asCrawlerUser(`(cd ${blueprintDir} && mv ${name} bp.sbc)`))
+    }
+}
+
 /**
 * Normalize various steam workshop item formats into a unified "SEPraisal Cache" format.
 *
@@ -37,10 +43,11 @@ const fromSteamtoCache = (doc: IProjection) => {
         execSync(asCrawlerUser(`(cd ${blueprintDir} && unzip *_legacy.bin)`))
     }
 
-    // Normalize to lowercase, if needed.
-    if(readdirSync(blueprintDir).includes('BP.sbc')) {
-        execSync(asCrawlerUser(`(cd ${blueprintDir} && mv BP.sbc bp.sbc)`))
-    }
+    // Normalize naming, if needed.
+    normalizeName(blueprintDir, 'BP.sbc')  // Quite popular, perhaps from Windows machines.
+    normalizeName(blueprintDir, 'p.sbc')  // 9 cases total.
+    normalizeName(blueprintDir, '.sbc')  // 3 cases total.
+    normalizeName(blueprintDir, 'sbc')  // 1 case total.
 
     const contents = readdirSync(blueprintDir)
     if(contents.includes('bp.sbc')) {
