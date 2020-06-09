@@ -1,5 +1,6 @@
 import { DB_NAME, DB_URL, IBlueprint, toMinSec } from '@sepraisal/common'
 import { lstatSync } from 'fs'
+import moment from 'moment'
 import { FilterQuery, MongoClient } from 'mongodb'
 import { cpus } from 'os'
 import pad from 'pad'
@@ -101,25 +102,25 @@ export const main = async (): Promise<void> => {
     console.info(`Praising ${docs.length} blueprints...`)
     await Promise.all([...docs.entries()].map(async ([index, doc]) => {
         const timer = Date.now()
-        const prefix = `#${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |`
+        const prefix = () => `${moment().format()} #${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |`
         try {
-            console.info(prefix, await queueWork(index, doc))
+            console.info(prefix(), await queueWork(index, doc))
             praised.set(doc._id, null)
         } catch(err) {
             if(['read', 'praise', 'update'].includes(err.type)) {
-                console.error(prefix, (err as Error).message)
+                console.error(prefix(), (err as Error).message)
             } else if(err.type === 'TimeoutError') {
                 console.error(
-                    prefix,
-                    pad(5, `${(farmOptions.maxCallTime / 1000).toFixed(0)}s`),
+                    prefix(),
+                    pad(12, `${(farmOptions.maxCallTime / 1000).toFixed(0)}s`),
                     `|`,
                     `${(err as Error).name}:`,
                     `${(err as Error).message}`,
                 )
             } else {
                 console.error(
-                    prefix,
-                    pad(5, `${((Date.now() - timer) / 1000).toFixed(1)}s`),
+                    prefix(),
+                    pad(12, `${((Date.now() - timer) / 1000).toFixed(1)}s`),
                     `|`,
                     `${(err as Error).name}:`,
                     `${(err as Error).message}`,
@@ -129,7 +130,7 @@ export const main = async (): Promise<void> => {
             try {
                 await collection.updateOne({ _id: doc._id }, { $set: {sbc: {_error: IBlueprint.VERSION.sbc, _errorDetails: err.type}}})
             } catch(err) {
-                console.error(prefix, `Error while setting error: ${err.message.replace(/\n/g, '|')}`)
+                console.error(prefix(), `Error while setting error: ${err.message.replace(/\n/g, '|')}`)
                 process.exit(1)
             }
         }
