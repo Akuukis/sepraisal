@@ -16,6 +16,7 @@ interface IProjection {
     },
 }
 
+const TIMEOUT_SECONDS = 60
 
 const isDebug = process.argv.findIndex((arg) => arg.includes('--debug')) !== -1
 const farmOptions = {
@@ -26,7 +27,7 @@ const farmOptions = {
     maxConcurrentWorkers        : isDebug ? 1 : cpus().length,
     maxConcurrentCallsPerWorker : 1,
     maxConcurrentCalls          : Infinity,
-    maxCallTime                 : isDebug ? Infinity : 30 * 1000,
+    maxCallTime                 : isDebug ? Infinity : TIMEOUT_SECONDS * 1000,
     maxRetries                  : 1,
     autoStart                   : false,
 }
