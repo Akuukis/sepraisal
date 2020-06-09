@@ -16,11 +16,11 @@ interface IProjection {
     },
 }
 
-const TIMEOUT_PARALLEL = 20
+const TIMEOUT_PARALLEL = 10
 const TIMEOUT_SERIAL = 300
 
-const isDebug = process.argv.findIndex((arg) => arg.includes('--debug')) !== -1
-const isSerial = process.argv.findIndex((arg) => arg.includes('--serial')) !== -1
+const isDebug = process.argv.some((arg) => arg.includes('--debug'))
+const isSerial = process.argv.some((arg) => arg.includes('--serial'))
 const farmOptions = {
     workerOptions               : {
         stdio: 'ignore' as const,  // It doesn't print anything anyways, and this would hide "JavaScript heap out of memory" too,
@@ -46,6 +46,8 @@ const praised = new Map<number, IJobResult>()
 
 
 export const main = async (): Promise<void> => {
+    if(isDebug) console.info('Debugging on.')
+    console.info('Mode:', isSerial ? 'serial' : 'parallel')
 
     const timer = Date.now()
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -56,7 +58,7 @@ export const main = async (): Promise<void> => {
     const errors: Error[] = []
 
     const query = !isDebug
-        ? prepareQuery<IProjection>(QUERIES.pendingPraise)
+        ? prepareQuery<IProjection>(!isSerial ? QUERIES.pendingPraise : QUERIES.pendingPraiseError)
         : {$or: [
             // For debug, use storybook ships.
             {'steam.title': {$regex: '^Cursor$'}},
