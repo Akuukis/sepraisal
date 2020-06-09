@@ -10,7 +10,7 @@ import { QUERIES } from '../queries'
 import { asCrawlerUser, mkdirpSync, prepareQuery, sbcPath, STEAM_DIR, STEAM_USERNAME } from '../utils'
 
 const BATCH_SIZE = 50
-const MAX_SIZE = 20
+const MAX_SIZE = Number.MAX_SAFE_INTEGER  // No limit.
 
 const steamLogFile = join(STEAM_DIR, 'logs', 'workshop_log.txt')
 const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
@@ -19,6 +19,12 @@ const steamAppsDir = execSync(`ls -1 ${STEAM_DIR}`).toString()
     .find((folder) => folder.toLowerCase() === 'steamapps')
 if(!steamAppsDir) throw new Error(`Steam directory "${STEAM_DIR}" doesn't contain subdirectory 'steamapps' in either lower or upper case.`)
 const steamDownloadsDir = join(STEAM_DIR, steamAppsDir, 'workshop', 'content', '244850')
+
+const normalizeName = (blueprintDir: string, name: string) => {
+    if(readdirSync(blueprintDir).includes(name)) {
+        execSync(asCrawlerUser(`(cd ${blueprintDir} && mv ${name} bp.sbc)`))
+    }
+}
 
 /**
 * Normalize various steam workshop item formats into a unified "SEPraisal Cache" format.
@@ -34,13 +40,14 @@ const fromSteamtoCache = (doc: IProjection) => {
 
     // Old steam mod format had archive, now they don't but are (de)compressed transparently.
     if(readdirSync(blueprintDir).some((filename) => filename.includes('_legacy.bin'))) {
-        execSync(asCrawlerUser(`(cd ${blueprintDir} && unzip *_legacy.bin)`))
+        execSync(asCrawlerUser(`(cd ${blueprintDir} && unzip -o *_legacy.bin)`))
     }
 
-    // Normalize to lowercase, if needed.
-    if(readdirSync(blueprintDir).includes('BP.sbc')) {
-        execSync(asCrawlerUser(`(cd ${blueprintDir} && mv BP.sbc bp.sbc)`))
-    }
+    // Normalize naming, if needed.
+    normalizeName(blueprintDir, 'BP.sbc')  // Quite popular, perhaps from Windows machines.
+    normalizeName(blueprintDir, 'p.sbc')  // 9 cases total.
+    normalizeName(blueprintDir, '.sbc')  // 3 cases total.
+    normalizeName(blueprintDir, 'sbc')  // 1 case total.
 
     const contents = readdirSync(blueprintDir)
     if(contents.includes('bp.sbc')) {
