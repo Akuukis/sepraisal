@@ -16,18 +16,21 @@ interface IProjection {
     },
 }
 
-const TIMEOUT_SECONDS = 300
+const TIMEOUT_PARALLEL = 20
+const TIMEOUT_SERIAL = 300
 
 const isDebug = process.argv.findIndex((arg) => arg.includes('--debug')) !== -1
+const isSerial = process.argv.findIndex((arg) => arg.includes('--serial')) !== -1
 const farmOptions = {
     workerOptions               : {
         ...(isDebug ? {execArgv: ['--inspect-brk=49999']} : {}),
+        ...(isSerial ? {NODE_OPTIONS: "--max-old-space-size=4096"} : {}),
     },
     maxCallsPerWorker           : Infinity,
-    maxConcurrentWorkers        : isDebug ? 1 : cpus().length,
+    maxConcurrentWorkers        : (isDebug || isSerial) ? 1 : cpus().length,
     maxConcurrentCallsPerWorker : 1,
     maxConcurrentCalls          : Infinity,
-    maxCallTime                 : isDebug ? Infinity : TIMEOUT_SECONDS * 1000,
+    maxCallTime                 : isDebug ? Infinity : (isSerial ? TIMEOUT_SERIAL : TIMEOUT_PARALLEL) * 1000,
     maxRetries                  : 1,
     autoStart                   : false,
 }
@@ -88,6 +91,7 @@ export const main = async (): Promise<void> => {
 
     console.info(`Praising ${docs.length} blueprints...`)
     await Promise.all([...docs.entries()].map(async ([index, doc]) => {
+        const timer = Date.now()
         const prefix = `#${pad(String(index), 5)} | ${pad(String(doc._id), 10)} |`
         try {
             console.info(prefix, await queueWork(index, doc))
@@ -105,6 +109,8 @@ export const main = async (): Promise<void> => {
             } else {
                 console.error(
                     prefix,
+                    pad(5, `${((Date.now() - timer) / 1000).toFixed(1)}s`),
+                    `|`,
                     `${(err as Error).name}:`,
                     `${(err as Error).message}`,
                 )
