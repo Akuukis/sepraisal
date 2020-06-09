@@ -16,7 +16,7 @@ interface IProjection {
     },
 }
 
-const TIMEOUT_SECONDS = 60
+const TIMEOUT_SECONDS = 300
 
 const isDebug = process.argv.findIndex((arg) => arg.includes('--debug')) !== -1
 const farmOptions = {
