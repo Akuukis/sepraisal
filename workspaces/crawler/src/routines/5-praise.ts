@@ -35,7 +35,7 @@ const farmOptions = {
     maxConcurrentCallsPerWorker : 1,
     maxConcurrentCalls          : Infinity,
     maxCallTime                 : isDebug ? Infinity : (isSerial ? TIMEOUT_SERIAL : TIMEOUT_PARALLEL) * 1000,
-    maxRetries                  : 1,
+    maxRetries                  : 0,  // Don't retry, that messes up logic for cases when child is out-of-error.
     autoStart                   : false,
 }
 const workers = workerFarm(farmOptions, require.resolve(`./5-praiseWorker.${__filename.slice(-2)}`))
