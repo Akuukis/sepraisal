@@ -51,9 +51,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const routerStore = React.useContext(CONTEXT.ROUTER)
     const selectedArticleId = routerStore.location.pathname.slice(ROUTE.BLOG.length + 1)
 
-    if(!articles.find((article) => article.id === selectedArticleId)) {
-        routerStore.replace(`${ROUTE.BLOG}/${published[0].id}`)
+    const article = articles.find((article) => article.id === selectedArticleId)
+    if(!article) {
+        routerStore.push(`${ROUTE.BLOG}/${published[0].id}`)
     }
+
+    React.useEffect(() => {
+        document.title = `Blog - ${article?.title ? article.title : published[0].title}`
+    })
 
     return (
         <DefaultLayout className={classes.root}>

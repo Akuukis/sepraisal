@@ -54,6 +54,10 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
 
+    React.useEffect(() => {
+        document.title = 'Space Engineers Praisal'
+    }, [])
+
     return (
         <DefaultLayout className={classes.root}>
             <Grid container justify='center' alignItems='center' className={classes.center}>
