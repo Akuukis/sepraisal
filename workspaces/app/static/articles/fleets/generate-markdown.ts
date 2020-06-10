@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
 import dataRaw from './data.json'
@@ -32,7 +32,7 @@ const columns = [
     ['Atmo.',               '----:'],
     ['Hydro.',              '----:'],
     ['Ion',                 '----:'],
-    ['Wheeled',             '----:'],
+    ['Wheel',               '----:'],
     ['Authors',             '-----'],
 ]
 
@@ -58,6 +58,8 @@ const rows = data.map((datum, i) => [
 ].join('|'))
 
 const result = [
+    readFileSync(join(__dirname, 'fleets-table-header.md')).toString()
+        .replace('__COUNT__', String(rows.length)),
     header,
     alignment,
     ...rows,

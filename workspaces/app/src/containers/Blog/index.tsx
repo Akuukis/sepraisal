@@ -72,8 +72,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 const published: IBlogArticle[] = [
-    {id: 'fleets-results', date: moment('2020-06-10'), link: postFleetsTableLink, authors: ['Akuukis'], title: 'TOP Fleets'},
-    {id: 'fleets-how', date: moment('2020-06-10'), link: postFleetsDIYLink, authors: ['Akuukis'], title: `TOP Fleets: How it's made`},
+    {id: 'fleets', date: moment('2020-06-10'), link: postFleetsTableLink, authors: ['Akuukis'], title: 'Fleet Rankings v2'},
+    {id: 'fleets-how', date: moment('2020-06-10'), link: postFleetsDIYLink, authors: ['Akuukis'], title: `Fleet Rankings v2: How it's made`},
     {id: 'launch2', date: moment('2020-06-03'), link: postLaunch2Link, authors: ['Akuukis'], title: 'SE Praisal V2 launched!'},
 ]
 
