@@ -112,6 +112,7 @@ Let's add some interesting columns.
 4. "hydro": percentage of how many ships has any hydrogen thruster on it.
 5. "ion": percentage of how many ships has any ion thruster on it.
 6. "wheel": percentage of how many ships has any wheel suspension on it.
+7. "updated": average updated date of ships.
 
 You can see the final query [here on Github](https://github.com/Akuukis/sepraisal/tree/master/workspaces/app/static/articles/fleets/mongo.js#L79-L138).
 

@@ -82,6 +82,7 @@ var cursor = db.blueprints.aggregate([
     {$group: {
         _id: "$steam.collections.id",
         subs: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
+        updated: {$avg: {$toLong: '$steam.updatedDate'}},
         amount: {$sum: {$toInt: '$validShip'}},
         total: {$sum: 1},
         smallGrid: {$sum: {$toInt: {$and: ['$validShip', {$eq: ['$sbc.gridSize', 'Small']}]}}},
@@ -123,6 +124,7 @@ var cursor = db.blueprints.aggregate([
     }},
     {$set: {
         subs: {$round: ['$subs', 0]},  // Round number.
+        updated: {$toString: {$toDate: '$updated'}},
         smallGrid: {$round: [{$divide: ['$smallGrid', '$amount']}, 2]},
         largeGrid: {$round: [{$divide: ['$largeGrid', '$amount']}, 2]},
         atmo     : {$round: [{$divide: ['$atmo'     , '$amount']}, 2]},

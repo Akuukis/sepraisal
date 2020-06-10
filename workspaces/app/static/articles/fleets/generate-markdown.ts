@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs'
+import moment from 'moment'
 import { join } from 'path'
 
 import dataRaw from './data.json'
@@ -10,6 +11,7 @@ interface Author {
 interface Datum {
     _id: number,
     subs: number,
+    updated: string,
     amount: number,
     total: number,
     smallGrid: number,
@@ -27,6 +29,7 @@ const columns = [
     ['#',                   '----:'],
     ['Steam sub., avg.',    '----:'],
     ['Title',               '-----'],
+    ['Updated, avg.',       '----:'],
     ['Ships / Total',       ':---:'],
     ['Large Grid',          '----:'],
     ['Atmo.',               '----:'],
@@ -43,6 +46,7 @@ const rows = data.map((datum, i) => [
     i+1,
     `[${datum.subs}](https://steamcommunity.com/sharedfiles/filedetails/?id=${datum._id})`,
     `[${datum.title.replace('|', '\\|')}](https://spaceengineerspraisal.net/browse?collection=${encodeURIComponent(datum.title)})`,
+    moment(datum.updated).format(`MMM,\u00A0YYYY`),
     datum.amount === datum.total ? datum.amount : `${datum.amount}/${datum.total}`,
     datum.largeGrid === 0 ? '-' : `${Math.round(datum.largeGrid*100)}%`,
     datum.atmo === 0 ? '-' : `${Math.round(datum.atmo*100)}%`,
