@@ -15,10 +15,10 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     header: {
-        padding: theme.spacing(8, 8, 0, 8),
+        padding: theme.spacing(12, 12, 0, 12),
     },
     content: {
-        padding: theme.spacing(8),
+        padding: theme.spacing(12),
         '&:last-child': {
             paddingBottom: theme.spacing(12),
         }

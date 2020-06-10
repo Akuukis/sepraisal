@@ -45,6 +45,7 @@ const styles = (theme: IMyTheme) => createStyles({
         },
     },
     tableCell: {
+        padding: theme.spacing(1.5, 2),
         ...theme.typography.body2,
     },
     tableCellHeading: {
@@ -56,12 +57,13 @@ const styles = (theme: IMyTheme) => createStyles({
         height: 2,
         margin: theme.spacing(8, 0),
     },
-    imgFullWidthContainer: {
+    fullWidthContainer: {
         display: 'block',
-        width: 'calc(100% + 64px)',  // Equals padding on the blog card.
-        margin: theme.spacing(0, -8),
+        width: `calc(100% + ${12 * 4 * 2}px)`,  // Equals padding on the blog card.
+        margin: theme.spacing(0, -12),
+        overflowX: 'auto',
     },
-    imgFullWidth: {
+    fullWidth: {
         display: 'block',
         margin: `0px auto`,
         width: '100%',
@@ -106,22 +108,26 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 link: ({children, href, title}) => <MyLink href={href} title={title}>{children}</MyLink>,
                 linkReference: ({children, href, title}) => <MyLink href={href} title={title}>{children}</MyLink>,
                 list: ({children, tight, ordered, start, depth}) => (
-                    <Typography paragraph={!tight} component={ordered ? 'ol' : 'ul'}>{children}</Typography>
+                    <Typography gutterBottom paragraph={!tight} component={ordered ? 'ol' : 'ul'}>{children}</Typography>
                 ),
                 // listItem,
-                table: ({children, columnAlignment}) => <Table className={classes.table}>{children}</Table>,
+                table: ({children, columnAlignment}) => (
+                    <div className={classes.fullWidthContainer}>
+                        <Table className={clsx(classes.fullWidth, classes.table)}>{children}</Table>,
+                    </div>
+                ),
                 tableHead: ({children, columnAlignment}) => <TableHead className={classes.tableHead}>{children}</TableHead>,
                 tableBody: ({children, columnAlignment}) => <TableBody>{children}</TableBody>,
                 tableRow: ({children, columnAlignment, isHeader}) => <TableRow className={classes.tableRow}>{children}</TableRow>,
                 tableCell: ({children, align, isHeader}) => (
-                    <TableCell className={isHeader ? classes.tableCellHeading : classes.tableCell} align={align || 'left'}>{children}</TableCell>
+                    <TableCell className={clsx(classes.tableCell, isHeader && classes.tableCellHeading)} align={align || 'left'}>{children}</TableCell>
                 ),
                 inlineCode: ({children, inline, value}) => <code className={classes.code}>{value}</code>,
                 code: ({language, value}) => <pre className={classes.pre}>{value}</pre>,
                 thematicBreak: () => <Divider className={classes.divider} />,
                 image: ({src, alt, title}) => (
-                    <div className={classes.imgFullWidthContainer}>
-                        <img className={classes.imgFullWidth} alt={alt} src={`${src}`} />
+                    <div className={classes.fullWidthContainer}>
+                        <img className={classes.fullWidth} alt={alt} src={`${src}`} />
                         <Typography className={classes.imgFullWidthCaption} variant='caption'>
                             {title ?? ''}
                             &nbsp;(<MyLink blank href={`${dirname(location.pathname)}${src}`}>full size image</MyLink>)
