@@ -30,6 +30,7 @@ const result = [
     header,
     ...rows,
     '[/table]',
+    '',
 ].join('\n')
 
 writeFileSync(join(__dirname, 'dist-steam.txt'), result)

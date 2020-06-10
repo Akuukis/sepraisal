@@ -16,6 +16,7 @@ sed -ri ':a;N;$!ba;s/\n\t\t/ /g' $OUT  # collapse row values..
 sed -ri ':a;N;$!ba;s/\n\t}/}/g' $OUT   # .. collapse closing } too.
 sed -ri 's/"\ :/":/g' $OUT  # remove space between " and :
 sed -ri 's/ \t(\t)?/ /g' $OUT  # remove redundant space at authors.
+sed -ri 's/^\t//g' $OUT  # remove redundant space at authors.
 
 yarn run ts-node "$MY_DIR/generate-markdown.ts"
 yarn run ts-node "$MY_DIR/generate-steam.ts"

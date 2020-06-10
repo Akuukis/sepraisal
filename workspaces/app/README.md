@@ -11,8 +11,8 @@
 3. Ask for access details and add it to ssh config file at `~/.ssh/config`.
 4. In first terminal execute `ssh -NL 27018:localhost:27017 sepraisal` and leave it in background. That let's you connect to MongoDB database as if it was locally, making your life easier later.
 5. In second terminal let's do the actual work. There's two ways about it:
-   1. execute `mongo --port 27018` for interactive shell. Good for playing around. (Don't forget `use default`!)
-   2. execute `mongo --port 27018 --quiet mongo.js > results.json` for executing a scrip in `mongo.js`. Good for generating data and saving them locally.
+    1. execute `mongo --port 27018` for interactive shell. Good for playing around. (Don't forget `use default`!)
+    2. execute `mongo --port 27018 --quiet mongo.js > results.json` for executing a scrip in `mongo.js`. Good for generating data and saving them locally.
 
 Create a snippet for saving data
 ```js

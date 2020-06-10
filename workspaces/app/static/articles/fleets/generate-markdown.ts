@@ -63,6 +63,7 @@ const result = [
     header,
     alignment,
     ...rows,
+    '',
 ].join('\n')
 
-writeFileSync(join(__dirname, 'fleets-table.md'), result)
+writeFileSync(join(__dirname, 'fleets.md'), result)
