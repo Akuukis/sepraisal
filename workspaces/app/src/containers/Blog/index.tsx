@@ -10,7 +10,8 @@ import DefaultLayout from 'src/layouts/DefaultLayout'
 import { CONTEXT } from 'src/stores'
 
 import postClassificationLink from '../../../static/articles/classification/classification.md'
-import postFleetsLink from '../../../static/articles/fleets/fleets.md'
+import postFleetsTableLink from '../../../static/articles/fleets/fleets-table.md'
+import postFleetsDIYLink from '../../../static/articles/fleets/fleets.md'
 import postLaunch2Link from '../../../static/articles/launch2/launch2.md'
 import postTestLink from '../../../static/articles/test/test.md'
 import Article from './Article'
@@ -21,7 +22,7 @@ const styles = (theme: IMyTheme) => createStyles({
     },
 
     article: {
-        maxWidth: '760px',
+        maxWidth: '816px',  // -16px
         minWidth: '300px',
         flexBasis: '400px',
         flexShrink: 1,
@@ -71,12 +72,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 const published: IBlogArticle[] = [
+    {id: 'fleets-results', date: moment('2020-06-10'), link: postFleetsTableLink, authors: ['Akuukis'], title: 'TOP Fleets'},
+    {id: 'fleets-how', date: moment('2020-06-10'), link: postFleetsDIYLink, authors: ['Akuukis'], title: `TOP Fleets: How it's made`},
     {id: 'launch2', date: moment('2020-06-03'), link: postLaunch2Link, authors: ['Akuukis'], title: 'SE Praisal V2 launched!'},
 ]
 
 const hidden: IBlogArticle[] = [
     {id: 'classification', date: moment('2020-06-10'), link: postClassificationLink, authors: ['Akuukis'], title: 'Ship Classification'},
-    {id: 'fleets', date: moment('2019-09-09'), link: postFleetsLink, authors: ['Akuukis'], title: 'TOP Fleets of Space Engineers'},
     {id: 'test', date: moment('2000-01-01'), link: postTestLink, authors: ['Test'], title: 'Test'},
 ]
 
