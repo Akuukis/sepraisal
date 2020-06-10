@@ -25,8 +25,8 @@ export const data = dataRaw as Datum[]
 
 const columns = [
     ['#',                   '----:'],
-    ['Subscribers (avg)',   '----:'],
-    ['Ships/Total',         ':---:'],
+    ['Subscr., Average',    '----:'],
+    ['Ships / Total',       ':---:'],
     ['Title',               '-----'],
     ['Large Grid',          '----:'],
     ['Atmo.',               '----:'],

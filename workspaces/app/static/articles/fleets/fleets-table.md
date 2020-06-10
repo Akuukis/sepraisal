@@ -1,4 +1,4 @@
-| #|Subscribers (avg)|Ships/Total|Title|Large Grid|Atmo.|Hydro.|Ion|Wheeled|Authors |
+| #|Subscr., average|Ships / Total|Title|Large Grid|Atmo.|Hydro.|Ion|Wheel.|Authors |
 | ----:|----:|:---:|-----|----:|----:|----:|----:|----:|----- |
 |1|31668|7|[Rangatiratanga Industries](https://spaceengineerspraisal.net/browse?collection=Rangatiratanga%20Industries) ([steam](https://steamcommunity.com/sharedfiles/filedetails/?id=678308719))|43%|43%|-|100%|-|[Whiplash141](https://spaceengineerspraisal.net/browse?author=Whiplash141), [Avaslash](https://spaceengineerspraisal.net/browse?author=Avaslash)|
 |2|10192|22/25|[RCSP - Royal Coalition of Spatial Protection](https://spaceengineerspraisal.net/browse?collection=RCSP%20-%20Royal%20Coalition%20of%20Spatial%20Protection) ([steam](https://steamcommunity.com/sharedfiles/filedetails/?id=618878587))|45%|41%|68%|64%|-|[Venom415](https://spaceengineerspraisal.net/browse?author=Venom415)|
