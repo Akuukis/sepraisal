@@ -25,9 +25,9 @@ export const data = dataRaw as Datum[]
 
 const columns = [
     ['#',                   '----:'],
-    ['Subscr., Average',    '----:'],
-    ['Ships / Total',       ':---:'],
+    ['Steam sub., avg.',    '----:'],
     ['Title',               '-----'],
+    ['Ships / Total',       ':---:'],
     ['Large Grid',          '----:'],
     ['Atmo.',               '----:'],
     ['Hydro.',              '----:'],
@@ -41,12 +41,9 @@ const alignment = `| ${columns.map(([_, align]) => align).join('|')} |`
 const rows = data.map((datum, i) => [
     '',
     i+1,
-    datum.subs,
+    `[${datum.subs}](https://steamcommunity.com/sharedfiles/filedetails/?id=${datum._id})`,
+    `[${datum.title.replace('|', '\\|')}](https://spaceengineerspraisal.net/browse?collection=${encodeURIComponent(datum.title)})`,
     datum.amount === datum.total ? datum.amount : `${datum.amount}/${datum.total}`,
-    [
-        `[${datum.title.replace('|', '\\|')}](https://spaceengineerspraisal.net/browse?collection=${encodeURIComponent(datum.title)})`,
-        `([steam](https://steamcommunity.com/sharedfiles/filedetails/?id=${datum._id}))`
-    ].join(' '),
     datum.largeGrid === 0 ? '-' : `${Math.round(datum.largeGrid*100)}%`,
     datum.atmo === 0 ? '-' : `${Math.round(datum.atmo*100)}%`,
     datum.hydro === 0 ? '-' : `${Math.round(datum.hydro*100)}%`,
