@@ -19,7 +19,9 @@ const rows = data
             datum.subs,
             datum.amount === datum.total ? datum.amount : `${datum.amount}/${datum.total}`,
             `[url=https://steamcommunity.com/sharedfiles/filedetails/?id=${datum._id}]${datum.title}[/url]`,
-            datum.authors.map((author) => `[url=https://steamcommunity.com/${author.id}]${author.title}[/url]`).join(', '),
+            datum.authors
+                .filter((author) => !!author.title)
+                .map((author) => `[url=https://steamcommunity.com/${author.id}]${author.title}[/url]`).join(', '),
         ].join('[/td][td]')}[/td][/tr]`
     )
 

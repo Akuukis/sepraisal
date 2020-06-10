@@ -44,7 +44,7 @@ const rows = data.map((datum, i) => [
     datum.subs,
     datum.amount === datum.total ? datum.amount : `${datum.amount}/${datum.total}`,
     [
-        `[${datum.title}](https://spaceengineerspraisal.net/browse?collection=${encodeURIComponent(datum.title)})`,
+        `[${datum.title.replace('|', '\\|')}](https://spaceengineerspraisal.net/browse?collection=${encodeURIComponent(datum.title)})`,
         `([steam](https://steamcommunity.com/sharedfiles/filedetails/?id=${datum._id}))`
     ].join(' '),
     datum.largeGrid === 0 ? '-' : `${Math.round(datum.largeGrid*100)}%`,
@@ -52,9 +52,11 @@ const rows = data.map((datum, i) => [
     datum.hydro === 0 ? '-' : `${Math.round(datum.hydro*100)}%`,
     datum.ion === 0 ? '-' : `${Math.round(datum.ion*100)}%`,
     datum.wheel === 0 ? '-' : `${Math.round(datum.wheel*100)}%`,
-    datum.authors.map((author) =>
-        `[${author.title.replace('|', '\\|')}](https://spaceengineerspraisal.net/browse?author=${encodeURIComponent(author.title)})`
-    ).join(', '),
+    datum.authors
+        .filter((author) => !!author.title)
+        .map((author) =>
+            `[${author.title.replace('|', '\\|')}](https://spaceengineerspraisal.net/browse?author=${encodeURIComponent(author.title)})`
+        ).join(', '),
     '',
 ].join('|'))
 
