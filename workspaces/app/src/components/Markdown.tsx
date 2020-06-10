@@ -108,7 +108,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 link: ({children, href, title}) => <MyLink href={href} title={title}>{children}</MyLink>,
                 linkReference: ({children, href, title}) => <MyLink href={href} title={title}>{children}</MyLink>,
                 list: ({children, tight, ordered, start, depth}) => (
-                    <Typography paragraph={!tight} component={ordered ? 'ol' : 'ul'}>{children}</Typography>
+                    <Typography gutterBottom paragraph={!tight} component={ordered ? 'ol' : 'ul'}>{children}</Typography>
                 ),
                 // listItem,
                 table: ({children, columnAlignment}) => (
