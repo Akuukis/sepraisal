@@ -25,6 +25,10 @@ interface IProps {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const smUp = useMediaQuery(theme.breakpoints.up('sm'), { noSsr: true })
 
+    React.useEffect(() => {
+        document.title = 'Compare'
+    }, [])
+
     return (
         <DefaultLayout
             aside={<Panel />}

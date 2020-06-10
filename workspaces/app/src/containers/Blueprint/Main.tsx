@@ -39,6 +39,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         // if(bpId) console.debug(`Found upload id: "${bpId}"`)
     }
 
+    React.useEffect(() => {
+        if(bpId) {
+            document.title = `Analyse - ${bpId}`
+        } else {
+            document.title = `Analyse`
+        }
+    })
 
     return (
         <Grid container spacing={2} justify='center'>

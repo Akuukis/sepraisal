@@ -22,6 +22,10 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
 
+    React.useEffect(() => {
+        document.title = 'Analyse'
+    }, [])
+
     return (
         <DefaultLayout
             className={classes.root}
