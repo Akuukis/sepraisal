@@ -61,6 +61,7 @@ const styles = (theme: IMyTheme) => createStyles({
         display: 'block',
         width: `calc(100% + ${12 * 4 * 2}px)`,  // Equals padding on the blog card.
         margin: theme.spacing(0, -12),
+        overflowX: 'auto',
     },
     fullWidth: {
         display: 'block',
