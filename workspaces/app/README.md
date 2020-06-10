@@ -4,41 +4,22 @@
 - upgrade `react-vega`
 
 
-#### Authors & Collections
+### Post "Fleet Rankings v2"
 
-```ts
-// TODO: Create API and get these "value"s dynamically.
+1. Install MongoDB Client on your computer.
+2. If on Windows, get a bash terminal with `ssh`.
+3. Ask for access details and add it to ssh config file at `~/.ssh/config`.
+4. In first terminal execute `ssh -NL 27018:localhost:27017 sepraisal` and leave it in background. That let's you connect to MongoDB database as if it was locally, making your life easier later.
+5. In second terminal let's do the actual work. There's two ways about it:
+   1. execute `mongo --port 27018` for interactive shell. Good for playing around. (Don't forget `use default`!)
+   2. execute `mongo --port 27018 --quiet mongo.js > results.json` for executing a scrip in `mongo.js`. Good for generating data and saving them locally.
 
-// var db = db.getSiblingDB('default')
-// var cursor = db.blueprints.aggregate([
-//     { $match: { steam: {$exists: true} } },
-//     { $group: { _id: "$steam.authors.title", count: { $sum: 1 } } },
-//     { $match: { count: {$gte: 10} } },
-//     { $sort : { count: -1 } },
-// ])
-// while(cursor.hasNext()) printjson(cursor.next())
-
-// var db = db.getSiblingDB('default')
-// var cursor = db.blueprints.aggregate([
-//     { $match: { steam: {$exists: true} } },
-//     { $group: { _id: "$steam.collections", count: { $sum: 1 } } },
-//     { $match: { count: {$gte: 5} } },
-//     { $sort : { count: -1 } },
-// ])
-// while(cursor.hasNext()) printjson(cursor.next())
-
-// var theMap = new Map<number, {value: string, amount: number}>()
-// AUTOCOMPLETE_COLLECTIONS_RAW.forEach((entry) => {
-//     entry._id.forEach((collection) => {
-//         if(theMap.has(collection.id)) {
-//             theMap.get(collection.id)!.amount = theMap.get(collection.id)!.amount + entry.amount
-//         } else {
-//             theMap.set(collection.id, {value: collection.value, amount: entry.amount})
-//         }
-//     })
-//     // .push(...entry._id)
-// })
-// console.log(AUTOCOMPLETE_COLLECTIONS_RAW.length, theMap.size)
-// console.log(JSON.stringify([...theMap.values()].sort((a, b) => b.amount - a.amount), undefined, 2))
-
+Create a snippet for saving data
+```js
+var db = db.getSiblingDB('default')
+var cursor = // TODO
+printjson(cursor.toArray())
 ```
+
+Also see [`generate.sh`](./static/articles/fleets/generate.sh) script how to automate above-mentoned steps.
+

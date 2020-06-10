@@ -2,9 +2,11 @@ TOP Fleets of Space Engineers
 ------------------------------------------------------------------------------------------------------------------------
 
 
+TL;DR: [The results are here](./fleets).
 
 
-## My Problem
+
+### My Problem
 
 I had a problem: can't find anything in Steam Workshop, or when I do it takes too much time and effort.
 I was preparing for a RPG server and custom-made campaign for friends, that required specific kinds of ships.
@@ -22,13 +24,13 @@ I was totally right about learning new stuff, but couple of months, jeez, if onl
 
 
 
-## The Solution
+### The Solution
 
 Go and check it out - [spaceengineerspraisal.net](https://spaceengineerspraisal.net)
 
 In simple words it works like this: there's a server that downloads every blueprint and puts it into a database.
 On top of information inside the blueprint itself (basically a list of blocks), the server calculates lots of extra stuff (e.g. Vanilla-ness, acceleration based on thrusters and mass, etc.).
-Then on [spaceengineerspraisal.net](https://spaceengineerspraisal.net) you can see those properties, or filter by them.
+Then on you can see those properties, or filter by them.
 That's about it!
 
 But there's a nice side-effect: having such a database is a cool opportunity to create very customized reports.
@@ -37,9 +39,7 @@ Today let's delve into the original problem and rank some ~~collections~~ fleets
 
 
 
-## Fleet Rankings v2.0
-
-TL;DR: If you just want to see results, scroll down to the last heading.
+### Fleet Rankings v2.0
 
 I will explain how to make such a report.
 In fact, if you will kindly ask, you can have a read-only access so that you can make your own reports too!
@@ -47,27 +47,13 @@ In fact, if you will kindly ask, you can have a read-only access so that you can
 The database is MongoDB (I'm still doubting this choice of DB but here we are), so we will use MongoDB Shell.
 
 
-### 1. Setup
+#### 1. Setup
 
-Nothing interesting.
-
-> 1. Install MongoDB Client on your computer.
-> 2. If on Windows, get a bash terminal with `ssh`.
-> 3. Ask for access details and add it to ssh config file at `~/.ssh/config`.
-> 4. In first terminal execute `ssh -NL 27018:localhost:27017 sepraisal` and leave it in background. That let's you connect to MongoDB database as if it was locally, making your life easier later.
-> 5. In second terminal let's do the actual work. There's two ways about it:
->    1. execute `mongo --port 27018` for interactive shell. Good for playing around. (Don't forget `use default`!)
->    2. execute `mongo --port 27018 --quiet mongo.js > results.json` for executing a scrip in `mongo.js`. Good for generating data and saving them locally.
-
-Create a snippet for saving data
-```js
-var db = db.getSiblingDB('default')
-var cursor = // TODO
-printjson(cursor.toArray())
-```
+Nothing interesting, see [README](https://github.com/Akuukis/sepraisal/blob/master/workspaces/app/README.md) for details.
 
 
-### 2. List collections
+
+#### 2. List collections
 
 This is how we get all unique steam collections. A whole 2732 of them - a good start.
 
@@ -84,7 +70,7 @@ db.blueprints.aggregate([
 ```
 
 
-### 3. List Fleets
+#### 3. List Fleets
 
 A steam collection can contain anything, even a single floating block blueprint.
 What we call a fleet is a subset of collections, whose blueprints are not random garbage but proper ships.
@@ -112,12 +98,10 @@ So, let's walk through of how I've done:
 9. After so much filtering I wonder, who would want to look at fleets with 3 valid ships and 97 garbage ships? Not me. So, let's filter fleets that have at least 80% of it's blueprints as valid ships. That's 208 fleets left.
 10. Furthermore, let's use some community power and filter out fleets with very little subscribers. So let's take fleets with 20 or more average subscribers. That's 192 fleets left.
 
-That's it so far. So we have came to a realistic result: 2732 collections boils down to mere 190 fleets. In attachment No.1 you can see the query.
-
-Below is the MongoDB query used:
+That's it so far. So we have came to a realistic result: 2732 collections boils down to mere 190 fleets. See the query so far [here on Github](https://github.com/Akuukis/sepraisal/blob/master/workspaces/app/static/articles/fleets/mongo.js#L62-L75).
 
 
-### 4. Describe those fleets
+#### 4. Describe those fleets
 
 Just a average subscriber count and title is bare basics, but we can do better.
 Let's add some interesting columns.
@@ -130,82 +114,6 @@ Let's add some interesting columns.
 5. "ion": percentage of how many ships has any ion thruster on it.
 6. "wheel": percentage of how many ships has any wheel suspension on it.
 
-You can see the final query [here on Github](https://github.com/Akuukis/sepraisal/tree/master/workspaces/app/static/articles/fleets/mongo.js).
+You can see the final query [here on Github](https://github.com/Akuukis/sepraisal/tree/master/workspaces/app/static/articles/fleets/mongo.js#L79-L138).
 
-See [**results**]()
-
-### Attachment No.1
-
-Minimal query to test filters.
-
-```js
-var tagValidShips = {$set: {validShip: {$and: [
-    {$eq: ['$sbc._version', 7]},  // 2. Analyse-able.
-    {$eq: ['$sbc.vanilla', true]},  // 3. Vanilla.
-    {$eq: ['$sbc.gridStatic', false]},  // 4. Dynamic grids.
-    {$or: [  // 5.1. Filter blueprints that have a power source.
-        {$gt: ['$sbc.blocks.BatteryBlock/LargeBlockBatteryBlock', 0]},
-        {$gt: ['$sbc.blocks.BatteryBlock/SmallBlockBatteryBlock', 0]},
-        {$gt: ['$sbc.blocks.BatteryBlock/SmallBlockSmallBatteryBlock', 0]},
-        {$gt: ['$sbc.blocks.HydrogenEngine/LargeHydrogenEngine', 0]},
-        {$gt: ['$sbc.blocks.HydrogenEngine/SmallHydrogenEngine', 0]},
-        {$gt: ['$sbc.blocks.Reactor/LargeBlockLargeGenerator', 0]},
-        {$gt: ['$sbc.blocks.Reactor/LargeBlockSmallGenerator', 0]},
-        {$gt: ['$sbc.blocks.Reactor/SmallBlockLargeGenerator', 0]},
-        {$gt: ['$sbc.blocks.Reactor/SmallBlockSmallGenerator', 0]},
-    ]},
-    {$or: [  // 5.2. Filter blueprints that have a cockpit.
-        {$gt: ['$sbc.blocks.Cockpit/LargeBlockCockpitIndustrial', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/SmallBlockCockpitIndustrial', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/DBSmallBlockFighterCockpit', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/SmallBlockCockpit', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/CockpitOpen', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/LargeBlockCockpitSeat', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/OpenCockpitSmall', 0]},
-    ]},
-    {$or: [  // 5.3. Filter blueprints that have a thruster.
-        {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeAtmosphericThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallAtmosphericThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeAtmosphericThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallAtmosphericThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeHydrogenThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallHydrogenThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeHydrogenThrust', 0]},
-        {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallHydrogenThrust', 0]},
-    ]},
-    {$or: [  // 5.4. Filter blueprints that have a gyro.
-        {$gt: ['$sbc.blocks.Gyro/LargeBlockGyro', 0]},
-        {$gt: ['$sbc.blocks.Gyro/SmallBlockGyro', 0]},
-    ]},
-    {$ne: ['$steam.flagsRed', 'broken']},
-    {$ne: ['$steam.flagsRed', 'outdated']},
-    {$ne: ['$steam.flagsRed', 'obselete']},
-    {$ne: ['$steam.flagsRed', 'private']},
-    {$ne: ['$steam.flagsRed', 'wip']},
-    {$gte: ['$steam.updatedDate', new Date(2015, 10, 22)]},  // 7. Filter out before very old bluprints.
-]}}}
-
-var fleetMatchers = [
-    {$match: {amount: {$gte: 5}}},  // 8. Filter collections with 3 or more valid blueprints.
-    {$match: {$expr: {$gte: [{$divide: ['$amount', '$total']}, 0.8]}}},  // 9. Filter collections with 50%+ valid ships.
-    {$match: {subs: {$gte: 20}}},  // 10. Filter collections with 10 or more average subscribers.
-]
-
-db.blueprints.aggregate([
-    tagValidShips,
-    {$unwind: "$steam.collections"},
-    {$group: {
-        _id: "$steam.collections.id",
-        amount: {$sum: {$toInt: '$validShip'}},
-        total: {$sum: 1},
-        subs: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
-        title: {$first: '$steam.collections.title'},
-    }},
-    ...fleetMatchers,
-    {$sort: {subs: -1}},
-]).toArray().length
-```
+[**See results here**](./fleets).

@@ -56,8 +56,26 @@ var fleetMatchers = [
     {$match: {subs: {$gte: 20}}},  // 10. Filter collections with 10 or more average subscribers.
 ]
 
-
 var db = db.getSiblingDB('default')
+
+const exampleBareMinimumQuery = () => {
+    var cursor = db.blueprints.aggregate([
+        tagValidShips,
+        {$unwind: "$steam.collections"},
+        {$group: {
+            _id: "$steam.collections.id",
+            amount: {$sum: {$toInt: '$validShip'}},
+            total: {$sum: 1},
+            subs: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
+            title: {$first: '$steam.collections.title'},
+        }},
+        ...fleetMatchers,
+        {$sort: {subs: -1}},
+    ])
+    printjson(cursor.toArray())
+}
+
+// Full query with all columnts.
 var cursor = db.blueprints.aggregate([
     tagValidShips,
     {$unwind: "$steam.collections"},
