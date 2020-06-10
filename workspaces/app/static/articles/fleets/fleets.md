@@ -110,7 +110,7 @@ So, let's walk through of how I've done:
 7. As we can see, not much people tag their ships with abovementioned keywords. Let's take another cheaper but not that accurate way to spot outdated ships - filter out those not updated for a long time. I pick 22 Oct, 2015, because that's when Keen introduced Hydrogen and removed 10x multiplier to dampeners that d many ships unusable, as well planets came shortly after. And it almost 5 years already! So, that's 1320 collections left.
 8. Collection of one blueprint only isn't really a fleet. Two, I guess, neither. But three, uhm... Ok, let's take collections with at least 5 ships. That's 448 collections left.
 9. After so much filtering I wonder, who would want to look at fleets with 3 valid ships and 97 garbage ships? Not me. So, let's filter fleets that have at least 80% of it's blueprints as valid ships. That's 208 fleets left.
-10. Furthermore, let's use some community power and filter out fleets with very little subscribers. So let's take fleets with 10 or more average subscribers. That's 190 fleets left.
+10. Furthermore, let's use some community power and filter out fleets with very little subscribers. So let's take fleets with 20 or more average subscribers. That's 192 fleets left.
 
 That's it so far. So we have came to a realistic result: 2732 collections boils down to mere 190 fleets. In attachment No.1 you can see the query.
 
