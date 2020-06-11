@@ -135,6 +135,6 @@ var cursor = db.blueprints.aggregate([
     // Remove duplicate author entries.
     {$set: {authors: {$reduce: { input: '$authors', initialValue: [], in: { $setUnion : ["$$value", "$$this"] } }}}},
     ...fleetMatchers,
-    {$sort: {subs: -1}},
+    {$sort: {subs: -1, amount: -1, total: -1, title: 1}},
 ])
 printjson(cursor.toArray())
