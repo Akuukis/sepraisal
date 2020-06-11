@@ -49,7 +49,7 @@ const rows = data.map((datum, i) => [
     '',
     i+1,
     `[${datum.subs}](https://steamcommunity.com/sharedfiles/filedetails/?id=${datum._id})`,
-    `[${datum.title.replace('|', '\\|')}](https://spaceengineerspraisal.net/browse?collection=${encodeURIComponent(datum.title)})`,
+    `[${datum.title.replace('|', '\\|').replace('`', '\\`')}](https://spaceengineerspraisal.net/browse?collection=${encodeURIComponent(datum.title)})`,
     moment(datum.updated).format(`MMM,\u00A0YYYY`),
     datum.amount === datum.total ? datum.amount : `${datum.amount}/${datum.total}`,
     datum.largeGrid === 0 ? '-' : `${Math.round(datum.largeGrid*100)}%`,
