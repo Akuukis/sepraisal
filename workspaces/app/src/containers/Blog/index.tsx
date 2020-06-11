@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import moment from 'moment'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -32,6 +33,9 @@ const styles = (theme: IMyTheme) => createStyles({
             flexBasis: '384px',
         },
     },
+    articleWide: {
+        maxWidth: 'unset',
+    },
     toc: {
         flexBasis: '200px',
         flexShrink: 100,
@@ -55,7 +59,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     if(!article) {
         routerStore.push(`${ROUTE.BLOG}/${published[0].id}`)
     }
-
+    const selected = routerStore.location.pathname.slice(ROUTE.BLOG.length + 1)
+    console.log(selected)
     React.useEffect(() => {
         document.title = `Blog - ${article?.title ? article.title : published[0].title}`
     })
@@ -66,7 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 <Grid className={classes.toc} item>
                     <TableOfContents articles={published} />
                 </Grid>
-                <Grid className={classes.article} item xs>
+                <Grid className={clsx({[classes.article]: true, [classes.articleWide]: selected === 'fleets'})} item xs>
                     {articles.map((article) => (
                         <Article key={article.id} article={article} />
                     ))}
