@@ -98,7 +98,7 @@ So, let's walk through of how I've done:
 9. After so much filtering I wonder, who would want to look at fleets with 3 valid vehicles and 97 garbage vehicles? Not me. So, let's filter fleets that have at least 80% of it's blueprints as valid vehicles. That's 208 fleets left.
 10. Furthermore, let's use some community power and filter out fleets with very little subscribers. So let's take fleets with 20 or more average subscribers. That's 192 fleets left.
 
-That's it so far. So we have came to a realistic result: 2732 collections boils down to mere 192 fleets. See the query so far [here on Github](https://github.com/Akuukis/sepraisal/blob/master/workspaces/app/static/articles/fleets/mongo.js#L62-L75).
+That's it so far. So we have came to a realistic result: 2732 collections boils down to mere 192 fleets. See the query so far [here on Github](https://github.com/Akuukis/sepraisal/blob/master/workspaces/app/static/articles/fleets/mongo.js#L75-L90).
 
 
 #### 4. Describe those fleets
@@ -106,14 +106,16 @@ That's it so far. So we have came to a realistic result: 2732 collections boils 
 Just a average subscriber count and title is bare basics, but we can do better.
 Let's add some interesting columns.
 
-1. "authors": seen authors within the fleet. As there can be multiple authors, list all of them.
-2. "large grid %": percentage of how many vehicles are large grid instead of small grid.
-3. "atmo": percentage of how many vehicles has any atmospheric thruster on it.
-4. "hydro": percentage of how many vehicles has any hydrogen thruster on it.
-5. "ion": percentage of how many vehicles has any ion thruster on it.
-6. "wheel": percentage of how many vehicles has any wheel suspension on it.
-7. "updated": average updated date of vehicles.
+1. `authors`: seen authors within the fleet. As there can be multiple authors, list all of them.
+2. `large grid`: percentage of how many vehicles are large grid instead of small grid.
+3. `atmo`: percentage of how many vehicles has any atmospheric thruster on it.
+4. `hydro`: percentage of how many vehicles has any hydrogen thruster on it.
+5. `ion`: percentage of how many vehicles has any ion thruster on it.
+6. `wheel`: percentage of how many vehicles has any wheel suspension on it.
+7. `updated`: average updated date of vehicles.
+8. `dlc`: percentage of how many vehicles are using DLCs.
+9. `script`: percentage of how many vehicles are using programming blocks.
 
-You can see the final query [here on Github](https://github.com/Akuukis/sepraisal/tree/master/workspaces/app/static/articles/fleets/mongo.js#L79-L138).
+You can see the final query [here on Github](https://github.com/Akuukis/sepraisal/tree/master/workspaces/app/static/articles/fleets/mongo.js#L93-L161).
 
 [**See results here**](./fleets).

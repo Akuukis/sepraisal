@@ -20,6 +20,8 @@ interface Datum {
     hydro: number,
     ion: number,
     wheel: number,
+    dlc: number,
+    script: number,
     title: string,
     authors: Author[]
 }
@@ -32,6 +34,8 @@ const columns = [
     ['Updated, avg.',       '----:'],
     ['Ships / Total',       ':---:'],
     ['Large Grid',          '----:'],
+    ['DLC',                 '----:'],
+    ['PB',                  '----:'],
     ['Atmo.',               '----:'],
     ['Hydro.',              '----:'],
     ['Ion',                 '----:'],
@@ -49,6 +53,8 @@ const rows = data.map((datum, i) => [
     moment(datum.updated).format(`MMM,\u00A0YYYY`),
     datum.amount === datum.total ? datum.amount : `${datum.amount}/${datum.total}`,
     datum.largeGrid === 0 ? '-' : `${Math.round(datum.largeGrid*100)}%`,
+    datum.dlc === 0 ? '-' : `${Math.round(datum.dlc*100)}%`,
+    datum.script === 0 ? '-' : `${Math.round(datum.script*100)}%`,
     datum.atmo === 0 ? '-' : `${Math.round(datum.atmo*100)}%`,
     datum.hydro === 0 ? '-' : `${Math.round(datum.hydro*100)}%`,
     datum.ion === 0 ? '-' : `${Math.round(datum.ion*100)}%`,

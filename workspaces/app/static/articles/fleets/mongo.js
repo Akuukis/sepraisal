@@ -133,6 +133,11 @@ var cursor = db.blueprints.aggregate([
             {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5mirrored", 0]},
             {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1mirrored", 0]},
         ]}]}}},
+        dlc: {$sum: {$toInt: {$and: ['$validShip', {$gt: ['$sbc.DLCsCount', 0]}]}}},
+        script: {$sum: {$toInt: {$and: ['$validShip', {$or: [
+            {$gt: ['$sbc.blocks.MyProgrammableBlock/SmallProgrammableBlock', 0]},
+            {$gt: ['$sbc.blocks.MyProgrammableBlock/LargeProgrammableBlock', 0]},
+        ]}]}}},
         title: {$first: '$steam.collections.title'},
         authors: {$addToSet: '$steam.authors'},
     }},
@@ -145,6 +150,8 @@ var cursor = db.blueprints.aggregate([
         hydro    : {$round: [{$divide: ['$hydro'    , '$amount']}, 2]},
         ion      : {$round: [{$divide: ['$ion'      , '$amount']}, 2]},
         wheel    : {$round: [{$divide: ['$wheel'    , '$amount']}, 2]},
+        dlc      : {$round: [{$divide: ['$dlc'      , '$amount']}, 2]},
+        script   : {$round: [{$divide: ['$script'   , '$amount']}, 2]},
     }},
     // Remove duplicate author entries.
     {$set: {authors: {$reduce: { input: '$authors', initialValue: [], in: { $setUnion : ["$$value", "$$this"] } }}}},
