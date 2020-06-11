@@ -76,7 +76,7 @@ A steam collection can contain anything, even a single floating block blueprint.
 What we call a fleet is a subset of collections, whose blueprints are not random garbage but proper ships and rovers (in one word, **vehicles**).
 In order to distiguish a floating garbage from a proper vehicle, we need to analyse the blueprint.
 Although neccessary that's not sufficient, because "what is a vehicle" is a tricky question itself that also needs to be answered.
-So, let's walk through of how I've done:
+So, let's walk through of how I've done (numbers are outdated, but still gives a fair perspective):
 
 1. Naive result: 2732 collections equals 2732 fleets. Ha!
 2. A vehicle should be useable, right? So, corrupt mods, missing blueprint files, and other reasons that make my server crash a bit will be excluded. That's 2718 collections left.
@@ -97,6 +97,7 @@ So, let's walk through of how I've done:
 8. Collection of one blueprint only isn't really a fleet. Two, I guess, neither. But three, uhm... Ok, let's take collections with at least 5 vehicles. That's 448 collections left.
 9. After so much filtering I wonder, who would want to look at fleets with 3 valid vehicles and 97 garbage vehicles? Not me. So, let's filter fleets that have at least 80% of it's blueprints as valid vehicles. That's 208 fleets left.
 10. Furthermore, let's use some community power and filter out fleets with very little subscribers. So let's take fleets with 20 or more average subscribers. That's 192 fleets left.
+11. Some authors have requested to exempt their fleets from the Fleet Rankings, so let's do that.
 
 That's it so far. So we have came to a realistic result: 2732 collections boils down to mere 192 fleets. See the query so far [here on Github](https://github.com/Akuukis/sepraisal/blob/master/workspaces/app/static/articles/fleets/mongo.js#L75-L90).
 

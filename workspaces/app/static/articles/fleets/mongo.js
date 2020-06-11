@@ -68,6 +68,10 @@ var fleetMatchers = [
     {$match: {amount: {$gte: 5}}},  // 8. Filter collections with 3 or more valid blueprints.
     {$match: {$expr: {$gte: [{$divide: ['$amount', '$total']}, 0.8]}}},  // 9. Filter collections with 50%+ valid ships.
     {$match: {subs: {$gte: 20}}},  // 10. Filter collections with 10 or more average subscribers.
+    {$match: {_id: {$nin: [  // 11. Blacklist as per author request and/or corner cases.
+        1873698255,  // Requested by author. Also many non-owned ships.
+        1581328522,  // Requested by author. Also many non-owned ships.
+    ]}}}
 ]
 
 var db = db.getSiblingDB('default')
