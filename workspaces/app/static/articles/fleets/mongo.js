@@ -16,15 +16,17 @@ var tagValidShips = {$set: {validShip: {$and: [
         {$gt: ['$sbc.blocks.Reactor/SmallBlockSmallGenerator', 0]},
     ]},
     {$or: [  // 5.2. Filter blueprints that have a cockpit.
-        {$gt: ['$sbc.blocks.Cockpit/LargeBlockCockpitIndustrial', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/SmallBlockCockpitIndustrial', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/DBSmallBlockFighterCockpit', 0]},
-        {$gt: ['$sbc.blocks.Cockpit/SmallBlockCockpit', 0]},
         {$gt: ['$sbc.blocks.Cockpit/CockpitOpen', 0]},
+        {$gt: ['$sbc.blocks.Cockpit/DBSmallBlockFighterCockpit', 0]},
+        {$gt: ['$sbc.blocks.Cockpit/LargeBlockCockpit', 0]},
+        {$gt: ['$sbc.blocks.Cockpit/LargeBlockCockpitIndustrial', 0]},
         {$gt: ['$sbc.blocks.Cockpit/LargeBlockCockpitSeat', 0]},
+        {$gt: ['$sbc.blocks.Cockpit/OpenCockpitLarge', 0]},
         {$gt: ['$sbc.blocks.Cockpit/OpenCockpitSmall', 0]},
+        {$gt: ['$sbc.blocks.Cockpit/SmallBlockCockpit', 0]},
+        {$gt: ['$sbc.blocks.Cockpit/SmallBlockCockpitIndustrial', 0]},
     ]},
-    {$or: [  // 5.3. Filter blueprints that have a thruster.
+    {$or: [  // 5.3. Filter blueprints that have means to move (thruster or wheel suspension).
         {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeAtmosphericThrust', 0]},
         {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallAtmosphericThrust', 0]},
         {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeAtmosphericThrust', 0]},
@@ -37,6 +39,18 @@ var tagValidShips = {$set: {validShip: {$and: [
         {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallHydrogenThrust', 0]},
         {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeHydrogenThrust', 0]},
         {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallHydrogenThrust', 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension3x3", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension5x5", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension1x1", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension3x3", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension3x3mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension5x5mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension1x1mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension3x3mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1mirrored", 0]},
     ]},
     {$or: [  // 5.4. Filter blueprints that have a gyro.
         {$gt: ['$sbc.blocks.Gyro/LargeBlockGyro', 0]},
@@ -54,6 +68,10 @@ var fleetMatchers = [
     {$match: {amount: {$gte: 5}}},  // 8. Filter collections with 3 or more valid blueprints.
     {$match: {$expr: {$gte: [{$divide: ['$amount', '$total']}, 0.8]}}},  // 9. Filter collections with 50%+ valid ships.
     {$match: {subs: {$gte: 20}}},  // 10. Filter collections with 10 or more average subscribers.
+    {$match: {_id: {$nin: [  // 11. Blacklist as per author request and/or corner cases.
+        1873698255,  // Requested by author. Also many non-owned ships.
+        1581328522,  // Requested by author. Also many non-owned ships.
+    ]}}}
 ]
 
 var db = db.getSiblingDB('default')
@@ -82,6 +100,7 @@ var cursor = db.blueprints.aggregate([
     {$group: {
         _id: "$steam.collections.id",
         subs: {$avg: {$multiply: [{$toInt: '$validShip'}, '$steam.subscriberCount']}},
+        updated: {$avg: {$toLong: '$steam.updatedDate'}},
         amount: {$sum: {$toInt: '$validShip'}},
         total: {$sum: 1},
         smallGrid: {$sum: {$toInt: {$and: ['$validShip', {$eq: ['$sbc.gridSize', 'Small']}]}}},
@@ -118,21 +137,29 @@ var cursor = db.blueprints.aggregate([
             {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5mirrored", 0]},
             {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1mirrored", 0]},
         ]}]}}},
+        dlc: {$sum: {$toInt: {$and: ['$validShip', {$gt: ['$sbc.DLCsCount', 0]}]}}},
+        script: {$sum: {$toInt: {$and: ['$validShip', {$or: [
+            {$gt: ['$sbc.blocks.MyProgrammableBlock/SmallProgrammableBlock', 0]},
+            {$gt: ['$sbc.blocks.MyProgrammableBlock/LargeProgrammableBlock', 0]},
+        ]}]}}},
         title: {$first: '$steam.collections.title'},
         authors: {$addToSet: '$steam.authors'},
     }},
     {$set: {
         subs: {$round: ['$subs', 0]},  // Round number.
+        updated: {$toString: {$toDate: '$updated'}},
         smallGrid: {$round: [{$divide: ['$smallGrid', '$amount']}, 2]},
         largeGrid: {$round: [{$divide: ['$largeGrid', '$amount']}, 2]},
         atmo     : {$round: [{$divide: ['$atmo'     , '$amount']}, 2]},
         hydro    : {$round: [{$divide: ['$hydro'    , '$amount']}, 2]},
         ion      : {$round: [{$divide: ['$ion'      , '$amount']}, 2]},
         wheel    : {$round: [{$divide: ['$wheel'    , '$amount']}, 2]},
+        dlc      : {$round: [{$divide: ['$dlc'      , '$amount']}, 2]},
+        script   : {$round: [{$divide: ['$script'   , '$amount']}, 2]},
     }},
     // Remove duplicate author entries.
     {$set: {authors: {$reduce: { input: '$authors', initialValue: [], in: { $setUnion : ["$$value", "$$this"] } }}}},
     ...fleetMatchers,
-    {$sort: {subs: -1}},
+    {$sort: {subs: -1, amount: -1, total: -1, title: 1}},
 ])
 printjson(cursor.toArray())
