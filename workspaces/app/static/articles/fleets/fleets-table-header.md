@@ -11,4 +11,9 @@ Here are all __COUNT__ Space Engineers fleets in one big table, ranked by averag
 - **Wheel** - percentage of ships that have wheel suspensions.
 - **Authors** - list of all unique authors of any ship within the fleet.
 
+Changes:
+- v2.0.2 with 227 fleets - take into account 2 forgotten cockpits blocks.
+- v2.0.1 with 192 fleets - sort fleets by ships/total if equal average subscribers.
+- v2.0.0 with 192 fleets - the initial table.
+
 ****
