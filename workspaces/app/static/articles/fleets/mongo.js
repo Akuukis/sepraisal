@@ -26,7 +26,7 @@ var tagValidShips = {$set: {validShip: {$and: [
         {$gt: ['$sbc.blocks.Cockpit/SmallBlockCockpit', 0]},
         {$gt: ['$sbc.blocks.Cockpit/SmallBlockCockpitIndustrial', 0]},
     ]},
-    {$or: [  // 5.3. Filter blueprints that have a thruster.
+    {$or: [  // 5.3. Filter blueprints that have means to move (thruster or wheel suspension).
         {$gt: ['$sbc.blocks.Thrust/LargeBlockLargeAtmosphericThrust', 0]},
         {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallAtmosphericThrust', 0]},
         {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeAtmosphericThrust', 0]},
@@ -39,6 +39,18 @@ var tagValidShips = {$set: {validShip: {$and: [
         {$gt: ['$sbc.blocks.Thrust/LargeBlockSmallHydrogenThrust', 0]},
         {$gt: ['$sbc.blocks.Thrust/SmallBlockLargeHydrogenThrust', 0]},
         {$gt: ['$sbc.blocks.Thrust/SmallBlockSmallHydrogenThrust', 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension3x3", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension5x5", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension1x1", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension3x3", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension3x3mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension5x5mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/Suspension1x1mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension3x3mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension5x5mirrored", 0]},
+        {$gt: ["$sbc.blocks.MotorSuspension/SmallSuspension1x1mirrored", 0]},
     ]},
     {$or: [  // 5.4. Filter blueprints that have a gyro.
         {$gt: ['$sbc.blocks.Gyro/LargeBlockGyro', 0]},
