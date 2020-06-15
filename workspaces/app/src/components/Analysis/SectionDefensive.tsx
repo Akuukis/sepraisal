@@ -57,20 +57,3 @@ type ProjectionCardSbc =
 interface IBpProjectionRow {
     sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]},
 }
-
-const getFixedDPS = (blocks: IBpProjectionRow['sbc']['blocks']) => {
-    return 0
-        + (150 * 700/60 * (blocks['SmallGatlingGun/'] ?? 0))
-        + (500 * 60 /60 * (blocks['SmallMissileLauncher/'] ?? 0))
-        + (500 * 60 /60 * (blocks['SmallMissileLauncherReload/SmallRocketLauncherReload'] ?? 0))
-        + (500 * 120/60 * (blocks['SmallMissileLauncher/LargeMissileLauncher'] ?? 0))
-}
-
-const getTurretDPS = (blocks: IBpProjectionRow['sbc']['blocks']) => {
-    return 0
-        + (60  * 300/60 * (blocks['LargeGatlingTurret/SmallGatlingTurret'] ?? 0))
-        + (150 * 600/60 * (blocks['LargeGatlingTurret/'] ?? 0))
-        + (500 *  90/60 * (blocks['LargeMissileTurret/SmallMissileTurret'] ?? 0))
-        + (500 *  90/60 * (blocks['LargeMissileTurret/'] ?? 0))
-        + (30  * 600/60 * (blocks['InteriorTurret/LargeInteriorTurret'] ?? 0))
-}
