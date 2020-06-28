@@ -16,7 +16,7 @@ import scrapeIt from 'scrape-it'
 * 3. Note steam sorting algorithm - it works but it's not perfect!
 */
 const TYPE = 'mostrecent'
-const MAX_PAGES = 10  // MAX is 1670 due how steam workshop works.
+const MAX_PAGES = 20  // MAX is 1670 due how steam workshop works.
 const SKIP_PAGES = 0
 
 
