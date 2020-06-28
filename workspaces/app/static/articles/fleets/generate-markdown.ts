@@ -68,8 +68,10 @@ const rows = data.map((datum, i) => [
 ].join('|'))
 
 const result = [
-    readFileSync(join(__dirname, 'fleets-table-header.md')).toString()
-        .replace('__COUNT__', String(rows.length)),
+    readFileSync(join(__dirname, 'fleets-table-header.md'))
+        .toString()
+        .replace('__COUNT__', String(rows.length))
+        .replace('__UPDATED__', String(moment().format('MMM DD, YYYY'))),
     header,
     alignment,
     ...rows,

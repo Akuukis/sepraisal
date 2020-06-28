@@ -1,4 +1,4 @@
-Here are all 252 Space Engineers fleets in one big table, ranked by average subscribers. It's last updated on Jun 10, 2020. [Read here how it's made](./fleets-how). Columns:
+Here are all 252 Space Engineers fleets in one big table, ranked by average subscribers. It's last updated on Jun 28, 2020. [Read here how it's made](./fleets-how). Columns:
 - **#** - the rank of fleet.
 - **Steam sub., avg.** - Steam subscribers, average of all ships. Links leads to Steam Workshop.
 - **Updated, avg.** - Updated date, average of all ships.
