@@ -536,6 +536,7 @@
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>5</PCU>      
     </Definition>
+      
     <!--End Region Buttons-->
     <Definition xsi:type="MyObjectBuilder_TimerBlockDefinition">
       <Id>

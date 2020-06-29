@@ -1,0 +1,2814 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CubeBlocks>
+    <!-- Block Letters-->
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolA</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolA</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_A.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_A.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_AConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolA</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolB</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolB</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_B.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_B.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_BConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolB</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolC</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolC</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_C.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_C.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_CConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolC</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolD</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolD</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_D.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_D.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_DConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolD</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolE</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolE</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_E.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_E.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_EConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolE</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolF</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolF</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_F.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_F.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_FConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolF</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolG</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolG</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_G.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_G.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_GConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolG</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolH</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolH</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_H.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_H.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.4" EndX="0.8" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_HConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolH</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolI</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolI</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_I.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_I.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.3" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_IConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolI</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolJ</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolJ</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_J.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_J.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_JConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolJ</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolK</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolK</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_K.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_K.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_KConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolK</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolL</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolL</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_L.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_L.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_LConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolL</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolM</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolM</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_M.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_M.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_MConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolM</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolN</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolN</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_N.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_N.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_NConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolN</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolO</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolO</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_O.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_O.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_OConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolO</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolP</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolP</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_P.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_P.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_PConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolP</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolQ</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolQ</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Q.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_Q.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_QConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolQ</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolR</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolR</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_R.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_R.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_RConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolR</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolS</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolS</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_S.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_S.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_SConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolS</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolT</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolT</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_T.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_T.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_TConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolT</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolU</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolU</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_U.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_U.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_UConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolU</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolV</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolV</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_V.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_V.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_VConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolV</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolW</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolW</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_W.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_W.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_WConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolW</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolX</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolX</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_X.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_X.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_XConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolX</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolY</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolY</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Y.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_Y.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_YConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolY</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolZ</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolZ</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Z.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_Z.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_ZConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolZ</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolA</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolA</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_A.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_A.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_AConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolA</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>     
+      
+      
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolB</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolB</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_B.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_B.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_BConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolB</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolC</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolC</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_C.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_C.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_CConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolC</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolD</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolD</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_D.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_D.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_DConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolD</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolE</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolE</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_E.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_E.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_EConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolE</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolF</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolF</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_F.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_F.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_FConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolF</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolG</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolG</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_G.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_G.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_GConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolG</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolH</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolH</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_H.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_H.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.4" EndX="0.8" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_HConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolH</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolI</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolI</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_I.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_I.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.3" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_IConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolI</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolJ</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolJ</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_J.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_J.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_JConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolJ</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolK</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolK</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_K.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_K.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_KConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolK</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolL</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolL</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_L.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_L.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_LConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolL</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolM</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolM</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_M.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_M.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_MConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolM</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolN</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolN</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_N.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_N.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_NConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolN</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolO</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolO</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_O.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_O.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_OConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolO</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolP</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolP</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_P.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_P.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_PConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolP</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolQ</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolQ</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Q.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_Q.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_QConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolQ</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolR</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolR</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_R.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_R.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_RConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolR</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolS</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolS</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_S.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_S.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_SConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolS</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolT</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolT</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_T.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_T.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_TConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolT</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolU</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolU</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_U.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_U.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_UConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolU</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolV</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolV</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_V.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_V.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_VConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolV</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolW</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolW</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_W.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_W.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_WConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolW</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolX</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolX</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_X.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_X.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_XConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolX</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolY</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolY</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Y.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_Y.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_YConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolY</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolZ</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolZ</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Z.dds</Icon>
+          <Description>Description_Letters</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_Z.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_ZConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolZ</BlockPairName>
+          <MirroringX>Y</MirroringX>
+          <MirroringY>X</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+      
+      <!-- Numbers-->
+
+      
+      
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol0</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol0</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_0.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_0.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_0Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol0</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol1</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol1</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_1.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_1.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.3" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_1Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol1</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol2</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol2</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_2.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_2.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_2Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol2</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol3</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol3</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_3.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_3.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_3Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol3</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol4</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol4</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_4.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_4.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.7" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.8" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_4Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol4</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol5</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol5</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_5.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_5.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_5Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol5</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol6</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol6</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_6.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_6.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_6Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol6</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol7</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol7</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_7.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_7.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.7" StartY="0.4" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_7Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol7</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol8</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol8</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_8.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_8.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_8Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol8</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbol9</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol9</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_9.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_9.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_9Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol9</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol0</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol0</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_0.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_0.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_0Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol0</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol1</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol1</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_1.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_1.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.3" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_1Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol1</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol2</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol2</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_2.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_2.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_2Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol2</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol3</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol3</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_3.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_3.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_3Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol3</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol4</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol4</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_4.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_4.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.6" EndX="0.7" EndY="0.7" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.8" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_4Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol4</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol5</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol5</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_5.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_5.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_5Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol5</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol6</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol6</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_6.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_6.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_6Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol6</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol7</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol7</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_7.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_7.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.4" />
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.7" StartY="0.4" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_7Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol7</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol8</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol8</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_8.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_8.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_8Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol8</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbol9</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_Symbol9</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_9.dds</Icon>
+          <Description>Description_Numbers</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_9.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_9Construction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>Symbol9</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      
+      
+      <!-- Symbols-->
+
+      
+      
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolHyphen</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolHyphen</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Hyphen.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_Hyphen.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.4" StartY="0.45" EndX="0.6" EndY="0.55" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_HyphenConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolHyphen</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolUnderscore</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolUnderscore</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Underscore.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_Underscore.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.6" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_UnderscoreConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolUnderscore</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolDot</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolDot</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Dot.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_Dot.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.6" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_DotConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolDot</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolApostrophe</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolApostrophe</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Apostrophe.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_Apostrophe.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.3" EndX="0.55" EndY="0.5" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_ApostropheConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolApostrophe</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolAnd</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolAnd</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_And.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_And.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_AndConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolAnd</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolColon</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolColon</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Colon.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_Colon.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.5" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_ColonConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolColon</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolExclamationMark</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolExclamationMark</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_ExclamationMark.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_ExclamationMark.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.3" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_ExclamationMarkConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolExclamationMark</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>LargeSymbolQuestionMark</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolQuestionMark</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_QuestionMark.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\Symbol_QuestionMark.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="3" />
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Symbol_QuestionMarkConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolQuestionMark</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>4</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolHyphen</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolHyphen</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Hyphen.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_Hyphen.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.4" StartY="0.45" EndX="0.6" EndY="0.55" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_HyphenConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolHyphen</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolUnderscore</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolUnderscore</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Underscore.dds</Icon>
+          <Description>Description_Symbol</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_Underscore.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.3" StartY="0.6" EndX="0.7" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_UnderscoreConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolUnderscore</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolDot</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolDot</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Dot.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_Dot.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.6" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_DotConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolDot</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolApostrophe</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolApostrophe</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Apostrophe.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_Apostrophe.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.3" EndX="0.55" EndY="0.5" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_ApostropheConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolApostrophe</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolAnd</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolAnd</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_And.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_And.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_AndConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolAnd</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+      
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolColon</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolColon</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_Colon.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_Colon.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.5" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_ColonConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolColon</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolExclamationMark</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolExclamationMark</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_ExclamationMark.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_ExclamationMark.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.45" StartY="0.3" EndX="0.55" EndY="0.7" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_ExclamationMarkConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolExclamationMark</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+
+      <Definition>
+          <Id>
+              <TypeId>CubeBlock</TypeId>
+              <SubtypeId>SmallSymbolQuestionMark</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_SymbolQuestionMark</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\Symbol_QuestionMark.dds</Icon>
+          <Description>Description_Symbols</Description>
+          <CubeSize>Small</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Small\Symbol_QuestionMark.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="1" />
+          </Components>
+          <CriticalComponent Subtype="SteelPlate" Index="1" />
+          <MountPoints>
+              <MountPoint Side="Bottom" ExclusionMask="3" PropertiesMask="3" StartX="0.2" StartY="0.3" EndX="0.8" EndY="0.6" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Symbol_QuestionMarkConstruction_1.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>SymbolQuestionMark</BlockPairName>
+          <MirroringY>Z</MirroringY>
+          <MirroringZ>Y</MirroringZ>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>2</BuildTimeSeconds>
+          <PCU>1</PCU>
+      </Definition>
+      
+  </CubeBlocks>
+</Definitions>
