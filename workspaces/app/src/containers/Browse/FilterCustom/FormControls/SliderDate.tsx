@@ -261,6 +261,7 @@ const MARKS: IMark[] = [
     {value: toValue('2019-08-22'), version: '1.193', summary: 'Economy'},
 
     {value: toValue('2020-04-16'), version: '1.194', summary: 'Triton & Frostbite Pack'},
+    {value: toValue('2020-06-24'), version: '1.195', summary: 'Sparks of the Future'},
 
     {value: toValue(moment()), version: '?.???', summary: 'Today'},
 ]
