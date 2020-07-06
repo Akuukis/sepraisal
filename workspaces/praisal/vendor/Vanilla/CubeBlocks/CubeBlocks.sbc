@@ -208,6 +208,13 @@
         <Y>0</Y>
       </Position>
     </BlockPosition>
+    <BlockPosition>
+      <Name>SciFiWall</Name>
+      <Position>
+        <X>9</X>
+        <Y>0</Y>
+      </Position>
+    </BlockPosition>
     <!--
     <BlockPosition>
       <Name>LargeHeavyBlockArmorInvCorner2Base</Name>
@@ -281,6 +288,13 @@
       <Name>LockerRoom</Name>
       <Position>
         <X>6</X>
+        <Y>2</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>NeonTubesStraight1</Name>
+      <Position>
+        <X>7</X>
         <Y>2</Y>
       </Position>
     </BlockPosition>
@@ -513,6 +527,20 @@
       <Name>Parachute Hatch</Name>
       <Position>
         <X>6</X>
+        <Y>5</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>LargeAtmoThrustSciFi</Name>
+      <Position>
+        <X>8</X>
+        <Y>5</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>LargeThrustSciFi</Name>
+      <Position>
+        <X>9</X>
         <Y>5</Y>
       </Position>
     </BlockPosition>
@@ -866,6 +894,13 @@
         <Y>12</Y>
       </Position>
     </BlockPosition>
+    <BlockPosition>
+      <Name>LCDPanel5x5</Name>
+      <Position>
+        <X>9</X>
+        <Y>12</Y>
+      </Position>
+    </BlockPosition>
 
     <!-- End Region Row 12 -->
     <!-- Region Row 13 -->
@@ -966,6 +1001,13 @@
       <Name>MotorAdvancedRotor</Name>
       <Position>
         <X>5</X>
+        <Y>14</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>LargeHinge</Name>
+      <Position>
+        <X>6</X>
         <Y>14</Y>
       </Position>
     </BlockPosition>
@@ -1102,6 +1144,30 @@
       </Position>
     </BlockPosition>
     <!-- End region Row 17 -->
+    <!-- Region Row 21 -->
+    <BlockPosition>
+      <Name>SymbolA</Name>
+      <Position>
+        <X>0</X>
+        <Y>21</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>Symbol1</Name>
+      <Position>
+        <X>4</X>
+        <Y>21</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>SymbolHyphen</Name>
+      <Position>
+        <X>6</X>
+        <Y>21</Y>
+      </Position>
+    </BlockPosition>
+
+    <!-- End Region Row 21 -->
     <!-- Region Auto-assigned-->
     <!-- Region Page 1-->
     <BlockPosition>

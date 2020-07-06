@@ -4409,11 +4409,12 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Doors.sbc" 1`] = `11`;
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Doors.sbc" 1`] = `12`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Doors.sbc" 2`] = `
 Array [
   "Door/",
+  "Door/SmallDoor",
   "AirtightHangarDoor/",
   "AirtightSlideDoor/LargeBlockSlideDoor",
   "CubeBlock/ArmorCenter",
@@ -4704,6 +4705,36 @@ Object {
   "time": 20,
   "type": "Door",
   "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Doors.sbc": Door/SmallDoor 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Door",
+  "gridSize": "Small",
+  "integrity": 1767,
+  "mass": 456.4,
+  "mod": "Vanilla",
+  "pcu": 115,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 30,
+    "Component/Display": 1,
+    "Component/InteriorPlate": 8,
+    "Component/Motor": 2,
+    "Component/SmallTube": 4,
+    "Component/SteelPlate": 6,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 4,
+    "Z": 1,
+  },
+  "subtype": "SmallDoor",
+  "time": 14,
+  "type": "Door",
+  "volume": 2500,
 }
 `;
 
@@ -7254,7 +7285,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc" 1`] = `14`;
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc" 1`] = `20`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc" 2`] = `
 Array [
@@ -7272,6 +7303,12 @@ Array [
   "MotorAdvancedRotor/LargeAdvancedRotor",
   "MotorAdvancedStator/SmallAdvancedStator",
   "MotorAdvancedRotor/SmallAdvancedRotor",
+  "MotorAdvancedStator/LargeHinge",
+  "MotorAdvancedRotor/LargeHingeHead",
+  "MotorAdvancedStator/MediumHinge",
+  "MotorAdvancedRotor/MediumHingeHead",
+  "MotorAdvancedStator/SmallHinge",
+  "MotorAdvancedRotor/SmallHingeHead",
 ]
 `;
 
@@ -7356,6 +7393,58 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc": MotorAdvancedRotor/LargeHingeHead 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeHingeHead",
+  "gridSize": "Large",
+  "integrity": 1680,
+  "mass": 404,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 8,
+    "Component/LargeTube": 4,
+    "Component/SteelPlate": 12,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeHingeHead",
+  "time": 10,
+  "type": "MotorAdvancedRotor",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc": MotorAdvancedRotor/MediumHingeHead 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_MediumHingeHead",
+  "gridSize": "Small",
+  "integrity": 840,
+  "mass": 202,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/LargeTube": 2,
+    "Component/SteelPlate": 6,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "MediumHingeHead",
+  "time": 8,
+  "type": "MotorAdvancedRotor",
+  "volume": 3375,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc": MotorAdvancedRotor/SmallAdvancedRotor 1`] = `
 Object {
   "data": Any<Object>,
@@ -7378,6 +7467,32 @@ Object {
   "time": 4,
   "type": "MotorAdvancedRotor",
   "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc": MotorAdvancedRotor/SmallHingeHead 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallHingeHead",
+  "gridSize": "Small",
+  "integrity": 420,
+  "mass": 101,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallHingeHead",
+  "time": 6,
+  "type": "MotorAdvancedRotor",
+  "volume": 125,
 }
 `;
 
@@ -7409,6 +7524,62 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc": MotorAdvancedStator/LargeHinge 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeHinge",
+  "gridSize": "Large",
+  "integrity": 2302,
+  "mass": 596.4,
+  "mod": "Vanilla",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 10,
+    "Component/LargeTube": 4,
+    "Component/Motor": 4,
+    "Component/SteelPlate": 16,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeHinge",
+  "time": 16,
+  "type": "MotorAdvancedStator",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc": MotorAdvancedStator/MediumHinge 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_MediumHinge",
+  "gridSize": "Small",
+  "integrity": 1382,
+  "mass": 346.4,
+  "mod": "Vanilla",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 6,
+    "Component/LargeTube": 2,
+    "Component/Motor": 2,
+    "Component/SteelPlate": 10,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "MediumHinge",
+  "time": 12,
+  "type": "MotorAdvancedStator",
+  "volume": 3375,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc": MotorAdvancedStator/SmallAdvancedStator 1`] = `
 Object {
   "data": Any<Object>,
@@ -7434,6 +7605,34 @@ Object {
   "time": 10,
   "type": "MotorAdvancedStator",
   "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Mechanical.sbc": MotorAdvancedStator/SmallHinge 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallHinge",
+  "gridSize": "Small",
+  "integrity": 862,
+  "mass": 225.4,
+  "mod": "Vanilla",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 4,
+    "Component/LargeTube": 1,
+    "Component/Motor": 2,
+    "Component/SteelPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallHinge",
+  "time": 8,
+  "type": "MotorAdvancedStator",
+  "volume": 125,
 }
 `;
 

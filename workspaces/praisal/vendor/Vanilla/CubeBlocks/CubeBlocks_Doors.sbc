@@ -55,8 +55,65 @@
       <EmissiveColorPreset>Default</EmissiveColorPreset>
       <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
       <DestroySound>PoofExplosionCat3</DestroySound>
+      <PCU>115</PCU>   
+     </Definition>
+      
+     <Definition xsi:type="MyObjectBuilder_DoorDefinition">
+      <Id>
+        <TypeId>Door</TypeId>
+          <SubtypeId>SmallDoor</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_Door</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\SmallDoor.dds</Icon>
+      <Description>Description_Door</Description>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="5" y="4" z="1" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Small\door.mwm</Model>
+      <PlaceDecals>false</PlaceDecals>
+      <OpenSound>BlockDoorSmallOpen</OpenSound>
+      <CloseSound>BlockDoorSmallClose</CloseSound>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="4" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="SmallTube" Count="4" />
+        <Component Subtype="Motor" Count="2" />
+        <Component Subtype="Display" Count="1" />
+        <Component Subtype="Computer" Count="2" />
+        <Component Subtype="InteriorPlate" Count="4" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="SteelPlate" Count="6" />
+      </Components>
+      <CriticalComponent Subtype="Computer" Index="0" />
+      <MountPoints>
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="4" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="4" />
+        <MountPoint Side="Top" StartX="0" StartY="0" EndX="5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+        <MountPoint Side="Bottom" StartX="4" StartY="0" EndX="5" EndY="1" />
+      </MountPoints>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\DoorConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\DoorConstruction_2.mwm" />
+      </BuildProgressModels>
+      <BlockPairName>Door</BlockPairName>
+      <MirroringY>Z</MirroringY>
+      <MirroringZ>Y</MirroringZ>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>14</BuildTimeSeconds>
+      <DisassembleRatio>1.2</DisassembleRatio>
+      <ResourceSinkGroup>Doors</ResourceSinkGroup>
+      <MaxOpen>0.96</MaxOpen>
+      <OpeningSpeed>2.5</OpeningSpeed>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
+      <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+      <DestroySound>PoofExplosionCat3</DestroySound>
       <PCU>115</PCU>      
     </Definition>
+      
     <Definition xsi:type="MyObjectBuilder_AirtightHangarDoorDefinition">
       <Id>
         <TypeId>AirtightHangarDoor</TypeId>
