@@ -1764,6 +1764,768 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc" 1`] = `27`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc" 2`] = `
+Array [
+  "TextPanel/LargeLCDPanel5x5",
+  "TextPanel/LargeLCDPanel5x3",
+  "TextPanel/LargeLCDPanel3x3",
+  "CubeBlock/LargeBlockSciFiWall",
+  "EmissiveBlock/LargeNeonTubesStraight1",
+  "EmissiveBlock/LargeNeonTubesStraight2",
+  "EmissiveBlock/LargeNeonTubesCorner",
+  "EmissiveBlock/LargeNeonTubesBendUp",
+  "EmissiveBlock/LargeNeonTubesBendDown",
+  "EmissiveBlock/LargeNeonTubesStraightEnd1",
+  "EmissiveBlock/LargeNeonTubesStraightEnd2",
+  "EmissiveBlock/LargeNeonTubesStraightDown",
+  "EmissiveBlock/LargeNeonTubesU",
+  "TerminalBlock/LargeBlockSciFiTerminal",
+  "ButtonPanel/LargeSciFiButtonTerminal",
+  "Door/SmallSideDoor",
+  "CubeBlock/LargeBlockBarCounter",
+  "CubeBlock/LargeBlockBarCounterCorner",
+  "ButtonPanel/LargeSciFiButtonPanel",
+  "Thrust/SmallBlockSmallThrustSciFi",
+  "Thrust/SmallBlockLargeThrustSciFi",
+  "Thrust/LargeBlockSmallThrustSciFi",
+  "Thrust/LargeBlockLargeThrustSciFi",
+  "Thrust/LargeBlockLargeAtmosphericThrustSciFi",
+  "Thrust/LargeBlockSmallAtmosphericThrustSciFi",
+  "Thrust/SmallBlockLargeAtmosphericThrustSciFi",
+  "Thrust/SmallBlockSmallAtmosphericThrustSciFi",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": ButtonPanel/LargeSciFiButtonPanel 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SciFiButtonPanel",
+  "gridSize": "Large",
+  "integrity": 795,
+  "mass": 234,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 20,
+    "Component/Display": 5,
+    "Component/InteriorPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSciFiButtonPanel",
+  "time": 10,
+  "type": "ButtonPanel",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": ButtonPanel/LargeSciFiButtonTerminal 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SciFiButtonTerminal",
+  "gridSize": "Large",
+  "integrity": 399,
+  "mass": 127.8,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Computer": 4,
+    "Component/Construction": 10,
+    "Component/Display": 4,
+    "Component/InteriorPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSciFiButtonTerminal",
+  "time": 8,
+  "type": "ButtonPanel",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": CubeBlock/LargeBlockBarCounter 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BarCounter",
+  "gridSize": "Large",
+  "integrity": 940,
+  "mass": 242,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 6,
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 16,
+    "Component/Motor": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockBarCounter",
+  "time": 14,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": CubeBlock/LargeBlockBarCounterCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BarCounterCorner",
+  "gridSize": "Large",
+  "integrity": 1460,
+  "mass": 382,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 10,
+    "Component/Construction": 14,
+    "Component/InteriorPlate": 24,
+    "Component/Motor": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockBarCounterCorner",
+  "time": 18,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": CubeBlock/LargeBlockSciFiWall 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SciFiWall",
+  "gridSize": "Large",
+  "integrity": 675,
+  "mass": 155,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockSciFiWall",
+  "time": 14,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Door/SmallSideDoor 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SideDoor",
+  "gridSize": "Small",
+  "integrity": 2057,
+  "mass": 514.4,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 115,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 4,
+    "Component/Computer": 2,
+    "Component/Construction": 26,
+    "Component/Display": 1,
+    "Component/InteriorPlate": 10,
+    "Component/Motor": 2,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 4,
+    "Z": 1,
+  },
+  "subtype": "SmallSideDoor",
+  "time": 14,
+  "type": "Door",
+  "volume": 2500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesBendDown 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesBendDown",
+  "gridSize": "Large",
+  "integrity": 120,
+  "mass": 29,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 1,
+    "Component/InteriorPlate": 3,
+    "Component/SmallTube": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesBendDown",
+  "time": 4,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesBendUp 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesBendUp",
+  "gridSize": "Large",
+  "integrity": 480,
+  "mass": 116,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 12,
+    "Component/SmallTube": 12,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesBendUp",
+  "time": 8,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesCorner",
+  "gridSize": "Large",
+  "integrity": 240,
+  "mass": 58,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 6,
+    "Component/SmallTube": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesCorner",
+  "time": 6,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesStraight1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesStraight1",
+  "gridSize": "Large",
+  "integrity": 240,
+  "mass": 58,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 6,
+    "Component/SmallTube": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesStraight1",
+  "time": 6,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesStraight2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesStraight2",
+  "gridSize": "Large",
+  "integrity": 240,
+  "mass": 58,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 6,
+    "Component/SmallTube": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesStraight2",
+  "time": 6,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesStraightDown 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesStraightDown",
+  "gridSize": "Large",
+  "integrity": 360,
+  "mass": 87,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 3,
+    "Component/InteriorPlate": 9,
+    "Component/SmallTube": 9,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesStraightDown",
+  "time": 7,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesStraightEnd1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesStraightEnd1",
+  "gridSize": "Large",
+  "integrity": 240,
+  "mass": 58,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 6,
+    "Component/SmallTube": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesStraightEnd1",
+  "time": 6,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesStraightEnd2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesStraightEnd2",
+  "gridSize": "Large",
+  "integrity": 360,
+  "mass": 86,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 10,
+    "Component/SmallTube": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesStraightEnd2",
+  "time": 8,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": EmissiveBlock/LargeNeonTubesU 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_NeonTubesU",
+  "gridSize": "Large",
+  "integrity": 720,
+  "mass": 174,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 6,
+    "Component/InteriorPlate": 18,
+    "Component/SmallTube": 18,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeNeonTubesU",
+  "time": 10,
+  "type": "EmissiveBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": TerminalBlock/LargeBlockSciFiTerminal 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SciFiTerminal",
+  "gridSize": "Large",
+  "integrity": 172,
+  "mass": 70.4,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 4,
+    "Component/Display": 4,
+    "Component/InteriorPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockSciFiTerminal",
+  "time": 10,
+  "type": "TerminalBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": TextPanel/LargeLCDPanel3x3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_LCD_Panel3x3",
+  "gridSize": "Large",
+  "integrity": 5110,
+  "mass": 1902,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 50,
+    "Component/Computer": 10,
+    "Component/Construction": 50,
+    "Component/Display": 90,
+    "Component/InteriorPlate": 10,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 1,
+  },
+  "subtype": "LargeLCDPanel3x3",
+  "time": 12,
+  "type": "TextPanel",
+  "volume": 140625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": TextPanel/LargeLCDPanel5x3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_LCD_Panel5x3",
+  "gridSize": "Large",
+  "integrity": 9090,
+  "mass": 3318,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 90,
+    "Component/Computer": 15,
+    "Component/Construction": 90,
+    "Component/Display": 150,
+    "Component/InteriorPlate": 15,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 3,
+    "Z": 1,
+  },
+  "subtype": "LargeLCDPanel5x3",
+  "time": 16,
+  "type": "TextPanel",
+  "volume": 234375,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": TextPanel/LargeLCDPanel5x5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_LCD_Panel5x5",
+  "gridSize": "Large",
+  "integrity": 15150,
+  "mass": 5530,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 150,
+    "Component/Computer": 25,
+    "Component/Construction": 150,
+    "Component/Display": 250,
+    "Component/InteriorPlate": 25,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 5,
+    "Z": 1,
+  },
+  "subtype": "LargeLCDPanel5x5",
+  "time": 20,
+  "type": "TextPanel",
+  "volume": 390625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Thrust/LargeBlockLargeAtmosphericThrustSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeAtmoThrustSciFi",
+  "gridSize": "Large",
+  "integrity": 73000,
+  "mass": 32970,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 60,
+    "Component/LargeTube": 50,
+    "Component/MetalGrid": 40,
+    "Component/Motor": 1100,
+    "Component/SteelPlate": 230,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 5,
+  },
+  "subtype": "LargeBlockLargeAtmosphericThrustSciFi",
+  "time": 90,
+  "type": "Thrust",
+  "volume": 703125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Thrust/LargeBlockLargeThrustSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeThrustSciFi",
+  "gridSize": "Large",
+  "integrity": 49200,
+  "mass": 43200,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 100,
+    "Component/LargeTube": 40,
+    "Component/SteelPlate": 150,
+    "Component/Thrust": 960,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 4,
+  },
+  "subtype": "LargeBlockLargeThrustSciFi",
+  "time": 90,
+  "type": "Thrust",
+  "volume": 375000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Thrust/LargeBlockSmallAtmosphericThrustSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallAtmoThrustSciFi",
+  "gridSize": "Large",
+  "integrity": 10180,
+  "mass": 4000,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 50,
+    "Component/LargeTube": 8,
+    "Component/MetalGrid": 10,
+    "Component/Motor": 110,
+    "Component/SteelPlate": 35,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 3,
+  },
+  "subtype": "LargeBlockSmallAtmosphericThrustSciFi",
+  "time": 40,
+  "type": "Thrust",
+  "volume": 46875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Thrust/LargeBlockSmallThrustSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallThrustSciFi",
+  "gridSize": "Large",
+  "integrity": 7180,
+  "mass": 4380,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 60,
+    "Component/LargeTube": 8,
+    "Component/SteelPlate": 25,
+    "Component/Thrust": 80,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 2,
+  },
+  "subtype": "LargeBlockSmallThrustSciFi",
+  "time": 40,
+  "type": "Thrust",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Thrust/SmallBlockLargeAtmosphericThrustSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeAtmoThrustSciFi",
+  "gridSize": "Small",
+  "integrity": 6980,
+  "mass": 2948,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 30,
+    "Component/LargeTube": 4,
+    "Component/MetalGrid": 8,
+    "Component/Motor": 90,
+    "Component/SteelPlate": 20,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 5,
+  },
+  "subtype": "SmallBlockLargeAtmosphericThrustSciFi",
+  "time": 20,
+  "type": "Thrust",
+  "volume": 5625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Thrust/SmallBlockLargeThrustSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeThrustSciFi",
+  "gridSize": "Small",
+  "integrity": 1220,
+  "mass": 721,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/LargeTube": 5,
+    "Component/SteelPlate": 5,
+    "Component/Thrust": 12,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 4,
+  },
+  "subtype": "SmallBlockLargeThrustSciFi",
+  "time": 20,
+  "type": "Thrust",
+  "volume": 3000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Thrust/SmallBlockSmallAtmosphericThrustSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallAtmoThrustSciFi",
+  "gridSize": "Small",
+  "integrity": 1770,
+  "mass": 699,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 22,
+    "Component/LargeTube": 1,
+    "Component/MetalGrid": 1,
+    "Component/Motor": 18,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 3,
+  },
+  "subtype": "SmallBlockSmallAtmosphericThrustSciFi",
+  "time": 10,
+  "type": "Thrust",
+  "volume": 375,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc": Thrust/SmallBlockSmallThrustSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallThrustSciFi",
+  "gridSize": "Small",
+  "integrity": 350,
+  "mass": 121,
+  "mod": "SparksOfTheFuturePack",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 2,
+    "Component/Thrust": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 2,
+  },
+  "subtype": "SmallBlockSmallThrustSciFi",
+  "time": 10,
+  "type": "Thrust",
+  "volume": 250,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks.sbc" 1`] = `4`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks.sbc" 2`] = `
@@ -8305,6 +9067,2213 @@ Object {
   "time": 0,
   "type": "UpgradeModule",
   "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc" 1`] = `88`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc" 2`] = `
+Array [
+  "CubeBlock/LargeSymbolA",
+  "CubeBlock/LargeSymbolB",
+  "CubeBlock/LargeSymbolC",
+  "CubeBlock/LargeSymbolD",
+  "CubeBlock/LargeSymbolE",
+  "CubeBlock/LargeSymbolF",
+  "CubeBlock/LargeSymbolG",
+  "CubeBlock/LargeSymbolH",
+  "CubeBlock/LargeSymbolI",
+  "CubeBlock/LargeSymbolJ",
+  "CubeBlock/LargeSymbolK",
+  "CubeBlock/LargeSymbolL",
+  "CubeBlock/LargeSymbolM",
+  "CubeBlock/LargeSymbolN",
+  "CubeBlock/LargeSymbolO",
+  "CubeBlock/LargeSymbolP",
+  "CubeBlock/LargeSymbolQ",
+  "CubeBlock/LargeSymbolR",
+  "CubeBlock/LargeSymbolS",
+  "CubeBlock/LargeSymbolT",
+  "CubeBlock/LargeSymbolU",
+  "CubeBlock/LargeSymbolV",
+  "CubeBlock/LargeSymbolW",
+  "CubeBlock/LargeSymbolX",
+  "CubeBlock/LargeSymbolY",
+  "CubeBlock/LargeSymbolZ",
+  "CubeBlock/SmallSymbolA",
+  "CubeBlock/SmallSymbolB",
+  "CubeBlock/SmallSymbolC",
+  "CubeBlock/SmallSymbolD",
+  "CubeBlock/SmallSymbolE",
+  "CubeBlock/SmallSymbolF",
+  "CubeBlock/SmallSymbolG",
+  "CubeBlock/SmallSymbolH",
+  "CubeBlock/SmallSymbolI",
+  "CubeBlock/SmallSymbolJ",
+  "CubeBlock/SmallSymbolK",
+  "CubeBlock/SmallSymbolL",
+  "CubeBlock/SmallSymbolM",
+  "CubeBlock/SmallSymbolN",
+  "CubeBlock/SmallSymbolO",
+  "CubeBlock/SmallSymbolP",
+  "CubeBlock/SmallSymbolQ",
+  "CubeBlock/SmallSymbolR",
+  "CubeBlock/SmallSymbolS",
+  "CubeBlock/SmallSymbolT",
+  "CubeBlock/SmallSymbolU",
+  "CubeBlock/SmallSymbolV",
+  "CubeBlock/SmallSymbolW",
+  "CubeBlock/SmallSymbolX",
+  "CubeBlock/SmallSymbolY",
+  "CubeBlock/SmallSymbolZ",
+  "CubeBlock/LargeSymbol0",
+  "CubeBlock/LargeSymbol1",
+  "CubeBlock/LargeSymbol2",
+  "CubeBlock/LargeSymbol3",
+  "CubeBlock/LargeSymbol4",
+  "CubeBlock/LargeSymbol5",
+  "CubeBlock/LargeSymbol6",
+  "CubeBlock/LargeSymbol7",
+  "CubeBlock/LargeSymbol8",
+  "CubeBlock/LargeSymbol9",
+  "CubeBlock/SmallSymbol0",
+  "CubeBlock/SmallSymbol1",
+  "CubeBlock/SmallSymbol2",
+  "CubeBlock/SmallSymbol3",
+  "CubeBlock/SmallSymbol4",
+  "CubeBlock/SmallSymbol5",
+  "CubeBlock/SmallSymbol6",
+  "CubeBlock/SmallSymbol7",
+  "CubeBlock/SmallSymbol8",
+  "CubeBlock/SmallSymbol9",
+  "CubeBlock/LargeSymbolHyphen",
+  "CubeBlock/LargeSymbolUnderscore",
+  "CubeBlock/LargeSymbolDot",
+  "CubeBlock/LargeSymbolApostrophe",
+  "CubeBlock/LargeSymbolAnd",
+  "CubeBlock/LargeSymbolColon",
+  "CubeBlock/LargeSymbolExclamationMark",
+  "CubeBlock/LargeSymbolQuestionMark",
+  "CubeBlock/SmallSymbolHyphen",
+  "CubeBlock/SmallSymbolUnderscore",
+  "CubeBlock/SmallSymbolDot",
+  "CubeBlock/SmallSymbolApostrophe",
+  "CubeBlock/SmallSymbolAnd",
+  "CubeBlock/SmallSymbolColon",
+  "CubeBlock/SmallSymbolExclamationMark",
+  "CubeBlock/SmallSymbolQuestionMark",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol0 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol0",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol0",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol1",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol1",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol2",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol2",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol3",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol3",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol4 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol4",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol4",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol5",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol5",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol6 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol6",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol6",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol7 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol7",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol7",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol8 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol8",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol8",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbol9 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol9",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbol9",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolA 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolA",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolA",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolAnd 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolAnd",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolAnd",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolApostrophe 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolApostrophe",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolApostrophe",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolB 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolB",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolB",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolC 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolC",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolC",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolColon 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolColon",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolColon",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolD 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolD",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolD",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolDot 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolDot",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolDot",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolE 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolE",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolE",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolExclamationMark 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolExclamationMark",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolExclamationMark",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolF 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolF",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolF",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolG 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolG",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolG",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolH 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolH",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolH",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolHyphen 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolHyphen",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolHyphen",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolI 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolI",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolI",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolJ 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolJ",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolJ",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolK 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolK",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolK",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolL 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolL",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolL",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolM 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolM",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolM",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolN 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolN",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolN",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolO 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolO",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolO",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolP 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolP",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolP",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolQ 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolQ",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolQ",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolQuestionMark 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolQuestionMark",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolQuestionMark",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolR 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolR",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolR",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolS 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolS",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolS",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolT 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolT",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolT",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolU 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolU",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolU",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolUnderscore 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolUnderscore",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolUnderscore",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolV 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolV",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolV",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolW 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolW",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolW",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolX 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolX",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolX",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolY 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolY",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolY",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/LargeSymbolZ 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolZ",
+  "gridSize": "Large",
+  "integrity": 400,
+  "mass": 80,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSymbolZ",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol0 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol0",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol0",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol1",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol1",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol2",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol2",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol3",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol3",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol4 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol4",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol4",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol5",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol5",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol6 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol6",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol6",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol7 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol7",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol7",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol8 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol8",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol8",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbol9 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Symbol9",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbol9",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolA 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolA",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolA",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolAnd 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolAnd",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolAnd",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolApostrophe 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolApostrophe",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolApostrophe",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolB 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolB",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolB",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolC 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolC",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolC",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolColon 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolColon",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolColon",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolD 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolD",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolD",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolDot 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolDot",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolDot",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolE 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolE",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolE",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolExclamationMark 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolExclamationMark",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolExclamationMark",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolF 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolF",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolF",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolG 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolG",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolG",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolH 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolH",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolH",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolHyphen 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolHyphen",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolHyphen",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolI 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolI",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolI",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolJ 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolJ",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolJ",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolK 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolK",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolK",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolL 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolL",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolL",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolM 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolM",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolM",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolN 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolN",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolN",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolO 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolO",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolO",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolP 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolP",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolP",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolQ 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolQ",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolQ",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolQuestionMark 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolQuestionMark",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolQuestionMark",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolR 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolR",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolR",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolS 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolS",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolS",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolT 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolT",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolT",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolU 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolU",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolU",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolUnderscore 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolUnderscore",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolUnderscore",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolV 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolV",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolV",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolW 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolW",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolW",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolX 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolX",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolX",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolY 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolY",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolY",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Symbols.sbc": CubeBlock/SmallSymbolZ 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SymbolZ",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSymbolZ",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
 }
 `;
 

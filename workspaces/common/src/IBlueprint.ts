@@ -39,8 +39,8 @@ export namespace IBlueprint {
 
     export const VERSION = {
         classes: 1,
-        sbc: 7,
-        steam: 2,
+        sbc: 8,
+        steam: 3,
         thumb: 2,
     } as const
 

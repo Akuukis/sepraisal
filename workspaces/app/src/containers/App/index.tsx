@@ -4,6 +4,7 @@ import CubeBlocksDecorative1Link from '@sepraisal/praisal/vendor/DecorativePack/
 import CubeBlocksDecorative2Link from '@sepraisal/praisal/vendor/DecorativePack2/CubeBlocks.sbc'
 import CubeBlocksEconomyLink from '@sepraisal/praisal/vendor/Economy/CubeBlocks.sbc'
 import CubeBlocksFrostbiteLink from '@sepraisal/praisal/vendor/Frostbite/CubeBlocks.sbc'
+import CubeBlocksSparksOfTheFutureLink from '@sepraisal/praisal/vendor/SparksOfTheFuturePack/CubeBlocks.sbc'
 import MaterialsLink from '@sepraisal/praisal/vendor/Vanilla/Blueprints.sbc'
 import ComponentsLink from '@sepraisal/praisal/vendor/Vanilla/Components.sbc'
 import CubeBlocksCubeBlocksLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks.sbc'
@@ -22,6 +23,7 @@ import CubeBlocksLogisticsLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlock
 import CubeBlocksMechanicalLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Mechanical.sbc'
 import CubeBlocksMedicalLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Medical.sbc'
 import CubeBlocksProductionLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Production.sbc'
+import CubeBlocksSymbolsLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Symbols.sbc'
 import CubeBlocksThrustersLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Thrusters.sbc'
 import CubeBlocksToolsLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Tools.sbc'
 import CubeBlocksUtilityLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Utility.sbc'
@@ -75,32 +77,34 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(MaterialsLink).then((res) => res.text()),
                 fetch(PhysicalItemsLink).then((res) => res.text()),
 
-                fetch(CubeBlocksCubeBlocksLink      ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksArmorLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksAutomationLink      ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksCommunicationsLink  ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksControlLink         ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksDoorsLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksEnergyLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksExtrasLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksGravityLink         ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksInteriorsLink       ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksLCDPanelsLink       ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksLightsLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksLogisticsLink       ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksMechanicalLink      ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksMedicalLink         ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksProductionLink      ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksThrustersLink       ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksToolsLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksUtilityLink         ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksWeaponsLink         ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksWheelsLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksWindowsLink         ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksDecorative1Link     ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_1]),
-                fetch(CubeBlocksDecorative2Link     ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_2]),
-                fetch(CubeBlocksEconomyLink         ).then(async (res) => [await res.text(), VENDOR_MOD.ECONOMY]),
-                fetch(CubeBlocksFrostbiteLink       ).then(async (res) => [await res.text(), VENDOR_MOD.FROSTBITE]),
+                fetch(CubeBlocksCubeBlocksLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksArmorLink               ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksAutomationLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksCommunicationsLink      ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksControlLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksDoorsLink               ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksEnergyLink              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksExtrasLink              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksGravityLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksInteriorsLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksLCDPanelsLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksLightsLink              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksLogisticsLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksMechanicalLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksMedicalLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksProductionLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksSymbolsLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksThrustersLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksToolsLink               ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksUtilityLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksWeaponsLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksWheelsLink              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksWindowsLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksDecorative1Link         ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_1]),
+                fetch(CubeBlocksDecorative2Link         ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_2]),
+                fetch(CubeBlocksEconomyLink             ).then(async (res) => [await res.text(), VENDOR_MOD.ECONOMY]),
+                fetch(CubeBlocksFrostbiteLink           ).then(async (res) => [await res.text(), VENDOR_MOD.FROSTBITE]),
+                fetch(CubeBlocksSparksOfTheFutureLink   ).then(async (res) => [await res.text(), VENDOR_MOD.SPARKSOFTHEFUTURE]),
             ] as never) as [string, string, string, ...[string, VENDOR_MOD][]]
             const praisalManager = new PraisalManager()
             await praisalManager.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)
