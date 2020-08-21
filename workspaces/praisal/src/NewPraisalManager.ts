@@ -24,6 +24,7 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Mechanical.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Medical.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Production.sbc')],
+        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Symbols.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Thrusters.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Tools.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Utility.sbc')],
@@ -31,10 +32,11 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')],
 
-        [VENDOR_MOD.DECORATIVE_1  , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_1  , 'CubeBlocks.sbc')],
-        [VENDOR_MOD.DECORATIVE_2  , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_2  , 'CubeBlocks.sbc')],
-        [VENDOR_MOD.ECONOMY       , join(VENDOR_DIR, VENDOR_MOD.ECONOMY       , 'CubeBlocks.sbc')],
-        [VENDOR_MOD.FROSTBITE     , join(VENDOR_DIR, VENDOR_MOD.FROSTBITE     , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.DECORATIVE_1        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_1      , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.DECORATIVE_2        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_2      , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.ECONOMY             , join(VENDOR_DIR, VENDOR_MOD.ECONOMY           , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.FROSTBITE           , join(VENDOR_DIR, VENDOR_MOD.FROSTBITE         , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.SPARKSOFTHEFUTURE   , join(VENDOR_DIR, VENDOR_MOD.SPARKSOFTHEFUTURE , 'CubeBlocks.sbc')],
     ].map(([mod, path]) => [mod, readFileSync(path).toString()] as [VENDOR_MOD, string])
     const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
     const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()

@@ -10,6 +10,7 @@ export enum VENDOR_MOD {
     FROSTBITE = 'Frostbite',
     DECORATIVE_1 = 'DecorativePack',
     DECORATIVE_2 = 'DecorativePack2',
+    SPARKSOFTHEFUTURE = 'SparksOfTheFuturePack',
 }
 
 export enum COMMUNITY_MOD {

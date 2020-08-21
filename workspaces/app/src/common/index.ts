@@ -15,8 +15,6 @@ export * from './vega'
 export { createStyles } from '@material-ui/core/styles'  // TODO: '@material-ui/styles'
 export { GridSize } from '@material-ui/core/Grid'
 
-export const VERSION =           2
-
 export const padTo2 = (value: number | string): string => {
     const string = value.toString()
     if(string.length < 2) return padTo2(`0${string}`)
@@ -154,7 +152,7 @@ export const linkCollectionProps = (id: string | number): ILinkProps => linkProp
 *
 * Example (elevation 16):
 *     IN: "0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12)"
-*     OUT: 
+*     OUT:
 */
 export const dropShadowFromBoxShadow = (css: string): string => {
     const boxShadows = css.match(/(\w+ \S+ \S+ \S+ \S+?\))/g) as string[]
