@@ -3,6 +3,7 @@ Description=SEPraisal Server
 
 [Service]
 User=ubuntu
+Environment=PATH=/opt/ubuntu/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ExecStart=/home/ubuntu/sepraisal/workspaces/server/start.sh
 TimeoutSec=30
 Restart=on-failure
