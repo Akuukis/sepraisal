@@ -1,0 +1,15 @@
+[Unit]
+Description=SEPraisal Server
+
+[Service]
+User=ubuntu
+ExecStart=/home/ubuntu/sepraisal/workspaces/server/start.sh
+TimeoutSec=30
+Restart=on-failure
+RestartSec=30
+StartLimitInterval=350
+StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target
+
