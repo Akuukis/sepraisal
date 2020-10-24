@@ -8,7 +8,7 @@ import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
-        backgroundColor: theme.palette.warning.light,
+        backgroundColor: theme.palette.warning.main,
         margin: theme.spacing(2),
     },
 
