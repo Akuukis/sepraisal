@@ -57,7 +57,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         </Grid>
     )
 
-    if(cardStore.cards.size === -1 || state === ASYNC_STATE.Error) {
+    if(cardStore.count === -1 || state === ASYNC_STATE.Error) {
         return wrap((
             <Button fullWidth className={clsx(classes.button, classes.error)} variant='outlined' onClick={myAdd}>
                 {`Error. Retry?`}
