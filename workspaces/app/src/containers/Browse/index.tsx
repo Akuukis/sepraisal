@@ -54,7 +54,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Snackbar open={open} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
                 <Alert severity='warning' variant='filled' className={classes.alert} onClose={() => setOpen(false)}>
                     Results don't include changes and new blueprints after Oct 22. Loading time may take up to 1 minute.
-                    <MyLink href='#'>Learn more.</MyLink>
+                    <MyLink href='/blog/looking-for-new-host'>Learn more.</MyLink>
                 </Alert>
             </Snackbar>
             <Search className={classes.search} />
