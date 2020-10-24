@@ -14,6 +14,7 @@ import postClassificationLink from '../../../static/articles/classification/clas
 import postFleetsDIYLink from '../../../static/articles/fleets/fleets-how.md'
 import postFleetsTableLink from '../../../static/articles/fleets/fleets.md'
 import postLaunch2Link from '../../../static/articles/launch2/launch2.md'
+import lookingForNewServersLink from '../../../static/articles/looking-for-new-servers/looking-for-new-servers.md'
 import postTestLink from '../../../static/articles/test/test.md'
 import Article from './Article'
 import TableOfContents from './TableOfContents'
@@ -82,6 +83,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 const published: IBlogArticle[] = [
+    {id: 'looking-for-new-host', date: moment('2020-10-24'), link: lookingForNewServersLink, authors: ['Akuukis'], title: 'Sad story: Looking for new servers'},
     {id: 'fleets', date: moment('2020-06-10'), link: postFleetsTableLink, authors: ['Akuukis'], title: 'Fleet Rankings v2'},
     {id: 'fleets-how', date: moment('2020-06-10'), link: postFleetsDIYLink, authors: ['Akuukis'], title: `Fleet Rankings v2: How it's made`},
     {id: 'launch2', date: moment('2020-06-03'), link: postLaunch2Link, authors: ['Akuukis'], title: 'SE Praisal V2 launched!'},
