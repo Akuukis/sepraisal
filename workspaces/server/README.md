@@ -36,21 +36,34 @@ mongo --version  # v4.4.3
 
 ## Start MongoDB
 sudo systemctl daemon-reload
-sudo systemctl start mongod
-sudo systemctl status mongod
-sudo systemctl enable mongod
+sudo service mongod start
+sudo service mongod status
+sudo service mongod enable
 
 
 
 ## Init repo
 git clone https://github.com/Akuukis/sepraisal.git
-cd sepraisal
+cd ~/sepraisal
 yarn
 yarn build
 
 
 ## Index the database
-cd workspaces/server
+cd ~/sepraisalworkspaces/server
 cp .env.exaxmple .env
 yarn reindex
+
+## Test server
+cd ~/sepraisalworkspaces/server
+yarn start
+
+## Create service for server
+cd ~/sepraisalworkspaces/server
+chmod +x utils/start.sh
+sudo cp utils/sepraisal.service /etc/systemd/system
+sudo service sepraisal start
+sudo service sepraisal status
+# if doesn't work, try `sudo journalctl -xe` or `cat err.log`.
+sudo service sepraisal enable
 ```
