@@ -50,16 +50,16 @@ yarn build
 
 
 ## Index the database
-cd ~/sepraisalworkspaces/server
+cd ~/sepraisal/workspaces/server
 cp .env.exaxmple .env
 yarn reindex
 
 ## Test server
-cd ~/sepraisalworkspaces/server
+cd ~/sepraisal/workspaces/server
 yarn start
 
 ## Create service for server
-cd ~/sepraisalworkspaces/server
+cd ~/sepraisal/workspaces/server
 chmod +x utils/start.sh
 sudo cp utils/sepraisal.service /etc/systemd/system
 sudo service sepraisal start
