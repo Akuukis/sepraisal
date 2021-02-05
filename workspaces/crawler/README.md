@@ -123,22 +123,18 @@ Summary of routines are at table above, and few that need more details have thei
 
 ### Script `thumbnail`
 
-Install webp
-
 ```sh
-# https://developers.google.com/speed/webp/docs/compiling
-sudo apt-get install -y libjpeg-dev libpng-dev libtiff-dev libgif-dev
-wget https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz
-tar xvzf libwebp-1.0.3.tar.gz
-cd libwebp-1.0.3
+## Install webp - https://developers.google.com/speed/webp/docs/compiling
+sudo apt-get install -y curl build-essential libjpeg-dev libpng-dev libtiff-dev libgif-dev
+wget https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.0.tar.gz
+tar xvzf libwebp-1.2.0.tar.gz
+cd libwebp-1.2.0
 ./configure --enable-everything  # because gif2webp is not enabled by default.
 make
 sudo make install
 sudo ldconfig
-```
 
-Install imagemagick
-```
+## Install imagemagick
 sudo apt-get install -y imagemagick
 ```
 
@@ -153,14 +149,19 @@ Install dependencies
 ```sh
 sudo apt-get install -y zip
 
-groupadd steam
-useradd -m steam -g steam
+sudo groupadd steam
+sudo useradd -m steam -g steam
+sudo usermod -s /bin/bash steam
 
-# Install steamcmd - https://developer.valvesoftware.com/wiki/SteamCMD#Linux
-# OR, if already installed (e.g. to your current user):
+## Install steamcmd
+# TODO: https://developer.valvesoftware.com/wiki/SteamCMD#Linux
+
+## OR, if already installed (e.g. to your current user):
 sudo -u steam mkdir -p /home/steam/.steam
 
-# Then, run `yarn launch 4` manually for first time - you will need to login and that requires interactive sheel.
+## Then, run `steamcmd` manually for first time, because:
+## - it needs to update & create folders
+## - you need to login which requires interactive shell
 ```
 
 
