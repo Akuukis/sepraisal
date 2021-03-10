@@ -70,7 +70,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const author = steam === null ? 'Analysis in progress...' : steam.collections.length > 0
         ?
-            (<MyLink className={classes.collection} href={`${ROUTE.BROWSE}?${BROWSE_PARTS.AUTHOR}=${steam.authors[0]?.title}`}>
+            (<MyLink className={classes.collection} href={`${ROUTE.BROWSE}?${BROWSE_PARTS.AUTHOR}=${encodeURIComponent(steam.authors[0]?.title)}`}>
                 {steam.authors[0]?.title ?? steam.authors[0]?.id}
             </MyLink>)
         :
@@ -78,7 +78,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const collection = steam === null ? 'Analysis in progress...' : steam.collections.length > 0
         ?
-            (<MyLink className={classes.collection} href={`${ROUTE.BROWSE}?${BROWSE_PARTS.COLLECTION}=${steam.collections[0].title}`}>
+            (<MyLink className={classes.collection} href={`${ROUTE.BROWSE}?${BROWSE_PARTS.COLLECTION}=${encodeURIComponent(steam.collections[0].title)}`}>
                 {steam.collections[0].title ?? steam.collections[0].id}
             </MyLink>)
         :
