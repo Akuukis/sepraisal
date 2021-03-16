@@ -120,6 +120,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             onMouseLeave={setHoverOff}
         >
             <OverlayItem
+                href={routerStore.pathToBlueprint(id)}
                 classes={{root: classes.itemAnalysis, rootOnHover: classes.itemAnalysisOnHover}}
                 isHover={hover}
                 onClick={goAnalysis}

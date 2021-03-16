@@ -39,11 +39,12 @@ const styles = (theme: IMyTheme) => createStyles({
 
 interface IProps extends GridProps {
     // onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+    href?: string
     isHover: boolean
 }
 
 
-export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
+export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, href, ...props}) => {
     const {isHover, ...otherProps} = props
 
     return (
@@ -52,6 +53,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={classnames({[classes.root]: true, [classes.rootOnHover]: isHover})}
         >
             <Grid
+                component={href ? 'a' : 'div'}
+                href={href}
                 container
                 alignItems='center'
                 justify='center'
