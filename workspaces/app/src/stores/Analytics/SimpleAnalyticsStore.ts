@@ -74,7 +74,6 @@ export class SimpleAnalyticsStore extends AbstractAnalyticsStore {
                 return
             }
             case('trackEvent'): {
-                if(opts[0] === 'load-time') return
                 return window.sa_event(opts.slice(0, 2).join('__'))
             }
             case('trackSiteSearch'): return window.sa_event(['SiteSearch', ...opts].slice(0, 2).join('__'))
