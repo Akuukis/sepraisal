@@ -176,7 +176,7 @@ export class PiwikAnalyticsStore extends AbstractAnalyticsStore {
     /**
     * Adds a page view for the given location
     */
-    public trackView(location: Location | {path: string} | Location & {basename: string}, documentTitle = document.title): void {
+    public trackView(location: Location | Location & {basename: string}, documentTitle = document.title): void {
         if (this.updateDocumentTitle) this.push(['setDocumentTitle', documentTitle])
         super.trackView(location)
     }

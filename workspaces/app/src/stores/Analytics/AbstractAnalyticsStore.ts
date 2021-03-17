@@ -69,17 +69,14 @@ export abstract class AbstractAnalyticsStore {
     /**
     * Adds a page view for the given location
     */
-    public trackView(location: Location | {path: string} | Location & {basename: string}): void {
+    public trackView(location: {pathname?: string, search?: string, basename?: string}): void {
         let currentPath: string
 
-        if ('path' in location) {
-            currentPath = location.path
-        } else if ('basename' in location) {
-            currentPath = join(location.basename, location.pathname, location.search)
+        if (location.basename) {
+            currentPath = join(location.basename, location.pathname!, location.search!)
         } else {
-            currentPath = join(location.pathname, location.search)
+            currentPath = join(location.pathname!, location.search!)
         }
-
         if (this.previousPath === currentPath) return
 
         this.previousPath = currentPath

@@ -58,7 +58,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const article = articles.find((article) => article.id === selectedArticleId)
     if(!article) {
-        routerStore.push(`${ROUTE.BLOG}/${published[0].id}`)
+        routerStore.goLocation({pathname: `${ROUTE.BLOG}/${published[0].id}`})
     }
     const selected = routerStore.location.pathname.slice(ROUTE.BLOG.length + 1)
     console.log(selected)

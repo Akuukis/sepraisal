@@ -42,7 +42,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             const searchParams = new URLSearchParams()
             searchParams.append(PROVIDER.STEAM, String(docs[0]._id))
             searchParams.append(PROVIDER.STEAM, String(docs[1]._id))
-            routerStore.push({pathname: ROUTE.COMPARE, search: searchParams.toString()})
+            routerStore.goLocation({pathname: ROUTE.COMPARE, search: searchParams.toString()})
         } catch(err) {
             setStatus(ASYNC_STATE.Error)
         }

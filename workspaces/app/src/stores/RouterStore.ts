@@ -1,4 +1,4 @@
-import { createBrowserHistory } from 'history'
+import { createBrowserHistory, LocationDescriptorObject } from 'history'
 import { RouterStore as BaseRouterStore, syncHistoryWithStore } from 'mobx-react-router'
 
 import { ROUTE } from 'src/constants'
@@ -13,6 +13,11 @@ export class RouterStore extends BaseRouterStore {
         super()
         this.analyticsStore = analyticsStore
         this.history = syncHistoryWithStore(createBrowserHistory(), this)
+        this.history.listen((location, action) => {
+            if(action === 'PUSH') {
+                this.analyticsStore.trackView(location)
+            }
+        });
     }
 
     public pathToBlueprint(id: number): string {
@@ -22,13 +27,15 @@ export class RouterStore extends BaseRouterStore {
     public goBlueprint(id: number): void {
         const path = this.pathToBlueprint(id)
 
-        this.analyticsStore.trackView({path})
         this.push(path)
     }
 
     public goView(path: string): void {
-        this.analyticsStore.trackView({path})
         this.push(path)
+    }
+
+    public goLocation(location: LocationDescriptorObject): void {
+        this.push(location)
     }
 }
 

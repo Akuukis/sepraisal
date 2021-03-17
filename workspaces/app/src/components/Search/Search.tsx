@@ -125,7 +125,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else {
             newSearchParams.set(BROWSE_PARTS.SEARCH, newSearch)
         }
-        routerStore.push({pathname: ROUTE.BROWSE, search: newSearchParams.toString()})
+        routerStore.goLocation({pathname: ROUTE.BROWSE, search: newSearchParams.toString()})
     }
 
     // eslint-disable-next-line @typescript-eslint/ban-types
