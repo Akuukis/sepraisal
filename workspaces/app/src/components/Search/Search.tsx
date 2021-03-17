@@ -73,10 +73,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     useAsyncEffectOnce(async () => {
         const [authors, collections] = await Promise.all([
             fetch(AUTOCOMPLETE_AUTHORS)
-                .then((req) => req.json() as Promise<IOption[]>)
+                .then((req) => req.json() as Promise<Omit<IOption, 'type'>[]>)
                 .then((authorsRaw): IOption[] => authorsRaw.map<IOption>((entry) => ({type: OPTION_TYPE.AUTHOR, ...entry}))),
             fetch(AUTOCOMPLETE_COLLECTIONS)
-                .then((req) => req.json() as Promise<IOption[]>)
+                .then((req) => req.json() as Promise<Omit<IOption, 'type'>[]>)
                 .then((collectionsRaw): IOption[] => collectionsRaw.map<IOption>((entry) => ({type: OPTION_TYPE.COLLECTION, ...entry}))),
         ])
 
