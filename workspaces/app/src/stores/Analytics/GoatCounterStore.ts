@@ -112,9 +112,7 @@ interface IGoatCounterStoreOpts extends IAnalyticsStoreOpts {
 export class GoatCounterStore extends AbstractAnalyticsStore {
 
     public constructor(rawOpts: IGoatCounterStoreOpts = {}) {
-        console.log(rawOpts)
         super(rawOpts)
-        console.log(this._isShim)
 
         window.goatcounter.endpoint = rawOpts.url
         window.goatcounter.allow_local = true

@@ -61,7 +61,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         routerStore.goLocation({pathname: `${ROUTE.BLOG}/${published[0].id}`})
     }
     const selected = routerStore.location.pathname.slice(ROUTE.BLOG.length + 1)
-    console.log(selected)
+
     React.useEffect(() => {
         document.title = `Blog - ${article?.title ? article.title : published[0].title}`
     })
