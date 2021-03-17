@@ -30,3 +30,6 @@ export const MATOMO_PARAMS = {
 export const SIMPLE_ANALYTICS_PARAMS = {
     url: process.env.SIMPLE_ANALYTICS_URL!,
 } as const
+export const GOAT_COUNTER_PARAMS = {
+    url: process.env.GOAT_COUNTER_URL!,
+} as const

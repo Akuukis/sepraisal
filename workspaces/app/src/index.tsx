@@ -5,17 +5,18 @@ import * as React from 'react'
 import { render } from 'react-dom'
 
 import { CONTEXT } from 'src/stores'
-import { SimpleAnalyticsStore } from 'src/stores/Analytics/SimpleAnalyticsStore'
 import RouterStore from 'src/stores/RouterStore'
 
-import { SIMPLE_ANALYTICS_PARAMS } from './constants'
+import { GOAT_COUNTER_PARAMS } from './constants'
 import routes from './routes'
+import { GoatCounterStore } from './stores/Analytics/GoatCounterStore'
+
 
 // enable MobX strict mode
 configure({ enforceActions: 'always' })
 
 // prepare MobX stores
-const analyticsStore = new SimpleAnalyticsStore(process.env.NODE_ENV === 'development' ? {} : SIMPLE_ANALYTICS_PARAMS)
+const analyticsStore = new GoatCounterStore(process.env.NODE_ENV === 'development' ? {} : GOAT_COUNTER_PARAMS)
 const routerStore = new RouterStore(analyticsStore)
 
 render((

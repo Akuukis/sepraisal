@@ -85,7 +85,9 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(IS_PRODUCTION ? 'production' : 'development'),
+
             'process.env.API': JSON.stringify(IS_PRODUCTION ? 'https://db.spaceengineerspraisal.net/hello' : process.env.API),
+            'process.env.GOAT_COUNTER_URL': JSON.stringify(process.env.GOAT_COUNTER_URL),
             'process.env.MATAMO_SITE_ID': JSON.stringify(process.env.MATAMO_SITE_ID),
             'process.env.MATAMO_URL': JSON.stringify(process.env.MATAMO_URL),
             'process.env.SIMPLE_ANALYTICS_URL': JSON.stringify(process.env.SIMPLE_ANALYTICS_URL),
