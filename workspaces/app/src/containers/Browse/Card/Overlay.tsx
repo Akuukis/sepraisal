@@ -87,7 +87,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const goAnalysis = () => {
         analyticsStore.trackEvent('browse', 'click-analysis', String(id), index)
-        routerStore.goBlueprint(id)
     }
 
     // Copied from CompareButton

@@ -5,6 +5,7 @@ import { hot } from 'react-hot-loader/root'
 import { fade, Grid, GridProps } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import A from 'src/components/A'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -53,7 +54,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             className={classnames({[classes.root]: true, [classes.rootOnHover]: isHover})}
         >
             <Grid
-                component={href ? 'a' : 'div'}
+                component={href ? A : 'div'}
                 href={href}
                 container
                 alignItems='center'
