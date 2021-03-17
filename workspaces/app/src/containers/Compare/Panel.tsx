@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root'
 
 import { Button, ClickAwayListener, Divider, Grid, Switch, Tooltip, Typography } from '@material-ui/core'
 
-import { createSmartFC, createStyles, DUD_URL, formatDecimal, IMyTheme } from 'src/common'
+import { createSmartFC, createStyles, formatDecimal, IMyTheme } from 'src/common'
 import IconCopy from 'src/components/icons/IconCopy'
 import MyLink from 'src/components/MyLink'
 import { CONTEXT } from 'src/stores'
@@ -105,7 +105,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Divider className={classes.divider} />
             <Typography paragraph variant='caption' className={classes.footer}>
                 Uploads and Recents are cached locally in your browser.
-                You can clear uploads above, and click <MyLink href={DUD_URL} onClick={blueprintStore.deleteRecentsPast100}>prune recents</MyLink> to clear all but last 100 recents.
+                You can clear uploads above, and click <MyLink onClick={blueprintStore.deleteRecentsPast100}>prune recents</MyLink> to clear all but last 100 recents.
                 Memory used: {formatDecimal(blueprintStore.size/1024/1024, 1)}&nbsp;MB
             </Typography>
         </div>

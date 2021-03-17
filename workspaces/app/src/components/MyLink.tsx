@@ -5,11 +5,12 @@ import { Link as LinkRouter } from 'react-router-dom'
 
 import { Link as LinkMaterial, LinkProps, Tooltip } from '@material-ui/core'
 
-import { createSmartFC, createStyles, DUD_URL, IMyTheme } from 'src/common'
+import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
+        cursor: 'pointer',
     },
 
     router: {
@@ -30,7 +31,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps extends Omit<React.ComponentProps<'a'>, 'ref' | 'color'> {
-    href: string
+    href?: string
     title?: string
     variant?: LinkProps['variant']
     noWrap?: LinkProps['noWrap']
@@ -41,18 +42,30 @@ interface IProps extends Omit<React.ComponentProps<'a'>, 'ref' | 'color'> {
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {blank, href, noWrap, title, variant, className, ...otherProps} = props
 
-    let to: null | string = null
 
     const wrapper = (jsx: JSX.Element) => {
-        if(!title) return jsx
-
-        return (
+        return !title ? jsx : (
             <Tooltip arrow placement='top' title={title}>
                 {jsx}
             </Tooltip>
         )
     }
 
+    if(!href) {
+        // Any path. Will always refresh.
+        return wrapper(
+            <LinkMaterial
+                className={clsx(classes.root, classes.material, className)}
+                variant={variant}
+                noWrap={noWrap}
+                {...otherProps}
+            >
+                {children}
+            </LinkMaterial>
+        )
+    }
+
+    let to: null | string = null
     try {
         // Error if not absolute. Also, if absolute but with matching origin, use it as relative instead (to avoid refresh).
         const url = new URL(href)
@@ -83,7 +96,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 variant={variant}
                 noWrap={noWrap}
                 href={href}
-                {...(href === DUD_URL ? {} : {target: '_blank', rel: 'noreferrer noopener'})}
+                target='_blank'
+                rel='noreferrer noopener'
                 {...otherProps}
             >
                 {children}
