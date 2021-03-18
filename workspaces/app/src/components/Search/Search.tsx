@@ -56,6 +56,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const {className, ...otherProps} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const routerStore = React.useContext(CONTEXT.ROUTER)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const [options, setOptions] = React.useState<IOption[]>([])
 
     const searchParams = new URLSearchParams(routerStore.location.search)
@@ -123,6 +124,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         if(newSearch === null) {
             newSearchParams.delete(BROWSE_PARTS.SEARCH)
         } else {
+            analyticsStore.trackEvent(
+                'search',
+                'text',
+            )
             newSearchParams.set(BROWSE_PARTS.SEARCH, newSearch)
         }
         routerStore.goLocation({pathname: ROUTE.BROWSE, search: newSearchParams.toString()})
@@ -140,7 +145,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
             // Allow to short-circuit to analysis.
             const id = isThisSteamUrlOrID(newValue)
-            if(id) return routerStore.goView(`${ROUTE.ANALYSE}?${PROVIDER.STEAM}=${id}`)
+            if(id) {
+                analyticsStore.trackEvent(
+                    'search',
+                    'id',
+                )
+                return routerStore.goView(`${ROUTE.ANALYSE}?${PROVIDER.STEAM}=${id}`)
+            }
 
             return updateUrlParams(newValue)
         }
@@ -153,10 +164,18 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
             switch(type) {
                 case(OPTION_TYPE.AUTHOR): {
+                    analyticsStore.trackEvent(
+                        'search',
+                        'author',
+                    )
                     setCriterion([...authors, newValue.value], collections)
                     return updateUrlParams(null)
                 }
                 case(OPTION_TYPE.COLLECTION): {
+                    analyticsStore.trackEvent(
+                        'search',
+                        'collection',
+                    )
                     setCriterion(authors, [...collections, newValue.value])
                     return updateUrlParams(null)
                 }

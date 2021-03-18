@@ -135,6 +135,11 @@ export class CardStore {
         const limit = this.cardsPerPage
         const timer = Date.now()
 
+        this.analyticsStore.trackEvent(
+            'more',
+            String(Math.round(skip/limit)),
+        )
+
         const res = await fetch(getApiUrl(this.find.$and, {
                 $search: this.find.$text?.$search,
                 projection: cardProjection,
