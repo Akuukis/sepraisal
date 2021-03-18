@@ -1,6 +1,5 @@
-import './GoatCounterJs'
-
 import { AbstractAnalyticsStore, IAnalyticsStoreOpts } from './AbstractAnalyticsStore'
+import goatCounterJs from './GoatCounterJs'
 
 interface IGoatCounterSettings {
     /**
@@ -114,9 +113,12 @@ export class GoatCounterStore extends AbstractAnalyticsStore {
     public constructor(rawOpts: IGoatCounterStoreOpts = {}) {
         super(rawOpts)
 
+        window.goatcounter = window.goatcounter || {}
         window.goatcounter.endpoint = rawOpts.url
         window.goatcounter.allow_local = true
+        window.goatcounter.no_onload = true
 
+        goatCounterJs()
         // window.onload = () => {
         //     this.trackView(window.location);
         // }
@@ -143,14 +145,12 @@ export class GoatCounterStore extends AbstractAnalyticsStore {
                 return this.countSafe({
                     event: true,
                     path: 'search',
-                    title: opts[0],
                 })
             }
             case('trackEvent'): {
                 return this.countSafe({
                     event: true,
                     path: opts.slice(0, 2).join('__'),
-                    title: String(opts[3] ?? opts[2]),
                 })
             }
             default: throw new Error(`GoatCounterStore: unknown type "${type}"`)

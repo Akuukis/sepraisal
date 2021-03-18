@@ -4,7 +4,7 @@
 // GoatCounter: https://www.goatcounter.com
 // This file (and *only* this file) is released under the ISC license:
 // https://opensource.org/licenses/ISC
-(function() {
+export default (): void => {
 	'use strict';
 
 	if (window.goatcounter && window.goatcounter.vars)  // Compatibility
@@ -81,16 +81,16 @@
 		const s = document.querySelector('script[data-goatcounter]');
 		if (s && s.dataset.goatcounter)
 			return s.dataset.goatcounter
-		return (goatcounter.endpoint || window.counter)  // counter is for compat; don't use.
+		return (window.goatcounter.endpoint || window.counter)  // counter is for compat; don't use.
 	}
 
 	// Filter some requests that we (probably) don't want to count.
 	window.goatcounter.filter = function() {
 		if ('visibilityState' in document && (document.visibilityState === 'prerender' || document.visibilityState === 'hidden'))
 			return 'visibilityState'
-		if (!goatcounter.allow_frame && location !== parent.location)
+		if (!window.goatcounter.allow_frame && location !== parent.location)
 			return 'frame'
-		if (!goatcounter.allow_local && location.hostname.match(/(localhost$|^127\.|^10\.|^172\.(1[6-9]|2[0-9]|3[0-1])\.|^192\.168\.)/))
+		if (!window.goatcounter.allow_local && location.hostname.match(/(localhost$|^127\.|^10\.|^172\.(1[6-9]|2[0-9]|3[0-1])\.|^192\.168\.)/))
 			return 'local'
 		if (localStorage && localStorage.getItem('skipgc') === 't')
 			return 'disabled with #toggle-goatcounter'
@@ -116,14 +116,14 @@
 
 	// Count a hit.
 	window.goatcounter.count = function(vars) {
-		const f = goatcounter.filter()
+		const f = window.goatcounter.filter()
 		if (f) {
 			if (console && 'log' in console)
 				console.warn('goatcounter: not counting because of: ' + f)
 			return
 		}
 
-		const url = goatcounter.url(vars)
+		const url = window.goatcounter.url(vars)
 		if (!url) {
 			if (console && 'log' in console)
 				console.warn('goatcounter: not counting because path callback returned null')
@@ -157,7 +157,7 @@
 
 		const send = function(elem) {
 			return function() {
-				goatcounter.count({
+				window.goatcounter.count({
 					event:    true,
 					path:     (elem.dataset.goatcounterClick || elem.name || elem.id || ''),
 					title:    (elem.dataset.goatcounterTitle || elem.title || (elem.innerHTML || '').substr(0, 200) || ''),
@@ -187,11 +187,11 @@
 			alert('GoatCounter tracking is now DISABLED in this browser until ' + location + ' is loaded again.')
 		}
 
-	if (!goatcounter.no_onload) {
+	if (!window.goatcounter.no_onload) {
 		const go = function() {
-			goatcounter.count()
-			if (!goatcounter.no_events)
-				goatcounter.bind_events()
+			window.goatcounter.count()
+			if (!window.goatcounter.no_events)
+				window.goatcounter.bind_events()
 		}
 
 		if (document.body === null)
@@ -199,4 +199,4 @@
 		else
 			go()
 	}
-})();
+};
