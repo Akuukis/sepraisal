@@ -1764,6 +1764,1221 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc" 1`] = `44`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc" 2`] = `
+Array [
+  "ExhaustBlock/SmallExhaustPipe",
+  "ExhaustBlock/LargeExhaustPipe",
+  "Cockpit/BuggyCockpit",
+  "CubeBlock/Viewport1",
+  "CubeBlock/Viewport2",
+  "MotorSuspension/OffroadSuspension3x3",
+  "MotorSuspension/OffroadSuspension5x5",
+  "MotorSuspension/OffroadSuspension1x1",
+  "MotorSuspension/OffroadSmallSuspension3x3",
+  "MotorSuspension/OffroadSmallSuspension5x5",
+  "MotorSuspension/OffroadSmallSuspension1x1",
+  "MotorSuspension/OffroadSuspension3x3mirrored",
+  "MotorSuspension/OffroadSuspension5x5mirrored",
+  "MotorSuspension/OffroadSuspension1x1mirrored",
+  "MotorSuspension/OffroadSmallSuspension3x3mirrored",
+  "MotorSuspension/OffroadSmallSuspension5x5mirrored",
+  "MotorSuspension/OffroadSmallSuspension1x1mirrored",
+  "Wheel/OffroadSmallRealWheel1x1",
+  "Wheel/OffroadSmallRealWheel",
+  "Wheel/OffroadSmallRealWheel5x5",
+  "Wheel/OffroadRealWheel1x1",
+  "Wheel/OffroadRealWheel",
+  "Wheel/OffroadRealWheel5x5",
+  "Wheel/OffroadSmallRealWheel1x1mirrored",
+  "Wheel/OffroadSmallRealWheelmirrored",
+  "Wheel/OffroadSmallRealWheel5x5mirrored",
+  "Wheel/OffroadRealWheel1x1mirrored",
+  "Wheel/OffroadRealWheelmirrored",
+  "Wheel/OffroadRealWheel5x5mirrored",
+  "Wheel/OffroadWheel1x1",
+  "Wheel/OffroadSmallWheel1x1",
+  "Wheel/OffroadWheel3x3",
+  "Wheel/OffroadSmallWheel3x3",
+  "Wheel/OffroadWheel5x5",
+  "Wheel/OffroadSmallWheel5x5",
+  "InteriorLight/OffsetLight",
+  "ReflectorLight/OffsetSpotlight",
+  "CubeBlock/BarredWindow",
+  "CubeBlock/BarredWindowSlope",
+  "CubeBlock/BarredWindowSide",
+  "CubeBlock/BarredWindowFace",
+  "CubeBlock/StorageShelf1",
+  "CubeBlock/StorageShelf2",
+  "CubeBlock/StorageShelf3",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Cockpit/BuggyCockpit 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BuggyCockpit",
+  "gridSize": "Small",
+  "integrity": 1320,
+  "mass": 374,
+  "mod": "ScrapRacePack",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 25,
+    "Component/Display": 4,
+    "Component/InteriorPlate": 30,
+    "Component/Motor": 2,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "BuggyCockpit",
+  "time": 24,
+  "type": "Cockpit",
+  "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/BarredWindow 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BarredWindow",
+  "gridSize": "Small",
+  "integrity": 135,
+  "mass": 38,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/Girder": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "BarredWindow",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/BarredWindowFace 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BarredWindowFace",
+  "gridSize": "Small",
+  "integrity": 135,
+  "mass": 38,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/Girder": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "BarredWindowFace",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/BarredWindowSide 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BarredWindowSide",
+  "gridSize": "Small",
+  "integrity": 135,
+  "mass": 38,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/Girder": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "BarredWindowSide",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/BarredWindowSlope 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BarredWindowSlope",
+  "gridSize": "Small",
+  "integrity": 135,
+  "mass": 38,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/Girder": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "BarredWindowSlope",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/StorageShelf1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_StorageShelf1",
+  "gridSize": "Large",
+  "integrity": 8150,
+  "mass": 1810,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 50,
+    "Component/Girder": 10,
+    "Component/InteriorPlate": 50,
+    "Component/SmallTube": 50,
+    "Component/SteelPlate": 50,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "StorageShelf1",
+  "time": 30,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/StorageShelf2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_StorageShelf2",
+  "gridSize": "Large",
+  "integrity": 2850,
+  "mass": 1280,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Girder": 30,
+    "Component/MetalGrid": 20,
+    "Component/Motor": 20,
+    "Component/PowerCell": 20,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "StorageShelf2",
+  "time": 30,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/StorageShelf3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_StorageShelf3",
+  "gridSize": "Large",
+  "integrity": 1700,
+  "mass": 2460,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Girder": 10,
+    "Component/GravityGenerator": 2,
+    "Component/Reactor": 10,
+    "Component/Superconductor": 10,
+    "Component/Thrust": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "StorageShelf3",
+  "time": 30,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/Viewport1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Viewport1",
+  "gridSize": "Large",
+  "integrity": 1780,
+  "mass": 400,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 8,
+    "Component/Construction": 10,
+    "Component/SteelPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "Viewport1",
+  "time": 12,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": CubeBlock/Viewport2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Viewport2",
+  "gridSize": "Large",
+  "integrity": 1780,
+  "mass": 400,
+  "mod": "ScrapRacePack",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 8,
+    "Component/Construction": 10,
+    "Component/SteelPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "Viewport2",
+  "time": 12,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": ExhaustBlock/LargeExhaustPipe 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_ExhaustPipe",
+  "gridSize": "Large",
+  "integrity": 2080,
+  "mass": 526,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/LargeTube": 2,
+    "Component/Motor": 4,
+    "Component/SteelPlate": 15,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeExhaustPipe",
+  "time": 14,
+  "type": "ExhaustBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": ExhaustBlock/SmallExhaustPipe 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_ExhaustPipe",
+  "gridSize": "Small",
+  "integrity": 340,
+  "mass": 104,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 1,
+    "Component/Motor": 2,
+    "Component/SmallTube": 2,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallExhaustPipe",
+  "time": 8,
+  "type": "ExhaustBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": InteriorLight/OffsetLight 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffsetLight",
+  "gridSize": "Small",
+  "integrity": 60,
+  "mass": 16,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "OffsetLight",
+  "time": 3,
+  "type": "InteriorLight",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSmallSuspension1x1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension1x1",
+  "gridSize": "Small",
+  "integrity": 1080,
+  "mass": 248,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 7,
+    "Component/Motor": 1,
+    "Component/SmallTube": 2,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "OffroadSmallSuspension1x1",
+  "time": 10,
+  "type": "MotorSuspension",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSmallSuspension1x1mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension1x1mirrored",
+  "gridSize": "Small",
+  "integrity": 1080,
+  "mass": 248,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 7,
+    "Component/Motor": 1,
+    "Component/SmallTube": 2,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "OffroadSmallSuspension1x1mirrored",
+  "time": 10,
+  "type": "MotorSuspension",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSmallSuspension3x3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension3x3",
+  "gridSize": "Small",
+  "integrity": 1080,
+  "mass": 248,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 7,
+    "Component/Motor": 1,
+    "Component/SmallTube": 2,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "OffroadSmallSuspension3x3",
+  "time": 10,
+  "type": "MotorSuspension",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSmallSuspension3x3mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension3x3mirrored",
+  "gridSize": "Small",
+  "integrity": 1080,
+  "mass": 248,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 7,
+    "Component/Motor": 1,
+    "Component/SmallTube": 2,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "OffroadSmallSuspension3x3mirrored",
+  "time": 10,
+  "type": "MotorSuspension",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSmallSuspension5x5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension5x5",
+  "gridSize": "Small",
+  "integrity": 2100,
+  "mass": 480,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 12,
+    "Component/Motor": 2,
+    "Component/SmallTube": 4,
+    "Component/SteelPlate": 16,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 2,
+  },
+  "subtype": "OffroadSmallSuspension5x5",
+  "time": 15,
+  "type": "MotorSuspension",
+  "volume": 1500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSmallSuspension5x5mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension5x5mirrored",
+  "gridSize": "Small",
+  "integrity": 2100,
+  "mass": 480,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 12,
+    "Component/Motor": 2,
+    "Component/SmallTube": 4,
+    "Component/SteelPlate": 16,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 2,
+  },
+  "subtype": "OffroadSmallSuspension5x5mirrored",
+  "time": 15,
+  "type": "MotorSuspension",
+  "volume": 1500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSuspension1x1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension1x1",
+  "gridSize": "Large",
+  "integrity": 3730,
+  "mass": 962,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 15,
+    "Component/LargeTube": 6,
+    "Component/Motor": 6,
+    "Component/SmallTube": 12,
+    "Component/SteelPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "OffroadSuspension1x1",
+  "time": 20,
+  "type": "MotorSuspension",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSuspension1x1mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension1x1mirrored",
+  "gridSize": "Large",
+  "integrity": 3730,
+  "mass": 962,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 15,
+    "Component/LargeTube": 6,
+    "Component/Motor": 6,
+    "Component/SmallTube": 12,
+    "Component/SteelPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "OffroadSuspension1x1mirrored",
+  "time": 20,
+  "type": "MotorSuspension",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSuspension3x3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension3x3",
+  "gridSize": "Large",
+  "integrity": 3730,
+  "mass": 962,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 15,
+    "Component/LargeTube": 6,
+    "Component/Motor": 6,
+    "Component/SmallTube": 12,
+    "Component/SteelPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "OffroadSuspension3x3",
+  "time": 20,
+  "type": "MotorSuspension",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSuspension3x3mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension3x3mirrored",
+  "gridSize": "Large",
+  "integrity": 3730,
+  "mass": 962,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 15,
+    "Component/LargeTube": 6,
+    "Component/Motor": 6,
+    "Component/SmallTube": 12,
+    "Component/SteelPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "OffroadSuspension3x3mirrored",
+  "time": 20,
+  "type": "MotorSuspension",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSuspension5x5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension5x5",
+  "gridSize": "Large",
+  "integrity": 10650,
+  "mass": 2820,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 40,
+    "Component/LargeTube": 20,
+    "Component/Motor": 20,
+    "Component/SmallTube": 30,
+    "Component/SteelPlate": 70,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 2,
+  },
+  "subtype": "OffroadSuspension5x5",
+  "time": 30,
+  "type": "MotorSuspension",
+  "volume": 187500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": MotorSuspension/OffroadSuspension5x5mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadSuspension5x5mirrored",
+  "gridSize": "Large",
+  "integrity": 10650,
+  "mass": 2820,
+  "mod": "ScrapRacePack",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 40,
+    "Component/LargeTube": 20,
+    "Component/Motor": 20,
+    "Component/SmallTube": 30,
+    "Component/SteelPlate": 70,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 2,
+  },
+  "subtype": "OffroadSuspension5x5mirrored",
+  "time": 30,
+  "type": "MotorSuspension",
+  "volume": 187500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": ReflectorLight/OffsetSpotlight 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffsetSpotlight",
+  "gridSize": "Small",
+  "integrity": 120,
+  "mass": 31,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 1,
+    "Component/Construction": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "OffsetSpotlight",
+  "time": 4,
+  "type": "ReflectorLight",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadRealWheel 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel3x3",
+  "gridSize": "Large",
+  "integrity": 2310,
+  "mass": 590,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 25,
+    "Component/LargeTube": 6,
+    "Component/SteelPlate": 12,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 3,
+  },
+  "subtype": "OffroadRealWheel",
+  "time": 20,
+  "type": "Wheel",
+  "volume": 281250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadRealWheel1x1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel1x1",
+  "gridSize": "Large",
+  "integrity": 1640,
+  "mass": 420,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/LargeTube": 4,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "OffroadRealWheel1x1",
+  "time": 15,
+  "type": "Wheel",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadRealWheel1x1mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel1x1mirrored",
+  "gridSize": "Large",
+  "integrity": 1640,
+  "mass": 420,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/LargeTube": 4,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "OffroadRealWheel1x1mirrored",
+  "time": 15,
+  "type": "Wheel",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadRealWheel5x5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel5x5",
+  "gridSize": "Large",
+  "integrity": 2980,
+  "mass": 760,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 30,
+    "Component/LargeTube": 8,
+    "Component/SteelPlate": 16,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 3,
+    "Z": 5,
+  },
+  "subtype": "OffroadRealWheel5x5",
+  "time": 30,
+  "type": "Wheel",
+  "volume": 1171875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadRealWheel5x5mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel5x5mirrored",
+  "gridSize": "Large",
+  "integrity": 2980,
+  "mass": 760,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 30,
+    "Component/LargeTube": 8,
+    "Component/SteelPlate": 16,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 3,
+    "Z": 5,
+  },
+  "subtype": "OffroadRealWheel5x5mirrored",
+  "time": 30,
+  "type": "Wheel",
+  "volume": 1171875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadRealWheelmirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel3x3mirrored",
+  "gridSize": "Large",
+  "integrity": 2310,
+  "mass": 590,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 25,
+    "Component/LargeTube": 6,
+    "Component/SteelPlate": 12,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 3,
+  },
+  "subtype": "OffroadRealWheelmirrored",
+  "time": 20,
+  "type": "Wheel",
+  "volume": 281250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallRealWheel 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel3x3",
+  "gridSize": "Small",
+  "integrity": 860,
+  "mass": 205,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 3,
+  },
+  "subtype": "OffroadSmallRealWheel",
+  "time": 15,
+  "type": "Wheel",
+  "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallRealWheel1x1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel1x1",
+  "gridSize": "Small",
+  "integrity": 410,
+  "mass": 105,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 5,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "OffroadSmallRealWheel1x1",
+  "time": 10,
+  "type": "Wheel",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallRealWheel1x1mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel1x1mirrored",
+  "gridSize": "Small",
+  "integrity": 410,
+  "mass": 105,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 5,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "OffroadSmallRealWheel1x1mirrored",
+  "time": 10,
+  "type": "Wheel",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallRealWheel5x5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel5x5",
+  "gridSize": "Small",
+  "integrity": 1270,
+  "mass": 310,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 15,
+    "Component/LargeTube": 2,
+    "Component/SteelPlate": 7,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 3,
+    "Z": 5,
+  },
+  "subtype": "OffroadSmallRealWheel5x5",
+  "time": 20,
+  "type": "Wheel",
+  "volume": 9375,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallRealWheel5x5mirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel5x5mirrored",
+  "gridSize": "Small",
+  "integrity": 1270,
+  "mass": 310,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 15,
+    "Component/LargeTube": 2,
+    "Component/SteelPlate": 7,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 3,
+    "Z": 5,
+  },
+  "subtype": "OffroadSmallRealWheel5x5mirrored",
+  "time": 20,
+  "type": "Wheel",
+  "volume": 9375,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallRealWheelmirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel3x3mirrored",
+  "gridSize": "Small",
+  "integrity": 860,
+  "mass": 205,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 3,
+  },
+  "subtype": "OffroadSmallRealWheelmirrored",
+  "time": 15,
+  "type": "Wheel",
+  "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallWheel1x1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel1x1",
+  "gridSize": "Small",
+  "integrity": 410,
+  "mass": 105,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 5,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "OffroadSmallWheel1x1",
+  "time": 10,
+  "type": "Wheel",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallWheel3x3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel3x3",
+  "gridSize": "Small",
+  "integrity": 860,
+  "mass": 205,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 1,
+    "Z": 3,
+  },
+  "subtype": "OffroadSmallWheel3x3",
+  "time": 15,
+  "type": "Wheel",
+  "volume": 1125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadSmallWheel5x5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel5x5",
+  "gridSize": "Small",
+  "integrity": 1270,
+  "mass": 310,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 15,
+    "Component/LargeTube": 2,
+    "Component/SteelPlate": 7,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 2,
+    "Z": 5,
+  },
+  "subtype": "OffroadSmallWheel5x5",
+  "time": 20,
+  "type": "Wheel",
+  "volume": 6250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadWheel1x1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel1x1",
+  "gridSize": "Large",
+  "integrity": 1640,
+  "mass": 420,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/LargeTube": 4,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "OffroadWheel1x1",
+  "time": 15,
+  "type": "Wheel",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadWheel3x3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel3x3",
+  "gridSize": "Large",
+  "integrity": 2310,
+  "mass": 590,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 25,
+    "Component/LargeTube": 6,
+    "Component/SteelPlate": 12,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 1,
+    "Z": 3,
+  },
+  "subtype": "OffroadWheel3x3",
+  "time": 20,
+  "type": "Wheel",
+  "volume": 140625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add ScrapRacePack "CubeBlocks.sbc": Wheel/OffroadWheel5x5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_OffroadWheel5x5",
+  "gridSize": "Large",
+  "integrity": 2980,
+  "mass": 760,
+  "mod": "ScrapRacePack",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 30,
+    "Component/LargeTube": 8,
+    "Component/SteelPlate": 16,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 2,
+    "Z": 5,
+  },
+  "subtype": "OffroadWheel5x5",
+  "time": 30,
+  "type": "Wheel",
+  "volume": 781250,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc" 1`] = `27`;
 
 exports[`PraisalManager.addCubes() should add SparksOfTheFuturePack "CubeBlocks.sbc" 2`] = `
@@ -4250,6 +5465,1135 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc" 1`] = `44`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc" 2`] = `
+Array [
+  "CubeBlock/LargeBlockArmorCornerSquare",
+  "CubeBlock/SmallBlockArmorCornerSquare",
+  "CubeBlock/LargeBlockHeavyArmorCornerSquare",
+  "CubeBlock/SmallBlockHeavyArmorCornerSquare",
+  "CubeBlock/LargeBlockArmorCornerSquareInverted",
+  "CubeBlock/SmallBlockArmorCornerSquareInverted",
+  "CubeBlock/LargeBlockHeavyArmorCornerSquareInverted",
+  "CubeBlock/SmallBlockHeavyArmorCornerSquareInverted",
+  "CubeBlock/LargeBlockArmorHalfCorner",
+  "CubeBlock/SmallBlockArmorHalfCorner",
+  "CubeBlock/LargeBlockHeavyArmorHalfCorner",
+  "CubeBlock/SmallBlockHeavyArmorHalfCorner",
+  "CubeBlock/LargeBlockArmorHalfSlopeCorner",
+  "CubeBlock/SmallBlockArmorHalfSlopeCorner",
+  "CubeBlock/LargeBlockHeavyArmorHalfSlopeCorner",
+  "CubeBlock/SmallBlockHeavyArmorHalfSlopeCorner",
+  "CubeBlock/LargeBlockArmorHalfSlopeCornerInverted",
+  "CubeBlock/SmallBlockArmorHalfSlopeCornerInverted",
+  "CubeBlock/LargeBlockHeavyArmorHalfSlopeCornerInverted",
+  "CubeBlock/SmallBlockHeavyArmorHalfSlopeCornerInverted",
+  "CubeBlock/LargeBlockArmorHalfSlopedCorner",
+  "CubeBlock/SmallBlockArmorHalfSlopedCorner",
+  "CubeBlock/LargeBlockHeavyArmorHalfSlopedCorner",
+  "CubeBlock/SmallBlockHeavyArmorHalfSlopedCorner",
+  "CubeBlock/LargeBlockArmorHalfSlopedCornerBase",
+  "CubeBlock/SmallBlockArmorHalfSlopedCornerBase",
+  "CubeBlock/LargeBlockHeavyArmorHalfSlopedCornerBase",
+  "CubeBlock/SmallBlockHeavyArmorHalfSlopedCornerBase",
+  "CubeBlock/LargeBlockArmorHalfSlopeInverted",
+  "CubeBlock/SmallBlockArmorHalfSlopeInverted",
+  "CubeBlock/LargeBlockHeavyArmorHalfSlopeInverted",
+  "CubeBlock/SmallBlockHeavyArmorHalfSlopeInverted",
+  "CubeBlock/LargeBlockArmorSlopedCorner",
+  "CubeBlock/SmallBlockArmorSlopedCorner",
+  "CubeBlock/LargeBlockHeavyArmorSlopedCorner",
+  "CubeBlock/SmallBlockHeavyArmorSlopedCorner",
+  "CubeBlock/LargeBlockArmorSlopedCornerBase",
+  "CubeBlock/SmallBlockArmorSlopedCornerBase",
+  "CubeBlock/LargeBlockHeavyArmorSlopedCornerBase",
+  "CubeBlock/SmallBlockHeavyArmorSlopedCornerBase",
+  "CubeBlock/LargeBlockArmorSlopedCornerTip",
+  "CubeBlock/SmallBlockArmorSlopedCornerTip",
+  "CubeBlock/LargeBlockHeavyArmorSlopedCornerTip",
+  "CubeBlock/SmallBlockHeavyArmorSlopedCornerTip",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorCornerSquare 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorCornerSquare",
+  "gridSize": "Large",
+  "integrity": 700,
+  "mass": 140,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 7,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorCornerSquare",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorCornerSquareInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorCornerSquareInverted",
+  "gridSize": "Large",
+  "integrity": 1900,
+  "mass": 380,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 19,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorCornerSquareInverted",
+  "time": 7,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorHalfCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfCorner",
+  "gridSize": "Large",
+  "integrity": 600,
+  "mass": 120,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorHalfCorner",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorHalfSlopeCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopeCorner",
+  "gridSize": "Large",
+  "integrity": 300,
+  "mass": 60,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorHalfSlopeCorner",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorHalfSlopeCornerInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopeCornerInverted",
+  "gridSize": "Large",
+  "integrity": 2300,
+  "mass": 460,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 23,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorHalfSlopeCornerInverted",
+  "time": 8,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorHalfSlopeInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopeInverted",
+  "gridSize": "Large",
+  "integrity": 2200,
+  "mass": 440,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 22,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorHalfSlopeInverted",
+  "time": 8,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorHalfSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopedCorner",
+  "gridSize": "Large",
+  "integrity": 1100,
+  "mass": 220,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 11,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorHalfSlopedCorner",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorHalfSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopedCornerBase",
+  "gridSize": "Large",
+  "integrity": 1100,
+  "mass": 220,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 11,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorHalfSlopedCornerBase",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopedCorner",
+  "gridSize": "Large",
+  "integrity": 1300,
+  "mass": 260,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 13,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopedCorner",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopedCornerBase",
+  "gridSize": "Large",
+  "integrity": 2000,
+  "mass": 400,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 20,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopedCornerBase",
+  "time": 7,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockArmorSlopedCornerTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopedCornerTip",
+  "gridSize": "Large",
+  "integrity": 500,
+  "mass": 100,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopedCornerTip",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorCornerSquare 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorCornerSquare",
+  "gridSize": "Large",
+  "integrity": 4450,
+  "mass": 890,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 15,
+    "Component/SteelPlate": 40,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorCornerSquare",
+  "time": 8,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorCornerSquareInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorCornerSquareInverted",
+  "gridSize": "Large",
+  "integrity": 12400,
+  "mass": 2480,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 40,
+    "Component/SteelPlate": 112,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorCornerSquareInverted",
+  "time": 16,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorHalfCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfCorner",
+  "gridSize": "Large",
+  "integrity": 3860,
+  "mass": 772,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 12,
+    "Component/SteelPlate": 35,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorHalfCorner",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorHalfSlopeCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopeCorner",
+  "gridSize": "Large",
+  "integrity": 1320,
+  "mass": 264,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 4,
+    "Component/SteelPlate": 12,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorHalfSlopeCorner",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorHalfSlopeCornerInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopeCornerInverted",
+  "gridSize": "Large",
+  "integrity": 15250,
+  "mass": 3050,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 45,
+    "Component/SteelPlate": 139,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorHalfSlopeCornerInverted",
+  "time": 20,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorHalfSlopeInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopeInverted",
+  "gridSize": "Large",
+  "integrity": 14650,
+  "mass": 2930,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 45,
+    "Component/SteelPlate": 133,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorHalfSlopeInverted",
+  "time": 20,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorHalfSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopedCorner",
+  "gridSize": "Large",
+  "integrity": 4650,
+  "mass": 930,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 5,
+    "Component/SteelPlate": 45,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorHalfSlopedCorner",
+  "time": 8,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorHalfSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopedCornerBase",
+  "gridSize": "Large",
+  "integrity": 4950,
+  "mass": 990,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 15,
+    "Component/SteelPlate": 45,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorHalfSlopedCornerBase",
+  "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopedCorner",
+  "gridSize": "Large",
+  "integrity": 8250,
+  "mass": 1650,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 25,
+    "Component/SteelPlate": 75,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopedCorner",
+  "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopedCornerBase",
+  "gridSize": "Large",
+  "integrity": 13900,
+  "mass": 2780,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 40,
+    "Component/SteelPlate": 127,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopedCornerBase",
+  "time": 16,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/LargeBlockHeavyArmorSlopedCornerTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopedCornerTip",
+  "gridSize": "Large",
+  "integrity": 430,
+  "mass": 86,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopedCornerTip",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorCornerSquare 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorCornerSquare",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorCornerSquare",
+  "time": 1,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorCornerSquareInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorCornerSquareInverted",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorCornerSquareInverted",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorHalfCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfCorner",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorHalfCorner",
+  "time": 1,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorHalfSlopeCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopeCorner",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorHalfSlopeCorner",
+  "time": 1,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorHalfSlopeCornerInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopeCornerInverted",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorHalfSlopeCornerInverted",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorHalfSlopeInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopeInverted",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorHalfSlopeInverted",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorHalfSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopedCorner",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorHalfSlopedCorner",
+  "time": 1,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorHalfSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorHalfSlopedCornerBase",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorHalfSlopedCornerBase",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopedCorner",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopedCorner",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopedCornerBase",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopedCornerBase",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockArmorSlopedCornerTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopedCornerTip",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopedCornerTip",
+  "time": 1,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorCornerSquare 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorCornerSquare",
+  "gridSize": "Small",
+  "integrity": 230,
+  "mass": 46,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorCornerSquare",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorCornerSquareInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorCornerSquareInverted",
+  "gridSize": "Small",
+  "integrity": 430,
+  "mass": 86,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorCornerSquareInverted",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorHalfCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfCorner",
+  "gridSize": "Small",
+  "integrity": 230,
+  "mass": 46,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorHalfCorner",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorHalfSlopeCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopeCorner",
+  "gridSize": "Small",
+  "integrity": 230,
+  "mass": 46,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorHalfSlopeCorner",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorHalfSlopeCornerInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopeCornerInverted",
+  "gridSize": "Small",
+  "integrity": 530,
+  "mass": 106,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorHalfSlopeCornerInverted",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorHalfSlopeInverted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopeInverted",
+  "gridSize": "Small",
+  "integrity": 530,
+  "mass": 106,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorHalfSlopeInverted",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorHalfSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopedCorner",
+  "gridSize": "Small",
+  "integrity": 330,
+  "mass": 66,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorHalfSlopedCorner",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorHalfSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorHalfSlopedCornerBase",
+  "gridSize": "Small",
+  "integrity": 330,
+  "mass": 66,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorHalfSlopedCornerBase",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopedCorner",
+  "gridSize": "Small",
+  "integrity": 330,
+  "mass": 66,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopedCorner",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopedCornerBase",
+  "gridSize": "Small",
+  "integrity": 530,
+  "mass": 106,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopedCornerBase",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_2.sbc": CubeBlock/SmallBlockHeavyArmorSlopedCornerTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopedCornerTip",
+  "gridSize": "Small",
+  "integrity": 230,
+  "mass": 46,
+  "mod": "Vanilla",
+  "pcu": 0,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopedCornerTip",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 1`] = `12`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 2`] = `
@@ -4841,7 +7185,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Control.sbc" 1`] = `11`;
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Control.sbc" 1`] = `12`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Control.sbc" 2`] = `
 Array [
@@ -4852,6 +7196,7 @@ Array [
   "Cockpit/SmallBlockCockpit",
   "Cockpit/DBSmallBlockFighterCockpit",
   "Cockpit/CockpitOpen",
+  "Cockpit/RoverCockpit",
   "Gyro/LargeBlockGyro",
   "Gyro/SmallBlockGyro",
   "Cockpit/OpenCockpitSmall",
@@ -5028,6 +7373,34 @@ Object {
   "time": 20,
   "type": "Cockpit",
   "volume": 3375,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Control.sbc": Cockpit/RoverCockpit 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_RoverCockpit",
+  "gridSize": "Small",
+  "integrity": 1320,
+  "mass": 374,
+  "mod": "Vanilla",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 25,
+    "Component/Display": 4,
+    "Component/InteriorPlate": 30,
+    "Component/Motor": 2,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "RoverCockpit",
+  "time": 24,
+  "type": "Cockpit",
+  "volume": 2250,
 }
 `;
 
@@ -7912,16 +10285,16 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HydrogenTank",
   "gridSize": "Small",
-  "integrity": 12508,
-  "mass": 3161.6,
+  "integrity": 6254,
+  "mass": 1580.8,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Computer": 8,
-    "Component/Construction": 40,
-    "Component/LargeTube": 40,
-    "Component/SmallTube": 60,
-    "Component/SteelPlate": 80,
+    "Component/Computer": 4,
+    "Component/Construction": 20,
+    "Component/LargeTube": 20,
+    "Component/SmallTube": 30,
+    "Component/SteelPlate": 40,
   },
   "size": Object {
     "X": 5,
@@ -7940,16 +10313,16 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HydrogenTankSmall",
   "gridSize": "Small",
-  "integrity": 1168,
-  "mass": 275.6,
+  "integrity": 454,
+  "mass": 109.8,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Computer": 8,
-    "Component/Construction": 6,
-    "Component/LargeTube": 2,
-    "Component/SmallTube": 4,
-    "Component/SteelPlate": 8,
+    "Component/Computer": 4,
+    "Component/Construction": 2,
+    "Component/LargeTube": 1,
+    "Component/SmallTube": 2,
+    "Component/SteelPlate": 3,
   },
   "size": Object {
     "X": 2,

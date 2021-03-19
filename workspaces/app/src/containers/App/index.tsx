@@ -4,11 +4,13 @@ import CubeBlocksDecorative1Link from '@sepraisal/praisal/vendor/DecorativePack/
 import CubeBlocksDecorative2Link from '@sepraisal/praisal/vendor/DecorativePack2/CubeBlocks.sbc'
 import CubeBlocksEconomyLink from '@sepraisal/praisal/vendor/Economy/CubeBlocks.sbc'
 import CubeBlocksFrostbiteLink from '@sepraisal/praisal/vendor/Frostbite/CubeBlocks.sbc'
+import CubeBlocksScrapRacePackLink from '@sepraisal/praisal/vendor/ScrapRacePack/CubeBlocks.sbc'
 import CubeBlocksSparksOfTheFutureLink from '@sepraisal/praisal/vendor/SparksOfTheFuturePack/CubeBlocks.sbc'
 import MaterialsLink from '@sepraisal/praisal/vendor/Vanilla/Blueprints.sbc'
 import ComponentsLink from '@sepraisal/praisal/vendor/Vanilla/Components.sbc'
 import CubeBlocksCubeBlocksLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks.sbc'
 import CubeBlocksArmorLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Armor.sbc'
+import CubeBlocksArmor2Link from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Armor_2.sbc'
 import CubeBlocksAutomationLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Automation.sbc'
 import CubeBlocksCommunicationsLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Communications.sbc'
 import CubeBlocksControlLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Control.sbc'
@@ -79,6 +81,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
                 fetch(CubeBlocksCubeBlocksLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksArmorLink               ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksArmor2Link              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksAutomationLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksCommunicationsLink      ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksControlLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
@@ -105,6 +108,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksEconomyLink             ).then(async (res) => [await res.text(), VENDOR_MOD.ECONOMY]),
                 fetch(CubeBlocksFrostbiteLink           ).then(async (res) => [await res.text(), VENDOR_MOD.FROSTBITE]),
                 fetch(CubeBlocksSparksOfTheFutureLink   ).then(async (res) => [await res.text(), VENDOR_MOD.SPARKSOFTHEFUTURE]),
+                fetch(CubeBlocksScrapRacePackLink       ).then(async (res) => [await res.text(), VENDOR_MOD.SCRAPRACEPACK]),
             ] as never) as [string, string, string, ...[string, VENDOR_MOD][]]
             const praisalManager = new PraisalManager()
             await praisalManager.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)

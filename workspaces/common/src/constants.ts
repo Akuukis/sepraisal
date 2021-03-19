@@ -11,6 +11,7 @@ export enum VENDOR_MOD {
     DECORATIVE_1 = 'DecorativePack',
     DECORATIVE_2 = 'DecorativePack2',
     SPARKSOFTHEFUTURE = 'SparksOfTheFuturePack',
+    SCRAPRACEPACK = 'ScrapRacePack',  // a.k.a. Wasteland
 }
 
 export enum COMMUNITY_MOD {

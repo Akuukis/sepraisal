@@ -52,6 +52,7 @@ const VENDOR_ID_TO_MOD = {
     1049790: VENDOR_MOD.DECORATIVE_1,
     1167910: VENDOR_MOD.DECORATIVE_2,
     1307680: VENDOR_MOD.SPARKSOFTHEFUTURE,
+    1374610: VENDOR_MOD.SCRAPRACEPACK,
 }
 
 const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`

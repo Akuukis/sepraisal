@@ -88,7 +88,7 @@
       <PCU>50</PCU>
       <IsAirTight>false</IsAirTight>      
     </Definition>
-    <Definition>
+    <Definition xsi:type="MyObjectBuilder_DecoyDefinition">
       <Id>
         <TypeId>Decoy</TypeId>
         <SubtypeId>LargeDecoy</SubtypeId>
@@ -136,7 +136,7 @@
       <PCU>50</PCU>
       <IsAirTight>false</IsAirTight>      
     </Definition>
-    <Definition>
+    <Definition xsi:type="MyObjectBuilder_DecoyDefinition">
       <Id>
         <TypeId>Decoy</TypeId>
         <SubtypeId>SmallDecoy</SubtypeId>
@@ -248,7 +248,14 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>225</PCU>
-      <IsAirTight>false</IsAirTight>      
+      <IsAirTight>false</IsAirTight>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+      <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+      <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
 
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
@@ -325,7 +332,14 @@
       <EmissiveColorPreset>Default</EmissiveColorPreset>
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>225</PCU>      
+      <PCU>225</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
 
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
@@ -401,7 +415,14 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>275</PCU>
-      <IsAirTight>false</IsAirTight>      
+      <IsAirTight>false</IsAirTight>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
 
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
@@ -479,7 +500,14 @@
       <MaxFov>1.04719755</MaxFov>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>100</PCU>      
+      <PCU>100</PCU>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
 
     <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">
@@ -554,7 +582,14 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>125</PCU>
-      <IsAirTight>false</IsAirTight>      
+      <IsAirTight>false</IsAirTight>
+      <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
+        <InventoryFillFactorMin>.25</InventoryFillFactorMin>
+        <InventoryFillFactorMax>.5</InventoryFillFactorMax>
+        <TieredUpdateTimes>
+            <unsignedInt>10</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
 
     <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
@@ -754,7 +789,8 @@
       <DamagedSound>ParticleWeapExpl</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>80</PCU>      
+      <PCU>80</PCU>
+      <InventoryFillFactorMin>.6</InventoryFillFactorMin>
     </Definition>
   </CubeBlocks>
 </Definitions>

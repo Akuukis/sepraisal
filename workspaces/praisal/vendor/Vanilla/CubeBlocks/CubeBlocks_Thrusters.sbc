@@ -93,7 +93,12 @@
       <DamagedSound>ParticleWeapExpl</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -186,7 +191,12 @@
       <DamagedSound>ParticleWeapExpl</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -279,7 +289,12 @@
       <DamagedSound>ParticleWeapExpl</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -374,7 +389,12 @@
       <DamagedSound>ParticleWeapExpl</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
 
     <!--HydrogenThrusters-->
@@ -472,7 +492,12 @@
       <Public>true</Public>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -567,7 +592,12 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>15</PCU>
-      <IsAirTight>false</IsAirTight>      
+      <IsAirTight>false</IsAirTight>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -662,7 +692,12 @@
       <DamagedSound>ParticleWeapExpl</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -757,7 +792,12 @@
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>15</PCU>
-      <IsAirTight>false</IsAirTight>      
+      <IsAirTight>false</IsAirTight>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <!--HydrogenThrusters End-->
 
@@ -860,7 +900,12 @@
       <Public>true</Public>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -963,7 +1008,12 @@
       <Public>true</Public>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -1065,7 +1115,12 @@
       <Public>true</Public>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>15</PCU>      
+      <PCU>15</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
       <Id>
@@ -1169,7 +1224,12 @@
       <DestroyEffect>BlockDestroyedExplosion_Tiny</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>15</PCU>
-      <IsAirTight>false</IsAirTight>      
+      <IsAirTight>false</IsAirTight>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>3600</unsignedInt>
+            <unsignedInt>0</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <!-- End Region Thrust-->
   </CubeBlocks>

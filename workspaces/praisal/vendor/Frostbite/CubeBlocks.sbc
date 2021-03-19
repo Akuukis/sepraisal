@@ -208,6 +208,7 @@
                     <PlacementMode>Both</PlacementMode>
                 </DynamicMode>
             </VoxelPlacement>
+            <BlockPairName>DeadBody</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
             <EdgeType>Light</EdgeType>

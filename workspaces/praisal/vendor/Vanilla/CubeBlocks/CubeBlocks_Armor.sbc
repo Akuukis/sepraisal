@@ -31,14 +31,6 @@
         <Component Subtype="SteelPlate" Count="5" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\SquarePlateConstruction_1.mwm" />
         <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Armor\SquarePlateConstruction_2.mwm" RandomOrientation="true" />
@@ -195,19 +187,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\SlopePlateConstruction_1.mwm" />
@@ -326,24 +310,13 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="1.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\FaceTrianglePlateConstruction_1.mwm" />
@@ -438,24 +411,13 @@
         <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0" StartY="1.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\InvFaceTrianglePlateConstruction_1.mwm" />
@@ -597,19 +559,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\SlopePlateConstruction_1.mwm" />
@@ -623,8 +577,7 @@
       <BuildTimeSeconds>5</BuildTimeSeconds>
       <DisassembleRatio>2.5</DisassembleRatio>
       <Public>false</Public>
-      <PCU>1</PCU>      
-      <PCUConsole>2</PCUConsole>
+      <PCU>1</PCU>      <PCUConsole>2</PCUConsole>
     </Definition>
     <Definition>
       <Id>
@@ -654,24 +607,16 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.2" EndY="1" />
+        <MountPoint Side="Front" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
+        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
+        <MountPoint Side="Bottom" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\FaceTrianglePlateConstruction_1.mwm" />
@@ -734,14 +679,6 @@
         <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
         <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\InvFaceTrianglePlateConstruction_1.mwm" />
@@ -797,14 +734,6 @@
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavySquarePlateConstruction_1.mwm" />
         <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Armor\HeavySquarePlateConstruction_2.mwm" RandomOrientation="true" />
@@ -963,19 +892,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavySlopePlateConstruction_1.mwm" />
@@ -1096,24 +1017,13 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="1.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyFacePlateConstruction_1.mwm" />
@@ -1210,24 +1120,13 @@
         <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0" StartY="1.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyInvFacePlateConstruction_1.mwm" />
@@ -1375,14 +1274,6 @@
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\SquarePlateConstruction_1.mwm" RandomOrientation="true" />
         <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Armor\SquarePlateConstruction_2.mwm" RandomOrientation="true" />
@@ -1537,19 +1428,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\SlopePlateConstruction_1.mwm" />
@@ -1667,18 +1550,13 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="1.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\FaceTrianglePlateConstruction_1.mwm" />
@@ -1772,24 +1650,13 @@
         <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0" StartY="1.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\InvFaceTrianglePlateConstruction_1.mwm" />
@@ -1938,14 +1805,6 @@
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\HeavySquarePlateConstruction_1.mwm" />
         <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Armor\HeavySquarePlateConstruction_2.mwm" RandomOrientation="true" />
@@ -2102,19 +1961,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\HeavySlopePlateConstruction_1.mwm" />
@@ -2234,18 +2085,13 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="1.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\HeavyFacePlateConstruction_1.mwm" />
@@ -2341,24 +2187,13 @@
         <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0" StartY="1.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\HeavyInvFacePlateConstruction_1.mwm" />
@@ -2836,12 +2671,8 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.16" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.16" StartY="0" EndX="0.33" EndY="0.33" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.33" StartY="0" EndX="0.5" EndY="0.16" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="0.66" EndY="0.16" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.66" StartY="0" EndX="0.84" EndY="0.33" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.84" StartY="0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.45" EndY="0.45" />
+        <MountPoint Side="Right" StartX="0.55" StartY="0" EndX="1.0" EndY="0.45" />
       </MountPoints>
       <Skeleton>
         <BoneInfo>
@@ -3114,12 +2945,8 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.16" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.16" StartY="0" EndX="0.33" EndY="0.33" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.33" StartY="0" EndX="0.5" EndY="0.16" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="0.66" EndY="0.16" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.66" StartY="0" EndX="0.84" EndY="0.33" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.84" StartY="0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.45" EndY="0.45" />
+        <MountPoint Side="Right" StartX="0.55" StartY="0" EndX="1.0" EndY="0.45" />
       </MountPoints>
       <BlockPairName>HalfSlopeHeavyArmorBlock</BlockPairName>
       <EdgeType>Heavy</EdgeType>
@@ -3608,12 +3435,8 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.16" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.16" StartY="0" EndX="0.33" EndY="0.33" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.33" StartY="0" EndX="0.5" EndY="0.16" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="0.66" EndY="0.16" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.66" StartY="0" EndX="0.84" EndY="0.33" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.84" StartY="0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.45" EndY="0.45" />
+        <MountPoint Side="Right" StartX="0.55" StartY="0" EndX="1.0" EndY="0.45" />
       </MountPoints>
       <BlockPairName>HalfSlopeLightArmorBlock</BlockPairName>
       <MirroringY>Z</MirroringY>
@@ -3666,12 +3489,8 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0.00" StartY="0.00" EndX="1.00" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0.00" StartY="0.00" EndX="1.00" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.16" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.16" StartY="0" EndX="0.33" EndY="0.33" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.33" StartY="0" EndX="0.5" EndY="0.16" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="0.66" EndY="0.16" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.66" StartY="0" EndX="0.84" EndY="0.33" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.84" StartY="0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.45" EndY="0.45" />
+        <MountPoint Side="Right" StartX="0.55" StartY="0" EndX="1.0" EndY="0.45" />
       </MountPoints>
       <Skeleton>
         <BoneInfo>
@@ -3829,19 +3648,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\SlopePlateRoundedConstruction_1.mwm" />
@@ -3960,24 +3771,13 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\FaceTrianglePlateRoundedConstruction_1.mwm" />
@@ -4072,24 +3872,13 @@
         <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+		<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.0" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.5" EndX="0.5" EndY="0.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\InvFaceTrianglePlateConstruction_1.mwm" />
@@ -4234,19 +4023,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavySlopePlateRoundedConstruction_1.mwm" />
@@ -4367,24 +4148,13 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyFaceTrianglePlateRoundedConstruction_1.mwm" />
@@ -4461,11 +4231,9 @@
       <CubeDefinition>
         <CubeTopology>RoundInvCorner</CubeTopology>
         <ShowEdges>true</ShowEdges>
-        <Sides>          
-          <Side Model="Models\Cubes\Large\Armor\HeavyCornerRoundTriangleLeftPlate.mwm" PatternWidth="1" PatternHeight="1" />
+        <Sides>              <Side Model="Models\Cubes\Large\Armor\HeavyCornerRoundTriangleLeftPlate.mwm" PatternWidth="1" PatternHeight="1" />
           <Side Model="Models\Cubes\Large\Armor\HeavyCornerRoundTriangleRightPlate.mwm" PatternWidth="1" PatternHeight="1" />
-          <Side Model="Models\Cubes\Large\Armor\HeavyCornerRoundTriangleLeftPlate.mwm" PatternWidth="1" PatternHeight="1" />          
-          <Side Model="Models\Cubes\Large\Armor\HeavySquarePlate.mwm" PatternWidth="4" PatternHeight="2" />
+          <Side Model="Models\Cubes\Large\Armor\HeavyCornerRoundTriangleLeftPlate.mwm" PatternWidth="1" PatternHeight="1" />              <Side Model="Models\Cubes\Large\Armor\HeavySquarePlate.mwm" PatternWidth="4" PatternHeight="2" />
           <Side Model="Models\Cubes\Large\Armor\HeavySquarePlate.mwm" PatternWidth="4" PatternHeight="2" />
           <Side Model="Models\Cubes\Large\Armor\HeavySquarePlate.mwm" PatternWidth="4" PatternHeight="2" />
           <Side Model="Models\Cubes\Large\Armor\HeavyInvFaceRoundTrianglePlate.mwm" PatternWidth="1" PatternHeight="1" />
@@ -4481,24 +4249,13 @@
         <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+		<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.0" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.5" EndX="0.5" EndY="0.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyInvFacePlateConstruction_1.mwm" />
@@ -4642,19 +4399,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\SlopePlateRoundedConstruction_1.mwm" />
@@ -4772,24 +4521,13 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\FaceTrianglePlateRoundedConstruction_1.mwm" />
@@ -4883,24 +4621,13 @@
         <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+		<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.0" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.5" EndX="0.5" EndY="0.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\InvFaceTrianglePlateConstruction_1.mwm" />
@@ -5045,19 +4772,11 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\HeavySlopePlateRoundedConstruction_1.mwm" />
@@ -5177,24 +4896,13 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\HeavyFaceTrianglePlateRoundedConstruction_1.mwm" />
@@ -5277,8 +4985,7 @@
           <Side Model="Models\Cubes\Small\Armor\HeavySquarePlate.mwm" PatternWidth="4" PatternHeight="2" />
           <Side Model="Models\Cubes\Small\Armor\HeavySquarePlate.mwm" PatternWidth="4" PatternHeight="2" />
           <Side Model="Models\Cubes\Small\Armor\HeavySquarePlate.mwm" PatternWidth="4" PatternHeight="2" />
-          <Side Model="Models\Cubes\Small\Armor\HeavyInvFaceRoundTrianglePlate.mwm" PatternWidth="1" PatternHeight="1" />        
-        </Sides>
+          <Side Model="Models\Cubes\Small\Armor\HeavyInvFaceRoundTrianglePlate.mwm" PatternWidth="1" PatternHeight="1" />          </Sides>
       </CubeDefinition>
       <Components>
         <Component Subtype="SteelPlate" Count="3" />
@@ -5290,24 +4997,13 @@
         <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+		<MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Right" StartX="0.0" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.5" EndY="1.0" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Bottom" StartX="0.0" StartY="0.5" EndX="0.5" EndY="0.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\Armor\HeavyInvFacePlateConstruction_1.mwm" />
@@ -5453,14 +5149,6 @@
         <Component Subtype="SteelPlate" Count="4" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\Slope2BaseConstruction_1.mwm" />
         <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Armor\Slope2BaseConstruction_2.mwm" />
@@ -5627,21 +5315,13 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Left" StartX="0.8" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\Slope2TipConstruction_1.mwm" />
@@ -5761,25 +5441,14 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\Corner2BaseConstruction_1.mwm" />
@@ -5900,22 +5569,14 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.2" EndX="1" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.9" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.6" StartY="0.2" EndX="1" EndY="0.8" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.45" EndY="0.45" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\Corner2TipConstruction_1.mwm" />
@@ -6011,23 +5672,13 @@
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1" />
+        <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.5" EndY="1" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1" />
+        <MountPoint Side="Front" StartX="0.4" StartY="0.4" EndX="0.5" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\InvCorner2BaseConstruction_1.mwm" />
@@ -6170,27 +5821,20 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Back" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Back" StartX="0.8" StartY="0.5" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Back" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0.5" StartY="0.4" EndX="0.6" EndY="0.5" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.5" EndX="0.5" EndY="1" />
+		<MountPoint Side="Right" StartX="0.8" StartY="0.9" EndX="1" EndY="1" />
+		<MountPoint Side="Right" StartX="0.2" StartY="0.6" EndX="0.8" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.2" EndY="1" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.1" EndY="0.2" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.4" EndY="0.8" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0.8" EndX="0.5" EndY="1" />
+        <MountPoint Side="Front" StartX="0" StartY="1.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\InvCorner2TipConstruction_1.mwm" />
@@ -6334,14 +5978,6 @@
         <Component Subtype="SteelPlate" Count="12" />
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavySlope2BaseConstruction_1.mwm" />
         <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Armor\HeavySlope2BaseConstruction_2.mwm" />
@@ -6509,21 +6145,13 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Left" StartX="0.8" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavySlope2TipConstruction_1.mwm" />
@@ -6644,25 +6272,14 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyCorner2BaseConstruction_1.mwm" />
@@ -6784,22 +6401,14 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.2" EndX="1" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.9" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.6" StartY="0.2" EndX="1" EndY="0.8" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.45" EndY="0.45" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyCorner2TipConstruction_1.mwm" />
@@ -6896,23 +6505,13 @@
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1" />
+        <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.5" EndY="1" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1" />
+		<MountPoint Side="Front" StartX="0.4" StartY="0.4" EndX="0.5" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyInvCorner2BaseConstruction_1.mwm" />
@@ -7056,27 +6655,20 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Back" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Back" StartX="0.8" StartY="0.5" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Back" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0.5" StartY="0.4" EndX="0.6" EndY="0.5" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.5" EndX="0.5" EndY="1" />
+		<MountPoint Side="Right" StartX="0.8" StartY="0.9" EndX="1" EndY="1" />
+		<MountPoint Side="Right" StartX="0.2" StartY="0.6" EndX="0.8" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.2" EndY="1" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.1" EndY="0.2" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.4" EndY="0.8" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0.8" EndX="0.5" EndY="1" />
+        <MountPoint Side="Front" StartX="0" StartY="1.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyInvCorner2TipConstruction_1.mwm" />
@@ -7227,14 +6819,6 @@
         <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
         <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\Slope2BaseConstruction_1.mwm" />
         <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\Armor\Slope2BaseConstruction_2.mwm" />
@@ -7391,19 +6975,13 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.25" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.25" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Left" StartX="0.8" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\Slope2TipConstruction_1.mwm" />
@@ -7522,25 +7100,14 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\Corner2BaseConstruction_1.mwm" />
@@ -7660,21 +7227,14 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.5" EndY="0.4" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.9" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.6" StartY="0.2" EndX="1" EndY="0.8" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.45" EndY="0.45" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\Corner2TipConstruction_1.mwm" />
@@ -7769,23 +7329,13 @@
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1" />
+        <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.5" EndY="1" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1" />
+		<MountPoint Side="Front" StartX="0.4" StartY="0.4" EndX="0.5" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\InvCorner2BaseConstruction_1.mwm" />
@@ -7927,27 +7477,20 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Back" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Back" StartX="0.8" StartY="0.5" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Back" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0.5" StartY="0.4" EndX="0.6" EndY="0.5" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.5" EndX="0.5" EndY="1" />
+		<MountPoint Side="Right" StartX="0.8" StartY="0.9" EndX="1" EndY="1" />
+		<MountPoint Side="Right" StartX="0.2" StartY="0.6" EndX="0.8" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.2" EndY="1" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.1" EndY="0.2" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.4" EndY="0.8" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0.8" EndX="0.5" EndY="1" />
+        <MountPoint Side="Front" StartX="0" StartY="1.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\InvCorner2TipConstruction_1.mwm" />
@@ -8100,14 +7643,6 @@
         <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
         <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\HeavySlope2BaseConstruction_1.mwm" />
         <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\Armor\HeavySlope2BaseConstruction_2.mwm" />
@@ -8266,19 +7801,13 @@
       <MountPoints>
         <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.25" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.5" EndY="0.25" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
+        <MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Left" StartX="0.8" StartY="0" EndX="1" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\HeavySlope2TipConstruction_1.mwm" />
@@ -8399,25 +7928,14 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.2" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0" EndX="1.0" EndY="1.0" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\HeavyCorner2BaseConstruction_1.mwm" />
@@ -8539,21 +8057,14 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
-        <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.5" EndY="0.4" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
-        <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
-        <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Bottom" StartX="0.9" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.6" StartY="0.2" EndX="1" EndY="0.8" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="0.2" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.4" />
+        <MountPoint Side="Right" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.45" EndY="0.45" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\HeavyCorner2TipConstruction_1.mwm" />
@@ -8650,23 +8161,13 @@
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1" />
+        <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.5" EndY="1" />
+        <MountPoint Side="Front" StartX="0.5" StartY="0.0" EndX="1.0" EndY="1" />
+		<MountPoint Side="Front" StartX="0.4" StartY="0.4" EndX="0.5" EndY="0.5" />
         <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
+        <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1.0" EndY="1" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\HeavyInvCorner2BaseConstruction_1.mwm" />
@@ -8810,27 +8311,20 @@
       </Components>
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
-        <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Back" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Back" StartX="0.8" StartY="0.5" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+        <MountPoint Side="Back" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+        <MountPoint Side="Back" StartX="0.5" StartY="0.4" EndX="0.6" EndY="0.5" />
         <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.8" EndY="1" />
-        <MountPoint Side="Right" StartX="0.8" StartY="0.8" EndX="1" EndY="1" />
-        <MountPoint Side="Front" StartX="0" StartY="0.8" EndX="0.2" EndY="1" />
-        <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
-        <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
-        <MountPoint Side="Bottom" StartX="0.2" StartY="0.5" EndX="0.5" EndY="1" />
+		<MountPoint Side="Right" StartX="0.8" StartY="0.9" EndX="1" EndY="1" />
+		<MountPoint Side="Right" StartX="0.2" StartY="0.6" EndX="0.8" EndY="1" />
+        <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.2" EndY="1" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.1" EndY="0.2" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.4" EndY="0.8" />
+		<MountPoint Side="Bottom" StartX="0" StartY="0.8" EndX="0.5" EndY="1" />
+        <MountPoint Side="Front" StartX="0" StartY="1.0" EndX="0.5" EndY="0.5" />
+        <MountPoint Side="Front" StartX="0.5" StartY="1.0" EndX="1.0" EndY="0.0" />
       </MountPoints>
-      <Variants>
-        <Variant Color="Red" Suffix="_red" />
-        <Variant Color="Yellow" Suffix="_yellow" />
-        <Variant Color="Blue" Suffix="_blue" />
-        <Variant Color="Green" Suffix="_green" />
-        <Variant Color="Black" Suffix="_black" />
-        <Variant Color="White" Suffix="_white" />
-      </Variants>
       <PhysicsOption>Convex</PhysicsOption>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\HeavyInvCorner2TipConstruction_1.mwm" />

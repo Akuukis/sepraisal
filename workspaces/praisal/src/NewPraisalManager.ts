@@ -10,6 +10,7 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
     const cubeBlocksSbcs = [
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')],
+        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor_2.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Communications.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Control.sbc')],
@@ -37,6 +38,7 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         [VENDOR_MOD.ECONOMY             , join(VENDOR_DIR, VENDOR_MOD.ECONOMY           , 'CubeBlocks.sbc')],
         [VENDOR_MOD.FROSTBITE           , join(VENDOR_DIR, VENDOR_MOD.FROSTBITE         , 'CubeBlocks.sbc')],
         [VENDOR_MOD.SPARKSOFTHEFUTURE   , join(VENDOR_DIR, VENDOR_MOD.SPARKSOFTHEFUTURE , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.SCRAPRACEPACK       , join(VENDOR_DIR, VENDOR_MOD.SCRAPRACEPACK     , 'CubeBlocks.sbc')],
     ].map(([mod, path]) => [mod, readFileSync(path).toString()] as [VENDOR_MOD, string])
     const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
     const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()

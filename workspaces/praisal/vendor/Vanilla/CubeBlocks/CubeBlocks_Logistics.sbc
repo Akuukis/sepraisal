@@ -68,7 +68,12 @@
       <EmissiveColorPreset>Extended</EmissiveColorPreset>
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>25</PCU>      
+      <PCU>25</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>300</unsignedInt>
+            <unsignedInt>600</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
       <Id>
@@ -144,7 +149,12 @@
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>25</PCU>
-      <IsAirTight>false</IsAirTight>      
+      <IsAirTight>false</IsAirTight>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>300</unsignedInt>
+            <unsignedInt>600</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
       <Id>
@@ -195,7 +205,7 @@
       <ResourceSinkGroup>Factory</ResourceSinkGroup>
       <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
       <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
-      <Capacity>5000000</Capacity>
+      <Capacity>15000000</Capacity>
       <InventoryMaxVolume>0.75</InventoryMaxVolume>
       <InventorySize>
         <X>2</X>
@@ -215,7 +225,12 @@
       <EmissiveColorPreset>Extended</EmissiveColorPreset>
       <DestroyEffect>Explosion_Warhead_30</DestroyEffect>
       <DestroySound>WepLrgWarheadExpl</DestroySound>
-      <PCU>25</PCU>      
+      <PCU>25</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>300</unsignedInt>
+            <unsignedInt>600</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
       <Id>
@@ -261,7 +276,7 @@
       <ResourceSinkGroup>Factory</ResourceSinkGroup>
       <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
       <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
-      <Capacity>350000 </Capacity>
+      <Capacity>1000000 </Capacity>
       <InventoryMaxVolume>0.75</InventoryMaxVolume>
       <InventorySize>
         <X>2</X>
@@ -281,7 +296,12 @@
       <EmissiveColorPreset>Extended</EmissiveColorPreset>
       <DestroyEffect>Explosion_Missile</DestroyEffect>
       <DestroySound>WepSmallMissileExpl</DestroySound>
-      <PCU>25</PCU>      
+      <PCU>25</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>300</unsignedInt>
+            <unsignedInt>600</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
       <Id>
@@ -299,12 +319,12 @@
       <ModelOffset x="0" y="0" z="0" />
       <Model>Models\Cubes\Small\HydrogenTank.mwm</Model>
       <Components>
-        <Component Subtype="SteelPlate" Count="60" />
-        <Component Subtype="LargeTube" Count="40" />
-        <Component Subtype="SmallTube" Count="60" />
-        <Component Subtype="Computer" Count="8" />
-        <Component Subtype="Construction" Count="40" />
-        <Component Subtype="SteelPlate" Count="20" />
+        <Component Subtype="SteelPlate" Count="30" />
+        <Component Subtype="LargeTube" Count="20" />
+        <Component Subtype="SmallTube" Count="30" />
+        <Component Subtype="Computer" Count="4" />
+        <Component Subtype="Construction" Count="20" />
+        <Component Subtype="SteelPlate" Count="10" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
@@ -344,7 +364,7 @@
       <ResourceSinkGroup>Factory</ResourceSinkGroup>
       <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
       <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
-      <Capacity>160000</Capacity>
+      <Capacity>500000</Capacity>
       <InventoryMaxVolume>0.75</InventoryMaxVolume>
       <InventorySize>
         <X>2</X>
@@ -364,7 +384,12 @@
       <EmissiveColorPreset>Extended</EmissiveColorPreset>
       <DestroyEffect>Explosion_Warhead_02</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
-      <PCU>25</PCU>      
+      <PCU>25</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>300</unsignedInt>
+            <unsignedInt>600</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
       <Id>
@@ -382,12 +407,12 @@
       <ModelOffset x="0" y="0" z="0" />
       <Model>Models\Cubes\Small\HydrogenTankSmall.mwm</Model>
       <Components>
-        <Component Subtype="SteelPlate" Count="6" />
-        <Component Subtype="LargeTube" Count="2" />
-        <Component Subtype="SmallTube" Count="4" />
-        <Component Subtype="Computer" Count="8" />
-        <Component Subtype="Construction" Count="6" />
         <Component Subtype="SteelPlate" Count="2" />
+        <Component Subtype="LargeTube" Count="1" />
+        <Component Subtype="SmallTube" Count="2" />
+        <Component Subtype="Computer" Count="4" />
+        <Component Subtype="Construction" Count="2" />
+        <Component Subtype="SteelPlate" Count="1" />
       </Components>
       <CriticalComponent Subtype="Computer" Index="0" />
       <MountPoints>
@@ -410,7 +435,7 @@
       <ResourceSinkGroup>Factory</ResourceSinkGroup>
       <OperationalPowerConsumption>0.0002</OperationalPowerConsumption>
       <StandbyPowerConsumption>0.0000002</StandbyPowerConsumption>
-      <Capacity>7000 </Capacity>
+      <Capacity>15000 </Capacity>
       <InventoryMaxVolume>0.12</InventoryMaxVolume>
       <InventorySize>
         <X>2</X>
@@ -430,7 +455,12 @@
       <EmissiveColorPreset>Extended</EmissiveColorPreset>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepLrgWarheadExpl</DestroySound>
-      <PCU>25</PCU>      
+      <PCU>25</PCU>
+        <TieredUpdateTimes>
+            <unsignedInt>100</unsignedInt>
+            <unsignedInt>300</unsignedInt>
+            <unsignedInt>600</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_AirVentDefinition">
       <Id>
@@ -1029,7 +1059,12 @@
       <PCU>125</PCU>
       <IsAirTight>false</IsAirTight>  
       <AutoUnlockTime_Min>0</AutoUnlockTime_Min>
-      <AutoUnlockTime_Max>3600</AutoUnlockTime_Max>	  
+      <AutoUnlockTime_Max>3600</AutoUnlockTime_Max>
+         <TieredUpdateTimes>
+             <unsignedInt>80</unsignedInt>
+             <unsignedInt>160</unsignedInt>
+             <unsignedInt>320</unsignedInt>
+         </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ShipConnectorDefinition">
       <Id>
@@ -1079,7 +1114,12 @@
       <PCU>125</PCU>
       <IsAirTight>true</IsAirTight>  
 	  <AutoUnlockTime_Min>0</AutoUnlockTime_Min>
-      <AutoUnlockTime_Max>3600</AutoUnlockTime_Max>	  
+      <AutoUnlockTime_Max>3600</AutoUnlockTime_Max>
+        <TieredUpdateTimes>
+            <unsignedInt>80</unsignedInt>
+            <unsignedInt>160</unsignedInt>
+            <unsignedInt>320</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ShipConnectorDefinition">
       <Id>
@@ -1128,7 +1168,12 @@
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>125</PCU>    
 	  <AutoUnlockTime_Min>0</AutoUnlockTime_Min>
-      <AutoUnlockTime_Max>3600</AutoUnlockTime_Max>	  
+      <AutoUnlockTime_Max>3600</AutoUnlockTime_Max>
+        <TieredUpdateTimes>
+            <unsignedInt>80</unsignedInt>
+            <unsignedInt>160</unsignedInt>
+            <unsignedInt>320</unsignedInt>
+        </TieredUpdateTimes>
     </Definition>
     <Definition>
       <Id>

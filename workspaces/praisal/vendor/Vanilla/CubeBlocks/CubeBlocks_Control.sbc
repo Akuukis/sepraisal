@@ -486,6 +486,88 @@
       <PCU>50</PCU>
       <IsAirTight>false</IsAirTight>      
     </Definition>
+      
+    <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+      <Id>
+        <TypeId>Cockpit</TypeId>
+        <SubtypeId>RoverCockpit</SubtypeId>
+      </Id>
+      <DisplayName>DisplayName_Block_RoverCockpit</DisplayName>
+      <Icon>Textures\GUI\Icons\Cubes\RoverCockpit.dds</Icon>
+      <Description>Description_RoverCockpit</Description>
+      <CubeSize>Small</CubeSize>
+      <BlockTopology>TriangleMesh</BlockTopology>
+      <Size x="2" y="3" z="3" />
+      <ModelOffset x="0" y="0" z="0" />
+      <Model>Models\Cubes\Small\RoverCockpit.mwm</Model>
+      <PrimarySound>BlockCockpitFlightSeat</PrimarySound>
+      <CharacterAnimation>RoverCockpitPose</CharacterAnimation>
+      <UsesDeformation>false</UsesDeformation>
+      <Components>
+        <Component Subtype="InteriorPlate" Count="10" />
+        <Component Subtype="Construction" Count="15" />
+        <Component Subtype="Motor" Count="2" />
+        <Component Subtype="Computer" Count="20" />
+        <Component Subtype="Display" Count="4" />
+        <Component Subtype="Construction" Count="10" />
+        <Component Subtype="InteriorPlate" Count="20" />
+      </Components>
+      <CriticalComponent Subtype="Display" Index="0" />
+      <Center x="0" y="0" z="1" />
+      <MountPoints>
+        <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="2" EndY="3" Default="true" />
+        <MountPoint Side="Front" StartX="0" StartY="0" EndX="2" EndY="1.5" />
+        <MountPoint Side="Back" StartX="0" StartY="0" EndX="2" EndY="1" />
+        <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1.5" />
+        <MountPoint Side="Left" StartX="1" StartY="0" EndX="3" EndY="1" />
+        <MountPoint Side="Right" StartX="2" StartY="0" EndX="3" EndY="1.5" />
+        <MountPoint Side="Right" StartX="0" StartY="0" EndX="2" EndY="1" />
+      </MountPoints>
+      <ScreenAreas>
+        <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Left" TextureResolution="256" ScreenWidth="5" ScreenHeight="3" Script="TSS_EnergyHydrogen" />
+        <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_TopCenter" TextureResolution="256" ScreenWidth="5" ScreenHeight="3" Script="TSS_ArtificialHorizon" />
+        <ScreenArea Name="CockpitScreen_03" DisplayName="DisplayName_Screen_Right" TextureResolution="256" ScreenWidth="5" ScreenHeight="3"  Script="TSS_Gravity" />
+        <ScreenArea Name="CockpitScreen_04" DisplayName="DisplayName_Screen_Small" TextureResolution="256" ScreenWidth="4" ScreenHeight="3" Script="TSS_Velocity"/>
+        <ScreenArea Name="CockpitScreen_05" DisplayName="DisplayName_Screen_BottomRight" TextureResolution="256" ScreenWidth="4" ScreenHeight="3" Script="TSS_ClockAnalog"/>
+      </ScreenAreas>
+      <BuildProgressModels>
+        <Model BuildPercentUpperBound="0.5" File="Models\Cubes\Small\RoverCockpitConstruction_1.mwm" />
+        <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\RoverCockpitConstruction_2.mwm" />
+      </BuildProgressModels>
+      <VoxelPlacement>
+        <StaticMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </StaticMode>
+        <DynamicMode>
+          <PlacementMode>OutsideVoxel</PlacementMode>
+          <MaxAllowed>0.2</MaxAllowed>
+          <MinAllowed>0</MinAllowed>
+        </DynamicMode>
+      </VoxelPlacement>
+      <BlockPairName>RoverCockpit</BlockPairName>
+      <EdgeType>Light</EdgeType>
+      <BuildTimeSeconds>24</BuildTimeSeconds>
+      <MirroringZ>Y</MirroringZ>
+      <MirroringY>Z</MirroringY>
+      <EnableFirstPerson>true</EnableFirstPerson>
+      <EnableShipControl>true</EnableShipControl>
+      <EnableBuilderCockpit>true</EnableBuilderCockpit>
+      <IsPressurized>false</IsPressurized>
+      <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+      <DamagedSound>ParticleElectrical</DamagedSound>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
+      <RaycastOffset>
+        <X>0.016</X>
+        <Y>0.4983</Y>
+        <Z>0.15</Z>
+      </RaycastOffset>
+      <PCU>100</PCU>
+      <IsAirTight>false</IsAirTight>      
+    </Definition>
+      
     <!-- End region Cockpits -->
     
     <Definition xsi:type="MyObjectBuilder_GyroDefinition">

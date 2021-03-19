@@ -124,9 +124,9 @@
         <SubtypeId>LargePistonTop</SubtypeId>
       </Id>
       <DisplayName>DisplayName_Block_PistonTop</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\Piston.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\PistonTop.dds</Icon>
       <Description>Description_PistonTop</Description>
-      <Public>false</Public>
+      <Public>true</Public>
       <CubeSize>Large</CubeSize>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
@@ -282,10 +282,10 @@
         <SubtypeId>SmallPistonTop</SubtypeId>
       </Id>
       <DisplayName>DisplayName_Block_PistonTop</DisplayName>
-      <Icon>Textures\GUI\Icons\Cubes\Piston.dds</Icon>
+      <Icon>Textures\GUI\Icons\Cubes\PistonTop.dds</Icon>
       <Description>Description_PistonTop</Description>
       <CubeSize>Small</CubeSize>
-      <Public>false</Public>
+      <Public>true</Public>
       <BlockTopology>TriangleMesh</BlockTopology>
       <Size x="1" y="1" z="1" />
       <ModelOffset x="0" y="0" z="0" />

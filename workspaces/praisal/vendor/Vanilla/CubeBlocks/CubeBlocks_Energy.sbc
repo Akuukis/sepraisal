@@ -234,6 +234,23 @@
                 <Y>0.5</Y>
                 <Z>0.5</Z>
             </InventorySize>
+            
+            
+            <!-- 
+                Values are volume fill ratio, means how much fuel reactor pulls from conveyor system to the inventory.
+                If volume fill ratio is bellow minimum, reactor starts pulling fuel up to maximum value.
+                Warning: Changing these values will affect performance.
+            -->
+            <InventoryFillFactorMin>0.0002</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.0004</InventoryFillFactorMax>
+
+            <!-- 
+                This is how much of fuel is pulled from conveyor system in one tick.
+                It's in minutes, means that it will pull X minutes of fuel in one tick.
+                Warning: Changing this value will affect performance.
+            -->
+            <FuelPullAmountFromConveyorInMinutes>10.0</FuelPullAmountFromConveyorInMinutes>
+                    
             <FuelInfos>
                 <FuelInfo>
                     <Id>
@@ -242,6 +259,7 @@
                     </Id>
                 </FuelInfo>
             </FuelInfos>
+
             <PrimarySound>ShipSmNuclearSm</PrimarySound>
             <DamageEffectName>Damage_Reactor_Damaged</DamageEffectName>
             <DamagedSound>ParticleReactor</DamagedSound>
@@ -250,6 +268,11 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>25</PCU>
             <IsAirTight>false</IsAirTight>
+            <TieredUpdateTimes>
+                <unsignedInt>900</unsignedInt>
+                <unsignedInt>1800</unsignedInt>
+                <unsignedInt>3600</unsignedInt>
+            </TieredUpdateTimes>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_ReactorDefinition">
             <Id>
@@ -307,6 +330,22 @@
                 <Y>1</Y>
                 <Z>1</Z>
             </InventorySize>
+
+            <!-- 
+                Values are volume fill ratio, means how much fuel reactor pulls from conveyor system to the inventory.
+                If volume fill ratio is bellow minimum, reactor starts pulling fuel up to maximum value.
+                Warning: Changing these values will affect performance.
+            -->
+            <InventoryFillFactorMin>0.0005</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.001</InventoryFillFactorMax>
+
+            <!-- 
+                This is how much of fuel is pulled from conveyor system in one tick.
+                It's in minutes, means that it will pull X minutes of fuel in one tick.
+                Warning: Changing this value will affect performance.
+            -->
+            <FuelPullAmountFromConveyorInMinutes>10.0</FuelPullAmountFromConveyorInMinutes>
+                    
             <FuelInfos>
                 <FuelInfo>
                     <Id>
@@ -322,6 +361,11 @@
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>25</PCU>
+            <TieredUpdateTimes>
+                <unsignedInt>900</unsignedInt>
+                <unsignedInt>1800</unsignedInt>
+                <unsignedInt>3600</unsignedInt>
+            </TieredUpdateTimes>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_ReactorDefinition">
             <Id>
@@ -374,6 +418,22 @@
                 <Y>1</Y>
                 <Z>1</Z>
             </InventorySize>
+
+            <!-- 
+                Values are volume fill ratio, means how much fuel reactor pulls from conveyor system to the inventory.
+                If volume fill ratio is bellow minimum, reactor starts pulling fuel up to maximum value.
+                Warning: Changing these values will affect performance.
+            -->
+            <InventoryFillFactorMin>0.0005</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.001</InventoryFillFactorMax>
+
+            <!-- 
+                This is how much of fuel is pulled from conveyor system in one tick.
+                It's in minutes, means that it will pull X minutes of fuel in one tick.
+                Warning: Changing this value will affect performance.
+            -->
+            <FuelPullAmountFromConveyorInMinutes>10.0</FuelPullAmountFromConveyorInMinutes>
+
             <FuelInfos>
                 <FuelInfo>
                     <Id>
@@ -382,6 +442,7 @@
                     </Id>
                 </FuelInfo>
             </FuelInfos>
+
             <PrimarySound>ShipLrgNuclearSm</PrimarySound>
             <DamageEffectName>Damage_Reactor_Damaged</DamageEffectName>
             <DamagedSound>ParticleReactor</DamagedSound>
@@ -390,6 +451,11 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>25</PCU>
             <IsAirTight>false</IsAirTight>
+            <TieredUpdateTimes>
+                <unsignedInt>900</unsignedInt>
+                <unsignedInt>1800</unsignedInt>
+                <unsignedInt>3600</unsignedInt>
+            </TieredUpdateTimes>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_ReactorDefinition">
             <Id>
@@ -444,6 +510,22 @@
                 <Y>2</Y>
                 <Z>2</Z>
             </InventorySize>
+
+            <!-- 
+                Values are volume fill ratio, means how much fuel reactor pulls from conveyor system to the inventory.
+                If volume fill ratio is bellow minimum, reactor starts pulling fuel up to maximum value.
+                Warning: Changing these values will affect performance.
+            -->
+            <InventoryFillFactorMin>0.001</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.002</InventoryFillFactorMax>
+
+            <!-- 
+                This is how much of fuel is pulled from conveyor system in one tick.
+                It's in minutes, means that it will pull X minutes of fuel in one tick.
+                Warning: Changing this value will affect performance.
+            -->
+            <FuelPullAmountFromConveyorInMinutes>10.0</FuelPullAmountFromConveyorInMinutes>
+
             <FuelInfos>
                 <FuelInfo>
                     <Id>
@@ -460,6 +542,11 @@
             <DestroySound>WepLrgWarheadExpl</DestroySound>
             <PCU>25</PCU>
             <IsAirTight>false</IsAirTight>
+            <TieredUpdateTimes>
+                <unsignedInt>900</unsignedInt>
+                <unsignedInt>1800</unsignedInt>
+                <unsignedInt>3600</unsignedInt>
+            </TieredUpdateTimes>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_HydrogenEngineDefinition">
             <Id>
@@ -504,7 +591,7 @@
             <ResourceSinkGroup>Generators</ResourceSinkGroup>
             <ResourceSourceGroup>Reactors</ResourceSourceGroup>
             <MaxPowerOutput>5</MaxPowerOutput>
-            <FuelCapacity>500000</FuelCapacity>
+            <FuelCapacity>100000</FuelCapacity>
             <EmissiveColorPreset>Extended</EmissiveColorPreset>
             <IsAirTight>false</IsAirTight>
             <InventorySize>
@@ -520,7 +607,7 @@
                     </Id>
                 </FuelInfo>
             </FuelInfos>
-            <FuelProductionToCapacityMultiplier>0.005</FuelProductionToCapacityMultiplier>
+            <FuelProductionToCapacityMultiplier>0.01</FuelProductionToCapacityMultiplier>
             <PrimarySound>ArcBlockHydrogenEngine</PrimarySound>
 
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
@@ -595,7 +682,7 @@
             <ResourceSinkGroup>Generators</ResourceSinkGroup>
             <ResourceSourceGroup>Reactors</ResourceSourceGroup>
             <MaxPowerOutput>0.5</MaxPowerOutput>
-            <FuelCapacity>16000</FuelCapacity>
+            <FuelCapacity>5000</FuelCapacity>
             <IsAirTight>false</IsAirTight>
             <InventorySize>
                 <X>1</X>
@@ -610,7 +697,7 @@
                     </Id>
                 </FuelInfo>
             </FuelInfos>
-            <FuelProductionToCapacityMultiplier>0.005</FuelProductionToCapacityMultiplier>
+            <FuelProductionToCapacityMultiplier>0.01</FuelProductionToCapacityMultiplier>
             <PrimarySound>ArcBlockHydrogenEngine</PrimarySound>
 
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
