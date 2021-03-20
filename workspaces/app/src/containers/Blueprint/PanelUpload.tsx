@@ -6,6 +6,7 @@ import { FormControl, FormLabel } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import Upload from 'src/components/Upload'
+import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -33,8 +34,15 @@ interface IProps extends React.ComponentProps<'form'> {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {select, className, ...otherProps} = props
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
 
     const onUpload = (title: string) => {
+        analyticsStore.trackEvent(
+            'blueprint',
+            'uploadSuccessful',
+            title,
+            undefined,
+        )
         select(title)
     }
     const onError = (error: Error) => {

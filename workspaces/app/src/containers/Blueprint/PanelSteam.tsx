@@ -9,6 +9,7 @@ import { FormControl, FormHelperText, FormLabel, InputAdornment, TextField, Typo
 import { ASYNC_STATE, createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconBrowse from 'src/components/icons/IconBrowse'
 import { PROVIDER } from 'src/constants'
+import { CONTEXT } from 'src/stores'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
@@ -33,6 +34,7 @@ interface IProps extends React.ComponentProps<'form'> {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {select, className, ...otherProps} = props
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const location = useLocation()
 
     const [text, setText] = React.useState('')
@@ -58,6 +60,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         try {
             const id = validateId(extractId(value))
             setStatus({code: ASYNC_STATE.Done, text: `ID looks ok.`})
+            analyticsStore.trackEvent('blueprint', 'selectBySteam')
             select(id)
         } catch(err) {
             setStatus({code: ASYNC_STATE.Error, text: `Validation: ${err.message}`})

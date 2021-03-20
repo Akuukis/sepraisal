@@ -51,6 +51,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const [anchor, setAnchor] = React.useState<HTMLElement | null>(null)
     const smUp = useMediaQuery(theme.breakpoints.up('sm'), {noSsr: true})
 
@@ -63,6 +64,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const setSort = (event: React.MouseEvent<HTMLElement>) => {
         const key = event.currentTarget.getAttribute('value') as string
         const sort = cardStore.sort
+
+        analyticsStore.trackEvent('sort', key)
 
         if(!(key in sort)) {
             cardStore.sort = {[key]: CardStore.defaultSortOrder}

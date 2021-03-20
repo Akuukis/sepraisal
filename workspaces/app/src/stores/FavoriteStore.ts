@@ -1,5 +1,7 @@
 import { action, observable, runInAction } from 'mobx'
 
+import { AbstractAnalyticsStore } from './Analytics/AbstractAnalyticsStore'
+
 export interface IFavorite {
     id: string | number
     name: string
@@ -7,8 +9,10 @@ export interface IFavorite {
 
 export class FavoriteStore {
     public readonly favorites = observable<IFavorite>([], {deep: false})
+    private readonly analyticsStore: AbstractAnalyticsStore
 
-    public constructor() {
+    public constructor(analyticsStore: AbstractAnalyticsStore) {
+        this.analyticsStore = analyticsStore
         runInAction(() => {
             const json = localStorage.getItem('favorites')
             this.favorites.replace(json ? JSON.parse(json) : [])
@@ -24,6 +28,10 @@ export class FavoriteStore {
     }
 
     public push = action('FavoriteStore.push', (favorite: IFavorite) => {
+        this.analyticsStore.trackEvent(
+            'favorties',
+            'push',
+        )
         if(this.has(favorite.id)) throw new Error('Already exists.')
         this.favorites.push(favorite)
         localStorage.setItem('favorites', JSON.stringify([...this.favorites]))

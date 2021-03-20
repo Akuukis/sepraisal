@@ -51,6 +51,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const cardStore = React.useContext(CONTEXT.CARDS)
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
     const formGroupScope = React.useContext(CONTEXT.FORM_GROUP_SCOPE)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const cubeFullTypes = praisalManager ? [...praisalManager.cubes.keys()] : []
 
     const options = cubeFullTypes
@@ -91,8 +92,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         for(const option of [...selected, ...newOptions]) {
             const {fullType} = option
             const newValue = newOptions.some((option) => option.fullType === fullType) ? {$exists} : null
-            cardStore.querryFindBuilder.setCriterion(`sbc.blocks.${fullType}`, newValue)
-            formGroupScope.set(`sbc.blocks.${fullType}`, undefined)
+            const id = `sbc.blocks.${fullType}`
+            analyticsStore.trackEvent(`customFilter${variant.slice(0, 1).toUpperCase()}${variant.slice(1)}`, id)
+            cardStore.querryFindBuilder.setCriterion(id, newValue)
+            formGroupScope.set(id, undefined)
         }
     })
 

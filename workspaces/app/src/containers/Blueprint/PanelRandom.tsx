@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core'
 
 import { ASYNC_STATE, createSmartFC, createStyles, getApiUrl, IMyTheme } from 'src/common'
+import { CONTEXT } from 'src/stores'
 import { getPresetTitle, PRESET } from 'src/stores/CardStore'
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -39,6 +40,7 @@ interface IProps extends React.ComponentProps<'form'> {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const {select, className, ...otherProps} = props
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const [value, setValue] = React.useState(Object.keys(PRESET)[0] as keyof typeof PRESET);
     const [status, setStatus] = React.useState<{code: ASYNC_STATE, text: string}>({code: ASYNC_STATE.Idle, text: ''})
 
@@ -61,6 +63,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             const res = await fetch(getApiUrl(preset, {projection: {_id: true}, limit: 1, skip}))
             const {docs} = await res.json() as {docs: [{_id: number}]}
             const id = docs[0]._id
+            analyticsStore.trackEvent('blueprint', 'selectByRandom')
             select(id)
             setStatus({code: ASYNC_STATE.Done, text: 'Random ID selected!'})
         } catch(err) {

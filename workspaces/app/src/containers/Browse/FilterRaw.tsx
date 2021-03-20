@@ -35,6 +35,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const cardStore = React.useContext(CONTEXT.CARDS)
+    const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
     const [dirty, setDirty] = React.useState(JSON.stringify(cardStore.find, null, 2))
 
     let dirtyOk: Record<string, unknown> | null
@@ -54,6 +55,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const applyAdvancedFilter = () => {
+        analyticsStore.trackEvent('customFilter', 'advanced')
         cardStore.querryFindBuilder.replaceFilter(JSON.parse(dirty))
         reset()
     }
