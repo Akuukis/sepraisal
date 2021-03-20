@@ -50,6 +50,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             aside={<Filter />}
             asideIcon={<IconFilter fontSize='default' />}
             asideTitle='Filters'
+            defaultOpen
         >
             <Snackbar open={open} anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
                 <Alert severity='warning' variant='filled' className={classes.alert} onClose={() => setOpen(false)}>

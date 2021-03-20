@@ -107,9 +107,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                                 color='primary'
                                 size='small'
                                 onClick={copy}
+                                startIcon={<IconCopy />}
                             >
-                                <IconCopy />
-                                Copy
+                                Copy Filters
                             </Button>
                         </Tooltip>
                     </ClickAwayListener>
@@ -119,8 +119,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         color='primary'
                         size='small'
                         onClick={reset}
+                        startIcon={<IconClearAll />}
                     >
-                        <IconClearAll />
                         Clear All
                     </Button>
                 </Grid>
