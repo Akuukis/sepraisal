@@ -7,7 +7,6 @@ import IconFilter from 'src/components/icons/IconFilter'
 import Basics from './Basics'
 import BlockGroups from './BlockGroups'
 import Blocks from './Blocks'
-import Cost from './Cost'
 import MetaSteam from './MetaSteam'
 import Performance from './Performance'
 import Size from './Size'
@@ -31,9 +30,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <>
             <Basics         classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
             <MetaSteam      classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
-            <Size           classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
             <Performance    classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
-            <Cost           classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
+            <Size           classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
             <BlockGroups    classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
             <Blocks         classes={{root: classes.root, legend: classes.legend}} icon={<IconFilter />} />
         </>
