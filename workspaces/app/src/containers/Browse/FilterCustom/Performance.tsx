@@ -32,6 +32,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Checkbox  title='Atmosperic thrusters'    criterionId='sbc.thrustAtmospheric.Forward' yes={{$exists: true}} no={{$exists: false}} />
             <Checkbox  title='Ion thrusters'           criterionId='sbc.thrustIon.Forward'         yes={{$exists: true}} no={{$exists: false}} />
             <Checkbox  title='Hydrogen thrusters'      criterionId='sbc.thrustHydrogen.Forward'    yes={{$exists: true}} no={{$exists: false}} />
+            <Checkbox  title='Jump Drive'              criterionId='sbc.blocks.JumpDrive/LargeJumpDrive' yes={{$exists: true}} no={{$exists: false}} />
             {/* TODO: Firepower (total DPS) */}
             {/* TODO: Jump Distance */}
             {/* TODO: Cargo capacity */}
