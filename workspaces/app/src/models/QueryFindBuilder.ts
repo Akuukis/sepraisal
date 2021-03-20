@@ -28,10 +28,10 @@ export interface IFindRootQuery extends RequiredSome<Pick<RootQuerySelector<IBlu
     // $text?: {$search: string},
 }
 
-const blockGroupToQuery = (fullIds: string[]) => {
+const blockGroupToQuery = (fullIds: string[], $exists = true) => {
     return {
         $or: fullIds.map((fullId) => ({
-            [`sbc.blocks.${fullId}`]: {$exists: true}
+            [`sbc.blocks.${fullId}`]: {$exists}
         }))
     }
 }
@@ -41,6 +41,12 @@ const presetUpToDate: FindQueryPreset = [
     {'sbc._version': {$eq: IBlueprint.VERSION.sbc}},
 ]
 
+const presetStation: FindQueryPreset = [
+    ...presetUpToDate,
+    {'sbc.blockStatic': {$eq: true}},
+    blockGroupToQuery(BLOCK_GROUPS.POWER),
+]
+
 const presetShip: FindQueryPreset = [
     ...presetUpToDate,
     {'sbc.vanilla': {$eq: true}},
@@ -48,6 +54,22 @@ const presetShip: FindQueryPreset = [
     blockGroupToQuery(BLOCK_GROUPS.POWER),
     blockGroupToQuery(BLOCK_GROUPS.THRUSTER),
     blockGroupToQuery(BLOCK_GROUPS.COCKPIT),
+]
+
+const presetRover: FindQueryPreset = [
+    ...presetUpToDate,
+    blockGroupToQuery(BLOCK_GROUPS.GYRO),
+    blockGroupToQuery(BLOCK_GROUPS.POWER),
+    blockGroupToQuery(BLOCK_GROUPS.COCKPIT),
+    blockGroupToQuery(BLOCK_GROUPS.WHEELS),
+]
+
+const presetMiner: FindQueryPreset = [
+    ...presetUpToDate,
+    blockGroupToQuery(BLOCK_GROUPS.GYRO),
+    blockGroupToQuery(BLOCK_GROUPS.POWER),
+    blockGroupToQuery(BLOCK_GROUPS.COCKPIT),
+    blockGroupToQuery(BLOCK_GROUPS.TOOL_DRILL),
 ]
 
 const presetFighter: FindQueryPreset = [
@@ -75,15 +97,21 @@ export const PRESET = {
     // fighter50:    genFighterPreset(153, 572 , 13151, 42185 , 1651, 4043 , 10253, 31773 , 1, 1),
     fighter/* 80 */: genFighterPreset(103, 1197, 9053 , 80361 , 1205, 6546 , 7102 , 59263 , 0, 2),
     // fighter95:    genFighterPreset(72 , 3059, 6430 , 180955, 891 , 11889, 5065 , 129737, 0, 3),
+    miner: [...presetMiner] as FindQuery[],
     ship: [...presetShip] as FindQuery[],
+    rover: [...presetRover] as FindQuery[],
+    station: [...presetStation] as FindQuery[],
     none: [...presetUpToDate] as FindQuery[],
 }
 
 export const getPresetTitle = (id: keyof typeof PRESET | 'custom'): string => {
     switch(id) {
+        case 'fighter': return 'Fighter (vanilla)'
+        case 'miner': return 'Miner'
         case 'none': return 'None'
-        case 'ship': return 'Any ship, vanilla.'
-        case 'fighter': return 'Fighter, vanilla.'
+        case 'rover': return 'Rover'
+        case 'ship': return 'Ship'
+        case 'station': return 'Station'
         default: return ''
     }
 }
@@ -108,8 +136,11 @@ const sortFindAnd = ($and: FindQueryPreset): FindQueryPreset => {
 
 const PRESET_STRINGIFIED: Record<keyof typeof PRESET, string> = {
     fighter: JSON.stringify(sortFindAnd(PRESET.fighter)),
+    miner: JSON.stringify(sortFindAnd(PRESET.miner)),
     none: JSON.stringify(sortFindAnd(PRESET.none)),
+    rover: JSON.stringify(sortFindAnd(PRESET.rover)),
     ship: JSON.stringify(sortFindAnd(PRESET.ship)),
+    station: JSON.stringify(sortFindAnd(PRESET.station)),
 }
 
 /**

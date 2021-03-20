@@ -21,6 +21,7 @@ const COCKPIT_CLOSED = [
     'Cockpit/SmallBlockCockpitIndustrial',
     'Cockpit/DBSmallBlockFighterCockpit',
     'Cockpit/SmallBlockCockpit',
+    'Cockpit/RoverCockpit',
 ]
 const COCKPIT_OPEN = [
     'Cockpit/CockpitOpen',
@@ -30,6 +31,21 @@ const COCKPIT_OPEN = [
 const COCKPIT = ([] as string[])
     .concat(COCKPIT_CLOSED)
     .concat(COCKPIT_OPEN)
+
+const WHEELS = [
+    'MotorSuspension/Suspension3x3"',
+    'MotorSuspension/Suspension5x5"',
+    'MotorSuspension/Suspension1x1"',
+    'MotorSuspension/SmallSuspension3x3"',
+    'MotorSuspension/SmallSuspension5x5"',
+    'MotorSuspension/SmallSuspension1x1"',
+    'MotorSuspension/Suspension3x3mirrored"',
+    'MotorSuspension/Suspension5x5mirrored"',
+    'MotorSuspension/Suspension1x1mirrored"',
+    'MotorSuspension/SmallSuspension3x3mirrored"',
+    'MotorSuspension/SmallSuspension5x5mirrored"',
+    'MotorSuspension/SmallSuspension1x1mirrored"',
+]
 
 const THRUSTER_ATMOSPHERIC = [
     'Thrust/LargeBlockLargeAtmosphericThrust',
@@ -88,21 +104,43 @@ const RENEWABLES = [
     'WindTurbine/LargeBlockWindTurbine',
 ]
 
+const TOOL_DRILL = [
+    'Drill/SmallBlockDrill',
+    'Drill/LargeBlockDrill',
+]
+const TOOL_WELDER = [
+    "ShipWelder/LargeShipWelder",
+    "ShipWelder/SmallShipWelder",
+]
+const TOOL_GRINDER = [
+    "ShipGrinder/LargeShipGrinder",
+    "ShipGrinder/SmallShipGrinder",
+]
+const TOOL = ([] as string[])
+    .concat(TOOL_DRILL)
+    .concat(TOOL_WELDER)
+    .concat(TOOL_GRINDER)
+
 export const BLOCK_GROUPS = {
     POWER,
     POWER_BATTERY,
     POWER_ENGINE,
+    GYRO,
     COCKPIT,
     COCKPIT_CLOSED,
     COCKPIT_OPEN,
+    WHEELS,
     THRUSTER,
     THRUSTER_ATMOSPHERIC,
     THRUSTER_HYDROGEN,
     THRUSTER_ION,
+    TOOL,
+    TOOL_DRILL,
+    TOOL_WELDER,
+    TOOL_GRINDER,
     WEAPON,
     WEAPON_FIXED,
     WEAPON_TURRET,
-    GYRO,
     RESPAWN,
     RENEWABLES,
 }
