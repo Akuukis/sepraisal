@@ -126,7 +126,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         } else {
             analyticsStore.trackEvent(
                 'search',
-                'text',
+                `text-${newSearch}`,
             )
             newSearchParams.set(BROWSE_PARTS.SEARCH, newSearch)
         }

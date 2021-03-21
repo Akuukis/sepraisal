@@ -60,7 +60,7 @@ interface IProps {
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
     const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
-    const [favoriteStore] = React.useState(() => new FavoriteStore())
+    const [favoriteStore] = React.useState(() => new FavoriteStore(analyticsStore))
     const [blueprintStore] = React.useState(() => new BlueprintStore(favoriteStore))
     const [selectionStore] = React.useState(() => new SelectionStore())
     const [cardStore] = React.useState(() => new CardStore(analyticsStore))
