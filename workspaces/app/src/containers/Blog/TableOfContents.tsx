@@ -63,7 +63,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         {article.title}
                     </MyLink>
                     <Typography>
-                        {`${article.date.format('MMM D, YYYY')} (by ${article.authors.join(', ')})`}
+                        {`${article.date.format('MMM D, YYYY')}`}{/*  `(by ${article.authors.join(', ')})` */}
                     </Typography>
                 </CardContent>
             ))}
