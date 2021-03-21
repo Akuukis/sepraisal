@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Grid, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import IconDiscord from 'src/components/icons/IconDiscord'
@@ -79,32 +79,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </Typography>
             <Typography variant='h3'>Privacy</Typography>
             <Typography paragraph>
-                To get critical information about the behavior of our visitors, we use <MyLink href='https://simpleanalytics.com'>Simple Analytics</MyLink>.
-                This analytics software gives us insight about our visitors only in general, but not about individuals per say, as it does not track visitors
-                and does not store any personal identifiable information. <MyLink href='https://docs.simpleanalytics.com/what-we-collect'>Go to their documentation</MyLink> to
-                find out what Simple Analytics collects (and most importantly what they don't).
+                SEPraisal uses analytics to count visits and see popularity of features.
+                It helps to improve the website, e.g. to highlight popular filters and delete not used ones.
+                Statistics are public <MyLink href='https://sepraisal.goatcounter.com/'>here</MyLink>.
             </Typography>
-            <Grid container>
-                <Grid item xs={6}>
-                    <Typography>
-                        Try out Simple Analytics with 1 month free trial by using this <MyLink href='referral.simpleanalytics.com/akuukis'>referral link</MyLink>.
-                    </Typography>
-                </Grid>
-                <Grid item xs={6}>
-                    <MyLink
-                        href='https://simpleanalytics.com/spaceengineerspraisal.net?utm_source=spaceengineerspraisal.net&utm_content=badge'
-                        referrerPolicy='origin'
-                        rel='noopener'  // Override noreferrer.
-                    >
-                        <img
-                            src='https://simpleanalyticsbadge.com/spaceengineerspraisal.net'
-                            loading='lazy'
-                            referrerPolicy='no-referrer'
-                            crossOrigin='anonymous'
-                        />
-                    </MyLink>
-                </Grid>
-            </Grid>
+            <Typography paragraph variant="caption">
+                This analytics software gives us insight about our visitors only in general, but not about individuals per say, as it does not track visitors
+                and does not store any personal identifiable information. <MyLink href='https://www.goatcounter.com/'>Read more here</MyLink>.
+            </Typography>
         </InfoCard>
     )
 })) /* ============================================================================================================= */
