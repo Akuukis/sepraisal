@@ -1,7 +1,7 @@
 /* eslint-env mongo */
 
 var tagValidShips = {$set: {validShip: {$and: [
-    {$eq: ['$sbc._version', 8]},  // 2. Analyse-able.
+    {$eq: ['$sbc._version', 9]},  // 2. Analyse-able.
     {$eq: ['$sbc.vanilla', true]},  // 3. Vanilla.
     {$eq: ['$sbc.gridStatic', false]},  // 4. Dynamic grids.
     {$or: [  // 5.1. Filter blueprints that have a power source.
