@@ -14,6 +14,7 @@ Here are all __COUNT__ Space Engineers fleets in one big table, ranked by averag
 - **Authors** - list of all unique authors of any ship within the fleet.
 
 Changes:
+- v2.1.3 with 291 fleets - update on Apr 1, 2021 as SE Praisal got a new server.
 - v2.1.2 with 257 fleets - blacklist fleets as per author's request.
 - v2.1.1 with 259 fleets - add columns "DLC" and "Scripts".
 - v2.1.0 with 259 fleets - include rovers too, not only ships.
