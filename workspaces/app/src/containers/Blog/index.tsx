@@ -84,7 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 })) /* ============================================================================================================= */
 
 const published: IBlogArticle[] = [
-    {id: 'new-server', date: moment('2021-03-22'), link: newServerLink, authors: ['Akuukis'], title: 'New server found!'},
+    {id: 'new-server', date: moment('2021-04-01'), link: newServerLink, authors: ['Akuukis'], title: 'New server found!'},
     {id: 'looking-for-new-host', date: moment('2020-10-24'), link: lookingForNewServersLink, authors: ['Akuukis'], title: 'Sad story: Looking for new servers'},
     {id: 'fleets', date: moment('2020-06-10'), link: postFleetsTableLink, authors: ['Akuukis'], title: 'Fleet Rankings v2'},
     {id: 'fleets-how', date: moment('2020-06-10'), link: postFleetsDIYLink, authors: ['Akuukis'], title: `Fleet Rankings v2: How it's made`},
