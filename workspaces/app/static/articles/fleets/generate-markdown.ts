@@ -62,7 +62,7 @@ const rows = data.map((datum, i) => [
     datum.authors
         .filter((author) => !!author.title)
         .map((author) =>
-            `[${author.title.replace('|', '\\|')}](https://spaceengineerspraisal.net/browse?author=${encodeURIComponent(author.title)})`
+            `[${author.title.replace(/\|/g, '\\|')}](https://spaceengineerspraisal.net/browse?author=${encodeURIComponent(author.title)})`
         ).join(', '),
     '',
 ].join('|'))
