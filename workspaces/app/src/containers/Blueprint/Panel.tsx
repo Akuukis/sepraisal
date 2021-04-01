@@ -57,8 +57,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <PanelSteam classes={{label: classes.label}} select={select} />
             <Divider className={classes.divider} />
-            <PanelRandom classes={{label: classes.label}} select={select} />
-            <Divider className={classes.divider} />
+            {process.env.NODE_ENV === 'development' && (<>
+                <PanelRandom classes={{label: classes.label}} select={select} />
+                <Divider className={classes.divider} />
+            </>)}
             <PanelUpload classes={{label: classes.label}} select={select} />
         </div>
     )
