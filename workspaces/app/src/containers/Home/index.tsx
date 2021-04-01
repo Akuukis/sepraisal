@@ -8,9 +8,9 @@ import Search from 'src/components/Search'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 
 import banner from '../../../static/Space Engineers - Red vs. Blue - IratusAvis.jpg'
-import Analyse from './Analyse'
 import Browse from './Browse'
-import Compare from './Compare'
+import Fleets from './Fleets'
+import Upload from './Upload'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -67,13 +67,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             </Grid>
             <Grid item xs container justify='center' className={classes.bottom}>
                 <Grid item xs={12} sm={6} md={4} xl={3}>
-                    <Browse />
+                    <Upload />
                 </Grid>
                 <Grid item xs={12} sm={6} md={4} xl={3}>
-                    <Analyse />
+                    <Fleets />
                 </Grid>
                 <Grid item xs={12} sm={12} md={4} xl={3}>
-                    <Compare />
+                    <Browse />
                 </Grid>
             </Grid>
         </DefaultLayout>

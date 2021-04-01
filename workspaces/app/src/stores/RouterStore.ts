@@ -20,14 +20,20 @@ export class RouterStore extends BaseRouterStore {
         });
     }
 
+    public pathToUpload(name: string): string {
+        return `${ROUTE.ANALYSE}?upload=${name}`
+    }
+
     public pathToBlueprint(id: number): string {
         return `${ROUTE.ANALYSE}?steam=${id}`
     }
 
     public goBlueprint(id: number): void {
-        const path = this.pathToBlueprint(id)
+        this.push(this.pathToBlueprint(id))
+    }
 
-        this.push(path)
+    public goUpload(name: string): void {
+        this.push(this.pathToUpload(name))
     }
 
     public goView(path: string): void {
