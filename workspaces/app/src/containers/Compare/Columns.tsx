@@ -93,6 +93,12 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         })
     }
 
+    const handleSelect = (id: number | string | null) => {
+        runInAction(() => {
+            if(id) selectionStore.selected.push(id)
+        })
+    }
+
     // Exit & Change
     const change = prevOrder
         .map((id, i) => {
@@ -132,7 +138,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <Grid container className={clsx(classes.root, columns.length === 0 && classes.rootEmpty)}>
-            {columns.length > 0 ? columns : <NothingSelected />}
+            {columns.length > 0 ? columns : <NothingSelected onSelect={handleSelect} />}
         </Grid>
     )
 })) /* ============================================================================================================= */

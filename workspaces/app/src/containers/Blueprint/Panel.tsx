@@ -4,12 +4,12 @@ import { hot } from 'react-hot-loader/root'
 import { Divider } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import PanelSteam from 'src/components/PanelSteam'
+import PanelUpload from 'src/components/PanelUpload'
 import { PROVIDER } from 'src/constants'
 import { CONTEXT } from 'src/stores'
 
 import PanelRandom from './PanelRandom'
-import PanelSteam from './PanelSteam'
-import PanelUpload from './PanelUpload'
 
 const styles = (theme: IMyTheme) => createStyles({
     root: {
