@@ -34,8 +34,6 @@ interface IProps {
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const [open, setOpen] = React.useState(true)
-
     React.useEffect(() => {
         document.title = 'Browse'
     }, [])
@@ -48,7 +46,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             asideTitle='Filters'
             defaultOpen
         >
-            <Search className={classes.search} />
+            <Search className={classes.search} enableSort enableStatus />
             <Cards />
             <LoadMore />
         </DefaultLayout>

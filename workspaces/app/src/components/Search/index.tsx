@@ -16,7 +16,7 @@ const styles = (theme: IMyTheme) => createStyles({
 
     search: {
     },
-    searchDisabledSort: {
+    searchenabledSort: {
         borderBottomRightRadius: theme.shape.borderRadius,
         borderTopRightRadius: theme.shape.borderRadius,
     },
@@ -27,18 +27,19 @@ const styles = (theme: IMyTheme) => createStyles({
         [theme.breakpoints.down('xs')]: {
             flexBasis: '100%',
         }
-    }
+    },
 })
 
 
 interface IProps extends GridProps {
-    disableStatus?: true
-    disableSort?: true
+    enableStatus?: boolean
+    enableSort?: boolean
+    enableButton?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {disableStatus, disableSort, className, ...otherProps} = props
+    const {enableStatus, enableSort, enableButton, className, ...otherProps} = props
 
     return (
         <Grid
@@ -52,10 +53,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             {...otherProps}
         >
             <Grid item xs container justify='center' alignItems='stretch' className={classes.wrapper}>
-                <Search className={clsx(classes.search, disableSort && classes.searchDisabledSort)} />
-                {!disableSort && <Sort />}
+                <Search enableButton={enableButton} className={clsx(classes.search, enableSort && classes.searchenabledSort)} />
+                {enableSort && <Sort />}
             </Grid>
-            {!disableStatus && <Status />}
+            {enableStatus && <Status />}
         </Grid>
     )
 })) /* ============================================================================================================= */

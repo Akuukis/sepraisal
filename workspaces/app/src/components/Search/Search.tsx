@@ -3,7 +3,7 @@ import { autorun } from 'mobx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Chip, InputAdornment, TextField } from '@material-ui/core'
+import { Button, Chip, InputAdornment, TextField } from '@material-ui/core'
 import Autocomplete, { AutocompleteProps, createFilterOptions } from '@material-ui/lab/Autocomplete'
 
 import { createSmartFC, createStyles, IMyTheme, useAsyncEffectOnce } from 'src/common'
@@ -45,15 +45,21 @@ const styles = (theme: IMyTheme) => createStyles({
     chip: {
         margin: theme.spacing(0, 0.5),
     },
+    button: {
+        marginLeft: theme.spacing(-1),
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0,
+    }
 })
 
 
 interface IProps extends Omit<AutocompleteProps<IOption>, 'renderInput' | 'options'> {
+    enableButton?: boolean
 }
 
 
 export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {className, ...otherProps} = props
+    const {className, enableButton, ...otherProps} = props
     const cardStore = React.useContext(CONTEXT.CARDS)
     const routerStore = React.useContext(CONTEXT.ROUTER)
     const analyticsStore = React.useContext(CONTEXT.ANALYTICS)
@@ -134,7 +140,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     // eslint-disable-next-line @typescript-eslint/ban-types
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: IOption | string | null) => {
+    const handleChange = (event: unknown, newValue: IOption | string | null) => {
         // Backspaced whole search text.
         if(newValue === null) {
             return updateUrlParams(null)
@@ -210,7 +216,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         updateUrlParams(input !== '' ? input : null)
     }
 
-    return (
+    return (<>
         <Autocomplete
             className={clsx(classes.root, className)}
             id='free-solo-with-text-demo'
@@ -309,11 +315,21 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                             )),
                         ],
                     }}
-                />
-            )}
+                />)}
             {...otherProps}
         />
-    )
+        {enableButton && (
+            <Button
+                size="large"
+                color="primary"
+                variant="contained"
+                className={classes.button}
+                onClick={() => handleChange(null, input)}
+            >
+                Browse
+            </Button>
+        )}
+    </>)
 })) /* ============================================================================================================= */
 
 

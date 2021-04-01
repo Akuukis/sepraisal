@@ -62,7 +62,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         <DefaultLayout className={classes.root}>
             <Grid container justify='center' alignItems='center' className={classes.center}>
                 <Grid item xs>
-                    <Search className={classes.search} disableSort disableStatus />
+                    <Search className={classes.search} enableButton />
                 </Grid>
             </Grid>
             <Grid item xs container justify='center' className={classes.bottom}>
