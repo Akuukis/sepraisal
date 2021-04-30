@@ -1,6 +1,6 @@
 import { GridSize } from '@sepraisal/common/index.ts'
 import { parse } from 'fast-xml-parser'
-import { PARSE_CONFIG } from '../parsers/common'
+import { PARSE_CONFIG } from '../parsers/common.ts'
 
 import { CubeType } from '../xmlns/CubeType.ts'
 import { IBlueprintPrefabBlueprintDefinition } from '../xmlns/PrefabBlueprintDefinition.ts'

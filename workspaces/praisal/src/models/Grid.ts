@@ -1,5 +1,5 @@
 import { parse } from 'fast-xml-parser'
-import { PARSE_CONFIG } from '../parsers/common'
+import { PARSE_CONFIG } from '../parsers/common.ts'
 
 import { IBlueprintBlockGroup, IBlueprintCubeGrid } from '../xmlns/BlueprintDefinition.ts'
 import { Block } from './Block.ts'
