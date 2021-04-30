@@ -1,9 +1,9 @@
 import { GridSize } from '@sepraisal/common'
-import { parseString } from 'xml2js'
-
+import { parse } from 'fast-xml-parser'
 import { BlockDefinition, IBlueprintCubeGrid } from '..//xmlns/BlueprintDefinition'
 import { IBlueprintPrefabBlueprintDefinition, IBlueprintPrefabDefinitions } from '..//xmlns/PrefabBlueprintDefinition'
 import { IBlueprintShipDefinition, IBlueprintShipDefinitions } from '..//xmlns/ShipBlueprintDefinition'
+import { PARSE_CONFIG } from './common'
 
 export interface IBlueprintDTO {
     blocks: BlockDefinition[],
@@ -55,17 +55,19 @@ const parseShipBlueprint = (def: IBlueprintShipDefinitions) => {
 
 export const parseBlueprintXml = async (xml: string): Promise<IBlueprintDTO> =>
     new Promise((resolve: (value: IBlueprintDTO) => void, reject: (reason: Error) => void) => {
-        type AnyBlueprint = IBlueprintShipDefinition | IBlueprintPrefabBlueprintDefinition
-        parseString(xml, (parseError: Error | undefined, bp: AnyBlueprint) => {
-            if(parseError) reject(parseError)
+        try {
+            const bp: IBlueprintShipDefinition | IBlueprintPrefabBlueprintDefinition = parse(xml, PARSE_CONFIG, true)
 
-            // console.log(bp)
-            const def = bp.Definitions
+            console.log(bp)
+            const def = bp.Definitions[0]
             try {
                 resolve(isPrefab(def) ? parsePrefabBlueprint(def) : parseShipBlueprint(def))
             } catch(transformError) {
                 console.error(transformError, bp)
                 reject(transformError as Error)
             }
-        })
+        } catch(err) {
+            console.log(err)
+            reject(err)
+        }
     })

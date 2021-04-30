@@ -40,5 +40,5 @@ export interface IMaterialDefinitions extends IXml2js {
 }
 
 export interface IMaterialDefinition {
-    readonly Definitions: IMaterialDefinitions,
+    readonly Definitions: readonly [IMaterialDefinitions],
 }

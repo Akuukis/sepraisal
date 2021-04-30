@@ -1,5 +1,6 @@
 import { GridSize } from '@sepraisal/common'
-import { parseString } from 'xml2js'
+import { parse } from 'fast-xml-parser'
+import { PARSE_CONFIG } from '../parsers/common'
 
 import { CubeType } from '../xmlns/CubeType'
 import { IBlueprintPrefabBlueprintDefinition } from '../xmlns/PrefabBlueprintDefinition'
@@ -12,23 +13,20 @@ const obj2mapArray = (obj: Record<string, number>) => Object.keys(obj).map<[stri
 
 type IBlueprintShipOrPrefab = IBlueprintShipDefinition | IBlueprintPrefabBlueprintDefinition
 
-const isPrefab = (def: IBlueprintShipOrPrefab): def is IBlueprintPrefabBlueprintDefinition => 'Prefabs' in def.Definitions
+const isPrefab = (def: IBlueprintShipOrPrefab): def is IBlueprintPrefabBlueprintDefinition => 'Prefabs' in def.Definitions[0]
 
 export class Blueprint {
 
     public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Blueprint> {
         const originalSize = xml.length
         return new Promise((resolve: (value: Blueprint) => void, reject: (reason: Error) => void) => {
-            parseString(xml, (parseError: Error | undefined, bp: IBlueprintShipOrPrefab) => {
-                if(parseError) reject(parseError)
-
-                try {
-                    resolve(new Blueprint(bp, originalSize, cubeStore))
-                } catch(transformError) {
-                    console.info(transformError, bp)
-                    reject(transformError as Error)
-                }
-            })
+            try {
+                const bp: IBlueprintShipOrPrefab = parse(xml, PARSE_CONFIG, true)
+                resolve(new Blueprint(bp, originalSize, cubeStore))
+            } catch(transformError) {
+                // console.log(xml)
+                reject(transformError as Error)
+            }
         })
     }
 
@@ -85,7 +83,7 @@ export class Blueprint {
             this.originalSize = originalSize!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
             this.cubeStore = cubeStore!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
             this.variant = 'prefab'
-            const {Id, CubeGrids, ...rest} = dto.Definitions.Prefabs[0].Prefab[0]
+            const {Id, CubeGrids, ...rest} = dto.Definitions[0].Prefabs[0].Prefab[0]
             this.title = Id[0].SubtypeId[0]
             this.grids = CubeGrids[0].CubeGrid
                 .map((gridDto) => new Grid(gridDto, this.cubeStore))
@@ -94,7 +92,7 @@ export class Blueprint {
             this.originalSize = originalSize!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
             this.cubeStore = cubeStore!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
             this.variant = 'ship'
-            const blueprint = dto.Definitions.ShipBlueprints[0].ShipBlueprint[0]
+            const blueprint = dto.Definitions[0].ShipBlueprints[0].ShipBlueprint[0]
             const {Id, CubeGrids, DisplayName, WorkshopId, OwnerSteamId, ...rest} = blueprint
             this.workshopId = Number(WorkshopId[0])
             this.ownerSteamId = Number(OwnerSteamId[0])

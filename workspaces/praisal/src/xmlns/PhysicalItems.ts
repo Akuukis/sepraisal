@@ -33,5 +33,5 @@ export interface IPhysicalItemDefinitions extends IXml2js {
 }
 
 export interface IPhysicalItemDefinition {
-    readonly Definitions: IPhysicalItemDefinitions,
+    readonly Definitions: readonly [IPhysicalItemDefinitions],
 }

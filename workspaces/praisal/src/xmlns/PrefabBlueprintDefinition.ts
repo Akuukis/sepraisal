@@ -28,5 +28,5 @@ export interface IBlueprintPrefabDefinitions extends IXml2js {
 }
 
 export interface IBlueprintPrefabBlueprintDefinition {
-    readonly Definitions: IBlueprintPrefabDefinitions,
+    readonly Definitions: readonly [IBlueprintPrefabDefinitions],
 }

@@ -35,5 +35,5 @@ export interface IComponentDefinitions extends IXml2js {
 }
 
 export interface IComponentDefinition {
-    readonly Definitions: IComponentDefinitions,
+    readonly Definitions: readonly [IComponentDefinitions],
 }
