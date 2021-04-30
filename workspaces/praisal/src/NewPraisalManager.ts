@@ -1,8 +1,8 @@
-import { VENDOR_MOD } from '@sepraisal/common'
+import { VENDOR_MOD } from '@sepraisal/common/index.ts'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
-import { PraisalManager } from './PraisalManager'
+import { PraisalManager } from './PraisalManager.ts'
 
 export const VENDOR_DIR = join(__dirname, '..', 'vendor')
 

@@ -1,4 +1,4 @@
-import * as JSZip from 'jszip'
+import * as JSZip from 'https://cdn.skypack.dev/jszip@3.1.7?dts'
 
 
 export const unzipCachedSbc = async (archiveRaw: Uint8Array): Promise<string> => {

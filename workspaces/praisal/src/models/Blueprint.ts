@@ -1,13 +1,13 @@
-import { GridSize } from '@sepraisal/common'
+import { GridSize } from '@sepraisal/common/index.ts'
 import { parse } from 'fast-xml-parser'
 import { PARSE_CONFIG } from '../parsers/common'
 
-import { CubeType } from '../xmlns/CubeType'
-import { IBlueprintPrefabBlueprintDefinition } from '../xmlns/PrefabBlueprintDefinition'
-import { IBlueprintShipDefinition } from '../xmlns/ShipBlueprintDefinition'
-import { Block } from './Block'
-import { Cube } from './Cube'
-import { Grid } from './Grid'
+import { CubeType } from '../xmlns/CubeType.ts'
+import { IBlueprintPrefabBlueprintDefinition } from '../xmlns/PrefabBlueprintDefinition.ts'
+import { IBlueprintShipDefinition } from '../xmlns/ShipBlueprintDefinition.ts'
+import { Block } from './Block.ts'
+import { Cube } from './Cube.ts'
+import { Grid } from './Grid.ts'
 
 const obj2mapArray = (obj: Record<string, number>) => Object.keys(obj).map<[string, number]>((key) => [key, obj[key]])
 

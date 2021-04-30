@@ -1,4 +1,7 @@
-import { NewPraisalManager, VENDOR_DIR } from '@sepraisal/praisal/lib/NewPraisalManager'
+#!/usr/bin/env -S deno -q --unstable run
+// deno-language: ts
+
+import { NewPraisalManager, VENDOR_DIR } from '../praisal/src/NewPraisalManager.ts'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 

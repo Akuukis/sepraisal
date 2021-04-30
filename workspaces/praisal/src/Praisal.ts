@@ -1,18 +1,18 @@
-import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap, VENDOR_MOD } from '@sepraisal/common'
+import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap, VENDOR_MOD } from '@sepraisal/common/index.ts'
 import fromEntries from 'object.fromentries'
 
-import { Blueprint, Component, Cube, Group, ICoords, Ingot, Ore, Orientation, TranslationMinEnum } from './models'
-import { Block } from './models/Block'
+import { Blueprint, Component, Cube, Group, ICoords, Ingot, Ore, Orientation, TranslationMinEnum } from './models/index.ts'
+import { Block } from './models/Block.ts'
 import {
     SIMILAR_HEAVY_ARMOR,
     SIMILAR_INTERIOR_LIGHT,
     SIMILAR_LIGHT_ARMOR,
     SIMILAR_TEXT_PANEL,
     SIMILAR_WINDOW,
-} from './similarBlocks'
-import { BlueprintBlockDirectionEnum } from './xmlns/BlueprintDefinition'
-import { CubeDTO } from './xmlns/CubeDefinition'
-import { CubeType } from './xmlns/CubeType'
+} from './similarBlocks.ts'
+import { BlueprintBlockDirectionEnum } from './xmlns/BlueprintDefinition.ts'
+import { CubeDTO } from './xmlns/CubeDefinition.ts'
+import { CubeType } from './xmlns/CubeType.ts'
 
 // TODO: Split this grown-too-big-god-class.
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */

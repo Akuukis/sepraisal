@@ -1,4 +1,4 @@
-import { IBlueprint } from '@sepraisal/common'
+import { IBlueprint } from '@sepraisal/common/index.ts'
 import moment from 'moment'
 
 

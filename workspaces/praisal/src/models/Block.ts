@@ -1,9 +1,9 @@
-import { Direction } from '@sepraisal/common'
+import { Direction } from '@sepraisal/common/index.ts'
 import { Omit } from 'utility-types'
 
-import { CubeType } from '..//xmlns/CubeType'
-import { BlockDefinition, IVector } from '../xmlns/BlueprintDefinition'
-import { Cube } from './Cube'
+import { CubeType } from '../xmlns/CubeType.ts'
+import { BlockDefinition, IVector } from '../xmlns/BlueprintDefinition.ts'
+import { Cube } from './Cube.ts'
 
 type Omits = '$' | 'SubtypeName' | 'Min' | 'BlockOrientation' | 'ColorMaskHSV'
 

@@ -1,10 +1,10 @@
-import { VENDOR_MOD } from '@sepraisal/common/src'
+import { VENDOR_MOD } from '@sepraisal/common/index.ts'
 import { Omit } from 'utility-types'
 
-import { IParseCubeBlocksSbc } from '../parsers/parseCubeBlocksSbc'
-import { CubeDTO } from '../xmlns/CubeDefinition'
-import { CubeType } from '../xmlns/CubeType'
-import { Component } from './Component'
+import { IParseCubeBlocksSbc } from '../parsers/parseCubeBlocksSbc.ts'
+import { CubeDTO } from '../xmlns/CubeDefinition.ts'
+import { CubeType } from '../xmlns/CubeType.ts'
+import { Component } from './Component.ts'
 
 
 export type CubeBlockGridSize = 'Large' | 'Small'

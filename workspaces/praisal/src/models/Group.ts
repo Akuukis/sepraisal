@@ -1,7 +1,7 @@
-import { GroupTitle } from '@sepraisal/common'
+import { GroupTitle } from '@sepraisal/common/index.ts'
 
-import { CubeType } from '../xmlns/CubeType'
-import { Block } from './Block'
+import { CubeType } from '../xmlns/CubeType.ts'
+import { Block } from './Block.ts'
 
 export interface IGroupDTO {
     priority: number,

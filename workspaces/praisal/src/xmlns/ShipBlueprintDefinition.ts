@@ -1,5 +1,5 @@
-import { IBlueprintCubeGrids } from './BlueprintDefinition'
-import { IXml2js } from './xml2js'
+import { IBlueprintCubeGrids } from './BlueprintDefinition.ts'
+import { IXml2js } from './xml2js.ts'
 
 export interface IBlueprintShipIdAttr extends IXml2js {
     readonly $: {

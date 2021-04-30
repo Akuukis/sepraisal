@@ -1,6 +1,6 @@
-import { VENDOR_MOD } from '@sepraisal/common/src'
+import { VENDOR_MOD } from '@sepraisal/common/index.ts'
 
-import { IParseBlueprintSbc, IParseComponentSbc } from '../parsers'
+import { IParseBlueprintSbc, IParseComponentSbc } from '../parsers/index.ts'
 
 export interface IComponentDTO {
     health: number

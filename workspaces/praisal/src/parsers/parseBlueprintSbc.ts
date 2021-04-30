@@ -1,8 +1,8 @@
-import { VENDOR_MOD } from '@sepraisal/common/src'
+import { VENDOR_MOD } from '@sepraisal/common'
 import { parse } from 'fast-xml-parser'
 
-import { IMaterialBlueprint, IMaterialDefinition, IMaterialItem } from '../xmlns/MaterialDefinition'
-import { PARSE_CONFIG } from './common'
+import { IMaterialBlueprint, IMaterialDefinition, IMaterialItem } from '../xmlns/MaterialDefinition.ts'
+import { PARSE_CONFIG } from './common.ts'
 
 export interface IParseBlueprintSbc {
     prerequisites: Record<string, number>

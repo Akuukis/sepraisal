@@ -1,4 +1,4 @@
-import { VENDOR_MOD } from '@sepraisal/common/src'
+import { VENDOR_MOD } from '@sepraisal/common/index.ts'
 import { readFileSync } from 'fs'
 import { basename, join } from 'path'
 

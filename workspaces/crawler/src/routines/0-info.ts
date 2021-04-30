@@ -1,4 +1,4 @@
-import { DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common'
+import { DB_NAME, DB_URL, IBlueprint } from '@sepraisal/common/index.ts'
 import { MongoClient } from 'mongodb'
 import pad from 'pad'
 

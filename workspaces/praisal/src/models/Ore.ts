@@ -1,6 +1,6 @@
-import { VENDOR_MOD } from '@sepraisal/common/src'
+import { VENDOR_MOD } from '@sepraisal/common/index.ts'
 
-import { IParsePhysicalItemsSbc } from '../parsers'
+import { IParsePhysicalItemsSbc } from '../parsers/index.ts'
 
 
 export interface IOreDTO {

@@ -1,4 +1,4 @@
-import { IXml2js } from './xml2js'
+import { IXml2js } from './xml2js.ts'
 
 export interface IComponentId extends IXml2js {
     readonly SubtypeId: readonly [string],

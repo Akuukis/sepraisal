@@ -1,4 +1,4 @@
-import { VENDOR_MOD } from './constants'
+import { VENDOR_MOD } from './constants.ts'
 
 
 export enum GridSize {

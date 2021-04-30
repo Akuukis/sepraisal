@@ -1,9 +1,9 @@
 import { parse } from 'fast-xml-parser'
 import { PARSE_CONFIG } from '../parsers/common'
 
-import { IBlueprintBlockGroup, IBlueprintCubeGrid } from '../xmlns/BlueprintDefinition'
-import { Block } from './Block'
-import { Cube } from './Cube'
+import { IBlueprintBlockGroup, IBlueprintCubeGrid } from '../xmlns/BlueprintDefinition.ts'
+import { Block } from './Block.ts'
+import { Cube } from './Cube.ts'
 
 const obj2mapArray = (obj: Record<string, number>) => Object.keys(obj).map<[string, number]>((key) => [key, obj[key]])
 

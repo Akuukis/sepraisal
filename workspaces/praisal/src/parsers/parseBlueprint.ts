@@ -1,9 +1,9 @@
-import { GridSize } from '@sepraisal/common'
+import { GridSize } from '@sepraisal/common/index.ts'
 import { parse } from 'fast-xml-parser'
-import { BlockDefinition, IBlueprintCubeGrid } from '..//xmlns/BlueprintDefinition'
-import { IBlueprintPrefabBlueprintDefinition, IBlueprintPrefabDefinitions } from '..//xmlns/PrefabBlueprintDefinition'
-import { IBlueprintShipDefinition, IBlueprintShipDefinitions } from '..//xmlns/ShipBlueprintDefinition'
-import { PARSE_CONFIG } from './common'
+import { BlockDefinition, IBlueprintCubeGrid } from '../xmlns/BlueprintDefinition.ts'
+import { IBlueprintPrefabBlueprintDefinition, IBlueprintPrefabDefinitions } from '../xmlns/PrefabBlueprintDefinition.ts'
+import { IBlueprintShipDefinition, IBlueprintShipDefinitions } from '../xmlns/ShipBlueprintDefinition.ts'
+import { PARSE_CONFIG } from './common.ts'
 
 export interface IBlueprintDTO {
     blocks: BlockDefinition[],

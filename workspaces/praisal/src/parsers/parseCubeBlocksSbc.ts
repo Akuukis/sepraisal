@@ -1,8 +1,8 @@
-import { VENDOR_MOD } from '@sepraisal/common/src'
+import { VENDOR_MOD } from '@sepraisal/common'
 import { parse } from 'fast-xml-parser'
 
-import { CubeDTO, ICubeDefinition } from '../xmlns/CubeDefinition'
-import { PARSE_CONFIG } from './common'
+import { CubeDTO, ICubeDefinition } from '../xmlns/CubeDefinition.ts'
+import { PARSE_CONFIG } from './common.ts'
 
 
 export type IParseCubeBlocksSbc = CubeDTO & {mod: VENDOR_MOD}

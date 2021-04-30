@@ -1,4 +1,4 @@
-import { CLASSES, IBlueprint } from '@sepraisal/common'
+import { CLASSES, IBlueprint } from '@sepraisal/common/index.ts'
 import FormData from 'form-data'
 import { createReadStream, readFileSync, writeFileSync } from 'fs'
 import fetch from 'node-fetch'

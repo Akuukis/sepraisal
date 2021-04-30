@@ -1,8 +1,8 @@
-import { VENDOR_MOD } from '@sepraisal/common/src'
+import { VENDOR_MOD } from '@sepraisal/common'
 import { parse } from 'fast-xml-parser'
 
-import { IComponentDefinition } from '..//xmlns/ComponentDefinition'
-import { PARSE_CONFIG } from './common'
+import { IComponentDefinition } from '../xmlns/ComponentDefinition.ts'
+import { PARSE_CONFIG } from './common.ts'
 
 export interface IParseComponentSbc {
     displayName: string

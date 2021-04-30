@@ -1,6 +1,6 @@
-import { IVector, IVector3I } from './BlueprintDefinition'
-import { CubeType, CubeTypePrefixedDefinition } from './CubeType'
-import { IXml2js } from './xml2js'
+import { IVector, IVector3I } from './BlueprintDefinition.ts'
+import { CubeType, CubeTypePrefixedDefinition } from './CubeType.ts'
+import { IXml2js } from './xml2js.ts'
 
 
 

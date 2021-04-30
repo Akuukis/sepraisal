@@ -1,4 +1,4 @@
-import { DB_NAME, DB_URL, IBlueprint, idFromHref, toMinSec, Work, Worker } from '@sepraisal/common'
+import { DB_NAME, DB_URL, IBlueprint, idFromHref, toMinSec, Work, Worker } from '@sepraisal/common/index.ts'
 import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
 import scrapeIt from 'scrape-it'

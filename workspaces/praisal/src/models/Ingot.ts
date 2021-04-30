@@ -1,6 +1,6 @@
-import { VENDOR_MOD } from '@sepraisal/common/src'
+import { VENDOR_MOD } from '@sepraisal/common/index.ts'
 
-import { IParseBlueprintSbc, IParsePhysicalItemsSbc } from '../parsers'
+import { IParseBlueprintSbc, IParsePhysicalItemsSbc } from '../parsers/index.ts'
 
 export interface IIngotDTO {
     mass: number  // kg.

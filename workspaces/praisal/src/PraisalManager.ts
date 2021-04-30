@@ -1,7 +1,7 @@
-import { ObservableMap, VENDOR_MOD } from '@sepraisal/common'
+import { ObservableMap, VENDOR_MOD } from '@sepraisal/common/index.ts'
 import { action, runInAction } from 'mobx'
 
-import { Blueprint, Component, Cube, Ingot, Ore } from './models'
+import { Blueprint, Component, Cube, Ingot, Ore } from './models/index.ts'
 import {
     IParseBlueprintSbc,
     IParseComponentSbc,
@@ -11,8 +11,8 @@ import {
     parseComponentSbc,
     parseCubeBlocksSbc,
     parsePhysicalItemsSbc,
-} from './parsers'
-import { Praisal } from './Praisal'
+} from './parsers/index.ts'
+import { Praisal } from './Praisal.ts'
 
 export class PraisalManager {
     private readonly blueprintSbcs = new ObservableMap<IParseBlueprintSbc>()

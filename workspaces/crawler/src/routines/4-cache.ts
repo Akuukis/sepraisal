@@ -1,4 +1,4 @@
-import { DB_NAME, DB_URL, toMinSec, Work, Worker } from '@sepraisal/common'
+import { DB_NAME, DB_URL, toMinSec, Work, Worker } from '@sepraisal/common/index.ts'
 import { exec, execSync } from 'child_process'
 import { lstatSync, readdirSync } from 'fs'
 import { MongoClient } from 'mongodb'

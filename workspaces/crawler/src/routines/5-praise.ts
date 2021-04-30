@@ -1,13 +1,16 @@
-import { DB_NAME, DB_URL, IBlueprint, toMinSec } from '@sepraisal/common'
+#!/usr/bin/env -S deno -q run
+// deno-language: ts
+import { DB_NAME, DB_URL, IBlueprint, toMinSec } from '@sepraisal/common/index.ts'
 import { lstatSync } from 'fs'
 import moment from 'moment'
 import { FilterQuery, MongoClient } from 'mongodb'
-import { cpus } from 'os'
 import pad from 'pad'
 import workerFarm from 'worker-farm'
+import { cpus } from 'os'
 
-import { QUERIES } from '../queries'
-import { prepareQuery, sbcPath } from '../utils'
+import { QUERIES } from '../queries.ts'
+import { prepareQuery, sbcPath } from '../utils.ts'
+
 
 
 interface IProjection {

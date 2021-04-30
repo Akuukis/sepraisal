@@ -1,8 +1,8 @@
 import { VENDOR_MOD } from '@sepraisal/common'
 import { parse } from 'fast-xml-parser'
 
-import { IPhysicalItemDefinition } from '../xmlns/PhysicalItems'
-import { PARSE_CONFIG } from './common'
+import { IPhysicalItemDefinition } from '../xmlns/PhysicalItems.ts'
+import { PARSE_CONFIG } from './common.ts'
 
 export interface IParsePhysicalItemsSbc {
     displayName: string
