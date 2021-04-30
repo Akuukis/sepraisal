@@ -32,20 +32,19 @@
             "christian-kohler.npm-intellisense",
             "christian-kohler.path-intellisense",
             "dbaeumer.vscode-eslint",
+            "denoland.vscode-deno",
             "eamodio.gitlens",
             "eg2.vscode-npm-script",
             "formulahendry.code-runner",
-            "joelday.docthis",
             "kaiwood.indentation-level-movement",
             "knisterpeter.vscode-commitizen",
-            "ms-vscode.typescript-javascript-grammar",
             "rbbit.typescript-hero",
             "shardulm94.trailing-spaces",
             "spywhere.guides",
             "streetsidesoftware.code-spell-checker",
             "tyriar.sort-lines",
             "wmaurer.change-case",
-            "yzhang.markdown-all-in-one"
+            "yzhang.markdown-all-in-one",
         ],
         "unwantedRecommendations": [
             "ms-vscode.vscode-typescript-tslint-plugin",
@@ -122,6 +121,10 @@
             "/src\//",
             "Workspace"
         ],
-        "typescript.tsserver.log": "verbose"
+        "typescript.tsserver.log": "verbose",
+        "deno.enable": true,
+        "deno.lint": false,
+        "deno.unstable": true,
+        "deno.importMap": "../../import_map.json"
     }
 }
