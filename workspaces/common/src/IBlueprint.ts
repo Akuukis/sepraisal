@@ -184,6 +184,8 @@ export namespace IBlueprint {
     }
 
     export interface ISbc extends IProp, IDefinitions, IMaterialGroupFull {
+        _timeToPraise?: number,
+
         _revision: number,
         sizeMB: number,
         vanilla: boolean,

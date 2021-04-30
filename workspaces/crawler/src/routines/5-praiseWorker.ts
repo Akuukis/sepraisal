@@ -62,6 +62,7 @@ export = async (index: number, doc: IProjection, callback: (err: Error | null, m
     try {
         const praisal = await sePraisal.praiseSbc(xml)
         sbc = praisal.toBlueprintSbc(doc.steam.revision)
+        sbc._timeToPraise = Date.now() - timer
     } catch(err) {
         err.type = 'praise'
         err.name = `PraisalError`
