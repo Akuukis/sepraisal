@@ -1,0 +1,27 @@
+{
+   "imports": {
+        "@sepraisal/app": "./workspaces/app/src/index.ts",
+        "@sepraisal/app/": "./workspaces/app/src/",
+        "@sepraisal/common": "./workspaces/common/src/index.ts",
+        "@sepraisal/common/": "./workspaces/common/src/",
+        "@sepraisal/crawler": "./workspaces/crawler/src/index.ts",
+        "@sepraisal/crawler/": "./workspaces/crawler/src/",
+        "@sepraisal/praisal": "./workspaces/praisal/src/index.ts",
+        "@sepraisal/praisal/": "./workspaces/praisal/src/",
+        "@sepraisal/server": "./workspaces/server/src/index.ts",
+        "@sepraisal/server/": "./workspaces/server/src/",
+        "bignumber.js": "https://cdn.skypack.dev/bignumber.js@9.0.0?dts",
+        "fs": "https://deno.land/std/node/fs.ts",
+        "mobx": "https://cdn.skypack.dev/mobx@5.15.4?dts",
+        "moment": "https://cdn.skypack.dev/moment?dts",
+        "mongodb": "https://cdn.skypack.dev/mongodb@3.5.4?dts",
+        "object.fromentries": "https://cdn.skypack.dev/object.fromentries@2.0.2",
+        "pad": "https://cdn.skypack.dev/pad@3.2.0?dts",
+        "pako": "https://cdn.skypack.dev/pako@v2.0.3?dts",
+        "path": "https://cdn.skypack.dev/path",
+        "process": "https://deno.land/std/node/process.ts",
+        "utility-types": "https://cdn.skypack.dev/utility-types@3.10.0?dts",
+        "worker-farm": "https://cdn.skypack.dev/worker-farm@1.7.0?dts",
+        "xml2js": "https://cdn.skypack.dev/xml2js@0.4.23"
+   }
+}
