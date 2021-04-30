@@ -119,7 +119,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             for(const [cubeBlocksSbc, mod] of cubeBlocksSbcsPairs) {
                 await praisalManager.addCubeBlocksSbc(cubeBlocksSbc, mod)
             }
-            praisalManager.addGroups(BLOCK_GROUPS)
+            // praisalManager.addGroups(BLOCK_GROUPS)
             praisalManager.build()
             setPraisalManager(praisalManager)
             console.info('Praisal Manager initialized, now it\'s ready to praise uploads.')

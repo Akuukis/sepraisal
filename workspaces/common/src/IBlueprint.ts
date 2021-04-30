@@ -39,7 +39,7 @@ export namespace IBlueprint {
 
     export const VERSION = {
         classes: 1,
-        sbc: 10,
+        sbc: 11,
         steam: 4,
         thumb: 2,
     } as const
@@ -225,15 +225,15 @@ export namespace IBlueprint {
         flagsYellowCount: number,
         flagsGreenCount: number,
 
-        groupPower: IMaterialGroup,
-        groupLifeSupport: IMaterialGroup,
-        groupStructure: IMaterialGroup,
-        groupMobility: IMaterialGroup,
-        groupProduction: IMaterialGroup,
-        groupControl: IMaterialGroup,
-        groupWeapons: IMaterialGroup,
-        groupMechanical: IMaterialGroup,
-        groupOther: IMaterialGroup,
+        // groupPower: IMaterialGroup,
+        // groupLifeSupport: IMaterialGroup,
+        // groupStructure: IMaterialGroup,
+        // groupMobility: IMaterialGroup,
+        // groupProduction: IMaterialGroup,
+        // groupControl: IMaterialGroup,
+        // groupWeapons: IMaterialGroup,
+        // groupMechanical: IMaterialGroup,
+        // groupOther: IMaterialGroup,
     }
 
     export interface IClasses extends IProp {

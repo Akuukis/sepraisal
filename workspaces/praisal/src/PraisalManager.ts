@@ -1,7 +1,7 @@
-import { BLOCK_GROUPS, ObservableMap, VENDOR_MOD } from '@sepraisal/common'
+import { ObservableMap, VENDOR_MOD } from '@sepraisal/common'
 import { action, runInAction } from 'mobx'
 
-import { Blueprint, Component, Cube, Group, Ingot, Ore } from './models'
+import { Blueprint, Component, Cube, Ingot, Ore } from './models'
 import {
     IParseBlueprintSbc,
     IParseComponentSbc,
@@ -26,7 +26,7 @@ export class PraisalManager {
 
     public readonly cubes = new ObservableMap<Cube>()
 
-    public readonly groups = new ObservableMap<Group>()
+    // public readonly groups = new ObservableMap<Group>()
 
     public async addBlueprintsSbc(blueprintsSbc: string, mod: VENDOR_MOD): Promise<void> {
         const blueprintSbcs = await parseBlueprintSbc(blueprintsSbc, mod)
@@ -80,12 +80,12 @@ export class PraisalManager {
         this.cubes.merge(cubes.map((component) => [component.title, component]))
     }
 
-    @action public addGroups(groups2: typeof BLOCK_GROUPS): void {
-        groups2.forEach((groupDto) => this.groups.set(groupDto.title, new Group(groupDto)))
-    }
+    // @action public addGroups(groups2: typeof BLOCK_GROUPS): void {
+    //     groups2.forEach((groupDto) => this.groups.set(groupDto.title, new Group(groupDto)))
+    // }
 
     @action public praise(blueprint: Blueprint): Praisal {
-        const praisal = new Praisal(blueprint, this, this.groups)
+        const praisal = new Praisal(blueprint, this, undefined)
 
         return praisal
     }

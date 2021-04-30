@@ -1,4 +1,4 @@
-import { BLOCK_GROUPS, VENDOR_MOD } from '@sepraisal/common'
+import { VENDOR_MOD } from '@sepraisal/common'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
@@ -52,7 +52,7 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         await sepraisal.addComponentsSbc(componentsSbc, VENDOR_MOD.VANILLA)
         for(const [mod, cubeBlocksSbc] of cubeBlocksSbcs) await sepraisal.addCubeBlocksSbc(cubeBlocksSbc, mod)
         sepraisal.build()
-        sepraisal.addGroups(BLOCK_GROUPS)
+        // sepraisal.addGroups(BLOCK_GROUPS)
 
         return sepraisal
     }

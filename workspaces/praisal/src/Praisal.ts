@@ -412,15 +412,15 @@ export class Praisal {
             oreCount: Math.round(this.oreCount),
             oreMass: Math.round(this.oreMass),
 
-            groupControl:        squeezePraisal(this.groups!.get(GroupTitle.Control)!),
-            groupLifeSupport:    squeezePraisal(this.groups!.get(GroupTitle.LifeSupport)!),
-            groupMechanical:     squeezePraisal(this.groups!.get(GroupTitle.Mechanical)!),
-            groupMobility:       squeezePraisal(this.groups!.get(GroupTitle.Mobility)!),
-            groupOther:          squeezePraisal(this.groups!.get(GroupTitle.Other)!),
-            groupPower:          squeezePraisal(this.groups!.get(GroupTitle.Power)!),
-            groupProduction:     squeezePraisal(this.groups!.get(GroupTitle.Production)!),
-            groupStructure:      squeezePraisal(this.groups!.get(GroupTitle.Structure)!),
-            groupWeapons:        squeezePraisal(this.groups!.get(GroupTitle.Weapons)!),
+            // groupControl:        squeezePraisal(this.groups!.get(GroupTitle.Control)!),
+            // groupLifeSupport:    squeezePraisal(this.groups!.get(GroupTitle.LifeSupport)!),
+            // groupMechanical:     squeezePraisal(this.groups!.get(GroupTitle.Mechanical)!),
+            // groupMobility:       squeezePraisal(this.groups!.get(GroupTitle.Mobility)!),
+            // groupOther:          squeezePraisal(this.groups!.get(GroupTitle.Other)!),
+            // groupPower:          squeezePraisal(this.groups!.get(GroupTitle.Power)!),
+            // groupProduction:     squeezePraisal(this.groups!.get(GroupTitle.Production)!),
+            // groupStructure:      squeezePraisal(this.groups!.get(GroupTitle.Structure)!),
+            // groupWeapons:        squeezePraisal(this.groups!.get(GroupTitle.Weapons)!),
         }
     }
 
