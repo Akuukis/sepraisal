@@ -275,6 +275,13 @@
         <Y>2</Y>
       </Position>
     </BlockPosition>
+    <BlockPosition>
+      <Name>WeaponRack</Name>
+      <Position>
+        <X>8</X>
+        <Y>2</Y>
+      </Position>
+    </BlockPosition>
     <!-- End Region Row 2 -->
     <!-- Region Row 3-->
     <BlockPosition>
@@ -751,7 +758,7 @@
       </Position>
     </BlockPosition>
     <BlockPosition>
-      <Name>InteriorPillar</Name>
+      <Name>Passage</Name>
       <Position>
         <X>2</X>
         <Y>12</Y>
@@ -796,6 +803,13 @@
       <Name>Catwalk</Name>
       <Position>
         <X>8</X>
+        <Y>12</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>Embrasure</Name>
+      <Position>
+        <X>9</X>
         <Y>12</Y>
       </Position>
     </BlockPosition>
@@ -847,6 +861,13 @@
       <Name>ExhaustPipe</Name>
       <Position>
         <X>6</X>
+        <Y>13</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>TargetDummy</Name>
+      <Position>
+        <X>7</X>
         <Y>13</Y>
       </Position>
     </BlockPosition>
@@ -1059,6 +1080,13 @@
       <Name>BarredWindow</Name>
       <Position>
         <X>8</X>
+        <Y>17</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>HalfWindow</Name>
+      <Position>
+        <X>9</X>
         <Y>17</Y>
       </Position>
     </BlockPosition>

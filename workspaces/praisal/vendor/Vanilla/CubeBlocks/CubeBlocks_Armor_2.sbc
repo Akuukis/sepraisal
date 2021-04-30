@@ -5744,9 +5744,9 @@
                 <MountPoint EndX="1.0" EndY="0.5" Side="Left" StartX="0.8" StartY="0.0"/>
             </MountPoints>
             <Components>
+                <Component Count="20" Subtype="SteelPlate"/>
+                <Component Count="6" Subtype="MetalGrid"/>
                 <Component Count="3" Subtype="SteelPlate"/>
-                <Component Count="1" Subtype="MetalGrid"/>
-                <Component Count="1" Subtype="SteelPlate"/>
             </Components>
             <CriticalComponent Index="0" Subtype="MetalGrid"/>
             

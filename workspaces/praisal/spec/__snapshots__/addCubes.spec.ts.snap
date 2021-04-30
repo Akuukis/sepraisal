@@ -6035,13 +6035,13 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HeavyArmorSlopedCornerTip",
   "gridSize": "Large",
-  "integrity": 430,
-  "mass": 86,
+  "integrity": 2480,
+  "mass": 496,
   "mod": "Vanilla",
   "pcu": 0,
   "prerequisites": Object {
-    "Component/MetalGrid": 1,
-    "Component/SteelPlate": 4,
+    "Component/MetalGrid": 6,
+    "Component/SteelPlate": 23,
   },
   "size": Object {
     "X": 1,
@@ -6594,7 +6594,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 1`] = `12`;
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 1`] = `13`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 2`] = `
 Array [
@@ -6603,6 +6603,7 @@ Array [
   "Projector/SmallProjector",
   "SensorBlock/SmallBlockSensor",
   "SensorBlock/LargeBlockSensor",
+  "TargetDummyBlock/TargetDummy",
   "SoundBlock/SmallBlockSoundBlock",
   "SoundBlock/LargeBlockSoundBlock",
   "ButtonPanel/ButtonPanelLarge",
@@ -6886,6 +6887,34 @@ Object {
   "time": 6,
   "type": "SoundBlock",
   "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc": TargetDummyBlock/TargetDummy 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_TargetDummy",
+  "gridSize": "Large",
+  "integrity": 1739,
+  "mass": 396.8,
+  "mod": "Vanilla",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 4,
+    "Component/Display": 1,
+    "Component/Motor": 2,
+    "Component/SmallTube": 10,
+    "Component/SteelPlate": 15,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "TargetDummy",
+  "time": 16,
+  "type": "TargetDummyBlock",
+  "volume": 15625,
 }
 `;
 
@@ -8506,11 +8535,13 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc" 1`] = `15`;
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc" 1`] = `17`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc" 2`] = `
 Array [
   "Passage/",
+  "CubeBlock/Passage2",
+  "CubeBlock/Passage2Wall",
   "CubeBlock/LargeStairs",
   "CubeBlock/LargeRamp",
   "CubeBlock/LargeSteelCatwalk",
@@ -8828,6 +8859,58 @@ Object {
   },
   "subtype": "LargeSteelCatwalkPlate",
   "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc": CubeBlock/Passage2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Passage2",
+  "gridSize": "Large",
+  "integrity": 2430,
+  "mass": 574,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 74,
+    "Component/SmallTube": 48,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "Passage2",
+  "time": 16,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc": CubeBlock/Passage2Wall 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Passage2Side",
+  "gridSize": "Large",
+  "integrity": 1650,
+  "mass": 390,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 14,
+    "Component/InteriorPlate": 50,
+    "Component/SmallTube": 32,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "Passage2Wall",
+  "time": 12,
   "type": "CubeBlock",
   "volume": 15625,
 }
@@ -16827,5 +16910,386 @@ Object {
   "time": 25,
   "type": "CubeBlock",
   "volume": 140625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc" 1`] = `14`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc" 2`] = `
+Array [
+  "CargoContainer/LargeBlockWeaponRack",
+  "CargoContainer/SmallBlockWeaponRack",
+  "CubeBlock/FireCover",
+  "CubeBlock/FireCoverCorner",
+  "CubeBlock/HalfWindow",
+  "CubeBlock/HalfWindowInv",
+  "CubeBlock/HalfWindowCorner",
+  "CubeBlock/HalfWindowCornerInv",
+  "CubeBlock/Embrasure",
+  "CubeBlock/PassageSciFi",
+  "CubeBlock/PassageSciFiWall",
+  "CubeBlock/PassageSciFiIntersection",
+  "CubeBlock/PassageSciFiGate",
+  "InteriorLight/PassageSciFiLight",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CargoContainer/LargeBlockWeaponRack 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WeaponRack",
+  "gridSize": "Large",
+  "integrity": 1050,
+  "mass": 250,
+  "mod": "Warfare1",
+  "pcu": 10,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 30,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockWeaponRack",
+  "time": 14,
+  "type": "CargoContainer",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CargoContainer/SmallBlockWeaponRack 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WeaponRack",
+  "gridSize": "Small",
+  "integrity": 135,
+  "mass": 33,
+  "mod": "Warfare1",
+  "pcu": 10,
+  "prerequisites": Object {
+    "Component/Construction": 3,
+    "Component/InteriorPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockWeaponRack",
+  "time": 8,
+  "type": "CargoContainer",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/Embrasure 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Embrasure",
+  "gridSize": "Large",
+  "integrity": 3900,
+  "mass": 820,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/MetalGrid": 10,
+    "Component/SteelPlate": 30,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "Embrasure",
+  "time": 12,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/FireCover 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_FireCover",
+  "gridSize": "Large",
+  "integrity": 700,
+  "mass": 160,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "FireCover",
+  "time": 8,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/FireCoverCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_FireCoverCorner",
+  "gridSize": "Large",
+  "integrity": 1400,
+  "mass": 320,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/SteelPlate": 8,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "FireCoverCorner",
+  "time": 12,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/HalfWindow 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HalfWindow",
+  "gridSize": "Large",
+  "integrity": 1660,
+  "mass": 374,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 10,
+    "Component/Girder": 4,
+    "Component/SteelPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "HalfWindow",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/HalfWindowCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HalfWindowCorner",
+  "gridSize": "Large",
+  "integrity": 3320,
+  "mass": 748,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 20,
+    "Component/Girder": 8,
+    "Component/SteelPlate": 20,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "HalfWindowCorner",
+  "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/HalfWindowCornerInv 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HalfWindowCornerInv",
+  "gridSize": "Large",
+  "integrity": 3320,
+  "mass": 748,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 20,
+    "Component/Girder": 8,
+    "Component/SteelPlate": 20,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "HalfWindowCornerInv",
+  "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/HalfWindowInv 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HalfWindowInv",
+  "gridSize": "Large",
+  "integrity": 1660,
+  "mass": 374,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 10,
+    "Component/Girder": 4,
+    "Component/SteelPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "HalfWindowInv",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/PassageSciFi 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Passage3",
+  "gridSize": "Large",
+  "integrity": 2430,
+  "mass": 574,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 74,
+    "Component/SmallTube": 48,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "PassageSciFi",
+  "time": 16,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/PassageSciFiGate 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Passage3Frame",
+  "gridSize": "Large",
+  "integrity": 1200,
+  "mass": 285,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 35,
+    "Component/SmallTube": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "PassageSciFiGate",
+  "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/PassageSciFiIntersection 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Passage3Cross",
+  "gridSize": "Large",
+  "integrity": 1200,
+  "mass": 285,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 35,
+    "Component/SmallTube": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "PassageSciFiIntersection",
+  "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": CubeBlock/PassageSciFiWall 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Passage3Wall",
+  "gridSize": "Large",
+  "integrity": 1650,
+  "mass": 390,
+  "mod": "Warfare1",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 14,
+    "Component/InteriorPlate": 50,
+    "Component/SmallTube": 32,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "PassageSciFiWall",
+  "time": 12,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare1 "CubeBlocks.sbc": InteriorLight/PassageSciFiLight 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Passage3Light",
+  "gridSize": "Large",
+  "integrity": 2430,
+  "mass": 574,
+  "mod": "Warfare1",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 74,
+    "Component/SmallTube": 48,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "PassageSciFiLight",
+  "time": 16,
+  "type": "InteriorLight",
+  "volume": 15625,
 }
 `;

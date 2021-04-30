@@ -581,6 +581,82 @@
       <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
       <IsPrimary>true</IsPrimary>
     </Blueprint>
+      <Blueprint>
+          <Id>
+              <TypeId>BlueprintDefinition</TypeId>
+              <SubtypeId>BasicHandHeldLauncher</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Item_BasicHandHeldLauncher</DisplayName>
+          <Icon>Textures\GUI\Icons\WeaponRocketLauncher_Regular.dds</Icon>
+          <Prerequisites>
+              <Item Amount="30" TypeId="Ingot" SubtypeId="Iron" />
+              <Item Amount="10" TypeId="Ingot" SubtypeId="Nickel" />
+              <Item Amount="5" TypeId="Ingot" SubtypeId="Cobalt" />
+          </Prerequisites>
+          <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="BasicHandHeldLauncherItem" />
+          <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
+      </Blueprint>
+            <Blueprint>
+          <Id>
+              <TypeId>BlueprintDefinition</TypeId>
+              <SubtypeId>AdvancedHandHeldLauncher</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Item_AdvancedHandHeldLauncher</DisplayName>
+          <Icon>Textures\GUI\Icons\WeaponRocketLauncher_Precise.dds</Icon>
+          <Prerequisites>
+              <Item Amount="30" TypeId="Ingot" SubtypeId="Iron" />
+              <Item Amount="10" TypeId="Ingot" SubtypeId="Nickel" />
+              <Item Amount="5" TypeId="Ingot" SubtypeId="Cobalt" />
+              <Item Amount="5" TypeId="Ingot" SubtypeId="Platinum" />
+          </Prerequisites>
+          <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AdvancedHandHeldLauncherItem" />
+          <BaseProductionTimeInSeconds>20</BaseProductionTimeInSeconds>
+      </Blueprint>
+    
+          <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>SemiAutoPistol</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_SemiAutoPistol</DisplayName>
+        <Icon>Textures\GUI\Icons\WeaponPistol_Warfare.dds</Icon>
+        <Prerequisites>
+            <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.3" TypeId="Ingot" SubtypeId="Nickel" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="SemiAutoPistolItem" />
+        <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+      </Blueprint>
+          <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>FullAutoPistol</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_FullAutoPistol</DisplayName>
+        <Icon>Textures\GUI\Icons\WeaponPistol_FullAuto_Warfare.dds</Icon>
+        <Prerequisites>
+            <Item Amount="1.5" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.5" TypeId="Ingot" SubtypeId="Nickel" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="FullAutoPistolItem" />
+        <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+      </Blueprint>
+    <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>EliteAutoPistol</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_ElitePistol</DisplayName>
+        <Icon>Textures\GUI\Icons\WeaponPistol_Elite_Warfare.dds</Icon>
+        <Prerequisites>
+            <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.4" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.5" TypeId="Ingot" SubtypeId="Platinum" />
+            <Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="ElitePistolItem" />
+        <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+      </Blueprint>
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
@@ -593,7 +669,7 @@
         <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
       </Prerequisites>
       <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AutomaticRifleItem" />
-      <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
       <Id>
@@ -638,7 +714,7 @@
         <Item Amount="6" TypeId="Ingot" SubtypeId="Silver" />
       </Prerequisites>
       <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="UltimateAutomaticRifleItem" />
-      <BaseProductionTimeInSeconds>45</BaseProductionTimeInSeconds>
+      <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
     </Blueprint>
     
     <Blueprint>
@@ -839,6 +915,128 @@
       <BaseProductionTimeInSeconds>50</BaseProductionTimeInSeconds>
     </Blueprint>
     <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>SemiAutoPistolMagazine</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_SemiAutoPistolMagazine</DisplayName>
+        <Icon>Textures\GUI\Icons\ammo\Pistol_Warfare_Ammo.dds</Icon>
+        <Prerequisites>
+            <Item Amount="0.25" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.05" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.05" TypeId="Ingot" SubtypeId="Magnesium" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="SemiAutoPistolMagazine" />
+        <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
+    </Blueprint>
+      <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>FullAutoPistolMagazine</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_FullAutoPistolMagazine</DisplayName>
+        <Icon>Textures\GUI\Icons\ammo\Pistol_FullAuto_Warfare_Ammo.dds</Icon>
+        <Prerequisites>
+            <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.1" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.1" TypeId="Ingot" SubtypeId="Magnesium" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FullAutoPistolMagazine" />
+        <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
+    </Blueprint>
+      <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>ElitePistolMagazine</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_ElitePistolMagazine</DisplayName>
+        <Icon>Textures\GUI\Icons\ammo\Pistol_Elite_Warfare_Ammo.dds</Icon>
+        <Prerequisites>
+            <Item Amount="0.3" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.1" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.1" TypeId="Ingot" SubtypeId="Magnesium" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="ElitePistolMagazine" />
+        <BaseProductionTimeInSeconds>5</BaseProductionTimeInSeconds>
+    </Blueprint>
+    <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>AutomaticRifleGun_Mag_20rd</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_AutomaticRifleGun_Mag_20rd</DisplayName>
+        <Icon>Textures\GUI\Icons\ammo\Rifle_Ammo_SemiAuto.dds</Icon>
+        <Prerequisites>
+            <Item Amount="0.8" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.2" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.15" TypeId="Ingot" SubtypeId="Magnesium" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="AutomaticRifleGun_Mag_20rd" />
+        <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+    </Blueprint>
+    <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>RapidFireAutomaticRifleGun_Mag_50rd</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_RapidFireAutomaticRifleGun_Mag_50rd</DisplayName>
+        <Icon>Textures\GUI\Icons\ammo\Rifle_Ammo_RapidFire.dds</Icon>
+        <Prerequisites>
+            <Item Amount="2" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.5" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.4" TypeId="Ingot" SubtypeId="Magnesium" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="RapidFireAutomaticRifleGun_Mag_50rd" />
+        <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+    </Blueprint>
+    <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>PreciseAutomaticRifleGun_Mag_5rd</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_PreciseAutomaticRifleGun_Mag_5rd</DisplayName>
+        <Icon>Textures\GUI\Icons\ammo\Rifle_Ammo_Precise.dds</Icon>
+        <Prerequisites>
+            <Item Amount="0.8" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.2" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.15" TypeId="Ingot" SubtypeId="Magnesium" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="PreciseAutomaticRifleGun_Mag_5rd" />
+        <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+    </Blueprint>
+    <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>UltimateAutomaticRifleGun_Mag_30rd</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_UltimateAutomaticRifleGun_Mag_30rd</DisplayName>
+        <Icon>Textures\GUI\Icons\ammo\Rifle_Ammo_Elite.dds</Icon>
+        <Prerequisites>
+            <Item Amount="1.2" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="0.4" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.25" TypeId="Ingot" SubtypeId="Magnesium" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="UltimateAutomaticRifleGun_Mag_30rd" />
+        <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+    </Blueprint>
+      <!--
+    <Blueprint>
+        <Id>
+            <TypeId>BlueprintDefinition</TypeId>
+            <SubtypeId>InteriorTurret_Mag_100rd</SubtypeId>
+        </Id>
+        <DisplayName>DisplayName_Item_InteriorTurret_Mag_100rd</DisplayName>
+        <Icon>Textures\GUI\Icons\ammo\Rifle_Ammo.dd</Icon>
+        <Prerequisites>
+            <Item Amount="4" TypeId="Ingot" SubtypeId="Iron" />
+            <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
+            <Item Amount="0.75" TypeId="Ingot" SubtypeId="Magnesium" />
+        </Prerequisites>
+        <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="InteriorTurret_Mag_100rd" />
+        <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+    </Blueprint>
+    -->
+    <!--<Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>
         <SubtypeId>NATO_5p56x45mmMagazine</SubtypeId>
@@ -852,7 +1050,7 @@
       </Prerequisites>
       <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="NATO_5p56x45mm" />
       <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
-    </Blueprint>
+    </Blueprint> -->
     <Blueprint>
       <Id>
         <TypeId>BlueprintDefinition</TypeId>

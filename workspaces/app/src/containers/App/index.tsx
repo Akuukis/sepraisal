@@ -6,6 +6,7 @@ import CubeBlocksEconomyLink from '@sepraisal/praisal/vendor/Economy/CubeBlocks.
 import CubeBlocksFrostbiteLink from '@sepraisal/praisal/vendor/Frostbite/CubeBlocks.sbc'
 import CubeBlocksScrapRacePackLink from '@sepraisal/praisal/vendor/ScrapRacePack/CubeBlocks.sbc'
 import CubeBlocksSparksOfTheFutureLink from '@sepraisal/praisal/vendor/SparksOfTheFuturePack/CubeBlocks.sbc'
+import CubeBlocksWarfare1Link from '@sepraisal/praisal/vendor/Warfare1/CubeBlocks.sbc'
 import MaterialsLink from '@sepraisal/praisal/vendor/Vanilla/Blueprints.sbc'
 import ComponentsLink from '@sepraisal/praisal/vendor/Vanilla/Components.sbc'
 import CubeBlocksCubeBlocksLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks.sbc'
@@ -109,6 +110,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksFrostbiteLink           ).then(async (res) => [await res.text(), VENDOR_MOD.FROSTBITE]),
                 fetch(CubeBlocksSparksOfTheFutureLink   ).then(async (res) => [await res.text(), VENDOR_MOD.SPARKSOFTHEFUTURE]),
                 fetch(CubeBlocksScrapRacePackLink       ).then(async (res) => [await res.text(), VENDOR_MOD.SCRAPRACEPACK]),
+                fetch(CubeBlocksWarfare1Link            ).then(async (res) => [await res.text(), VENDOR_MOD.WARFARE_1]),
             ] as never) as [string, string, string, ...[string, VENDOR_MOD][]]
             const praisalManager = new PraisalManager()
             await praisalManager.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)

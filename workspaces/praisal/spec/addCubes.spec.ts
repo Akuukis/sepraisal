@@ -68,4 +68,5 @@ describe('PraisalManager.addCubes()', () => {
     testCubeBlocksFile(VENDOR_MOD.FROSTBITE         , join(VENDOR_DIR, VENDOR_MOD.FROSTBITE         , 'CubeBlocks.sbc'))
     testCubeBlocksFile(VENDOR_MOD.SPARKSOFTHEFUTURE , join(VENDOR_DIR, VENDOR_MOD.SPARKSOFTHEFUTURE , 'CubeBlocks.sbc'))
     testCubeBlocksFile(VENDOR_MOD.SCRAPRACEPACK     , join(VENDOR_DIR, VENDOR_MOD.SCRAPRACEPACK     , 'CubeBlocks.sbc'))
+    testCubeBlocksFile(VENDOR_MOD.WARFARE_1         , join(VENDOR_DIR, VENDOR_MOD.WARFARE_1         , 'CubeBlocks.sbc'))
 })

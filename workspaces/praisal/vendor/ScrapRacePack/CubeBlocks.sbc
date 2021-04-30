@@ -2596,7 +2596,7 @@
             <RequiredPowerInput>0.0002</RequiredPowerInput>
             <Flare>SpotlightSmall</Flare>
             <ReflectorThickness>2.5</ReflectorThickness>
-            <ReflectorTexture>Textures\Lights\reflector_small.dds</ReflectorTexture>
+            <ReflectorTexture>Textures\Lights\reflector_CarLight.dds</ReflectorTexture>
             <ReflectorConeDegrees>52</ReflectorConeDegrees>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>

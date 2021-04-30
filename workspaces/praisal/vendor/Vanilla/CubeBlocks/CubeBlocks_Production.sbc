@@ -405,6 +405,7 @@
                 <Class>Components</Class>
                 <Class>EliteTools</Class>
                 <Class>BuildPlanner</Class>
+                <Class>EliteConsumables</Class>
             </BlueprintClasses>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
@@ -471,6 +472,7 @@
             <BlueprintClasses>
                 <Class>SimpleComponents</Class>
                 <Class>Tools</Class>
+                <Class>Consumables</Class>
             </BlueprintClasses>
             <AssemblySpeed>0.7</AssemblySpeed>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>

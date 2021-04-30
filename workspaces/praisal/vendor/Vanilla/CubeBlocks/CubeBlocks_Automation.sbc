@@ -278,6 +278,84 @@
       <PCU>25</PCU>
       <IsAirTight>false</IsAirTight>      
     </Definition>
+      
+    <Definition xsi:type="MyObjectBuilder_TargetDummyBlockDefinition">
+          <Id>
+              <TypeId>TargetDummyBlock</TypeId>
+              <SubtypeId>TargetDummy</SubtypeId>
+          </Id>
+          <DisplayName>DisplayName_Block_TargetDummy</DisplayName>
+          <Icon>Textures\GUI\Icons\Cubes\TargetDummy.dds</Icon>
+          <Description>Description_TargetDummy</Description>
+          <CubeSize>Large</CubeSize>
+          <BlockTopology>TriangleMesh</BlockTopology>
+          <Size x="1" y="1" z="1" />
+          <ModelOffset x="0" y="0" z="0" />
+          <Model>Models\Cubes\Large\TargetDummy_base.mwm</Model>
+          <Components>
+              <Component Subtype="SteelPlate" Count="10" />
+              <Component Subtype="SmallTube" Count="10" />
+              <Component Subtype="Motor" Count="2" />
+              <Component Subtype="Computer" Count="4" />
+              <Component Subtype="Display" Count="1" />
+              <Component Subtype="SteelPlate" Count="5" />
+          </Components>
+          <CriticalComponent Subtype="Display" Index="0" />
+          <MountPoints>
+              <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
+          </MountPoints>
+          <BuildProgressModels>
+              <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\TargetDummy_Construction1.mwm" />
+              <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\TargetDummy_Construction2.mwm" />
+              <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\TargetDummy_Construction3.mwm" />
+          </BuildProgressModels>
+          <BlockPairName>TargetDummy</BlockPairName>
+          <MirroringZ>Y</MirroringZ>
+          <MirroringY>Z</MirroringY>
+          <EdgeType>Light</EdgeType>
+          <BuildTimeSeconds>16</BuildTimeSeconds>
+          <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+          <DamagedSound>ParticleElectrical</DamagedSound>
+          <IsAirTight>false</IsAirTight>
+          <PCU>25</PCU>
+          <InventoryMaxVolume>.09</InventoryMaxVolume>
+          <InventorySize>
+              <X>2</X>
+              <Y>.1</Y>
+              <Z>2</Z>
+          </InventorySize>
+          <DummySubpartNames>
+              <string>TargetD_Torso</string>
+              <string>TargetD_Head</string>
+              <string>TargetD_RightArm</string>
+              <string>TargetD_LeftArm</string>
+          </DummySubpartNames>
+          <DummySubpartCritical>
+              <boolean>true</boolean>
+              <boolean>true</boolean>
+              <boolean>false</boolean>
+              <boolean>false</boolean>
+          </DummySubpartCritical>
+          <DummySubpartHealth>
+              <float>300</float>
+              <float>100</float>
+              <float>50</float>
+              <float>50</float>
+          </DummySubpartHealth>
+          <ConstructionItemName>SteelPlate</ConstructionItemName>
+          <ConstructionItemAmount>1</ConstructionItemAmount>
+          <MinRegenerationTimeInS>1</MinRegenerationTimeInS>
+          <MaxRegenerationTimeInS>60</MaxRegenerationTimeInS>
+          <RegenerationEffectName>Smoke_Construction</RegenerationEffectName>
+          <DestructionEffectName>Smoke_Construction</DestructionEffectName>
+          <RegenerationEffectMultiplier>5</RegenerationEffectMultiplier>
+          <DestructionEffectMultiplier>5</DestructionEffectMultiplier>
+          <RegenerationSound>ArcPrgConstrPh01Start</RegenerationSound>
+          <DestructionSound>ArcPrgDeconstrPh01Start</DestructionSound>
+          <MinFillFactor>.2</MinFillFactor>
+          <MaxFillFactor>.6</MaxFillFactor>
+      </Definition>  
+      
     <Definition xsi:type="MyObjectBuilder_SoundBlockDefinition">
       <Id>
         <TypeId>SoundBlock</TypeId>
