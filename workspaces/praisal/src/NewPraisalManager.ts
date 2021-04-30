@@ -1,10 +1,10 @@
 import { VENDOR_MOD } from '@sepraisal/common/index.ts'
 import { readFileSync } from 'fs'
-import { join } from 'path'
+import { join, dirname, fromFileUrl } from 'path'
 
 import { PraisalManager } from './PraisalManager.ts'
 
-export const VENDOR_DIR = join(__dirname, '..', 'vendor')
+export const VENDOR_DIR = join(dirname(fromFileUrl(import.meta.url)), '..', 'vendor')
 
 export const NewPraisalManager = (): () => Promise<PraisalManager> => {
     const cubeBlocksSbcs = [
