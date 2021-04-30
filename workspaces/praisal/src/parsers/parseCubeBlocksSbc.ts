@@ -9,7 +9,7 @@ export type IParseCubeBlocksSbc = CubeDTO & {mod: VENDOR_MOD}
 
 export const parseCubeBlocksSbc = async (xml: string, mod: VENDOR_MOD): Promise<CubeDTO[]> =>
     new Promise((resolve: (value: CubeDTO[]) => void, reject: (reason: Error) => void) => {
-        parseString(xml, (parseError, bp: ICubeDefinition) => {
+        parseString(xml, (parseError: Error, bp: ICubeDefinition) => {
             if(parseError) reject(parseError)
             try {
                 resolve(bp.Definitions.CubeBlocks[0].Definition

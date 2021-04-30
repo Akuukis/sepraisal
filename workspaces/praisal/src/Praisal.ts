@@ -340,9 +340,9 @@ export class Praisal {
         const ingots = Object.create(null) as Record<string, number>
         for(const [key, ingot] of Object.entries(this.ingotAll)) ingots[key.split('/').pop()!] = ingot
 
-        const flagsRed = []
-        const flagsYellow = []
-        const flagsGreen = []
+        const flagsRed: IBlueprint.Flags<""> = []
+        const flagsYellow: IBlueprint.Flags<""> = []
+        const flagsGreen: IBlueprint.Flags<""> = []
 
         const blockSize = this.blummary.gridSize === 'Small' ? 0.5 : 2.5
         const integrityPlanes = this.integrityPlanes

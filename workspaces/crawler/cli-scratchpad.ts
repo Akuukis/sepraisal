@@ -1,8 +1,6 @@
-import { NewPraisalManager } from '@sepraisal/praisal/lib/NewPraisalManager'
+import { NewPraisalManager, VENDOR_DIR } from '@sepraisal/praisal/lib/NewPraisalManager'
 import { readFileSync } from 'fs'
 import { join } from 'path'
-
-const VENDOR_DIR = join(require.resolve('@sepraisal/praisal'), '..', '..', 'vendor')
 
 ;
 (async () => {

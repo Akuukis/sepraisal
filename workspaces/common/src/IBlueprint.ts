@@ -65,7 +65,7 @@ export namespace IBlueprint {
         title: string,
     }
 
-    type Flags<T extends string> = T[]
+    export type Flags<T extends string> = T[]
 
     export enum SteamFlagsRed {
         Broken = 'broken',
