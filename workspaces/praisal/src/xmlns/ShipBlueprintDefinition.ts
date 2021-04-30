@@ -35,5 +35,5 @@ export interface IBlueprintShipDefinitions extends IXml2js {
 }
 
 export interface IBlueprintShipDefinition {
-    readonly Definitions: IBlueprintShipDefinitions,
+    readonly Definitions: readonly [IBlueprintShipDefinitions],
 }

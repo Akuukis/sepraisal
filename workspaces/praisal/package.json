@@ -26,15 +26,14 @@
     },
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
+        "fast-xml-parser": "^3.19.0",
         "jszip": "^3.2.2",
         "mobx": "^5.15.4",
-        "object.fromentries": "^2.0.2",
-        "xml2js": "^0.4.23"
+        "object.fromentries": "^2.0.2"
     },
     "devDependencies": {
         "@types/jszip": "^3.1.7",
         "@types/object.fromentries": "^2.0.0",
-        "@types/xml2js": "^0.4.5",
         "@typescript-eslint/eslint-plugin": "^3.1.0",
         "@typescript-eslint/parser": "^3.1.0",
         "utility-types": "^3.10.0"

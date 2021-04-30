@@ -1,4 +1,5 @@
-import { parseString } from 'xml2js'
+import { parse } from 'fast-xml-parser'
+import { PARSE_CONFIG } from '../parsers/common'
 
 import { IBlueprintBlockGroup, IBlueprintCubeGrid } from '../xmlns/BlueprintDefinition'
 import { Block } from './Block'
@@ -12,15 +13,13 @@ export class Grid {
 
     public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Grid> {
         return new Promise((resolve: (value: Grid) => void, reject: (reason: Error) => void) => {
-            parseString(xml, (parseError: Error | undefined, bp: IBlueprintCubeGrid) => {
-                if(parseError) reject(parseError)
-                try {
-                    resolve(new Grid(bp, cubeStore))
-                } catch(transformError) {
-                    console.error(transformError, bp)
-                    reject(transformError as Error)
-                }
-            })
+            try {
+                const bp: IBlueprintCubeGrid = parse(xml, PARSE_CONFIG, true)
+                resolve(new Grid(bp, cubeStore))
+            } catch(transformError) {
+                console.error(transformError)
+                reject(transformError as Error)
+            }
         })
     }
 

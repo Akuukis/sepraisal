@@ -232,5 +232,5 @@ export interface ICubeDefinitions extends IXml2js {
 }
 
 export interface ICubeDefinition {
-    readonly Definitions: ICubeDefinitions,
+    readonly Definitions: readonly [ICubeDefinitions],
 }
