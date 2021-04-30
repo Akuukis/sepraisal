@@ -1,5 +1,5 @@
 import { VENDOR_MOD } from './constants.ts'
-
+import { Buffer } from 'buffer'
 
 export enum GridSize {
     Small = 'Small',

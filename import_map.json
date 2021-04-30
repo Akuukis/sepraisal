@@ -18,10 +18,12 @@
         "object.fromentries": "https://cdn.skypack.dev/object.fromentries@2.0.2",
         "pad": "https://cdn.skypack.dev/pad@3.2.0?dts",
         "pako": "https://cdn.skypack.dev/pako@v2.0.3?dts",
-        "path": "https://cdn.skypack.dev/path",
+        "path": "https://deno.land/std/path/mod.ts",
         "process": "https://deno.land/std/node/process.ts",
         "utility-types": "https://cdn.skypack.dev/utility-types@3.10.0?dts",
         "worker-farm": "https://cdn.skypack.dev/worker-farm@1.7.0?dts",
-        "xml2js": "https://cdn.skypack.dev/xml2js@0.4.23"
+        "xml2js": "https://cdn.skypack.dev/xml2js@0.4.19?dts",
+        "buffer": "https://deno.land/std/node/buffer.ts",
+        "dotenv": "https://deno.land/x/dotenv/mod.ts"
    }
 }
