@@ -110,6 +110,7 @@
         // "tslint.configFile":  <-- Make sure this is unset also in user settings for lint to use local configuration.
         "typescript.preferences.quoteStyle": "single",
         "typescript.tsdk": "<root>/node_modules/typescript/lib",
+        "typescript.validate.enable": false,
         "editor.detectIndentation": false,
         "typescriptHero.imports.insertSemicolons": false,
         "typescriptHero.imports.multiLineWrapThreshold": 120,
