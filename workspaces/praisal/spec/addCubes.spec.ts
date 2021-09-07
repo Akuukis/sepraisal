@@ -39,6 +39,7 @@ describe('PraisalManager.addCubes()', () => {
     })
     testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc'))
     testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc'))
+    testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_ArmorPanels.sbc'))
     testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor_2.sbc'))
     testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc'))
     testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Communications.sbc'))
@@ -69,4 +70,5 @@ describe('PraisalManager.addCubes()', () => {
     testCubeBlocksFile(VENDOR_MOD.SPARKSOFTHEFUTURE , join(VENDOR_DIR, VENDOR_MOD.SPARKSOFTHEFUTURE , 'CubeBlocks.sbc'))
     testCubeBlocksFile(VENDOR_MOD.SCRAPRACEPACK     , join(VENDOR_DIR, VENDOR_MOD.SCRAPRACEPACK     , 'CubeBlocks.sbc'))
     testCubeBlocksFile(VENDOR_MOD.WARFARE_1         , join(VENDOR_DIR, VENDOR_MOD.WARFARE_1         , 'CubeBlocks.sbc'))
+    testCubeBlocksFile(VENDOR_MOD.INDUSTRIAL        , join(VENDOR_DIR, VENDOR_MOD.INDUSTRIAL        , 'CubeBlocks.sbc'))
 })

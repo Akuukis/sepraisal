@@ -1216,6 +1216,8 @@
       </MountPoints>
       <AutorotateMode>OppositeDirections</AutorotateMode>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
       <DestroySound>PoofExplosionCat3</DestroySound>
       <PCU>10</PCU>
@@ -1257,6 +1259,8 @@
       <BlockPairName>ConveyorTubeSmall</BlockPairName>
       <EdgeType>Light</EdgeType>
       <BuildTimeSeconds>3</BuildTimeSeconds>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
       <DestroyEffect>BlockDestroyed_Small</DestroyEffect>
       <DestroySound>PoofExplosionCat1</DestroySound>
@@ -1306,6 +1310,8 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyed_Medium</DestroyEffect>
       <DestroySound>PoofExplosionCat2</DestroySound>
       <PCU>10</PCU>
@@ -1353,6 +1359,8 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyed_Medium</DestroyEffect>
       <DestroySound>PoofExplosionCat2</DestroySound>
       <PCU>10</PCU>
@@ -1401,6 +1409,8 @@
       <MirroringX>Y</MirroringX>
       <MirroringY>X</MirroringY>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
       <DestroySound>PoofExplosionCat3</DestroySound>
       <PCU>10</PCU>
@@ -1439,6 +1449,8 @@
       <MirroringY>Z</MirroringY>
       <MirroringZ>Y</MirroringZ>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyed_Small</DestroyEffect>
       <DestroySound>PoofExplosionCat1</DestroySound>
       <PCU>10</PCU>
@@ -1487,6 +1499,8 @@
       <MirroringX>Y</MirroringX>
       <MirroringY>X</MirroringY>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyed_Medium</DestroyEffect>
       <DestroySound>PoofExplosionCat2</DestroySound>
       <PCU>10</PCU>
@@ -1548,6 +1562,7 @@
       <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyed_Small</DestroyEffect>
       <DestroySound>PoofExplosionCat1</DestroySound>
+      <IsAirTight>true</IsAirTight>
       <PCU>25</PCU>      
     </Definition>
     <Definition xsi:type="MyObjectBuilder_ConveyorSorterDefinition">
@@ -1594,6 +1609,8 @@
         <Z>1</Z>
       </InventorySize>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>25</PCU>      
@@ -1634,6 +1651,8 @@
       <BuildTimeSeconds>12</BuildTimeSeconds>
       <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
       <DamagedSound>ParticleHeavyMech</DamagedSound>
+      <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+      <DestroySound>WepSmallWarheadExpl</DestroySound>
       <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
       <PowerInput>0.0001</PowerInput>
       <InventorySize>
@@ -1689,6 +1708,8 @@
         <Z>0.4</Z>
       </InventorySize>
       <EmissiveColorPreset>Default</EmissiveColorPreset>
+      <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+      <DamagedSound>ParticleHeavyMech</DamagedSound>
       <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
       <DestroySound>WepSmallWarheadExpl</DestroySound>
       <PCU>25</PCU>

@@ -298,6 +298,10 @@
       <CriticalComponent Subtype="SteelPlate" Index="0" />
       <MountPoints>
         <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+        <MountPoint Side="Left" StartX="0.2" StartY="0.8" EndX="0.8" EndY="1" />
+        <MountPoint Side="Right" StartX="0.2" StartY="0.8" EndX="0.8" EndY="1" />
+        <MountPoint Side="Front" StartX="0.2" StartY="0.8" EndX="0.8" EndY="1" />
+        <MountPoint Side="Back" StartX="0.2" StartY="0.8" EndX="0.8" EndY="1" />
       </MountPoints>
       <BuildProgressModels>
         <Model BuildPercentUpperBound="0.5" File="Models\Cubes\Small\PistonTopConstruction_1.mwm" />

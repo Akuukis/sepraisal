@@ -406,7 +406,7 @@
       <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
       <DamagedSound>ParticleElectrical</DamagedSound>
       <ResourceSinkGroup>Utility</ResourceSinkGroup>
-      <PowerInputIdle>0.186</PowerInputIdle>
+      <PowerInputIdle>0.0001</PowerInputIdle>
       <PowerInputTurning>0.001</PowerInputTurning>
       <PowerInputLasing>10</PowerInputLasing>
       <MinElevationDegrees>-180</MinElevationDegrees>

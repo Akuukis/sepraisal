@@ -201,8 +201,6 @@
         <Y>0</Y>
       </Position>
     </BlockPosition>
-    <!-- End Region Row 0-->
-    <!-- Region Row 1-->
     <BlockPosition>
       <Name>LargeBlockArmorInvCorner2Base</Name>
       <Position>
@@ -217,10 +215,33 @@
         <Y>0</Y>
       </Position>
     </BlockPosition>
+    <!-- End Region Row 0-->
+    <!-- Region Row 1-->
+      <BlockPosition>
+          <Name>ArmorPanelLight</Name>
+          <Position>
+              <X>0</X>
+              <Y>1</Y>
+          </Position>
+      </BlockPosition>
+      <BlockPosition>
+          <Name>ArmorPanelHeavy</Name>
+          <Position>
+              <X>1</X>
+              <Y>1</Y>
+          </Position>
+      </BlockPosition>
+      <BlockPosition>
+          <Name>BeamBlock</Name>
+          <Position>
+              <X>2</X>
+              <Y>1</Y>
+          </Position>
+      </BlockPosition>
     <!--End Region Row 1-->
     <!-- Region Row 2 -->
 	<BlockPosition>
-      <Name>InteriorWall</Name>
+      <Name>CylindricalColumn</Name>
       <Position>
         <X>0</X>
         <Y>2</Y>
@@ -452,28 +473,35 @@
     <BlockPosition>
       <Name>Gyroscope</Name>
       <Position>
-        <X>7</X>
+        <X>4</X>
         <Y>5</Y>
       </Position>
     </BlockPosition>
     <BlockPosition>
       <Name>Parachute Hatch</Name>
       <Position>
-        <X>6</X>
+        <X>3</X>
         <Y>5</Y>
       </Position>
     </BlockPosition>
     <BlockPosition>
       <Name>LargeAtmoThrustSciFi</Name>
       <Position>
-        <X>8</X>
+        <X>5</X>
         <Y>5</Y>
       </Position>
     </BlockPosition>
     <BlockPosition>
       <Name>LargeThrustSciFi</Name>
       <Position>
-        <X>9</X>
+        <X>6</X>
+        <Y>5</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>LargeHydrogenThrustIndustrial</Name>
+      <Position>
+        <X>7</X>
         <Y>5</Y>
       </Position>
     </BlockPosition>
@@ -927,6 +955,20 @@
       <Name>ConveyorSorterSmall</Name>
       <Position>
         <X>7</X>
+        <Y>14</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>ConveyorPipeJunction</Name>
+      <Position>
+        <X>8</X>
+        <Y>14</Y>
+      </Position>
+    </BlockPosition>
+    <BlockPosition>
+      <Name>ConveyorPipeSeamless</Name>
+      <Position>
+        <X>9</X>
         <Y>14</Y>
       </Position>
     </BlockPosition>

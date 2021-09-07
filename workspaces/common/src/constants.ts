@@ -13,6 +13,7 @@ export enum VENDOR_MOD {
     SPARKSOFTHEFUTURE = 'SparksOfTheFuturePack',
     SCRAPRACEPACK = 'ScrapRacePack',  // a.k.a. Wasteland
     WARFARE_1 = 'Warfare1',
+    INDUSTRIAL = 'IndustrialPack',
 }
 
 export enum COMMUNITY_MOD {

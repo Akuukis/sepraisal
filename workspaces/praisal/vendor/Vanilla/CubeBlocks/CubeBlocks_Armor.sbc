@@ -6281,11 +6281,11 @@
         <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
       </MountPoints>
       <PhysicsOption>Convex</PhysicsOption>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\HeavyCorner2BaseConstruction_1.mwm" />
-        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Armor\HeavyCorner2BaseConstruction_2.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Armor\HeavyCorner2BaseConstruction_3.mwm" />
-      </BuildProgressModels>
+        <BuildProgressModels>
+            <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Armor\Corner2BaseConstruction_1.mwm" />
+            <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Armor\Corner2BaseConstruction_2.mwm" />
+            <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Armor\Corner2BaseConstruction_3.mwm" />
+        </BuildProgressModels>
       <Skeleton>
         <BoneInfo>
           <BonePosition x="0" y="0" z="0" />
@@ -7937,11 +7937,11 @@
         <MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1.0" EndY="0.5" />
       </MountPoints>
       <PhysicsOption>Convex</PhysicsOption>
-      <BuildProgressModels>
-        <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\HeavyCorner2BaseConstruction_1.mwm" />
-        <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\Armor\HeavyCorner2BaseConstruction_2.mwm" />
-        <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Armor\HeavyCorner2BaseConstruction_3.mwm" />
-      </BuildProgressModels>
+        <BuildProgressModels>
+            <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\Armor\Corner2BaseConstruction_1.mwm" />
+            <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\Armor\Corner2BaseConstruction_2.mwm" />
+            <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Armor\Corner2BaseConstruction_3.mwm" />
+        </BuildProgressModels>
       <Skeleton>
         <BoneInfo>
           <BonePosition x="0" y="0" z="0" />

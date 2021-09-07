@@ -849,8 +849,8 @@
             <Mass>5</Mass>
             <Volume>8</Volume>
             <Model>Models\Weapons\WelderMk2.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Longer reach and faster welding</ExtraInventoryTooltipLine>
+            <PhysicalMaterial>Metal</PhysicalMaterial>           
+            <ExtraInventoryTooltipLineId>Item_Welder_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
@@ -874,7 +874,7 @@
             <Volume>8</Volume>
             <Model>Models\Weapons\WelderMk3.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Longer reach and faster welding</ExtraInventoryTooltipLine>
+            <ExtraInventoryTooltipLineId>Item_Welder_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
@@ -897,8 +897,8 @@
             <Mass>5</Mass>
             <Volume>8</Volume>
             <Model>Models\Weapons\WelderMk4.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Longest reach and fastest welding</ExtraInventoryTooltipLine>
+            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <ExtraInventoryTooltipLineId>Item_Welder4_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>1</MinimumOfferAmount>
             <MaximumOfferAmount>3</MaximumOfferAmount>
             <MinimumOrderAmount>5</MinimumOrderAmount>
@@ -944,8 +944,8 @@
             <Mass>3</Mass>
             <Volume>20</Volume>
             <Model>Models\Weapons\AngleGrinderMk2.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Longer reach and faster grinding</ExtraInventoryTooltipLine>
+            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <ExtraInventoryTooltipLineId>Item_Grinder_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
@@ -969,7 +969,7 @@
             <Volume>20</Volume>
             <Model>Models\Weapons\AngleGrinderMk3.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Longer reach and faster grinding</ExtraInventoryTooltipLine>
+            <ExtraInventoryTooltipLineId>Item_Grinder_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
@@ -992,8 +992,8 @@
             <Mass>3</Mass>
             <Volume>20</Volume>
             <Model>Models\Weapons\AngleGrinderMk4.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Longest reach and fastest grinding</ExtraInventoryTooltipLine>
+            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <ExtraInventoryTooltipLineId>Item_Grinder4_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>1</MinimumOfferAmount>
             <MaximumOfferAmount>3</MaximumOfferAmount>
             <MinimumOrderAmount>5</MinimumOrderAmount>
@@ -1039,8 +1039,8 @@
             <Mass>22</Mass>
             <Volume>25</Volume>
             <Model>Models\Weapons\HandDrillMk2.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Wider cutout, faster mining</ExtraInventoryTooltipLine>
+            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <ExtraInventoryTooltipLineId>Item_Drill_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
@@ -1064,7 +1064,7 @@
             <Volume>25</Volume>
             <Model>Models\Weapons\HandDrillMk3.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Wider cutout, faster mining</ExtraInventoryTooltipLine>
+            <ExtraInventoryTooltipLineId>Item_Drill_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
@@ -1087,8 +1087,8 @@
             <Mass>22</Mass>
             <Volume>25</Volume>
             <Model>Models\Weapons\HandDrillMk4.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLine>Widest cutout, fastest mining</ExtraInventoryTooltipLine>
+            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <ExtraInventoryTooltipLineId>Item_Drill4_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>1</MinimumOfferAmount>
             <MaximumOfferAmount>3</MaximumOfferAmount>
             <MinimumOrderAmount>5</MinimumOrderAmount>

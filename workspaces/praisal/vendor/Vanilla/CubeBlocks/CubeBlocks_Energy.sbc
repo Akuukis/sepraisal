@@ -46,6 +46,7 @@
             <AdaptibleInput>true</AdaptibleInput>
             <MaxStoredPower>3</MaxStoredPower>
             <InitialStoredPowerRatio>0.3</InitialStoredPowerRatio>
+            <RechargeMultiplier>0.8</RechargeMultiplier>
 
             <InventorySize>
                 <X>1</X>
@@ -105,6 +106,7 @@
             <RequiredPowerInput>4</RequiredPowerInput>
             <MaxStoredPower>1</MaxStoredPower>
             <InitialStoredPowerRatio>0.3</InitialStoredPowerRatio>
+            <RechargeMultiplier>0.8</RechargeMultiplier>
 
             <InventorySize>
                 <X>1</X>
@@ -165,6 +167,7 @@
             <RequiredPowerInput>0.2</RequiredPowerInput>
             <MaxStoredPower>0.05</MaxStoredPower>
             <InitialStoredPowerRatio>0.05</InitialStoredPowerRatio>
+            <RechargeMultiplier>0.8</RechargeMultiplier>
 
             <InventorySize>
                 <X>1</X>
