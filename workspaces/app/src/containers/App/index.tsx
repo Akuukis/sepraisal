@@ -4,7 +4,7 @@ import CubeBlocksDecorative1Link from '@sepraisal/praisal/vendor/DecorativePack/
 import CubeBlocksDecorative2Link from '@sepraisal/praisal/vendor/DecorativePack2/CubeBlocks.sbc'
 import CubeBlocksEconomyLink from '@sepraisal/praisal/vendor/Economy/CubeBlocks.sbc'
 import CubeBlocksFrostbiteLink from '@sepraisal/praisal/vendor/Frostbite/CubeBlocks.sbc'
-import CubeBlocksIndustrialPackLink from '@sepraisal/praisal/vendor/IndustrialPack/CubeBlocks/CubeBlocks.sbc'
+import CubeBlocksIndustrialPackLink from '@sepraisal/praisal/vendor/IndustrialPack/CubeBlocks.sbc'
 import CubeBlocksScrapRacePackLink from '@sepraisal/praisal/vendor/ScrapRacePack/CubeBlocks.sbc'
 import CubeBlocksSparksOfTheFutureLink from '@sepraisal/praisal/vendor/SparksOfTheFuturePack/CubeBlocks.sbc'
 import CubeBlocksWarfare1Link from '@sepraisal/praisal/vendor/Warfare1/CubeBlocks.sbc'
