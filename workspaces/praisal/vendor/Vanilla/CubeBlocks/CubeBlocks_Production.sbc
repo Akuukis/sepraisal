@@ -52,7 +52,7 @@
 
             <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
             <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
-            
+
             <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
             <OperationalPowerConsumption>0.56</OperationalPowerConsumption>
             <BlueprintClasses>
@@ -122,10 +122,10 @@
                 <Y>2</Y>
                 <Z>2</Z>
             </InventorySize>
-            
+
             <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
             <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
-            
+
             <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
             <OperationalPowerConsumption>0.33</OperationalPowerConsumption>
             <BlueprintClasses>
@@ -303,7 +303,7 @@
             <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
 
             <FuelPullAmountFromConveyorInMinutes>2.75</FuelPullAmountFromConveyorInMinutes>
-            
+
             <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
             <OperationalPowerConsumption>0.1</OperationalPowerConsumption>
             <ProducedGases>
@@ -347,7 +347,7 @@
                 <unsignedInt>1200</unsignedInt>
             </TieredUpdateTimes>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_AssemblerDefinition">
             <Id>
                 <TypeId>Assembler</TypeId>
@@ -482,6 +482,8 @@
             <DestroyEffect>Explosion_Missile</DestroyEffect>
             <DestroySound>WepSmallMissileExpl</DestroySound>
             <PCU>40</PCU>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
             <IsAirTight>true</IsAirTight>
             <TieredUpdateTimes>
                 <unsignedInt>60</unsignedInt>
@@ -609,8 +611,8 @@
                 <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="4" EndY="3" Default="true" />
                 <MountPoint Side="Top" StartX="0" StartY="0" EndX="4" EndY="3" />
             </MountPoints>
-            <MirroringZ>Y</MirroringZ>
-            <MirroringY>Z</MirroringY>
+            <MirroringZ>X</MirroringZ>
+            <MirroringX>Z</MirroringX>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\SurvivalKitConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\SurvivalKitConstruction_2.mwm" />
@@ -701,6 +703,7 @@
                 <MountPoint Side="Front" StartX="2" StartY="0.375" EndX="3" EndY="0.625" />
             </MountPoints>
             <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\SolarHydroponicsConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\SolarHydroponicsConstruction_2.mwm" />

@@ -15,12 +15,12 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\StoreBlock.mwm</Model>
             <Components>
-        <Component Subtype="SteelPlate" Count="20" />
-        <Component Subtype="Construction" Count="20" />
-        <Component Subtype="Motor" Count="6" />
-        <Component Subtype="Display" Count="4" />
-        <Component Subtype="Computer" Count="10" />
-        <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="SteelPlate" Count="20" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="6" />
+                <Component Subtype="Display" Count="4" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
@@ -47,8 +47,8 @@
                 <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
                 <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
             </MountPoints>
-            <MirroringY>Z</MirroringY>
-            <MirroringZ>Y</MirroringZ>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
             <ActionSound>BlockCollect</ActionSound>
@@ -99,13 +99,14 @@
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\large\SafeZoneBlockConstruction_2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\SafeZoneBlockConstruction_3.mwm" />
             </BuildProgressModels>
-            <ScreenAreas>                
+            <ScreenAreas>
                 <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="16" ScreenHeight="10" />
                 <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="256" ScreenWidth="5" ScreenHeight="2" />
             </ScreenAreas>
             <BlockPairName>SafeZone</BlockPairName>
             <EdgeType>Light</EdgeType>
-            <MirroringY>Z</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
             <BuildTimeSeconds>40</BuildTimeSeconds>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
@@ -142,16 +143,16 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\ContractsBlock.mwm</Model>
             <Components>
-        <Component Subtype="SteelPlate" Count="20" />
-        <Component Subtype="Construction" Count="20" />
-        <Component Subtype="Motor" Count="6" />
-        <Component Subtype="Display" Count="4" />
-        <Component Subtype="Computer" Count="10" />
-        <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="SteelPlate" Count="20" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="6" />
+                <Component Subtype="Display" Count="4" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <ScreenAreas>
                 <ScreenArea Name="ContractsScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="16" ScreenHeight="10" />
-                <ScreenArea Name="ContractsScreen_02" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="256" ScreenWidth="5" ScreenHeight="2" />                
+                <ScreenArea Name="ContractsScreen_02" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="256" ScreenWidth="5" ScreenHeight="2" />
             </ScreenAreas>
             <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
@@ -176,8 +177,8 @@
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
                 <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
             </MountPoints>
-            <MirroringY>Z</MirroringY>
-            <MirroringZ>Y</MirroringZ>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
             <ActionSound>BlockCollect</ActionSound>
@@ -201,12 +202,12 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\VendingMachine.mwm</Model>
             <Components>
-        <Component Subtype="InteriorPlate" Count="10" />
-        <Component Subtype="Construction" Count="10" />
-        <Component Subtype="Motor" Count="4" />
-        <Component Subtype="Display" Count="4" />
-        <Component Subtype="Computer" Count="10" />
-        <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="Motor" Count="4" />
+                <Component Subtype="Display" Count="4" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="InteriorPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
@@ -234,8 +235,8 @@
                 <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />-->
             </MountPoints>
             <IsAirTight>false</IsAirTight>
-            <MirroringY>Z</MirroringY>
-            <MirroringZ>Y</MirroringZ>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
             <ActionSound>BlockCollect</ActionSound>
@@ -260,12 +261,12 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\ATM.mwm</Model>
             <Components>
-        <Component Subtype="SteelPlate" Count="10" />
-        <Component Subtype="Construction" Count="20" />
-        <Component Subtype="Motor" Count="2" />
-        <Component Subtype="Computer" Count="10" />
-        <Component Subtype="Display" Count="4" />
-        <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="2" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="Display" Count="4" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
@@ -282,12 +283,12 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>15</BuildTimeSeconds>
             <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
-            <RequiredPowerInput>0.002</RequiredPowerInput>            
-            <MountPoints>                
+            <RequiredPowerInput>0.002</RequiredPowerInput>
+            <MountPoints>
                 <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
             </MountPoints>
-            <MirroringY>Z</MirroringY>
-            <MirroringZ>Y</MirroringZ>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
             <ActionSound>BlockCollect</ActionSound>
@@ -298,9 +299,9 @@
             <IsAirTight>false</IsAirTight>
             <DLC>Economy</DLC>
         </Definition>
-    
+
     </CubeBlocks>
-    <BlockPositions>        
+    <BlockPositions>
         <BlockPosition>
             <Name>SafeZone</Name>
             <Position>
@@ -328,13 +329,13 @@
                 <X>4</X>
                 <Y>19</Y>
             </Position>
-        </BlockPosition>                           
+        </BlockPosition>
         <BlockPosition>
             <Name>ContractBlock</Name>
             <Position>
                 <X>5</X>
                 <Y>19</Y>
             </Position>
-        </BlockPosition>        
+        </BlockPosition>
     </BlockPositions>
 </Definitions>

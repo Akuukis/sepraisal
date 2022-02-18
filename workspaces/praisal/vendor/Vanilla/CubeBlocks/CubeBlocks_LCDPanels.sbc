@@ -34,10 +34,10 @@
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small\TextPanel_Construction_1.mwm" />
             </BuildProgressModels>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />         
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
             </ScreenAreas>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -123,10 +123,10 @@
             <ScreenWidth>2</ScreenWidth>
             <ScreenHeight>1</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="2" />         
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="2" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="2" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="2" />
             </ScreenAreas>
             <MaxScreenRenderDistance>120</MaxScreenRenderDistance>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
@@ -168,10 +168,10 @@
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\small\LCDPanel_Construction_1.mwm" />
             </BuildProgressModels>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />         
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
             </ScreenAreas>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -236,10 +236,10 @@
             <ScreenWidth>7</ScreenWidth>
             <ScreenHeight>1</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
             </ScreenAreas>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
@@ -291,10 +291,10 @@
             <ScreenWidth>7</ScreenWidth>
             <ScreenHeight>1</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
             </ScreenAreas>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
@@ -346,10 +346,10 @@
             <ScreenWidth>7</ScreenWidth>
             <ScreenHeight>1</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
             </ScreenAreas>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
@@ -398,10 +398,10 @@
             <ScreenWidth>7</ScreenWidth>
             <ScreenHeight>1</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="128" ScreenWidth="7" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="128" ScreenWidth="1" ScreenHeight="7" />
             </ScreenAreas>
             <BuildTimeSeconds>6</BuildTimeSeconds>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
@@ -458,10 +458,10 @@
             <ScreenWidth>22</ScreenWidth>
             <ScreenHeight>7</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />         
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />
             </ScreenAreas>
             <RequiredPowerInput>0.00006</RequiredPowerInput>
             <TextureResolution>256</TextureResolution>
@@ -507,10 +507,10 @@
             <ScreenWidth>22</ScreenWidth>
             <ScreenHeight>7</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />         
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />
             </ScreenAreas>
             <RequiredPowerInput>0.00006</RequiredPowerInput>
             <TextureResolution>256</TextureResolution>
@@ -555,10 +555,10 @@
             <ScreenWidth>25</ScreenWidth>
             <ScreenHeight>10</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="256" ScreenWidth="25" ScreenHeight="10" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="256" ScreenWidth="10" ScreenHeight="25" />         
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="25" ScreenHeight="10" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="10" ScreenHeight="25" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="256" ScreenWidth="25" ScreenHeight="10" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="256" ScreenWidth="10" ScreenHeight="25" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="25" ScreenHeight="10" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="10" ScreenHeight="25" />
             </ScreenAreas>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
@@ -605,10 +605,10 @@
             <ScreenWidth>25</ScreenWidth>
             <ScreenHeight>10</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="256" ScreenWidth="25" ScreenHeight="10" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="256" ScreenWidth="10" ScreenHeight="25" />         
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="25" ScreenHeight="10" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="10" ScreenHeight="25" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="256" ScreenWidth="25" ScreenHeight="10" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="256" ScreenWidth="10" ScreenHeight="25" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="25" ScreenHeight="10" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="10" ScreenHeight="25" />
             </ScreenAreas>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
@@ -664,10 +664,10 @@
             <ScreenWidth>5</ScreenWidth>
             <ScreenHeight>3</ScreenHeight>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="3" ScreenHeight="5" />         
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="3" ScreenHeight="5" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="3" ScreenHeight="5" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="3" ScreenHeight="5" />
             </ScreenAreas>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.00006</RequiredPowerInput>
@@ -723,10 +723,10 @@
             <RequiredPowerInput>0.0001</RequiredPowerInput>
             <TextureResolution>512</TextureResolution>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />              
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
             </ScreenAreas>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
@@ -783,10 +783,10 @@
             <RequiredPowerInput>0.0002</RequiredPowerInput>
             <TextureResolution>512</TextureResolution>
             <ScreenAreas>
-               <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="2" />              
-               <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />
-               <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="2" />
+                <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea90" DisplayName="ScreenArea90" TextureResolution="512" ScreenWidth="1" ScreenHeight="2" />
+                <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />
+                <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="512" ScreenWidth="1" ScreenHeight="2" />
             </ScreenAreas>
             <ScreenWidth>2</ScreenWidth>
             <ScreenHeight>1</ScreenHeight>

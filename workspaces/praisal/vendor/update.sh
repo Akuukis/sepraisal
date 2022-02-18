@@ -29,6 +29,7 @@ find "$DATA_DIR/CubeBlocks" -name *.sbc\
     | grep -v 'ScrapRacePack'\
     | grep -v 'Warfare1'\
     | grep -v 'IndustrialPack'\
+    | grep -v 'Warfare2'\
     | xargs cp -t "$FOLDER/CubeBlocks"
 
 # Decorative Pack 1
@@ -64,6 +65,10 @@ cp "$DATA_DIR/CubeBlocks/CubeBlocks_$FOLDER.sbc" "$FOLDER/CubeBlocks.sbc"
 
 # Industrial Pack
 FOLDER=IndustrialPack
+cp "$DATA_DIR/CubeBlocks/CubeBlocks_$FOLDER.sbc" "$FOLDER/CubeBlocks.sbc"
+
+# Warfare 2
+FOLDER=Warfare2
 cp "$DATA_DIR/CubeBlocks/CubeBlocks_$FOLDER.sbc" "$FOLDER/CubeBlocks.sbc"
 
 for f in $(find . -name *.sbc)

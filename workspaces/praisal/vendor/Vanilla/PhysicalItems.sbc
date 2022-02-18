@@ -517,7 +517,7 @@
             <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>200</MaximumAcquisitionAmount>
         </PhysicalItem>
-      
+
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
             <Id>
                 <TypeId>PhysicalGunObject</TypeId>
@@ -593,7 +593,7 @@
             <MaximumOrderAmount>100</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
         </PhysicalItem>
-        
+
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
             <Id>
                 <TypeId>PhysicalGunObject</TypeId>
@@ -749,7 +749,7 @@
             <MaximumOrderAmount>100</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
         </PhysicalItem>
-        
+
         <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
             <Id>
                 <TypeId>OxygenContainerObject</TypeId>
@@ -849,7 +849,7 @@
             <Mass>5</Mass>
             <Volume>8</Volume>
             <Model>Models\Weapons\WelderMk2.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>           
+            <PhysicalMaterial>Metal</PhysicalMaterial>
             <ExtraInventoryTooltipLineId>Item_Welder_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
@@ -897,7 +897,7 @@
             <Mass>5</Mass>
             <Volume>8</Volume>
             <Model>Models\Weapons\WelderMk4.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <PhysicalMaterial>Metal</PhysicalMaterial>
             <ExtraInventoryTooltipLineId>Item_Welder4_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>1</MinimumOfferAmount>
             <MaximumOfferAmount>3</MaximumOfferAmount>
@@ -944,7 +944,7 @@
             <Mass>3</Mass>
             <Volume>20</Volume>
             <Model>Models\Weapons\AngleGrinderMk2.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <PhysicalMaterial>Metal</PhysicalMaterial>
             <ExtraInventoryTooltipLineId>Item_Grinder_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
@@ -992,7 +992,7 @@
             <Mass>3</Mass>
             <Volume>20</Volume>
             <Model>Models\Weapons\AngleGrinderMk4.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <PhysicalMaterial>Metal</PhysicalMaterial>
             <ExtraInventoryTooltipLineId>Item_Grinder4_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>1</MinimumOfferAmount>
             <MaximumOfferAmount>3</MaximumOfferAmount>
@@ -1039,7 +1039,7 @@
             <Mass>22</Mass>
             <Volume>25</Volume>
             <Model>Models\Weapons\HandDrillMk2.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <PhysicalMaterial>Metal</PhysicalMaterial>
             <ExtraInventoryTooltipLineId>Item_Drill_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
@@ -1087,7 +1087,7 @@
             <Mass>22</Mass>
             <Volume>25</Volume>
             <Model>Models\Weapons\HandDrillMk4.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>            
+            <PhysicalMaterial>Metal</PhysicalMaterial>
             <ExtraInventoryTooltipLineId>Item_Drill4_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>1</MinimumOfferAmount>
             <MaximumOfferAmount>3</MaximumOfferAmount>
@@ -1476,7 +1476,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
-		<PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+        <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
             <Id>
                 <TypeId>ConsumableItem</TypeId>
                 <SubtypeId>ClangCola</SubtypeId>
@@ -1521,7 +1521,7 @@
             <Stats>
                 <Stat Name="Health" Value ="0.01" Time="3"/>
             </Stats>
-            
+
             <MinimalPricePerUnit>100</MinimalPricePerUnit>
             <MinimumOfferAmount>1000</MinimumOfferAmount>
             <MaximumOfferAmount>10000</MaximumOfferAmount>

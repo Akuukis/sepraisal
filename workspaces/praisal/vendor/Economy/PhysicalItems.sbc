@@ -64,8 +64,8 @@
             </Stats>
 
             <MinimalPricePerUnit>750</MinimalPricePerUnit>
-            <MinimumOfferAmount>1000</MinimumOfferAmount>
-            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
         </PhysicalItem>
         <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
@@ -88,10 +88,10 @@
             <Stats>
                 <Stat Name="BatteryCharge" Value ="0.05" Time="5"/>
             </Stats>
-            
+
             <MinimalPricePerUnit>1000</MinimalPricePerUnit>
-            <MinimumOfferAmount>1000</MinimumOfferAmount>
-            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
         </PhysicalItem>
         <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">

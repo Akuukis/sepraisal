@@ -1764,7 +1764,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add IndustrialPack "CubeBlocks.sbc" 1`] = `40`;
+exports[`PraisalManager.addCubes() should add IndustrialPack "CubeBlocks.sbc" 1`] = `41`;
 
 exports[`PraisalManager.addCubes() should add IndustrialPack "CubeBlocks.sbc" 2`] = `
 Array [
@@ -1772,6 +1772,7 @@ Array [
   "LandingGear/SmallBlockMagneticPlate",
   "CargoContainer/LargeBlockLargeIndustrialContainer",
   "ButtonPanel/VerticalButtonPanelLarge",
+  "ButtonPanel/VerticalButtonPanelSmall",
   "ConveyorConnector/LargeBlockConveyorPipeSeamless",
   "ConveyorConnector/LargeBlockConveyorPipeCorner",
   "Conveyor/LargeBlockConveyorPipeJunction",
@@ -1863,6 +1864,32 @@ Object {
   "time": 8,
   "type": "ButtonPanel",
   "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add IndustrialPack "CubeBlocks.sbc": ButtonPanel/VerticalButtonPanelSmall 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_VerticalButtonPanel",
+  "gridSize": "Small",
+  "integrity": 380,
+  "mass": 96,
+  "mod": "IndustrialPack",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 3,
+    "Z": 1,
+  },
+  "subtype": "VerticalButtonPanelSmall",
+  "time": 8,
+  "type": "ButtonPanel",
+  "volume": 375,
 }
 `;
 
@@ -3585,14 +3612,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel3x3",
   "gridSize": "Large",
-  "integrity": 2310,
-  "mass": 590,
+  "integrity": 9700,
+  "mass": 2300,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 25,
-    "Component/LargeTube": 6,
-    "Component/SteelPlate": 12,
+    "Component/Construction": 50,
+    "Component/LargeTube": 20,
+    "Component/SteelPlate": 70,
   },
   "size": Object {
     "X": 3,
@@ -3611,14 +3638,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel1x1",
   "gridSize": "Large",
-  "integrity": 1640,
-  "mass": 420,
+  "integrity": 4500,
+  "mass": 1090,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 20,
-    "Component/LargeTube": 4,
-    "Component/SteelPlate": 8,
+    "Component/Construction": 30,
+    "Component/LargeTube": 10,
+    "Component/SteelPlate": 30,
   },
   "size": Object {
     "X": 1,
@@ -3637,14 +3664,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel1x1mirrored",
   "gridSize": "Large",
-  "integrity": 1640,
-  "mass": 420,
+  "integrity": 4500,
+  "mass": 1090,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 20,
-    "Component/LargeTube": 4,
-    "Component/SteelPlate": 8,
+    "Component/Construction": 30,
+    "Component/LargeTube": 10,
+    "Component/SteelPlate": 30,
   },
   "size": Object {
     "X": 1,
@@ -3663,14 +3690,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel5x5",
   "gridSize": "Large",
-  "integrity": 2980,
-  "mass": 760,
+  "integrity": 16900,
+  "mass": 3910,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 30,
-    "Component/LargeTube": 8,
-    "Component/SteelPlate": 16,
+    "Component/Construction": 70,
+    "Component/LargeTube": 30,
+    "Component/SteelPlate": 130,
   },
   "size": Object {
     "X": 5,
@@ -3689,14 +3716,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel5x5mirrored",
   "gridSize": "Large",
-  "integrity": 2980,
-  "mass": 760,
+  "integrity": 16900,
+  "mass": 3910,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 30,
-    "Component/LargeTube": 8,
-    "Component/SteelPlate": 16,
+    "Component/Construction": 70,
+    "Component/LargeTube": 30,
+    "Component/SteelPlate": 130,
   },
   "size": Object {
     "X": 5,
@@ -3715,14 +3742,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel3x3mirrored",
   "gridSize": "Large",
-  "integrity": 2310,
-  "mass": 590,
+  "integrity": 9700,
+  "mass": 2300,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 25,
-    "Component/LargeTube": 6,
-    "Component/SteelPlate": 12,
+    "Component/Construction": 50,
+    "Component/LargeTube": 20,
+    "Component/SteelPlate": 70,
   },
   "size": Object {
     "X": 3,
@@ -3741,14 +3768,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel3x3",
   "gridSize": "Small",
-  "integrity": 860,
-  "mass": 205,
+  "integrity": 1430,
+  "mass": 355,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 10,
-    "Component/LargeTube": 1,
-    "Component/SteelPlate": 5,
+    "Component/Construction": 15,
+    "Component/LargeTube": 3,
+    "Component/SteelPlate": 8,
   },
   "size": Object {
     "X": 3,
@@ -3819,14 +3846,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel5x5",
   "gridSize": "Small",
-  "integrity": 1270,
-  "mass": 310,
+  "integrity": 2550,
+  "mass": 625,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 15,
-    "Component/LargeTube": 2,
-    "Component/SteelPlate": 7,
+    "Component/Construction": 25,
+    "Component/LargeTube": 5,
+    "Component/SteelPlate": 15,
   },
   "size": Object {
     "X": 5,
@@ -3845,14 +3872,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel5x5mirrored",
   "gridSize": "Small",
-  "integrity": 1270,
-  "mass": 310,
+  "integrity": 2550,
+  "mass": 625,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 15,
-    "Component/LargeTube": 2,
-    "Component/SteelPlate": 7,
+    "Component/Construction": 25,
+    "Component/LargeTube": 5,
+    "Component/SteelPlate": 15,
   },
   "size": Object {
     "X": 5,
@@ -3871,14 +3898,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel3x3mirrored",
   "gridSize": "Small",
-  "integrity": 860,
-  "mass": 205,
+  "integrity": 1430,
+  "mass": 355,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 10,
-    "Component/LargeTube": 1,
-    "Component/SteelPlate": 5,
+    "Component/Construction": 15,
+    "Component/LargeTube": 3,
+    "Component/SteelPlate": 8,
   },
   "size": Object {
     "X": 3,
@@ -3923,14 +3950,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel3x3",
   "gridSize": "Small",
-  "integrity": 860,
-  "mass": 205,
+  "integrity": 1430,
+  "mass": 355,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 10,
-    "Component/LargeTube": 1,
-    "Component/SteelPlate": 5,
+    "Component/Construction": 15,
+    "Component/LargeTube": 3,
+    "Component/SteelPlate": 8,
   },
   "size": Object {
     "X": 3,
@@ -3949,14 +3976,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel5x5",
   "gridSize": "Small",
-  "integrity": 1270,
-  "mass": 310,
+  "integrity": 2550,
+  "mass": 625,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 15,
-    "Component/LargeTube": 2,
-    "Component/SteelPlate": 7,
+    "Component/Construction": 25,
+    "Component/LargeTube": 5,
+    "Component/SteelPlate": 15,
   },
   "size": Object {
     "X": 5,
@@ -3975,14 +4002,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel1x1",
   "gridSize": "Large",
-  "integrity": 1640,
-  "mass": 420,
+  "integrity": 4500,
+  "mass": 1090,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 20,
-    "Component/LargeTube": 4,
-    "Component/SteelPlate": 8,
+    "Component/Construction": 30,
+    "Component/LargeTube": 10,
+    "Component/SteelPlate": 30,
   },
   "size": Object {
     "X": 1,
@@ -4001,14 +4028,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel3x3",
   "gridSize": "Large",
-  "integrity": 2310,
-  "mass": 590,
+  "integrity": 9700,
+  "mass": 2300,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 25,
-    "Component/LargeTube": 6,
-    "Component/SteelPlate": 12,
+    "Component/Construction": 50,
+    "Component/LargeTube": 20,
+    "Component/SteelPlate": 70,
   },
   "size": Object {
     "X": 3,
@@ -4027,14 +4054,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_OffroadWheel5x5",
   "gridSize": "Large",
-  "integrity": 2980,
-  "mass": 760,
+  "integrity": 16900,
+  "mass": 3910,
   "mod": "ScrapRacePack",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 30,
-    "Component/LargeTube": 8,
-    "Component/SteelPlate": 16,
+    "Component/Construction": 70,
+    "Component/LargeTube": 30,
+    "Component/SteelPlate": 130,
   },
   "size": Object {
     "X": 5,
@@ -5167,12 +5194,12 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_LightArmorCorner2Tip",
   "gridSize": "Large",
-  "integrity": 400,
-  "mass": 80,
+  "integrity": 300,
+  "mass": 60,
   "mod": "Vanilla",
   "pcu": 1,
   "prerequisites": Object {
-    "Component/SteelPlate": 4,
+    "Component/SteelPlate": 3,
   },
   "size": Object {
     "X": 1,
@@ -5383,12 +5410,12 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_LightArmorSlope2Tip",
   "gridSize": "Large",
-  "integrity": 700,
-  "mass": 140,
+  "integrity": 600,
+  "mass": 120,
   "mod": "Vanilla",
   "pcu": 1,
   "prerequisites": Object {
-    "Component/SteelPlate": 7,
+    "Component/SteelPlate": 6,
   },
   "size": Object {
     "X": 1,
@@ -5431,12 +5458,12 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HalfSlopeLightArmorBlock",
   "gridSize": "Large",
-  "integrity": 700,
-  "mass": 140,
+  "integrity": 400,
+  "mass": 80,
   "mod": "Vanilla",
   "pcu": 1,
   "prerequisites": Object {
-    "Component/SteelPlate": 7,
+    "Component/SteelPlate": 4,
   },
   "size": Object {
     "X": 1,
@@ -5730,12 +5757,12 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HeavyArmorSlope2Base",
   "gridSize": "Large",
-  "integrity": 12550,
-  "mass": 2510,
+  "integrity": 12400,
+  "mass": 2480,
   "mod": "Vanilla",
   "pcu": 1,
   "prerequisites": Object {
-    "Component/MetalGrid": 45,
+    "Component/MetalGrid": 40,
     "Component/SteelPlate": 112,
   },
   "size": Object {
@@ -5755,13 +5782,13 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HeavyArmorSlope2Tip",
   "gridSize": "Large",
-  "integrity": 3680,
-  "mass": 736,
+  "integrity": 4360,
+  "mass": 872,
   "mod": "Vanilla",
   "pcu": 1,
   "prerequisites": Object {
-    "Component/MetalGrid": 6,
-    "Component/SteelPlate": 35,
+    "Component/MetalGrid": 12,
+    "Component/SteelPlate": 40,
   },
   "size": Object {
     "X": 1,
@@ -5805,13 +5832,13 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HalfSlopeHeavyArmorBlock",
   "gridSize": "Large",
-  "integrity": 4950,
-  "mass": 990,
+  "integrity": 2080,
+  "mass": 416,
   "mod": "Vanilla",
   "pcu": 1,
   "prerequisites": Object {
-    "Component/MetalGrid": 15,
-    "Component/SteelPlate": 45,
+    "Component/MetalGrid": 6,
+    "Component/SteelPlate": 19,
   },
   "size": Object {
     "X": 1,
@@ -6489,12 +6516,12 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HeavyArmorSlope2Base",
   "gridSize": "Small",
-  "integrity": 430,
-  "mass": 86,
+  "integrity": 460,
+  "mass": 92,
   "mod": "Vanilla",
   "pcu": 1,
   "prerequisites": Object {
-    "Component/MetalGrid": 1,
+    "Component/MetalGrid": 2,
     "Component/SteelPlate": 4,
   },
   "size": Object {
@@ -6662,12 +6689,12 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_LightArmorHalfSlopeCorner",
   "gridSize": "Large",
-  "integrity": 300,
-  "mass": 60,
+  "integrity": 200,
+  "mass": 40,
   "mod": "Vanilla",
   "pcu": 0,
   "prerequisites": Object {
-    "Component/SteelPlate": 3,
+    "Component/SteelPlate": 2,
   },
   "size": Object {
     "X": 1,
@@ -6904,13 +6931,13 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_HeavyArmorHalfCorner",
   "gridSize": "Large",
-  "integrity": 3860,
-  "mass": 772,
+  "integrity": 4360,
+  "mass": 872,
   "mod": "Vanilla",
   "pcu": 0,
   "prerequisites": Object {
     "Component/MetalGrid": 12,
-    "Component/SteelPlate": 35,
+    "Component/SteelPlate": 40,
   },
   "size": Object {
     "X": 1,
@@ -9302,7 +9329,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 1`] = `13`;
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 1`] = `15`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc" 2`] = `
 Array [
@@ -9319,6 +9346,8 @@ Array [
   "TimerBlock/TimerBlockLarge",
   "TimerBlock/TimerBlockSmall",
   "MyProgrammableBlock/LargeProgrammableBlock",
+  "TurretControlBlock/LargeTurretControlBlock",
+  "TurretControlBlock/SmallTurretControlBlock",
 ]
 `;
 
@@ -9675,6 +9704,66 @@ Object {
   "time": 4,
   "type": "TimerBlock",
   "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc": TurretControlBlock/LargeTurretControlBlock 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_TurretControlBlock",
+  "gridSize": "Large",
+  "integrity": 3490,
+  "mass": 948,
+  "mod": "Vanilla",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 30,
+    "Component/Detector": 20,
+    "Component/Display": 6,
+    "Component/InteriorPlate": 20,
+    "Component/Motor": 4,
+    "Component/SteelPlate": 20,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeTurretControlBlock",
+  "time": 24,
+  "type": "TurretControlBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Automation.sbc": TurretControlBlock/SmallTurretControlBlock 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_TurretControlBlock",
+  "gridSize": "Small",
+  "integrity": 871,
+  "mass": 250,
+  "mod": "Vanilla",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 10,
+    "Component/Construction": 10,
+    "Component/Detector": 4,
+    "Component/Display": 1,
+    "Component/InteriorPlate": 4,
+    "Component/Motor": 2,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 2,
+  },
+  "subtype": "SmallTurretControlBlock",
+  "time": 10,
+  "type": "TurretControlBlock",
+  "volume": 250,
 }
 `;
 
@@ -11243,7 +11332,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc" 1`] = `17`;
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc" 1`] = `19`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc" 2`] = `
 Array [
@@ -11262,6 +11351,8 @@ Array [
   "CubeBlock/LargeInteriorPillar",
   "Cockpit/PassengerSeatLarge",
   "Cockpit/PassengerSeatSmall",
+  "Cockpit/PassengerSeatSmallNew",
+  "Cockpit/PassengerSeatSmallOffset",
   "Ladder2/",
   "Ladder2/LadderSmall",
 ]
@@ -11314,6 +11405,56 @@ Object {
   "time": 15,
   "type": "Cockpit",
   "volume": 3375,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc": Cockpit/PassengerSeatSmallNew 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PassengerSeat",
+  "gridSize": "Small",
+  "integrity": 900,
+  "mass": 220,
+  "mod": "Vanilla",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 20,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 2,
+  },
+  "subtype": "PassengerSeatSmallNew",
+  "time": 15,
+  "type": "Cockpit",
+  "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc": Cockpit/PassengerSeatSmallOffset 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PassengerSeatOffset",
+  "gridSize": "Small",
+  "integrity": 900,
+  "mass": 220,
+  "mod": "Vanilla",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 20,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 2,
+  },
+  "subtype": "PassengerSeatSmallOffset",
+  "time": 15,
+  "type": "Cockpit",
+  "volume": 1500,
 }
 `;
 
@@ -12666,15 +12807,15 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Conveyor",
   "gridSize": "Small",
-  "integrity": 2180,
-  "mass": 583,
+  "integrity": 1130,
+  "mass": 313,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 45,
-    "Component/InteriorPlate": 25,
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 15,
     "Component/Motor": 2,
-    "Component/SmallTube": 25,
+    "Component/SmallTube": 15,
   },
   "size": Object {
     "X": 3,
@@ -17371,7 +17512,7 @@ Object {
 }
 `;
 
-exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc" 1`] = `13`;
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc" 1`] = `22`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc" 2`] = `
 Array [
@@ -17388,6 +17529,15 @@ Array [
   "SmallMissileLauncher/LargeMissileLauncher",
   "SmallMissileLauncherReload/SmallRocketLauncherReload",
   "SmallGatlingGun/",
+  "SmallGatlingGun/SmallBlockAutocannon",
+  "SmallMissileLauncherReload/SmallBlockMediumCalibreGun",
+  "SmallMissileLauncher/LargeBlockLargeCalibreGun",
+  "SmallMissileLauncherReload/LargeRailgun",
+  "SmallMissileLauncherReload/SmallRailgun",
+  "LargeMissileTurret/LargeCalibreTurret",
+  "LargeMissileTurret/LargeBlockMediumCalibreTurret",
+  "LargeMissileTurret/SmallBlockMediumCalibreTurret",
+  "LargeGatlingTurret/AutoCannonTurret",
 ]
 `;
 
@@ -17481,17 +17631,17 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_GatlingTurret",
   "gridSize": "Large",
-  "integrity": 3770,
-  "mass": 948,
+  "integrity": 6070,
+  "mass": 1428,
   "mod": "Vanilla",
   "pcu": 225,
   "prerequisites": Object {
     "Component/Computer": 10,
-    "Component/Construction": 30,
+    "Component/Construction": 40,
     "Component/MetalGrid": 15,
     "Component/Motor": 8,
     "Component/SmallTube": 6,
-    "Component/SteelPlate": 20,
+    "Component/SteelPlate": 40,
   },
   "size": Object {
     "X": 3,
@@ -17505,13 +17655,42 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": LargeGatlingTurret/AutoCannonTurret 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AutoCannonTurret",
+  "gridSize": "Small",
+  "integrity": 3610,
+  "mass": 870,
+  "mod": "Vanilla",
+  "pcu": 225,
+  "prerequisites": Object {
+    "Component/Computer": 10,
+    "Component/Construction": 40,
+    "Component/MetalGrid": 6,
+    "Component/Motor": 4,
+    "Component/SmallTube": 4,
+    "Component/SteelPlate": 20,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 4,
+    "Z": 5,
+  },
+  "subtype": "AutoCannonTurret",
+  "time": 26,
+  "type": "LargeGatlingTurret",
+  "volume": 12500,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": LargeGatlingTurret/SmallGatlingTurret 1`] = `
 Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_GatlingTurret",
   "gridSize": "Small",
-  "integrity": 2310,
-  "mass": 592,
+  "integrity": 2810,
+  "mass": 692,
   "mod": "Vanilla",
   "pcu": 225,
   "prerequisites": Object {
@@ -17520,7 +17699,7 @@ Object {
     "Component/MetalGrid": 5,
     "Component/Motor": 4,
     "Component/SmallTube": 6,
-    "Component/SteelPlate": 10,
+    "Component/SteelPlate": 15,
   },
   "size": Object {
     "X": 5,
@@ -17539,17 +17718,17 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_MissileTurret",
   "gridSize": "Large",
-  "integrity": 4362,
-  "mass": 1286.4,
+  "integrity": 6960,
+  "mass": 1826,
   "mod": "Vanilla",
   "pcu": 275,
   "prerequisites": Object {
-    "Component/Computer": 12,
-    "Component/Construction": 40,
+    "Component/Computer": 10,
+    "Component/Construction": 50,
     "Component/LargeTube": 6,
-    "Component/MetalGrid": 5,
+    "Component/MetalGrid": 15,
     "Component/Motor": 16,
-    "Component/SteelPlate": 20,
+    "Component/SteelPlate": 40,
   },
   "size": Object {
     "X": 3,
@@ -17563,22 +17742,109 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": LargeMissileTurret/LargeBlockMediumCalibreTurret 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_MediumCalibreTurret",
+  "gridSize": "Large",
+  "integrity": 41920,
+  "mass": 9654,
+  "mod": "Vanilla",
+  "pcu": 275,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 280,
+    "Component/LargeTube": 30,
+    "Component/MetalGrid": 30,
+    "Component/Motor": 20,
+    "Component/SteelPlate": 300,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 3,
+  },
+  "subtype": "LargeBlockMediumCalibreTurret",
+  "time": 80,
+  "type": "LargeMissileTurret",
+  "volume": 281250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": LargeMissileTurret/LargeCalibreTurret 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeCalibreTurret",
+  "gridSize": "Large",
+  "integrity": 62120,
+  "mass": 14224,
+  "mod": "Vanilla",
+  "pcu": 275,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 400,
+    "Component/LargeTube": 40,
+    "Component/MetalGrid": 50,
+    "Component/Motor": 30,
+    "Component/SteelPlate": 450,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "LargeCalibreTurret",
+  "time": 100,
+  "type": "LargeMissileTurret",
+  "volume": 421875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": LargeMissileTurret/SmallBlockMediumCalibreTurret 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_MediumCalibreTurret",
+  "gridSize": "Small",
+  "integrity": 9080,
+  "mass": 2254,
+  "mod": "Vanilla",
+  "pcu": 275,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 100,
+    "Component/LargeTube": 6,
+    "Component/MetalGrid": 10,
+    "Component/Motor": 10,
+    "Component/SteelPlate": 50,
+  },
+  "size": Object {
+    "X": 7,
+    "Y": 5,
+    "Z": 7,
+  },
+  "subtype": "SmallBlockMediumCalibreTurret",
+  "time": 40,
+  "type": "LargeMissileTurret",
+  "volume": 30625,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": LargeMissileTurret/SmallMissileTurret 1`] = `
 Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_MissileTurret",
   "gridSize": "Small",
-  "integrity": 2712,
-  "mass": 776.4,
+  "integrity": 3300,
+  "mass": 894,
   "mod": "Vanilla",
   "pcu": 100,
   "prerequisites": Object {
-    "Component/Computer": 12,
+    "Component/Computer": 10,
     "Component/Construction": 40,
     "Component/LargeTube": 2,
-    "Component/MetalGrid": 2,
+    "Component/MetalGrid": 5,
     "Component/Motor": 8,
-    "Component/SteelPlate": 10,
+    "Component/SteelPlate": 15,
   },
   "size": Object {
     "X": 5,
@@ -17621,6 +17887,35 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": SmallGatlingGun/SmallBlockAutocannon 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Autocannon",
+  "gridSize": "Small",
+  "integrity": 791,
+  "mass": 180.2,
+  "mod": "Vanilla",
+  "pcu": 80,
+  "prerequisites": Object {
+    "Component/Computer": 1,
+    "Component/Construction": 2,
+    "Component/MetalGrid": 2,
+    "Component/Motor": 1,
+    "Component/SmallTube": 2,
+    "Component/SteelPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 5,
+  },
+  "subtype": "SmallBlockAutocannon",
+  "time": 14,
+  "type": "SmallGatlingGun",
+  "volume": 625,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": SmallMissileLauncher/ 1`] = `
 Object {
   "data": Any<Object>,
@@ -17650,6 +17945,34 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": SmallMissileLauncher/LargeBlockLargeCalibreGun 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyCalibreGun",
+  "gridSize": "Large",
+  "integrity": 27405,
+  "mass": 5781,
+  "mod": "Vanilla",
+  "pcu": 80,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 20,
+    "Component/LargeTube": 20,
+    "Component/MetalGrid": 20,
+    "Component/SteelPlate": 250,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 4,
+  },
+  "subtype": "LargeBlockLargeCalibreGun",
+  "time": 60,
+  "type": "SmallMissileLauncher",
+  "volume": 62500,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": SmallMissileLauncher/LargeMissileLauncher 1`] = `
 Object {
   "data": Any<Object>,
@@ -17676,6 +17999,92 @@ Object {
   "time": 30,
   "type": "SmallMissileLauncher",
   "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": SmallMissileLauncherReload/LargeRailgun 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Railgun",
+  "gridSize": "Large",
+  "integrity": 48950,
+  "mass": 14470,
+  "mod": "Vanilla",
+  "pcu": 80,
+  "prerequisites": Object {
+    "Component/Computer": 100,
+    "Component/Construction": 150,
+    "Component/LargeTube": 60,
+    "Component/PowerCell": 100,
+    "Component/SteelPlate": 350,
+    "Component/Superconductor": 150,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 8,
+  },
+  "subtype": "LargeRailgun",
+  "time": 100,
+  "type": "SmallMissileLauncherReload",
+  "volume": 250000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": SmallMissileLauncherReload/SmallBlockMediumCalibreGun 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_MediumCalibreGun",
+  "gridSize": "Small",
+  "integrity": 3551,
+  "mass": 860.2,
+  "mod": "Vanilla",
+  "pcu": 80,
+  "prerequisites": Object {
+    "Component/Computer": 1,
+    "Component/Construction": 10,
+    "Component/LargeTube": 10,
+    "Component/MetalGrid": 5,
+    "Component/SteelPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 9,
+  },
+  "subtype": "SmallBlockMediumCalibreGun",
+  "time": 26,
+  "type": "SmallMissileLauncherReload",
+  "volume": 1125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Weapons.sbc": SmallMissileLauncherReload/SmallRailgun 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Railgun",
+  "gridSize": "Small",
+  "integrity": 4080,
+  "mass": 1364,
+  "mod": "Vanilla",
+  "pcu": 80,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 20,
+    "Component/LargeTube": 6,
+    "Component/PowerCell": 10,
+    "Component/SteelPlate": 25,
+    "Component/Superconductor": 20,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 8,
+  },
+  "subtype": "SmallRailgun",
+  "time": 30,
+  "type": "SmallMissileLauncherReload",
+  "volume": 2000,
 }
 `;
 
@@ -18140,14 +18549,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel3x3",
   "gridSize": "Large",
-  "integrity": 2310,
-  "mass": 590,
+  "integrity": 9700,
+  "mass": 2300,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 25,
-    "Component/LargeTube": 6,
-    "Component/SteelPlate": 12,
+    "Component/Construction": 50,
+    "Component/LargeTube": 20,
+    "Component/SteelPlate": 70,
   },
   "size": Object {
     "X": 3,
@@ -18166,14 +18575,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel1x1",
   "gridSize": "Large",
-  "integrity": 1640,
-  "mass": 420,
+  "integrity": 4500,
+  "mass": 1090,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 20,
-    "Component/LargeTube": 4,
-    "Component/SteelPlate": 8,
+    "Component/Construction": 30,
+    "Component/LargeTube": 10,
+    "Component/SteelPlate": 30,
   },
   "size": Object {
     "X": 1,
@@ -18192,14 +18601,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel1x1mirrored",
   "gridSize": "Large",
-  "integrity": 1640,
-  "mass": 420,
+  "integrity": 4500,
+  "mass": 1090,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 20,
-    "Component/LargeTube": 4,
-    "Component/SteelPlate": 8,
+    "Component/Construction": 30,
+    "Component/LargeTube": 10,
+    "Component/SteelPlate": 30,
   },
   "size": Object {
     "X": 1,
@@ -18218,14 +18627,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel5x5",
   "gridSize": "Large",
-  "integrity": 2980,
-  "mass": 760,
+  "integrity": 16900,
+  "mass": 3910,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 30,
-    "Component/LargeTube": 8,
-    "Component/SteelPlate": 16,
+    "Component/Construction": 70,
+    "Component/LargeTube": 30,
+    "Component/SteelPlate": 130,
   },
   "size": Object {
     "X": 5,
@@ -18244,14 +18653,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel5x5mirrored",
   "gridSize": "Large",
-  "integrity": 2980,
-  "mass": 760,
+  "integrity": 16900,
+  "mass": 3910,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 30,
-    "Component/LargeTube": 8,
-    "Component/SteelPlate": 16,
+    "Component/Construction": 70,
+    "Component/LargeTube": 30,
+    "Component/SteelPlate": 130,
   },
   "size": Object {
     "X": 5,
@@ -18270,14 +18679,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel3x3mirrored",
   "gridSize": "Large",
-  "integrity": 2310,
-  "mass": 590,
+  "integrity": 9700,
+  "mass": 2300,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 25,
-    "Component/LargeTube": 6,
-    "Component/SteelPlate": 12,
+    "Component/Construction": 50,
+    "Component/LargeTube": 20,
+    "Component/SteelPlate": 70,
   },
   "size": Object {
     "X": 3,
@@ -18296,14 +18705,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel3x3",
   "gridSize": "Small",
-  "integrity": 860,
-  "mass": 205,
+  "integrity": 1430,
+  "mass": 355,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 10,
-    "Component/LargeTube": 1,
-    "Component/SteelPlate": 5,
+    "Component/Construction": 15,
+    "Component/LargeTube": 3,
+    "Component/SteelPlate": 8,
   },
   "size": Object {
     "X": 3,
@@ -18374,14 +18783,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel5x5",
   "gridSize": "Small",
-  "integrity": 1270,
-  "mass": 310,
+  "integrity": 2550,
+  "mass": 625,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 15,
-    "Component/LargeTube": 2,
-    "Component/SteelPlate": 7,
+    "Component/Construction": 25,
+    "Component/LargeTube": 5,
+    "Component/SteelPlate": 15,
   },
   "size": Object {
     "X": 5,
@@ -18400,14 +18809,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel5x5mirrored",
   "gridSize": "Small",
-  "integrity": 1270,
-  "mass": 310,
+  "integrity": 2550,
+  "mass": 625,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 15,
-    "Component/LargeTube": 2,
-    "Component/SteelPlate": 7,
+    "Component/Construction": 25,
+    "Component/LargeTube": 5,
+    "Component/SteelPlate": 15,
   },
   "size": Object {
     "X": 5,
@@ -18426,14 +18835,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel3x3mirrored",
   "gridSize": "Small",
-  "integrity": 860,
-  "mass": 205,
+  "integrity": 1430,
+  "mass": 355,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 10,
-    "Component/LargeTube": 1,
-    "Component/SteelPlate": 5,
+    "Component/Construction": 15,
+    "Component/LargeTube": 3,
+    "Component/SteelPlate": 8,
   },
   "size": Object {
     "X": 3,
@@ -18478,14 +18887,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel3x3",
   "gridSize": "Small",
-  "integrity": 860,
-  "mass": 205,
+  "integrity": 1430,
+  "mass": 355,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 10,
-    "Component/LargeTube": 1,
-    "Component/SteelPlate": 5,
+    "Component/Construction": 15,
+    "Component/LargeTube": 3,
+    "Component/SteelPlate": 8,
   },
   "size": Object {
     "X": 3,
@@ -18504,14 +18913,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel5x5",
   "gridSize": "Small",
-  "integrity": 1270,
-  "mass": 310,
+  "integrity": 2550,
+  "mass": 625,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 15,
-    "Component/LargeTube": 2,
-    "Component/SteelPlate": 7,
+    "Component/Construction": 25,
+    "Component/LargeTube": 5,
+    "Component/SteelPlate": 15,
   },
   "size": Object {
     "X": 5,
@@ -18530,14 +18939,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel1x1",
   "gridSize": "Large",
-  "integrity": 1640,
-  "mass": 420,
+  "integrity": 4500,
+  "mass": 1090,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 20,
-    "Component/LargeTube": 4,
-    "Component/SteelPlate": 8,
+    "Component/Construction": 30,
+    "Component/LargeTube": 10,
+    "Component/SteelPlate": 30,
   },
   "size": Object {
     "X": 1,
@@ -18556,14 +18965,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel3x3",
   "gridSize": "Large",
-  "integrity": 2310,
-  "mass": 590,
+  "integrity": 9700,
+  "mass": 2300,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 25,
-    "Component/LargeTube": 6,
-    "Component/SteelPlate": 12,
+    "Component/Construction": 50,
+    "Component/LargeTube": 20,
+    "Component/SteelPlate": 70,
   },
   "size": Object {
     "X": 3,
@@ -18582,14 +18991,14 @@ Object {
   "data": Any<Object>,
   "displayName": "DisplayName_Block_Wheel5x5",
   "gridSize": "Large",
-  "integrity": 2980,
-  "mass": 760,
+  "integrity": 16900,
+  "mass": 3910,
   "mod": "Vanilla",
   "pcu": 25,
   "prerequisites": Object {
-    "Component/Construction": 30,
-    "Component/LargeTube": 8,
-    "Component/SteelPlate": 16,
+    "Component/Construction": 70,
+    "Component/LargeTube": 30,
+    "Component/SteelPlate": 130,
   },
   "size": Object {
     "X": 5,
@@ -20164,5 +20573,822 @@ Object {
   "time": 16,
   "type": "InteriorLight",
   "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc" 1`] = `28`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc" 2`] = `
+Array [
+  "CubeBlock/BridgeWindow1x1Slope",
+  "CubeBlock/BridgeWindow1x1Face",
+  "Cockpit/PassengerBench",
+  "InteriorLight/LargeLightPanel",
+  "InteriorLight/SmallLightPanel",
+  "Reactor/LargeBlockSmallGeneratorWarfare2",
+  "Reactor/LargeBlockLargeGeneratorWarfare2",
+  "Reactor/SmallBlockSmallGeneratorWarfare2",
+  "Reactor/SmallBlockLargeGeneratorWarfare2",
+  "AirtightHangarDoor/AirtightHangarDoorWarfare2A",
+  "AirtightHangarDoor/AirtightHangarDoorWarfare2B",
+  "AirtightHangarDoor/AirtightHangarDoorWarfare2C",
+  "SmallMissileLauncher/SmallMissileLauncherWarfare2",
+  "SmallGatlingGun/SmallGatlingGunWarfare2",
+  "BatteryBlock/LargeBlockBatteryBlockWarfare2",
+  "BatteryBlock/SmallBlockBatteryBlockWarfare2",
+  "Door/SlidingHatchDoor",
+  "Door/SlidingHatchDoorHalf",
+  "Searchlight/SmallSearchlight",
+  "Searchlight/LargeSearchlight",
+  "HeatVentBlock/LargeHeatVentBlock",
+  "HeatVentBlock/SmallHeatVentBlock",
+  "Cockpit/SmallBlockStandingCockpit",
+  "Cockpit/LargeBlockStandingCockpit",
+  "Thrust/SmallBlockSmallModularThruster",
+  "Thrust/SmallBlockLargeModularThruster",
+  "Thrust/LargeBlockSmallModularThruster",
+  "Thrust/LargeBlockLargeModularThruster",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": AirtightHangarDoor/AirtightHangarDoorWarfare2A 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AirtightHangarDoorWarfare2A",
+  "gridSize": "Large",
+  "integrity": 37442,
+  "mass": 7864.4,
+  "mod": "Warfare2",
+  "pcu": 115,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 40,
+    "Component/Motor": 16,
+    "Component/SmallTube": 40,
+    "Component/SteelPlate": 350,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 3,
+    "Z": 1,
+  },
+  "subtype": "AirtightHangarDoorWarfare2A",
+  "time": 20,
+  "type": "AirtightHangarDoor",
+  "volume": 46875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": AirtightHangarDoor/AirtightHangarDoorWarfare2B 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AirtightHangarDoorWarfare2B",
+  "gridSize": "Large",
+  "integrity": 37442,
+  "mass": 7864.4,
+  "mod": "Warfare2",
+  "pcu": 115,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 40,
+    "Component/Motor": 16,
+    "Component/SmallTube": 40,
+    "Component/SteelPlate": 350,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 3,
+    "Z": 1,
+  },
+  "subtype": "AirtightHangarDoorWarfare2B",
+  "time": 20,
+  "type": "AirtightHangarDoor",
+  "volume": 46875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": AirtightHangarDoor/AirtightHangarDoorWarfare2C 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AirtightHangarDoorWarfare2C",
+  "gridSize": "Large",
+  "integrity": 37442,
+  "mass": 7864.4,
+  "mod": "Warfare2",
+  "pcu": 115,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 40,
+    "Component/Motor": 16,
+    "Component/SmallTube": 40,
+    "Component/SteelPlate": 350,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 3,
+    "Z": 1,
+  },
+  "subtype": "AirtightHangarDoorWarfare2C",
+  "time": 20,
+  "type": "AirtightHangarDoor",
+  "volume": 46875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": BatteryBlock/LargeBlockBatteryBlockWarfare2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BatteryWarfare2",
+  "gridSize": "Large",
+  "integrity": 12925,
+  "mass": 3845,
+  "mod": "Warfare2",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Computer": 25,
+    "Component/Construction": 30,
+    "Component/PowerCell": 80,
+    "Component/SteelPlate": 80,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockBatteryBlockWarfare2",
+  "time": 40,
+  "type": "BatteryBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": BatteryBlock/SmallBlockBatteryBlockWarfare2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BatteryWarfare2",
+  "gridSize": "Small",
+  "integrity": 3652,
+  "mass": 1040.4,
+  "mod": "Warfare2",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 5,
+    "Component/PowerCell": 20,
+    "Component/SteelPlate": 25,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 3,
+  },
+  "subtype": "SmallBlockBatteryBlockWarfare2",
+  "time": 20,
+  "type": "BatteryBlock",
+  "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Cockpit/LargeBlockStandingCockpit 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_CockpitStandingBridge",
+  "gridSize": "Large",
+  "integrity": 970,
+  "mass": 264,
+  "mod": "Warfare2",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 20,
+    "Component/Display": 2,
+    "Component/InteriorPlate": 20,
+    "Component/Motor": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockStandingCockpit",
+  "time": 20,
+  "type": "Cockpit",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Cockpit/PassengerBench 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PassengerBench",
+  "gridSize": "Small",
+  "integrity": 900,
+  "mass": 220,
+  "mod": "Warfare2",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 20,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 2,
+  },
+  "subtype": "PassengerBench",
+  "time": 15,
+  "type": "Cockpit",
+  "volume": 1500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Cockpit/SmallBlockStandingCockpit 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_CockpitStandingBridge",
+  "gridSize": "Small",
+  "integrity": 970,
+  "mass": 264,
+  "mod": "Warfare2",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 20,
+    "Component/Display": 2,
+    "Component/InteriorPlate": 20,
+    "Component/Motor": 1,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 4,
+    "Z": 3,
+  },
+  "subtype": "SmallBlockStandingCockpit",
+  "time": 20,
+  "type": "Cockpit",
+  "volume": 4500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": CubeBlock/BridgeWindow1x1Face 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BridgeWindow1x1Face",
+  "gridSize": "Large",
+  "integrity": 1460,
+  "mass": 370,
+  "mod": "Warfare2",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 18,
+    "Component/Girder": 8,
+    "Component/InteriorPlate": 4,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "BridgeWindow1x1Face",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": CubeBlock/BridgeWindow1x1Slope 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_BridgeWindow1x1Slope",
+  "gridSize": "Large",
+  "integrity": 2270,
+  "mass": 553,
+  "mod": "Warfare2",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 25,
+    "Component/Girder": 8,
+    "Component/InteriorPlate": 10,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "BridgeWindow1x1Slope",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Door/SlidingHatchDoor 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SlidingHatchDoor",
+  "gridSize": "Large",
+  "integrity": 6422,
+  "mass": 1502.4,
+  "mod": "Warfare2",
+  "pcu": 115,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 10,
+    "Component/Computer": 2,
+    "Component/Construction": 50,
+    "Component/Display": 2,
+    "Component/Motor": 4,
+    "Component/SmallTube": 10,
+    "Component/SteelPlate": 40,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SlidingHatchDoor",
+  "time": 26,
+  "type": "Door",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Door/SlidingHatchDoorHalf 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SlidingHatchDoorHalf",
+  "gridSize": "Large",
+  "integrity": 5422,
+  "mass": 1302.4,
+  "mod": "Warfare2",
+  "pcu": 115,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 10,
+    "Component/Computer": 2,
+    "Component/Construction": 50,
+    "Component/Display": 2,
+    "Component/Motor": 4,
+    "Component/SmallTube": 10,
+    "Component/SteelPlate": 30,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SlidingHatchDoorHalf",
+  "time": 24,
+  "type": "Door",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": HeatVentBlock/LargeHeatVentBlock 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeatVentWarfare2",
+  "gridSize": "Large",
+  "integrity": 3900,
+  "mass": 1030,
+  "mod": "Warfare2",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/LargeTube": 10,
+    "Component/Motor": 5,
+    "Component/SteelPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeHeatVentBlock",
+  "time": 20,
+  "type": "HeatVentBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": HeatVentBlock/SmallHeatVentBlock 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeatVentWarfare2",
+  "gridSize": "Small",
+  "integrity": 330,
+  "mass": 97,
+  "mod": "Warfare2",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Construction": 1,
+    "Component/LargeTube": 1,
+    "Component/Motor": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallHeatVentBlock",
+  "time": 6,
+  "type": "HeatVentBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": InteriorLight/LargeLightPanel 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightPanel",
+  "gridSize": "Large",
+  "integrity": 375,
+  "mass": 95,
+  "mod": "Warfare2",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeLightPanel",
+  "time": 6,
+  "type": "InteriorLight",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": InteriorLight/SmallLightPanel 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightPanel",
+  "gridSize": "Small",
+  "integrity": 75,
+  "mass": 19,
+  "mod": "Warfare2",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallLightPanel",
+  "time": 3,
+  "type": "InteriorLight",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Reactor/LargeBlockLargeGeneratorWarfare2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeReactorWarfare2",
+  "gridSize": "Large",
+  "integrity": 147075,
+  "mass": 73795,
+  "mod": "Warfare2",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 75,
+    "Component/Construction": 70,
+    "Component/LargeTube": 40,
+    "Component/MetalGrid": 40,
+    "Component/Motor": 20,
+    "Component/Reactor": 2000,
+    "Component/SteelPlate": 1000,
+    "Component/Superconductor": 100,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "LargeBlockLargeGeneratorWarfare2",
+  "time": 100,
+  "type": "Reactor",
+  "volume": 421875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Reactor/LargeBlockSmallGeneratorWarfare2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallReactorWarfare2",
+  "gridSize": "Large",
+  "integrity": 12065,
+  "mass": 4793,
+  "mod": "Warfare2",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 25,
+    "Component/Construction": 40,
+    "Component/LargeTube": 8,
+    "Component/MetalGrid": 4,
+    "Component/Motor": 6,
+    "Component/Reactor": 100,
+    "Component/SteelPlate": 80,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockSmallGeneratorWarfare2",
+  "time": 40,
+  "type": "Reactor",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Reactor/SmallBlockLargeGeneratorWarfare2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeReactorWarfare2",
+  "gridSize": "Small",
+  "integrity": 8845,
+  "mass": 3901,
+  "mod": "Warfare2",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 25,
+    "Component/Construction": 9,
+    "Component/LargeTube": 3,
+    "Component/MetalGrid": 9,
+    "Component/Motor": 5,
+    "Component/Reactor": 95,
+    "Component/SteelPlate": 60,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "SmallBlockLargeGeneratorWarfare2",
+  "time": 30,
+  "type": "Reactor",
+  "volume": 3375,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Reactor/SmallBlockSmallGeneratorWarfare2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallReactorWarfare2",
+  "gridSize": "Small",
+  "integrity": 830,
+  "mass": 278,
+  "mod": "Warfare2",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 10,
+    "Component/Construction": 10,
+    "Component/LargeTube": 1,
+    "Component/MetalGrid": 2,
+    "Component/Motor": 1,
+    "Component/Reactor": 3,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockSmallGeneratorWarfare2",
+  "time": 20,
+  "type": "Reactor",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Searchlight/LargeSearchlight 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Searchlight",
+  "gridSize": "Large",
+  "integrity": 1625,
+  "mass": 467,
+  "mod": "Warfare2",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 4,
+    "Component/Computer": 5,
+    "Component/Construction": 20,
+    "Component/LargeTube": 2,
+    "Component/Motor": 4,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeSearchlight",
+  "time": 24,
+  "type": "Searchlight",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Searchlight/SmallSearchlight 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_Searchlight",
+  "gridSize": "Small",
+  "integrity": 455,
+  "mass": 148,
+  "mod": "Warfare2",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 2,
+    "Component/Computer": 5,
+    "Component/Construction": 3,
+    "Component/LargeTube": 1,
+    "Component/Motor": 2,
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallSearchlight",
+  "time": 12,
+  "type": "Searchlight",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": SmallGatlingGun/SmallGatlingGunWarfare2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_GatlingGunWarfare2",
+  "gridSize": "Small",
+  "integrity": 621,
+  "mass": 148.2,
+  "mod": "Warfare2",
+  "pcu": 80,
+  "prerequisites": Object {
+    "Component/Computer": 1,
+    "Component/Construction": 1,
+    "Component/MetalGrid": 2,
+    "Component/Motor": 1,
+    "Component/SmallTube": 6,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 4,
+  },
+  "subtype": "SmallGatlingGunWarfare2",
+  "time": 13,
+  "type": "SmallGatlingGun",
+  "volume": 500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": SmallMissileLauncher/SmallMissileLauncherWarfare2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_RocketLauncherWarfare2",
+  "gridSize": "Small",
+  "integrity": 771,
+  "mass": 226.2,
+  "mod": "Warfare2",
+  "pcu": 425,
+  "prerequisites": Object {
+    "Component/Computer": 1,
+    "Component/Construction": 2,
+    "Component/LargeTube": 4,
+    "Component/MetalGrid": 1,
+    "Component/Motor": 1,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 4,
+  },
+  "subtype": "SmallMissileLauncherWarfare2",
+  "time": 15,
+  "type": "SmallMissileLauncher",
+  "volume": 500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Thrust/LargeBlockLargeModularThruster 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeModularThruster",
+  "gridSize": "Large",
+  "integrity": 49200,
+  "mass": 43200,
+  "mod": "Warfare2",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 100,
+    "Component/LargeTube": 40,
+    "Component/SteelPlate": 150,
+    "Component/Thrust": 960,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 4,
+  },
+  "subtype": "LargeBlockLargeModularThruster",
+  "time": 90,
+  "type": "Thrust",
+  "volume": 375000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Thrust/LargeBlockSmallModularThruster 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallModularThruster",
+  "gridSize": "Large",
+  "integrity": 7180,
+  "mass": 4380,
+  "mod": "Warfare2",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 60,
+    "Component/LargeTube": 8,
+    "Component/SteelPlate": 25,
+    "Component/Thrust": 80,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 2,
+  },
+  "subtype": "LargeBlockSmallModularThruster",
+  "time": 40,
+  "type": "Thrust",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Thrust/SmallBlockLargeModularThruster 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LargeModularThruster",
+  "gridSize": "Small",
+  "integrity": 1220,
+  "mass": 721,
+  "mod": "Warfare2",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/LargeTube": 5,
+    "Component/SteelPlate": 5,
+    "Component/Thrust": 12,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 4,
+  },
+  "subtype": "SmallBlockLargeModularThruster",
+  "time": 20,
+  "type": "Thrust",
+  "volume": 3000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Warfare2 "CubeBlocks.sbc": Thrust/SmallBlockSmallModularThruster 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SmallModularThruster",
+  "gridSize": "Small",
+  "integrity": 350,
+  "mass": 121,
+  "mod": "Warfare2",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/LargeTube": 1,
+    "Component/SteelPlate": 2,
+    "Component/Thrust": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 2,
+  },
+  "subtype": "SmallBlockSmallModularThruster",
+  "time": 10,
+  "type": "Thrust",
+  "volume": 250,
 }
 `;

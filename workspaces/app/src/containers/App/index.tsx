@@ -8,6 +8,7 @@ import CubeBlocksIndustrialPackLink from '@sepraisal/praisal/vendor/IndustrialPa
 import CubeBlocksScrapRacePackLink from '@sepraisal/praisal/vendor/ScrapRacePack/CubeBlocks.sbc'
 import CubeBlocksSparksOfTheFutureLink from '@sepraisal/praisal/vendor/SparksOfTheFuturePack/CubeBlocks.sbc'
 import CubeBlocksWarfare1Link from '@sepraisal/praisal/vendor/Warfare1/CubeBlocks.sbc'
+import CubeBlocksWarfare2Link from '@sepraisal/praisal/vendor/Warfare2/CubeBlocks.sbc'
 import MaterialsLink from '@sepraisal/praisal/vendor/Vanilla/Blueprints.sbc'
 import ComponentsLink from '@sepraisal/praisal/vendor/Vanilla/Components.sbc'
 import CubeBlocksCubeBlocksLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks.sbc'

@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<Definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <CubeBlocks>
         <Definition xsi:type="MyObjectBuilder_ExhaustBlockDefinition">
             <Id>
@@ -31,8 +32,8 @@
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\ExhaustPipe_Racing_Construction2.mwm" />
             </BuildProgressModels>
             <BlockPairName>ExhaustPipe</BlockPairName>
-            <MirroringZ>Y</MirroringZ>
-            <MirroringY>Z</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>8</BuildTimeSeconds>
             <PCU>50</PCU>
@@ -42,15 +43,15 @@
                 <string>CarSmoke</string>
                 <string>CarSmokeSmall</string>
                 <string>ElectricArc</string>
-				<string>ElectricArcSmall</string>
-				<string>Fire</string>
-				<string>FireSmall</string>
-				<string>FireAndSmoke</string>
-				<string>FireAndSmokeSmall</string>
-				<string>Smoke</string>
-				<string>SmokeSmall</string>
-				<string>SmokeElectric</string>
-				<string>SmokeElectricSmall</string>
+                <string>ElectricArcSmall</string>
+                <string>Fire</string>
+                <string>FireSmall</string>
+                <string>FireAndSmoke</string>
+                <string>FireAndSmokeSmall</string>
+                <string>Smoke</string>
+                <string>SmokeSmall</string>
+                <string>SmokeElectric</string>
+                <string>SmokeElectricSmall</string>
                 <string>SmokeReactor</string>
                 <string>SmokeReactorSmall</string>
                 <string>SmokeWhite</string>
@@ -59,7 +60,7 @@
             <RequiredPowerInput>0.0002</RequiredPowerInput>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
-			<DLC>ScrapRace</DLC>			
+            <DLC>ScrapRace</DLC>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_ExhaustBlockDefinition">
@@ -93,8 +94,8 @@
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\ExhaustPipe_Racing_Construction3.mwm" />
             </BuildProgressModels>
             <BlockPairName>ExhaustPipe</BlockPairName>
-            <MirroringZ>Y</MirroringZ>
-            <MirroringY>Z</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>14</BuildTimeSeconds>
             <PCU>50</PCU>
@@ -121,7 +122,7 @@
             <RequiredPowerInput>0.0002</RequiredPowerInput>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
@@ -189,6 +190,7 @@
             <EnableFirstPerson>true</EnableFirstPerson>
             <EnableShipControl>true</EnableShipControl>
             <EnableBuilderCockpit>true</EnableBuilderCockpit>
+            <TargetLockingEnabled>true</TargetLockingEnabled>
             <IsPressurized>false</IsPressurized>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
@@ -201,7 +203,7 @@
             </RaycastOffset>
             <PCU>100</PCU>
             <IsAirTight>false</IsAirTight>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
 
         <Definition>
@@ -230,7 +232,7 @@
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="1" />
                 <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.35" />
                 <MountPoint Side="Left" StartX="0" StartY="0.9" EndX="1" EndY="1.0" />
-				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
                 <MountPoint Side="Top" StartX="0" StartY="0" EndX="0.5" EndY="1" />
                 <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" Default="true" />
             </MountPoints>
@@ -246,7 +248,7 @@
             <PCU>1</PCU>
             <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>CubeBlock</TypeId>
@@ -273,7 +275,7 @@
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="1" />
                 <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.35" />
                 <MountPoint Side="Left" StartX="0" StartY="0.9" EndX="1" EndY="1.0" />
-				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
                 <MountPoint Side="Top" StartX="0" StartY="0" EndX="0.5" EndY="1" />
                 <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" Default="true" />
             </MountPoints>
@@ -289,7 +291,7 @@
             <PCU>1</PCU>
             <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -375,9 +377,12 @@
             <Public>true</Public>
             <GuiVisible>false</GuiVisible>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -458,9 +463,12 @@
             <PCU>50</PCU>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -544,9 +552,12 @@
             <IsAirTight>false</IsAirTight>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -627,9 +638,12 @@
             <Public>true</Public>
             <GuiVisible>false</GuiVisible>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-            
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -708,9 +722,12 @@
             <PCU>50</PCU>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -791,9 +808,12 @@
             <PCU>50</PCU>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -879,9 +899,12 @@
             <Public>true</Public>
             <GuiVisible>false</GuiVisible>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-            
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -962,9 +985,12 @@
             <PCU>50</PCU>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -1047,9 +1073,12 @@
             <PCU>50</PCU>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-            
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -1130,9 +1159,12 @@
             <PCU>50</PCU>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-            
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -1211,9 +1243,12 @@
             <PCU>50</PCU>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-                
+
         <Definition xsi:type="MyObjectBuilder_MotorSuspensionDefinition">
             <Id>
                 <TypeId>MotorSuspension</TypeId>
@@ -1294,9 +1329,12 @@
             <PCU>50</PCU>
             <Public>true</Public>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
+            <TargetingGroups>
+                <string>Propulsion</string>
+            </TargetingGroups>
         </Definition>
-            
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1361,9 +1399,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1381,10 +1419,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="3" Subtype="SteelPlate"/>
-                <Component Count="10" Subtype="Construction"/>
-                <Component Count="1" Subtype="LargeTube"/>
-                <Component Count="2" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="3" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="3" />
+                <Component Subtype="SteelPlate" Count="5" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -1428,9 +1466,9 @@
             <GuiVisible>false</GuiVisible>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1449,10 +1487,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="4" Subtype="SteelPlate"/>
-                <Component Count="15" Subtype="Construction"/>
-                <Component Count="2" Subtype="LargeTube"/>
-                <Component Count="3" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="Construction" Count="25" />
+                <Component Subtype="LargeTube" Count="5" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -1495,9 +1533,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1516,10 +1554,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="4" Subtype="SteelPlate"/>
-                <Component Count="20" Subtype="Construction"/>
-                <Component Count="4" Subtype="LargeTube"/>
-                <Component Count="4" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="LargeTube" Count="10" />
+                <Component Subtype="SteelPlate" Count="20" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -1563,9 +1601,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1583,10 +1621,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="6" Subtype="SteelPlate"/>
-                <Component Count="25" Subtype="Construction"/>
-                <Component Count="6" Subtype="LargeTube"/>
-                <Component Count="6" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="20" />
+                <Component Subtype="Construction" Count="50" />
+                <Component Subtype="LargeTube" Count="20" />
+                <Component Subtype="SteelPlate" Count="50" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -1631,9 +1669,9 @@
             <GuiVisible>false</GuiVisible>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1652,10 +1690,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="8" Subtype="SteelPlate"/>
-                <Component Count="30" Subtype="Construction"/>
-                <Component Count="8" Subtype="LargeTube"/>
-                <Component Count="8" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="30" />
+                <Component Subtype="Construction" Count="70" />
+                <Component Subtype="LargeTube" Count="30" />
+                <Component Subtype="SteelPlate" Count="100" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -1699,9 +1737,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1766,9 +1804,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1786,10 +1824,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="3" Subtype="SteelPlate"/>
-                <Component Count="10" Subtype="Construction"/>
-                <Component Count="1" Subtype="LargeTube"/>
-                <Component Count="2" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="3" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="3" />
+                <Component Subtype="SteelPlate" Count="5" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -1833,9 +1871,9 @@
             <GuiVisible>false</GuiVisible>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1854,10 +1892,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="4" Subtype="SteelPlate"/>
-                <Component Count="15" Subtype="Construction"/>
-                <Component Count="2" Subtype="LargeTube"/>
-                <Component Count="3" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="Construction" Count="25" />
+                <Component Subtype="LargeTube" Count="5" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -1883,7 +1921,7 @@
             <DeformationRatio>0.3</DeformationRatio>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
-            <MirroringBlock>OffroadSmallRealWheel5x5</MirroringBlock>            
+            <MirroringBlock>OffroadSmallRealWheel5x5</MirroringBlock>
             <EdgeType>Light</EdgeType>
             <Public>false</Public>
             <BuildTimeSeconds>20.0</BuildTimeSeconds>
@@ -1900,9 +1938,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-            
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1921,10 +1959,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="4" Subtype="SteelPlate"/>
-                <Component Count="20" Subtype="Construction"/>
-                <Component Count="4" Subtype="LargeTube"/>
-                <Component Count="4" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="LargeTube" Count="10" />
+                <Component Subtype="SteelPlate" Count="20" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -1968,9 +2006,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-            
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -1988,10 +2026,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="6" Subtype="SteelPlate"/>
-                <Component Count="25" Subtype="Construction"/>
-                <Component Count="6" Subtype="LargeTube"/>
-                <Component Count="6" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="20" />
+                <Component Subtype="Construction" Count="50" />
+                <Component Subtype="LargeTube" Count="20" />
+                <Component Subtype="SteelPlate" Count="50" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -2036,9 +2074,9 @@
             <GuiVisible>false</GuiVisible>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-                
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -2057,10 +2095,10 @@
             <UseModelIntersection>true</UseModelIntersection>
             <PhysicalMaterial>Wheel</PhysicalMaterial>
             <Components>
-                <Component Count="8" Subtype="SteelPlate"/>
-                <Component Count="30" Subtype="Construction"/>
-                <Component Count="8" Subtype="LargeTube"/>
-                <Component Count="8" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="30" />
+                <Component Subtype="Construction" Count="70" />
+                <Component Subtype="LargeTube" Count="30" />
+                <Component Subtype="SteelPlate" Count="100" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -2104,9 +2142,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-            
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -2123,10 +2161,10 @@
             <Model>Models\Cubes\Large\Wheel1x1_Racing.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
             <Components>
-                <Component Count="4" Subtype="SteelPlate"/>
-                <Component Count="20" Subtype="Construction"/>
-                <Component Count="4" Subtype="LargeTube"/>
-                <Component Count="4" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="LargeTube" Count="10" />
+                <Component Subtype="SteelPlate" Count="20" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -2172,9 +2210,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-                
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -2239,9 +2277,9 @@
             <IsAirTight>false</IsAirTight>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-                
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -2257,10 +2295,10 @@
             <Model>Models\Cubes\Large\Wheel3x3_Racing.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
             <Components>
-                <Component Count="6" Subtype="SteelPlate"/>
-                <Component Count="25" Subtype="Construction"/>
-                <Component Count="6" Subtype="LargeTube"/>
-                <Component Count="6" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="20" />
+                <Component Subtype="Construction" Count="50" />
+                <Component Subtype="LargeTube" Count="20" />
+                <Component Subtype="SteelPlate" Count="50" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -2306,9 +2344,9 @@
             <GuiVisible>false</GuiVisible>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -2324,10 +2362,10 @@
             <Model>Models\Cubes\Small\Wheel3x3_Racing.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
             <Components>
-                <Component Count="3" Subtype="SteelPlate"/>
-                <Component Count="10" Subtype="Construction"/>
-                <Component Count="1" Subtype="LargeTube"/>
-                <Component Count="2" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="3" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="3" />
+                <Component Subtype="SteelPlate" Count="5" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -2372,9 +2410,9 @@
             <GuiVisible>false</GuiVisible>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-            
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -2391,10 +2429,10 @@
             <Model>Models\Cubes\Large\Wheel5x5_Racing.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
             <Components>
-                <Component Count="8" Subtype="SteelPlate"/>
-                <Component Count="30" Subtype="Construction"/>
-                <Component Count="8" Subtype="LargeTube"/>
-                <Component Count="8" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="30" />
+                <Component Subtype="Construction" Count="70" />
+                <Component Subtype="LargeTube" Count="30" />
+                <Component Subtype="SteelPlate" Count="100" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -2439,9 +2477,9 @@
             <PCU>25</PCU>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
-            
+
         <Definition>
             <Id>
                 <TypeId>Wheel</TypeId>
@@ -2458,10 +2496,10 @@
             <Model>Models\Cubes\Small\Wheel5x5_Racing.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
             <Components>
-                <Component Count="4" Subtype="SteelPlate"/>
-                <Component Count="15" Subtype="Construction"/>
-                <Component Count="2" Subtype="LargeTube"/>
-                <Component Count="3" Subtype="SteelPlate"/>
+                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="Construction" Count="25" />
+                <Component Subtype="LargeTube" Count="5" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <CriticalComponent Index="0" Subtype="LargeTube"/>
             <BuildProgressModels>
@@ -2505,7 +2543,7 @@
             <PCU>25</PCU>
             <SilenceableByShipSoundSystem>false</SilenceableByShipSoundSystem>
             <InventoryMaxVolume>1.0</InventoryMaxVolume>
-			<DLC>ScrapRace</DLC>
+            <DLC>ScrapRace</DLC>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_LightingBlockDefinition">
@@ -2543,6 +2581,8 @@
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.00006</RequiredPowerInput>
             <Flare>InteriorLight</Flare>
+            <PointLightEmissiveMaterial>Emissive</PointLightEmissiveMaterial>
+            <SpotLightEmissiveMaterial>EmissiveSpotlight</SpotLightEmissiveMaterial>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
             <DestroyEffect>BlockDestroyed_Small</DestroyEffect>
@@ -2595,6 +2635,8 @@
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.0002</RequiredPowerInput>
             <Flare>SpotlightSmall</Flare>
+            <PointLightEmissiveMaterial>Emissive</PointLightEmissiveMaterial>
+            <SpotLightEmissiveMaterial>EmissiveSpotlight</SpotLightEmissiveMaterial>
             <ReflectorThickness>2.5</ReflectorThickness>
             <ReflectorTexture>Textures\Lights\reflector_CarLight.dds</ReflectorTexture>
             <ReflectorConeDegrees>52</ReflectorConeDegrees>
@@ -2646,7 +2688,7 @@
             <PCU>1</PCU>
             <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>CubeBlock</TypeId>
@@ -2674,18 +2716,18 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>3</BuildTimeSeconds>
             <MountPoints>
-               <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1.0" EndY="0.1" PropertiesMask="2" />
-               <MountPoint Side="Back" StartX="0.0" StartY="0.9" EndX="1.0" EndY="1.0" PropertiesMask="2" />
-               <MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="0.2" EndY="0.2" PropertiesMask="2" />
-               <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.4" EndY="0.4" PropertiesMask="2" />
-               <MountPoint Side="Left" StartX="0.4" StartY="0.4" EndX="0.6" EndY="0.6" PropertiesMask="2" />
-               <MountPoint Side="Left" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" PropertiesMask="2" />
-               <MountPoint Side="Left" StartX="0.8" StartY="0.8" EndX="1.0" EndY="1.0" PropertiesMask="2" />
-               <MountPoint Side="Right" StartX="0.0" StartY="1.0" EndX="0.2" EndY="0.8" PropertiesMask="2" />
-               <MountPoint Side="Right" StartX="0.2" StartY="0.8" EndX="0.4" EndY="0.6" PropertiesMask="2" />
-               <MountPoint Side="Right" StartX="0.4" StartY="0.6" EndX="0.6" EndY="0.4" PropertiesMask="2" />
-               <MountPoint Side="Right" StartX="0.6" StartY="0.4" EndX="0.8" EndY="0.2" PropertiesMask="2" />
-               <MountPoint Side="Right" StartX="0.8" StartY="0.2" EndX="1.0" EndY="0.0" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="1.0" EndY="0.1" PropertiesMask="2" />
+                <MountPoint Side="Back" StartX="0.0" StartY="0.9" EndX="1.0" EndY="1.0" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="0.2" EndY="0.2" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.4" EndY="0.4" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.4" StartY="0.4" EndX="0.6" EndY="0.6" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.8" StartY="0.8" EndX="1.0" EndY="1.0" PropertiesMask="2" />
+                <MountPoint Side="Right" StartX="0.0" StartY="1.0" EndX="0.2" EndY="0.8" PropertiesMask="2" />
+                <MountPoint Side="Right" StartX="0.2" StartY="0.8" EndX="0.4" EndY="0.6" PropertiesMask="2" />
+                <MountPoint Side="Right" StartX="0.4" StartY="0.6" EndX="0.6" EndY="0.4" PropertiesMask="2" />
+                <MountPoint Side="Right" StartX="0.6" StartY="0.4" EndX="0.8" EndY="0.2" PropertiesMask="2" />
+                <MountPoint Side="Right" StartX="0.8" StartY="0.2" EndX="1.0" EndY="0.0" PropertiesMask="2" />
             </MountPoints>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
@@ -2693,7 +2735,7 @@
             <PCU>1</PCU>
             <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>CubeBlock</TypeId>
@@ -2721,20 +2763,20 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>3</BuildTimeSeconds>
             <MountPoints>
-              <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="0.1" EndY="1.0" PropertiesMask="2" />
-              <MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="0.1" EndY="1.0" PropertiesMask="2" />
-              <MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="0.2" EndY="0.2" PropertiesMask="2" ExclusionMask="1" />
-              <MountPoint Side="Left" StartX="0.2" StartY="0.0" EndX="0.8" EndY="0.8" PropertiesMask="2" ExclusionMask="1" />
-              <MountPoint Side="Left" StartX="0.8" StartY="0.0" EndX="1.0" EndY="1.0" PropertiesMask="2" ExclusionMask="1" />
+                <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="0.1" EndY="1.0" PropertiesMask="2" />
+                <MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="0.1" EndY="1.0" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="0.2" EndY="0.2" PropertiesMask="2" ExclusionMask="1" />
+                <MountPoint Side="Left" StartX="0.2" StartY="0.0" EndX="0.8" EndY="0.8" PropertiesMask="2" ExclusionMask="1" />
+                <MountPoint Side="Left" StartX="0.8" StartY="0.0" EndX="1.0" EndY="1.0" PropertiesMask="2" ExclusionMask="1" />
             </MountPoints>
-              <MirroringX>YMinusHalfX</MirroringX>
-              <MirroringY>HalfX</MirroringY>
-              <MirroringZ>MinusHalfX</MirroringZ>
+            <MirroringX>YMinusHalfX</MirroringX>
+            <MirroringY>HalfX</MirroringY>
+            <MirroringZ>MinusHalfX</MirroringZ>
             <IsAirTight>false</IsAirTight>
             <PCU>1</PCU>
             <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>CubeBlock</TypeId>
@@ -2762,25 +2804,25 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>3</BuildTimeSeconds>
             <MountPoints>
-              <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.2" EndY="0.2" PropertiesMask="2" />
-              <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.4" EndY="0.4" PropertiesMask="2" />
-              <MountPoint Side="Front" StartX="0.4" StartY="0.4" EndX="0.6" EndY="0.6" PropertiesMask="2" />
-              <MountPoint Side="Front" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" PropertiesMask="2" />
-              <MountPoint Side="Front" StartX="0.8" StartY="0.8" EndX="1.0" EndY="1.0" PropertiesMask="2" />
-              <MountPoint Side="Left" StartX="0.0" StartY="1.0" EndX="0.2" EndY="0.8" PropertiesMask="2" />
-              <MountPoint Side="Left" StartX="0.2" StartY="0.8" EndX="0.4" EndY="0.6" PropertiesMask="2" />
-              <MountPoint Side="Left" StartX="0.4" StartY="0.6" EndX="0.6" EndY="0.4" PropertiesMask="2" />
-              <MountPoint Side="Left" StartX="0.6" StartY="0.4" EndX="0.8" EndY="0.2" PropertiesMask="2" />
-              <MountPoint Side="Left" StartX="0.8" StartY="0.2" EndX="1.0" EndY="0.0" PropertiesMask="2" />
-              <MountPoint Side="Bottom" StartY="0.0" StartX="1.0" EndY="0.2" EndX="0.8" PropertiesMask="2" />
-              <MountPoint Side="Bottom" StartY="0.2" StartX="0.8" EndY="0.4" EndX="0.6" PropertiesMask="2" />
-              <MountPoint Side="Bottom" StartY="0.4" StartX="0.6" EndY="0.6" EndX="0.4" PropertiesMask="2" />
-              <MountPoint Side="Bottom" StartY="0.6" StartX="0.4" EndY="0.8" EndX="0.2" PropertiesMask="2" />
-              <MountPoint Side="Bottom" StartY="0.8" StartX="0.2" EndY="1.0" EndX="0.0" PropertiesMask="2" />
+                <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="0.2" EndY="0.2" PropertiesMask="2" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.2" EndX="0.4" EndY="0.4" PropertiesMask="2" />
+                <MountPoint Side="Front" StartX="0.4" StartY="0.4" EndX="0.6" EndY="0.6" PropertiesMask="2" />
+                <MountPoint Side="Front" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" PropertiesMask="2" />
+                <MountPoint Side="Front" StartX="0.8" StartY="0.8" EndX="1.0" EndY="1.0" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.0" StartY="1.0" EndX="0.2" EndY="0.8" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.2" StartY="0.8" EndX="0.4" EndY="0.6" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.4" StartY="0.6" EndX="0.6" EndY="0.4" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.6" StartY="0.4" EndX="0.8" EndY="0.2" PropertiesMask="2" />
+                <MountPoint Side="Left" StartX="0.8" StartY="0.2" EndX="1.0" EndY="0.0" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.0" StartX="1.0" EndY="0.2" EndX="0.8" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.2" StartX="0.8" EndY="0.4" EndX="0.6" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.4" StartX="0.6" EndY="0.6" EndX="0.4" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.6" StartX="0.4" EndY="0.8" EndX="0.2" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.8" StartX="0.2" EndY="1.0" EndX="0.0" PropertiesMask="2" />
             </MountPoints>
-              <MirroringX>HalfY</MirroringX>
-              <MirroringY>XHalfY</MirroringY>
-              <MirroringZ>MinusHalfY</MirroringZ>
+            <MirroringX>HalfY</MirroringX>
+            <MirroringY>XHalfY</MirroringY>
+            <MirroringZ>MinusHalfY</MirroringZ>
             <IsAirTight>false</IsAirTight>
             <PCU>1</PCU>
             <DLC>ScrapRace</DLC>
@@ -2834,7 +2876,7 @@
             <IsAirTight>false</IsAirTight>
             <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>CubeBlock</TypeId>
@@ -2883,7 +2925,7 @@
             <IsAirTight>false</IsAirTight>
             <DLC>ScrapRace</DLC>
         </Definition>
-        
+
         <Definition>
             <Id>
                 <TypeId>CubeBlock</TypeId>
@@ -2932,7 +2974,7 @@
             <IsAirTight>false</IsAirTight>
             <DLC>ScrapRace</DLC>
         </Definition>
-   
-        
+
+
     </CubeBlocks>
 </Definitions>

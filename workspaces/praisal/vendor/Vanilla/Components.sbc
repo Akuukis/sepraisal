@@ -531,7 +531,7 @@
 
             <MinimumAcquisitionAmount>6</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>18</MaximumAcquisitionAmount>
-        </Component>        
+        </Component>
         <Component>
             <Id>
                 <TypeId>Component</TypeId>

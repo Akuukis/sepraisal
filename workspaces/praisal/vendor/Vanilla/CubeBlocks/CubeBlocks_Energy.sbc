@@ -63,6 +63,9 @@
             <IsAirTight>true</IsAirTight>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_BatteryBlockDefinition">
             <Id>
@@ -123,6 +126,9 @@
             <IsAirTight>false</IsAirTight>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_BatteryBlockDefinition">
             <Id>
@@ -166,7 +172,7 @@
             <ResourceSinkGroup>BatteryBlock</ResourceSinkGroup>
             <RequiredPowerInput>0.2</RequiredPowerInput>
             <MaxStoredPower>0.05</MaxStoredPower>
-            <InitialStoredPowerRatio>0.05</InitialStoredPowerRatio>
+            <InitialStoredPowerRatio>0.3</InitialStoredPowerRatio>
             <RechargeMultiplier>0.8</RechargeMultiplier>
 
             <InventorySize>
@@ -182,6 +188,9 @@
             <EmissiveColorPreset>Extended</EmissiveColorPreset>
             <IsAirTight>true</IsAirTight>
             <PCU>15</PCU>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <!-- End Region BatteryBlock-->
 
@@ -237,8 +246,8 @@
                 <Y>0.5</Y>
                 <Z>0.5</Z>
             </InventorySize>
-            
-            
+
+
             <!-- 
                 Values are volume fill ratio, means how much fuel reactor pulls from conveyor system to the inventory.
                 If volume fill ratio is bellow minimum, reactor starts pulling fuel up to maximum value.
@@ -253,7 +262,7 @@
                 Warning: Changing this value will affect performance.
             -->
             <FuelPullAmountFromConveyorInMinutes>10.0</FuelPullAmountFromConveyorInMinutes>
-                    
+
             <FuelInfos>
                 <FuelInfo>
                     <Id>
@@ -276,6 +285,9 @@
                 <unsignedInt>1800</unsignedInt>
                 <unsignedInt>3600</unsignedInt>
             </TieredUpdateTimes>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_ReactorDefinition">
             <Id>
@@ -348,7 +360,7 @@
                 Warning: Changing this value will affect performance.
             -->
             <FuelPullAmountFromConveyorInMinutes>10.0</FuelPullAmountFromConveyorInMinutes>
-                    
+
             <FuelInfos>
                 <FuelInfo>
                     <Id>
@@ -369,6 +381,9 @@
                 <unsignedInt>1800</unsignedInt>
                 <unsignedInt>3600</unsignedInt>
             </TieredUpdateTimes>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_ReactorDefinition">
             <Id>
@@ -459,6 +474,9 @@
                 <unsignedInt>1800</unsignedInt>
                 <unsignedInt>3600</unsignedInt>
             </TieredUpdateTimes>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_ReactorDefinition">
             <Id>
@@ -550,6 +568,9 @@
                 <unsignedInt>1800</unsignedInt>
                 <unsignedInt>3600</unsignedInt>
             </TieredUpdateTimes>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_HydrogenEngineDefinition">
             <Id>
@@ -636,6 +657,9 @@
             <AnimationSpinUpSpeed>5</AnimationSpinUpSpeed>
             <AnimationSpinDownSpeed>5</AnimationSpinDownSpeed>
             <PCU>25</PCU>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_HydrogenEngineDefinition">
             <Id>
@@ -712,6 +736,9 @@
             <AnimationSpinUpSpeed>5</AnimationSpinUpSpeed>
             <AnimationSpinDownSpeed>5</AnimationSpinDownSpeed>
             <PCU>25</PCU>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <!-- End Region Reactor-->
 
@@ -784,6 +811,9 @@
             <TurbineSpinDownSpeed>0.3</TurbineSpinDownSpeed>
             <TurbineRotationSpeed>7</TurbineRotationSpeed>
             <PCU>55</PCU>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
             <Id>
@@ -847,6 +877,9 @@
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>55</PCU>
             <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
             <Id>
@@ -910,6 +943,9 @@
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>55</PCU>
             <IsAirTight>false</IsAirTight>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
         </Definition>
     </CubeBlocks>
 </Definitions>

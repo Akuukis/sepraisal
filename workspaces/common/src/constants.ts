@@ -14,6 +14,7 @@ export enum VENDOR_MOD {
     SCRAPRACEPACK = 'ScrapRacePack',  // a.k.a. Wasteland
     WARFARE_1 = 'Warfare1',
     INDUSTRIAL = 'IndustrialPack',
+    WARFARE_2 = 'Warfare2',
 }
 
 export enum COMMUNITY_MOD {
