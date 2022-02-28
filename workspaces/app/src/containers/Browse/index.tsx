@@ -1,7 +1,10 @@
+import { Container, Typography } from '@material-ui/core'
+import { Alert, AlertTitle } from '@material-ui/lab'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
+import AlertUkraine from 'src/components/AlertUkraine'
 import IconFilter from 'src/components/icons/IconFilter'
 import Search from 'src/components/Search'
 import DefaultLayout from 'src/layouts/DefaultLayout'
@@ -46,9 +49,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             asideTitle='Filters'
             defaultOpen
         >
-            <Search className={classes.search} enableSort enableStatus />
+            <AlertUkraine />
+            {/* <Search className={classes.search} enableSort enableStatus />
             <Cards />
-            <LoadMore />
+            <LoadMore /> */}
         </DefaultLayout>
     )
 })) /* ============================================================================================================= */

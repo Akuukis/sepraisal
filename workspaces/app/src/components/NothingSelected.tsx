@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 
-import { Card, CardContent, CardHeader, fade } from '@material-ui/core'
+import { Card, CardContent, CardHeader, Container, fade, Typography } from '@material-ui/core'
 
 import { createSmartFC, createStyles, IMyTheme } from 'src/common'
 import { PROVIDER } from 'src/constants'
@@ -9,6 +9,8 @@ import { CONTEXT } from 'src/stores'
 
 import PanelSteam from './PanelSteam'
 import PanelUpload from './PanelUpload'
+import { Alert, AlertTitle } from '@material-ui/lab'
+import AlertUkraine from './AlertUkraine'
 
 
 const styles = (theme: IMyTheme) => createStyles({
@@ -62,9 +64,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     return (
         <Card className={classes.root}>
             <CardHeader className={classes.header} titleTypographyProps={{variant:'h3'}} title='No blueprint selected.' />
-            <CardContent className={classes.content}>
+            <AlertUkraine />
+            {/* <CardContent className={classes.content}>
                 <PanelSteam classes={{label: classes.label}} select={select} />
-            </CardContent>
+            </CardContent> */}
             <CardContent className={classes.content}>
                 <PanelUpload classes={{label: classes.label}} select={select} />
             </CardContent>
