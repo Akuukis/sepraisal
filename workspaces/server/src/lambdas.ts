@@ -67,7 +67,7 @@ export const hello: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent)
         console.error(error.stack)
 
         return {
-            body: error.message,
+            body: JSON.stringify({ ...error }),
             headers: {
                 'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Origin': '*',
