@@ -46,12 +46,15 @@ jobs:
           working-directory: ./workspaces/app/
           run: yarn package:prod
 
-        - name: Deploy
-          uses: reggionick/s3-deploy@v3
+        - name: Configure AWS Credentials
+          uses: aws-actions/configure-aws-credentials@v1
           with:
-            folder: ./workspaces/app/dist/
-            bucket: spaceengineerspraisal.net
-            bucket-region: eu-west-1
-            dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-            invalidation: /
-            delete-removed: true
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: eu-west-1
+
+        - name: Deploy
+          run: aws s3 sync ./workspaces/app/dist/ s3://dev.spaceengineerspraisal.net/ --acl public-read
+
+        - name: Invalidate Cache
+          run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
