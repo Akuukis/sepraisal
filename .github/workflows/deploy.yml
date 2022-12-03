@@ -17,9 +17,9 @@ jobs:
           working-directory: ./workspaces/app
           run: yarn
 
-        - name: Build
+        - name: Package
           working-directory: ./workspaces/app
-          run: yarn build
+          run: yarn package:prod
 
         - name: Deploy
           uses: reggionick/s3-deploy@v3
