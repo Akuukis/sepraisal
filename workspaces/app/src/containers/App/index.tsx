@@ -136,19 +136,19 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     return (
         <CONTEXT.BLUEPRINTS.Provider value={blueprintStore}>
-        <CONTEXT.FAVORITES.Provider value={favoriteStore}>
-        <CONTEXT.CARDS.Provider value={cardStore}>
-        <CONTEXT.PRAISAL_MANAGER.Provider value={praisalManager}>
-        <CONTEXT.SELECTION.Provider value={selectionStore}>
+            <CONTEXT.FAVORITES.Provider value={favoriteStore}>
+                <CONTEXT.CARDS.Provider value={cardStore}>
+                    <CONTEXT.PRAISAL_MANAGER.Provider value={praisalManager}>
+                        <CONTEXT.SELECTION.Provider value={selectionStore}>
 
-        <ThemeProvider theme={MY_LIGHT_THEME}>
-            {children}
-        </ThemeProvider>
+                            <ThemeProvider theme={MY_LIGHT_THEME}>
+                                {children}
+                            </ThemeProvider>
 
-        </CONTEXT.SELECTION.Provider>
-        </CONTEXT.PRAISAL_MANAGER.Provider>
-        </CONTEXT.CARDS.Provider>
-        </CONTEXT.FAVORITES.Provider>
+                        </CONTEXT.SELECTION.Provider>
+                    </CONTEXT.PRAISAL_MANAGER.Provider>
+                </CONTEXT.CARDS.Provider>
+            </CONTEXT.FAVORITES.Provider>
         </CONTEXT.BLUEPRINTS.Provider>
     )
 })) /* ============================================================================================================= */

@@ -55,8 +55,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const starsValue = bp.steam.ratingStars === null ? '-' : `${'★'.repeat(bp.steam.ratingStars)}${'☆'.repeat(5 - bp.steam.ratingStars)}`
     const starsDef = bp.steam.ratingStars === null ? 'few ratings' : `${bp.steam.ratingCount}`
     const author = (<MyLink variant='body2' href={linkAuthor(bp.steam.authors[0]?.id)}>
-            {bp.steam.authors[0]?.title ?? bp.steam.authors[0]?.id}
-        </MyLink>)
+        {bp.steam.authors[0]?.title ?? bp.steam.authors[0]?.id}
+    </MyLink>)
 
     const placeholderThumb = `//via.placeholder.com/${THUMB_WIDTH}x${THUMB_HEIGHT}?text=No+Image`
 

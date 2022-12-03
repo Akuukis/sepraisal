@@ -141,12 +141,12 @@ export class CardStore {
         )
 
         const res = await fetch(getApiUrl(this.find.$and, {
-                $search: this.find.$text?.$search,
-                projection: cardProjection,
-                sort: this.sort,
-                limit,
-                skip
-            }))
+            $search: this.find.$text?.$search,
+            projection: cardProjection,
+            sort: this.sort,
+            limit,
+            skip
+        }))
         const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[] }
 
         // TODO: handle non-ok cards
@@ -181,14 +181,14 @@ export class CardStore {
             if(this.abortController) this.abortController.abort()
             this.abortController = new AbortController()
             const res = await fetch(
-                    getApiUrl(this.find.$and, {
-                        $search: this.find.$text?.$search,
-                        projection: cardProjection,
-                        sort: this.sort,
-                        limit: this.cardsPerPage,
-                    }),
-                    {signal: this.abortController.signal}
-                )
+                getApiUrl(this.find.$and, {
+                    $search: this.find.$text?.$search,
+                    projection: cardProjection,
+                    sort: this.sort,
+                    limit: this.cardsPerPage,
+                }),
+                {signal: this.abortController.signal}
+            )
             if(res.status !== 200) throw new Error(`Backend error: ${await res.text()}`)
             const {count, docs} = await res.json() as {count: number, docs: IBpProjectionCard[]}
 

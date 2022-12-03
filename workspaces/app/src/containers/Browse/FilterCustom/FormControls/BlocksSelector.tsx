@@ -61,22 +61,22 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const $exists = variant === 'include'
 
     const filtered = cardStore.querryFindBuilder.find.$and
-            .map((criteria: FindQuery) => {
-                const key = Object.keys(criteria).pop()
-                if(!key) throw Error('catch me')
+        .map((criteria: FindQuery) => {
+            const key = Object.keys(criteria).pop()
+            if(!key) throw Error('catch me')
 
-                const fullType = key.match(/sbc\.blocks\.(.*)/)?.[1]
-                return [fullType, criteria[key] as FindCriterion] as const
-            })
-            .filter((pair): pair is [string, FindCriterion] => !!pair[0])
+            const fullType = key.match(/sbc\.blocks\.(.*)/)?.[1]
+            return [fullType, criteria[key] as FindCriterion] as const
+        })
+        .filter((pair): pair is [string, FindCriterion] => !!pair[0])
 
     const disabled = filtered
-            .filter(([_, value]) => deep(value, {$exists: !$exists}))
-            .map(([fullType]) => fullTypeToOption(fullType))
+        .filter(([_, value]) => deep(value, {$exists: !$exists}))
+        .map(([fullType]) => fullTypeToOption(fullType))
 
     const selected = filtered
-            .filter(([_, value]) => deep(value, {$exists}))
-            .map(([fullType]) => fullTypeToOption(fullType))
+        .filter(([_, value]) => deep(value, {$exists}))
+        .map(([fullType]) => fullTypeToOption(fullType))
 
     runInAction(() => {
         for(const option of selected) {
@@ -113,39 +113,39 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <Typography component='legend' className={classes.subheading} variant='subtitle1' align='left'>
                 {heading}
             </Typography>
-                <Autocomplete
-                    multiple
-                    value={selected}
-                    onChange={handleChange}
-                    id='tags-filled'
-                    disableCloseOnSelect
-                    options={options}
-                    getOptionSelected={(option: IOption, value: IOption) => selected.some(({fullType}) => fullType === option.fullType)}
-                    getOptionDisabled={(option: IOption) => disabled.some(({fullType}) => fullType === option.fullType)}
-                    getOptionLabel={(option: IOption) => option.shortType}
-                    renderTags={(value: IOption[])=>null}
-                    renderInput={(params) => (
-                        <TextField
-                            color='secondary'
-                            className={classes.textField}
-                            {...params}
-                            variant='outlined'
-                            disabled={praisalManager === null}
-                            placeholder={praisalManager === null ? 'Loading blocks, please wait ...' : 'Select ID of blocks ...'}
-                            InputProps={{
-                                ...params.InputProps,
-                                startAdornment: (
-                                    <InputAdornment
-                                        position='start'
-                                        className={clsx(classes.inputAdornment, variant === 'exclude' && classes.inputAdornmentExcludeVariant)}
-                                    >
-                                        <IconBrowse color='inherit' fontSize='default' />
-                                    </InputAdornment>
-                                )
-                            }}
-                        />
-                    )}
-                />
+            <Autocomplete
+                multiple
+                value={selected}
+                onChange={handleChange}
+                id='tags-filled'
+                disableCloseOnSelect
+                options={options}
+                getOptionSelected={(option: IOption, value: IOption) => selected.some(({fullType}) => fullType === option.fullType)}
+                getOptionDisabled={(option: IOption) => disabled.some(({fullType}) => fullType === option.fullType)}
+                getOptionLabel={(option: IOption) => option.shortType}
+                renderTags={(value: IOption[])=>null}
+                renderInput={(params) => (
+                    <TextField
+                        color='secondary'
+                        className={classes.textField}
+                        {...params}
+                        variant='outlined'
+                        disabled={praisalManager === null}
+                        placeholder={praisalManager === null ? 'Loading blocks, please wait ...' : 'Select ID of blocks ...'}
+                        InputProps={{
+                            ...params.InputProps,
+                            startAdornment: (
+                                <InputAdornment
+                                    position='start'
+                                    className={clsx(classes.inputAdornment, variant === 'exclude' && classes.inputAdornmentExcludeVariant)}
+                                >
+                                    <IconBrowse color='inherit' fontSize='default' />
+                                </InputAdornment>
+                            )
+                        }}
+                    />
+                )}
+            />
             <div className={classes.chips}>
                 {selected.map((option: IOption, index: number) => (
                     <Chip

@@ -216,12 +216,12 @@ const terminalVelocity = (mass: number, blocks: {'Parachute/LgParachute'?: numbe
     const ATM = 0.85 // (avoid using 1.0 - 0.85 gives a more conservative result)
 
     const diameterLarge = (Math.log(((ATM - REEFLEVEL) * 10) - 0.99) + 5) * RADMULT * 2.5
-        // = (log((10*(0.85-0.6))-0.99)+5)*8*2.5
-        // = 103.6
+    // = (log((10*(0.85-0.6))-0.99)+5)*8*2.5
+    // = 103.6
 
     const areaLarge = Math.PI * Math.pow(diameterLarge / 2, 2) * largeHatches
-        // = 8,429.6 *10
-        // = 84,296
+    // = 8,429.6 *10
+    // = 84,296
 
     const diameterSmall = (Math.log(((ATM - REEFLEVEL) * 10) - 0.99) + 5) * RADMULT * 0.5
     const areaSmall = Math.PI * Math.pow(diameterSmall / 2, 2) * smallHatches
@@ -230,8 +230,8 @@ const terminalVelocity = (mass: number, blocks: {'Parachute/LgParachute'?: numbe
 
 
     const result = Math.sqrt((mass * GRAVITY) / (area * CD * ATM * 1.225 * 2.5))
-        // = squareroot((2927310*9.81)/(84296*1.0*0.85*1.225*2.5))
-        // = 11.4 m/s
+    // = squareroot((2927310*9.81)/(84296*1.0*0.85*1.225*2.5))
+    // = 11.4 m/s
 
     return result.toFixed(toFixed)
 }
@@ -245,10 +245,10 @@ const wheeled = (blocks: Record<string, number>) => {
     if(x1 + x3 + x5 === 0) return '-'
 
     return [
-            x1 === 0 ? undefined : `${x1} small`,
-            x3 === 0 ? undefined : `${x3} medium`,
-            x5 === 0 ? undefined : `${x5} large`,
-        ]
+        x1 === 0 ? undefined : `${x1} small`,
+        x3 === 0 ? undefined : `${x3} medium`,
+        x5 === 0 ? undefined : `${x5} large`,
+    ]
         .filter((val) => val !== undefined)
         .join(', ')
 }

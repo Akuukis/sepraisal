@@ -56,13 +56,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 if(!blueprint) throw new Error('catch me')
                 return 'steam' in blueprint && blueprint.steam !== undefined
                     ?
-                        (<MyLink className={classes.header} href={`${ROUTE.ANALYSE}?${PROVIDER.STEAM}=${bpId}`}>
-                            {blueprint.steam.title}
-                        </MyLink>)
+                    (<MyLink className={classes.header} href={`${ROUTE.ANALYSE}?${PROVIDER.STEAM}=${bpId}`}>
+                        {blueprint.steam.title}
+                    </MyLink>)
                     :
-                        (<MyLink className={classes.header} href={`${ROUTE.ANALYSE}?${PROVIDER.LOCAL}=${bpId}`}>
-                            {bpId}
-                        </MyLink>)
+                    (<MyLink className={classes.header} href={`${ROUTE.ANALYSE}?${PROVIDER.LOCAL}=${bpId}`}>
+                        {bpId}
+                    </MyLink>)
             }
             default: {
                 throw new Error('catch me')

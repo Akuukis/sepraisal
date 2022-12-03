@@ -116,25 +116,25 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     }
 
     const primary = edit === null ? (
-            <>
-                {title}
-                <IconButton className={classes.editIcon} onClick={startEdit}>
-                    <IconEdit />
-                </IconButton>
-            </>
-        ) : (
-            <>
-                <TextField
-                    className={classes.textField}
-                    fullWidth
-                    autoFocus
-                    onBlur={cancelEdit}
-                    value={edit}
-                    onChange={handleEdit}
-                    onKeyDown={checkEditDone}
-                />
-            </>
-        )
+        <>
+            {title}
+            <IconButton className={classes.editIcon} onClick={startEdit}>
+                <IconEdit />
+            </IconButton>
+        </>
+    ) : (
+        <>
+            <TextField
+                className={classes.textField}
+                fullWidth
+                autoFocus
+                onBlur={cancelEdit}
+                value={edit}
+                onChange={handleEdit}
+                onKeyDown={checkEditDone}
+            />
+        </>
+    )
 
     return (
         <ListItem

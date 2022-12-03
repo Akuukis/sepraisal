@@ -40,18 +40,18 @@ export const parseBlueprintSbc = async (xml: string, mod: VENDOR_MOD): Promise<I
                     return [material, resultItem]
                 })
                 .map(([material, resultItem]) => ({
-                        prerequisites: material.Prerequisites[0].Item.reduce((req, item) => {
-                            const title = `${item.$.TypeId}/${item.$.SubtypeId}`
-                            req[title] = Number(item.$.Amount) / Number(resultItem.Amount)
+                    prerequisites: material.Prerequisites[0].Item.reduce((req, item) => {
+                        const title = `${item.$.TypeId}/${item.$.SubtypeId}`
+                        req[title] = Number(item.$.Amount) / Number(resultItem.Amount)
 
-                            return req
-                        }, Object.create(null) as Record<string, number>),
-                        subtype: resultItem.SubtypeId,
-                        time: Number(material.BaseProductionTimeInSeconds[0]),
-                        type: resultItem.TypeId,
-                        fullType: `${resultItem.TypeId}/${resultItem.SubtypeId}`,
-                        mod,
-                    }))
+                        return req
+                    }, Object.create(null) as Record<string, number>),
+                    subtype: resultItem.SubtypeId,
+                    time: Number(material.BaseProductionTimeInSeconds[0]),
+                    type: resultItem.TypeId,
+                    fullType: `${resultItem.TypeId}/${resultItem.SubtypeId}`,
+                    mod,
+                }))
                 .filter((blueprintSbc) => {
                     if(blueprintSbc.type !== 'Ingot') return true
 

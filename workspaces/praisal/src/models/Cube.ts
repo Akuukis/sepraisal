@@ -39,11 +39,11 @@ export class Cube<T extends CubeType = CubeType> implements Omit<Component, 'toJ
         this.mod = mod
 
         const prerequisites = other.Components[0].Component.reduce((req, comp) => {
-                const title = `Component/${comp.$.Subtype}`
-                req[title] = Number(comp.$.Count) + (title in req ? Number(req[title]) : 0)
+            const title = `Component/${comp.$.Subtype}`
+            req[title] = Number(comp.$.Count) + (title in req ? Number(req[title]) : 0)
 
-                return req
-            }, Object.create(null) as Record<string, number>)
+            return req
+        }, Object.create(null) as Record<string, number>)
 
         const time = Number(!Array.isArray(BuildTimeSeconds) ? 0 : BuildTimeSeconds[0])  // Default = 0
         const pcu = Number(!Array.isArray(PCU) ? 0 : PCU[0])  // Default = 0

@@ -38,11 +38,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         >
             <List dense className={classes.list}>
                 {blueprints.map<JSX.Element>(([id, blueprint]) => (
-                        <PanelRecentRow
-                            key={id}
-                            id={id}
-                        />
-                    ))}
+                    <PanelRecentRow
+                        key={id}
+                        id={id}
+                    />
+                ))}
             </List>
         </MyExpansionPanel>
     )

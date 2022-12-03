@@ -71,19 +71,19 @@ export class Grid {
             this.rest = dto.rest
         } else {
             const {
-                    IsStatic,
-                    CubeBlocks,
-                    EntityId,
-                    PersistentFlags,
-                    GridSizeEnum,
-                    ConveyorLines,
-                    BlockGroups,
-                    DisplayName,
-                    OxygenAmount,
-                    DestructibleBlocks,
-                    IsRespawnGrid,
-                    ...rest
-                } = dto
+                IsStatic,
+                CubeBlocks,
+                EntityId,
+                PersistentFlags,
+                GridSizeEnum,
+                ConveyorLines,
+                BlockGroups,
+                DisplayName,
+                OxygenAmount,
+                DestructibleBlocks,
+                IsRespawnGrid,
+                ...rest
+            } = dto
 
             this.blocks = CubeBlocks[0].MyObjectBuilder_CubeBlock
                 .map((blockDto) => new Block(blockDto, this.cubeStore))

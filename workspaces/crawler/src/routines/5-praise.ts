@@ -42,8 +42,8 @@ const farmOptions = {
 }
 const workers = workerFarm(farmOptions, require.resolve(`./5-praiseWorker.${__filename.slice(-2)}`))
 const queueWork = async (index: number, doc: IProjection) => new Promise<string>(
-        (resolve, reject) => workers(index, doc, (err: Error | null, msg?: string) => err ? reject(err) : resolve(msg)),
-    )
+    (resolve, reject) => workers(index, doc, (err: Error | null, msg?: string) => err ? reject(err) : resolve(msg)),
+)
 
 
 type IJobResult = 'ProcessTerminatedError' | 'TimeoutError' | 'read' | 'praise' | 'update' | null

@@ -35,10 +35,10 @@ export class Blueprint {
         const blockcount = this.blocks
             .map((cubeBlock) => cubeBlock.title)
             .reduce<Record<string, number>>((blockcountMap, block) => {
-                    if(!(block in blockcountMap)) blockcountMap[block] = 0
-                    blockcountMap[block] += 1
+                if(!(block in blockcountMap)) blockcountMap[block] = 0
+                blockcountMap[block] += 1
 
-                    return blockcountMap
+                return blockcountMap
             }, {})
 
         return obj2mapArray(blockcount)
