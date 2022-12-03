@@ -39,22 +39,19 @@ jobs:
 
         - name: Build App deps
           if: steps.libs.outputs.cache-hit != 'true'
-          working-directory: ./workspaces/app
+          working-directory: ./workspaces/app/
           run: yarn build --verbose
 
         - name: Package
-          working-directory: ./workspaces/app
+          working-directory: ./workspaces/app/
           run: yarn package:prod
 
         - name: Deploy
           uses: reggionick/s3-deploy@v3
           with:
-            folder: ./workspaces/app/dist
+            folder: ./workspaces/app/dist/
             bucket: spaceengineerspraisal.net
             bucket-region: eu-west-1
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
             invalidation: /
             delete-removed: true
-            no-cache: true
-            private: true
-            filesToInclude: ".*/*,*/*,**"
