@@ -15,46 +15,46 @@ import { IMyTheme } from './myTheme'
 // TProps will be provided, but TClasses will be inferred. Due types that can't be mixed in one function.
 
 export const createSmartFC = <TClasses extends string>(
-        styles: Styles<IMyTheme, Record<string, unknown>, TClasses>,
-        filepath?: string,
-    ) => {
-        return <TProps extends object>(
-                fc: FunctionComponent<TProps, TClasses>,
-            ): React.FunctionComponent<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>> => {
-                const name = filepath && basename(filepath, '.tsx')
-                const useStyles = makeStyles(styles, {name})
+    styles: Styles<IMyTheme, Record<string, unknown>, TClasses>,
+    filepath?: string,
+) => {
+    return <TProps extends object>(
+        fc: FunctionComponent<TProps, TClasses>,
+    ): React.FunctionComponent<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>> => {
+        const name = filepath && basename(filepath, '.tsx')
+        const useStyles = makeStyles(styles, {name})
 
-                const wrapperFC = (props: TProps) => {
-                    const theme = useTheme<IMyTheme>()
-                    const classes = useStyles(props)
+        const wrapperFC = (props: TProps) => {
+            const theme = useTheme<IMyTheme>()
+            const classes = useStyles(props)
 
-                    return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
-                }
-                wrapperFC.displayName = name
-
-                return observer<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>>(wrapperFC)
+            return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
         }
+        wrapperFC.displayName = name
+
+        return observer<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>>(wrapperFC)
+    }
 }
 
 
 export const createDumbFC = <TClasses extends string>(
-        styles: Styles<IMyTheme, Record<string, unknown>, TClasses>,
-        filepath?: string,
-    ) => {
-        return <TProps extends object>(
-            fc: FunctionComponent<TProps, TClasses>,
-        ): React.FunctionComponent<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>> => {
-            const name = filepath && basename(filepath, '.tsx')
-            const useStyles = makeStyles(styles, {name})
+    styles: Styles<IMyTheme, Record<string, unknown>, TClasses>,
+    filepath?: string,
+) => {
+    return <TProps extends object>(
+        fc: FunctionComponent<TProps, TClasses>,
+    ): React.FunctionComponent<TProps & DeepPartial<FunctionComponentProps<TProps, TClasses>>> => {
+        const name = filepath && basename(filepath, '.tsx')
+        const useStyles = makeStyles(styles, {name})
 
-            const wrapperFC = (props: TProps) => {
-                const theme = useTheme<IMyTheme>()
-                const classes = useStyles(props)
+        const wrapperFC = (props: TProps) => {
+            const theme = useTheme<IMyTheme>()
+            const classes = useStyles(props)
 
-                return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
-            }
-            wrapperFC.displayName = name
-
-            return wrapperFC
+            return fc({...props, theme, classes} as FunctionComponentProps<TProps, TClasses>)
         }
+        wrapperFC.displayName = name
+
+        return wrapperFC
+    }
 }

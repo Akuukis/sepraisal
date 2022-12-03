@@ -49,11 +49,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const columns = Math.min(12, tmpColumns) as GridSizeColumns
 
     const rootClassName = clsx(classes.root, {
-            [classes.flatRoot]: variant === 'flat',
-        }, className)
+        [classes.flatRoot]: variant === 'flat',
+    }, className)
     const paperClassName = clsx(classes.paper, {
-            [classes.flatPaper]: variant === 'flat',
-        })
+        [classes.flatPaper]: variant === 'flat',
+    })
 
     return (
         <Grid
@@ -71,7 +71,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 justify='space-between'
                 alignItems='stretch'
             >
-            <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: parentColumns/12 * columns as GridSizeColumns, maxWidth}}>
+                <CONTEXT.PARENT_COLUMNS.Provider value={{parentColumns: parentColumns/12 * columns as GridSizeColumns, maxWidth}}>
                     {children}
                 </CONTEXT.PARENT_COLUMNS.Provider>
             </Grid>

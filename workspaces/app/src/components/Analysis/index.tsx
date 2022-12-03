@@ -90,10 +90,10 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const [blueprint, setBlueprint] = React.useState<IBlueprint | null>(() => cached ?? null)
 
     const rootClassName = clsx(classes.root, {
-            [classes.narrow]: maxWidth === 0.5,
-            [classes.rootLg]: !maxWidth || maxWidth >= 2,
-            [classes.rootXl]: !maxWidth || maxWidth >= 3,
-        }, className)
+        [classes.narrow]: maxWidth === 0.5,
+        [classes.rootLg]: !maxWidth || maxWidth >= 2,
+        [classes.rootXl]: !maxWidth || maxWidth >= 3,
+    }, className)
 
     useAsyncEffectOnce(async () => {
         if(state.code === ASYNC_STATE.Done) return

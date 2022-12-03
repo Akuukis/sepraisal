@@ -24,21 +24,21 @@ export const parseComponentSbc = async (xml: string, mod: VENDOR_MOD): Promise<I
             const componentsDirty = bp.Definitions[0].Components[0].Component
             const components = componentsDirty
                 .map((comp) => ({
-                        displayName: comp.DisplayName[0],
-                        health: Number('Health' in comp ? comp.Health[0] : 0),
-                        mass: Number(comp.Mass[0]),
-                        maxIntegrity: Number(comp.MaxIntegrity[0]),
-                        size: {
-                            X: Number(comp.Size[0].X[0]),
-                            Y: Number(comp.Size[0].Y[0]),
-                            Z: Number(comp.Size[0].Z[0]),
-                        },
-                        subtype: comp.Id[0].SubtypeId[0],
-                        type: comp.Id[0].TypeId[0],
-                        volume: Number(comp.Volume[0]),
-                        fullType: `${comp.Id[0].TypeId[0]}/${comp.Id[0].SubtypeId[0]}`,
-                        mod,
-                    }))
+                    displayName: comp.DisplayName[0],
+                    health: Number('Health' in comp ? comp.Health[0] : 0),
+                    mass: Number(comp.Mass[0]),
+                    maxIntegrity: Number(comp.MaxIntegrity[0]),
+                    size: {
+                        X: Number(comp.Size[0].X[0]),
+                        Y: Number(comp.Size[0].Y[0]),
+                        Z: Number(comp.Size[0].Z[0]),
+                    },
+                    subtype: comp.Id[0].SubtypeId[0],
+                    type: comp.Id[0].TypeId[0],
+                    volume: Number(comp.Volume[0]),
+                    fullType: `${comp.Id[0].TypeId[0]}/${comp.Id[0].SubtypeId[0]}`,
+                    mod,
+                }))
             resolve(components)
         } catch(err) {
             console.error(err)

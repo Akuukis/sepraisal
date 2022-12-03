@@ -47,16 +47,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 const reader = new FileReader()
                 const xml = await new Promise((resolve: (res: string) => void, reject) => {
                     reader.onload = (event) => {
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                            const {result}: any = event.target
-                            try {
-                                const out = Pako.inflate(result, {to: 'string'})
-                                resolve(out)
-                            } catch(error) {
-                                // console.error(`inflate failed ${error}`)
-                                const out = result.toString('utf-8')
-                                resolve(out)
-                            }
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        const {result}: any = event.target
+                        try {
+                            const out = Pako.inflate(result, {to: 'string'})
+                            resolve(out)
+                        } catch(error) {
+                            // console.error(`inflate failed ${error}`)
+                            const out = result.toString('utf-8')
+                            resolve(out)
+                        }
                     }
                     reader.onabort = reject
                     reader.onerror = reject

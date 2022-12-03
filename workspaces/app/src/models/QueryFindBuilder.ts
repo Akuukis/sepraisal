@@ -84,13 +84,13 @@ const presetFighter: FindQueryPreset = [
 ]
 
 const genFighterPreset = (...args): FindQuery[] => [
-        ...presetFighter,
-        {'sbc.blockCount': {$gte: args[0], $lte: args[1] } },
-        {'sbc.blockMass' : {$gte: args[2], $lte: args[3] } },
-        {'sbc.blockPCU'  : {$gte: args[4], $lte: args[5] } },
-        {'sbc.oreVolume' : {$gte: args[6], $lte: args[7] } },
-        // {'sbc.gridCount' : {$gte: args[8], $lte: args[9] } },
-    ]
+    ...presetFighter,
+    {'sbc.blockCount': {$gte: args[0], $lte: args[1] } },
+    {'sbc.blockMass' : {$gte: args[2], $lte: args[3] } },
+    {'sbc.blockPCU'  : {$gte: args[4], $lte: args[5] } },
+    {'sbc.oreVolume' : {$gte: args[6], $lte: args[7] } },
+    // {'sbc.gridCount' : {$gte: args[8], $lte: args[9] } },
+]
 
 
 export const PRESET = {

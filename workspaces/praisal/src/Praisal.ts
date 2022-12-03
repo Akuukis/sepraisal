@@ -36,7 +36,7 @@ const getMaterialAll = (outerEntries: Array<[Cube | Component | Ingot, number]>)
         }
     }
     for(const [key, value] of Object.entries(struct)) {
-            struct[key] = Math.round(value)
+        struct[key] = Math.round(value)
     }
 
     return struct
@@ -74,10 +74,10 @@ export class Praisal {
         return this.blummary.blocks
             .map((cubeBlock) => cubeBlock.title)
             .reduce((blockcountMap, block) => {
-                    if(!(block in blockcountMap)) blockcountMap[block] = 0
-                    blockcountMap[block] += 1
+                if(!(block in blockcountMap)) blockcountMap[block] = 0
+                blockcountMap[block] += 1
 
-                    return blockcountMap
+                return blockcountMap
             }, Object.create(null) as Record<string, number>)
     }
 

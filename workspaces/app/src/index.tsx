@@ -20,13 +20,13 @@ const analyticsStore = new GoatCounterStore(process.env.NODE_ENV === 'developmen
 const routerStore = new RouterStore(analyticsStore)
 
 render((
-        <CONTEXT.ANALYTICS.Provider value={analyticsStore}>
+    <CONTEXT.ANALYTICS.Provider value={analyticsStore}>
         <CONTEXT.ROUTER.Provider value={routerStore}>
 
-        {routes(routerStore.history)}
+            {routes(routerStore.history)}
 
         </CONTEXT.ROUTER.Provider>
-        </CONTEXT.ANALYTICS.Provider>
-    ),
-    document.getElementById('root'),
+    </CONTEXT.ANALYTICS.Provider>
+),
+document.getElementById('root'),
 )

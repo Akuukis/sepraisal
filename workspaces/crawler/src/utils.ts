@@ -36,10 +36,10 @@ export const sbcPath = (datum: {_id: number, steam: {revision: number}}): string
 export const thumbName = (idPair: string): string => `${idPair.replace('/', '_')}.jpg`  // JPG is a lie, it may be PNG or GIF too.
 export const thumbPath = (idPair: string): string => join(crawler_downloads_dir, 'steam-thumb', thumbName(idPair))
 export const thumbLink = (idPair: string): string => [
-        `https://steamuserimages-a.akamaihd.net/ugc`,
-        ...idPair.split('-'),
-        `?imw=268&imh=151&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true`,
-    ].join('/')
+    `https://steamuserimages-a.akamaihd.net/ugc`,
+    ...idPair.split('-'),
+    `?imw=268&imh=151&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true`,
+].join('/')
 
 export const mkdirpSync = (path: string): boolean => {
     if(!existsSync(dirname(path))) {

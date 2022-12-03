@@ -3,20 +3,20 @@ import { Collection, IndexOptions, MongoClient } from 'mongodb'
 
 
 const recreateIndex = async (
-        collection: Collection<IBlueprint>,
-        fieldOrSpec: string | Record<string, string | number>,
-        options: IndexOptions & {name: string},
-    ) => {
-        const indexName =  options.name
-        try {
-            await collection.dropIndex(indexName)
-            console.info(`Index "${indexName}" dropped.`)
-        } catch(err) {
-            if(err.codeName !== 'IndexNotFound') throw err
-            console.info(`Index "${indexName}" not found.`)
-        }
-        await collection.createIndex(fieldOrSpec, options)
-        console.info(`Index "${indexName}" created.`)
+    collection: Collection<IBlueprint>,
+    fieldOrSpec: string | Record<string, string | number>,
+    options: IndexOptions & {name: string},
+) => {
+    const indexName =  options.name
+    try {
+        await collection.dropIndex(indexName)
+        console.info(`Index "${indexName}" dropped.`)
+    } catch(err) {
+        if(err.codeName !== 'IndexNotFound') throw err
+        console.info(`Index "${indexName}" not found.`)
+    }
+    await collection.createIndex(fieldOrSpec, options)
+    console.info(`Index "${indexName}" created.`)
 }
 
 // Use connect method to connect to the server
@@ -32,11 +32,11 @@ export const main = async (): Promise<void> => {
     await recreateIndex(collection, { 'sbc.blockPCU': 1 }, { name: "BlockPCUIndex" })
     await recreateIndex(collection, { 'sbc.oreVolume': 1 }, { name: "OreVolumeIndex" })
     await recreateIndex(collection, {
-            '_id': 'text',
-            'steam.title': 'text',
-            'steam.description': 'text',
-            'sbc.gridTitle': 'text',
-        },
+        '_id': 'text',
+        'steam.title': 'text',
+        'steam.description': 'text',
+        'sbc.gridTitle': 'text',
+    },
         {
             name: 'TextIndex',
             weights: {

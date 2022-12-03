@@ -89,8 +89,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
         const {sort} = cardStore
         const icon =
             id in sort && sort[id] === -1 ? <ListItemIcon className={classes.listItemIcon} ><IconSortDescending /></ListItemIcon> :
-            id in sort && sort[id] ===  1 ? <ListItemIcon className={classes.listItemIcon} ><IconSortAscending /></ListItemIcon> :
-            null
+                id in sort && sort[id] ===  1 ? <ListItemIcon className={classes.listItemIcon} ><IconSortAscending /></ListItemIcon> :
+                    null
 
         return (
             <MenuItem value={id} onClick={setSort}>
@@ -108,9 +108,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const icon =
         currentKey === undefined ? <IconSort /> :
-        cardStore.sort[currentKey] === -1 ? <IconSortDescending /> :
-        cardStore.sort[currentKey] ===  1 ? <IconSortAscending /> :
-        null
+            cardStore.sort[currentKey] === -1 ? <IconSortDescending /> :
+                cardStore.sort[currentKey] ===  1 ? <IconSortAscending /> :
+                    null
 
     return (
         <Grid className={classes.root} container alignItems='center' justify='center'>

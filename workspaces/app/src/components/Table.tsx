@@ -81,14 +81,14 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             id: 'checkbox',
             accessor: '',
             Cell: ({ original }) => (<Checkbox
-                    checked={props.selected!.has(getSafeKey(original))}
-                    onChange={() => toggleRow(original)}
-                />),
+                checked={props.selected!.has(getSafeKey(original))}
+                onChange={() => toggleRow(original)}
+            />),
             Header: props.selectAll !== null ? () => (<Checkbox
-                    checked={selectAll === 1}
-                    indeterminate={selectAll === 2}
-                    onChange={() => toggleSelectAll()}
-                />) : undefined,
+                checked={selectAll === 1}
+                indeterminate={selectAll === 2}
+                onChange={() => toggleSelectAll()}
+            />) : undefined,
             sortable: false,
             width: 48,  // equal Checkbox default width.
             style: { padding: '0' },
@@ -97,9 +97,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const renderColumns = () => {
         const columns = props.columns.map((column) => ({
-                Header: props.headers[column],
-                accessor: column,
-            }))
+            Header: props.headers[column],
+            accessor: column,
+        }))
         if(props.selected) columns.unshift(renderCheckboxColumn as any)
 
         return columns

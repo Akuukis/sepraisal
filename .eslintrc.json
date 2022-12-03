@@ -21,6 +21,7 @@
         // "plugin:@typescript-eslint/recommended-requiring-type-checking",
     ],
     "rules": {
+        "indent": ["error", 4, {"SwitchCase": 1}],
         "@typescript-eslint/no-namespace": 0  // It"s convenient to have joint class/type with namespaces.
     }
 }

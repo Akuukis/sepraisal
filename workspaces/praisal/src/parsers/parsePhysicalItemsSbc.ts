@@ -22,19 +22,19 @@ export const parsePhysicalItemsSbc = async (xml: string, mod: VENDOR_MOD): Promi
             const itemsDirty = bp.Definitions[0].PhysicalItems[0].PhysicalItem
             const items = itemsDirty
                 .map((item) => ({
-                        displayName: item.DisplayName[0],
-                        mass: Number(item.Mass[0]),
-                        size: {
-                            X: Number(item.Size[0].X[0]),
-                            Y: Number(item.Size[0].Y[0]),
-                            Z: Number(item.Size[0].Z[0]),
-                        },
-                        subtype: item.Id[0].SubtypeId[0],
-                        type: item.Id[0].TypeId[0],
-                        volume: Number(item.Volume[0]),
-                        fullType: `${item.Id[0].TypeId[0]}/${item.Id[0].SubtypeId[0]}`,
-                        mod,
-                    }))
+                    displayName: item.DisplayName[0],
+                    mass: Number(item.Mass[0]),
+                    size: {
+                        X: Number(item.Size[0].X[0]),
+                        Y: Number(item.Size[0].Y[0]),
+                        Z: Number(item.Size[0].Z[0]),
+                    },
+                    subtype: item.Id[0].SubtypeId[0],
+                    type: item.Id[0].TypeId[0],
+                    volume: Number(item.Volume[0]),
+                    fullType: `${item.Id[0].TypeId[0]}/${item.Id[0].SubtypeId[0]}`,
+                    mod,
+                }))
             resolve(items)
         } catch(transformError) {
             console.error(transformError)

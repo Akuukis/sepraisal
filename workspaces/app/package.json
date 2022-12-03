@@ -25,7 +25,7 @@
         "lint": "eslint $(git ls-files '*.ts' '*.tsx' '*.js' '*.jsx')",
         "lint:fix": "yarn run lint --fix",
         "lint:summary": "yarn lint --format compact | grep '(@' | grep ' - ' | sed -r 's/.* (\\w+ -) .*(\\(@.*)$/\\1 \\2/' | sort | uniq -c | sort -nr",
-        "package": "webpack-dev-server --mode development",
+        "package": "webpack --mode development",
         "package:prod": "webpack --mode production",
         "test": "echo 'no tests :('",
         "test:coverage": "yarn run test --coverage",

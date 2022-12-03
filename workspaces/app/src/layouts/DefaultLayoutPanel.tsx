@@ -99,7 +99,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <IconButton onClick={toggleOpen} color='primary'>
                 {xsDown ?
                     <IconClose fontSize='default' />
-                :
+                    :
                     theme.direction === 'ltr' ? <ChevronRightIcon fontSize='default' /> : <ChevronLeftIcon fontSize='default' />
                 }
             </IconButton>
