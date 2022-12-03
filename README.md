@@ -1,3 +1,14 @@
+> SEPraisal is looking for maintainers.
+>
+> Hi all, my nickname is Akuukis. I made Space Engineers Praisal. I don't play the game nor use SEPraisal for years now, so have no interest in maintaining it anymore. But I feel responsibility to not just abandon it either, because website still has ~10 visits per day despite being half-working, and once a month someone DMs me willing to help SEPraisal.
+>
+> It's yours now. I'm handing over SEPraisal to SE community. Let's keep it simple:
+> - make a useful PR on Github and I will grant you maintainer role in discord + Github merge rights
+> - host a server with database and I will grant you maintainer role in discord
+> - I will hang around the discord server as much I can to help you get started.
+>
+> Join Discord server to become or just hang out with SEPraisal maintainers: https://discord.gg/Ry93fePdHJ
+
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/1e4d306797a8e7014688/maintainability)](https://codeclimate.com/github/Akuukis/sepraisal/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/1e4d306797a8e7014688/test_coverage)](https://codeclimate.com/github/Akuukis/sepraisal/test_coverage)
@@ -7,7 +18,6 @@
 [![SE Praisal Total](https://img.shields.io/badge/dynamic/json?color=%231767ae&label=SEPraisal%20Total&query=count&suffix=%20blueprints&url=https%3A%2F%2Fdb.spaceengineerspraisal.net%2Fhello%3Ffind%3D%257B%257D%26limit%3D1)](https://spaceengineerspraisal.net/browse?ref=badge)
 [![SE Praisal Blueprints OK](https://img.shields.io/badge/dynamic/json?color=%23417e3b&label=SEPraisal%20OK&query=count&suffix=%20blueprints&url=https%3A%2F%2Fdb.spaceengineerspraisal.net%2Fhello%3Fprojection%3D%257B%2522_id%2522%253Atrue%257D%26limit%3D1%26find%3D%257B%2522%2524and%2522%253A%255B%257B%2522sbc._version%2522%253A%257B%2522%2524exists%2522%253Atrue%257D%257D%255D%257D)](https://spaceengineerspraisal.net/browse?ref=badge)
 [![SE Praisal Praisal Errors](https://img.shields.io/badge/dynamic/json?color=%23c01118&label=SEPraisal%20Praisal%20Errors&query=count&suffix=%20blueprints&url=https%3A%2F%2Fdb.spaceengineerspraisal.net%2Fhello%3Fprojection%3D%257B%2522_id%2522%253Atrue%257D%26limit%3D1%26find%3D%257B%2522%2524and%2522%253A%255B%257B%2522sbc._error%2522%253A%257B%2522%2524exists%2522%253Atrue%257D%257D%255D%257D)](https://spaceengineerspraisal.net/browse?ref=badge)
-
 
 Space Engineers Praisal
 ================================================================================

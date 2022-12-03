@@ -1,8 +1,8 @@
-name: S3 Deploy
+name: Deploy to Production
+
 on:
   push:
-    branches:
-      - main
+    branches: [ master ]
 
 jobs:
   package-deploy_web_production:
