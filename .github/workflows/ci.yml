@@ -109,7 +109,7 @@ jobs:
           uses: reggionick/s3-deploy@v3
           with:
             folder: ./workspaces/app/dist
-            bucket: s3://dev.spaceengineerspraisal.net
+            bucket: dev.spaceengineerspraisal.net
             bucket-region: eu-west-1
             dist-id: ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }}
             invalidation: /

@@ -50,7 +50,7 @@ jobs:
           uses: reggionick/s3-deploy@v3
           with:
             folder: ./workspaces/app/dist
-            bucket: s3://spaceengineerspraisal.net
+            bucket: spaceengineerspraisal.net
             bucket-region: eu-west-1
             dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
             invalidation: /
