@@ -64,7 +64,7 @@
         "react-vega": "6.0.1",
         "react-window": "^1.8.5",
         "use-error-boundary": "^1.2.0",
-        "vega": "5.9.2"
+        "vega": "5.23.0"
     },
     "devDependencies": {
         "@babel/core": "^7.9.0",
