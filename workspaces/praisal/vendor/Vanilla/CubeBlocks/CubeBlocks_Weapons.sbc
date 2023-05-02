@@ -912,6 +912,16 @@
             <TargetingGroups>
                 <string>Weapons</string>
             </TargetingGroups>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1</Z>
+            </DestroyEffectOffset>
+            <DamageEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1</Z>
+            </DamageEffectOffset>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
@@ -965,6 +975,16 @@
             <TargetingGroups>
                 <string>Weapons</string>
             </TargetingGroups>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1.5</Z>
+            </DestroyEffectOffset>
+            <DamageEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1.5</Z>
+            </DamageEffectOffset>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
