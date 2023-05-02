@@ -1195,5 +1195,33 @@
             <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="AutocannonClip" />
             <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
         </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>EngineerPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_EngineerPlushie</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Plushie.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0" TypeId="Component" SubtypeId="EngineerPlushie" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="EngineerPlushie" />
+            <BaseProductionTimeInSeconds>99999</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>SabiroidPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_SabiroidPlushie</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SabiroidPlushie.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0" TypeId="Component" SubtypeId="SabiroidPlushie" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="SabiroidPlushie" />
+            <BaseProductionTimeInSeconds>99999</BaseProductionTimeInSeconds>
+        </Blueprint>
     </Blueprints>
 </Definitions>

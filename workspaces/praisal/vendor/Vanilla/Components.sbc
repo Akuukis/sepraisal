@@ -609,12 +609,73 @@
             <Health>14</Health>
             <MinimumOfferAmount>10</MinimumOfferAmount>
             <MaximumOfferAmount>50</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
 
             <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
         </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>EngineerPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_EngineerPlushie</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Plushie.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Cubes\Small\Plushie.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>5</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>50</Health>
+            <MinimalPricePerUnit>30000</MinimalPricePerUnit>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>1</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SabiroidPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_SabiroidPlushie</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SabiroidPlushie.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Cubes\Small\SabiroidPlushie.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>5</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>50</Health>
+            <MinimalPricePerUnit>30000</MinimalPricePerUnit>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>1</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1</MaximumAcquisitionAmount>
+        </Component>
+
     </Components>
 </Definitions>

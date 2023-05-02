@@ -78,6 +78,7 @@
             <PCU>5</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
+
         <!-- Region Cockpits -->
         <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
             <Id>

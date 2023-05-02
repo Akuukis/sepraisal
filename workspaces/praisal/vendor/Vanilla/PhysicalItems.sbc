@@ -1527,5 +1527,23 @@
             <MaximumOfferAmount>10000</MaximumOfferAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
         </PhysicalItem>
+
+        <!--<PhysicalItem>
+            <Id>
+                <TypeId>Ingot</TypeId>
+                <SubtypeId>EngineerPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Uncraftable</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Plushie.dds</Icon>
+            <Size>
+                <X>0.07</X>
+                <Y>0.07</Y>
+                <Z>0.07</Z>
+            </Size>
+            <Mass>0</Mass>
+            <Volume>0</Volume>
+            <Model>Models\Components\Sphere.mwm</Model>
+            <PhysicalMaterial>Stone</PhysicalMaterial>
+        </PhysicalItem>-->
     </PhysicalItems>
 </Definitions>

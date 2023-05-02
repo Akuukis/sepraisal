@@ -447,7 +447,8 @@
             </Components>
             <CriticalComponent Subtype="Construction" Index="0" />
             <MountPoints>
-                <MountPoint Side="Bottom" StartX="0.3" StartY="0.8" EndX="0.7" EndY="1" />
+                <MountPoint Side="Left" StartX="0.83" StartY="0.01" EndX="0.97" EndY="0.4" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.8" EndX="0.5" EndY="1" />
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CoverWallHalfConstruction_1.mwm" />
@@ -455,6 +456,42 @@
             <BlockPairName>HalfCoverWall</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
+            <MirroringBlock>LargeCoverWallHalfMirrored</MirroringBlock>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeCoverWallHalfMirrored</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_HalfCoverWallMirror</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\cover_wall_mirror.dds</Icon>
+            <Description>Description_FullCoverWall</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\CoverWallHalf_Mirror.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="2" />
+                <Component Subtype="Construction" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0.03" StartY="0.01" EndX="0.17" EndY="0.4" />
+                <MountPoint Side="Bottom" StartX="0.5" StartY="0.8" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CoverWallHalf_Mirror_Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>HalfCoverWallMirrored</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringBlock>LargeCoverWallHalf</MirroringBlock>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>5</BuildTimeSeconds>
             <PCU>1</PCU>
@@ -549,7 +586,8 @@
             <Size x="1" y="1" z="1" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\PassengerSeat.mwm</Model>
-            <CharacterAnimation>Passengerseat_large_Adjusted</CharacterAnimation>
+            <CharacterAnimationMale>Passengerseat_large_Adjusted</CharacterAnimationMale>
+            <CharacterAnimationFemale>PassengerseatFemale_large_Adjusted</CharacterAnimationFemale>
             <UsesDeformation>false</UsesDeformation>
             <Components>
                 <Component Subtype="InteriorPlate" Count="10" />
@@ -608,7 +646,8 @@
             <Size x="3" y="3" z="3" />
             <ModelOffset x="0" y="0" z="0.24" />
             <Model>Models\Cubes\Small\PassengerSeat.mwm</Model>
-            <CharacterAnimation>Passengerseat_Small_Adjusted</CharacterAnimation>
+            <CharacterAnimationMale>Passengerseat_Small_Adjusted</CharacterAnimationMale>
+            <CharacterAnimationFemale>PassengerseatFemale_Small_Adjusted</CharacterAnimationFemale>
             <UsesDeformation>false</UsesDeformation>
             <Components>
                 <Component Subtype="InteriorPlate" Count="10" />
@@ -669,7 +708,8 @@
             <Size x="3" y="3" z="2" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\PassengerSeat.mwm</Model>
-            <CharacterAnimation>Passengerseat_Small_Adjusted</CharacterAnimation>
+            <CharacterAnimationMale>Passengerseat_Small_Adjusted</CharacterAnimationMale>
+            <CharacterAnimationFemale>PassengerseatFemale_Small_Adjusted</CharacterAnimationFemale>
             <UsesDeformation>false</UsesDeformation>
             <Components>
                 <Component Subtype="InteriorPlate" Count="10" />
@@ -728,7 +768,8 @@
             <Size x="2" y="3" z="2" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\PassengerSeat.mwm</Model>
-            <CharacterAnimation>Passengerseat_Small_Adjusted</CharacterAnimation>
+            <CharacterAnimationMale>Passengerseat_Small_Adjusted</CharacterAnimationMale>
+            <CharacterAnimationFemale>PassengerseatFemale_Small_Adjusted</CharacterAnimationFemale>
             <UsesDeformation>false</UsesDeformation>
             <Components>
                 <Component Subtype="InteriorPlate" Count="10" />
@@ -848,6 +889,88 @@
         <Definition>
             <Id>
                 <TypeId>Ladder2</TypeId>
+                <SubtypeId>LadderShaft</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_LadderShaft</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\LadderShaft.dds</Icon>
+            <Description>Description_Ladder</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </Size>
+            <ModelOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>0</Z>
+            </ModelOffset>
+            <Model>Models\Cubes\large\LadderShaft.mwm</Model>
+            <PlaceDecals>false</PlaceDecals>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="80" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="SmallTube" Count="50" />
+                <Component Subtype="Construction" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="SmallTube" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0.0" EndX="1" EndY="0.2" />
+                <MountPoint Side="Top" StartX="0" StartY="0.6" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Top" StartX="0.8" StartY="0.2" EndX="1" EndY="0.6" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.8" EndX="0.8" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.2" EndY="1" />
+                <MountPoint Side="Front" StartX="0.8" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <PhysicsOption>Box</PhysicsOption>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\large\LadderShaftConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\large\LadderShaftConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\LadderShaftConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>LadderShaft</BlockPairName>
+            <ExcludedAreaForCamera>
+                <BoundingBox>
+                    <Min>
+                        <X>-0.6</X>
+                        <Y>-1.3</Y>
+                        <Z>-1.3</Z>
+                    </Min>
+                    <Max>
+                        <X>0.6</X>
+                        <Y>-1.1</Y>
+                        <Z>-0.75</Z>
+                    </Max>
+                </BoundingBox>
+                <BoundingBox>
+                    <Min>
+                        <X>-0.6</X>
+                        <Y>1.1</Y>
+                        <Z>-1.3</Z>
+                    </Min>
+                    <Max>
+                        <X>0.6</X>
+                        <Y>1.3</Y>
+                        <Z>-0.75</Z>
+                    </Max>
+                </BoundingBox>
+            </ExcludedAreaForCamera>
+            <CenterOffset xsi:nil="true" />
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <BuildTimeSeconds>12</BuildTimeSeconds>
+        </Definition>
+        <Definition>
+            <Id>
+                <TypeId>Ladder2</TypeId>
                 <SubtypeId>LadderSmall</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_Ladder</DisplayName>
@@ -916,6 +1039,371 @@
             <CenterOffset xsi:nil="true" />
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>AirDuct1</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AirDuct1</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AirDuctStraight01.dds</Icon>
+            <Description>Description_AirDucts</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AirDuctStraight01.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="20" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Front" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Back" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AirDuctStraight01Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AirDuctStraight01Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AirDuctStraight01Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AirDuct1</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>1</PCU>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>AirDuct2</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AirDuct2</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AirDuctStraight02.dds</Icon>
+            <Description>Description_AirDucts</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AirDuctStraight02.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="20" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.25" />
+                <MountPoint Side="Top" StartX="0" StartY="0.75" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0.25" EndX="0.25" EndY="0.75" />
+                <MountPoint Side="Top" StartX="0.75" StartY="0.25" EndX="1" EndY="0.75" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Front" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Back" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AirDuctStraight02Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AirDuctStraight02Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AirDuctStraight02Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AirDuct2</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>1</PCU>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_LightingBlockDefinition">
+            <Id>
+                <TypeId>InteriorLight</TypeId>
+                <SubtypeId>AirDuctLight</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AirDuctLight</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AirDuctStraight03.dds</Icon>
+            <Description>Description_AirDucts</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AirDuctStraight03.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="20" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Front" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Back" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AirDuctStraight01Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AirDuctStraight01Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AirDuctStraight01Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AirDuctLight</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <LightRadius Min="1" Max="10" Default="3" />
+            <LightFalloff Min="0" Max="3" Default="1" />
+            <LightIntensity Min="0.5" Max="10" Default="2" />
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <PointLightEmissiveMaterial>Emissive</PointLightEmissiveMaterial>
+            <SpotLightEmissiveMaterial>EmissiveSpotlight</SpotLightEmissiveMaterial>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>25</PCU>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>AirDuctCorner</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AirDuctCorner</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AirDuctCorner.dds</Icon>
+            <Description>Description_AirDucts</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AirDuctCorner.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="20" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Front" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Left" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AirDuctCornerConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AirDuctCornerConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AirDuctCornerConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AirDuctCorner</BlockPairName>
+            <MirroringX>YHalfY</MirroringX>
+            <MirroringY>XHalfY</MirroringY>
+            <MirroringZ>MinusHalfY</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>1</PCU>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>AirDuctT</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AirDuctT</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AirDuctTSection.dds</Icon>
+            <Description>Description_AirDucts</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AirDuctTSection.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="15" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SteelPlate" Count="8" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Left" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Front" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Back" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AirDuctTSectionConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AirDuctTSectionConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AirDuctTSectionConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AirDuctT</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>13</BuildTimeSeconds>
+            <PCU>1</PCU>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>AirDuctX</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AirDuctX</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AirDuctXSection.dds</Icon>
+            <Description>Description_AirDucts</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AirDuctXSection.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SteelPlate" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Right" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Left" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Front" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Back" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AirDuctXSectionConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AirDuctXSectionConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AirDuctXSectionConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AirDuctX</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>12</BuildTimeSeconds>
+            <PCU>1</PCU>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>AirDuctRamp</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AirDuctRamp</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AirDuctRamp.dds</Icon>
+            <Description>Description_AirDucts</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AirDuctRamp.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="20" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="4" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="1" EndY="0.45" />
+                <MountPoint Side="Front" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.55" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AirDuctRampConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AirDuctRampConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AirDuctRampConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AirDuctRamp</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>1</PCU>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>AirDuctGrate</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AirDuctGrate</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AirDuctGrate.dds</Icon>
+            <Description>Description_AirDucts</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AirDuctGrate.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="5" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Back" StartX="0.15" StartY="0.4" EndX="0.85" EndY="0.95" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AirDuctGrateConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AirDuctGrate</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <IsAirTight>false</IsAirTight>
+            <PCU>1</PCU>
         </Definition>
     </CubeBlocks>
 </Definitions>
