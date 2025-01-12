@@ -42,6 +42,10 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         [VENDOR_MOD.WARFARE_1           , join(VENDOR_DIR, VENDOR_MOD.WARFARE_1         , 'CubeBlocks.sbc')],
         [VENDOR_MOD.INDUSTRIAL          , join(VENDOR_DIR, VENDOR_MOD.INDUSTRIAL        , 'CubeBlocks.sbc')],
         [VENDOR_MOD.WARFARE_2           , join(VENDOR_DIR, VENDOR_MOD.WARFARE_2         , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.AUTOMATION          , join(VENDOR_DIR, VENDOR_MOD.AUTOMATION        , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.DECORATIVE_3        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_3      , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.SIGNALS             , join(VENDOR_DIR, VENDOR_MOD.SIGNALS           , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.CONTACT             , join(VENDOR_DIR, VENDOR_MOD.CONTACT           , 'CubeBlocks.sbc')],
     ].map(([mod, path]) => [mod, readFileSync(path).toString()] as [VENDOR_MOD, string])
     const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
     const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()

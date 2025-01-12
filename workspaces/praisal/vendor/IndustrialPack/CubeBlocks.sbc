@@ -646,6 +646,100 @@
             <IsAirTight>false</IsAirTight>
         </Definition>
 
+        <Definition>
+            <Id>
+                <TypeId>Conveyor</TypeId>
+                <SubtypeId>LargeBlockConveyorPipeT</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_ConveyorPipeT</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\PipeT.dds</Icon>
+            <Description>Description_ConveyorTube</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\PipeT.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="24" />
+                <Component Subtype="SmallTube" Count="14" />
+                <Component Subtype="Motor" Count="6" />
+                <Component Subtype="InteriorPlate" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="Motor" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.3" Default="true" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.7" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+                <MountPoint Side="Bottom" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.7" />
+                <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.3" />
+                <MountPoint Side="Right" StartX="0.2" StartY="0.7" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Right" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+                <MountPoint Side="Right" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.7" />
+                <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.3" />
+                <MountPoint Side="Left" StartX="0.2" StartY="0.7" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Left" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
+                <MountPoint Side="Left" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.7" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\PipeTConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\PipeTConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\PipeTConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ConveyorPipeT</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>10</PCU>
+            <DLC>HeavyIndustry</DLC>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockConveyorPipeCap</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_PipeCap</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\PipeCap.dds</Icon>
+            <Description>Description_ConveyorTube</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\PipeCap.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="5" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="InteriorPlate" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\PipeCapConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\PipeCapConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\PipeCapConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>PipeCap</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <IsAirTight>false</IsAirTight>
+            <PCU>1</PCU>
+            <DLC>HeavyIndustry</DLC>
+        </Definition>
+
         <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
             <Id>
                 <TypeId>OxygenTank</TypeId>
@@ -793,9 +887,11 @@
                 <Class>LargeBlocks</Class>
                 <Class>SmallBlocks</Class>
                 <Class>Components</Class>
+                <Class>EliteEquipment</Class>
                 <Class>EliteTools</Class>
+				<Class>EliteWeapons</Class>
+				<Class>EliteConsumables</Class>				
                 <Class>BuildPlanner</Class>
-                <Class>EliteConsumables</Class>
             </BlueprintClasses>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
@@ -2029,7 +2125,7 @@
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>15</PCU>
+            <PCU>12</PCU>
             <TieredUpdateTimes>
                 <unsignedInt>100</unsignedInt>
                 <unsignedInt>3600</unsignedInt>
@@ -2129,7 +2225,7 @@
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>15</PCU>
+            <PCU>12</PCU>
             <IsAirTight>false</IsAirTight>
             <TieredUpdateTimes>
                 <unsignedInt>100</unsignedInt>
@@ -2232,7 +2328,7 @@
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>15</PCU>
+            <PCU>12</PCU>
             <TieredUpdateTimes>
                 <unsignedInt>100</unsignedInt>
                 <unsignedInt>3600</unsignedInt>
@@ -2331,7 +2427,7 @@
             <Public>true</Public>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>15</PCU>
+            <PCU>12</PCU>
             <IsAirTight>false</IsAirTight>
             <TieredUpdateTimes>
                 <unsignedInt>100</unsignedInt>

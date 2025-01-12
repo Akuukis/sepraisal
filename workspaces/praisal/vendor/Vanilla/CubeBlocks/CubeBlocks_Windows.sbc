@@ -1769,5 +1769,789 @@
             <PCU>1</PCU>
         </Definition>
 
+        <!-- Region Round Windows-->
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>WindowRound</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRound</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WindowRound.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="15" />
+                <Component Subtype="BulletproofGlass" Count="30" />
+                <Component Subtype="BulletproofGlass" Count="15" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\WindowRoundConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WindowRoundConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindow</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>7</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>WindowRoundInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundInvLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WindowRoundInv.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="15" />
+                <Component Subtype="BulletproofGlass" Count="30" />
+                <Component Subtype="BulletproofGlass" Count="15" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\WindowRoundInvConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WindowRoundInvConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowInv</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>7</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>WindowRoundCorner</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundCorner</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundCornerLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WindowRoundCorner.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="13" />
+                <Component Subtype="BulletproofGlass" Count="20" />
+                <Component Subtype="BulletproofGlass" Count="13" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\WindowRoundCornerConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WindowRoundCornerConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowCorner</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>7</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>WindowRoundCornerInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundCornerInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundCornerInvLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WindowRoundCornerInv.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="13" />
+                <Component Subtype="BulletproofGlass" Count="20" />
+                <Component Subtype="BulletproofGlass" Count="13" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\WindowRoundCornerInvConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WindowRoundCornerInvConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowCornerInv</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>7</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>WindowRoundFace</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundFace</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\windowRoundFaceLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WindowRoundFace.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="9" />
+                <Component Subtype="BulletproofGlass" Count="13" />
+                <Component Subtype="BulletproofGlass" Count="8" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.4" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.4" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\WindowRoundFaceConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WindowRoundFaceConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowFace</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>WindowRoundFaceInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundFaceInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\windowRoundFaceInvLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WindowRoundFaceInv.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="9" />
+                <Component Subtype="BulletproofGlass" Count="13" />
+                <Component Subtype="BulletproofGlass" Count="8" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.4" EndX="0.6" EndY="0.8" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.6" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\WindowRoundFaceInvConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WindowRoundFaceInvConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowFaceInv</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>WindowRoundInwardsCorner</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundInwardsCorner</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\windowRoundInwardsCornerLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WindowRoundInwardsCorner.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="13" />
+                <Component Subtype="BulletproofGlass" Count="12" />
+                <Component Subtype="BulletproofGlass" Count="8" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.6" EndX="0.1" EndY="1" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.2" EndX="0.4" EndY="0.4" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0" EndX="1" EndY="0.1" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.1" EndX="0.6" EndY="0.2" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.1" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\WindowRoundInwardsCornerConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WindowRoundInwardsCornerConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowInwardsCorner</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>WindowRoundInwardsCornerInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundInwardsCornerInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\windowRoundInwardsCornerInvLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WindowRoundInwardsCornerInv.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="13" />
+                <Component Subtype="BulletproofGlass" Count="12" />
+                <Component Subtype="BulletproofGlass" Count="8" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.6" EndX="1" EndY="1" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.2" EndX="0.8" EndY="0.4" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.4" EndY="0.1" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.1" EndX="0.6" EndY="0.2" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.1" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\WindowRoundInwardsCornerInvConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WindowRoundInwardsCornerInvConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowInwardsCornerInv</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWindowRound</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRound</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WindowRound.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WindowRoundConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindow</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>7</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWindowRoundInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundInvLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WindowRoundInv.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WindowRoundInvConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowInv</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>7</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWindowRoundCorner</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundCorner</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundCornerLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WindowRoundCorner.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WindowRoundCornerConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowCorner</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>7</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWindowRoundCornerInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundCornerInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundCornerInvLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WindowRoundCornerInv.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WindowRoundCornerInvConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowCornerInv</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>7</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWindowRoundFace</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundFace</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundFaceLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WindowRoundFace.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.4" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.4" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WindowRoundFaceConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowFace</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWindowRoundFaceInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundFaceInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundFaceInvLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WindowRoundFaceInv.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.4" EndX="0.6" EndY="0.8" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.6" EndY="0.4" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WindowRoundFaceInvConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowFaceInv</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWindowRoundInwardsCorner</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundInwardsCorner</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundInwardsCornerLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WindowRoundInwardsCorner.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.6" EndX="0.1" EndY="1" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.2" EndX="0.4" EndY="0.4" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0" EndX="1" EndY="0.1" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.1" EndX="0.6" EndY="0.2" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.1" EndY="1" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WindowRoundInwardsCornerConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowInwardsCorner</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWindowRoundInwardsCornerInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WindowRoundInwardsCornerInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundInwardsCornerInvLarge.dds</Icon>
+            <Description>Description_Window</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WindowRoundInwardsCornerInv.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+                <Component Subtype="BulletproofGlass" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.6" EndX="1" EndY="1" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.2" EndX="0.8" EndY="0.4" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.4" EndY="0.1" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.1" EndX="0.6" EndY="0.2" />
+                <MountPoint Side="Top" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.8" EndX="0.9" EndY="0.9" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0" EndX="1" EndY="0.4" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Back" ExclusionMask="1" PropertiesMask="2" StartX="0.8" StartY="0.4" EndX="0.9" EndY="0.6" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0" EndX="0.1" EndY="0.4" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.2" StartY="0.6" EndX="0.4" EndY="0.8" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.6" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.1" StartY="0.4" EndX="0.2" EndY="0.6" />
+                <MountPoint Side="Right" ExclusionMask="1" PropertiesMask="2" StartX="0.4" StartY="0.8" EndX="0.6" EndY="0.9" />
+                <MountPoint Side="Bottom" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.9" EndX="1" EndY="1" />
+                <MountPoint Side="Front" ExclusionMask="1" PropertiesMask="2" StartX="0" StartY="0.9" EndX="0.1" EndY="1" />
+                <MountPoint Side="Left" ExclusionMask="1" PropertiesMask="2" StartX="0.9" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1" File="Models\Cubes\Small\WindowRoundInwardsCornerInvConstruction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RoundWindowInwardsCornerInv</BlockPairName>
+            <MirroringX>YHalfX</MirroringX>
+            <MirroringY>XHalfX</MirroringY>
+            <MirroringZ>HalfX</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PhysicalMaterial>Glass</PhysicalMaterial>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+
     </CubeBlocks>
 </Definitions>

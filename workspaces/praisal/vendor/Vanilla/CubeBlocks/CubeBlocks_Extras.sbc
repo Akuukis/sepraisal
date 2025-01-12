@@ -1,6 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <CubeBlocks>
+        <Definition xsi:type="MyObjectBuilder_DebugSphere1Definition">
+            <Id>
+                <TypeId>DebugSphere1</TypeId>
+                <SubtypeId>DebugSphereLarge</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_DebugSphere1</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SpaceBall.dds</Icon>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2" y="1" z="2" />
+            <ModelOffset x="0" y="0" z="0" />
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="2" EndY="2" />
+                <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="2" EndY="2" />
+            </MountPoints>
+            <Model>Models\Debug\RenderDebugSpheres.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Computer" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Debug\RenderDebugSpheres.mwm" />
+            </BuildProgressModels>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <RequiredPowerInput>0.0</RequiredPowerInput>
+            <Public>false</Public>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_DebugSphere2Definition">
+            <Id>
+                <TypeId>DebugSphere2</TypeId>
+                <SubtypeId>DebugSphereLarge</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_DebugSphere2</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SpaceBall.dds</Icon>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2" y="1" z="2" />
+            <ModelOffset x="0" y="0" z="0" />
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="2" EndY="2" />
+                <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="2" EndY="2" />
+            </MountPoints>
+            <Model>Models\Debug\RenderDebugSpheresMetallic.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Computer" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Debug\RenderDebugSpheresMetallic.mwm" />
+            </BuildProgressModels>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <RequiredPowerInput>0.0</RequiredPowerInput>
+            <Public>false</Public>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_DebugSphere3Definition">
+            <Id>
+                <TypeId>DebugSphere3</TypeId>
+                <SubtypeId>DebugSphereLarge</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_DebugSphere3</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SpaceBall.dds</Icon>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2" y="1" z="2" />
+            <ModelOffset x="0" y="0" z="0" />
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Right" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Front" StartX="0.0" StartY="0.0" EndX="2" EndY="1" />
+                <MountPoint Side="Top" StartX="0.0" StartY="0.0" EndX="2" EndY="2" />
+                <MountPoint Side="Bottom" StartX="0.0" StartY="0.0" EndX="2" EndY="2" />
+            </MountPoints>
+            <Model>Models\Debug\RenderDebugSpheresMetalnessDegrees.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Computer" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Debug\RenderDebugSpheresMetallic.mwm" />
+            </BuildProgressModels>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <RequiredPowerInput>0.0</RequiredPowerInput>
+            <Public>false</Public>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeRailStraight</SubtypeId>
+            </Id>
+            <DisplayName>LargeRailStraight</DisplayName>
+            <Icon>Textures\GUI\Icons\Fake.dds</Icon>
+            <Public>false</Public>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\RailStraight.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="12" />
+                <Component Subtype="Construction" Count="8" />
+                <Component Subtype="LargeTube" Count="4" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0.37" EndX="1" EndY="0.63" />
+                <MountPoint Side="Left" StartX="0.37" StartY="0" EndX="0.63" EndY="0.1" />
+                <MountPoint Side="Right" StartX="0.37" StartY="0" EndX="0.63" EndY="0.1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\RailStraight.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\RailStraight.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RailStraight.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>RailStraight</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+	
         <Definition>
             <Id>
                 <TypeId>CubeBlock</TypeId>
@@ -118,5 +259,573 @@
             <PhysicsOption>None</PhysicsOption>
             <IsAirTight>false</IsAirTight>
         </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>EngineerPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_EngineerPlushie</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Plushie.dds</Icon>
+            <Description>Description_EngineerPlushie</Description>
+            <Public>true</Public>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\Plushie.mwm</Model>
+            <Components>
+                <Component Subtype="EngineerPlushie" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="EngineerPlushie" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" Default="true" />
+            </MountPoints>
+            <BlockPairName>EngineerPlushie</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>3</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SabiroidPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_SabiroidPlushie</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SabiroidPlushie.dds</Icon>
+            <Description>Description_SabiroidPlushie</Description>
+            <Public>true</Public>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\SabiroidPlushie.mwm</Model>
+            <Components>
+                <Component Subtype="SabiroidPlushie" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="SabiroidPlushie" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" Default="true" />
+            </MountPoints>
+            <BlockPairName>SabiroidPlushie</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>3</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+		
+		<!-- GoodAI Easter Egg Warning Signs -->
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeWarningSignEaster2</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster2</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_MemeticBadger2.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WarningSignEaster2.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="6" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.8" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WarningSign3Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster2</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1.1</Z>
+            </DestroyEffectOffset>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWarningSignEaster2</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster2</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_MemeticBadger2.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2" y="3" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WarningSignEaster2.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="6" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="2" EndY="3" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\WarningSign1Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster2</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeWarningSignEaster3</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster3</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_GridAI.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WarningSignEaster3.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="6" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.8" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WarningSign3Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster3</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1.1</Z>
+            </DestroyEffectOffset>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWarningSignEaster3</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster3</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_GridAI.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="2" y="3" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WarningSignEaster3.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="6" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="2" EndY="3" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\WarningSign1Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster3</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeWarningSignEaster9</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster9</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_Arrow.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WarningSignEaster9.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="4" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WarningSignEaster9Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster9</BlockPairName>
+			<MirroringX>Z</MirroringX>
+			<MirroringZ>X</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+				
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWarningSignEaster9</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster9</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_Arrow.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WarningSignEaster9.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="1" />
+                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="Construction" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\WarningSign8Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster9</BlockPairName>
+            <MirroringX>Z</MirroringX>
+            <MirroringZ>X</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeWarningSignEaster10</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster10</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_AiPowered.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WarningSignEaster10.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="4" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.3" StartY="0.4" EndX="0.7" EndY="0.7" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WarningSign13Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster10</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1.1</Z>
+            </DestroyEffectOffset>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWarningSignEaster10</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster10</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_AiPowered.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WarningSignEaster10.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="1" />
+                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="Construction" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\WarningSign8Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster10</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeWarningSignEaster11</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster11</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_GoodAI.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WarningSignEaster11.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="4" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.3" StartY="0.4" EndX="0.7" EndY="0.7" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WarningSign13Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster11</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1.1</Z>
+            </DestroyEffectOffset>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWarningSignEaster11</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster11</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_GoodAI.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WarningSignEaster11.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="1" />
+                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="Construction" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\WarningSign8Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster11</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeWarningSignEaster13</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster13</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_MemeticBadger1.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\WarningSignEaster13.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="4" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.3" StartY="0.4" EndX="0.7" EndY="0.7" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\WarningSign13Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster13</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1.1</Z>
+            </DestroyEffectOffset>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>SmallWarningSignEaster13</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_WarningSignEaster13</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\WarningSign_MemeticBadger1.dds</Icon>
+            <Description>Description_SignBlocks</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\WarningSignEaster13.mwm</Model>
+            <Components>
+                <Component Subtype="Construction" Count="1" />
+                <Component Subtype="InteriorPlate" Count="1" />
+                <Component Subtype="Construction" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\WarningSign8Construction_1.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>WarningSignEaster13</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsStandAlone>false</IsStandAlone>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockStatueEngineer</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_StatueEngineer</DisplayName>
+            <Description>Description_StatueEngineer</Description>
+            <Icon>Textures\GUI\Icons\Cubes\10YearStatue.dds</Icon>
+            <Public>true</Public>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="2" z="1" />
+            <Center x="0" y="0" z="0" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\10YearStatue.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="30" />
+                <Component Subtype="SteelPlate" Count="30" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="SteelPlate" Count="30" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\10YearStatue_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\10YearStatue_Construction_2.mwm" />
+            </BuildProgressModels>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <BlockPairName>StatueEngineer</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+		
     </CubeBlocks>
 </Definitions>

@@ -172,12 +172,15 @@
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
-                <MountPoint Side="Back" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" />
-                <MountPoint Side="Front" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" />
-                <MountPoint Side="Bottom" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" Default="true" />
-                <MountPoint Side="Top" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" />
-                <MountPoint Side="Left" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" />
-                <MountPoint Side="Right" StartX="0.1" StartY="0.1" EndX="0.9" EndY="0.9" />
+                <MountPoint Side="Back" StartX="0" StartY="1" EndX="1" EndY="2" PropertiesMask="2" ExclusionMask="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="1" EndX="1" EndY="2" PropertiesMask="2" ExclusionMask="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="2" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="1" EndX="1" EndY="2" PropertiesMask="2" ExclusionMask="1" />
             </MountPoints>
             <IsAirTight>true</IsAirTight>
             <BuildProgressModels>
@@ -234,8 +237,7 @@
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <MirroringX>Y</MirroringX>
-            <MirroringY>Z</MirroringY>
-            <MirroringZ>Y</MirroringZ>
+            <MirroringY>X</MirroringY>
             <PCU>50</PCU>
             <TieredUpdateTimes>
                 <unsignedInt>300</unsignedInt>
@@ -338,7 +340,6 @@
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>50</PCU>
-            <MirroringX>Z</MirroringX>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
             <TieredUpdateTimes>
@@ -403,9 +404,11 @@
                 <Class>LargeBlocks</Class>
                 <Class>SmallBlocks</Class>
                 <Class>Components</Class>
+                <Class>EliteEquipment</Class>
                 <Class>EliteTools</Class>
+				<Class>EliteWeapons</Class>
+				<Class>EliteConsumables</Class>				
                 <Class>BuildPlanner</Class>
-                <Class>EliteConsumables</Class>
             </BlueprintClasses>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
@@ -471,8 +474,10 @@
             <OperationalPowerConsumption>0.28</OperationalPowerConsumption>
             <BlueprintClasses>
                 <Class>SimpleComponents</Class>
+                <Class>SimpleEquipment</Class>
                 <Class>Tools</Class>
-                <Class>Consumables</Class>
+				<Class>SimpleWeapons</Class>
+				<Class>Consumables</Class>
             </BlueprintClasses>
             <AssemblySpeed>0.7</AssemblySpeed>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
@@ -531,14 +536,18 @@
             <BlockPairName>SurvivalKit</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>30</BuildTimeSeconds>
-            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <ResourceSinkGroup>LifeSupport</ResourceSinkGroup>
             <ScreenAreas>
                 <ScreenArea Name="CockpitScreen_01" DisplayName="Top panel" />
                 <ScreenArea Name="CockpitScreen_02" DisplayName="Bottom panel" />
             </ScreenAreas>
             <BlueprintClasses>
+                <Class>SurvivalKitIngots</Class>
+				<Class>BasicComponents</Class>
+				<Class>BasicEquipment</Class>
                 <Class>BasicTools</Class>
-                <Class>BasicComponents</Class>
+				<Class>BasicWeapons</Class>
+				<Class>BasicConsumables</Class>
             </BlueprintClasses>
             <AssemblySpeed>0.3</AssemblySpeed>
 
@@ -620,10 +629,14 @@
             <BlockPairName>SurvivalKit</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>20</BuildTimeSeconds>
-            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <ResourceSinkGroup>LifeSupport</ResourceSinkGroup>
             <BlueprintClasses>
+                <Class>SurvivalKitIngots</Class>
+				<Class>BasicComponents</Class>
+				<Class>BasicEquipment</Class>
                 <Class>BasicTools</Class>
-                <Class>BasicComponents</Class>
+				<Class>BasicWeapons</Class>
+				<Class>BasicConsumables</Class>
             </BlueprintClasses>
             <AssemblySpeed>0.3</AssemblySpeed>
             <ScreenAreas>
@@ -670,6 +683,7 @@
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
         </Definition>
+        
         <Definition xsi:type="MyObjectBuilder_OxygenFarmDefinition">
             <Id>
                 <TypeId>OxygenFarm</TypeId>

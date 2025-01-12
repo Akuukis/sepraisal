@@ -597,6 +597,32 @@
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
             <Id>
                 <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>FlareGunItem</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FlareGun</DisplayName>
+            <Icon>Textures\GUI\Icons\FlareGun.dds</Icon>
+            <Description>Description_FlareGun</Description>
+            <Size>
+                <X>0.27</X>
+                <Y>0.15</Y>
+                <Z>0.08</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>6</Volume>
+            <Model>Models\Weapons\Pistol_FlareGun.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="FlarePistolGun" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>2</MinimumOfferAmount>
+            <MaximumOfferAmount>5</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem>
+
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
                 <SubtypeId>AutomaticRifleItem</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Item_AutomaticRifle</DisplayName>
@@ -1147,6 +1173,27 @@
         </PhysicalItem>
         <PhysicalItem>
             <Id>
+                <TypeId>Ingot</TypeId>
+                <SubtypeId>PrototechScrap</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechScrap</DisplayName>
+            <Icon>Textures\GUI\Icons\component\ScrapPrototechComponent.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>10</Mass>
+            <Volume>1.5</Volume>
+            <Model>Models\Components\ScrapPrototechComponent.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+			<MinimalPricePerUnit>25000</MinimalPricePerUnit>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+        </PhysicalItem>
+        <PhysicalItem>
+            <Id>
                 <TypeId>Ore</TypeId>
                 <SubtypeId>Ice</SubtypeId>
             </Id>
@@ -1527,5 +1574,23 @@
             <MaximumOfferAmount>10000</MaximumOfferAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
         </PhysicalItem>
+
+        <!--<PhysicalItem>
+            <Id>
+                <TypeId>Ingot</TypeId>
+                <SubtypeId>EngineerPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Uncraftable</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Plushie.dds</Icon>
+            <Size>
+                <X>0.07</X>
+                <Y>0.07</Y>
+                <Z>0.07</Z>
+            </Size>
+            <Mass>0</Mass>
+            <Volume>0</Volume>
+            <Model>Models\Components\Sphere.mwm</Model>
+            <PhysicalMaterial>Stone</PhysicalMaterial>
+        </PhysicalItem>-->
     </PhysicalItems>
 </Definitions>

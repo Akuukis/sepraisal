@@ -4,7 +4,7 @@
         <Blueprint>
             <Id>
                 <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Datapad</SubtypeId>
+                <SubtypeId>Position0040_Datapad</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Item_Datapad</DisplayName>
             <Icon>Textures\GUI\Icons\Items\Datapad_Item.dds</Icon>

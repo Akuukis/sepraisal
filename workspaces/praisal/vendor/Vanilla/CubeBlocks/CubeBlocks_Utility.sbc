@@ -232,8 +232,8 @@
             <MirroringZ>Y</MirroringZ>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>120</BuildTimeSeconds>
-            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
-            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
 
             <ResourceSinkGroup>Charging</ResourceSinkGroup>
             <RequiredPowerInput>32</RequiredPowerInput>
@@ -248,7 +248,7 @@
             <TargetingGroups>
                 <string>Propulsion</string>
             </TargetingGroups>
-            <PCU>100</PCU>
+            <PCU>80</PCU>
             <IsAirTight>true</IsAirTight>
         </Definition>
 
@@ -408,7 +408,7 @@
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <DeformationRatio>0.5</DeformationRatio>
-            <PCU>125</PCU>
+            <PCU>100</PCU>
             <IsAirTight>true</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_MergeBlockDefinition">
@@ -457,7 +457,7 @@
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <DeformationRatio>0.5</DeformationRatio>
-            <PCU>125</PCU>
+            <PCU>100</PCU>
             <IsAirTight>true</IsAirTight>
         </Definition>
 
@@ -508,7 +508,7 @@
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <DeformationRatio>0.5</DeformationRatio>
-            <PCU>125</PCU>
+            <PCU>100</PCU>
             <IsAirTight>true</IsAirTight>
         </Definition>
 
@@ -544,7 +544,7 @@
             <BuildTimeSeconds>22</BuildTimeSeconds>
             <DisassembleRatio>1.5</DisassembleRatio>
             <Public>true</Public>
-            <ResourceSinkGroup>Doors</ResourceSinkGroup>
+            <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
             <PowerConsumptionIdle>0.00001</PowerConsumptionIdle>
             <PowerConsumptionMoving>0.001</PowerConsumptionMoving>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
@@ -708,7 +708,7 @@
             <BuildTimeSeconds>10</BuildTimeSeconds>
             <DisassembleRatio>1.5</DisassembleRatio>
             <Public>true</Public>
-            <ResourceSinkGroup>Doors</ResourceSinkGroup>
+            <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
             <PowerConsumptionIdle>0.00001</PowerConsumptionIdle>
             <PowerConsumptionMoving>0.001</PowerConsumptionMoving>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
