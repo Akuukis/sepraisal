@@ -1,11 +1,10 @@
-import * as JSZip from 'jszip'
+import JSZip from 'jszip'
 
-
-export const unzipCachedSbc = async (archiveRaw: Uint8Array): Promise<string> => {
-    const archive = await JSZip.loadAsync(archiveRaw)
-    const fileNames = Object.keys(archive.files)
-    const sbcFilename = fileNames.find((filename) => filename.includes('.sbc'))
-    if(sbcFilename === undefined) throw new Error(`No *.sbc file found within the archive.`)
-
-    return archive.file(sbcFilename).async('string')
+export const unzipCachedSbc = async (archiveBuffer: Buffer, sbcFilename: string): Promise<string> => {
+    const archive = await JSZip.loadAsync(new Uint8Array(archiveBuffer))
+    const file = archive.file(sbcFilename)
+    if (!file) {
+        throw new Error(`File ${sbcFilename} not found in archive`)
+    }
+    return file.async('string')
 }

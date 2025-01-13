@@ -1,5 +1,4 @@
 import { VENDOR_MOD } from '@sepraisal/common/src'
-
 import { IParseBlueprintSbc, IParsePhysicalItemsSbc } from '../parsers'
 
 export interface IIngotDTO {
@@ -12,22 +11,30 @@ export interface IIngotDTO {
 }
 
 export class Ingot implements IIngotDTO {
-
-    public static fromSbcs(
-        physicalItemsSbcs: Map<string, IParsePhysicalItemsSbc>,
-        blueprintSbcs: Map<string, IParseBlueprintSbc>
-    ): Ingot[] {
+    
+    public static fromSbcs(physicalItemsSbcs: Map<string, IParsePhysicalItemsSbc>, blueprintSbcs: Map<string, IParseBlueprintSbc>): Ingot[] {
         const fullTypes = new Set(([] as Array<{fullType: string}>)
             .concat([...physicalItemsSbcs.values()].filter((sbc) => sbc.type === 'Ingot' && sbc.subtype !== 'Scrap'))
             .concat([...blueprintSbcs.values()].filter((sbc) => sbc.type === 'Ingot'))
             .map((sbc) => sbc.fullType)
         )
         return [...fullTypes.values()]
+            .filter((fullType) => {
+                if (fullType === 'Ingot/PrototechScrap') {
+                    process.stdout.write(`Excluding ${fullType}\n`)
+                    return false
+                }
+                return true
+            }) // Exclude Ingot/PrototechScrap
             .map((fullType) => {
                 const physicalItemsSbc = physicalItemsSbcs.get(fullType)
                 if(!physicalItemsSbc) throw new Error(`Ingot "${fullType}" not found in "PhysicalItems.sbc".`)
                 const blueprintSbc = blueprintSbcs.get(fullType)
-                if(!blueprintSbc) throw new Error(`Ingot "${fullType}" not found in "Blueprint.sbc".`)
+                if(!blueprintSbc) {
+                    process.stdout.write(`Blueprints available: ${Array.from(blueprintSbcs.keys()).join(', ')}\n`)
+                    process.stdout.write(`Requested blueprint: ${fullType}\n`)
+                    throw new Error(`Ingot "${fullType}" not found in "Blueprints.sbc".`)
+                }
 
                 return {
                     ...physicalItemsSbc,
@@ -38,7 +45,6 @@ export class Ingot implements IIngotDTO {
     }
 
     public readonly mass: number  // kg.
-
 
     public get title(): string { return `${this.type}/${this.subtype}`}
 
@@ -53,9 +59,9 @@ export class Ingot implements IIngotDTO {
         this.type = dto.type
         this.subtype = dto.subtype
         this.mass = dto.mass
-        this.volume = dto.volume
-        this.time = dto.time
         this.prerequisites = dto.prerequisites
+        this.time = dto.time
+        this.volume = dto.volume
         this.mod = mod
     }
 
@@ -69,5 +75,4 @@ export class Ingot implements IIngotDTO {
             volume: this.volume,
         }
     }
-
 }
