@@ -61,22 +61,22 @@ export class PraisalManager {
     }
 
     @action private buildOres() {
-        const ore = Ore.fromSbcs(this.physicalItemSbcs)
+        const ore = Ore.fromSbcs(new Map(this.physicalItemSbcs.entries()))
         this.ores.merge(ore.map((ore) => [ore.title, ore]))
     }
 
     @action private buildIngots() {
-        const ingots = Ingot.fromSbcs(this.physicalItemSbcs, this.blueprintSbcs)
+        const ingots = Ingot.fromSbcs(new Map(this.physicalItemSbcs.entries()), new Map(this.blueprintSbcs.entries()))
         this.ingots.merge(ingots.map((ingot) => [ingot.title, ingot]))
     }
 
     @action private buildComponents() {
-        const components = Component.fromSbcs(this.blueprintSbcs, this.componentSbcs)
+        const components = Component.fromSbcs(new Map(this.blueprintSbcs.entries()), new Map(this.componentSbcs.entries()))
         this.components.merge(components.map((component) => [component.title, component]))
     }
 
     @action private buildCubes() {
-        const cubes = Cube.fromSbcs(this.components, this.cubeBlocksSbcs)
+        const cubes = Cube.fromSbcs(new Map(this.components.entries()), new Map(this.cubeBlocksSbcs.entries()))
         this.cubes.merge(cubes.map((component) => [component.title, component]))
     }
 
@@ -91,7 +91,7 @@ export class PraisalManager {
     }
 
     public async praiseSbc(sbc: string): Promise<Praisal> {
-        const blueprint = await Blueprint.parseSbc(sbc, this.cubes)
+        const blueprint = await Blueprint.parseSbc(sbc, new Map(this.cubes.entries()))
 
         return this.praise(blueprint)
     }

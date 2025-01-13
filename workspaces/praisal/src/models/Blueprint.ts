@@ -16,15 +16,16 @@ type IBlueprintShipOrPrefab = IBlueprintShipDefinition | IBlueprintPrefabBluepri
 const isPrefab = (def: IBlueprintShipOrPrefab): def is IBlueprintPrefabBlueprintDefinition => 'Prefabs' in def.Definitions[0]
 
 export class Blueprint {
-
     public static async parseSbc(xml: string, cubeStore: Map<string, Cube>): Promise<Blueprint> {
         const originalSize = xml.length
         return new Promise((resolve: (value: Blueprint) => void, reject: (reason: Error) => void) => {
             try {
+                process.stdout.write('Parsing XML...\n')
                 const bp: IBlueprintShipOrPrefab = parse(xml, PARSE_CONFIG, true)
+                process.stdout.write('XML parsed successfully.\n')
                 resolve(new Blueprint(bp, originalSize, cubeStore))
             } catch(transformError) {
-                // console.log(xml)
+                process.stdout.write(`Error parsing XML: ${transformError}\n`)
                 reject(transformError as Error)
             }
         })
@@ -66,12 +67,9 @@ export class Blueprint {
     public workshopId?: number
     public originalSize: number
 
-    /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */  // Bug in Eslint?
     public constructor(dto: Blueprint)
-    /* eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types */  // Bug in Eslint?
     public constructor(dto: IBlueprintShipOrPrefab, originalSize: number, cubeStore: Map<string, Cube>)
     public constructor(dto: Blueprint | IBlueprintShipOrPrefab, originalSize?: number, cubeStore?: Map<string, Cube>) {
-
         if(dto instanceof Blueprint) {
             this.originalSize = dto.originalSize
             this.cubeStore = dto.cubeStore
@@ -80,17 +78,17 @@ export class Blueprint {
             this.grids = dto.grids.map((grid) => new Grid(grid, this.cubeStore))
             this.rest = {...dto.rest}
         } else if(isPrefab(dto)) {
-            this.originalSize = originalSize!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
-            this.cubeStore = cubeStore!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
+            this.originalSize = originalSize!
+            this.cubeStore = cubeStore!
             this.variant = 'prefab'
             const {Id, CubeGrids, ...rest} = dto.Definitions[0].Prefabs[0].Prefab[0]
             this.title = Id[0].SubtypeId[0]
             this.grids = CubeGrids[0].CubeGrid
                 .map((gridDto) => new Grid(gridDto, this.cubeStore))
-            this.rest = rest as Record<string, any>  /* eslint-disable-line @typescript-eslint/no-explicit-any */  // TODO: better typing
+            this.rest = rest as Record<string, any>
         } else {
-            this.originalSize = originalSize!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
-            this.cubeStore = cubeStore!  /* eslint-disable-line @typescript-eslint/no-non-null-assertion */  // TODO: better TS if-else logic.
+            this.originalSize = originalSize!
+            this.cubeStore = cubeStore!
             this.variant = 'ship'
             const blueprint = dto.Definitions[0].ShipBlueprints[0].ShipBlueprint[0]
             const {Id, CubeGrids, DisplayName, WorkshopId, OwnerSteamId, ...rest} = blueprint
@@ -100,13 +98,11 @@ export class Blueprint {
             this.title = 'TypeId' in Id[0] ? Id[0].SubtypeId[0] : Id[0].$.Subtype
             this.grids = CubeGrids[0].CubeGrid
                 .map((gridDto) => new Grid(gridDto, this.cubeStore))
-            this.rest = rest as Record<string, any>  /* eslint-disable-line @typescript-eslint/no-explicit-any */  // TODO: better typing
+            this.rest = rest as Record<string, any>
         }
-
     }
 
     public toJSON(): IBlueprintShipDefinition | IBlueprintPrefabBlueprintDefinition {
-
         switch(this.variant) {
             case('prefab'): return {
                 Definitions: {
@@ -142,7 +138,5 @@ export class Blueprint {
             } as never
             default: throw new Error(`Passthrough: ${this.variant}`)
         }
-
     }
-
 }

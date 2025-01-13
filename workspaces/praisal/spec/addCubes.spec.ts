@@ -4,7 +4,6 @@ import { basename, join } from 'path'
 
 import { Cube, PraisalManager } from '../src'
 
-
 const VENDOR_DIR = join(__dirname, '..', 'vendor')
 
 const physicalItemsSbcVanilla = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
