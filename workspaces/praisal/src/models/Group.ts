@@ -1,4 +1,4 @@
-import { GroupTitle } from '@sepraisal/common'
+import { GroupTitle } from '@sepraisal/common/src'
 
 import { CubeType } from '../xmlns/CubeType'
 import { Block } from './Block'

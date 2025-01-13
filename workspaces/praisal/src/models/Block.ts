@@ -1,4 +1,4 @@
-import { Direction } from '@sepraisal/common'
+import { Direction } from '@sepraisal/common/src'
 import { Omit } from 'utility-types'
 
 import { CubeType } from '..//xmlns/CubeType'

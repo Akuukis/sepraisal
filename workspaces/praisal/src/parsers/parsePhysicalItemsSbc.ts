@@ -1,4 +1,4 @@
-import { VENDOR_MOD } from '@sepraisal/common'
+import { VENDOR_MOD } from '@sepraisal/common/src'
 import { parse } from 'fast-xml-parser'
 
 import { IPhysicalItemDefinition } from '../xmlns/PhysicalItems'

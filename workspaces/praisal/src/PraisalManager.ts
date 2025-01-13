@@ -1,4 +1,4 @@
-import { ObservableMap, VENDOR_MOD } from '@sepraisal/common'
+import { ObservableMap, VENDOR_MOD } from '@sepraisal/common/src'
 import { action, runInAction } from 'mobx'
 
 import { Blueprint, Component, Cube, Ingot, Ore } from './models'

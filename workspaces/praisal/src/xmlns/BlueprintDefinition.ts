@@ -1,4 +1,4 @@
-import { Direction } from '@sepraisal/common'
+import { Direction } from '@sepraisal/common/src'
 
 import { CubeType, CubeTypePrefixed } from './CubeType'
 import { IXml2js } from './xml2js'

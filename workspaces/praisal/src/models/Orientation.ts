@@ -1,4 +1,4 @@
-import { Direction, IOrientation } from '@sepraisal/common'
+import { Direction, IOrientation } from '@sepraisal/common/src'
 
 
 export type TranslationEnum = '+x' | '+y' | '+z' | '-x' | '-y' | '-z'

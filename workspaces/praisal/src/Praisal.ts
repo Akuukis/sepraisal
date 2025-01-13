@@ -1,4 +1,4 @@
-import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap, VENDOR_MOD } from '@sepraisal/common'
+import { Direction, GroupTitle, IBlueprint, mapToRecord, ObservableMap, VENDOR_MOD } from '@sepraisal/common/src'
 import fromEntries from 'object.fromentries'
 
 import { Blueprint, Component, Cube, Group, ICoords, Ingot, Ore, Orientation, TranslationMinEnum } from './models'

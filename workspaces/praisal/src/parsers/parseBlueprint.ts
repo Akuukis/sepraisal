@@ -1,4 +1,4 @@
-import { GridSize } from '@sepraisal/common'
+import { GridSize } from '@sepraisal/common/src'
 import { parse } from 'fast-xml-parser'
 import { BlockDefinition, IBlueprintCubeGrid } from '..//xmlns/BlueprintDefinition'
 import { IBlueprintPrefabBlueprintDefinition, IBlueprintPrefabDefinitions } from '..//xmlns/PrefabBlueprintDefinition'

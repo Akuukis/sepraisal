@@ -1,4 +1,5 @@
-import { VENDOR_MOD } from '@sepraisal/common'
+import { VENDOR_MOD } from '@sepraisal/common/src'
+
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
@@ -63,3 +64,5 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         return sepraisal
     }
 }
+
+console.log("Module Paths:", __dirname, VENDOR_DIR);
