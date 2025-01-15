@@ -78,6 +78,94 @@
             <PCU>5</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
+        
+        <Definition>
+            <Id>
+                <TypeId>TerminalBlock</TypeId>
+                <SubtypeId>LargeControlPanelPedestal</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_ControlPanelPedestal</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\VanillaVerticalTerminalPanel.dds</Icon>
+            <Description>Description_ControlPanel</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\VanillaVerticalTerminalPanel.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="5" />
+                <Component Subtype="Construction" Count="5" />
+                <Component Subtype="Computer" Count="1" />
+                <Component Subtype="Display" Count="1" />
+                <Component Subtype="Construction" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.45" StartY="0.35" EndX="0.55" EndY="0.5" />
+                <MountPoint Side="Front" StartX="0.45" StartY="0" EndX="0.55" EndY="0.20" />
+                <MountPoint Side="Bottom" StartX="0.45" StartY="0" EndX="0.55" EndY="0.15" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\VanillaVerticalTerminalPanel_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\VanillaVerticalTerminalPanel_Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\VanillaVerticalTerminalPanel_Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ControlPanelPedestal</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>8</BuildTimeSeconds>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>5</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+        <Definition>
+            <Id>
+                <TypeId>TerminalBlock</TypeId>
+                <SubtypeId>SmallControlPanelPedestal</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_ControlPanelPedestal</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\VanillaVerticalTerminalPanel.dds</Icon>
+            <Description>Description_ControlPanel</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="3" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\VanillaVerticalTerminalPanel.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="5" />
+                <Component Subtype="Construction" Count="5" />
+                <Component Subtype="Computer" Count="1" />
+                <Component Subtype="Display" Count="1" />
+                <Component Subtype="Construction" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.2" StartY="0" EndX="0.8" EndY="1.0" />
+                <MountPoint Side="Front" StartX="0.2" StartY="1.8" EndX="0.8" EndY="2.5" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0" EndX="0.8" EndY="0.8" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\VanillaVerticalTerminalPanel_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\VanillaVerticalTerminalPanel_Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\VanillaVerticalTerminalPanel_Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>ControlPanelPedestal</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>8</BuildTimeSeconds>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>5</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
         <!-- Region Cockpits -->
         <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
             <Id>
@@ -136,7 +224,7 @@
             <BuildTimeSeconds>30</BuildTimeSeconds>
             <EnableFirstPerson>true</EnableFirstPerson>
             <EnableShipControl>true</EnableShipControl>
-            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <EnableBuilderCockpit>true</EnableBuilderCockpit>
             <TargetLockingEnabled>true</TargetLockingEnabled>
             <IsPressurized>false</IsPressurized>
             <DeformationRatio>0.2</DeformationRatio>
@@ -150,7 +238,7 @@
                 <Y>0.4983</Y>
                 <Z>0.15</Z>
             </RaycastOffset>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
             <IsDefault3rdView>true</IsDefault3rdView>
         </Definition>
@@ -488,7 +576,7 @@
                 <Y>0.4983</Y>
                 <Z>0.15</Z>
             </RaycastOffset>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
 
@@ -736,13 +824,13 @@
             <EdgeType>Light</EdgeType>
             <EnableFirstPerson>true</EnableFirstPerson>
             <EnableShipControl>true</EnableShipControl>
-            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <EnableBuilderCockpit>true</EnableBuilderCockpit>
             <TargetLockingEnabled>true</TargetLockingEnabled>
             <IsPressurized>false</IsPressurized>
             <BuildTimeSeconds>20</BuildTimeSeconds>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
 
@@ -804,7 +892,7 @@
             <EdgeType>Light</EdgeType>
             <EnableFirstPerson>true</EnableFirstPerson>
             <EnableShipControl>true</EnableShipControl>
-            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <EnableBuilderCockpit>true</EnableBuilderCockpit>
             <TargetLockingEnabled>true</TargetLockingEnabled>
             <IsPressurized>false</IsPressurized>
             <BuildTimeSeconds>32</BuildTimeSeconds>
@@ -812,6 +900,83 @@
             <DamagedSound>ParticleElectrical</DamagedSound>
             <PCU>150</PCU>
             <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+            <Id>
+                <TypeId>Cockpit</TypeId>
+                <SubtypeId>SmallBlockFlushCockpit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_CockpitFlush</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\CockpitFlush.dds</Icon>
+            <Description>Description_Cockpit</Description>
+            <CubeSize>Small</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="3" z="4" />
+            <Model>Models\Cubes\Small\CockpitFlush_LOD0.mwm</Model>
+            <InteriorModel>Models\Cubes\Small\CockpitFlushInterior.mwm</InteriorModel>
+            <CharacterAnimation>CapCockpitPose</CharacterAnimation>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="Motor" Count="2" />
+                <Component Subtype="Display" Count="5" />
+                <Component Subtype="Computer" Count="20" />
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="40" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="3" EndY="4" Default="true" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="4" EndY="2" />
+                <MountPoint Side="Left" StartX="2" StartY="2" EndX="4" EndY="3" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="4" EndY="2 " />
+                <MountPoint Side="Right" StartX="0" StartY="2" EndX="2" EndY="3" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="3" EndY="1.7" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="1.4" EndX="0.2" EndY="1.8" />
+                <MountPoint Side="Front" StartX="2.8" StartY="1.4" EndX="3" EndY="1.8" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\CockpitFlush_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\CockpitFlush_Construction_2.mwm" />
+            </BuildProgressModels>
+            <VoxelPlacement>
+                <StaticMode>
+                    <PlacementMode>OutsideVoxel</PlacementMode>
+                    <MaxAllowed>0.2</MaxAllowed>
+                    <MinAllowed>0</MinAllowed>
+                </StaticMode>
+                <DynamicMode>
+                    <PlacementMode>OutsideVoxel</PlacementMode>
+                    <MaxAllowed>0.2</MaxAllowed>
+                    <MinAllowed>0</MinAllowed>
+                </DynamicMode>
+            </VoxelPlacement>
+            <ScreenAreas>
+                <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Center" TextureResolution="256" ScreenWidth="4" ScreenHeight="3" Script="TSS_ArtificialHorizon" />
+                <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_Left" TextureResolution="256" ScreenWidth="4" ScreenHeight="5" Script="TSS_EnergyHydrogen" />
+            </ScreenAreas>
+            <BlockPairName>FlushCockpit</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <DeformationRatio>0.2</DeformationRatio>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>true</EnableShipControl>
+            <EnableBuilderCockpit>true</EnableBuilderCockpit>
+            <TargetLockingEnabled>true</TargetLockingEnabled>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PrimarySound>BlockCockpitLrg</PrimarySound>
+            <OxygenCapacity>60</OxygenCapacity>
+            <IsPressurized>true</IsPressurized>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <PCU>45</PCU>
+            <NewsletterSubscriptionNeeded>true</NewsletterSubscriptionNeeded>
         </Definition>
 
     </CubeBlocks>

@@ -868,7 +868,73 @@
                 <Z>-1</Z>
             </PanelOrientation>
             <TwoSidedPanel>true</TwoSidedPanel>
-            <PanelOffset>1.0</PanelOffset>
+            <Pivots>
+                <Vector3>
+                  <X>0</X>
+                  <Y>0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>0</X>
+                  <Y>0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>0</X>
+                  <Y>-0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>0</X>
+                  <Y>-0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>1.33</X>
+                  <Y>0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>1.33</X>
+                  <Y>0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>1.33</X>
+                  <Y>-0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>1.33</X>
+                  <Y>-0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>-1.33</X>
+                  <Y>0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-1.33</X>
+                  <Y>0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>-1.33</X>
+                  <Y>-0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-1.33</X>
+                  <Y>-0.5</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+            </Pivots>
             <DamageEffectName>Damage_Electrical_Damaged_SolarPanels</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
             <PhysicalMaterial>GlassOpaque</PhysicalMaterial>
@@ -932,7 +998,73 @@
                 <Z>-1</Z>
             </PanelOrientation>
             <TwoSidedPanel>true</TwoSidedPanel>
-            <PanelOffset>1.0</PanelOffset>
+            <Pivots>
+                <Vector3>
+                  <X>0</X>
+                  <Y>1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>0</X>
+                  <Y>1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>0</X>
+                  <Y>-1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>0</X>
+                  <Y>-1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>3.325</X>
+                  <Y>1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>3.325</X>
+                  <Y>1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>3.325</X>
+                  <Y>-1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>3.325</X>
+                  <Y>-1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>-3.325</X>
+                  <Y>1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-3.325</X>
+                  <Y>1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                
+                <Vector3>
+                  <X>-3.325</X>
+                  <Y>-1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+                <Vector3>
+                  <X>-3.325</X>
+                  <Y>-1.25</Y>
+                  <Z>0.45</Z>
+                </Vector3>
+            </Pivots>
             <MirroringX>Z</MirroringX>
             <MirroringZ>X</MirroringZ>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>

@@ -71,7 +71,6 @@
             <Size x="2" y="2" z="3" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\SafeZoneBlock.mwm</Model>
-
             <Components>
                 <Component Subtype="SteelPlate" Count="750" />
                 <Component Subtype="Construction" Count="180" />
@@ -81,17 +80,13 @@
                 <Component Subtype="Computer" Count="120" />
                 <Component Subtype="SteelPlate" Count="50" />
             </Components>
-
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
                 <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="2" EndY="1" />
                 <MountPoint Side="Bottom" StartX="0" StartY="1" EndX="2" EndY="2" />
                 <MountPoint Side="Bottom" StartX="0" StartY="2" EndX="2" EndY="2.5" />
-
                 <MountPoint Side="Top" StartX="1" StartY="1" EndX="2" EndY="2" />
-
                 <MountPoint Side="Right" StartX="1" StartY="0.5" EndX="2" EndY="2" />
-
                 <MountPoint Side="Back" StartX="0.5" StartY="0.5" EndX="1.5" EndY="1.5" />
             </MountPoints>
             <BuildProgressModels>
@@ -108,6 +103,7 @@
             <MirroringX>Y</MirroringX>
             <MirroringY>X</MirroringY>
             <BuildTimeSeconds>40</BuildTimeSeconds>
+			<ResourceSinkGroup>SafeZoneBlock</ResourceSinkGroup>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
 
@@ -299,43 +295,5 @@
             <IsAirTight>false</IsAirTight>
             <DLC>Economy</DLC>
         </Definition>
-
     </CubeBlocks>
-    <BlockPositions>
-        <BlockPosition>
-            <Name>SafeZone</Name>
-            <Position>
-                <X>1</X>
-                <Y>19</Y>
-            </Position>
-        </BlockPosition>
-        <BlockPosition>
-            <Name>StoreBlock</Name>
-            <Position>
-                <X>2</X>
-                <Y>19</Y>
-            </Position>
-        </BlockPosition>
-        <BlockPosition>
-            <Name>AtmBlock</Name>
-            <Position>
-                <X>3</X>
-                <Y>19</Y>
-            </Position>
-        </BlockPosition>
-        <BlockPosition>
-            <Name>VendingMachine</Name>
-            <Position>
-                <X>4</X>
-                <Y>19</Y>
-            </Position>
-        </BlockPosition>
-        <BlockPosition>
-            <Name>ContractBlock</Name>
-            <Position>
-                <X>5</X>
-                <Y>19</Y>
-            </Position>
-        </BlockPosition>
-    </BlockPositions>
 </Definitions>
