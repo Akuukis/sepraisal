@@ -56,6 +56,10 @@ const VENDOR_ID_TO_MOD = {
     1475830: VENDOR_MOD.WARFARE_1,
     1676100: VENDOR_MOD.INDUSTRIAL,
     1783760: VENDOR_MOD.WARFARE_2,
+    1958640: VENDOR_MOD.AUTOMATION,
+    2504720: VENDOR_MOD.DECORATIVE_3,
+    2914120: VENDOR_MOD.SIGNALS,
+    3066290: VENDOR_MOD.CONTACT,
 }
 
 const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`
