@@ -64,5 +64,3 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         return sepraisal
     }
 }
-
-console.log("Module Paths:", __dirname, VENDOR_DIR);
