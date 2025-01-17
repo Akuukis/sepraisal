@@ -24,7 +24,7 @@ export class Ingot implements IIngotDTO {
         )
         return [...fullTypes.values()]
         //following exludes prototype scrap ingot for error reasons. TODO: fix what the real problem is
-        .filter((fullType) => fullType !== 'Ingot/PrototechScrap')
+            .filter((fullType) => fullType !== 'Ingot/PrototechScrap')
         // end of the custom filter code, back to original source
             .map((fullType) => {
                 const physicalItemsSbc = physicalItemsSbcs.get(fullType)
