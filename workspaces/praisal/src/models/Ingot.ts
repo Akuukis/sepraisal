@@ -23,10 +23,10 @@ export class Ingot implements IIngotDTO {
             .map((sbc) => sbc.fullType)
         )
         return [...fullTypes.values()]
-        //following exludes prototype scrap ingot for error reasons
-        //TODO: fix what the real problem is
-        .filter((fullType) => fullType !== 'Ingot/PrototechScrap')
-        // end of the custom filter code, back to original source
+            //following exludes prototype scrap ingot for error reasons
+            //TODO: fix what the real problem is
+            .filter((fullType) => fullType !== 'Ingot/PrototechScrap')
+            // end of the custom filter code, back to original source
             .map((fullType) => {
                 const physicalItemsSbc = physicalItemsSbcs.get(fullType)
                 if(!physicalItemsSbc) throw new Error(`Ingot "${fullType}" not found in "PhysicalItems.sbc".`)
