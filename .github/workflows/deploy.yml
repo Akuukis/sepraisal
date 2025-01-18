@@ -6,11 +6,16 @@ on:
 
 jobs:
   package-deploy_web_production:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
+        - name: Use Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '12.x' # TODO: upgrade to non-obselete Node. See one good reason here https://stackoverflow.com/a/69699772
+
         - uses: actions/checkout@v3
 
         - uses: actions/cache@v2
