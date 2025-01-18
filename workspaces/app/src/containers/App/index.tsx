@@ -42,8 +42,8 @@ import CubeBlocksDecorative3Link from '@sepraisal/praisal/vendor/DecorativePack3
 import CubeBlocksSignalsPackLink from '@sepraisal/praisal/vendor/SignalsPack/CubeBlocks.sbc'
 import CubeBlocksContactPackLink from '@sepraisal/praisal/vendor/ContactPack/CubeBlocks.sbc'
 import CubeBlocksArmor3Link from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Armor_3.sbc'
-import CubeBlocksGridAIPack from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_GridAIPack.sbc'
-import CubeBlocksPrototech from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Prototech.sbc'
+import CubeBlocksGridAIPackLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_GridAIPack.sbc'
+import CubeBlocksPrototechLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Prototech.sbc'
 
 
 import * as React from 'react'
@@ -117,6 +117,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksWeaponsLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksWheelsLink              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksWindowsLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksArmor3Link              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksGridAIPackLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksPrototechLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksDecorative1Link         ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_1]),
                 fetch(CubeBlocksDecorative2Link         ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_2]),
                 fetch(CubeBlocksEconomyLink             ).then(async (res) => [await res.text(), VENDOR_MOD.ECONOMY]),
@@ -130,9 +133,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksDecorative3Link         ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_3]),
                 fetch(CubeBlocksSignalsPackLink         ).then(async (res) => [await res.text(), VENDOR_MOD.SIGNALS]),
                 fetch(CubeBlocksContactPackLink         ).then(async (res) => [await res.text(), VENDOR_MOD.CONTACT]),
-                fetch(CubeBlocksArmor3Link              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksGridAIPack              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksPrototech               ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
             ] as never) as [string, string, string, ...[string, VENDOR_MOD][]]
             const praisalManager = new PraisalManager()
             await praisalManager.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)
