@@ -9038,6 +9038,1033 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc" 1`] = `40`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc" 2`] = `
+Array [
+  "CubeBlock/LargeBlockArmorRaisedSlopedCorner",
+  "CubeBlock/SmallBlockArmorRaisedSlopedCorner",
+  "CubeBlock/LargeBlockHeavyArmorRaisedSlopedCorner",
+  "CubeBlock/SmallBlockHeavyArmorRaisedSlopedCorner",
+  "CubeBlock/LargeBlockArmorSlopeTransition",
+  "CubeBlock/SmallBlockArmorSlopeTransition",
+  "CubeBlock/LargeBlockHeavyArmorSlopeTransition",
+  "CubeBlock/SmallBlockHeavyArmorSlopeTransition",
+  "CubeBlock/LargeBlockArmorSlopeTransitionBase",
+  "CubeBlock/SmallBlockArmorSlopeTransitionBase",
+  "CubeBlock/LargeBlockHeavyArmorSlopeTransitionBase",
+  "CubeBlock/SmallBlockHeavyArmorSlopeTransitionBase",
+  "CubeBlock/LargeBlockArmorSlopeTransitionBaseMirrored",
+  "CubeBlock/SmallBlockArmorSlopeTransitionBaseMirrored",
+  "CubeBlock/LargeBlockHeavyArmorSlopeTransitionBaseMirrored",
+  "CubeBlock/SmallBlockHeavyArmorSlopeTransitionBaseMirrored",
+  "CubeBlock/LargeBlockArmorSlopeTransitionMirrored",
+  "CubeBlock/SmallBlockArmorSlopeTransitionMirrored",
+  "CubeBlock/LargeBlockHeavyArmorSlopeTransitionMirrored",
+  "CubeBlock/SmallBlockHeavyArmorSlopeTransitionMirrored",
+  "CubeBlock/LargeBlockArmorSlopeTransitionTip",
+  "CubeBlock/SmallBlockArmorSlopeTransitionTip",
+  "CubeBlock/LargeBlockHeavyArmorSlopeTransitionTip",
+  "CubeBlock/SmallBlockHeavyArmorSlopeTransitionTip",
+  "CubeBlock/LargeBlockArmorSlopeTransitionTipMirrored",
+  "CubeBlock/SmallBlockArmorSlopeTransitionTipMirrored",
+  "CubeBlock/LargeBlockHeavyArmorSlopeTransitionTipMirrored",
+  "CubeBlock/SmallBlockHeavyArmorSlopeTransitionTipMirrored",
+  "CubeBlock/LargeBlockArmorSquareSlopedCornerBase",
+  "CubeBlock/SmallBlockArmorSquareSlopedCornerBase",
+  "CubeBlock/LargeBlockHeavyArmorSquareSlopedCornerBase",
+  "CubeBlock/SmallBlockHeavyArmorSquareSlopedCornerBase",
+  "CubeBlock/LargeBlockArmorSquareSlopedCornerTip",
+  "CubeBlock/SmallBlockArmorSquareSlopedCornerTip",
+  "CubeBlock/LargeBlockHeavyArmorSquareSlopedCornerTip",
+  "CubeBlock/SmallBlockHeavyArmorSquareSlopedCornerTip",
+  "CubeBlock/LargeBlockArmorSquareSlopedCornerTipInv",
+  "CubeBlock/SmallBlockArmorSquareSlopedCornerTipInv",
+  "CubeBlock/LargeBlockHeavyArmorSquareSlopedCornerTipInv",
+  "CubeBlock/SmallBlockHeavyArmorSquareSlopedCornerTipInv",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorRaisedSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorRaisedSlopedCorner",
+  "gridSize": "Large",
+  "integrity": 1700,
+  "mass": 340,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 17,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorRaisedSlopedCorner",
+  "time": 7,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSlopeTransition 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransition",
+  "gridSize": "Large",
+  "integrity": 1000,
+  "mass": 200,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopeTransition",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSlopeTransitionBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionBase",
+  "gridSize": "Large",
+  "integrity": 1600,
+  "mass": 320,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 16,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopeTransitionBase",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSlopeTransitionBaseMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionBaseMirrored",
+  "gridSize": "Large",
+  "integrity": 1600,
+  "mass": 320,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 16,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopeTransitionBaseMirrored",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSlopeTransitionMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionMirrored",
+  "gridSize": "Large",
+  "integrity": 1000,
+  "mass": 200,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopeTransitionMirrored",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSlopeTransitionTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionTip",
+  "gridSize": "Large",
+  "integrity": 500,
+  "mass": 100,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopeTransitionTip",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSlopeTransitionTipMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionTipMirrored",
+  "gridSize": "Large",
+  "integrity": 500,
+  "mass": 100,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSlopeTransitionTipMirrored",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSquareSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSquareSlopedCornerBase",
+  "gridSize": "Large",
+  "integrity": 1800,
+  "mass": 360,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 18,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSquareSlopedCornerBase",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSquareSlopedCornerTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSquareSlopedCornerTip",
+  "gridSize": "Large",
+  "integrity": 600,
+  "mass": 120,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSquareSlopedCornerTip",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockArmorSquareSlopedCornerTipInv 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSquareSlopedCornerTipInv",
+  "gridSize": "Large",
+  "integrity": 900,
+  "mass": 180,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 9,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockArmorSquareSlopedCornerTipInv",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorRaisedSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorRaisedSlopedCorner",
+  "gridSize": "Large",
+  "integrity": 10900,
+  "mass": 2180,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 30,
+    "Component/SteelPlate": 100,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorRaisedSlopedCorner",
+  "time": 15,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSlopeTransition 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransition",
+  "gridSize": "Large",
+  "integrity": 6540,
+  "mass": 1308,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 18,
+    "Component/SteelPlate": 60,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopeTransition",
+  "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSlopeTransitionBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionBase",
+  "gridSize": "Large",
+  "integrity": 10550,
+  "mass": 2110,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 35,
+    "Component/SteelPlate": 95,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopeTransitionBase",
+  "time": 15,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSlopeTransitionBaseMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionBaseMirrored",
+  "gridSize": "Large",
+  "integrity": 10550,
+  "mass": 2110,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 35,
+    "Component/SteelPlate": 95,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopeTransitionBaseMirrored",
+  "time": 15,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSlopeTransitionMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionMirrored",
+  "gridSize": "Large",
+  "integrity": 6540,
+  "mass": 1308,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 18,
+    "Component/SteelPlate": 60,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopeTransitionMirrored",
+  "time": 10,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSlopeTransitionTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionTip",
+  "gridSize": "Large",
+  "integrity": 3270,
+  "mass": 654,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 9,
+    "Component/SteelPlate": 30,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopeTransitionTip",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSlopeTransitionTipMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionTipMirrored",
+  "gridSize": "Large",
+  "integrity": 3270,
+  "mass": 654,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 9,
+    "Component/SteelPlate": 30,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSlopeTransitionTipMirrored",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSquareSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSquareSlopedCornerBase",
+  "gridSize": "Large",
+  "integrity": 11550,
+  "mass": 2310,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 35,
+    "Component/SteelPlate": 105,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSquareSlopedCornerBase",
+  "time": 15,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSquareSlopedCornerTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSquareSlopedCornerTip",
+  "gridSize": "Large",
+  "integrity": 3270,
+  "mass": 654,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 9,
+    "Component/SteelPlate": 30,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSquareSlopedCornerTip",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/LargeBlockHeavyArmorSquareSlopedCornerTipInv 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSquareSlopedCornerTipInv",
+  "gridSize": "Large",
+  "integrity": 6040,
+  "mass": 1208,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 18,
+    "Component/SteelPlate": 55,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockHeavyArmorSquareSlopedCornerTipInv",
+  "time": 8,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorRaisedSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorRaisedSlopedCorner",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorRaisedSlopedCorner",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSlopeTransition 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransition",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopeTransition",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSlopeTransitionBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionBase",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopeTransitionBase",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSlopeTransitionBaseMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionBaseMirrored",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopeTransitionBaseMirrored",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSlopeTransitionMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionMirrored",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopeTransitionMirrored",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSlopeTransitionTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionTip",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopeTransitionTip",
+  "time": 1,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSlopeTransitionTipMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSlopeTransitionTipMirrored",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSlopeTransitionTipMirrored",
+  "time": 1,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSquareSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSquareSlopedCornerBase",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSquareSlopedCornerBase",
+  "time": 3,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSquareSlopedCornerTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSquareSlopedCornerTip",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSquareSlopedCornerTip",
+  "time": 1,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockArmorSquareSlopedCornerTipInv 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_LightArmorSquareSlopedCornerTipInv",
+  "gridSize": "Small",
+  "integrity": 100,
+  "mass": 20,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockArmorSquareSlopedCornerTipInv",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorRaisedSlopedCorner 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorRaisedSlopedCorner",
+  "gridSize": "Small",
+  "integrity": 460,
+  "mass": 92,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 2,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorRaisedSlopedCorner",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSlopeTransition 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransition",
+  "gridSize": "Small",
+  "integrity": 330,
+  "mass": 66,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopeTransition",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSlopeTransitionBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionBase",
+  "gridSize": "Small",
+  "integrity": 460,
+  "mass": 92,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 2,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopeTransitionBase",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSlopeTransitionBaseMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionBaseMirrored",
+  "gridSize": "Small",
+  "integrity": 460,
+  "mass": 92,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 2,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopeTransitionBaseMirrored",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSlopeTransitionMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionMirrored",
+  "gridSize": "Small",
+  "integrity": 330,
+  "mass": 66,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopeTransitionMirrored",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSlopeTransitionTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionTip",
+  "gridSize": "Small",
+  "integrity": 230,
+  "mass": 46,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopeTransitionTip",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSlopeTransitionTipMirrored 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSlopeTransitionTipMirrored",
+  "gridSize": "Small",
+  "integrity": 230,
+  "mass": 46,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSlopeTransitionTipMirrored",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSquareSlopedCornerBase 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSquareSlopedCornerBase",
+  "gridSize": "Small",
+  "integrity": 460,
+  "mass": 92,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 2,
+    "Component/SteelPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSquareSlopedCornerBase",
+  "time": 5,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSquareSlopedCornerTip 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSquareSlopedCornerTip",
+  "gridSize": "Small",
+  "integrity": 230,
+  "mass": 46,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSquareSlopedCornerTip",
+  "time": 2,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Armor_3.sbc": CubeBlock/SmallBlockHeavyArmorSquareSlopedCornerTipInv 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_HeavyArmorSquareSlopedCornerTipInv",
+  "gridSize": "Small",
+  "integrity": 330,
+  "mass": 66,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/MetalGrid": 1,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockHeavyArmorSquareSlopedCornerTipInv",
+  "time": 4,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_ArmorPanels.sbc" 1`] = `88`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_ArmorPanels.sbc" 2`] = `
@@ -14016,6 +15043,1517 @@ Object {
 }
 `;
 
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc" 1`] = `56`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc" 2`] = `
+Array [
+  "CubeBlock/AngledInteriorWallA",
+  "CubeBlock/AngledInteriorWallB",
+  "InteriorLight/LargeBlockInsetLight",
+  "InteriorLight/SmallBlockInsetLight",
+  "CubeBlock/PipeWorkBlockA",
+  "CubeBlock/PipeWorkBlockB",
+  "TerminalBlock/LargeBlockAccessPanel1",
+  "TerminalBlock/LargeBlockAccessPanel2",
+  "ButtonPanel/LargeBlockAccessPanel3",
+  "TerminalBlock/LargeBlockAccessPanel4",
+  "TerminalBlock/SmallBlockAccessPanel1",
+  "TerminalBlock/SmallBlockAccessPanel2",
+  "TerminalBlock/SmallBlockAccessPanel3",
+  "TerminalBlock/SmallBlockAccessPanel4",
+  "AirVent/AirVentFan",
+  "AirVent/AirVentFanFull",
+  "AirVent/SmallAirVentFan",
+  "AirVent/SmallAirVentFanFull",
+  "CameraBlock/LargeCameraTopMounted",
+  "CameraBlock/SmallCameraTopMounted",
+  "CubeBlock/LargeWarningSign1",
+  "CubeBlock/LargeWarningSign2",
+  "CubeBlock/LargeWarningSign3",
+  "CubeBlock/LargeWarningSign4",
+  "CubeBlock/LargeWarningSign5",
+  "CubeBlock/LargeWarningSign6",
+  "CubeBlock/LargeWarningSign7",
+  "CubeBlock/LargeWarningSign8",
+  "CubeBlock/LargeWarningSign9",
+  "CubeBlock/LargeWarningSign10",
+  "CubeBlock/LargeWarningSign11",
+  "CubeBlock/LargeWarningSign12",
+  "CubeBlock/LargeWarningSign13",
+  "CubeBlock/SmallWarningSign1",
+  "CubeBlock/SmallWarningSign2",
+  "CubeBlock/SmallWarningSign3",
+  "CubeBlock/SmallWarningSign4",
+  "CubeBlock/SmallWarningSign5",
+  "CubeBlock/SmallWarningSign6",
+  "CubeBlock/SmallWarningSign7",
+  "CubeBlock/SmallWarningSign8",
+  "CubeBlock/SmallWarningSign9",
+  "CubeBlock/SmallWarningSign10",
+  "CubeBlock/SmallWarningSign11",
+  "CubeBlock/SmallWarningSign12",
+  "CubeBlock/SmallWarningSign13",
+  "SensorBlock/SmallBlockSensorReskin",
+  "SensorBlock/LargeBlockSensorReskin",
+  "MyProgrammableBlock/LargeProgrammableBlockReskin",
+  "MyProgrammableBlock/SmallProgrammableBlockReskin",
+  "TimerBlock/TimerBlockReskinLarge",
+  "TimerBlock/TimerBlockReskinSmall",
+  "Cockpit/SpeederCockpit",
+  "Cockpit/SpeederCockpitCompact",
+  "EmotionControllerBlock/EmotionControllerLarge",
+  "EmotionControllerBlock/EmotionControllerSmall",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": AirVent/AirVentFan 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AirVentFan",
+  "gridSize": "Large",
+  "integrity": 4005,
+  "mass": 1001,
+  "mod": "Vanilla",
+  "pcu": 10,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 20,
+    "Component/Motor": 10,
+    "Component/SteelPlate": 30,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "AirVentFan",
+  "time": 20,
+  "type": "AirVent",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": AirVent/AirVentFanFull 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AirVentFanFull",
+  "gridSize": "Large",
+  "integrity": 5805,
+  "mass": 1381,
+  "mod": "Vanilla",
+  "pcu": 10,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 30,
+    "Component/Motor": 10,
+    "Component/SteelPlate": 45,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "AirVentFanFull",
+  "time": 25,
+  "type": "AirVent",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": AirVent/SmallAirVentFan 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AirVentFan",
+  "gridSize": "Small",
+  "integrity": 685,
+  "mass": 189,
+  "mod": "Vanilla",
+  "pcu": 10,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 10,
+    "Component/Motor": 2,
+    "Component/SteelPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallAirVentFan",
+  "time": 10,
+  "type": "AirVent",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": AirVent/SmallAirVentFanFull 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AirVentFanFull",
+  "gridSize": "Small",
+  "integrity": 1035,
+  "mass": 269,
+  "mod": "Vanilla",
+  "pcu": 10,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 15,
+    "Component/Motor": 2,
+    "Component/SteelPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallAirVentFanFull",
+  "time": 12,
+  "type": "AirVent",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": ButtonPanel/LargeBlockAccessPanel3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AccessPanel3",
+  "gridSize": "Large",
+  "integrity": 288,
+  "mass": 73.6,
+  "mod": "Vanilla",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Computer": 3,
+    "Component/Construction": 8,
+    "Component/InteriorPlate": 3,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockAccessPanel3",
+  "time": 10,
+  "type": "ButtonPanel",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CameraBlock/LargeCameraTopMounted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_CameraReskin",
+  "gridSize": "Large",
+  "integrity": 203,
+  "mass": 40.6,
+  "mod": "Vanilla",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 3,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeCameraTopMounted",
+  "time": 6,
+  "type": "CameraBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CameraBlock/SmallCameraTopMounted 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_CameraReskin",
+  "gridSize": "Small",
+  "integrity": 203,
+  "mass": 40.6,
+  "mod": "Vanilla",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 3,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallCameraTopMounted",
+  "time": 6,
+  "type": "CameraBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": Cockpit/SpeederCockpit 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SpeederCockpit",
+  "gridSize": "Small",
+  "integrity": 1320,
+  "mass": 374,
+  "mod": "Vanilla",
+  "pcu": 45,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 25,
+    "Component/Display": 4,
+    "Component/InteriorPlate": 30,
+    "Component/Motor": 2,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "SpeederCockpit",
+  "time": 20,
+  "type": "Cockpit",
+  "volume": 3375,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": Cockpit/SpeederCockpitCompact 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SpeederCockpitCompact",
+  "gridSize": "Small",
+  "integrity": 1320,
+  "mass": 374,
+  "mod": "Vanilla",
+  "pcu": 45,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 25,
+    "Component/Display": 4,
+    "Component/InteriorPlate": 30,
+    "Component/Motor": 2,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "SpeederCockpitCompact",
+  "time": 20,
+  "type": "Cockpit",
+  "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/AngledInteriorWallA 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AngledInteriorWallA",
+  "gridSize": "Large",
+  "integrity": 675,
+  "mass": 155,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "AngledInteriorWallA",
+  "time": 14,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/AngledInteriorWallB 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AngledInteriorWallB",
+  "gridSize": "Large",
+  "integrity": 675,
+  "mass": 155,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 25,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "AngledInteriorWallB",
+  "time": 14,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign1",
+  "gridSize": "Large",
+  "integrity": 210,
+  "mass": 50,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign1",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign2",
+  "gridSize": "Large",
+  "integrity": 210,
+  "mass": 50,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign2",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign3",
+  "gridSize": "Large",
+  "integrity": 210,
+  "mass": 50,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign3",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign4 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign4",
+  "gridSize": "Large",
+  "integrity": 150,
+  "mass": 38,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign4",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign5",
+  "gridSize": "Large",
+  "integrity": 210,
+  "mass": 50,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign5",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign6 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign6",
+  "gridSize": "Large",
+  "integrity": 210,
+  "mass": 50,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign6",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign7 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign7",
+  "gridSize": "Large",
+  "integrity": 150,
+  "mass": 38,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign7",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign8 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign8",
+  "gridSize": "Large",
+  "integrity": 180,
+  "mass": 44,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign8",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign9 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign9",
+  "gridSize": "Large",
+  "integrity": 180,
+  "mass": 44,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign9",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign10 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign10",
+  "gridSize": "Large",
+  "integrity": 180,
+  "mass": 44,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign10",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign11 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign11",
+  "gridSize": "Large",
+  "integrity": 180,
+  "mass": 44,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign11",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign12 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign12",
+  "gridSize": "Large",
+  "integrity": 180,
+  "mass": 44,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign12",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/LargeWarningSign13 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign13",
+  "gridSize": "Large",
+  "integrity": 180,
+  "mass": 44,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 4,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeWarningSign13",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/PipeWorkBlockA 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PipeWorkBlockA",
+  "gridSize": "Large",
+  "integrity": 1500,
+  "mass": 470,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 20,
+    "Component/LargeTube": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "PipeWorkBlockA",
+  "time": 16,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/PipeWorkBlockB 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PipeWorkBlockB",
+  "gridSize": "Large",
+  "integrity": 1500,
+  "mass": 470,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 20,
+    "Component/InteriorPlate": 20,
+    "Component/LargeTube": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "PipeWorkBlockB",
+  "time": 16,
+  "type": "CubeBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign1",
+  "gridSize": "Small",
+  "integrity": 210,
+  "mass": 50,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign1",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 750,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign2",
+  "gridSize": "Small",
+  "integrity": 150,
+  "mass": 38,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 2,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign2",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign3",
+  "gridSize": "Small",
+  "integrity": 210,
+  "mass": 50,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 3,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign3",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 750,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign4 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign4",
+  "gridSize": "Small",
+  "integrity": 150,
+  "mass": 38,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 2,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign4",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign5 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign5",
+  "gridSize": "Small",
+  "integrity": 210,
+  "mass": 50,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign5",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 750,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign6 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign6",
+  "gridSize": "Small",
+  "integrity": 150,
+  "mass": 38,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 2,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign6",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign7 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign7",
+  "gridSize": "Small",
+  "integrity": 150,
+  "mass": 38,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign7",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign8 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign8",
+  "gridSize": "Small",
+  "integrity": 75,
+  "mass": 19,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign8",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign9 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign9",
+  "gridSize": "Small",
+  "integrity": 75,
+  "mass": 19,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign9",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign10 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign10",
+  "gridSize": "Small",
+  "integrity": 75,
+  "mass": 19,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign10",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign11 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign11",
+  "gridSize": "Small",
+  "integrity": 75,
+  "mass": 19,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign11",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign12 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign12",
+  "gridSize": "Small",
+  "integrity": 75,
+  "mass": 19,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign12",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": CubeBlock/SmallWarningSign13 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_WarningSign13",
+  "gridSize": "Small",
+  "integrity": 75,
+  "mass": 19,
+  "mod": "Vanilla",
+  "pcu": 1,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallWarningSign13",
+  "time": 6,
+  "type": "CubeBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": EmotionControllerBlock/EmotionControllerLarge 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_EmotionController",
+  "gridSize": "Large",
+  "integrity": 1490,
+  "mass": 460,
+  "mod": "Vanilla",
+  "pcu": 45,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 6,
+    "Component/Computer": 20,
+    "Component/Construction": 30,
+    "Component/Display": 12,
+    "Component/InteriorPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "EmotionControllerLarge",
+  "time": 20,
+  "type": "EmotionControllerBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": EmotionControllerBlock/EmotionControllerSmall 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_EmotionController",
+  "gridSize": "Small",
+  "integrity": 175,
+  "mass": 51,
+  "mod": "Vanilla",
+  "pcu": 45,
+  "prerequisites": Object {
+    "Component/BulletproofGlass": 1,
+    "Component/Computer": 5,
+    "Component/Construction": 3,
+    "Component/Display": 1,
+    "Component/InteriorPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "EmotionControllerSmall",
+  "time": 8,
+  "type": "EmotionControllerBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": InteriorLight/LargeBlockInsetLight 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_InsetLight",
+  "gridSize": "Large",
+  "integrity": 1600,
+  "mass": 340,
+  "mod": "Vanilla",
+  "pcu": 20,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 20,
+    "Component/SteelPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockInsetLight",
+  "time": 14,
+  "type": "InteriorLight",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": InteriorLight/SmallBlockInsetLight 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_InsetLight",
+  "gridSize": "Small",
+  "integrity": 175,
+  "mass": 39,
+  "mod": "Vanilla",
+  "pcu": 20,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+    "Component/SteelPlate": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockInsetLight",
+  "time": 6,
+  "type": "InteriorLight",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": MyProgrammableBlock/LargeProgrammableBlockReskin 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Programmable_BlockReskin",
+  "gridSize": "Large",
+  "integrity": 2387,
+  "mass": 534.4,
+  "mod": "Vanilla",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 4,
+    "Component/Display": 1,
+    "Component/LargeTube": 2,
+    "Component/Motor": 1,
+    "Component/SteelPlate": 21,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeProgrammableBlockReskin",
+  "time": 20,
+  "type": "MyProgrammableBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": MyProgrammableBlock/SmallProgrammableBlockReskin 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Programmable_BlockReskin",
+  "gridSize": "Small",
+  "integrity": 427,
+  "mass": 138.4,
+  "mod": "Vanilla",
+  "pcu": 100,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 2,
+    "Component/Display": 1,
+    "Component/LargeTube": 2,
+    "Component/Motor": 1,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallProgrammableBlockReskin",
+  "time": 8,
+  "type": "MyProgrammableBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": SensorBlock/LargeBlockSensorReskin 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SensorReskin",
+  "gridSize": "Large",
+  "integrity": 515,
+  "mass": 158.2,
+  "mod": "Vanilla",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 6,
+    "Component/Construction": 5,
+    "Component/Detector": 6,
+    "Component/InteriorPlate": 5,
+    "Component/RadioCommunication": 4,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockSensorReskin",
+  "time": 6,
+  "type": "SensorBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": SensorBlock/SmallBlockSensorReskin 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_SensorReskin",
+  "gridSize": "Small",
+  "integrity": 515,
+  "mass": 158.2,
+  "mod": "Vanilla",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 6,
+    "Component/Construction": 5,
+    "Component/Detector": 6,
+    "Component/InteriorPlate": 5,
+    "Component/RadioCommunication": 4,
+    "Component/SteelPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockSensorReskin",
+  "time": 6,
+  "type": "SensorBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TerminalBlock/LargeBlockAccessPanel1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AccessPanel1",
+  "gridSize": "Large",
+  "integrity": 530,
+  "mass": 136,
+  "mod": "Vanilla",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 15,
+    "Component/InteriorPlate": 5,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockAccessPanel1",
+  "time": 10,
+  "type": "TerminalBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TerminalBlock/LargeBlockAccessPanel2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AccessPanel2",
+  "gridSize": "Large",
+  "integrity": 675,
+  "mass": 175,
+  "mod": "Vanilla",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Construction": 15,
+    "Component/InteriorPlate": 5,
+    "Component/SmallTube": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockAccessPanel2",
+  "time": 10,
+  "type": "TerminalBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TerminalBlock/LargeBlockAccessPanel4 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AccessPanel4",
+  "gridSize": "Large",
+  "integrity": 450,
+  "mass": 110,
+  "mod": "Vanilla",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 10,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockAccessPanel4",
+  "time": 10,
+  "type": "TerminalBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TerminalBlock/SmallBlockAccessPanel1 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AccessPanel1",
+  "gridSize": "Small",
+  "integrity": 300,
+  "mass": 78,
+  "mod": "Vanilla",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Construction": 8,
+    "Component/InteriorPlate": 2,
+    "Component/SmallTube": 2,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 2,
+    "Z": 2,
+  },
+  "subtype": "SmallBlockAccessPanel1",
+  "time": 6,
+  "type": "TerminalBlock",
+  "volume": 1000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TerminalBlock/SmallBlockAccessPanel2 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AccessPanel2",
+  "gridSize": "Small",
+  "integrity": 90,
+  "mass": 23,
+  "mod": "Vanilla",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Construction": 2,
+    "Component/InteriorPlate": 1,
+    "Component/SmallTube": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockAccessPanel2",
+  "time": 6,
+  "type": "TerminalBlock",
+  "volume": 125,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TerminalBlock/SmallBlockAccessPanel3 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AccessPanel3",
+  "gridSize": "Small",
+  "integrity": 150,
+  "mass": 39,
+  "mod": "Vanilla",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Construction": 4,
+    "Component/InteriorPlate": 1,
+    "Component/SmallTube": 1,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 2,
+    "Z": 1,
+  },
+  "subtype": "SmallBlockAccessPanel3",
+  "time": 6,
+  "type": "TerminalBlock",
+  "volume": 250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TerminalBlock/SmallBlockAccessPanel4 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_AccessPanel4",
+  "gridSize": "Small",
+  "integrity": 450,
+  "mass": 110,
+  "mod": "Vanilla",
+  "pcu": 5,
+  "prerequisites": Object {
+    "Component/Construction": 10,
+    "Component/InteriorPlate": 10,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 2,
+  },
+  "subtype": "SmallBlockAccessPanel4",
+  "time": 10,
+  "type": "TerminalBlock",
+  "volume": 2250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TimerBlock/TimerBlockReskinLarge 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_TimerBlockReskin",
+  "gridSize": "Large",
+  "integrity": 995,
+  "mass": 259,
+  "mod": "Vanilla",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 30,
+    "Component/InteriorPlate": 6,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "TimerBlockReskinLarge",
+  "time": 10,
+  "type": "TimerBlock",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_GridAIPack.sbc": TimerBlock/TimerBlockReskinSmall 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_TimerBlockReskin",
+  "gridSize": "Small",
+  "integrity": 121,
+  "mass": 30.2,
+  "mod": "Vanilla",
+  "pcu": 25,
+  "prerequisites": Object {
+    "Component/Computer": 1,
+    "Component/Construction": 3,
+    "Component/InteriorPlate": 2,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "TimerBlockReskinSmall",
+  "time": 4,
+  "type": "TimerBlock",
+  "volume": 125,
+}
+`;
+
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc" 1`] = `29`;
 
 exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Interiors.sbc" 2`] = `
@@ -17861,6 +20399,393 @@ Object {
   "time": 0,
   "type": "UpgradeModule",
   "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc" 1`] = `12`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc" 2`] = `
+Array [
+  "JumpDrive/LargePrototechJumpDrive",
+  "JumpDrive/SmallPrototechJumpDrive",
+  "Thrust/LargeBlockPrototechThruster",
+  "Thrust/SmallBlockPrototechThruster",
+  "Refinery/LargePrototechRefinery",
+  "Refinery/SmallPrototechRefinery",
+  "Assembler/LargePrototechAssembler",
+  "Gyro/LargeBlockPrototechGyro",
+  "Gyro/SmallBlockPrototechGyro",
+  "BatteryBlock/LargeBlockPrototechBattery",
+  "BatteryBlock/SmallBlockPrototechBattery",
+  "Drill/LargeBlockPrototechDrill",
+]
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": Assembler/LargePrototechAssembler 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechAssembler",
+  "gridSize": "Large",
+  "integrity": 84850,
+  "mass": 11040,
+  "mod": "Vanilla",
+  "pcu": 40,
+  "prerequisites": Object {
+    "Component/Computer": 200,
+    "Component/Construction": 130,
+    "Component/Display": 10,
+    "Component/MetalGrid": 80,
+    "Component/PrototechCoolingUnit": 2,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechMachinery": 20,
+    "Component/PrototechPanel": 240,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 2,
+    "Z": 2,
+  },
+  "subtype": "LargePrototechAssembler",
+  "time": 120,
+  "type": "Assembler",
+  "volume": 187500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": BatteryBlock/LargeBlockPrototechBattery 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechBattery",
+  "gridSize": "Large",
+  "integrity": 22305,
+  "mass": 2821,
+  "mod": "Vanilla",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Computer": 25,
+    "Component/Construction": 30,
+    "Component/MetalGrid": 16,
+    "Component/PrototechCapacitor": 20,
+    "Component/PrototechCircuitry": 3,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechPanel": 60,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockPrototechBattery",
+  "time": 60,
+  "type": "BatteryBlock",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": BatteryBlock/SmallBlockPrototechBattery 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechBattery",
+  "gridSize": "Small",
+  "integrity": 3652,
+  "mass": 524.4,
+  "mod": "Vanilla",
+  "pcu": 15,
+  "prerequisites": Object {
+    "Component/Computer": 2,
+    "Component/Construction": 5,
+    "Component/MetalGrid": 4,
+    "Component/PrototechCapacitor": 6,
+    "Component/PrototechCircuitry": 1,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechPanel": 6,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 1,
+    "Z": 2,
+  },
+  "subtype": "SmallBlockPrototechBattery",
+  "time": 20,
+  "type": "BatteryBlock",
+  "volume": 750,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": Drill/LargeBlockPrototechDrill 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechDrill",
+  "gridSize": "Large",
+  "integrity": 82070,
+  "mass": 13534,
+  "mod": "Vanilla",
+  "pcu": 300,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 200,
+    "Component/LargeTube": 120,
+    "Component/MetalGrid": 80,
+    "Component/PrototechCoolingUnit": 3,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechMachinery": 20,
+    "Component/PrototechPanel": 200,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 4,
+  },
+  "subtype": "LargeBlockPrototechDrill",
+  "time": 60,
+  "type": "Drill",
+  "volume": 562500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": Gyro/LargeBlockPrototechGyro 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechGyroscope",
+  "gridSize": "Large",
+  "integrity": 95265,
+  "mass": 10341,
+  "mod": "Vanilla",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Computer": 5,
+    "Component/Construction": 40,
+    "Component/LargeTube": 16,
+    "Component/MetalGrid": 50,
+    "Component/PrototechCircuitry": 1,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechMachinery": 2,
+    "Component/PrototechPanel": 300,
+  },
+  "size": Object {
+    "X": 1,
+    "Y": 1,
+    "Z": 1,
+  },
+  "subtype": "LargeBlockPrototechGyro",
+  "time": 60,
+  "type": "Gyro",
+  "volume": 15625,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": Gyro/SmallBlockPrototechGyro 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechGyroscope",
+  "gridSize": "Small",
+  "integrity": 23593,
+  "mass": 2710.6,
+  "mod": "Vanilla",
+  "pcu": 50,
+  "prerequisites": Object {
+    "Component/Computer": 3,
+    "Component/Construction": 20,
+    "Component/LargeTube": 4,
+    "Component/MetalGrid": 5,
+    "Component/PrototechCircuitry": 1,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechMachinery": 2,
+    "Component/PrototechPanel": 70,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 2,
+    "Z": 2,
+  },
+  "subtype": "SmallBlockPrototechGyro",
+  "time": 35,
+  "type": "Gyro",
+  "volume": 1000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": JumpDrive/LargePrototechJumpDrive 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechJumpDrive",
+  "gridSize": "Large",
+  "integrity": 93100,
+  "mass": 54400,
+  "mod": "Vanilla",
+  "pcu": 80,
+  "prerequisites": Object {
+    "Component/Computer": 300,
+    "Component/Construction": 180,
+    "Component/GravityGenerator": 30,
+    "Component/PrototechCapacitor": 30,
+    "Component/PrototechCircuitry": 20,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechPanel": 200,
+    "Component/Superconductor": 1400,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 3,
+  },
+  "subtype": "LargePrototechJumpDrive",
+  "time": 120,
+  "type": "JumpDrive",
+  "volume": 421875,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": JumpDrive/SmallPrototechJumpDrive 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechJumpDrive",
+  "gridSize": "Small",
+  "integrity": 9660,
+  "mass": 5814,
+  "mod": "Vanilla",
+  "pcu": 80,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 20,
+    "Component/GravityGenerator": 4,
+    "Component/PrototechCapacitor": 8,
+    "Component/PrototechCircuitry": 4,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechPanel": 15,
+    "Component/Superconductor": 100,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 4,
+  },
+  "subtype": "SmallPrototechJumpDrive",
+  "time": 40,
+  "type": "JumpDrive",
+  "volume": 4500,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": Refinery/LargePrototechRefinery 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechRefinery",
+  "gridSize": "Large",
+  "integrity": 209770,
+  "mass": 23344,
+  "mod": "Vanilla",
+  "pcu": 90,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 40,
+    "Component/LargeTube": 20,
+    "Component/MetalGrid": 20,
+    "Component/PrototechCoolingUnit": 5,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechMachinery": 10,
+    "Component/PrototechPanel": 675,
+  },
+  "size": Object {
+    "X": 2,
+    "Y": 2,
+    "Z": 4,
+  },
+  "subtype": "LargePrototechRefinery",
+  "time": 90,
+  "type": "Refinery",
+  "volume": 250000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": Refinery/SmallPrototechRefinery 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechRefinery",
+  "gridSize": "Small",
+  "integrity": 25230,
+  "mass": 3624,
+  "mod": "Vanilla",
+  "pcu": 90,
+  "prerequisites": Object {
+    "Component/Computer": 20,
+    "Component/Construction": 20,
+    "Component/LargeTube": 16,
+    "Component/MetalGrid": 20,
+    "Component/PrototechCoolingUnit": 2,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechMachinery": 3,
+    "Component/PrototechPanel": 70,
+  },
+  "size": Object {
+    "X": 5,
+    "Y": 5,
+    "Z": 10,
+  },
+  "subtype": "SmallPrototechRefinery",
+  "time": 40,
+  "type": "Refinery",
+  "volume": 31250,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": Thrust/LargeBlockPrototechThruster 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechThruster",
+  "gridSize": "Large",
+  "integrity": 190600,
+  "mass": 38850,
+  "mod": "Vanilla",
+  "pcu": 12,
+  "prerequisites": Object {
+    "Component/Construction": 325,
+    "Component/LargeTube": 160,
+    "Component/MetalGrid": 250,
+    "Component/PrototechCoolingUnit": 5,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechPanel": 500,
+    "Component/PrototechPropulsionUnit": 60,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 8,
+  },
+  "subtype": "LargeBlockPrototechThruster",
+  "time": 90,
+  "type": "Thrust",
+  "volume": 1125000,
+}
+`;
+
+exports[`PraisalManager.addCubes() should add Vanilla "CubeBlocks_Prototech.sbc": Thrust/SmallBlockPrototechThruster 1`] = `
+Object {
+  "data": Any<Object>,
+  "displayName": "DisplayName_Block_PrototechThruster",
+  "gridSize": "Small",
+  "integrity": 5320,
+  "mass": 1521,
+  "mod": "Vanilla",
+  "pcu": 12,
+  "prerequisites": Object {
+    "Component/Construction": 12,
+    "Component/LargeTube": 1,
+    "Component/MetalGrid": 5,
+    "Component/PrototechCoolingUnit": 1,
+    "Component/PrototechFrame": 1,
+    "Component/PrototechPanel": 10,
+    "Component/PrototechPropulsionUnit": 3,
+  },
+  "size": Object {
+    "X": 3,
+    "Y": 3,
+    "Z": 8,
+  },
+  "subtype": "SmallBlockPrototechThruster",
+  "time": 20,
+  "type": "Thrust",
+  "volume": 9000,
 }
 `;
 

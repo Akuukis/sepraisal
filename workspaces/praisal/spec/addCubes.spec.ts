@@ -62,6 +62,9 @@ describe('PraisalManager.addCubes()', () => {
     testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Weapons.sbc'))
     testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc'))
     testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc'))
+    testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor_3.sbc'))
+    testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_GridAIPack.sbc'))
+    testCubeBlocksFile(VENDOR_MOD.VANILLA, join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Prototech.sbc'))
 
     testCubeBlocksFile(VENDOR_MOD.DECORATIVE_1      , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_1      , 'CubeBlocks.sbc'))
     testCubeBlocksFile(VENDOR_MOD.DECORATIVE_2      , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_2      , 'CubeBlocks.sbc'))

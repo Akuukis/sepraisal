@@ -33,6 +33,9 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Weapons.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')],
+        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor_3.sbc')],
+        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_GridAIPack.sbc')],
+        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Prototech.sbc')],
 
         [VENDOR_MOD.DECORATIVE_1        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_1      , 'CubeBlocks.sbc')],
         [VENDOR_MOD.DECORATIVE_2        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_2      , 'CubeBlocks.sbc')],

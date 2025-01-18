@@ -1,5 +1,1160 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksAutomaton 1`] = `
+Object {
+  "DLCs": Array [],
+  "DLCsCount": 0,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 599,
+  "blockCountTotal": 599,
+  "blockIntegrity": 907887,
+  "blockMass": 183685,
+  "blockPCU": 1326,
+  "blockTime": 3850,
+  "blockVolume": 5836375,
+  "blocks": Object {
+    "<Vanilla Light Armor blocks>": 541,
+    "AirVent/AirVentFan": 1,
+    "AirVent/AirVentFanFull": 1,
+    "AirVent/SmallAirVentFan": 1,
+    "AirVent/SmallAirVentFanFull": 1,
+    "ButtonPanel/LargeBlockAccessPanel3": 1,
+    "CameraBlock/LargeCameraTopMounted": 1,
+    "CameraBlock/SmallCameraTopMounted": 1,
+    "Cockpit/SpeederCockpit": 1,
+    "Cockpit/SpeederCockpitCompact": 1,
+    "CubeBlock/AngledInteriorWallA": 1,
+    "CubeBlock/AngledInteriorWallB": 1,
+    "CubeBlock/LargeWarningSign1": 1,
+    "CubeBlock/LargeWarningSign10": 1,
+    "CubeBlock/LargeWarningSign11": 1,
+    "CubeBlock/LargeWarningSign12": 1,
+    "CubeBlock/LargeWarningSign13": 1,
+    "CubeBlock/LargeWarningSign2": 1,
+    "CubeBlock/LargeWarningSign4": 1,
+    "CubeBlock/LargeWarningSign5": 1,
+    "CubeBlock/LargeWarningSign6": 1,
+    "CubeBlock/LargeWarningSign7": 1,
+    "CubeBlock/LargeWarningSign8": 1,
+    "CubeBlock/LargeWarningSign9": 1,
+    "CubeBlock/PipeWorkBlockA": 1,
+    "CubeBlock/PipeWorkBlockB": 1,
+    "CubeBlock/SmallWarningSign1": 1,
+    "CubeBlock/SmallWarningSign10": 1,
+    "CubeBlock/SmallWarningSign11": 1,
+    "CubeBlock/SmallWarningSign12": 1,
+    "CubeBlock/SmallWarningSign13": 1,
+    "CubeBlock/SmallWarningSign2": 1,
+    "CubeBlock/SmallWarningSign3": 1,
+    "CubeBlock/SmallWarningSign4": 1,
+    "CubeBlock/SmallWarningSign5": 1,
+    "CubeBlock/SmallWarningSign6": 1,
+    "CubeBlock/SmallWarningSign7": 1,
+    "CubeBlock/SmallWarningSign8": 1,
+    "CubeBlock/SmallWarningSign9": 1,
+    "EmotionControllerBlock/EmotionControllerLarge": 1,
+    "EmotionControllerBlock/EmotionControllerSmall": 1,
+    "InteriorLight/LargeBlockInsetLight": 1,
+    "InteriorLight/SmallBlockInsetLight": 1,
+    "MotorRotor/SmallRotor": 1,
+    "MotorStator/LargeStator": 1,
+    "MyProgrammableBlock/LargeProgrammableBlockReskin": 1,
+    "MyProgrammableBlock/SmallProgrammableBlockReskin": 1,
+    "SensorBlock/LargeBlockSensorReskin": 1,
+    "SensorBlock/SmallBlockSensorReskin": 1,
+    "TerminalBlock/ControlPanel": 1,
+    "TerminalBlock/LargeBlockAccessPanel1": 1,
+    "TerminalBlock/LargeBlockAccessPanel2": 1,
+    "TerminalBlock/LargeBlockAccessPanel4": 1,
+    "TerminalBlock/SmallBlockAccessPanel1": 1,
+    "TerminalBlock/SmallBlockAccessPanel2": 1,
+    "TerminalBlock/SmallBlockAccessPanel3": 1,
+    "TerminalBlock/SmallBlockAccessPanel4": 1,
+    "TimerBlock/TimerBlockReskinLarge": 1,
+    "TimerBlock/TimerBlockReskinSmall": 1,
+  },
+  "componentCount": 9882,
+  "componentMass": 183685,
+  "componentTime": 10038,
+  "componentVolume": 31399,
+  "components": Object {
+    "BulletproofGlass": 7,
+    "Computer": 124,
+    "Construction": 450,
+    "Detector": 12,
+    "Display": 24,
+    "InteriorPlate": 321,
+    "LargeTube": 28,
+    "Motor": 34,
+    "RadioCommunication": 8,
+    "SmallTube": 20,
+    "SteelPlate": 8854,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 2,
+  "gridSize": "Mixed",
+  "gridStatic": false,
+  "gridTitle": "AllBlocksAutomaton",
+  "height": 52.5,
+  "ingotCount": 192935,
+  "ingotMass": 192935,
+  "ingotTime": 10002,
+  "ingotVolume": 24575,
+  "ingots": Object {
+    "Iron": 192327,
+    "Nickel": 350,
+    "Silicon": 258,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 51290,
+    "rotated": true,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 67.5,
+  "missingDefinitions": Object {
+    "blocks": Object {},
+    "components": Object {},
+    "ingots": Object {},
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 0,
+  "oreCount": 275997,
+  "oreMass": 275997,
+  "oreVolume": 102119,
+  "ores": Object {
+    "Iron": 274753,
+    "Nickel": 875,
+    "Silicon": 369,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 0.24,
+  "thrustAtmospheric": Object {},
+  "thrustHydrogen": Object {},
+  "thrustIon": Object {},
+  "vanilla": true,
+  "width": 65,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksAutomaton 2`] = `
+"..AAA......................
+..AAAAAA...................
+..AAAAAA...................
+AAAAAAAA...................
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksAutomaton 3`] = `
+"...............AAA.AAA....
+..AA...AAA.....AAA.AAA....
+.AAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+BA........................
+BA........................
+B.........................
+B.........................
+BAA.......................
+BA........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksAutomaton 4`] = `
+"BBBBBBBBBBBBBBBBBBBB.......
+AAAAAAAAAAAAAAAAAAAAAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksContact 1`] = `
+Object {
+  "DLCs": Array [
+    "ContactPack",
+  ],
+  "DLCsCount": 1,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 587,
+  "blockCountTotal": 587,
+  "blockIntegrity": 1017785,
+  "blockMass": 207867,
+  "blockPCU": 2580,
+  "blockTime": 3964,
+  "blockVolume": 6763875,
+  "blocks": Object {
+    "<Vanilla Light Armor blocks>": 541,
+    "ButtonPanel/LargeBlockModularBridgeButtonPanel": 1,
+    "CargoContainer/SmallBlockModularContainer": 1,
+    "Cockpit/LargeBlockCaptainDesk": 1,
+    "Cockpit/LargeBlockModularBridgeCockpit": 1,
+    "CryoChamber/SmallBlockBunkBed": 1,
+    "CubeBlock/LargeBlockModularBridgeCorner": 1,
+    "CubeBlock/LargeBlockModularBridgeCorner2x1BaseL": 1,
+    "CubeBlock/LargeBlockModularBridgeCorner2x1BaseR": 1,
+    "CubeBlock/LargeBlockModularBridgeEmpty": 1,
+    "CubeBlock/LargeBlockModularBridgeFloor": 1,
+    "CubeBlock/LargeBlockModularBridgeHalfSlopedCorner": 1,
+    "CubeBlock/LargeBlockModularBridgeRaisedSlopedCorner": 1,
+    "CubeBlock/LargeBlockModularBridgeSideL": 1,
+    "CubeBlock/LargeBlockModularBridgeSideR": 1,
+    "CubeBlock/SmallBlockKitchenCoffeeMachine": 1,
+    "CubeBlock/SmallBlockKitchenSink": 1,
+    "Door/LargeBlockEvenWideDoor": 1,
+    "Door/LargeBlockSmallGate": 1,
+    "ExtendedPistonBase/LargePistonBaseReskin": 1,
+    "ExtendedPistonBase/SmallPistonBaseReskin": 1,
+    "Jukebox/SmallBlockJukeboxReskin": 1,
+    "LargeGatlingTurret/LargeGatlingTurretReskin": 1,
+    "LargeGatlingTurret/SmallGatlingTurretReskin": 1,
+    "LargeMissileTurret/LargeMissileTurretReskin": 1,
+    "LargeMissileTurret/SmallMissileTurretReskin": 1,
+    "MotorRotor/SmallRotor": 1,
+    "MotorStator/LargeStator": 1,
+    "PistonTop/LargePistonTopReskin": 1,
+    "PistonTop/SmallPistonTopReskin": 1,
+    "RadioAntenna/LargeBlockCompactRadioAntennaReskin": 1,
+    "RadioAntenna/SmallBlockCompactRadioAntennaReskin": 1,
+    "ReflectorLight/LargeBlockFloodlight": 1,
+    "ReflectorLight/LargeBlockFloodlightAngled": 1,
+    "ReflectorLight/LargeBlockFloodlightCornerL": 1,
+    "ReflectorLight/LargeBlockFloodlightCornerR": 1,
+    "ReflectorLight/SmallBlockFloodlight": 1,
+    "ReflectorLight/SmallBlockFloodlightAngled": 1,
+    "ReflectorLight/SmallBlockFloodlightAngledRotated": 1,
+    "ReflectorLight/SmallBlockFloodlightCornerL": 1,
+    "ReflectorLight/SmallBlockFloodlightCornerR": 1,
+    "ReflectorLight/SmallBlockFloodlightDown": 1,
+    "TerminalBlock/ControlPanel": 1,
+    "TerminalBlock/SmallBlockFirstAidCabinet": 1,
+    "TerminalBlock/SmallBlockKitchenFridge": 1,
+    "TerminalBlock/SmallBlockKitchenMicrowave": 1,
+    "TerminalBlock/SmallBlockKitchenOven": 1,
+  },
+  "componentCount": 11513,
+  "componentMass": 207867,
+  "componentTime": 11865,
+  "componentVolume": 39954,
+  "components": Object {
+    "BulletproofGlass": 256,
+    "Computer": 185,
+    "Construction": 578,
+    "Display": 11,
+    "Girder": 113,
+    "InteriorPlate": 310,
+    "LargeTube": 26,
+    "MetalGrid": 40,
+    "Motor": 77,
+    "RadioCommunication": 44,
+    "SmallTube": 180,
+    "SteelPlate": 9693,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 4,
+  "gridSize": "Mixed",
+  "gridStatic": false,
+  "gridTitle": "AllBlocksContact",
+  "height": 57.5,
+  "ingotCount": 218622,
+  "ingotMass": 218622,
+  "ingotTime": 13829,
+  "ingotVolume": 28955,
+  "ingots": Object {
+    "Cobalt": 120,
+    "Iron": 213941,
+    "Nickel": 585,
+    "Silicon": 3976,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 68323,
+    "rotated": false,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 67.5,
+  "missingDefinitions": Object {
+    "blocks": Object {},
+    "components": Object {},
+    "ingots": Object {},
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 0,
+  "oreCount": 313173,
+  "oreMass": 313173,
+  "oreVolume": 115874,
+  "ores": Object {
+    "Cobalt": 400,
+    "Iron": 305630,
+    "Nickel": 1463,
+    "Silicon": 5680,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 0.23,
+  "thrustAtmospheric": Object {},
+  "thrustHydrogen": Object {},
+  "thrustIon": Object {},
+  "vanilla": true,
+  "width": 67.5,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksContact 2`] = `
+"...AAAAA...................
+...AAAAA...................
+.AAAAAAA...................
+.AAAAAAA...................
+.AAAAAAA...................
+AAAAAAAA...................
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksContact 3`] = `
+".....AAAAA.AAAAA...........
+.....AAAAA.AAAAA...........
+.A...AAAAA.AAAAA......AAAAA
+.A...AAAAA.AAAAAAAAA..AAAAA
+.AAAAAAAAA.AAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA.
+BBAA.......................
+BBAA.......................
+BAAA.......................
+B..........................
+BAA........................
+BA.........................
+B..........................
+B..........................
+B..........................
+B..........................
+B..........................
+B..........................
+B..........................
+B..........................
+B..........................
+B..........................
+B..........................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksContact 4`] = `
+".AAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAAAAAAB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.........................AB
+.......................AAAB
+.......................AAAB
+.......................AAAB
+.......................AAAB
+.......................AAAB
+.......................AAAB
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksDecoPack3 1`] = `
+Object {
+  "DLCs": Array [
+    "DecorativePack3",
+  ],
+  "DLCsCount": 1,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 597,
+  "blockCountTotal": 597,
+  "blockIntegrity": 941979,
+  "blockMass": 194712,
+  "blockPCU": 2134,
+  "blockTime": 4026,
+  "blockVolume": 8270500,
+  "blocks": Object {
+    "<Vanilla Light Armor blocks>": 541,
+    "Beacon/LargeBlockBeaconReskin": 1,
+    "Beacon/SmallBlockBeaconReskin": 1,
+    "ButtonPanel/LargeBlockInsetButtonPanel": 1,
+    "CargoContainer/LargeBlockInsetBookshelf": 1,
+    "Cockpit/LargeBlockInsetPlantCouch": 1,
+    "Cockpit/SmallBlockCapCockpit": 1,
+    "CryoChamber/LargeBlockCryoRoom": 1,
+    "CryoChamber/LargeBlockHalfBed": 1,
+    "CryoChamber/LargeBlockHalfBedOffset": 1,
+    "CryoChamber/LargeBlockInsetBed": 1,
+    "CubeBlock/LargeBarrel": 1,
+    "CubeBlock/LargeBarrelStack": 1,
+    "CubeBlock/LargeBarrelThree": 1,
+    "CubeBlock/SmallBarrel": 1,
+    "CubeBlock/Truss": 1,
+    "CubeBlock/TrussAngled": 1,
+    "CubeBlock/TrussAngledSmall": 1,
+    "CubeBlock/TrussFloor": 1,
+    "CubeBlock/TrussFloorAngled": 1,
+    "CubeBlock/TrussFloorAngledInverted": 1,
+    "CubeBlock/TrussFloorHalf": 1,
+    "CubeBlock/TrussFloorT": 1,
+    "CubeBlock/TrussFloorX": 1,
+    "CubeBlock/TrussFrame": 1,
+    "CubeBlock/TrussHalf": 1,
+    "CubeBlock/TrussHalfSmall": 1,
+    "CubeBlock/TrussSloped": 2,
+    "CubeBlock/TrussSlopedSmall": 2,
+    "CubeBlock/TrussSmall": 1,
+    "InteriorLight/LargeBlockInsetAquarium": 1,
+    "InteriorLight/LargeBlockInsetKitchen": 1,
+    "Jukebox/LargeBlockInsetEntertainmentCorner": 1,
+    "Ladder2/TrussLadder": 1,
+    "MotorRotor/SmallRotor": 1,
+    "MotorStator/LargeStator": 1,
+    "SolarPanel/LargeBlockColorableSolarPanel": 1,
+    "SolarPanel/LargeBlockColorableSolarPanelCorner": 1,
+    "SolarPanel/LargeBlockColorableSolarPanelCornerInverted": 1,
+    "SolarPanel/SmallBlockColorableSolarPanel": 1,
+    "SolarPanel/SmallBlockColorableSolarPanelCorner": 1,
+    "SolarPanel/SmallBlockColorableSolarPanelCornerInverted": 1,
+    "TerminalBlock/ControlPanel": 1,
+    "TerminalBlock/LargeCrate": 1,
+    "TextPanel/HoloLCDLarge": 1,
+    "TextPanel/HoloLCDSmall": 1,
+    "TextPanel/LargeCurvedLCDPanel": 1,
+    "TextPanel/LargeDiagonalLCDPanel": 1,
+    "TextPanel/LargeFullBlockLCDPanel": 1,
+    "TextPanel/SmallCurvedLCDPanel": 1,
+    "TextPanel/SmallDiagonalLCDPanel": 1,
+    "TextPanel/SmallFullBlockLCDPanel": 1,
+    "Warhead/LargeExplosiveBarrel": 1,
+    "Warhead/SmallExplosiveBarrel": 1,
+    "WindTurbine/LargeBlockWindTurbineReskin": 1,
+  },
+  "componentCount": 11167,
+  "componentMass": 194712,
+  "componentTime": 11544,
+  "componentVolume": 39710,
+  "components": Object {
+    "BulletproofGlass": 94,
+    "Computer": 154,
+    "Construction": 665,
+    "Display": 76,
+    "Explosives": 4,
+    "Girder": 297,
+    "GravityGenerator": 1,
+    "InteriorPlate": 410,
+    "LargeTube": 49,
+    "Medical": 3,
+    "MetalGrid": 4,
+    "Motor": 34,
+    "RadioCommunication": 44,
+    "SmallTube": 304,
+    "SolarCell": 80,
+    "SteelPlate": 8948,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 2,
+  "gridSize": "Mixed",
+  "gridStatic": false,
+  "gridTitle": "AllBlocksDecoPack3",
+  "height": 70,
+  "ingotCount": 204545,
+  "ingotMass": 204545,
+  "ingotTime": 12662,
+  "ingotVolume": 26674,
+  "ingots": Object {
+    "Cobalt": 232,
+    "Gold": 10,
+    "Iron": 201243,
+    "Magnesium": 8,
+    "Nickel": 640,
+    "Silicon": 2347,
+    "Silver": 65,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 51290,
+    "rotated": true,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 67.5,
+  "missingDefinitions": Object {
+    "blocks": Object {},
+    "components": Object {},
+    "ingots": Object {},
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 0,
+  "oreCount": 296009,
+  "oreMass": 296009,
+  "oreVolume": 109523,
+  "ores": Object {
+    "Cobalt": 773,
+    "Gold": 1000,
+    "Iron": 287490,
+    "Magnesium": 1143,
+    "Nickel": 1600,
+    "Silicon": 3353,
+    "Silver": 650,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 0.27,
+  "thrustAtmospheric": Object {},
+  "thrustHydrogen": Object {},
+  "thrustIon": Object {},
+  "vanilla": true,
+  "width": 65,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksDecoPack3 2`] = `
+"...AAAAA...................
+...AAAAA...................
+...AAAAA...................
+...AAAAA...................
+...AAAAA...................
+...AAAAA...................
+...AAAAA...................
+...AAAAA...................
+...AAAAA...................
+...AAAAA...................
+AAAAAAAA..AAAAA............
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksDecoPack3 3`] = `
+".AAA......................
+.AAA......................
+.AAA......................
+.AAA......................
+.AAA......................
+.AAA......................
+.AAA......................
+.AAA...AA.AAA.............
+.AAA...AAAAAA.............
+.AAAAAAAAAAAA.............
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+BAAAAA....................
+BAAAAA....................
+BAAAAA....................
+BAAAAA....................
+BAA.......................
+BA........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksDecoPack3 4`] = `
+"BBBBBBBBBBBBBBBBBBBB.......
+.AAAAAAAAAAAAAAAAAAAAAAAAAA
+...........AAAAAAAAAAAAAAAA
+............AAAAAAAAAAAAAAA
+............AAAAAAAAAAAAAAA
+............AAAAA..AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksSignal 1`] = `
+Object {
+  "DLCs": Array [
+    "SignalsPack",
+  ],
+  "DLCsCount": 1,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 598,
+  "blockCountTotal": 598,
+  "blockIntegrity": 952286,
+  "blockMass": 193906,
+  "blockPCU": 1213,
+  "blockTime": 3947,
+  "blockVolume": 6028750,
+  "blocks": Object {
+    "<Vanilla Light Armor blocks>": 541,
+    "ButtonPanel/LargeBlockConsoleModuleButtons": 1,
+    "ButtonPanel/SmallBlockConsoleModuleButtons": 1,
+    "Cockpit/LargeBlockConsoleModuleInvertedCorner": 1,
+    "Cockpit/LargeBlockConsoleModuleScreens": 1,
+    "CubeBlock/Corridor": 1,
+    "CubeBlock/CorridorCorner": 1,
+    "CubeBlock/CorridorDoubleWindow": 1,
+    "CubeBlock/CorridorNarrow": 1,
+    "CubeBlock/CorridorT": 1,
+    "CubeBlock/CorridorWindow": 1,
+    "CubeBlock/CorridorWindowRoof": 1,
+    "CubeBlock/CorridorX": 1,
+    "CubeBlock/ExtendedWindow": 1,
+    "CubeBlock/ExtendedWindowCorner": 1,
+    "CubeBlock/ExtendedWindowCornerInverted": 1,
+    "CubeBlock/ExtendedWindowCornerInvertedRailing": 1,
+    "CubeBlock/ExtendedWindowDiagonal": 1,
+    "CubeBlock/ExtendedWindowDiagonalRailing": 1,
+    "CubeBlock/ExtendedWindowDome": 1,
+    "CubeBlock/ExtendedWindowEnd": 1,
+    "CubeBlock/ExtendedWindowRailing": 1,
+    "CubeBlock/LargeBlockConsoleModule": 1,
+    "CubeBlock/LargeBlockConsoleModuleCorner": 1,
+    "CubeBlock/LargeBlockInsetWall": 1,
+    "CubeBlock/LargeBlockInsetWallCorner": 1,
+    "CubeBlock/LargeBlockInsetWallCornerInverted": 1,
+    "CubeBlock/LargeBlockInsetWallPillar": 1,
+    "CubeBlock/LargeBlockInsetWallSlope": 1,
+    "CubeBlock/SmallBlockConsoleModule": 1,
+    "CubeBlock/SmallBlockConsoleModuleCorner": 1,
+    "CubeBlock/SmallBlockConsoleModuleInvertedCorner": 1,
+    "CubeBlock/SmallBlockExtendedWindow": 1,
+    "CubeBlock/SmallBlockExtendedWindowCorner": 1,
+    "CubeBlock/SmallBlockExtendedWindowCornerInverted": 1,
+    "CubeBlock/SmallBlockExtendedWindowDiagonal": 1,
+    "CubeBlock/SmallBlockExtendedWindowDome": 1,
+    "CubeBlock/SmallBlockExtendedWindowEnd": 1,
+    "CubeBlock/TrussPillar": 1,
+    "CubeBlock/TrussPillarCorner": 1,
+    "CubeBlock/TrussPillarDiagonal": 1,
+    "CubeBlock/TrussPillarOffset": 1,
+    "CubeBlock/TrussPillarSlanted": 1,
+    "CubeBlock/TrussPillarSmall": 1,
+    "CubeBlock/TrussPillarT": 1,
+    "CubeBlock/TrussPillarX": 1,
+    "Decoy/TrussPillarDecoy": 1,
+    "Door/LargeBlockNarrowDoor": 1,
+    "Door/LargeBlockNarrowDoorHalf": 1,
+    "InteriorLight/CorridorLight": 1,
+    "InteriorLight/CorridorNarrowStowage": 1,
+    "InteriorLight/LargeBlockInsetWallLight": 1,
+    "InteriorLight/TrussPillarLight": 1,
+    "InteriorLight/TrussPillarLightSmall": 1,
+    "MotorRotor/SmallRotor": 1,
+    "MotorStator/LargeStator": 1,
+    "TerminalBlock/ControlPanel": 1,
+    "TextPanel/SmallBlockConsoleModuleScreens": 1,
+  },
+  "componentCount": 11722,
+  "componentMass": 193906,
+  "componentTime": 11755,
+  "componentVolume": 39126,
+  "components": Object {
+    "BulletproofGlass": 328,
+    "Computer": 41,
+    "Construction": 821,
+    "Display": 23,
+    "Girder": 106,
+    "InteriorPlate": 1496,
+    "LargeTube": 6,
+    "Motor": 12,
+    "RadioCommunication": 1,
+    "SmallTube": 69,
+    "SteelPlate": 8819,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 2,
+  "gridSize": "Mixed",
+  "gridStatic": false,
+  "gridTitle": "AllBlocksSignal",
+  "height": 57.5,
+  "ingotCount": 202812,
+  "ingotMass": 202812,
+  "ingotTime": 12951,
+  "ingotVolume": 27280,
+  "ingots": Object {
+    "Iron": 197708,
+    "Nickel": 60,
+    "Silicon": 5044,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 51290,
+    "rotated": true,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 67.5,
+  "missingDefinitions": Object {
+    "blocks": Object {},
+    "components": Object {},
+    "ingots": Object {},
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 0,
+  "oreCount": 289796,
+  "oreMass": 289796,
+  "oreVolume": 107225,
+  "ores": Object {
+    "Iron": 282440,
+    "Nickel": 150,
+    "Silicon": 7206,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 0.2,
+  "thrustAtmospheric": Object {},
+  "thrustHydrogen": Object {},
+  "thrustIon": Object {},
+  "vanilla": true,
+  "width": 65,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksSignal 2`] = `
+".......A...................
+.......A...................
+.......A...................
+......AA...................
+......AA...................
+AAAAAAAA...................
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksSignal 3`] = `
+"............A.............
+............A.............
+............A.............
+......AAAAAAA.............
+.AAAAAAAAAAAAA............
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+BB........................
+BB........................
+BA........................
+B.........................
+BAA.......................
+BA........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksSignal 4`] = `
+"BBBBBBBBBBBBBBBBBBBB.......
+AAAAAAAAAAAAAAAAAAAAAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksWarfare2 1`] = `
+Object {
+  "DLCs": Array [
+    "Warfare2",
+  ],
+  "DLCsCount": 1,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 573,
+  "blockCountTotal": 573,
+  "blockIntegrity": 1257537,
+  "blockMass": 341636,
+  "blockPCU": 2253,
+  "blockTime": 4041,
+  "blockVolume": 6572875,
+  "blocks": Object {
+    "<Vanilla Light Armor blocks>": 541,
+    "AirtightHangarDoor/AirtightHangarDoorWarfare2A": 1,
+    "AirtightHangarDoor/AirtightHangarDoorWarfare2B": 1,
+    "AirtightHangarDoor/AirtightHangarDoorWarfare2C": 1,
+    "BatteryBlock/LargeBlockBatteryBlockWarfare2": 1,
+    "BatteryBlock/SmallBlockBatteryBlockWarfare2": 1,
+    "Cockpit/LargeBlockStandingCockpit": 1,
+    "Cockpit/PassengerBench": 1,
+    "Cockpit/SmallBlockStandingCockpit": 1,
+    "CubeBlock/BridgeWindow1x1Face": 1,
+    "CubeBlock/BridgeWindow1x1FaceInverted": 1,
+    "CubeBlock/BridgeWindow1x1Slope": 1,
+    "Door/SlidingHatchDoor": 1,
+    "Door/SlidingHatchDoorHalf": 1,
+    "HeatVentBlock/LargeHeatVentBlock": 1,
+    "HeatVentBlock/SmallHeatVentBlock": 1,
+    "InteriorLight/LargeLightPanel": 1,
+    "InteriorLight/SmallLightPanel": 1,
+    "MotorRotor/SmallRotor": 1,
+    "MotorStator/LargeStator": 1,
+    "Reactor/LargeBlockLargeGeneratorWarfare2": 1,
+    "Reactor/LargeBlockSmallGeneratorWarfare2": 1,
+    "Reactor/SmallBlockLargeGeneratorWarfare2": 1,
+    "Reactor/SmallBlockSmallGeneratorWarfare2": 1,
+    "Searchlight/LargeSearchlight": 1,
+    "Searchlight/SmallSearchlight": 1,
+    "SmallGatlingGun/SmallGatlingGunWarfare2": 1,
+    "SmallMissileLauncher/SmallMissileLauncherWarfare2": 1,
+    "TerminalBlock/ControlPanel": 1,
+    "Thrust/LargeBlockLargeModularThruster": 1,
+    "Thrust/LargeBlockSmallModularThruster": 1,
+    "Thrust/SmallBlockLargeModularThruster": 1,
+    "Thrust/SmallBlockSmallModularThruster": 1,
+  },
+  "componentCount": 16338,
+  "componentMass": 341636,
+  "componentTime": 36285,
+  "componentVolume": 76602,
+  "components": Object {
+    "BulletproofGlass": 81,
+    "Computer": 227,
+    "Construction": 678,
+    "Display": 9,
+    "Girder": 21,
+    "InteriorPlate": 92,
+    "LargeTube": 128,
+    "MetalGrid": 58,
+    "Motor": 108,
+    "PowerCell": 100,
+    "Reactor": 2198,
+    "SmallTube": 152,
+    "SteelPlate": 11333,
+    "Superconductor": 100,
+    "Thrust": 1053,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 2,
+  "gridSize": "Mixed",
+  "gridStatic": false,
+  "gridTitle": "AllBlocksWarfare2",
+  "height": 52.5,
+  "ingotCount": 387721,
+  "ingotMass": 387721,
+  "ingotTime": 66683,
+  "ingotVolume": 59692,
+  "ingots": Object {
+    "Cobalt": 10704,
+    "Gold": 1253,
+    "Iron": 317958,
+    "Nickel": 1030,
+    "Platinum": 421,
+    "Silicon": 1405,
+    "Silver": 10990,
+    "Stone": 43960,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 106380,
+    "rotated": true,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 67.5,
+  "missingDefinitions": Object {
+    "blocks": Object {},
+    "components": Object {},
+    "ingots": Object {},
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 0,
+  "oreCount": 857848,
+  "oreMass": 857848,
+  "oreVolume": 317404,
+  "ores": Object {
+    "Cobalt": 35680,
+    "Gold": 125300,
+    "Iron": 454226,
+    "Nickel": 2575,
+    "Platinum": 84200,
+    "Silicon": 2007,
+    "Silver": 109900,
+    "Stone": 43960,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 0.21,
+  "thrustAtmospheric": Object {},
+  "thrustHydrogen": Object {},
+  "thrustIon": Object {
+    "Backward": 4852800,
+  },
+  "vanilla": true,
+  "width": 65,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksWarfare2 2`] = `
+".....AAA...................
+.....AAA...................
+.....AAA...................
+AAAAAAAA...................
+.......AAAAAAAABBBAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksWarfare2 3`] = `
+"...AAA.....AAAAAAAA.AA....
+...AAAAAA..AAAAAAAA.AA....
+.AAAAAAAAAAAAAAAAAA.AAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+BCBB......................
+BAAAA.....................
+BAAAA.....................
+BAAAA.....................
+BAA.......................
+BA........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksWarfare2 4`] = `
+"BBBBBBBBBBBBBBBBBBBB.......
+AAAAAAAAAAAAAAAAAAAAAAAAAAA
+AA.......AAAAAA....AAAAAAAA
+AA.......AAAAAA....AAAAAAAA
+AA.................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+"
+`;
+
 exports[`PraisalManager.praiseSbc should succeed to praise AtmosphericLander 1`] = `
 Object {
   "DLCs": Array [

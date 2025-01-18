@@ -17,7 +17,7 @@ interface IProjection {
     },
 }
 
-const TIMEOUT_PARALLEL = 10
+const TIMEOUT_PARALLEL = 600
 const TIMEOUT_SERIAL = 600
 
 const isDebug = process.argv.some((arg) => arg.includes('--debug'))
