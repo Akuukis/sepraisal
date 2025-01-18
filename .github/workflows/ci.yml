@@ -65,12 +65,37 @@ jobs:
 
 
   deploy_web_dev:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
     steps:
-        - uses: actions/checkout@v3
+
+        # Allow to deploy forks to env, when member clicks the button. See https://michaelheap.com/access-secrets-from-forks/
+        - name: Get User Permission
+          id: checkAccess
+          uses: actions-cool/check-user-permission@v2
+          with:
+            require: write
+            username: ${{ github.triggering_actor }}
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Check User Permission
+          if: steps.checkAccess.outputs.require-result == 'false'
+          run: |
+            echo "${{ github.triggering_actor }} does not have permissions on this repo."
+            echo "Current permission level is ${{ steps.checkAccess.outputs.user-permission }}"
+            echo "Job originally triggered by ${{ github.actor }}"
+            exit 1
+        - name: Checkout code
+          uses: actions/checkout@v3
+          with:
+            ref: ${{  github.event.pull_request.head.sha }} # This is dangerous without the first access check
+
+        - name: Use Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '12.x' # TODO: upgrade to non-obselete Node. See one good reason here https://stackoverflow.com/a/69699772
 
         - uses: actions/cache@v2
           id: yarn-node_modules
