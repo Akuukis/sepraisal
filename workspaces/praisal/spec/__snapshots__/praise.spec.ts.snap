@@ -704,6 +704,215 @@ exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksDecoPack3 4`
 "
 `;
 
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksPrototech 1`] = `
+Object {
+  "DLCs": Array [],
+  "DLCsCount": 0,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 556,
+  "blockCountTotal": 556,
+  "blockIntegrity": 1719143,
+  "blockMass": 343421,
+  "blockPCU": 1481,
+  "blockTime": 4106,
+  "blockVolume": 8024875,
+  "blocks": Object {
+    "<Vanilla Light Armor blocks>": 541,
+    "Assembler/LargePrototechAssembler": 1,
+    "BatteryBlock/LargeBlockPrototechBattery": 1,
+    "BatteryBlock/SmallBlockPrototechBattery": 1,
+    "Drill/LargeBlockPrototechDrill": 1,
+    "Gyro/LargeBlockPrototechGyro": 1,
+    "Gyro/SmallBlockPrototechGyro": 1,
+    "JumpDrive/LargePrototechJumpDrive": 1,
+    "JumpDrive/SmallPrototechJumpDrive": 1,
+    "MotorRotor/SmallRotor": 1,
+    "MotorStator/LargeStator": 1,
+    "Refinery/LargePrototechRefinery": 1,
+    "Refinery/SmallPrototechRefinery": 1,
+    "TerminalBlock/ControlPanel": 1,
+    "Thrust/LargeBlockPrototechThruster": 1,
+    "Thrust/SmallBlockPrototechThruster": 1,
+  },
+  "componentCount": 15396,
+  "componentMass": 343421,
+  "componentTime": 36969,
+  "componentVolume": 100680,
+  "components": Object {
+    "Computer": 618,
+    "Construction": 1033,
+    "Display": 11,
+    "GravityGenerator": 34,
+    "LargeTube": 341,
+    "MetalGrid": 530,
+    "Motor": 4,
+    "PrototechCapacitor": 64,
+    "PrototechCircuitry": 30,
+    "PrototechCoolingUnit": 18,
+    "PrototechFrame": 12,
+    "PrototechMachinery": 57,
+    "PrototechPanel": 2346,
+    "PrototechPropulsionUnit": 63,
+    "SmallTube": 6,
+    "SteelPlate": 8729,
+    "Superconductor": 1500,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 2,
+  "gridSize": "Mixed",
+  "gridStatic": false,
+  "gridTitle": "AllBlocksPrototech",
+  "height": 57.5,
+  "ingotCount": 387864,
+  "ingotMass": 387864,
+  "ingotTime": 91049,
+  "ingotVolume": 52850,
+  "ingots": Object {
+    "Cobalt": 17620,
+    "Gold": 4549,
+    "Iron": 334806,
+    "Magnesium": 9384,
+    "Nickel": 19776,
+    "Platinum": 293,
+    "PrototechFrame": 12,
+    "PrototechScrap": 338,
+    "Silicon": 1074,
+    "Silver": 362,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 167817,
+    "rotated": true,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 67.5,
+  "missingDefinitions": Object {
+    "blocks": Object {},
+    "components": Object {},
+    "ingots": Object {
+      "Component/PrototechFrame": 12,
+      "Ingot/PrototechScrap": 338,
+    },
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 2,
+  "oreCount": 2445692,
+  "oreMass": 2445692,
+  "oreVolume": 904906,
+  "ores": Object {
+    "Cobalt": 58733,
+    "Gold": 454900,
+    "Iron": 478294,
+    "Magnesium": 1340571,
+    "Nickel": 49440,
+    "Platinum": 58600,
+    "Silicon": 1534,
+    "Silver": 3620,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 0.18,
+  "thrustAtmospheric": Object {},
+  "thrustHydrogen": Object {},
+  "thrustIon": Object {},
+  "vanilla": false,
+  "width": 65,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksPrototech 2`] = `
+"AAAAA......................
+AAAAAAAA...................
+AAAAAAAAA..................
+AAAAAAAAA..................
+AAAAAAAAA..................
+AAAAAAAA............AAA....
+.......AAAAAABBAAAAAAAAAAAA
+.......AAAAAABBAAACAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+.......AAAAAAAAAAAAAAAAAAAA
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksPrototech 3`] = `
+".AAAAAAAAAA...............
+.AAAAAAAAAA...............
+.AAAAAAAAAAAA.............
+.AAAAAAAAAAAA.............
+.AAAAAAAAAAAAAA...........
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+BCBBBAAAA.................
+BDBBBAAAA.................
+BAAAAAAAA.................
+B.........................
+BAA.......................
+BA........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+B.........................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksPrototech 4`] = `
+"BBBBBBBBBBBBBBBBBBBB.......
+....AAAACAAABBAAAAAAAAAAAAA
+....AAA..AAABBAAAAAAAAAAAAA
+....AAA.....BBAAAAAAAAAAAAA
+....AAA.....BBAAA..AAAAAAAA
+..............AAA.AAAAAAAAA
+..............AAA.AAAAAAAAA
+..............AAA.AAAAAAAAA
+..............AAA.AAAAAAAAA
+..................AAAAAAAAA
+..................AAAAAAAAA
+..................AAAAAAAAA
+..................AAAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+...................AAAAAAAA
+"
+`;
+
 exports[`PraisalManager.praiseSbc should succeed to praise AllBlocksSignal 1`] = `
 Object {
   "DLCs": Array [

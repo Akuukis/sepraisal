@@ -44,4 +44,5 @@ describe('PraisalManager.praiseSbc', () => {
     testBlueprint('AllBlocksSignal', join(MY_BLUEPRINTS_DIR, 'AllBlocksSignal.sbc'))
     testBlueprint('AllBlocksWarfare2', join(MY_BLUEPRINTS_DIR, 'AllBlocksWarfare2.sbc'))
     testBlueprint('AllBlocksAutomaton', join(MY_BLUEPRINTS_DIR, 'AllBlocksAutomaton.sbc'))
+    testBlueprint('AllBlocksPrototech', join(MY_BLUEPRINTS_DIR, 'AllBlocksPrototech.sbc'))
 })
