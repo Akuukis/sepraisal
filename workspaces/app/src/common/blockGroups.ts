@@ -233,6 +233,20 @@ const TOOL_GRINDER = [
     'ShipGrinder/LargeShipGrinder',
     'ShipGrinder/SmallShipGrinder',
 ]
+const PROTOTECH = [
+    'JumpDrive/LargePrototechJumpDrive',
+    'JumpDrive/SmallPrototechJumpDrive',
+    'Thrust/LargeBlockPrototechThruster',
+    'Thrust/SmallBlockPrototechThruster',
+    'Refinery/LargePrototechRefinery',
+    'Refinery/SmallPrototechRefinery',
+    'Assembler/LargePrototechAssembler',
+    'Gyro/LargeBlockPrototechGyro',
+    'Gyro/SmallBlockPrototechGyro',
+    'BatteryBlock/LargeBlockPrototechBattery',
+    'BatteryBlock/SmallBlockPrototechBattery',
+    'Drill/LargeBlockPrototechDrill',
+]
 const TOOL = ([] as string[])
     .concat(TOOL_DRILL)
     .concat(TOOL_WELDER)
@@ -260,4 +274,5 @@ export const BLOCK_GROUPS = {
     WEAPON_TURRET,
     RESPAWN,
     RENEWABLES,
+    PROTOTECH,
 }
