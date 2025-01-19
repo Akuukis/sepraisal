@@ -71,4 +71,5 @@ const BLOCK_GROUP_NAMES: Record<keyof typeof BLOCK_GROUPS, string> = {
     GYRO                    : 'Any Gyroscope',
     RESPAWN                 : 'Any Respawn (medical, survival kit)',
     RENEWABLES              : 'Any Renewables (solar, wind)',
+    PROTOTECH               : 'Any Prototech',
 }
