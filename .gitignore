@@ -388,8 +388,3 @@ yarn-error.log
 .serverless
 .webpack
 .env
-
-workspaces/crawler/pics/*
-workspaces/crawler/pics/
-workspaces/crawler/libwebp-1.2.0
-workspaces/crawler/libwebp-1.2.0/*
