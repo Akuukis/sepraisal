@@ -1,16 +1,10 @@
 
 const POWER_BATTERY = [
-    'BatteryBlock/LargeBlockBatteryBlock',
-    'BatteryBlock/SmallBlockBatteryBlock',
-    'BatteryBlock/SmallBlockSmallBatteryBlock',
+    'BatteryBlock/*',
 ]
 const POWER_ENGINE = [
-    'HydrogenEngine/LargeHydrogenEngine',
-    'HydrogenEngine/SmallHydrogenEngine',
-    'Reactor/LargeBlockLargeGenerator',
-    'Reactor/LargeBlockSmallGenerator',
-    'Reactor/SmallBlockLargeGenerator',
-    'Reactor/SmallBlockSmallGenerator',
+    'HydrogenEngine/*',
+    'Reactor/*',
 ]
 const POWER = ([] as string[])
     .concat(POWER_BATTERY)
@@ -27,24 +21,17 @@ const COCKPIT_OPEN = [
     'Cockpit/CockpitOpen',
     'Cockpit/LargeBlockCockpitSeat',
     'Cockpit/OpenCockpitSmall',
+    'Cockpit/SpeederCockpit',
+    'Cockpit/SpeederCockpitCompact',
+    'Cockpit/SmallBlockStandingCockpit',
+    'Cockpit/LargeBlockStandingCockpit',
 ]
 const COCKPIT = ([] as string[])
     .concat(COCKPIT_CLOSED)
     .concat(COCKPIT_OPEN)
 
 const WHEELS = [
-    'MotorSuspension/Suspension3x3"',
-    'MotorSuspension/Suspension5x5"',
-    'MotorSuspension/Suspension1x1"',
-    'MotorSuspension/SmallSuspension3x3"',
-    'MotorSuspension/SmallSuspension5x5"',
-    'MotorSuspension/SmallSuspension1x1"',
-    'MotorSuspension/Suspension3x3mirrored"',
-    'MotorSuspension/Suspension5x5mirrored"',
-    'MotorSuspension/Suspension1x1mirrored"',
-    'MotorSuspension/SmallSuspension3x3mirrored"',
-    'MotorSuspension/SmallSuspension5x5mirrored"',
-    'MotorSuspension/SmallSuspension1x1mirrored"',
+    'MotorSuspension/*',
 ]
 
 const THRUSTER_ATMOSPHERIC = [
@@ -52,18 +39,44 @@ const THRUSTER_ATMOSPHERIC = [
     'Thrust/LargeBlockSmallAtmosphericThrust',
     'Thrust/SmallBlockLargeAtmosphericThrust',
     'Thrust/SmallBlockSmallAtmosphericThrust',
+    'Thrust/LargeBlockLargeAtmosphericThrustSciFi',
+    'Thrust/LargeBlockSmallAtmosphericThrustSciFi',
+    'Thrust/SmallBlockLargeAtmosphericThrustSciFi',
+    'Thrust/SmallBlockSmallAtmosphericThrustSciFi',
+    'Thrust/LargeBlockLargeFlatAtmosphericThrust',
+    'Thrust/LargeBlockLargeFlatAtmosphericThrustDShape',
+    'Thrust/LargeBlockSmallFlatAtmosphericThrust',
+    'Thrust/LargeBlockSmallFlatAtmosphericThrustDShape',
+    'Thrust/SmallBlockLargeFlatAtmosphericThrust',
+    'Thrust/SmallBlockLargeFlatAtmosphericThrustDShape',
+    'Thrust/SmallBlockSmallFlatAtmosphericThrust',
+    'Thrust/SmallBlockSmallFlatAtmosphericThrustDShape',
 ]
 const THRUSTER_ION = [
     'Thrust/LargeBlockLargeThrust',
     'Thrust/LargeBlockSmallThrust',
     'Thrust/SmallBlockLargeThrust',
     'Thrust/SmallBlockSmallThrust',
+    'Thrust/SmallBlockSmallThrustSciFi',
+    'Thrust/SmallBlockLargeThrustSciFi',
+    'Thrust/LargeBlockSmallThrustSciFi',
+    'Thrust/LargeBlockLargeThrustSciFi',
+    'Thrust/LargeBlockPrototechThruster',
+    'Thrust/SmallBlockPrototechThruster',
+    'Thrust/SmallBlockSmallModularThruster',
+    'Thrust/SmallBlockLargeModularThruster',
+    'Thrust/LargeBlockSmallModularThruster',
+    'Thrust/LargeBlockLargeModularThruster',
 ]
 const THRUSTER_HYDROGEN = [
     'Thrust/LargeBlockLargeHydrogenThrust',
     'Thrust/LargeBlockSmallHydrogenThrust',
     'Thrust/SmallBlockLargeHydrogenThrust',
     'Thrust/SmallBlockSmallHydrogenThrust',
+    'Thrust/LargeBlockLargeHydrogenThrustIndustrial',
+    'Thrust/LargeBlockSmallHydrogenThrustIndustrial',
+    'Thrust/SmallBlockLargeHydrogenThrustIndustrial',
+    'Thrust/SmallBlockSmallHydrogenThrustIndustrial',
 ]
 const THRUSTER = ([] as string[])
     .concat(THRUSTER_ATMOSPHERIC)
@@ -72,49 +85,46 @@ const THRUSTER = ([] as string[])
 
 const WEAPON_TURRET = [
     'LargeGatlingTurret/',
-    'LargeGatlingTurret/SmallGatlingTurret',
+    'LargeGatlingTurret/*',
     'LargeMissileTurret/',
-    'LargeMissileTurret/SmallMissileTurret',
+    'LargeMissileTurret/*',
     'InteriorTurret/LargeInteriorTurret',
+    'TurretControlBlock/LargeTurretControlBlock',
+    'TurretControlBlock/SmallTurretControlBlock',
 ]
 const WEAPON_FIXED = [
     'SmallMissileLauncher/',
-    'SmallMissileLauncher/LargeMissileLauncher',
-    'SmallMissileLauncherReload/SmallRocketLauncherReload',
+    'SmallMissileLauncher/*',
+    'SmallMissileLauncherReload/*',
     'SmallGatlingGun/',
+    'SmallGatlingGun/*',
 ]
 const WEAPON = ([] as string[])
     .concat(WEAPON_TURRET)
     .concat(WEAPON_FIXED)
 
 const GYRO = [
-    'Gyro/LargeBlockGyro',
-    'Gyro/SmallBlockGyro',
+    'Gyro/*',
 ]
 
 const RESPAWN = [
-    'MedicalRoom/LargeMedicalRoom',
-    'SurvivalKit/SurvivalKitLarge',
-    'SurvivalKit/SurvivalKit',
+    'MedicalRoom/*',
+    'SurvivalKit/*',
 ]
 
 const RENEWABLES = [
-    'SolarPanel/LargeBlockSolarPanel',
-    'SolarPanel/SmallBlockSolarPanel',
-    'WindTurbine/LargeBlockWindTurbine',
+    'SolarPanel/*',
+    'WindTurbine/*',
 ]
 
 const TOOL_DRILL = [
-    'Drill/SmallBlockDrill',
-    'Drill/LargeBlockDrill',
+    'Drill/*',
 ]
 const TOOL_WELDER = [
-    "ShipWelder/LargeShipWelder",
-    "ShipWelder/SmallShipWelder",
+    'ShipWelder/*',
 ]
 const TOOL_GRINDER = [
-    "ShipGrinder/LargeShipGrinder",
-    "ShipGrinder/SmallShipGrinder",
+    'ShipGrinder/*',
 ]
 const TOOL = ([] as string[])
     .concat(TOOL_DRILL)
