@@ -37,5 +37,8 @@ const testBlueprint = (title: string, archive: string) => {
 describe('PraisalManager.praiseSbc', () => {
     testBlueprint('Wyvern - Atmospheric Survival Ship', '659278800.1.zip')
     testBlueprint('O.S.C. Aldebaran-Class Heavy Cruiser', '383985794.2.zip')
-    testBlueprint('PZK PCS - T340', '1315913931.2.zip')
+    testBlueprint('PZK PCS - T340', '1315913931.2.zip')	
+    testBlueprint('MLF- 527 - Anastasia - Military Freighter', '3395238709.zip')	
+    testBlueprint('Prospector Barge Del Ray', '3395437706.zip')	
+    testBlueprint('Shade - Squad Transport Armored Vehicle', '3403135321.zip')    
 })

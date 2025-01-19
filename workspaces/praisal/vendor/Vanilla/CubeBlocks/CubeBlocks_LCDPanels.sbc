@@ -64,7 +64,7 @@
             <RequiredPowerInput>0.00002</RequiredPowerInput>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
             <Id>
@@ -133,7 +133,7 @@
             <DamagedSound>ParticleElectrical</DamagedSound>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -199,7 +199,7 @@
             <DamagedSound>ParticleElectrical</DamagedSound>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -254,7 +254,7 @@
                 <Z>1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -309,7 +309,7 @@
                 <Z>1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -364,7 +364,7 @@
                 <Z>-1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -419,7 +419,7 @@
                 <Z>1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -469,7 +469,7 @@
             <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -518,7 +518,7 @@
             <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -568,7 +568,7 @@
             <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -618,7 +618,7 @@
             <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
 
@@ -678,7 +678,7 @@
                 <Z>-1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -737,7 +737,7 @@
                 <Z>-1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_TextPanelDefinition">
@@ -800,7 +800,7 @@
                 <Z>-1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
     </CubeBlocks>

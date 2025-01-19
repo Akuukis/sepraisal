@@ -1,16 +1,688 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (MLF- 527 - Anastasia - Military Freighter) 1`] = `
+Object {
+  "DLCs": Array [
+    "Automation",
+    "SparksOfTheFuturePack",
+    "Warfare2",
+    "IndustrialPack",
+    "DecorativePack3",
+    "DecorativePack2",
+    "Warfare1",
+    "SignalsPack",
+    "ScrapRacePack",
+    "DecorativePack",
+  ],
+  "DLCsCount": 10,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 87745,
+  "blockCountTotal": 93350,
+  "blockIntegrity": 23153329,
+  "blockMass": 5257271,
+  "blockPCU": 277845,
+  "blockTime": 316580,
+  "blockVolume": 19444500,
+  "blocks": Object {
+    "<Vanilla Heavy Armor blocks>": 8284,
+    "<Vanilla Interior Light blocks>": 353,
+    "<Vanilla Light Armor blocks>": 68331,
+    "<Vanilla Text Panel blocks>": 69,
+    "<Vanilla Window blocks>": 355,
+    "AirVent/AirVentFanFull": 1,
+    "AirVent/SmallAirVent": 2,
+    "AirVent/SmallAirVentFan": 5,
+    "AirVent/SmallAirVentFanFull": 17,
+    "BasicMissionBlock/SmallBasicMission": 1,
+    "BatteryBlock/LargeBlockBatteryBlock": 1,
+    "BatteryBlock/SmallBlockBatteryBlock": 37,
+    "BatteryBlock/SmallBlockBatteryBlockWarfare2": 6,
+    "BatteryBlock/SmallBlockSmallBatteryBlock": 65,
+    "Beacon/SmallBlockBeacon": 10,
+    "BroadcastController/SmallBlockBroadcastController": 7,
+    "ButtonPanel/ButtonPanelSmall": 65,
+    "ButtonPanel/SmallBlockConsoleModuleButtons": 7,
+    "ButtonPanel/SmallButtonPanelPedestal": 91,
+    "ButtonPanel/VerticalButtonPanelSmall": 3,
+    "CameraBlock/SmallCameraBlock": 1,
+    "CameraBlock/SmallCameraTopMounted": 1,
+    "CargoContainer/LargeBlockSmallContainer": 2,
+    "CargoContainer/SmallBlockLargeContainer": 14,
+    "CargoContainer/SmallBlockMediumContainer": 5,
+    "CargoContainer/SmallBlockSmallContainer": 16,
+    "CargoContainer/SmallBlockWeaponRack": 8,
+    "Cockpit/OpenCockpitSmall": 3,
+    "Cockpit/PassengerBench": 6,
+    "Cockpit/PassengerSeatSmallNew": 7,
+    "Cockpit/PassengerSeatSmallOffset": 17,
+    "Cockpit/RoverCockpit": 1,
+    "Cockpit/SmallBlockCockpitIndustrial": 1,
+    "Conveyor/ConveyorTubeDuctSmallT": 3,
+    "Conveyor/ConveyorTubeSmallT": 14,
+    "Conveyor/LargeBlockConveyor": 3,
+    "Conveyor/SmallBlockConveyor": 680,
+    "Conveyor/SmallBlockConveyorConverter": 21,
+    "Conveyor/SmallShipConveyorHub": 51,
+    "ConveyorConnector/ConveyorFrameMedium": 51,
+    "ConveyorConnector/ConveyorTubeCurved": 3,
+    "ConveyorConnector/ConveyorTubeCurvedMedium": 34,
+    "ConveyorConnector/ConveyorTubeDuct": 2,
+    "ConveyorConnector/ConveyorTubeDuctSmall": 55,
+    "ConveyorConnector/ConveyorTubeDuctSmallCurved": 26,
+    "ConveyorConnector/ConveyorTubeMedium": 62,
+    "ConveyorConnector/ConveyorTubeSmall": 240,
+    "ConveyorConnector/ConveyorTubeSmallCurved": 36,
+    "ConveyorConnector/LargeBlockConveyorPipeCorner": 2,
+    "CryoChamber/SmallBlockCryoChamber": 9,
+    "CubeBlock/BarredWindow": 200,
+    "CubeBlock/BarredWindowSlope": 42,
+    "CubeBlock/CatwalkHalf": 6,
+    "CubeBlock/EngineerPlushie": 11,
+    "CubeBlock/LargeBlockCylindricalColumn": 1,
+    "CubeBlock/LargeBlockHeavyArmorHalfCorner": 2,
+    "CubeBlock/LargeGridBeamBlockSlope2x1Tip": 6,
+    "CubeBlock/SabiroidPlushie": 15,
+    "CubeBlock/SmallArmorCenter": 642,
+    "CubeBlock/SmallArmorCorner": 8,
+    "CubeBlock/SmallArmorInvCorner": 16,
+    "CubeBlock/SmallArmorSide": 159,
+    "CubeBlock/SmallBarrel": 11,
+    "CubeBlock/SmallBlockArmorCornerSquare": 210,
+    "CubeBlock/SmallBlockArmorCornerSquareInverted": 2,
+    "CubeBlock/SmallBlockArmorHalfCorner": 136,
+    "CubeBlock/SmallBlockArmorHalfSlopeCorner": 44,
+    "CubeBlock/SmallBlockArmorHalfSlopeCornerInverted": 12,
+    "CubeBlock/SmallBlockArmorHalfSlopeInverted": 719,
+    "CubeBlock/SmallBlockArmorHalfSlopedCornerBase": 11,
+    "CubeBlock/SmallBlockArmorRaisedSlopedCorner": 3,
+    "CubeBlock/SmallBlockArmorSlopeTransition": 2,
+    "CubeBlock/SmallBlockArmorSlopeTransitionBase": 2,
+    "CubeBlock/SmallBlockArmorSlopeTransitionBaseMirrored": 2,
+    "CubeBlock/SmallBlockArmorSlopeTransitionMirrored": 2,
+    "CubeBlock/SmallBlockArmorSlopeTransitionTip": 12,
+    "CubeBlock/SmallBlockArmorSlopeTransitionTipMirrored": 12,
+    "CubeBlock/SmallBlockArmorSlopedCorner": 10,
+    "CubeBlock/SmallBlockArmorSlopedCornerBase": 23,
+    "CubeBlock/SmallBlockArmorSlopedCornerTip": 29,
+    "CubeBlock/SmallBlockArmorSquareSlopedCornerBase": 8,
+    "CubeBlock/SmallBlockArmorSquareSlopedCornerTip": 6,
+    "CubeBlock/SmallBlockConsoleModule": 1,
+    "CubeBlock/SmallBlockConsoleModuleCorner": 7,
+    "CubeBlock/SmallBlockConsoleModuleInvertedCorner": 8,
+    "CubeBlock/SmallBlockConveyorCapMedium": 1,
+    "CubeBlock/SmallBlockCylindricalColumn": 1258,
+    "CubeBlock/SmallBlockExtendedWindowDome": 4,
+    "CubeBlock/SmallBlockHeavyArmorCornerSquare": 4,
+    "CubeBlock/SmallBlockHeavyArmorHalfCorner": 10,
+    "CubeBlock/SmallBlockHeavyArmorHalfSlopeInverted": 137,
+    "CubeBlock/SmallBlockHeavyArmorSlopeTransitionBaseMirrored": 1,
+    "CubeBlock/SmallBlockHeavyArmorSlopedCornerBase": 1,
+    "CubeBlock/SmallBlockHeavyArmorSlopedCornerTip": 10,
+    "CubeBlock/SmallGridBeamBlock": 16,
+    "CubeBlock/SmallGridBeamBlockHalf": 96,
+    "CubeBlock/SmallGridBeamBlockHalfSlope": 44,
+    "CubeBlock/SmallGridBeamBlockSlope": 6,
+    "CubeBlock/SmallGridBeamBlockSlope2x1Base": 28,
+    "CubeBlock/SmallGridBeamBlockSlope2x1Tip": 12,
+    "CubeBlock/SmallSymbol1": 4,
+    "CubeBlock/SmallSymbol2": 3,
+    "CubeBlock/SmallSymbol3": 1,
+    "CubeBlock/SmallSymbolA": 5,
+    "CubeBlock/SmallSymbolB": 1,
+    "CubeBlock/SmallSymbolC": 3,
+    "CubeBlock/SmallSymbolColon": 1,
+    "CubeBlock/SmallSymbolD": 4,
+    "CubeBlock/SmallSymbolDot": 5,
+    "CubeBlock/SmallSymbolE": 4,
+    "CubeBlock/SmallSymbolF": 1,
+    "CubeBlock/SmallSymbolH": 3,
+    "CubeBlock/SmallSymbolHyphen": 4,
+    "CubeBlock/SmallSymbolI": 6,
+    "CubeBlock/SmallSymbolL": 5,
+    "CubeBlock/SmallSymbolM": 2,
+    "CubeBlock/SmallSymbolN": 3,
+    "CubeBlock/SmallSymbolO": 5,
+    "CubeBlock/SmallSymbolP": 2,
+    "CubeBlock/SmallSymbolQuestionMark": 1,
+    "CubeBlock/SmallSymbolR": 1,
+    "CubeBlock/SmallSymbolS": 2,
+    "CubeBlock/SmallSymbolT": 4,
+    "CubeBlock/SmallSymbolU": 2,
+    "CubeBlock/SmallSymbolUnderscore": 5,
+    "CubeBlock/SmallSymbolV": 1,
+    "CubeBlock/SmallSymbolY": 5,
+    "CubeBlock/SmallSymbolZ": 1,
+    "CubeBlock/SmallWarningSign12": 1,
+    "CubeBlock/SmallWarningSign13": 2,
+    "CubeBlock/SmallWarningSign2": 1,
+    "CubeBlock/SmallWarningSign4": 1,
+    "CubeBlock/SmallWarningSign5": 1,
+    "CubeBlock/SmallWarningSign6": 2,
+    "CubeBlock/SmallWarningSign7": 1,
+    "CubeBlock/SmallWarningSign8": 1,
+    "CubeBlock/SmallWarningSign9": 6,
+    "CubeBlock/TrussHalfSmall": 31,
+    "CubeBlock/TrussPillarSmall": 33,
+    "CubeBlock/TrussSlopedSmall": 9,
+    "CubeBlock/TrussSmall": 7,
+    "DefensiveCombatBlock/SmallDefensiveCombat": 1,
+    "Door/SmallDoor": 34,
+    "Door/SmallSideDoor": 12,
+    "EmissiveBlock/SmallNeonTubesBendDown": 18,
+    "EmissiveBlock/SmallNeonTubesBendUp": 1,
+    "EmissiveBlock/SmallNeonTubesCorner": 2,
+    "EmissiveBlock/SmallNeonTubesStraight1": 143,
+    "EmissiveBlock/SmallNeonTubesStraight2": 21,
+    "EmissiveBlock/SmallNeonTubesStraightDown": 2,
+    "EmissiveBlock/SmallNeonTubesT": 1,
+    "EmotionControllerBlock/EmotionControllerSmall": 1,
+    "EventControllerBlock/EventControllerSmall": 74,
+    "ExtendedPistonBase/LargePistonBase": 1,
+    "FlightMovementBlock/SmallFlightMovement": 1,
+    "GravityGenerator/": 1,
+    "Gyro/SmallBlockGyro": 2169,
+    "HeatVentBlock/SmallHeatVentBlock": 40,
+    "HydrogenEngine/SmallHydrogenEngine": 20,
+    "InteriorLight/OffsetLight": 67,
+    "InteriorLight/SmallBlockInsetLight": 33,
+    "InteriorLight/SmallLightPanel": 337,
+    "InteriorLight/TrussPillarLightSmall": 2,
+    "JumpDrive/LargeJumpDrive": 2,
+    "Ladder2/LadderSmall": 4,
+    "LandingGear/SmallBlockLandingGear": 17,
+    "LargeGatlingTurret/": 2,
+    "LargeGatlingTurret/SmallGatlingTurret": 9,
+    "LaserAntenna/LargeBlockLaserAntenna": 1,
+    "MergeBlock/SmallShipSmallMergeBlock": 12,
+    "MotorAdvancedRotor/LargeAdvancedRotor": 4,
+    "MotorAdvancedRotor/MediumHingeHead": 3,
+    "MotorAdvancedRotor/SmallAdvancedRotor": 1,
+    "MotorAdvancedRotor/SmallHingeHead": 34,
+    "MotorAdvancedStator/MediumHinge": 3,
+    "MotorAdvancedStator/SmallAdvancedStator": 5,
+    "MotorAdvancedStator/SmallHinge": 34,
+    "MotorRotor/LargeRotor": 2,
+    "MotorRotor/SmallRotor": 4,
+    "MotorStator/LargeStator": 2,
+    "MotorStator/SmallStator": 4,
+    "MotorSuspension/SmallShortSuspension1x1": 4,
+    "MotorSuspension/SmallShortSuspension3x3": 12,
+    "MotorSuspension/SmallShortSuspension3x3mirrored": 12,
+    "MyProgrammableBlock/SmallProgrammableBlock": 7,
+    "MyProgrammableBlock/SmallProgrammableBlockReskin": 2,
+    "OreDetector/SmallBlockOreDetector": 1,
+    "OxygenFarm/LargeBlockOxygenFarm": 2,
+    "OxygenGenerator/OxygenGeneratorSmall": 26,
+    "OxygenTank/OxygenTankSmall": 14,
+    "OxygenTank/SmallHydrogenTank": 61,
+    "OxygenTank/SmallHydrogenTankSmall": 8,
+    "Parachute/LgParachute": 6,
+    "Parachute/SmParachute": 6,
+    "PathRecorderBlock/SmallPathRecorderBlock": 1,
+    "PistonTop/LargePistonTop": 1,
+    "RadioAntenna/SmallBlockRadioAntenna": 8,
+    "Reactor/SmallBlockLargeGeneratorWarfare2": 23,
+    "Reactor/SmallBlockSmallGenerator": 7,
+    "ReflectorLight/OffsetSpotlight": 4,
+    "ReflectorLight/RotatingLightSmall": 16,
+    "ReflectorLight/SmallBlockFrontLight": 41,
+    "RemoteControl/SmallBlockRemoteControl": 7,
+    "Searchlight/SmallSearchlight": 1,
+    "SensorBlock/SmallBlockSensorReskin": 4,
+    "ShipConnector/Connector": 2,
+    "ShipConnector/ConnectorMedium": 5,
+    "ShipConnector/ConnectorSmall": 15,
+    "SmallMissileLauncherReload/SmallBlockMediumCalibreGun": 8,
+    "SmallMissileLauncherReload/SmallRailgun": 6,
+    "SmallMissileLauncherReload/SmallRocketLauncherReload": 12,
+    "SoundBlock/SmallBlockSoundBlock": 23,
+    "SurvivalKit/SurvivalKit": 1,
+    "TerminalBlock/SmallBlockAccessPanel1": 2,
+    "TerminalBlock/SmallBlockAccessPanel2": 3,
+    "TerminalBlock/SmallBlockAccessPanel3": 1,
+    "TerminalBlock/SmallBlockAccessPanel4": 6,
+    "TerminalBlock/SmallControlPanel": 6,
+    "TerminalBlock/SmallControlPanelPedestal": 4,
+    "TextPanel/HoloLCDSmall": 6,
+    "TextPanel/SmallBlockConsoleModuleScreens": 2,
+    "TextPanel/SmallDiagonalLCDPanel": 14,
+    "TextPanel/SmallFullBlockLCDPanel": 4,
+    "Thrust/LargeBlockLargeAtmosphericThrustSciFi": 2,
+    "Thrust/LargeBlockLargeModularThruster": 1,
+    "Thrust/SmallBlockLargeAtmosphericThrustSciFi": 48,
+    "Thrust/SmallBlockLargeHydrogenThrust": 188,
+    "Thrust/SmallBlockLargeThrust": 4,
+    "Thrust/SmallBlockSmallAtmosphericThrustSciFi": 42,
+    "Thrust/SmallBlockSmallFlatAtmosphericThrust": 44,
+    "Thrust/SmallBlockSmallHydrogenThrust": 468,
+    "Thrust/SmallBlockSmallThrust": 16,
+    "TimerBlock/TimerBlockReskinSmall": 84,
+    "TimerBlock/TimerBlockSmall": 22,
+    "TransponderBlock/SmallBlockTransponder": 2,
+    "TurretControlBlock/SmallTurretControlBlock": 4,
+    "Wheel/OffroadSmallWheel2x2": 2,
+    "Wheel/SmallRealWheel": 12,
+    "Wheel/SmallRealWheel1x1": 4,
+    "Wheel/SmallRealWheelmirrored": 12,
+  },
+  "componentCount": 334536,
+  "componentMass": 5257271,
+  "componentTime": 3035213,
+  "componentVolume": 1698441,
+  "components": Object {
+    "BulletproofGlass": 1772,
+    "Computer": 11131,
+    "Construction": 51500,
+    "Detector": 127,
+    "Display": 467,
+    "EngineerPlushie": 11,
+    "Girder": 738,
+    "GravityGenerator": 46,
+    "InteriorPlate": 17718,
+    "LargeTube": 7592,
+    "Medical": 30,
+    "MetalGrid": 23905,
+    "Motor": 14856,
+    "PowerCell": 1390,
+    "RadioCommunication": 117,
+    "Reactor": 2206,
+    "SabiroidPlushie": 15,
+    "SmallTube": 5944,
+    "SteelPlate": 191727,
+    "Superconductor": 2220,
+    "Thrust": 1024,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 77,
+  "gridSize": "Mixed",
+  "gridStatic": false,
+  "gridTitle": "MLF- 527 - Anastasia - Military Freighter",
+  "height": 160,
+  "ingotCount": 5861850,
+  "ingotMass": 5861850,
+  "ingotTime": 721786,
+  "ingotVolume": 759789,
+  "ingots": Object {
+    "Cobalt": 92075,
+    "EngineerPlushie": 0,
+    "Gold": 5924,
+    "Iron": 5474223,
+    "Nickel": 200590,
+    "Platinum": 410,
+    "SabiroidPlushie": 0,
+    "Silicon": 32648,
+    "Silver": 11860,
+    "Stone": 44120,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 170873,
+    "rotated": false,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 492.5,
+  "missingDefinitions": Object {
+    "blocks": Object {
+      "CubeBlock/LargeArmorPanelLight": 6,
+      "CubeBlock/LargeRoundArmorPanelInvertedCornerLight": 2,
+      "CubeBlock/SmallArmor2x1SlopedPanelLight": 4,
+      "CubeBlock/SmallArmor2x1SlopedPanelTipLight": 818,
+      "CubeBlock/SmallArmor2x1SlopedSideBasePanelLight": 250,
+      "CubeBlock/SmallArmor2x1SlopedSideBasePanelLightInv": 242,
+      "CubeBlock/SmallArmor2x1SlopedSideTipPanelHeavy": 1,
+      "CubeBlock/SmallArmor2x1SlopedSideTipPanelHeavyInv": 1,
+      "CubeBlock/SmallArmor2x1SlopedSideTipPanelLight": 145,
+      "CubeBlock/SmallArmor2x1SlopedSideTipPanelLightInv": 131,
+      "CubeBlock/SmallArmorCenterPanelLight": 15,
+      "CubeBlock/SmallArmorHalfPanelHeavy": 8,
+      "CubeBlock/SmallArmorHalfPanelLight": 804,
+      "CubeBlock/SmallArmorHalfSlopedPanelLight": 4,
+      "CubeBlock/SmallArmorPanelHeavy": 2,
+      "CubeBlock/SmallArmorPanelLight": 2463,
+      "CubeBlock/SmallArmorQuarterPanelLight": 7,
+      "CubeBlock/SmallArmorSlopedPanelLight": 48,
+      "CubeBlock/SmallArmorSlopedSidePanelHeavy": 82,
+      "CubeBlock/SmallArmorSlopedSidePanelLight": 572,
+    },
+    "components": Object {},
+    "ingots": Object {
+      "Component/EngineerPlushie": 0,
+      "Component/SabiroidPlushie": 0,
+    },
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 22,
+  "oreCount": 9512471,
+  "oreMass": 9512471,
+  "oreVolume": 3519614,
+  "ores": Object {
+    "Cobalt": 306917,
+    "Gold": 592400,
+    "Iron": 7820319,
+    "Nickel": 501475,
+    "Platinum": 82000,
+    "Silicon": 46640,
+    "Silver": 118600,
+    "Stone": 44120,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 46.99,
+  "thrustAtmospheric": Object {
+    "Backward": 576000,
+    "Down": 640000,
+    "Forward": 768000,
+    "Left": 6864000,
+    "Right": 6864000,
+    "Up": 30336000,
+  },
+  "thrustHydrogen": Object {
+    "Backward": 12398400,
+    "Down": 5412000,
+    "Forward": 24403200,
+    "Left": 23827200,
+    "Right": 23827200,
+    "Up": 46423200,
+  },
+  "thrustIon": Object {
+    "Forward": 5241600,
+  },
+  "vanilla": false,
+  "width": 322.5,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (MLF- 527 - Anastasia - Military Freighter) 2`] = `
+"...............A.................................................................................................A...............
+..............AAA...............................................................................................AAA..............
+..............AAA...............................................................................................AAA..............
+.............AAA.................................................................................................AAA.............
+............AAA...................................................................................................AAA............
+...........AAA.....................................................................................................AAA...........
+..........AAA.......................................................................................................AAA..........
+.........AAA.........................................................................................................AAA.........
+........AAA...........................................................................................................AAA........
+.......AAA.............................................................................................................AAA.......
+......AAA.................................................AAAAAAAAAAAAA......A..........................................AAA......
+.....AAA...........................AAAAAAAAAAAAAAAAA..AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........................AAA.....
+....AAA............................AAAAAA..AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...AAAAA..AAAAAA............................AAA....
+...AAA.........AAAAA.AAAAA.AAAAA...AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...AAAAA.AAAAA.AAAAA.........AAA...
+..AAA.AAAAAAAAAAAAAA.AAAAA.AAAAA...AAAAAAAAAAAAAAAADDDDAAAAAAAAAAAAAAAAAAADDDDAAAAAAAAAAAAAAAA...AAAAA.AAAAA.AAAAAAAAAAAAAA.AAA..
+..AABBAAAAAAAAAAAAAA.AAAAA.AAAAA...AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...AAAAA.AAAAA.AAAAAAAAAAAAAABBAA..
+..AAAAAAAAAAAAAAAAAA.AAAAA.AAAAA...AAAAAAAAAAAAAAAADDDDAAAAAAAAAAAAAAAAAAADDDDAAAAAAAAAAAAAAAA...AAAAA.AAAAA.AAAAAAAAAAAAAAAAAA..
+.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.
+.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDDDAAAAAAAAAAAAAAAAAAADDDDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAA.......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........AAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAA.........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............AAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAA..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAAAAAAAAAAAA
+.AAAAAAAAAAAAAAAA............AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..............AAAAAAAAAAAAAAAA.
+.AAAAAAAAAAAAAAAA............AAABAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..............AAAAAAAAAAAAAAAA.
+..AAAAAAAAAAAAAA.............AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA...............AAAAAAAAAAAAAA..
+..AAAAAAAAAAAAAA...................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...............AAAAAAAAAAAAAA..
+..AAAAAAAAAAAA.....................AAAAAAAAAAAAAAAAAAAA.......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................AAAAAAAAAAAA..
+...AAA.............................AAAAAAAAAAAAAAAAAAAA.......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........................AAA...
+....AAA..............................A..AAAAAAAAAAAAAAA.......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................AAA....
+.....AAA.................................AAAAAAAAAAAAAA.........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................AAA.....
+......AAA................................AAAAAAAAAAAAAAA........AAAAAAAAAAAAAAAAAAAAAAAAAAA.............................AAA......
+.......AAA...............................AAAAAAAAAAAAAAA........AAAAAAAAAAAAAAAAAAAAAAAAAAA............................AAA.......
+........AAA..............................AAAAAAAAAAAAAAA........AAAAAAAAAAAAAAAAAAAAAAAAAAA...........................AAA........
+.........AAA.............................AAAAAAAAAAAAAA.......AAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........................AAA.........
+..........AAA............................AAAAAAAAAAAAAA......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........................AAA..........
+...........AAA............................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................AAA...........
+............AAA..............................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................AAA............
+.............AAA.............................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA......................AAA.............
+..............AAA............................AAAAAAAAAAAAAAAAABBBBBAAAAAAAAAAAAAAAAAAAAAAAA.....................AAA..............
+..............AAA............................AAAAAAAAAAAAAAAAACBBBCAAAAAAAAAAAAAAAAAAAAAAAA.....................AAA..............
+...............A..............................AAAAAAAAAAAAAAAABCCCBAAAAAAAAAAAAAAAAAAAAAAAA......................A...............
+..............................................AAAAAABBBBBBBBBBBCDCBBBBBBBBBBBAAAAAAAAAAAAAA......................................
+....................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA......................................
+...............................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAA......................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+................................................................AAAAAAAAAAAAAAAAAAAAAAAA.........................................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (MLF- 527 - Anastasia - Military Freighter) 3`] = `
+"...............................A.....................................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA......................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.....................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA....................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...............................................................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................A..........................AA.................................................................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...............A.......AA.................AAA............................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA....................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..............AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......A.........................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBAABBBAAAAAAAAAAAAAAAAAAAAAAAAAAA.............
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........
+.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBBCCCCCCCCCCCCCCCBBBBBBBBBBBBBBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........
+.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......AAAAAAAAAAA..........
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........AA..................
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......AA...................
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA......AA....................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.....AA.....................
+...........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA......................
+...........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.....A........................
+............AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA....................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA......................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..............................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA....................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.A...................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA....................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A...................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.....................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAABBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...A...................................................
+................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA......................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBAAAAAABBBABAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................................
+...............................A.....................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAAAAAAACDCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................................
+......................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAABCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........................................................
+.........................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA.AA............................................................
+......................................................................................................AAAAAAAABAAAAAAAAAAAA..........................................................................
+............................................................................................................AAAA.....................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................AA.....................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+..............................................................................................................A......................................................................................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (MLF- 527 - Anastasia - Military Freighter) 4`] = `
+"..................................................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAA........................
+............................................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..................
+..........................................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................
+...........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+..........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+.........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+.......................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+......................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+.....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+.....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.AAA............
+...............................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............
+..............................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................
+.............................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................
+............................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+...........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+..........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........................................
+.........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........................................
+........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........................................
+.......................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........................................
+......................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........................................
+.....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........................................
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............................................
+..............................................................A.....................A..A.A..A.A..A.A..A.A..A.A.....AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............................................
+...........................................................AAAAAAAA................AAAAAAAAAAAAAAAAAAAAAAAAAAAAA..AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............................................
+.........................................................AAAAAAAAAAA..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............................................
+.......................................................AAAAAAAAAAAAAA....AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..............................................
+.....................................................AAAAAAAAAAAAAAAAA...AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..............................................
+...................................................AAAAAAAAAAAAAAAAAAAA..AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...............................................
+.................................................AAAAAAAAAAAAAAAAAAAAAAA......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...............................................
+...............................................AAAAAAAAAAAAAAAAAAAAAAAAAA.......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..AAAAAAAAAAAAAAAAAAAA..........................
+.............................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........AAAAAAA.........................
+...........................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........AAAAAAA........................
+.........................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........AAAAAAA.......................
+.......................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........AAAAAAA......................
+.....................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............AAAAAAA.....................
+...................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAA....................
+.................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAA...................
+...............................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAA...................
+.............................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAA...................
+...........................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAA...................
+........................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............AAAAAAAAA...................
+...................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........AAAAAAAAAA...................
+...............AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........AAAAAAAAAAA...................
+............AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........AAAAAAAAAAAA...................
+...........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...AAA.......AAAAAAAAAAAAA...................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..AAA.......AAAAAAAAAAAAA...................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..AAA.......................................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCBBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAABBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...A........................................
+........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..AAA.......................................
+..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..AAA.......AAAAAAAAAAAAA...................
+...........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...AAA.......AAAAAAAAAAAAA...................
+............AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........AAAAAAAAAAAA...................
+...............AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........AAAAAAAAAAA...................
+...................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........AAAAAAAAAA...................
+........................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............AAAAAAAAA...................
+...........................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAA...................
+.............................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAA...................
+...............................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAA...................
+.................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAAA...................
+...................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............AAAAAAA....................
+.....................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............AAAAAAA.....................
+.......................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........AAAAAAA......................
+.........................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........AAAAAAA.......................
+...........................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........AAAAAAA........................
+.............................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........AAAAAAA.........................
+...............................................AAAAAAAAAAAAAAAAAAAAAAAAAA........AAAAAAAAAAAAAAAAAAAAAAAAA..AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..AAAAAAAAAAAAAAAAAAAA..........................
+.................................................AAAAAAAAAAAAAAAAAAAAAAA............AAAAAAAAAAAAAAAAAA.......AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...............................................
+...................................................AAAAAAAAAAAAAAAAAAAA.............AAAAAAAAAAAAAAAAAA........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...............................................
+.....................................................AAAAAAAAAAAAAAAAA..............AAAAAAAAAAAAAAAAAAA........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..............................................
+.......................................................AAAAAAAAAAAAAA................AAAAAAAAAAAAAAAAA..........AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..............................................
+.........................................................AAAAAAAAAAA.............................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............................................
+...........................................................AAAAAAAA................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............................................
+..............................................................A.....................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............................................
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA............................................
+.....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........................................
+......................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...........................................
+.......................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........................................
+........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..........................................
+.........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........................................
+..........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.........................................
+...........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+............................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA........................................
+.............................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................
+..............................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.......................................
+...............................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.............
+.....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.AAA............
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+.....................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+......................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+.......................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+.........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+..........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+...........................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+..........................................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA................
+............................................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA..................
+..................................................................................................................................................AAAAAAAAAAAAAAAAAAAAAAAAAAA........................
+"
+`;
+
 exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (O.S.C. Aldebaran-Class Heavy Cruiser) 1`] = `
 Object {
-  "DLCs": Array [],
-  "DLCsCount": 0,
+  "DLCs": Array [
+    "Automation",
+  ],
+  "DLCsCount": 1,
   "_revision": 0,
-  "_version": 13,
+  "_version": 14,
   "blockCount": 16423,
   "blockCountTotal": 16423,
   "blockIntegrity": 68322075,
   "blockMass": 14936466,
-  "blockPCU": 51995,
+  "blockPCU": 49738,
   "blockTime": 164808,
   "blockVolume": 276828125,
   "blocks": Object {
@@ -275,17 +947,19 @@ AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBABBBBBBAAAAAAAAAAAAAAAAAAAAAAAAB
 
 exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (PZK PCS - T340) 1`] = `
 Object {
-  "DLCs": Array [],
-  "DLCsCount": 0,
+  "DLCs": Array [
+    "Automation",
+  ],
+  "DLCsCount": 1,
   "_revision": 0,
-  "_version": 13,
+  "_version": 14,
   "blockCount": 1624,
   "blockCountTotal": 1624,
-  "blockIntegrity": 736092,
-  "blockMass": 157143,
-  "blockPCU": 11226,
-  "blockTime": 7959,
-  "blockVolume": 288750,
+  "blockIntegrity": 733162,
+  "blockMass": 156555,
+  "blockPCU": 10933,
+  "blockTime": 7914,
+  "blockVolume": 261750,
   "blocks": Object {
     "<Vanilla Heavy Armor blocks>": 1223,
     "<Vanilla Interior Light blocks>": 7,
@@ -329,14 +1003,14 @@ Object {
     "Wheel/SmallWheel1x1": 9,
     "Wheel/SmallWheel3x3": 1,
   },
-  "componentCount": 10732,
-  "componentMass": 157143,
-  "componentTime": 13632,
-  "componentVolume": 64889,
+  "componentCount": 10702,
+  "componentMass": 156555,
+  "componentTime": 13602,
+  "componentVolume": 64800,
   "components": Object {
     "BulletproofGlass": 60,
     "Computer": 421,
-    "Construction": 1315,
+    "Construction": 1314,
     "Detector": 19,
     "Display": 129,
     "InteriorPlate": 192,
@@ -347,7 +1021,7 @@ Object {
     "RadioCommunication": 24,
     "Reactor": 24,
     "SmallTube": 150,
-    "SteelPlate": 6093,
+    "SteelPlate": 6064,
   },
   "flagsGreen": Array [],
   "flagsGreenCount": 0,
@@ -360,13 +1034,13 @@ Object {
   "gridStatic": false,
   "gridTitle": "PZK PCS - T340",
   "height": 5.5,
-  "ingotCount": 191054,
-  "ingotMass": 191054,
-  "ingotTime": 34387,
-  "ingotVolume": 24651,
+  "ingotCount": 190437,
+  "ingotMass": 190437,
+  "ingotTime": 34356,
+  "ingotVolume": 24572,
   "ingots": Object {
     "Cobalt": 5811,
-    "Iron": 172090,
+    "Iron": 171473,
     "Nickel": 10820,
     "Silicon": 1733,
     "Silver": 120,
@@ -387,12 +1061,12 @@ Object {
     "ores": Object {},
   },
   "missingDefinitionsCount": 0,
-  "oreCount": 296419,
-  "oreMass": 296419,
-  "oreVolume": 109675,
+  "oreCount": 295537,
+  "oreMass": 295537,
+  "oreVolume": 109349,
   "ores": Object {
     "Cobalt": 19370,
-    "Iron": 245843,
+    "Iron": 244961,
     "Nickel": 27050,
     "Silicon": 2476,
     "Silver": 1200,
@@ -462,18 +1136,551 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 "
 `;
 
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Prospector Barge Del Ray) 1`] = `
+Object {
+  "DLCs": Array [
+    "DecorativePack3",
+    "DecorativePack2",
+    "IndustrialPack",
+    "Automation",
+    "SignalsPack",
+    "ContactPack",
+    "Warfare2",
+    "DecorativePack",
+    "Warfare1",
+    "SparksOfTheFuturePack",
+    "ScrapRacePack",
+  ],
+  "DLCsCount": 11,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 519,
+  "blockCountTotal": 642,
+  "blockIntegrity": 1771108,
+  "blockMass": 437473,
+  "blockPCU": 5285,
+  "blockTime": 6606,
+  "blockVolume": 12687500,
+  "blocks": Object {
+    "<Vanilla Interior Light blocks>": 24,
+    "<Vanilla Light Armor blocks>": 82,
+    "<Vanilla Text Panel blocks>": 4,
+    "AirVent/AirVentFanFull": 1,
+    "AirtightSlideDoor/LargeBlockSlideDoor": 4,
+    "Assembler/LargeAssembler": 1,
+    "BasicMissionBlock/LargeBasicMission": 1,
+    "BatteryBlock/LargeBlockBatteryBlockWarfare2": 4,
+    "ButtonPanel/LargeBlockInsetButtonPanel": 1,
+    "CameraBlock/LargeCameraBlock": 1,
+    "CargoContainer/LargeBlockLargeIndustrialContainer": 2,
+    "CargoContainer/LargeBlockSmallContainer": 1,
+    "Cockpit/LargeBlockBathroomOpen": 1,
+    "Cockpit/LargeBlockCaptainDesk": 1,
+    "Cockpit/LargeBlockConsoleModuleScreens": 1,
+    "Cockpit/LargeBlockCouch": 1,
+    "Cockpit/LargeBlockDesk": 2,
+    "Cockpit/LargeBlockDeskCorner": 4,
+    "Cockpit/LargeBlockInsetPlantCouch": 1,
+    "Cockpit/LargeBlockStandingCockpit": 1,
+    "Conveyor/ConveyorTubeDuctT": 13,
+    "Conveyor/LargeBlockConveyor": 7,
+    "Conveyor/LargeBlockConveyorPipeT": 2,
+    "ConveyorConnector/ConveyorTubeDuct": 10,
+    "ConveyorConnector/ConveyorTubeDuctCurved": 8,
+    "ConveyorConnector/LargeBlockConveyorPipeCorner": 1,
+    "CryoChamber/LargeBlockCryoRoom": 2,
+    "CryoChamber/LargeBlockInsetBed": 3,
+    "CubeBlock/Catwalk": 9,
+    "CubeBlock/CatwalkHalfCenterRailing": 6,
+    "CubeBlock/CatwalkWall": 1,
+    "CubeBlock/CorridorCorner": 1,
+    "CubeBlock/Freight1": 1,
+    "CubeBlock/Freight2": 1,
+    "CubeBlock/Freight3": 1,
+    "CubeBlock/GratedHalfStairsMirrored": 2,
+    "CubeBlock/GratedStairs": 3,
+    "CubeBlock/HalfWindow": 12,
+    "CubeBlock/LargeBarrel": 1,
+    "CubeBlock/LargeBarrelThree": 1,
+    "CubeBlock/LargeBlockArmorHalfSlopeInverted": 53,
+    "CubeBlock/LargeBlockArmorSlopedCorner": 3,
+    "CubeBlock/LargeBlockArmorSlopedCornerBase": 2,
+    "CubeBlock/LargeBlockBarCounterCorner": 1,
+    "CubeBlock/LargeBlockConsoleModuleCorner": 1,
+    "CubeBlock/LargeBlockConveyorCap": 6,
+    "CubeBlock/LargeBlockConveyorPipeCap": 6,
+    "CubeBlock/LargeBlockInsetWallSlope": 2,
+    "CubeBlock/LargeBlockModularBridgeEmpty": 12,
+    "CubeBlock/LargeBlockModularBridgeSideL": 4,
+    "CubeBlock/LargeBlockModularBridgeSideR": 4,
+    "CubeBlock/LargeGridBeamBlockHalf": 6,
+    "CubeBlock/LargeGridBeamBlockSlope2x1Tip": 8,
+    "CubeBlock/LargeRamp": 2,
+    "CubeBlock/LargeStairs": 1,
+    "CubeBlock/LargeSteelCatwalkPlate": 3,
+    "CubeBlock/LargeWarningSign11": 1,
+    "CubeBlock/LargeWarningSign12": 2,
+    "CubeBlock/LargeWarningSign13": 1,
+    "CubeBlock/LargeWarningSign4": 1,
+    "CubeBlock/LargeWarningSign7": 1,
+    "CubeBlock/PassageSciFiGate": 1,
+    "CubeBlock/PipeWorkBlockA": 8,
+    "CubeBlock/Railing2x1Left": 3,
+    "CubeBlock/Railing2x1Right": 3,
+    "CubeBlock/RailingCenter": 14,
+    "CubeBlock/RailingCorner": 1,
+    "CubeBlock/RailingDouble": 1,
+    "CubeBlock/RailingHalfLeft": 2,
+    "CubeBlock/RailingHalfRight": 3,
+    "CubeBlock/RailingStraight": 10,
+    "CubeBlock/Shower": 1,
+    "CubeBlock/TrussFrame": 32,
+    "CubeBlock/TrussHalf": 1,
+    "CubeBlock/TrussSlopedFrame": 8,
+    "CubeBlock/Viewport2": 1,
+    "DefensiveCombatBlock/LargeDefensiveCombat": 1,
+    "EventControllerBlock/EventControllerLarge": 2,
+    "FlightMovementBlock/LargeFlightMovement": 1,
+    "GravityGenerator/": 1,
+    "Gyro/LargeBlockGyro": 3,
+    "HydrogenEngine/LargeHydrogenEngine": 2,
+    "InteriorLight/CorridorNarrowStowage": 4,
+    "InteriorLight/LargeBlockInsetKitchen": 2,
+    "InteriorLight/LargeBlockInsetLight": 3,
+    "InteriorLight/LargeLightPanel": 1,
+    "JumpDrive/LargeJumpDrive": 1,
+    "Ladder2/": 1,
+    "Ladder2/LadderShaft": 1,
+    "LandingGear/LargeBlockLandingGear": 1,
+    "LargeGatlingTurret/LargeGatlingTurretReskin": 1,
+    "LargeMissileTurret/LargeBlockMediumCalibreTurret": 1,
+    "MedicalRoom/LargeMedicalRoomReskin": 1,
+    "MyProgrammableBlock/LargeProgrammableBlockReskin": 1,
+    "OreDetector/LargeOreDetector": 1,
+    "OxygenGenerator/": 6,
+    "OxygenTank/": 1,
+    "OxygenTank/LargeHydrogenTankIndustrial": 2,
+    "PistonTop/LargePistonTopReskin": 3,
+    "Planter/LargeBlockPlanters": 1,
+    "RadioAntenna/LargeBlockCompactRadioAntennaReskin": 1,
+    "Refinery/LargeRefinery": 1,
+    "ReflectorLight/LargeBlockFloodlight": 1,
+    "ReflectorLight/LargeBlockFrontLight": 1,
+    "ShipConnector/Connector": 2,
+    "SolarPanel/LargeBlockSolarPanel": 2,
+    "TerminalBlock/LargeCrate": 1,
+    "Thrust/LargeBlockLargeHydrogenThrustIndustrial": 2,
+    "Thrust/LargeBlockSmallHydrogenThrustIndustrial": 27,
+    "TimerBlock/TimerBlockReskinLarge": 1,
+    "UpgradeModule/LargeEffectivenessModule": 2,
+    "UpgradeModule/LargeProductivityModule": 4,
+  },
+  "componentCount": 33586,
+  "componentMass": 437473,
+  "componentTime": 46813,
+  "componentVolume": 185740,
+  "components": Object {
+    "BulletproofGlass": 754,
+    "Computer": 1319,
+    "Construction": 7316,
+    "Detector": 100,
+    "Display": 120,
+    "Girder": 616,
+    "GravityGenerator": 26,
+    "InteriorPlate": 4004,
+    "LargeTube": 733,
+    "Medical": 21,
+    "MetalGrid": 1967,
+    "Motor": 549,
+    "PowerCell": 442,
+    "RadioCommunication": 40,
+    "SmallTube": 2119,
+    "SolarCell": 64,
+    "SteelPlate": 12356,
+    "Superconductor": 1040,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 1,
+  "gridSize": "Large",
+  "gridStatic": false,
+  "gridTitle": "Prospector Barge Del Ray",
+  "height": 17.5,
+  "ingotCount": 478338,
+  "ingotMass": 478338,
+  "ingotTime": 76854,
+  "ingotVolume": 64070,
+  "ingots": Object {
+    "Cobalt": 11621,
+    "Gold": 2340,
+    "Iron": 434161,
+    "Nickel": 16626,
+    "Silicon": 13040,
+    "Silver": 550,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 272982,
+    "rotated": false,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 77.5,
+  "missingDefinitions": Object {
+    "blocks": Object {
+      "CubeBlock/LargeArmor2x1SlopedSideBasePanelLight": 1,
+      "CubeBlock/LargeArmor2x1SlopedSideBasePanelLightInv": 1,
+      "CubeBlock/LargeArmor2x1SlopedSideTipPanelLight": 19,
+      "CubeBlock/LargeArmor2x1SlopedSideTipPanelLightInv": 18,
+      "CubeBlock/LargeArmorHalfPanelLight": 53,
+      "CubeBlock/LargeArmorHalfSlopedPanelLight": 4,
+      "CubeBlock/LargeArmorPanelLight": 27,
+    },
+    "components": Object {},
+    "ingots": Object {},
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 7,
+  "oreCount": 958661,
+  "oreMass": 958661,
+  "oreVolume": 354705,
+  "ores": Object {
+    "Cobalt": 38737,
+    "Gold": 234000,
+    "Iron": 620230,
+    "Nickel": 41565,
+    "Silicon": 18629,
+    "Silver": 5500,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 0.67,
+  "thrustAtmospheric": Object {},
+  "thrustHydrogen": Object {
+    "Backward": 4320000,
+    "Down": 2160000,
+    "Forward": 14400000,
+    "Left": 2160000,
+    "Right": 2160000,
+    "Up": 18360000,
+  },
+  "thrustIon": Object {},
+  "vanilla": false,
+  "width": 22.5,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Prospector Barge Del Ray) 2`] = `
+".AAAA....
+AAAAA....
+.AAAAAAA.
+.ABCCBCBA
+.ACFBBBBB
+AACCBBCB.
+...AAAA..
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Prospector Barge Del Ray) 3`] = `
+"............A...A....AAA.......
+............AAAAA....AAA.AAA...
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.
+AAAABAAABBBAAAAABAAAAAAAAAAAAA.
+AAAABAAABBBAAAAAAAAAAABAABCBAAA
+AAAABAAABBBAAAAAAAAAAAAAAAAAAA.
+...A.AAAAAAAAAAAA...AA.AAAAAAA.
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Prospector Barge Del Ray) 4`] = `
+"..............AAAAA............
+..AAAA.....AAAAAAAAA.AAAAA.A...
+.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAABBBAAAAAAAAAAAAAAAABAAAAAAAA
+AAAAAAAAAAAAAABAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAABAAAAAAAA
+.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+..AAAAAAAAAAAAAAAAAA.AAAAA.A...
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Shade - Squad Transport Armored Vehicle) 1`] = `
+Object {
+  "DLCs": Array [
+    "ScrapRacePack",
+    "Warfare2",
+    "IndustrialPack",
+    "Automation",
+    "Warfare1",
+    "SparksOfTheFuturePack",
+  ],
+  "DLCsCount": 6,
+  "_revision": 0,
+  "_version": 14,
+  "blockCount": 494,
+  "blockCountTotal": 677,
+  "blockIntegrity": 211195,
+  "blockMass": 47962,
+  "blockPCU": 4454,
+  "blockTime": 2608,
+  "blockVolume": 119750,
+  "blocks": Object {
+    "<Vanilla Heavy Armor blocks>": 181,
+    "<Vanilla Interior Light blocks>": 8,
+    "<Vanilla Light Armor blocks>": 4,
+    "<Vanilla Text Panel blocks>": 3,
+    "AirVent/SmallAirVentFan": 1,
+    "AirVent/SmallAirVentFanFull": 1,
+    "BatteryBlock/SmallBlockBatteryBlock": 1,
+    "BatteryBlock/SmallBlockBatteryBlockWarfare2": 1,
+    "BatteryBlock/SmallBlockSmallBatteryBlock": 6,
+    "Beacon/SmallBlockBeacon": 1,
+    "BroadcastController/SmallBlockBroadcastController": 1,
+    "CameraBlock/SmallCameraBlock": 2,
+    "CameraBlock/SmallCameraTopMounted": 1,
+    "CargoContainer/SmallBlockMediumContainer": 1,
+    "CargoContainer/SmallBlockSmallContainer": 4,
+    "CargoContainer/SmallBlockWeaponRack": 2,
+    "Cockpit/PassengerBench": 4,
+    "Cockpit/RoverCockpit": 1,
+    "Conveyor/ConveyorTubeDuctSmallT": 3,
+    "Conveyor/SmallBlockConveyor": 1,
+    "Conveyor/SmallBlockConveyorConverter": 2,
+    "ConveyorConnector/ConveyorTubeDuctSmall": 15,
+    "ConveyorConnector/ConveyorTubeDuctSmallCurved": 17,
+    "CubeBlock/BarredWindow": 19,
+    "CubeBlock/BarredWindowFace": 2,
+    "CubeBlock/BarredWindowSlope": 2,
+    "CubeBlock/SmallArmorInvCorner": 2,
+    "CubeBlock/SmallArmorSide": 4,
+    "CubeBlock/SmallBlockConveyorCap": 2,
+    "CubeBlock/SmallBlockCylindricalColumn": 3,
+    "CubeBlock/SmallBlockHeavyArmorCornerSquare": 4,
+    "CubeBlock/SmallBlockHeavyArmorCornerSquareInverted": 16,
+    "CubeBlock/SmallBlockHeavyArmorHalfSlopeInverted": 14,
+    "CubeBlock/SmallBlockHeavyArmorHalfSlopedCorner": 12,
+    "CubeBlock/SmallBlockHeavyArmorSlopeTransition": 1,
+    "CubeBlock/SmallBlockHeavyArmorSlopeTransitionMirrored": 1,
+    "CubeBlock/SmallBlockHeavyArmorSlopedCornerBase": 4,
+    "CubeBlock/SmallBlockHeavyArmorSlopedCornerTip": 12,
+    "CubeBlock/SmallBlockHeavyArmorSquareSlopedCornerTip": 2,
+    "CubeBlock/SmallGridBeamBlockHalf": 4,
+    "CubeBlock/SmallGridBeamBlockHalfSlope": 10,
+    "CubeBlock/SmallGridBeamBlockSlope": 2,
+    "CubeBlock/SmallGridBeamBlockSlope2x1Base": 7,
+    "CubeBlock/SmallSymbolA": 14,
+    "CubeBlock/SmallSymbolD": 4,
+    "DefensiveCombatBlock/SmallDefensiveCombat": 1,
+    "Door/SmallSideDoor": 2,
+    "EmissiveBlock/SmallNeonTubesBendDown": 2,
+    "EmissiveBlock/SmallNeonTubesCorner": 4,
+    "EmissiveBlock/SmallNeonTubesStraight1": 7,
+    "EmissiveBlock/SmallNeonTubesStraight2": 4,
+    "EmissiveBlock/SmallNeonTubesStraightDown": 8,
+    "EmissiveBlock/SmallNeonTubesT": 4,
+    "EmotionControllerBlock/EmotionControllerSmall": 1,
+    "EventControllerBlock/EventControllerSmall": 5,
+    "ExtendedPistonBase/SmallPistonBase": 1,
+    "Gyro/SmallBlockGyro": 3,
+    "HeatVentBlock/SmallHeatVentBlock": 3,
+    "HydrogenEngine/SmallHydrogenEngine": 1,
+    "InteriorLight/OffsetLight": 3,
+    "InteriorLight/SmallBlockInsetLight": 3,
+    "LargeGatlingTurret/SmallGatlingTurret": 1,
+    "MotorSuspension/SmallShortSuspension3x3": 4,
+    "MotorSuspension/SmallShortSuspension3x3mirrored": 4,
+    "MyProgrammableBlock/SmallProgrammableBlockReskin": 1,
+    "OreDetector/SmallBlockOreDetector": 1,
+    "OxygenGenerator/OxygenGeneratorSmall": 1,
+    "OxygenTank/SmallHydrogenTankSmall": 1,
+    "Parachute/SmParachute": 2,
+    "PistonTop/SmallPistonTop": 1,
+    "RadioAntenna/SmallBlockRadioAntenna": 1,
+    "ReflectorLight/OffsetSpotlight": 2,
+    "RemoteControl/SmallBlockRemoteControl": 1,
+    "Searchlight/SmallSearchlight": 1,
+    "SensorBlock/SmallBlockSensorReskin": 2,
+    "ShipConnector/ConnectorMedium": 1,
+    "ShipConnector/SmallBlockInsetConnector": 2,
+    "SurvivalKit/SurvivalKit": 1,
+    "TerminalBlock/SmallBlockAccessPanel2": 1,
+    "TerminalBlock/SmallBlockAccessPanel3": 2,
+    "TurretControlBlock/SmallTurretControlBlock": 1,
+    "Wheel/SmallRealWheel": 4,
+    "Wheel/SmallRealWheelmirrored": 4,
+    "Wheel/SmallWheel3x3": 1,
+  },
+  "componentCount": 3676,
+  "componentMass": 47962,
+  "componentTime": 4609,
+  "componentVolume": 20868,
+  "components": Object {
+    "BulletproofGlass": 15,
+    "Computer": 186,
+    "Construction": 808,
+    "Detector": 21,
+    "Display": 28,
+    "Girder": 23,
+    "InteriorPlate": 319,
+    "LargeTube": 45,
+    "Medical": 3,
+    "MetalGrid": 382,
+    "Motor": 109,
+    "PowerCell": 53,
+    "RadioCommunication": 17,
+    "SmallTube": 92,
+    "SteelPlate": 1575,
+  },
+  "flagsGreen": Array [],
+  "flagsGreenCount": 0,
+  "flagsRed": Array [],
+  "flagsRedCount": 0,
+  "flagsYellow": Array [],
+  "flagsYellowCount": 0,
+  "gridCount": 10,
+  "gridSize": "Small",
+  "gridStatic": false,
+  "gridTitle": "Shade - Squad Transport Armored Vehicle",
+  "height": 9.5,
+  "ingotCount": 55044,
+  "ingotMass": 55044,
+  "ingotTime": 8332,
+  "ingotVolume": 7068,
+  "ingots": Object {
+    "Cobalt": 1146,
+    "Iron": 50280,
+    "Nickel": 3086,
+    "Silicon": 472,
+    "Silver": 60,
+  },
+  "integrityPlanes": Object {
+    "front": Any<Array>,
+    "maxValue": 10730,
+    "rotated": false,
+    "side": Any<Array>,
+    "top": Any<Array>,
+  },
+  "length": 12,
+  "missingDefinitions": Object {
+    "blocks": Object {
+      "CubeBlock/SmallArmor2x1SlopedSideBasePanelHeavy": 1,
+      "CubeBlock/SmallArmor2x1SlopedSideBasePanelHeavyInv": 1,
+      "CubeBlock/SmallArmor2x1SlopedSideTipPanelHeavy": 8,
+      "CubeBlock/SmallArmor2x1SlopedSideTipPanelHeavyInv": 9,
+      "CubeBlock/SmallArmorHalfPanelHeavy": 22,
+      "CubeBlock/SmallArmorPanelHeavy": 127,
+      "CubeBlock/SmallArmorPanelLight": 1,
+      "CubeBlock/SmallArmorSlopedSidePanelHeavy": 8,
+      "CubeBlock/SmallArmorSlopedSidePanelLight": 6,
+    },
+    "components": Object {},
+    "ingots": Object {},
+    "ores": Object {},
+  },
+  "missingDefinitionsCount": 9,
+  "oreCount": 84638,
+  "oreMass": 84638,
+  "oreVolume": 31316,
+  "ores": Object {
+    "Cobalt": 3820,
+    "Iron": 71829,
+    "Nickel": 7715,
+    "Silicon": 674,
+    "Silver": 600,
+  },
+  "orientation": Orientation {
+    "Forward": "Forward",
+    "Up": "Up",
+  },
+  "sizeMB": 0.53,
+  "thrustAtmospheric": Object {},
+  "thrustHydrogen": Object {},
+  "thrustIon": Object {},
+  "vanilla": false,
+  "width": 5.5,
+}
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Shade - Squad Transport Armored Vehicle) 2`] = `
+"....AAAAA..
+....AAAAA..
+....AAAAA..
+....AAAAA..
+..AAAAAAAA.
+.AAAAAAAAA.
+AAAAAAAAAAA
+.AAAAAAAAA.
+.AAAAAAAAA.
+.AA.AAA.AA.
+...........
+...........
+...........
+...........
+...........
+...........
+...........
+.....A.....
+...AAA.....
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Shade - Squad Transport Armored Vehicle) 3`] = `
+"..............AAAAA.....
+..............AAAAA.....
+..............AAAAA.....
+......A....AAAAAAAA.....
+..AAAAAAAAAAAAAAAAAAA...
+AAAAAAAAAAAAAAAAAAAAAA..
+AAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAA.
+AAAAAAAAAAAAAAAAAAAAAA..
+.A..........AAA.........
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+..A.....................
+AAA.....................
+"
+`;
+
+exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Shade - Squad Transport Armored Vehicle) 4`] = `
+"...A...A.......A...A....
+..AAAAAAAAAAAAAAAAAAAA..
+.AAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAA
+.AAAAAAAAAAAAAAAAAAAAAAA
+.AAAAAAAAAAAAAAAAAAAAAAA
+.AAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAA
+.AAAAAAAAAAAAAAAAAAAAAAA
+..AAAAAAAAAAAAAAAAAAAA..
+...A...A.......A.A.A....
+"
+`;
+
 exports[`PraisalManager.praiseSbc should succeed to praise random small steam blueprint (Wyvern - Atmospheric Survival Ship) 1`] = `
 Object {
   "DLCs": Array [],
   "DLCsCount": 0,
   "_revision": 0,
-  "_version": 13,
+  "_version": 14,
   "blockCount": 440,
   "blockCountTotal": 440,
-  "blockIntegrity": 1417893,
-  "blockMass": 385434,
-  "blockPCU": 2858,
-  "blockTime": 4441,
+  "blockIntegrity": 1414893,
+  "blockMass": 384834,
+  "blockPCU": 2698,
+  "blockTime": 4426,
   "blockVolume": 9796875,
   "blocks": Object {
     "<Vanilla Heavy Armor blocks>": 2,
@@ -509,10 +1716,10 @@ Object {
     "UpgradeModule/LargeProductivityModule": 2,
     "Wheel/Wheel1x1": 3,
   },
-  "componentCount": 25182,
-  "componentMass": 385434,
-  "componentTime": 37939,
-  "componentVolume": 138759,
+  "componentCount": 25152,
+  "componentMass": 384834,
+  "componentTime": 37909,
+  "componentVolume": 138669,
   "components": Object {
     "BulletproofGlass": 1216,
     "Computer": 793,
@@ -528,7 +1735,7 @@ Object {
     "RadioCommunication": 40,
     "Reactor": 200,
     "SmallTube": 1380,
-    "SteelPlate": 9360,
+    "SteelPlate": 9330,
     "Superconductor": 80,
   },
   "flagsGreen": Array [],
@@ -542,14 +1749,14 @@ Object {
   "gridStatic": false,
   "gridTitle": "Wyvern - Atmospheric Survival Ship",
   "height": 15,
-  "ingotCount": 411156,
-  "ingotMass": 411156,
-  "ingotTime": 54300,
-  "ingotVolume": 58468,
+  "ingotCount": 410526,
+  "ingotMass": 410526,
+  "ingotTime": 54268,
+  "ingotVolume": 58388,
   "ingots": Object {
     "Cobalt": 1794,
     "Gold": 160,
-    "Iron": 357863,
+    "Iron": 357233,
     "Nickel": 26890,
     "Silicon": 19089,
     "Silver": 1360,
@@ -570,13 +1777,13 @@ Object {
     "ores": Object {},
   },
   "missingDefinitionsCount": 0,
-  "oreCount": 645308,
-  "oreMass": 645308,
-  "oreVolume": 238764,
+  "oreCount": 644408,
+  "oreMass": 644408,
+  "oreVolume": 238431,
   "ores": Object {
     "Cobalt": 5980,
     "Gold": 16000,
-    "Iron": 511233,
+    "Iron": 510333,
     "Nickel": 67225,
     "Silicon": 27270,
     "Silver": 13600,

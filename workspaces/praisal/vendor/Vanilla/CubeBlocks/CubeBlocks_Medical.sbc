@@ -30,8 +30,10 @@
             <CriticalComponent Subtype="Medical" Index="0" />
             <Center x="0" y="0" z="1" />
             <MountPoints>
-                <MountPoint Side="Top" StartX="0.2" StartY="0.1" EndX="0.8" EndY="0.8" />
-                <MountPoint Side="Bottom" StartX="0.2" StartY="1.2" EndX="0.8" EndY="2" Default="true" />
+                <MountPoint Side="Top" StartX="0.2" StartY="0.2" EndX="1.6" EndY="0.8" />
+                <MountPoint Side="Top" StartX="0.3" StartY="0.8" EndX="0.6" EndY="1.2" />
+                <MountPoint Side="Bottom" StartX="0.1" StartY="0.5" EndX="0.8" EndY="2" Default="true" />
+                <MountPoint Side="Bottom" StartX="0.8" StartY="1.1" EndX="1.9" EndY="1.9" />
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\MedicalRoomConstruction_1.mwm" />
@@ -46,23 +48,24 @@
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
                 <StaticMode>
                     <PlacementMode>Volumetric</PlacementMode>
-                    <MaxAllowed>0.2</MaxAllowed>
+                    <MaxAllowed>0.14</MaxAllowed>
                     <MinAllowed>0</MinAllowed>
                 </StaticMode>
                 <DynamicMode>
                     <PlacementMode>Volumetric</PlacementMode>
-                    <MaxAllowed>0.2</MaxAllowed>
-                    <MinAllowed>0.01</MinAllowed>
+                    <MaxAllowed>0.14</MaxAllowed>
+                    <MinAllowed>0</MinAllowed>
                 </DynamicMode>
             </VoxelPlacement>
             <BlockPairName>MedicalRoom</BlockPairName>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>50</BuildTimeSeconds>
-            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <ResourceSinkGroup>LifeSupport</ResourceSinkGroup>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
+			<WardrobeCharacterOffset x="-1.35" y="-0.9" z="1.7" />
             <PCU>30</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
@@ -127,7 +130,7 @@
             <EnableFirstPerson>true</EnableFirstPerson>
             <IsPressurized>true</IsPressurized>
             <OxygenCapacity>1</OxygenCapacity>
-            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <ResourceSinkGroup>LifeSupport</ResourceSinkGroup>
             <IdlePowerConsumption>0.00003</IdlePowerConsumption>
             <OutsideSound>BlockCryoOut</OutsideSound>
             <InsideSound>BlockCryoIn</InsideSound>
@@ -202,7 +205,7 @@
             <EnableFirstPerson>true</EnableFirstPerson>
             <IsPressurized>true</IsPressurized>
             <OxygenCapacity>1</OxygenCapacity>
-            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <ResourceSinkGroup>LifeSupport</ResourceSinkGroup>
             <IdlePowerConsumption>0.00003</IdlePowerConsumption>
             <OutsideSound>BlockCryoOut</OutsideSound>
             <InsideSound>BlockCryoIn</InsideSound>

@@ -383,6 +383,7 @@ tmp/
 
 yarn-error.log
 *.zip
+!fixtures/*.zip
 
 .serverless
 .webpack

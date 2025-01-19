@@ -106,6 +106,60 @@
             <DLC>Warfare2</DLC>
         </Definition>
 
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>BridgeWindow1x1FaceInverted</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_BridgeWindow1x1FaceInverted</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\BridgeWindow1x1FaceInverted.dds</Icon>
+            <Description>Description_Window</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\BridgeWindow1x1FaceInverted.mwm</Model>
+            <Components>
+                <Component Subtype="Girder" Count="5" />
+                <Component Subtype="SteelPlate" Count="6" />
+                <Component Subtype="InteriorPlate" Count="12" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="BulletproofGlass" Count="7" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\BridgeWindow1x1FaceInvertedConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.0" File="Models\Cubes\Large\BridgeWindow1x1FaceInvertedConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>BridgeWindow1x1FaceInverted</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <MountPoints>
+                <MountPoint Side="Back" StartX="0.0" StartY="0.0" EndX="0.2" EndY="0.4" PropertiesMask="2" />
+                <MountPoint Side="Back" StartX="0.2" StartY="0.2" EndX="0.4" EndY="0.4" PropertiesMask="2" />
+                <MountPoint Side="Back" StartX="0.4" StartY="0.4" EndX="0.6" EndY="0.6" PropertiesMask="2" />
+                <MountPoint Side="Back" StartX="0.6" StartY="0.6" EndX="0.8" EndY="0.8" PropertiesMask="2" />
+                <MountPoint Side="Back" StartX="0.8" StartY="0.8" EndX="1.0" EndY="1.0" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.0" StartX="1.0" EndY="0.2" EndX="0.8" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.2" StartX="0.8" EndY="0.4" EndX="0.6" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.4" StartX="0.6" EndY="0.6" EndX="0.4" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.6" StartX="0.4" EndY="0.8" EndX="0.2" PropertiesMask="2" />
+                <MountPoint Side="Bottom" StartY="0.8" StartX="0.2" EndY="1.0" EndX="0.0" PropertiesMask="2" />
+                <MountPoint Side="Right" StartY="0.0" StartX="1.0" EndY="0.4" EndX="0.8" PropertiesMask="2" />
+                <MountPoint Side="Right" StartY="0.2" StartX="0.8" EndY="0.4" EndX="0.6" PropertiesMask="2" />
+                <MountPoint Side="Right" StartY="0.4" StartX="0.6" EndY="0.6" EndX="0.4" PropertiesMask="2" />
+                <MountPoint Side="Right" StartY="0.6" StartX="0.4" EndY="0.8" EndX="0.2" PropertiesMask="2" />
+                <MountPoint Side="Right" StartY="0.8" StartX="0.2" EndY="1.0" EndX="0.0" PropertiesMask="2" />
+            </MountPoints>
+            <IsAirTight>true</IsAirTight>
+            <MirroringX>HalfY</MirroringX>
+            <MirroringY>XHalfY</MirroringY>
+            <MirroringZ>MinusHalfY</MirroringZ>
+            <!--<PhysicalMaterial>Glass</PhysicalMaterial>-->
+            <PCU>1</PCU>
+            <DLC>Warfare2</DLC>
+        </Definition>
+
         <Definition xsi:type="MyObjectBuilder_CockpitDefinition">
             <Id>
                 <TypeId>Cockpit</TypeId>
@@ -119,7 +173,8 @@
             <Size x="2" y="3" z="2" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\PassengerBench.mwm</Model>
-            <CharacterAnimation>PassengerBench</CharacterAnimation>
+            <CharacterAnimationMale>PassengerBench</CharacterAnimationMale>
+            <CharacterAnimationFemale>PassengerBenchFemale</CharacterAnimationFemale>
             <UsesDeformation>false</UsesDeformation>
             <Components>
                 <Component Subtype="InteriorPlate" Count="10" />
@@ -218,7 +273,7 @@
                 <Z>1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>PoofExplosionCat1</DestroySound>
-            <PCU>25</PCU>
+            <PCU>20</PCU>
             <DLC>Warfare2</DLC>
         </Definition>
 
@@ -271,7 +326,7 @@
                 <Z>1.1</Z>
             </DestroyEffectOffset>
             <DestroySound>PoofExplosionCat1</DestroySound>
-            <PCU>25</PCU>
+            <PCU>20</PCU>
             <DLC>Warfare2</DLC>
         </Definition>
 
@@ -988,8 +1043,8 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>15</PCU>
             <IsAirTight>true</IsAirTight>
-            <MirroringZ>Y</MirroringZ>
-            <MirroringY>Z</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
             <TargetingGroups>
                 <string>PowerSystems</string>
             </TargetingGroups>
@@ -1285,7 +1340,7 @@
             <PointLightEmissiveMaterial>Emissive</PointLightEmissiveMaterial>
             <SpotLightEmissiveMaterial>Emissive</SpotLightEmissiveMaterial>
             <ReflectorThickness>1.5</ReflectorThickness>
-            <ReflectorTexture>Textures\Lights\reflector_small.dds</ReflectorTexture>
+            <ReflectorTexture>Textures\Lights\search_light.DDS</ReflectorTexture>
             <ReflectorConeDegrees>52</ReflectorConeDegrees>
             <LightDummyName>spotlight</LightDummyName>
             <AiEnabled>true</AiEnabled>
@@ -1380,7 +1435,7 @@
             <PointLightEmissiveMaterial>Emissive</PointLightEmissiveMaterial>
             <SpotLightEmissiveMaterial>Emissive</SpotLightEmissiveMaterial>
             <ReflectorThickness>7</ReflectorThickness>
-            <ReflectorTexture>Textures\Lights\reflector_large.dds</ReflectorTexture>
+            <ReflectorTexture>Textures\Lights\search_light.DDS</ReflectorTexture>
             <ReflectorConeDegrees>52</ReflectorConeDegrees>
             <LightDummyName>spotlight</LightDummyName>
             <AiEnabled>true</AiEnabled>
@@ -1406,11 +1461,11 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\HeatVent.mwm</Model>
             <SubpartRotations>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate1" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="315"/>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate2" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="315"/>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate3" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="315"/>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate4" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="315"/>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate5" ReveseRotationDirection="false" MinimalPositionAdjustDegrees="45" MaximalPositionAdjustDegrees="180"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate1" MinimalPositionAdjustDegrees="-45" MaximalPositionAdjustDegrees="45"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate2" MinimalPositionAdjustDegrees="-45" MaximalPositionAdjustDegrees="45"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate3" MinimalPositionAdjustDegrees="-45" MaximalPositionAdjustDegrees="45"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate4" MinimalPositionAdjustDegrees="-45" MaximalPositionAdjustDegrees="45"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate5" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="45" MaximalPositionAdjustDegrees="135"/>
             </SubpartRotations>
             <Components>
                 <Component Subtype="SteelPlate" Count="15" />
@@ -1440,6 +1495,7 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>20</BuildTimeSeconds>
             <RequiredPowerInput>0.0002</RequiredPowerInput>
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
             <Public>true</Public>
             <MirroringX>Y</MirroringX>
             <MirroringY>X</MirroringY>
@@ -1451,7 +1507,7 @@
             <LightDummyName>light</LightDummyName>
             <LightFalloffBounds Min="0" Max="3" Default="1.3" />
             <LightIntensityBounds Min="0.5" Max="10" Default="2" />
-            <LightRadiusBounds Min="1" Max="10" Default="3.6" />
+            <LightRadiusBounds Min="1" Max="20" Default="3.6" />
             <LightOffsetBounds Min="0" Max="5" Default="0.5" />
             <IdleSound>BlockOxyGenIdle</IdleSound>
             <DLC>Warfare2</DLC>
@@ -1474,11 +1530,11 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\HeatVent.mwm</Model>
             <SubpartRotations>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate1" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="315"/>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate2" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="315"/>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate3" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="315"/>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate4" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="315"/>
-                <SubpartRotation SubpartName="subpart_HeatVentPlate5" ReveseRotationDirection="false" MinimalPositionAdjustDegrees="45" MaximalPositionAdjustDegrees="180"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate1" MinimalPositionAdjustDegrees="-45" MaximalPositionAdjustDegrees="45"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate2" MinimalPositionAdjustDegrees="-45" MaximalPositionAdjustDegrees="45"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate3" MinimalPositionAdjustDegrees="-45" MaximalPositionAdjustDegrees="45"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate4" MinimalPositionAdjustDegrees="-45" MaximalPositionAdjustDegrees="45"/>
+                <SubpartRotation SubpartName="subpart_HeatVentPlate5" ReveseRotationDirection="true" MinimalPositionAdjustDegrees="45" MaximalPositionAdjustDegrees="135"/>
             </SubpartRotations>
             <Components>
                 <Component Subtype="SteelPlate" Count="1" />
@@ -1507,6 +1563,7 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>6</BuildTimeSeconds>
             <RequiredPowerInput>0.0002</RequiredPowerInput>
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
             <Public>true</Public>
             <MirroringX>Y</MirroringX>
             <MirroringY>X</MirroringY>
@@ -1518,7 +1575,7 @@
             <LightDummyName>light</LightDummyName>
             <LightFalloffBounds Min="0" Max="3" Default="1.3" />
             <LightIntensityBounds Min="0.5" Max="10" Default="2" />
-            <LightRadiusBounds Min="1" Max="10" Default="3.6" />
+            <LightRadiusBounds Min="1" Max="20" Default="3.6" />
             <LightOffsetBounds Min="0" Max="5" Default="0.5" />
             <DLC>Warfare2</DLC>
         </Definition>
@@ -1590,7 +1647,7 @@
             <BuildTimeSeconds>20</BuildTimeSeconds>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
             <DLC>Warfare2</DLC>
             <HasInventory>false</HasInventory>
@@ -1663,7 +1720,7 @@
             <HasInventory>false</HasInventory>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
-            <PCU>50</PCU>
+            <PCU>45</PCU>
             <IsAirTight>false</IsAirTight>
             <DLC>Warfare2</DLC>
         </Definition>
@@ -1718,8 +1775,8 @@
             </VoxelPlacement>
             <BlockPairName>SmallModularThruster</BlockPairName>
             <Center x="0" y="0" z="1" />
-            <MirroringX>Z</MirroringX>
-            <MirroringZ>X</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
             <BuildTimeSeconds>10</BuildTimeSeconds>
             <EdgeType>Light</EdgeType>
 
@@ -1759,7 +1816,7 @@
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>15</PCU>
+            <PCU>12</PCU>
             <DLC>Warfare2</DLC>
             <TargetingGroups>
                 <string>Propulsion</string>
@@ -1860,7 +1917,7 @@
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>15</PCU>
+            <PCU>12</PCU>
             <DLC>Warfare2</DLC>
             <TargetingGroups>
                 <string>Propulsion</string>
@@ -1918,8 +1975,8 @@
             </VoxelPlacement>
             <BlockPairName>SmallModularThruster</BlockPairName>
             <Center x="0" y="0" z="1" />
-            <MirroringX>Z</MirroringX>
-            <MirroringZ>X</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>40</BuildTimeSeconds>
 
@@ -1958,7 +2015,7 @@
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>15</PCU>
+            <PCU>12</PCU>
             <DLC>Warfare2</DLC>
             <TargetingGroups>
                 <string>Propulsion</string>
@@ -2059,13 +2116,12 @@
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>15</PCU>
+            <PCU>12</PCU>
             <DLC>Warfare2</DLC>
             <TargetingGroups>
                 <string>Propulsion</string>
             </TargetingGroups>
-        </Definition>
-        
-        
+        </Definition>          
+
     </CubeBlocks>
 </Definitions>

@@ -141,7 +141,7 @@
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <EmissiveColorPreset>Default</EmissiveColorPreset>
-            <PCU>50</PCU>
+            <PCU>5</PCU>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
             <IsAirTight>false</IsAirTight>
@@ -189,7 +189,7 @@
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <EmissiveColorPreset>Default</EmissiveColorPreset>
-            <PCU>50</PCU>
+            <PCU>5</PCU>
             <IsAirTight>false</IsAirTight>
             <TargetingGroups>
                 <string>Weapons</string>
@@ -912,6 +912,16 @@
             <TargetingGroups>
                 <string>Weapons</string>
             </TargetingGroups>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1</Z>
+            </DestroyEffectOffset>
+            <DamageEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1</Z>
+            </DamageEffectOffset>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
@@ -965,6 +975,16 @@
             <TargetingGroups>
                 <string>Weapons</string>
             </TargetingGroups>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1.5</Z>
+            </DestroyEffectOffset>
+            <DamageEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1.5</Z>
+            </DamageEffectOffset>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
@@ -1528,5 +1548,109 @@
             <MuzzleProjectileDummyName>muzzle_missile_001</MuzzleProjectileDummyName>
             <CameraDummyName>muzzle_projectile</CameraDummyName>
         </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+            <Id>
+                <TypeId>SmallMissileLauncher</TypeId>
+                <SubtypeId>LargeFlareLauncher</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FlareLauncher</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FlareLauncher.dds</Icon>
+            <Description>Description_LargeFlareLauncher</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FlareLauncher.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="LargeTube" Count="10" />
+                <Component Subtype="Computer" Count="4" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.1" StartY="0.5" EndX="0.9" EndY="1.0" />
+                <MountPoint Side="Top" StartX="0.1" StartY="0" EndX="0.9" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Right" StartX="0" StartY="0.1" EndX="0.5" EndY="0.9" />
+                <MountPoint Side="Left" StartX="0.5" StartY="0.1" EndX="1.0" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\FlareLauncherConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\FlareLauncherConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FlareLauncherConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FlareLauncher</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <Center x="0" y="0" z="0" />
+            <BuildTimeSeconds>12</BuildTimeSeconds>
+            <EdgeType>Light</EdgeType>
+            <WeaponDefinitionId Subtype="LargeFlareLauncher" />
+            <ResourceSinkGroup>Defense</ResourceSinkGroup>
+            <InventoryMaxVolume>0.032</InventoryMaxVolume>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <TargetingGroups>
+            </TargetingGroups>
+            <PCU>150</PCU>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
+            <Id>
+                <TypeId>SmallMissileLauncher</TypeId>
+                <SubtypeId>SmallFlareLauncher</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FlareLauncher</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FlareLauncherSmall.dds</Icon>
+            <Description>Description_LargeFlareLauncher</Description>
+            <CubeSize>Small</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\FlareLauncher.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="1" />
+                <Component Subtype="Construction" Count="1" />
+                <Component Subtype="LargeTube" Count="3" />
+                <Component Subtype="Computer" Count="1" />
+                <Component Subtype="SteelPlate" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.1" StartY="0.5" EndX="0.9" EndY="1.0" />
+                <MountPoint Side="Top" StartX="0.1" StartY="0" EndX="0.9" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Right" StartX="0" StartY="0.1" EndX="0.5" EndY="0.9" />
+                <MountPoint Side="Left" StartX="0.5" StartY="0.1" EndX="1.0" EndY="0.9" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\FlareLauncherConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\FlareLauncherConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FlareLauncher</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <Center x="0" y="0" z="0" />
+            <BuildTimeSeconds>6</BuildTimeSeconds>
+            <EdgeType>Light</EdgeType>
+            <WeaponDefinitionId Subtype="SmallFlareLauncher" />
+            <ResourceSinkGroup>Defense</ResourceSinkGroup>
+            <InventoryMaxVolume>0.006</InventoryMaxVolume>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <TargetingGroups>
+            </TargetingGroups>
+            <PCU>150</PCU>
+        </Definition>
+
     </CubeBlocks>
 </Definitions>

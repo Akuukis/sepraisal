@@ -18,7 +18,7 @@ exports[`PraisalManager with economy materials only should build all ores 2`] = 
 
 exports[`PraisalManager with economy materials only should build all ores 3`] = `Array []`;
 
-exports[`PraisalManager with vanilla materials only should build all components 1`] = `22`;
+exports[`PraisalManager with vanilla materials only should build all components 1`] = `31`;
 
 exports[`PraisalManager with vanilla materials only should build all components 2`] = `
 Array [
@@ -39,11 +39,20 @@ Array [
   "Component/Medical",
   "Component/RadioCommunication",
   "Component/Detector",
-  "Component/Canvas",
   "Component/Explosives",
   "Component/SolarCell",
   "Component/PowerCell",
   "Component/Superconductor",
+  "Component/Canvas",
+  "Component/EngineerPlushie",
+  "Component/SabiroidPlushie",
+  "Component/PrototechFrame",
+  "Component/PrototechPanel",
+  "Component/PrototechCapacitor",
+  "Component/PrototechPropulsionUnit",
+  "Component/PrototechMachinery",
+  "Component/PrototechCircuitry",
+  "Component/PrototechCoolingUnit",
 ]
 `;
 
@@ -356,24 +365,6 @@ Array [
     "volume": 6,
   },
   Object {
-    "health": 14,
-    "mass": 15,
-    "maxIntegrity": 5,
-    "prerequisites": Object {
-      "Ingot/Iron": 2,
-      "Ingot/Silicon": 35,
-    },
-    "size": Object {
-      "X": 0.25,
-      "Y": 0.25,
-      "Z": 0.03,
-    },
-    "subtype": "Canvas",
-    "time": 4,
-    "type": "Component",
-    "volume": 8,
-  },
-  Object {
     "health": 21,
     "mass": 2,
     "maxIntegrity": 5,
@@ -445,6 +436,199 @@ Array [
     "time": 8,
     "type": "Component",
     "volume": 8,
+  },
+  Object {
+    "health": 14,
+    "mass": 15,
+    "maxIntegrity": 5,
+    "prerequisites": Object {
+      "Ingot/Iron": 2,
+      "Ingot/Silicon": 35,
+    },
+    "size": Object {
+      "X": 0.25,
+      "Y": 0.25,
+      "Z": 0.03,
+    },
+    "subtype": "Canvas",
+    "time": 4,
+    "type": "Component",
+    "volume": 8,
+  },
+  Object {
+    "health": 50,
+    "mass": 1,
+    "maxIntegrity": 5,
+    "prerequisites": Object {
+      "Component/EngineerPlushie": 0,
+    },
+    "size": Object {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.1,
+    },
+    "subtype": "EngineerPlushie",
+    "time": 99999,
+    "type": "Component",
+    "volume": 3,
+  },
+  Object {
+    "health": 50,
+    "mass": 1,
+    "maxIntegrity": 5,
+    "prerequisites": Object {
+      "Component/SabiroidPlushie": 0,
+    },
+    "size": Object {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.1,
+    },
+    "subtype": "SabiroidPlushie",
+    "time": 99999,
+    "type": "Component",
+    "volume": 3,
+  },
+  Object {
+    "health": 300,
+    "mass": 100,
+    "maxIntegrity": 1000,
+    "prerequisites": Object {
+      "Component/PrototechFrame": 1,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 1,
+      "Z": 0.03,
+    },
+    "subtype": "PrototechFrame",
+    "time": 1,
+    "type": "Component",
+    "volume": 50,
+  },
+  Object {
+    "health": 150,
+    "mass": 30,
+    "maxIntegrity": 300,
+    "prerequisites": Object {
+      "Ingot/Cobalt": 3,
+      "Ingot/Iron": 35,
+      "Ingot/Magnesium": 4,
+      "Ingot/Nickel": 7,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 1,
+      "Z": 0.03,
+    },
+    "subtype": "PrototechPanel",
+    "time": 4,
+    "type": "Component",
+    "volume": 6,
+  },
+  Object {
+    "health": 40,
+    "mass": 20,
+    "maxIntegrity": 80,
+    "prerequisites": Object {
+      "Ingot/Gold": 6,
+      "Ingot/Iron": 12,
+      "Ingot/PrototechScrap": 1.5,
+      "Ingot/Silicon": 4,
+      "Ingot/Silver": 3,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 1,
+      "Z": 0.03,
+    },
+    "subtype": "PrototechCapacitor",
+    "time": 16,
+    "type": "Component",
+    "volume": 50,
+  },
+  Object {
+    "health": 100,
+    "mass": 240,
+    "maxIntegrity": 200,
+    "prerequisites": Object {
+      "Ingot/Cobalt": 24,
+      "Ingot/Gold": 6,
+      "Ingot/Iron": 60,
+      "Ingot/Platinum": 3,
+      "Ingot/PrototechScrap": 1.25,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 1,
+      "Z": 0.03,
+    },
+    "subtype": "PrototechPropulsionUnit",
+    "time": 14,
+    "type": "Component",
+    "volume": 160,
+  },
+  Object {
+    "health": 80,
+    "mass": 80,
+    "maxIntegrity": 250,
+    "prerequisites": Object {
+      "Ingot/Gold": 3,
+      "Ingot/Iron": 45,
+      "Ingot/Nickel": 12,
+      "Ingot/PrototechScrap": 1.15,
+      "Ingot/Silicon": 7,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 1,
+      "Z": 0.03,
+    },
+    "subtype": "PrototechMachinery",
+    "time": 12,
+    "type": "Component",
+    "volume": 35,
+  },
+  Object {
+    "health": 150,
+    "mass": 60,
+    "maxIntegrity": 100,
+    "prerequisites": Object {
+      "Ingot/Gold": 2,
+      "Ingot/Iron": 5,
+      "Ingot/Platinum": 1.5,
+      "Ingot/PrototechScrap": 1.75,
+      "Ingot/Silicon": 8,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 1,
+      "Z": 0.03,
+    },
+    "subtype": "PrototechCircuitry",
+    "time": 11,
+    "type": "Component",
+    "volume": 20,
+  },
+  Object {
+    "health": 140,
+    "mass": 250,
+    "maxIntegrity": 150,
+    "prerequisites": Object {
+      "Ingot/Gold": 12,
+      "Ingot/Iron": 80,
+      "Ingot/Platinum": 3.25,
+      "Ingot/PrototechScrap": 2.5,
+    },
+    "size": Object {
+      "X": 1,
+      "Y": 1,
+      "Z": 0.03,
+    },
+    "subtype": "PrototechCoolingUnit",
+    "time": 9,
+    "type": "Component",
+    "volume": 80,
   },
 ]
 `;

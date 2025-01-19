@@ -609,12 +609,279 @@
             <Health>14</Health>
             <MinimumOfferAmount>10</MinimumOfferAmount>
             <MaximumOfferAmount>50</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
 
             <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
         </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>EngineerPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_EngineerPlushie</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Plushie.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Cubes\Small\Plushie.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>5</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>50</Health>
+            <MinimalPricePerUnit>30000</MinimalPricePerUnit>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>1</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>SabiroidPlushie</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_SabiroidPlushie</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SabiroidPlushie.dds</Icon>
+            <Size>
+                <X>0.1</X>
+                <Y>0.1</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>3</Volume>
+            <Model>Models\Cubes\Small\SabiroidPlushie.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>5</MaxIntegrity>
+            <DropProbability>0.5</DropProbability>
+            <Health>50</Health>
+            <MinimalPricePerUnit>30000</MinimalPricePerUnit>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>1</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1</MaximumAcquisitionAmount>
+        </Component>
+        
+        <!-- Start Prototech components-->
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PrototechFrame</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechFrame</DisplayName>
+            <Icon>Textures\GUI\Icons\component\PrototechFrame.dds</Icon>
+            <Size>
+                <X>1.0</X>
+                <Y>1.0</Y>
+                <Z>0.03</Z>
+            </Size>
+            <Mass>100</Mass>
+            <Volume>50</Volume>
+            <Model>Models\Components\PrototechFrame.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>1000</MaxIntegrity>
+            <DropProbability>0.3</DropProbability>
+            <Health>300</Health>
+			<MinimalPricePerUnit>100000</MinimalPricePerUnit>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PrototechPanel</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechPanel</DisplayName>
+            <Icon>Textures\GUI\Icons\component\PrototechPanel_Component.dds</Icon>
+            <Size>
+                <X>1.0</X>
+                <Y>1.0</Y>
+                <Z>0.03</Z>
+            </Size>
+            <Mass>30</Mass>
+            <Volume>6</Volume>
+            <Model>Models\Components\PrototechPanel_Component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>300</MaxIntegrity>
+            <DropProbability>0.3</DropProbability>
+            <Health>150</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PrototechCapacitor</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechCapacitor</DisplayName>
+            <Icon>Textures\GUI\Icons\component\PrototechCapacitor_Component.dds</Icon>
+            <Size>
+                <X>1.0</X>
+                <Y>1.0</Y>
+                <Z>0.03</Z>
+            </Size>
+            <Mass>20</Mass>
+            <Volume>50</Volume>
+            <Model>Models\Components\PrototechCapacitor_Component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>80</MaxIntegrity>
+            <DropProbability>0.3</DropProbability>
+            <Health>40</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PrototechPropulsionUnit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechPropulsionUnit</DisplayName>
+            <Icon>Textures\GUI\Icons\component\PrototechThrusterComponent.dds</Icon>
+            <Size>
+                <X>1.0</X>
+                <Y>1.0</Y>
+                <Z>0.03</Z>
+            </Size>
+            <Mass>240</Mass>
+            <Volume>160</Volume>
+            <Model>Models\Components\PrototechThrusterComponent.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>200</MaxIntegrity>
+            <DropProbability>0.3</DropProbability>
+            <Health>100</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PrototechMachinery</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechMachinery</DisplayName>
+            <Icon>Textures\GUI\Icons\component\PrototechMachinery_Icon.dds</Icon>
+            <Size>
+                <X>1.0</X>
+                <Y>1.0</Y>
+                <Z>0.03</Z>
+            </Size>
+            <Mass>80</Mass>
+            <Volume>35</Volume>
+            <Model>Models\Components\PrototechMachinery_Component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>250</MaxIntegrity>
+            <DropProbability>0.3</DropProbability>
+            <Health>80</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PrototechCircuitry</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechCircuitry</DisplayName>
+            <Icon>Textures\GUI\Icons\component\prototech_circuitry_component.dds</Icon>
+            <Size>
+                <X>1.0</X>
+                <Y>1.0</Y>
+                <Z>0.03</Z>
+            </Size>
+            <Mass>60</Mass>
+            <Volume>20</Volume>
+            <Model>Models\Components\prototech_circuitry_component.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>100</MaxIntegrity>
+            <DropProbability>0.3</DropProbability>
+            <Health>150</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
+        <Component>
+            <Id>
+                <TypeId>Component</TypeId>
+                <SubtypeId>PrototechCoolingUnit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechCoolingUnit</DisplayName>
+            <Icon>Textures\GUI\Icons\component\PrototechCoolingUnit.dds</Icon>
+            <Size>
+                <X>1.0</X>
+                <Y>1.0</Y>
+                <Z>0.03</Z>
+            </Size>
+            <Mass>250</Mass>
+            <Volume>80</Volume>
+            <Model>Models\Components\PrototechCoolingUnit.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MaxIntegrity>150</MaxIntegrity>
+            <DropProbability>0.3</DropProbability>
+            <Health>140</Health>
+            <MinimumOfferAmount>250</MinimumOfferAmount>
+            <MaximumOfferAmount>2500</MaximumOfferAmount>
+            <MinimumOrderAmount>0</MinimumOrderAmount>
+            <MaximumOrderAmount>0</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+
+            <MinimumAcquisitionAmount>1</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>1000</MaximumAcquisitionAmount>
+        </Component>
+
     </Components>
 </Definitions>
