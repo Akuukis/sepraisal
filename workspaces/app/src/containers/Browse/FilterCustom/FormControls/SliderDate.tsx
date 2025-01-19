@@ -264,5 +264,15 @@ const MARKS: IMark[] = [
     {value: toValue('2020-06-24'), version: '1.195', summary: 'Sparks of the Future'},
     {value: toValue('2020-11-25'), version: '1.197', summary: 'Rover cockpit & armor blocks'},
 
+    {value: toValue('2021-04-22'), version: '1.198', summary: 'Warfare 1: Field Engineer'},
+    {value: toValue('2021-07-28'), version: '1.199', summary: 'Heavy Industry Update and DLC'},
+    {value: toValue('2022-02-03'), version: '1.200', summary: 'Warfare 2 “Broadside”'},
+    {value: toValue('2022-04-28'), version: '1.201', summary: 'Most Wanted'},
+    {value: toValue('2023-04-13'), version: '1.202', summary: 'Automatons Update and DLC'},
+    {value: toValue('2023-08-31'), version: '1.203', summary: 'Warfare Evolution & Decorative Pack #3'},
+    //{value: toValue('2024-01-15'), version: '1.203.6', summary: 'Microsoft Store'},
+    {value: toValue('2024-05-13'), version: '1.204', summary: 'Signal Update and DLC'},
+    {value: toValue('2024-10-14'), version: '1.205', summary: 'Contact Update and DLC'},
+
     {value: toValue(moment()), version: '?.???', summary: 'Today'},
 ]
