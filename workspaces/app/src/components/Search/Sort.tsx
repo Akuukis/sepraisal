@@ -138,6 +138,8 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 {renderSortItem('sbc.blockMass')}
                 {renderSortItem('sbc.blockPCU')}
                 {renderSortItem('sbc.oreVolume')}
+                {renderSortItem('steam.updatedDate')}
+                {renderSortItem('steam.postedDate')}
             </Menu>
         </Grid>
     )
@@ -149,4 +151,6 @@ const TITLES = {
     'sbc.blockMass': 'Mass (kg)',
     'sbc.blockPCU': 'PCU',
     'sbc.oreVolume': 'Spent Ore',
+    'steam.updatedDate': 'Date Updated',
+    'steam.postedDate': 'Date Uploaded',
 }
