@@ -543,10 +543,10 @@
             <CriticalComponent Subtype="LargeTube" Index="0" />
             <MountPoints>
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
-                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0.2" StartY="0" EndX="0.8" EndY="0.2" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.8" EndX="0.8" EndY="1" />
+                <MountPoint Side="Left" StartX="0.8" StartY="0.2" EndX="1" EndY="0.8" />
+                <MountPoint Side="Right" StartX="0" StartY="0.2" EndX="0.2" EndY="0.8" />
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\HydrogenThrusterSmall_Construction_1.mwm" />
@@ -568,6 +568,7 @@
             </VoxelPlacement>
             <BlockPairName>HydrogenThrust</BlockPairName>
             <Center x="0" y="0" z="0" />
+            <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>40</BuildTimeSeconds>
@@ -748,11 +749,11 @@
             </Components>
             <CriticalComponent Subtype="LargeTube" Index="0" />
             <MountPoints>
-                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true"/>
-                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0.2" StartY="0" EndX="0.8" EndY="0.2" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.8" EndX="0.8" EndY="1" />
+                <MountPoint Side="Left" StartX="0.8" StartY="0.2" EndX="1" EndY="0.8" />
+                <MountPoint Side="Right" StartX="0" StartY="0.2" EndX="0.2" EndY="0.8" />
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\HydrogenThrusterSmall_Construction_1.mwm" />
@@ -774,6 +775,7 @@
             </VoxelPlacement>
             <BlockPairName>HydrogenThrust</BlockPairName>
             <Center x="0" y="0" z="0" />
+            <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>10</BuildTimeSeconds>

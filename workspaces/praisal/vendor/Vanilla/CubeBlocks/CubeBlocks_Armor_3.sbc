@@ -390,7 +390,7 @@
         </BoneInfo>
         <BoneInfo>
           <BonePosition x="2" y="0" z="1" />
-          <BoneOffset x="127" y="127" z="127" />heavyarmorraisedslopedcorner
+          <BoneOffset x="127" y="127" z="127" />
         </BoneInfo>
         <BoneInfo>
           <BonePosition x="0" y="1" z="0" />
@@ -418,7 +418,7 @@
         <Component Subtype="MetalGrid" Count="30" />
         <Component Subtype="SteelPlate" Count="20" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -950,7 +950,7 @@
         <Component Subtype="MetalGrid" Count="18" />
         <Component Subtype="SteelPlate" Count="12" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -1541,7 +1541,7 @@
         <Component Subtype="MetalGrid" Count="35" />
         <Component Subtype="SteelPlate" Count="20" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -2158,7 +2158,7 @@
         <Component Subtype="MetalGrid" Count="35" />
         <Component Subtype="SteelPlate" Count="20" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -2697,7 +2697,7 @@
         <Component Subtype="MetalGrid" Count="18" />
         <Component Subtype="SteelPlate" Count="12" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -3173,7 +3173,7 @@
         <Component Subtype="MetalGrid" Count="9" />
         <Component Subtype="SteelPlate" Count="5" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -3638,7 +3638,7 @@
         <Component Subtype="MetalGrid" Count="9" />
         <Component Subtype="SteelPlate" Count="5" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -4205,7 +4205,7 @@
         <Component Subtype="MetalGrid" Count="35" />
         <Component Subtype="SteelPlate" Count="20" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -4710,7 +4710,7 @@
         <Component Subtype="MetalGrid" Count="9" />
         <Component Subtype="SteelPlate" Count="5" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />
@@ -5243,7 +5243,7 @@
         <Component Subtype="MetalGrid" Count="18" />
         <Component Subtype="SteelPlate" Count="10" />
       </Components>
-      <CriticalComponent Subtype="SteelPlate" Index="0" />
+      <CriticalComponent Subtype="SteelPlate" Index="1" />
       <Variants>
         <Variant Color="Red" Suffix="_red" />
         <Variant Color="Yellow" Suffix="_yellow" />

@@ -1978,7 +1978,7 @@
                 <SubtypeId>WindowRoundFace</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_WindowRoundFace</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\windowRoundFaceLarge.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundFaceLarge.dds</Icon>
             <Description>Description_Window</Description>
             <GuiVisible>false</GuiVisible>
             <CubeSize>Large</CubeSize>
@@ -2020,7 +2020,7 @@
                 <SubtypeId>WindowRoundFaceInv</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_WindowRoundFaceInv</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\windowRoundFaceInvLarge.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundFaceInvLarge.dds</Icon>
             <Description>Description_Window</Description>
             <GuiVisible>false</GuiVisible>
             <CubeSize>Large</CubeSize>
@@ -2062,7 +2062,7 @@
                 <SubtypeId>WindowRoundInwardsCorner</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_WindowRoundInwardsCorner</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\windowRoundInwardsCornerLarge.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundInwardsCornerLarge.dds</Icon>
             <Description>Description_Window</Description>
             <GuiVisible>false</GuiVisible>
             <CubeSize>Large</CubeSize>
@@ -2117,7 +2117,7 @@
                 <SubtypeId>WindowRoundInwardsCornerInv</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_WindowRoundInwardsCornerInv</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\windowRoundInwardsCornerInvLarge.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\WindowRoundInwardsCornerInvLarge.dds</Icon>
             <Description>Description_Window</Description>
             <GuiVisible>false</GuiVisible>
             <CubeSize>Large</CubeSize>

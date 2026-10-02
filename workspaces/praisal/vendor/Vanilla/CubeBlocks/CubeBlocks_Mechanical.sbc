@@ -18,12 +18,12 @@
             <UseVanillaPlacementDetection>true</UseVanillaPlacementDetection>
             <PlaceDecals>false</PlaceDecals>
             <Components>
-                <Component Subtype="SteelPlate" Count="10" />
-                <Component Subtype="Construction" Count="10" />
-                <Component Subtype="LargeTube" Count="4" />
-                <Component Subtype="Motor" Count="4" />
-                <Component Subtype="Computer" Count="2" />
-                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="SteelPlate" Count="25" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="LargeTube" Count="10" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Computer" Count="5" />
+                <Component Subtype="SteelPlate" Count="25" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -55,7 +55,7 @@
             <DefaultMaxImpulseAxis>50000</DefaultMaxImpulseAxis>
             <DefaultMaxImpulseNonAxis>50000</DefaultMaxImpulseNonAxis>
             <DangerousImpulseThreshold>100000</DangerousImpulseThreshold>
-            <MaxImpulse>340282300000000000000000000000000000000</MaxImpulse> //Float.Max
+            <MaxImpulse>340282300000000000000000000000000000000</MaxImpulse>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>100</PCU>
@@ -78,12 +78,12 @@
             <Model>Models\Cubes\Large\PistonBase.mwm</Model>
             <PlaceDecals>false</PlaceDecals>
             <Components>
-                <Component Subtype="SteelPlate" Count="10" />
-                <Component Subtype="Construction" Count="10" />
-                <Component Subtype="LargeTube" Count="4" />
-                <Component Subtype="Motor" Count="4" />
-                <Component Subtype="Computer" Count="2" />
-                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="SteelPlate" Count="25" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="LargeTube" Count="10" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Computer" Count="5" />
+                <Component Subtype="SteelPlate" Count="25" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -114,7 +114,7 @@
             <DefaultMaxImpulseAxis>50000</DefaultMaxImpulseAxis>
             <DefaultMaxImpulseNonAxis>50000</DefaultMaxImpulseNonAxis>
             <DangerousImpulseThreshold>100000</DangerousImpulseThreshold>
-            <MaxImpulse>340282300000000000000000000000000000000</MaxImpulse> //Float.Max
+            <MaxImpulse>340282300000000000000000000000000000000</MaxImpulse>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>100</PCU>
@@ -152,6 +152,8 @@
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\PistonTopConstruction_2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\PistonTopConstruction_3.mwm" />
             </BuildProgressModels>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <BlockPairName>PistonTop</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
@@ -179,12 +181,12 @@
             <Model>Models\Cubes\Small\PistonBase.mwm</Model>
             <PlaceDecals>false</PlaceDecals>
             <Components>
-                <Component Subtype="SteelPlate" Count="2" />
-                <Component Subtype="Construction" Count="4" />
+                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="Construction" Count="5" />
                 <Component Subtype="SmallTube" Count="4" />
                 <Component Subtype="Motor" Count="2" />
                 <Component Subtype="Computer" Count="1" />
-                <Component Subtype="SteelPlate" Count="2" />
+                <Component Subtype="SteelPlate" Count="5" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -216,7 +218,7 @@
             <DefaultMaxImpulseAxis>50000</DefaultMaxImpulseAxis>
             <DefaultMaxImpulseNonAxis>50000</DefaultMaxImpulseNonAxis>
             <DangerousImpulseThreshold>100000</DangerousImpulseThreshold>
-            <MaxImpulse>340282300000000000000000000000000000000</MaxImpulse> //Float.Max
+            <MaxImpulse>340282300000000000000000000000000000000</MaxImpulse>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>100</PCU>
@@ -239,12 +241,12 @@
             <Model>Models\Cubes\Small\PistonBase.mwm</Model>
             <PlaceDecals>false</PlaceDecals>
             <Components>
-                <Component Subtype="SteelPlate" Count="2" />
-                <Component Subtype="Construction" Count="4" />
+                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="Construction" Count="5" />
                 <Component Subtype="SmallTube" Count="4" />
                 <Component Subtype="Motor" Count="2" />
                 <Component Subtype="Computer" Count="1" />
-                <Component Subtype="SteelPlate" Count="2" />
+                <Component Subtype="SteelPlate" Count="5" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -275,7 +277,7 @@
             <DefaultMaxImpulseAxis>50000</DefaultMaxImpulseAxis>
             <DefaultMaxImpulseNonAxis>50000</DefaultMaxImpulseNonAxis>
             <DangerousImpulseThreshold>100000</DangerousImpulseThreshold>
-            <MaxImpulse>340282300000000000000000000000000000000</MaxImpulse> //Float.Max
+            <MaxImpulse>340282300000000000000000000000000000000</MaxImpulse>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>100</PCU>
@@ -311,6 +313,8 @@
                 <Model BuildPercentUpperBound="0.5" File="Models\Cubes\Small\PistonTopConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\PistonTopConstruction_2.mwm" />
             </BuildProgressModels>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <BlockPairName>PistonTop</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
@@ -336,12 +340,12 @@
             <ModelOffset x="0" y="-1.25" z="0" />
             <Model>Models\Cubes\Large\MotorStator.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="10" />
-                <Component Subtype="Construction" Count="10" />
-                <Component Subtype="LargeTube" Count="4" />
-                <Component Subtype="Motor" Count="4" />
-                <Component Subtype="Computer" Count="2" />
-                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="SteelPlate" Count="15" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="LargeTube" Count="5" />
+                <Component Subtype="Motor" Count="5" />
+                <Component Subtype="Computer" Count="5" />
+                <Component Subtype="SteelPlate" Count="15" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -364,8 +368,8 @@
             <PrimarySound>BlockRotor</PrimarySound>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.002</RequiredPowerInput>
-            <MaxForceMagnitude>1E9</MaxForceMagnitude>
-            <DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
+            <MaxForceMagnitude>1000000000</MaxForceMagnitude>
+            <DangerousTorqueThreshold>33600000</DangerousTorqueThreshold>
             <PropulsionForce>8000</PropulsionForce>
             <RotorPart>MotorRotor</RotorPart>
             <RotorDisplacementMin>-0.4</RotorDisplacementMin>
@@ -383,6 +387,11 @@
             <RotorType>Rotor</RotorType>
             <PCU>100</PCU>
             <IsAirTight>false</IsAirTight>
+            <ForbiddenTopPartSubtypes>
+                <SubtypeId>LargeHingeHead</SubtypeId>
+                <SubtypeId>MediumHingeHead</SubtypeId>
+                <SubtypeId>SmallHingeHead</SubtypeId>
+            </ForbiddenTopPartSubtypes>
         </Definition>
         <Definition>
             <Id>
@@ -403,7 +412,7 @@
             <Components>
                 <!-- top part  cost is not balance-only issue,  rotor "overtravel" issue  when rotation limits are set is reduced by adding more weight into top part -->
                 <Component Subtype="SteelPlate" Count="30" />
-                <Component Subtype="LargeTube" Count="6" />
+                <Component Subtype="LargeTube" Count="10" />
             </Components>
             <CriticalComponent Subtype="SteelPlate" Index="0" />
             <MountPoints>
@@ -435,12 +444,12 @@
             <ModelOffset x="0" y="-0.25" z="0" />
             <Model>Models\Cubes\Small\MotorStator.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="3" />
-                <Component Subtype="Construction" Count="5" />
-                <Component Subtype="SmallTube" Count="1" />
-                <Component Subtype="Motor" Count="1" />
-                <Component Subtype="Computer" Count="1" />
-                <Component Subtype="SteelPlate" Count="2" />
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SmallTube" Count="3" />
+                <Component Subtype="Motor" Count="3" />
+                <Component Subtype="Computer" Count="3" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="Motor" Index="0" />
             <MountPoints>
@@ -462,8 +471,8 @@
             <PrimarySound>BlockRotorSmall</PrimarySound>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.0002</RequiredPowerInput>
-            <MaxForceMagnitude>1E6</MaxForceMagnitude>
-            <DangerousTorqueThreshold>448000</DangerousTorqueThreshold>
+            <MaxForceMagnitude>1000000000</MaxForceMagnitude>
+            <DangerousTorqueThreshold>33600000</DangerousTorqueThreshold>
             <RotorPart>MotorRotor</RotorPart>
             <RotorDisplacementMin>-0.11</RotorDisplacementMin>
             <RotorDisplacementMax>0.11</RotorDisplacementMax>
@@ -479,6 +488,11 @@
             <RotorType>Rotor</RotorType>
             <PCU>100</PCU>
             <IsAirTight>false</IsAirTight>
+            <ForbiddenTopPartSubtypes>
+                <SubtypeId>LargeHingeHead</SubtypeId>
+                <SubtypeId>MediumHingeHead</SubtypeId>
+                <SubtypeId>SmallHingeHead</SubtypeId>
+            </ForbiddenTopPartSubtypes>
         </Definition>
         <Definition>
             <Id>
@@ -535,12 +549,12 @@
             <ModelOffset x="0" y="-1.25" z="0" />
             <Model>Models\Cubes\Large\MotorAdvancedStator.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="10" />
-                <Component Subtype="Construction" Count="10" />
-                <Component Subtype="LargeTube" Count="4" />
-                <Component Subtype="Motor" Count="4" />
-                <Component Subtype="Computer" Count="2" />
-                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="SteelPlate" Count="15" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="LargeTube" Count="5" />
+                <Component Subtype="Motor" Count="5" />
+                <Component Subtype="Computer" Count="5" />
+                <Component Subtype="SteelPlate" Count="15" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -563,8 +577,8 @@
             <PrimarySound>BlockRotor</PrimarySound>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.002</RequiredPowerInput>
-            <MaxForceMagnitude>1E9</MaxForceMagnitude>
-            <DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
+            <MaxForceMagnitude>1000000000</MaxForceMagnitude>
+            <DangerousTorqueThreshold>33600000</DangerousTorqueThreshold>
             <MediumTopPart>MotorAdvancedRotor3x3</MediumTopPart>
             <RotorPart>MotorAdvancedRotor</RotorPart>
             <RotorDisplacementMin>-0.4</RotorDisplacementMin>
@@ -581,6 +595,11 @@
             <RotorType>Rotor</RotorType>
             <PCU>100</PCU>
             <IsAirTight>false</IsAirTight>
+            <ForbiddenTopPartSubtypes>
+                <SubtypeId>LargeHingeHead</SubtypeId>
+                <SubtypeId>MediumHingeHead</SubtypeId>
+                <SubtypeId>SmallHingeHead</SubtypeId>
+            </ForbiddenTopPartSubtypes>
         </Definition>
         <Definition>
             <Id>
@@ -611,6 +630,8 @@
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\MotorAdvancedRotorConstruction_2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\MotorAdvancedRotorConstruction_3.mwm" />
             </BuildProgressModels>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <BlockPairName>MotorAdvancedRotor</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
@@ -635,16 +656,16 @@
             <ModelOffset x="0" y="-0.25" z="0" />
             <Model>Models\Cubes\Small\MotorAdvancedStator.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="6" />
-                <Component Subtype="Construction" Count="6" />
-                <Component Subtype="SmallTube" Count="1" />
-                <Component Subtype="Motor" Count="2" />
-                <Component Subtype="Computer" Count="2" />
-                <Component Subtype="SteelPlate" Count="4" />
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="3" />
+                <Component Subtype="Motor" Count="3" />
+                <Component Subtype="Computer" Count="3" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="Motor" Index="0" />
             <MountPoints>
-                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="4" EndY="4" Default="true" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="3" EndY="3" Default="true" />
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\MotorAdvancedStatorConstruction_1.mwm" />
@@ -658,8 +679,8 @@
             <PrimarySound>BlockRotorSmall</PrimarySound>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.0002</RequiredPowerInput>
-            <MaxForceMagnitude>1E6</MaxForceMagnitude>
-            <DangerousTorqueThreshold>448000</DangerousTorqueThreshold>
+            <MaxForceMagnitude>1000000000</MaxForceMagnitude>
+            <DangerousTorqueThreshold>33600000</DangerousTorqueThreshold>
             <RotorPart>MotorAdvancedRotor3x3</RotorPart>
             <RotorDisplacementMin>-0.02</RotorDisplacementMin>
             <RotorDisplacementMax>0.11</RotorDisplacementMax>
@@ -674,6 +695,11 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <RotorType>Rotor</RotorType>
             <PCU>100</PCU>
+            <ForbiddenTopPartSubtypes>
+                <SubtypeId>LargeHingeHead</SubtypeId>
+                <SubtypeId>MediumHingeHead</SubtypeId>
+                <SubtypeId>SmallHingeHead</SubtypeId>
+            </ForbiddenTopPartSubtypes>
         </Definition>
         <Definition>
             <Id>
@@ -702,6 +728,8 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\MotorAdvancedRotorConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\MotorAdvancedRotorConstruction_2.mwm" />
             </BuildProgressModels>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <BlockPairName>MotorAdvancedRotor3x3</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
@@ -732,7 +760,7 @@
                 <Component Subtype="SmallTube" Count="1" />
                 <Component Subtype="Motor" Count="1" />
                 <Component Subtype="Computer" Count="1" />
-                <Component Subtype="SteelPlate" Count="2" />
+                <Component Subtype="SteelPlate" Count="3" />
             </Components>
             <CriticalComponent Subtype="Motor" Index="0" />
             <MountPoints>
@@ -754,8 +782,8 @@
             <PrimarySound>BlockRotorSmall</PrimarySound>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.0002</RequiredPowerInput>
-            <MaxForceMagnitude>1E6</MaxForceMagnitude>
-            <DangerousTorqueThreshold>448000</DangerousTorqueThreshold>
+            <MaxForceMagnitude>1000000000</MaxForceMagnitude>
+            <DangerousTorqueThreshold>33600000</DangerousTorqueThreshold>
             <RotorPart>MotorAdvancedRotor</RotorPart>
             <RotorDisplacementMin>-0.11</RotorDisplacementMin>
             <RotorDisplacementMax>0.11</RotorDisplacementMax>
@@ -770,6 +798,11 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <RotorType>Rotor</RotorType>
             <PCU>100</PCU>
+            <ForbiddenTopPartSubtypes>
+                <SubtypeId>LargeHingeHead</SubtypeId>
+                <SubtypeId>MediumHingeHead</SubtypeId>
+                <SubtypeId>SmallHingeHead</SubtypeId>
+            </ForbiddenTopPartSubtypes>
         </Definition>
         <Definition>
             <Id>
@@ -798,6 +831,8 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\MotorAdvancedRotorSmallConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\MotorAdvancedRotorSmallConstruction_2.mwm" />
             </BuildProgressModels>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <BlockPairName>MotorAdvancedRotor</BlockPairName>
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
@@ -824,12 +859,12 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\Hinge.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="10" />
-                <Component Subtype="Construction" Count="10" />
-                <Component Subtype="LargeTube" Count="4" />
-                <Component Subtype="Motor" Count="4" />
-                <Component Subtype="Computer" Count="2" />
-                <Component Subtype="SteelPlate" Count="6" />
+                <Component Subtype="SteelPlate" Count="15" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="LargeTube" Count="5" />
+                <Component Subtype="Motor" Count="5" />
+                <Component Subtype="Computer" Count="5" />
+                <Component Subtype="SteelPlate" Count="15" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -845,12 +880,12 @@
             <UseModelIntersection>true</UseModelIntersection>
             <MediumTopPart>HingeHead3x3</MediumTopPart>
             <RotorPart>HingeHead</RotorPart>
-            <MirroringX>Y</MirroringX>
-            <MirroringY>X</MirroringY>
+            <MirroringX>Z</MirroringX>
+            <MirroringZ>X</MirroringZ>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.002</RequiredPowerInput>
-            <MaxForceMagnitude>1E9</MaxForceMagnitude>
-            <DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
+            <MaxForceMagnitude>1000000000</MaxForceMagnitude>
+            <DangerousTorqueThreshold>33600000</DangerousTorqueThreshold>
             <RotorDisplacementMin>0</RotorDisplacementMin>
             <RotorDisplacementMax>0</RotorDisplacementMax>
             <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
@@ -865,6 +900,10 @@
             <PrimarySound>BlockRotor</PrimarySound>
             <RotorType>Hinge</RotorType>
             <PCU>100</PCU>
+            <ForbiddenTopPartSubtypes>
+                <SubtypeId>LargeRotor</SubtypeId>
+                <SubtypeId>LargeAdvancedRotor</SubtypeId>
+            </ForbiddenTopPartSubtypes>
         </Definition>
 
         <Definition>
@@ -881,10 +920,10 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\HingeHead.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="8" />
-                <Component Subtype="LargeTube" Count="4" />
-                <Component Subtype="Construction" Count="8" />
-                <Component Subtype="SteelPlate" Count="4" />
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="LargeTube" Count="5" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="SteelPlate" Count="5" />
             </Components>
             <CriticalComponent Subtype="LargeTube" Index="0" />
             <MountPoints>
@@ -893,6 +932,8 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\HingeHeadConstruction_1.mwm" />
             </BuildProgressModels>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <BlockPairName>HingeHead</BlockPairName>
             <BuildTimeSeconds>10</BuildTimeSeconds>
             <UseModelIntersection>true</UseModelIntersection>
@@ -915,12 +956,12 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\HingeMedium.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="6" />
-                <Component Subtype="Construction" Count="6" />
-                <Component Subtype="LargeTube" Count="2" />
-                <Component Subtype="Motor" Count="2" />
-                <Component Subtype="Computer" Count="2" />
-                <Component Subtype="SteelPlate" Count="4" />
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="LargeTube" Count="3" />
+                <Component Subtype="Motor" Count="3" />
+                <Component Subtype="Computer" Count="3" />
+                <Component Subtype="SteelPlate" Count="10" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -934,12 +975,12 @@
             <BuildTimeSeconds>12</BuildTimeSeconds>
             <UseModelIntersection>true</UseModelIntersection>
             <RotorPart>HingeHead3x3</RotorPart>
-            <MirroringX>Y</MirroringX>
-            <MirroringY>X</MirroringY>
+            <MirroringX>Z</MirroringX>
+            <MirroringZ>X</MirroringZ>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.002</RequiredPowerInput>
-            <MaxForceMagnitude>1E9</MaxForceMagnitude>
-            <DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
+            <MaxForceMagnitude>1000000000</MaxForceMagnitude>
+            <DangerousTorqueThreshold>33600000</DangerousTorqueThreshold>
             <RotorDisplacementMin>0</RotorDisplacementMin>
             <RotorDisplacementMax>0</RotorDisplacementMax>
             <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
@@ -954,6 +995,11 @@
             <PrimarySound>BlockRotor</PrimarySound>
             <RotorType>Hinge</RotorType>
             <PCU>100</PCU>
+            <ForbiddenTopPartSubtypes>
+                <SubtypeId>LargeRotor</SubtypeId>
+                <SubtypeId>SmallAdvancedRotor</SubtypeId>
+                <SubtypeId>LargeAdvancedRotor</SubtypeId>
+            </ForbiddenTopPartSubtypes>
         </Definition>
 
         <Definition>
@@ -970,10 +1016,10 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\HingeHeadMedium.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="4" />
-                <Component Subtype="LargeTube" Count="2" />
-                <Component Subtype="Construction" Count="4" />
-                <Component Subtype="SteelPlate" Count="2" />
+                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="LargeTube" Count="3" />
+                <Component Subtype="Construction" Count="5" />
+                <Component Subtype="SteelPlate" Count="3" />
             </Components>
             <CriticalComponent Subtype="LargeTube" Index="0" />
             <MountPoints>
@@ -982,6 +1028,8 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\HingeHeadMediumConstruction_1.mwm" />
             </BuildProgressModels>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <BlockPairName>HingeHead3x3</BlockPairName>
             <BuildTimeSeconds>8</BuildTimeSeconds>
             <UseModelIntersection>true</UseModelIntersection>
@@ -1004,12 +1052,12 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\HingeSmall.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="4" />
-                <Component Subtype="Construction" Count="4" />
+                <Component Subtype="SteelPlate" Count="3" />
+                <Component Subtype="Construction" Count="5" />
                 <Component Subtype="LargeTube" Count="1" />
-                <Component Subtype="Motor" Count="2" />
-                <Component Subtype="Computer" Count="2" />
-                <Component Subtype="SteelPlate" Count="2" />
+                <Component Subtype="Motor" Count="1" />
+                <Component Subtype="Computer" Count="1" />
+                <Component Subtype="SteelPlate" Count="3" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
@@ -1023,12 +1071,12 @@
             <BuildTimeSeconds>8</BuildTimeSeconds>
             <UseModelIntersection>true</UseModelIntersection>
             <RotorPart>HingeHead</RotorPart>
-            <MirroringX>Y</MirroringX>
-            <MirroringY>X</MirroringY>
+            <MirroringX>Z</MirroringX>
+            <MirroringZ>X</MirroringZ>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <RequiredPowerInput>0.002</RequiredPowerInput>
-            <MaxForceMagnitude>1E9</MaxForceMagnitude>
-            <DangerousTorqueThreshold>3.36E+07</DangerousTorqueThreshold>
+            <MaxForceMagnitude>1000000000</MaxForceMagnitude>
+            <DangerousTorqueThreshold>33600000</DangerousTorqueThreshold>
             <RotorDisplacementMin>0</RotorDisplacementMin>
             <RotorDisplacementMax>0</RotorDisplacementMax>
             <RotorDisplacementMinSmall>0</RotorDisplacementMinSmall>
@@ -1043,6 +1091,10 @@
             <PrimarySound>BlockRotor</PrimarySound>
             <RotorType>Hinge</RotorType>
             <PCU>100</PCU>
+            <ForbiddenTopPartSubtypes>
+                <SubtypeId>SmallRotor</SubtypeId>
+                <SubtypeId>SmallAdvancedRotorSmall</SubtypeId>
+            </ForbiddenTopPartSubtypes>
         </Definition>
 
         <Definition>
@@ -1072,6 +1124,8 @@
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\HingeHeadSmallConstruction_1.mwm" />
             </BuildProgressModels>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <BuildTimeSeconds>6</BuildTimeSeconds>
             <UseModelIntersection>true</UseModelIntersection>
             <MirroringX>Y</MirroringX>

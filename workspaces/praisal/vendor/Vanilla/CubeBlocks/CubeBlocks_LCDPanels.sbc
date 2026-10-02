@@ -118,7 +118,7 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>6</BuildTimeSeconds>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <RequiredPowerInput>0.0002</RequiredPowerInput>
+            <RequiredPowerInput>0.00008</RequiredPowerInput>
             <TextureResolution>512</TextureResolution>
             <ScreenWidth>2</ScreenWidth>
             <ScreenHeight>1</ScreenHeight>
@@ -192,7 +192,7 @@
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>4</BuildTimeSeconds>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <RequiredPowerInput>0.0001</RequiredPowerInput>
+            <RequiredPowerInput>0.00004</RequiredPowerInput>
             <TextureResolution>512</TextureResolution>
             <MaxScreenRenderDistance>120</MaxScreenRenderDistance>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
@@ -463,10 +463,10 @@
                 <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
                 <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />
             </ScreenAreas>
-            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <RequiredPowerInput>0.00002</RequiredPowerInput>
             <TextureResolution>256</TextureResolution>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
+            <MaxScreenRenderDistance>25</MaxScreenRenderDistance>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>45</PCU>
@@ -512,10 +512,10 @@
                 <ScreenArea Name="ScreenArea180" DisplayName="ScreenArea180" TextureResolution="256" ScreenWidth="22" ScreenHeight="7" />
                 <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="7" ScreenHeight="22" />
             </ScreenAreas>
-            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <RequiredPowerInput>0.00002</RequiredPowerInput>
             <TextureResolution>256</TextureResolution>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
+            <MaxScreenRenderDistance>25</MaxScreenRenderDistance>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>45</PCU>
@@ -562,10 +562,10 @@
             </ScreenAreas>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
-            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <RequiredPowerInput>0.00002</RequiredPowerInput>
             <TextureResolution>256</TextureResolution>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
+            <MaxScreenRenderDistance>25</MaxScreenRenderDistance>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>45</PCU>
@@ -612,10 +612,10 @@
             </ScreenAreas>
             <MirroringZ>Y</MirroringZ>
             <MirroringY>Z</MirroringY>
-            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <RequiredPowerInput>0.00002</RequiredPowerInput>
             <TextureResolution>256</TextureResolution>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
+            <MaxScreenRenderDistance>25</MaxScreenRenderDistance>
             <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>45</PCU>
@@ -720,7 +720,7 @@
             <BuildTimeSeconds>6</BuildTimeSeconds>
             <MaxScreenRenderDistance>120</MaxScreenRenderDistance>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <RequiredPowerInput>0.0001</RequiredPowerInput>
+            <RequiredPowerInput>0.00006</RequiredPowerInput>
             <TextureResolution>512</TextureResolution>
             <ScreenAreas>
                 <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="1" ScreenHeight="1" />
@@ -780,7 +780,7 @@
             <BuildTimeSeconds>8</BuildTimeSeconds>
             <MaxScreenRenderDistance>120</MaxScreenRenderDistance>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <RequiredPowerInput>0.0002</RequiredPowerInput>
+            <RequiredPowerInput>0.00012</RequiredPowerInput>
             <TextureResolution>512</TextureResolution>
             <ScreenAreas>
                 <ScreenArea Name="ScreenArea" DisplayName="ScreenArea" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" />

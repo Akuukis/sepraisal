@@ -1,0 +1,2134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+		<!-- Economy 2 DLC -->
+
+		<Definition xsi:type="MyObjectBuilder_SafeZoneBlockDefinition">
+			<Id>
+				<TypeId>SafeZoneBlock</TypeId>
+				<SubtypeId>SafeZoneBlockReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_SafeZoneReskin</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SafeZoneReskin.dds</Icon>
+			<Description>Description_SafeZone</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="2" y="2" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\SafeZoneReskin.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="750" />
+				<Component Subtype="Construction" Count="180" />
+				<Component Subtype="GravityGenerator" Count="10" />
+				<Component Subtype="ZoneChip" Count="5" />
+				<Component Subtype="MetalGrid" Count="80" />
+				<Component Subtype="Computer" Count="120" />
+				<Component Subtype="SteelPlate" Count="50" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="2" EndY="3" />
+				<MountPoint Side="Top" StartX="0.8" StartY="0" EndX="1.2" EndY="0.5" />
+				<MountPoint Side="Top" StartX="0.8" StartY="2.5" EndX="1.2" EndY="3" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="1" />
+				<MountPoint Side="Right" StartX="2.8" StartY="0" EndX="3" EndY="1" />
+				<MountPoint Side="Right" StartX="1" StartY="0" EndX="2" EndY="1" />
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="0.2" EndY="1" />
+				<MountPoint Side="Left" StartX="2.8" StartY="0" EndX="3" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="2" EndY="1.3" />
+                <MountPoint Side="Back" StartX="0.5" StartY="1.3" EndX="1.5" EndY="2" />
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="2" EndY="1.3" />
+                <MountPoint Side="Front" StartX="0.5" StartY="1.3" EndX="1.5" EndY="2" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\large\SafeZoneReskin_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\large\SafeZoneReskin_Construction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\large\SafeZoneReskin_Construction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>SafeZoneReskin</BlockPairName>
+			<EdgeType>Light</EdgeType>
+			<MirroringX>Y</MirroringX>
+			<MirroringY>X</MirroringY>
+			<BuildTimeSeconds>40</BuildTimeSeconds>
+			<ResourceSinkGroup>SafeZoneBlock</ResourceSinkGroup>
+			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+			<DamagedSound>ParticleElectrical</DamagedSound>
+
+			<MaxSafeZoneRadius>500</MaxSafeZoneRadius>
+			<MinSafeZoneRadius>10</MinSafeZoneRadius>
+			<DefaultSafeZoneRadius>10</DefaultSafeZoneRadius>
+			<SafeZoneActivationTimeS>120</SafeZoneActivationTimeS>
+			<MaxSafeZonePowerDrainkW>128000</MaxSafeZonePowerDrainkW>
+			<MinSafeZonePowerDrainkW>5000</MinSafeZonePowerDrainkW>
+			<SafeZoneUpkeep>1</SafeZoneUpkeep>
+			<SafeZoneUpkeepTimeM>60</SafeZoneUpkeepTimeM>
+            <FillRatio>0.5</FillRatio>
+            <ItemPullPerRequest>1</ItemPullPerRequest>
+
+			<ActionSound>BlockSafeZone</ActionSound>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<PCU>50</PCU>
+			<DLC>Economy2</DLC>
+			<Repairable>false</Repairable>
+		</Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockSmallVivarium</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_SmallVivarium</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SmallVivarium.dds</Icon>
+            <Description>Description_Vivarium</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="3" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\SmallVivarium.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="InteriorPlate" Count="30" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="SmallTube" Count="10" />
+                <Component Subtype="Girder" Count="40" />
+                <Component Subtype="BulletproofGlass" Count="75" />
+                <Component Subtype="BulletproofGlass" Count="25" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\SmallVivariumConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\SmallVivariumConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SmallVivariumConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>SmallVivarium</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockSmallCornerVivarium</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_SmallCornerVivarium</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SmallCornerVivarium.dds</Icon>
+            <Description>Description_Vivarium</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="3" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\SmallCornerVivarium.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="InteriorPlate" Count="60" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="SmallTube" Count="10" />
+                <Component Subtype="Girder" Count="40" />
+                <Component Subtype="BulletproofGlass" Count="40" />
+                <Component Subtype="BulletproofGlass" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\SmallVivariumConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\SmallVivariumConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SmallCornerVivariumConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>SmallCornerVivarium</BlockPairName>
+            <MirroringX>MinusHalfY</MirroringX>
+            <MirroringY>ZHalfY</MirroringY>
+            <MirroringZ>YHalfY</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockLargeVivarium</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_LargeVivarium</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\LargeVivarium.dds</Icon>
+            <Description>Description_Vivarium</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="3" z="3" />
+            <Center x="1" y="0" z="1" />
+            <Model>Models\Cubes\Large\LargeVivarium.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="InteriorPlate" Count="150" />
+                <Component Subtype="Construction" Count="100" />
+                <Component Subtype="SmallTube" Count="50" />
+                <Component Subtype="Girder" Count="100" />
+                <Component Subtype="BulletproofGlass" Count="400" />
+                <Component Subtype="BulletproofGlass" Count="100" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeVivariumConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeVivariumConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeVivariumConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>LargeVivarium</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>50</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockLargeCornerVivarium</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_LargeCornerVivarium</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\LargeCornerVivarium.dds</Icon>
+            <Description>Description_Vivarium</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="3" z="3" />
+            <Center x="1" y="0" z="1" />
+            <Model>Models\Cubes\Large\LargeCornerVivarium.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="InteriorPlate" Count="300" />
+                <Component Subtype="Construction" Count="100" />
+                <Component Subtype="SmallTube" Count="50" />
+                <Component Subtype="Girder" Count="100" />
+                <Component Subtype="BulletproofGlass" Count="250" />
+                <Component Subtype="BulletproofGlass" Count="50" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeVivariumConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeVivariumConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeCornerVivariumConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>LargeCornerVivarium</BlockPairName>
+            <MirroringX>MinusHalfY</MirroringX>
+            <MirroringY>ZHalfY</MirroringY>
+            <MirroringZ>YHalfY</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>50</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+       
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="6" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewportConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewportConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewportConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewport</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>12</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+        
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_2x1Base</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_2x1_Base</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_2x1_base.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_2x1_base.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_2x1_baseConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_2x1_baseConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_2x1_baseConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewport2x1Base</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_2x1BaseInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_2x1_Base_Inv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_2x1_base_inv.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_2x1_base_inv.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0.5" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_2x1_base_invConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_2x1_base_invConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_2x1_base_invConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewport2x1BaseInv</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_2x1Tip</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_2x1_Tip</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_2x1_tip.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_2x1_tip.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="3" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="3" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Left" StartX="0.8" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+                <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.2" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_2x1_tipConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_2x1_tipConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_2x1_tipConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewport2x1Tip</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_2x1TipInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_2x1_Tip_Inv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_2x1_tip_inv.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_2x1_tip_inv.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="3" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="3" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Enabled="false" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_2x1_tip_invConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_2x1_tip_invConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_2x1_tip_invConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewport2x1TipInv</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_Double</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_Double</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_double.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_double.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="10" />
+                <Component Subtype="SteelPlate" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.2" />
+                <MountPoint Side="Back" StartX="0" StartY="0.45" EndX="1" EndY="0.55" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_doubleConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_doubleConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_doubleConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewportDouble</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>12</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_HalfSlope</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_HalfSlope</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_halfSlope.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_halfSlope.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="11" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="11" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_halfSlopeConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_halfSlopeConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_halfSlopeConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewporthalfSlope</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>16</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_HalfSlopeInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_HalfSlope_Inv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_halfSlope_inv.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_halfSlope_inv.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="11" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="11" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0.5" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_halfSlope_invConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_halfSlope_invConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_halfSlope_invConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewportHalfSlopeInv</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>16</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_Slope</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_Slope</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_slope.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_slope.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="6" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_slopeConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_slopeConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_slopeConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewportSlopeInv</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>12</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockNarrowViewport_SlopeInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_NarrowViewport_Slope_Inv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\NarrowViewport_slope_inv.dds</Icon>
+            <Description>Description_ViewPort</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\NarrowViewport_slope_inv.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="6" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="5" />
+                <Component Subtype="SteelPlate" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="BulletproofGlass" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0.5" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Back" StartX="0" StartY="0.8" EndX="1" EndY="1.0" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Enabled="false" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowViewport_slope_invConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\NarrowViewport_slope_invConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\NarrowViewport_slope_invConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>NarrowViewportSlope</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>12</BuildTimeSeconds>
+            <PCU>1</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign1</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign1</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanAirlock.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign1</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign2</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign2</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanBridge.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign2</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign3</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign3</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanCafeteria.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign3</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign4</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign4</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanCryogenics.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign4</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign5</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign5</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanEngine.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign5</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign6</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign6</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanExit.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign6</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign7</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign7</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanFarm.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign7</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign8</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign8</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanHangar.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign8</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign9</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign9</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanLaboratory.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign9</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign10</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign10</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanLobby.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign10</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign11</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign11</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanLogistics.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign11</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign12</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign12</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanMaintenance.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign12</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign13</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign13</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanMarket.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign13</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign14</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign14</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanMedical.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign14</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign15</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign15</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanProduction.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign15</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign16</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign16</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanQuarters.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign16</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign17</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign17</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanSecurity.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign17</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign18</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign18</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanServer.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign18</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign19</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign19</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanStairwell.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign19</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign20</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign20</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanStorage.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign20</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockFloorPlanSign21</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FloorPlanSign21</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FloorPlanSign.dds</Icon>
+            <Description>Description_FloorplanSigns</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FloorPlanWarehouse.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="Construction" Count="2" />
+                <Component Subtype="InteriorPlate" Count="2" />
+                <Component Subtype="Construction" Count="2" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+                <MountPoint Side="Front" StartX="0.2" StartY="0.95" EndX="0.8" EndY="1" />
+            </MountPoints>
+            <IsStandAlone>false</IsStandAlone>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\FloorPlanSignConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FloorPlanSignConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FloorPlanSign21</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <TargetLockingEnabled>false</TargetLockingEnabled>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>5</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
+            <Id>
+                <TypeId>CargoContainer</TypeId>
+                <SubtypeId>LargeBlockBulkContainerA</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_BulkCargoContainerA</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\BulkCargoContainer.dds</Icon>
+            <Description>Description_LargeCargoContainer</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="6" y="3" z="3" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\BulkCargoContainer.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="600" />
+                <Component Subtype="Construction" Count="120" />
+                <Component Subtype="MetalGrid" Count="50" />
+                <Component Subtype="SmallTube" Count="120" />
+                <Component Subtype="Motor" Count="40" />
+                <Component Subtype="Display" Count="2" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="InteriorPlate" Count="120" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="2" EndY="0.3" />
+                <MountPoint Side="Top" StartX="4" StartY="0" EndX="6" EndY="0.3" />
+                <MountPoint Side="Top" StartX="0" StartY="2.7" EndX="2" EndY="3" />
+                <MountPoint Side="Top" StartX="4" StartY="2.7" EndX="6" EndY="3" />
+                <MountPoint Side="Top" StartX="2.8" StartY="0" EndX="3.2" EndY="3" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="6" EndY="3" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="6" EndY="3" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="6" EndY="3" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\BulkCargoContainerConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\BulkCargoContainerConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\BulkCargoContainerConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>BulkCargoContainerA</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>60</BuildTimeSeconds>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>10</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
+            <Id>
+                <TypeId>CargoContainer</TypeId>
+                <SubtypeId>LargeBlockBulkContainerB</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_BulkCargoContainerB</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\BulkCargoContainerB.dds</Icon>
+            <Description>Description_LargeCargoContainer</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="6" y="3" z="3" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\BulkCargoContainerB.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="600" />
+                <Component Subtype="Construction" Count="120" />
+                <Component Subtype="MetalGrid" Count="50" />
+                <Component Subtype="SmallTube" Count="120" />
+                <Component Subtype="Motor" Count="40" />
+                <Component Subtype="Display" Count="2" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="InteriorPlate" Count="120" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="2" EndY="0.3" />
+                <MountPoint Side="Top" StartX="4" StartY="0" EndX="6" EndY="0.3" />
+                <MountPoint Side="Top" StartX="0" StartY="2.7" EndX="2" EndY="3" />
+                <MountPoint Side="Top" StartX="4" StartY="2.7" EndX="6" EndY="3" />
+                <MountPoint Side="Top" StartX="2.8" StartY="0" EndX="3.2" EndY="3" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="6" EndY="3" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="6" EndY="3" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="6" EndY="3" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\BulkCargoContainerConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\BulkCargoContainerConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\BulkCargoContainerBConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>BulkCargoContainerB</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>60</BuildTimeSeconds>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>10</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_CargoContainerDefinition">
+            <Id>
+                <TypeId>CargoContainer</TypeId>
+                <SubtypeId>LargeBlockBulkContainerC</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_BulkCargoContainerC</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\BulkCargoContainerC.dds</Icon>
+            <Description>Description_LargeCargoContainer</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="6" y="3" z="3" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\BulkCargoContainerC.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="600" />
+                <Component Subtype="Construction" Count="120" />
+                <Component Subtype="MetalGrid" Count="50" />
+                <Component Subtype="SmallTube" Count="120" />
+                <Component Subtype="Motor" Count="40" />
+                <Component Subtype="Display" Count="2" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="InteriorPlate" Count="120" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="2" EndY="0.3" />
+                <MountPoint Side="Top" StartX="4" StartY="0" EndX="6" EndY="0.3" />
+                <MountPoint Side="Top" StartX="0" StartY="2.7" EndX="2" EndY="3" />
+                <MountPoint Side="Top" StartX="4" StartY="2.7" EndX="6" EndY="3" />
+                <MountPoint Side="Top" StartX="2.8" StartY="0" EndX="3.2" EndY="3" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="6" EndY="3" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="6" EndY="3" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="6" EndY="3" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\BulkCargoContainerConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\BulkCargoContainerConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\BulkCargoContainerCConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>BulkCargoContainerC</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>60</BuildTimeSeconds>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>10</PCU>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_LCDPanelsBlockDefinition">
+            <Id>
+                <TypeId>LCDPanelsBlock</TypeId>
+                <SubtypeId>LargeBlockBillboard</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Billboard</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\LCDBillboard.dds</Icon>
+            <Description>Description_TextPanel</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <GuiVisible>false</GuiVisible>
+            <Model>Models\Cubes\Large\LCDBillboard.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="10" />
+                <Component Subtype="Computer" Count="6" />
+                <Component Subtype="Display" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="4" />
+            </Components>
+            <CriticalComponent Subtype="Display" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.1" StartY="0.4" EndX="0.9" EndY="0.6" Default="true" />
+                <MountPoint Side="Top" StartX="0.2" StartY="0.45" EndX="0.8" EndY="0.55" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LCDBillboardConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LCDBillboardConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LCDBillboardConstruction_3.mwm" />
+            </BuildProgressModels>
+            <ScreenAreas>
+                <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Screen1" TextureResolution="512" ScreenWidth="3" ScreenHeight="5"></ScreenArea>
+                <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_Screen2" TextureResolution="512" ScreenWidth="3" ScreenHeight="5"></ScreenArea>
+            </ScreenAreas>
+            <BlockPairName>Billboard</BlockPairName>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <MaxScreenRenderDistance>120</MaxScreenRenderDistance>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>16</BuildTimeSeconds>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PCU>45</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_LCDPanelsBlockDefinition">
+            <Id>
+                <TypeId>LCDPanelsBlock</TypeId>
+                <SubtypeId>LargeBlockBillboardRound</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_BillboardRound</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\RoundLCDBillboard.dds</Icon>
+            <Description>Description_TextPanel</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <GuiVisible>false</GuiVisible>
+            <Model>Models\Cubes\Large\RoundLCDBillboard.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Components>
+                <Component Subtype="InteriorPlate" Count="15" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="Display" Count="20" />
+                <Component Subtype="BulletproofGlass" Count="6" />
+            </Components>
+            <CriticalComponent Subtype="Display" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" Default="true" />
+                <MountPoint Side="Top" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\RoundLCDBillboardConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\RoundLCDBillboardConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\RoundLCDBillboardConstruction_3.mwm" />
+            </BuildProgressModels>
+            <ScreenAreas>
+                <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Screen1" TextureResolution="512" ScreenWidth="3" ScreenHeight="5"></ScreenArea>
+                <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_Screen2" TextureResolution="512" ScreenWidth="3" ScreenHeight="5"></ScreenArea>
+                <ScreenArea Name="CockpitScreen_03" DisplayName="DisplayName_Screen_Screen3" TextureResolution="512" ScreenWidth="3" ScreenHeight="5"></ScreenArea>
+            </ScreenAreas>
+            <BlockPairName>BillboardRound</BlockPairName>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <MaxScreenRenderDistance>120</MaxScreenRenderDistance>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <HasInventory>false</HasInventory>
+            <BuildTimeSeconds>20</BuildTimeSeconds>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <PCU>75</PCU>
+            <IsAirTight>false</IsAirTight>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_DoorDefinition">
+            <Id>
+                <TypeId>Door</TypeId>
+                <SubtypeId>LargeBlockAngledDoorA</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AngledDoorA</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AngledDoor1.dds</Icon>
+            <Description>Description_Door</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AngledDoor1.mwm</Model>
+            <PlaceDecals>false</PlaceDecals>
+            <OpenSound>BlockDoorSmallOpen</OpenSound>
+            <CloseSound>BlockDoorSmallClose</CloseSound>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="Motor" Count="4" />
+                <Component Subtype="Display" Count="1" />
+                <Component Subtype="Computer" Count="2" />
+                <Component Subtype="Construction" Count="25" />
+                <Component Subtype="SteelPlate" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.05" EndY="1" />
+                <MountPoint Side="Front" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
+                <MountPoint Side="Front" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Top" StartX="0" StartY="0.5" EndX="0.05" EndY="0.95" />
+                <MountPoint Side="Top" StartX="0.95" StartY="0.5" EndX="1" EndY="0.95" />
+                <MountPoint Side="Top" StartX="0" StartY="0.95" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AngledDoor1Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AngledDoor1Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AngledDoor1Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AngledDoorA</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>20</BuildTimeSeconds>
+            <DisassembleRatio>1.5</DisassembleRatio>
+            <ResourceSinkGroup>Doors</ResourceSinkGroup>
+            <MaxOpen>0.885</MaxOpen>
+            <OpeningSpeed>2</OpeningSpeed>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>115</PCU>
+            <PressurizeCube>true</PressurizeCube>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_DoorDefinition">
+            <Id>
+                <TypeId>Door</TypeId>
+                <SubtypeId>LargeBlockAngledDoorB</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AngledDoorB</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AngledDoor2.dds</Icon>
+            <Description>Description_Door</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AngledDoor2.mwm</Model>
+            <PlaceDecals>false</PlaceDecals>
+            <OpenSound>BlockDoorSmallOpen</OpenSound>
+            <CloseSound>BlockDoorSmallClose</CloseSound>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="Motor" Count="4" />
+                <Component Subtype="Display" Count="1" />
+                <Component Subtype="Computer" Count="2" />
+                <Component Subtype="Construction" Count="25" />
+                <Component Subtype="SteelPlate" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Top" StartX="0" StartY="0.5" EndX="0.05" EndY="0.95" />
+                <MountPoint Side="Top" StartX="0.95" StartY="0.5" EndX="1" EndY="0.95" />
+                <MountPoint Side="Top" StartX="0" StartY="0.95" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.05" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
+                <MountPoint Side="Bottom" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AngledDoor2Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AngledDoor2Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AngledDoor2Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AngledDoorB</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>20</BuildTimeSeconds>
+            <DisassembleRatio>1.5</DisassembleRatio>
+            <ResourceSinkGroup>Doors</ResourceSinkGroup>
+            <MaxOpen>0.885</MaxOpen>
+            <OpeningSpeed>2</OpeningSpeed>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>115</PCU>
+            <PressurizeCube>true</PressurizeCube>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_DoorDefinition">
+            <Id>
+                <TypeId>Door</TypeId>
+                <SubtypeId>SmallBlockAngledDoorA</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AngledDoorA</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AngledDoorSmall.dds</Icon>
+            <Description>Description_Door</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="4" z="3" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Center x="2" y="0" z="2" />
+            <Model>Models\Cubes\Small\AngledDoorSmall.mwm</Model>
+            <PlaceDecals>false</PlaceDecals>
+            <OpenSound>BlockDoorSmallOpen</OpenSound>
+            <CloseSound>BlockDoorSmallClose</CloseSound>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="Motor" Count="2" />
+                <Component Subtype="Display" Count="1" />
+                <Component Subtype="Computer" Count="2" />
+                <Component Subtype="Construction" Count="25" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="4" />
+                <MountPoint Side="Front" StartX="4" StartY="0" EndX="5" EndY="4" />
+                <MountPoint Side="Front" StartX="1" StartY="3.8" EndX="4" EndY="4" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1.5" EndY="4" />
+                <MountPoint Side="Left" StartX="1.5" StartY="0" EndX="2.5" EndY="3" />
+                <MountPoint Side="Left" StartX="2.5" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="3" EndY="4" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Right" StartX="1.5" StartY="0" EndX="3" EndY="4" />
+                <MountPoint Side="Right" StartX="0.5" StartY="0" EndX="1.5" EndY="3" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="3" EndY="4" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Top" StartX="0" StartY="2.7" EndX="5" EndY="3" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="5" EndY="3" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="3" Default="true" />
+                <MountPoint Side="Bottom" StartX="4" StartY="0" EndX="5" EndY="3" />
+                <MountPoint Side="Bottom" StartX="1" StartY="2.8" EndX="4" EndY="3" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="5" EndY="4" Enabled="false" PressurizedWhenOpen="false"/>
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\AngledDoorSmall_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\AngledDoorSmall_Construction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AngledDoorA</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>16</BuildTimeSeconds>
+            <DisassembleRatio>1.5</DisassembleRatio>
+            <ResourceSinkGroup>Doors</ResourceSinkGroup>
+            <MaxOpen>0.885</MaxOpen>
+            <OpeningSpeed>2</OpeningSpeed>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>115</PCU>
+            <PressurizeCube>true</PressurizeCube>
+			<DLC>Economy2</DLC>
+        </Definition>
+
+    </CubeBlocks>
+</Definitions>

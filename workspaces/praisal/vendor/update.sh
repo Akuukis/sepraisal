@@ -43,10 +43,15 @@ for DLC_FOLDER in \
    Warfare1 \
    IndustrialPack \
    Warfare2 \
-   Automation \
+   GridAIPack \
    DecorativePack3 \
    SignalsPack \
-   ContactPack
+   ContactPack \
+   Fieldwork \
+   ApexSurvivalPack \
+   CoreSystemsPack \
+   Economy2Pack \
+   ProsperityPack
 do
    mkdir -p "$DLC_FOLDER"
    mv "$FOLDER/CubeBlocks/CubeBlocks_$DLC_FOLDER.sbc" "$DLC_FOLDER/CubeBlocks.sbc"

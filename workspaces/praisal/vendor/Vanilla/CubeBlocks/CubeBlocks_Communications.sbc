@@ -248,6 +248,9 @@
             </Id>
             <DisplayName>DisplayName_Block_RemoteControl</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
             <Description>Description_RemoteControl</Description>
             <CubeSize>Large</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -301,6 +304,9 @@
             <DisplayName>DisplayName_Block_RemoteControl</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\RemoteControl.dds</Icon>
             <Description>Description_RemoteControl</Description>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
             <Size x="1" y="1" z="1" />

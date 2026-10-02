@@ -15,10 +15,15 @@ export enum VENDOR_MOD {
     WARFARE_1 = 'Warfare1',
     INDUSTRIAL = 'IndustrialPack',
     WARFARE_2 = 'Warfare2',
-    AUTOMATION = 'Automation',
+    GRIDAIPACK = 'GridAIPack',
     DECORATIVE_3 = 'DecorativePack3',
     SIGNALS = 'SignalsPack',
     CONTACT = 'ContactPack',
+    FIELDWORK = 'Fieldwork',
+    APEXSURVIVALPACK = 'ApexSurvivalPack',
+    CORESYSTEMSPACK = 'CoreSystemsPack',
+    ECONOMY2PACK = 'Economy2Pack',
+    PROSPERITYPACK = 'ProsperityPack',
 }
 
 export enum COMMUNITY_MOD {

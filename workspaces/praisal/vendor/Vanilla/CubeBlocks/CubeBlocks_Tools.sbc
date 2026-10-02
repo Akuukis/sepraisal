@@ -177,7 +177,7 @@
                 <Component Subtype="Construction" Count="5" />
                 <Component Subtype="SteelPlate" Count="5" />
             </Components>
-            <CriticalComponent Subtype="Motor" Index="0" />
+            <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\GrinderConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\GrinderConstruction_2.mwm" />
@@ -197,10 +197,10 @@
                 </DynamicMode>
             </VoxelPlacement>
             <MountPoints>
-                <MountPoint Side="Left" StartX="1.18" StartY="0.20" EndX="1.92" EndY="0.80" />
-                <MountPoint Side="Right" StartX="0.08" StartY="0.20" EndX="0.82" EndY="0.80" />
-                <MountPoint Side="Top" StartX="0.30" StartY="0.30" EndX="0.70" EndY="0.70" />
-                <MountPoint Side="Bottom" StartX="0.30" StartY="1.30" EndX="0.70" EndY="1.70" />
+                <MountPoint Side="Left" StartX="1.1" StartY="0" EndX="2" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.9" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.9" />
+                <MountPoint Side="Bottom" StartX="0" StartY="1.1" EndX="1" EndY="2" />
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
             </MountPoints>
             <BlockPairName>ShipGrinder</BlockPairName>
@@ -241,7 +241,7 @@
                 <Component Subtype="Construction" Count="2" />
                 <Component Subtype="SteelPlate" Count="2" />
             </Components>
-            <CriticalComponent Subtype="Motor" Index="0" />
+            <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.5" File="Models\Cubes\Small\GrinderConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.0" File="Models\Cubes\Small\GrinderConstruction_2.mwm" />
@@ -260,10 +260,10 @@
                 </DynamicMode>
             </VoxelPlacement>
             <MountPoints>
-                <MountPoint Side="Left" StartX="3.5" StartY="0.5" EndX="5.8" EndY="2.5" />
-                <MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="2.5" EndY="2.5" />
-                <MountPoint Side="Top" StartX="0.8" StartY="0.2" EndX="2.2" EndY="2.5" />
-                <MountPoint Side="Bottom" StartX="0.8" StartY="3.5" EndX="2.2" EndY="5.8" />
+                <MountPoint Side="Left" StartX="3.2" StartY="0.3" EndX="5.8" EndY="2.7" />
+                <MountPoint Side="Right" StartX="0.2" StartY="0.3" EndX="2.8" EndY="2.7" />
+                <MountPoint Side="Top" StartX="0.3" StartY="0.2" EndX="2.7" EndY="2.8" />
+                <MountPoint Side="Bottom" StartX="0.3" StartY="3.2" EndX="2.7" EndY="5.8" />
                 <MountPoint Side="Back" StartX="0.25" StartY="0.25" EndX="0.35" EndY="2.75" Default="true" />
                 <MountPoint Side="Back" StartX="2.65" StartY="0.25" EndX="2.75" EndY="2.75" />
                 <MountPoint Side="Back" StartX="0.35" StartY="0.25" EndX="2.65" EndY="0.35" />
@@ -309,7 +309,7 @@
                 <Component Subtype="Construction" Count="5" />
                 <Component Subtype="SteelPlate" Count="5" />
             </Components>
-            <CriticalComponent Subtype="Motor" Index="0" />
+            <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\WelderConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\WelderConstruction_2.mwm" />
@@ -329,10 +329,10 @@
                 </DynamicMode>
             </VoxelPlacement>
             <MountPoints>
-                <MountPoint Side="Left" StartX="1.18" StartY="0.20" EndX="1.92" EndY="0.80" />
-                <MountPoint Side="Right" StartX="0.08" StartY="0.20" EndX="0.82" EndY="0.80" />
-                <MountPoint Side="Top" StartX="0.30" StartY="0.30" EndX="0.70" EndY="0.70" />
-                <MountPoint Side="Bottom" StartX="0.30" StartY="1.30" EndX="0.70" EndY="1.70" />
+                <MountPoint Side="Left" StartX="1.1" StartY="0" EndX="2" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.9" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.9" />
+                <MountPoint Side="Bottom" StartX="0" StartY="1.1" EndX="1" EndY="2" />
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
             </MountPoints>
             <BlockPairName>ShipWelder</BlockPairName>
@@ -375,16 +375,18 @@
                 <Component Subtype="Construction" Count="2" />
                 <Component Subtype="SteelPlate" Count="2" />
             </Components>
-            <CriticalComponent Subtype="Motor" Index="0" />
+            <CriticalComponent Subtype="Computer" Index="0" />
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.5" File="Models\Cubes\Small\WelderConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.0" File="Models\Cubes\Small\WelderConstruction_2.mwm" />
             </BuildProgressModels>
             <MountPoints>
-                <MountPoint Side="Left" StartX="3.5" StartY="0.5" EndX="5.8" EndY="2.5" />
-                <MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="2.5" EndY="2.5" />
-                <MountPoint Side="Top" StartX="0.8" StartY="0.2" EndX="2.2" EndY="2.5" />
-                <MountPoint Side="Bottom" StartX="0.8" StartY="3.5" EndX="2.2" EndY="5.8" />
+                <MountPoint Side="Left" StartX="4" StartY="0.5" EndX="5.8" EndY="2.5" />
+                <MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="2" EndY="2.5" />
+                <MountPoint Side="Top" StartX="1" StartY="0.7" EndX="2" EndY="2.5" />
+                <MountPoint Side="Top" StartX="0.3" StartY="0.2" EndX="2.7" EndY="0.7" />
+                <MountPoint Side="Bottom" StartX="1" StartY="3.5" EndX="2" EndY="5.3" />
+                <MountPoint Side="Bottom" StartX="0.3" StartY="5.3" EndX="2.7" EndY="5.8" />
                 <MountPoint Side="Back" StartX="0.25" StartY="0.25" EndX="0.35" EndY="2.75" />
                 <MountPoint Side="Back" StartX="2.65" StartY="0.25" EndX="2.75" EndY="2.75" />
                 <MountPoint Side="Back" StartX="0.35" StartY="0.25" EndX="2.65" EndY="0.35" />

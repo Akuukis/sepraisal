@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <CubeBlocks> 
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockStructural_Frame</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Structural_Frame</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Structural_3_frame.dds</Icon>
+            <Description>Description_StructuralBlock</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="1" z="3"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\Structural_3_frame.mwm</Model>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Components>
+                <Component Subtype="SteelPlate" Count="80"></Component>
+                <Component Subtype="SteelPlate" Count="20"></Component>
+            </Components>
+            <CriticalComponent Subtype="SteelPlate" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="3" EndY="0.1" />
+                <MountPoint Side="Top" StartX="0" StartY="2.9" EndX="3" EndY="3" />
+                <MountPoint Side="Top" StartX="0" StartY="0.1" EndX="0.1" EndY="2.9" />
+                <MountPoint Side="Top" StartX="2.9" StartY="0.1" EndX="3" EndY="2.9" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="3" EndY="0.1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="2.9" EndX="3" EndY="3" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.1" EndX="0.1" EndY="2.9" />
+                <MountPoint Side="Bottom" StartX="2.9" StartY="0.1" EndX="3" EndY="2.9" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="3" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Structural_3_frameConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Structural_3_frameConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Structural_3_frameConstruction_3.mwm" />
+            </BuildProgressModels>
+			<BlockPairName>LargeBlockStructuralFrame</BlockPairName>
+            <MirroringX>Z</MirroringX>
+            <MirroringZ>X</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <PCU>1</PCU>
+        </Definition>
+        
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockStructural_SupportBeam5x5</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Structural_SupportBeam5x5</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Structural_5_supportBeam.dds</Icon>
+            <Description>Description_StructuralBlock</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="1" z="5"></Size>
+            <Center x="0" y="0" z="0" />
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\Structural_5_supportBeam.mwm</Model>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Components>
+                <Component Subtype="SteelPlate" Count="80"></Component>
+                <Component Subtype="SteelPlate" Count="20"></Component>
+            </Components>
+            <CriticalComponent Subtype="SteelPlate" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+                <MountPoint Side="Top" StartX="4.9" StartY="4" EndX="5" EndY="5" />
+                <MountPoint Side="Bottom" StartX="4.9" StartY="0" EndX="5" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="4.9" EndX="1" EndY="5" />
+                <MountPoint Side="Right" StartX="4" StartY="0" EndX="5" EndY="1" />
+                <MountPoint Side="Left" StartX="4.9" StartY="0" EndX="5" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Structural_5_supportBeamConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Structural_5_supportBeamConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Structural_5_supportBeamConstruction_3.mwm" />
+            </BuildProgressModels>
+			<BlockPairName>LargeBlockStructuralSupportBeam5x5</BlockPairName>
+            <MirroringX>Z</MirroringX>
+            <MirroringZ>X</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>20</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockStructural_SupportBeam4x4</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Structural_SupportBeam4x4</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Structural_4_supportBeam.dds</Icon>
+            <Description>Description_StructuralBlock</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="4" y="1" z="4"></Size>
+            <Center x="0" y="0" z="0" />
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\Structural_4_supportBeam.mwm</Model>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Components>
+                <Component Subtype="SteelPlate" Count="60"></Component>
+                <Component Subtype="SteelPlate" Count="15"></Component>
+            </Components>
+            <CriticalComponent Subtype="SteelPlate" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+                <MountPoint Side="Top" StartX="3.9" StartY="3" EndX="4" EndY="4" />
+                <MountPoint Side="Bottom" StartX="3.9" StartY="0" EndX="4" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="3.9" EndX="1" EndY="4" />
+                <MountPoint Side="Right" StartX="3" StartY="0" EndX="4" EndY="1" />
+                <MountPoint Side="Left" StartX="3.9" StartY="0" EndX="4" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Structural_4_supportBeamConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Structural_4_supportBeamConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Structural_4_supportBeamConstruction_3.mwm" />
+            </BuildProgressModels>
+			<BlockPairName>LargeBlockStructuralSupportBeam4x4</BlockPairName>
+            <MirroringX>Z</MirroringX>
+            <MirroringZ>X</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>17</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockStructural_SupportBeam3x3</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Structural_SupportBeam3x3</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Structural_3_supportBeam.dds</Icon>
+            <Description>Description_StructuralBlock</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="1" z="3"></Size>
+            <Center x="0" y="0" z="0" />
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\Structural_3_supportBeam.mwm</Model>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Components>
+                <Component Subtype="SteelPlate" Count="40"></Component>
+                <Component Subtype="SteelPlate" Count="10"></Component>
+            </Components>
+            <CriticalComponent Subtype="SteelPlate" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.1" />
+                <MountPoint Side="Top" StartX="2.9" StartY="2" EndX="3" EndY="3" />
+                <MountPoint Side="Bottom" StartX="2.9" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="2.9" EndX="1" EndY="3" />
+                <MountPoint Side="Right" StartX="2" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Left" StartX="2.9" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Structural_3_supportBeamConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Structural_3_supportBeamConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Structural_3_supportBeamConstruction_3.mwm" />
+            </BuildProgressModels>
+			<BlockPairName>LargeBlockStructuralSupportBeam3x3</BlockPairName>
+            <MirroringX>Z</MirroringX>
+            <MirroringZ>X</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+        </Definition>
+        
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockStructural_PlatformTriangle</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Structural_PlatformTriangle</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Structural_5_platformTriangle.dds</Icon>
+            <Description>Description_StructuralBlock</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="1" z="5"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\Structural_5_platformTriangle.mwm</Model>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Components>
+                <Component Subtype="SteelPlate" Count="200"></Component>
+                <Component Subtype="SteelPlate" Count="50"></Component>
+            </Components>
+            <CriticalComponent Subtype="SteelPlate" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="4.5" EndY="1" />
+                <MountPoint Side="Top" StartX="4.5" StartY="0" EndX="5" EndY="0.5" />
+                <MountPoint Side="Top" StartX="0" StartY="1" EndX="3.5" EndY="2" />
+                <MountPoint Side="Top" StartX="3.5" StartY="1" EndX="4" EndY="1.5" />
+                <MountPoint Side="Top" StartX="0" StartY="2" EndX="2.5" EndY="3" />
+                <MountPoint Side="Top" StartX="2.5" StartY="2" EndX="3" EndY="2.5" />
+                <MountPoint Side="Top" StartX="0" StartY="3" EndX="1.5" EndY="4" />
+                <MountPoint Side="Top" StartX="1.5" StartY="3" EndX="2" EndY="3.5" />
+                <MountPoint Side="Top" StartX="0" StartY="4" EndX="0.5" EndY="5" />
+                <MountPoint Side="Top" StartX="0.5" StartY="4" EndX="1" EndY="4.5" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0.5" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="1" EndX="1.5" EndY="2" />
+                <MountPoint Side="Bottom" StartX="1.5" StartY="1.5" EndX="2" EndY="2" />
+                <MountPoint Side="Bottom" StartX="0" StartY="2" EndX="2.5" EndY="3" />
+                <MountPoint Side="Bottom" StartX="2.5" StartY="2.5" EndX="3" EndY="3" />
+                <MountPoint Side="Bottom" StartX="0" StartY="3" EndX="3.5" EndY="4" />
+                <MountPoint Side="Bottom" StartX="3.5" StartY="3.5" EndX="4" EndY="4" />
+                <MountPoint Side="Bottom" StartX="0" StartY="4" EndX="4.5" EndY="5" />
+                <MountPoint Side="Bottom" StartX="4.5" StartY="4.5" EndX="5" EndY="5" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="5" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="5" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Structural_5_platformTriangleConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Structural_5_platformTriangleConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Structural_5_platformTriangleConstruction_3.mwm" />
+            </BuildProgressModels>
+			<BlockPairName>LargeBlockStructuralPlatformTriangle</BlockPairName>
+            <MirroringX>MinusHalfY</MirroringX>
+            <MirroringY>ZHalfY</MirroringY>
+            <MirroringZ>YHalfY</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <PCU>1</PCU>
+        </Definition>
+        
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>LargeBlockStructural_Platform</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Structural_Platform</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Structural_5_platform.dds</Icon>
+            <Description>Description_StructuralBlock</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="1" z="5"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\Structural_5_platform.mwm</Model>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Components>
+                <Component Subtype="SteelPlate" Count="400"></Component>
+                <Component Subtype="SteelPlate" Count="100"></Component>
+            </Components>
+            <CriticalComponent Subtype="SteelPlate" Index="0"></CriticalComponent>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Structural_5_platformConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Structural_5_platformConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Structural_5_platformConstruction_3.mwm" />
+            </BuildProgressModels>
+			<BlockPairName>LargeBlockStructuralPlatform</BlockPairName>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>50</BuildTimeSeconds>
+            <PCU>1</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+        
+        <Definition xsi:type="MyObjectBuilder_ShipConnectorDefinition">
+            <Id>
+                <TypeId>ShipConnector</TypeId>
+                <SubtypeId>LargeBlockStructural_PlatformConnector</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Structural_5_platformConnector</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Structural_5_platformConnector.dds</Icon>
+            <Description>Description_Connector</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="1" z="5"></Size>
+            <ModelOffset x="0" y="0" z="0"></ModelOffset>
+            <Model>Models\Cubes\Large\Structural_5_platformConnector.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="400"></Component>
+                <Component Subtype="Construction" Count="40"></Component>
+                <Component Subtype="SmallTube" Count="12"></Component>
+                <Component Subtype="Motor" Count="8"></Component>
+                <Component Subtype="Computer" Count="20"></Component>
+                <Component Subtype="SteelPlate" Count="100"></Component>
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0"></CriticalComponent>
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="5" EndY="2.1" />
+                <MountPoint Side="Top" StartX="0" StartY="2.9" EndX="5" EndY="5" />
+                <MountPoint Side="Top" StartX="0" StartY="2.1" EndX="2.1" EndY="2.9" />
+                <MountPoint Side="Top" StartX="2.9" StartY="2.1" EndX="5" EndY="2.9" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="5" EndY="5" Enabled="false" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="5" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="5" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="5" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="5" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="5" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Structural_5_platformConnectorConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Structural_5_platformConnectorConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Structural_5_platformConnectorConstruction_3.mwm" />
+            </BuildProgressModels>
+			<BlockPairName>LargeBlockStructuralPlatformConnector</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>60</BuildTimeSeconds>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <ActionSound>BlockEject</ActionSound>
+            <EmissiveColorPreset>ConnectBlock</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>125</PCU>
+            <IsAirTight>true</IsAirTight>
+            <ConnectDirection>
+                <X>0</X>
+                <Y>-1</Y>
+                <Z>0</Z>
+            </ConnectDirection>
+            <AutoUnlockTime_Min>0</AutoUnlockTime_Min>
+            <AutoUnlockTime_Max>3600</AutoUnlockTime_Max>
+            <TieredUpdateTimes>
+                <unsignedInt>80</unsignedInt>
+                <unsignedInt>160</unsignedInt>
+                <unsignedInt>320</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+
+        <Definition>
+            <Id>
+                <TypeId>Conveyor</TypeId>
+                <SubtypeId>LargeBlockStructural_PlatformConveyor</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_Structural_platformConveyor</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Structural_5_platformConveyor.dds</Icon>
+            <Description>Description_ConveyorTube</Description>
+            <GuiVisible>false</GuiVisible>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="5" y="1" z="5"></Size>
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\Structural_5_platformConveyor.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="400" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="SmallTube" Count="20" />
+                <Component Subtype="Motor" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="SteelPlate" Count="100" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Structural_5_platformConveyorConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Structural_5_platformConveyorConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Structural_5_platformConveyorConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>LargeBlockStructuralPlatformConveyor</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>50</BuildTimeSeconds>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+            <DestroySound>PoofExplosionCat3</DestroySound>
+            <PCU>10</PCU>
+            <IsAirTight>true</IsAirTight>
+        </Definition>
+    </CubeBlocks>
+</Definitions>

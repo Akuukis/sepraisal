@@ -130,6 +130,9 @@
                 <TypeId>Cockpit</TypeId>
                 <SubtypeId>BuggyCockpit</SubtypeId>
             </Id>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
             <DisplayName>DisplayName_Block_BuggyCockpit</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\BuggyCockpit_Racing.dds</Icon>
             <Description>Description_BuggyCockpit</Description>
@@ -241,7 +244,7 @@
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Viewport_Racing_Construction2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Viewport_Racing_Construction3.mwm" />
             </BuildProgressModels>
-			<BlockPairName>Viewport1</BlockPairName>
+            <BlockPairName>Viewport1</BlockPairName>
             <MirroringX>Y</MirroringX>
             <MirroringY>X</MirroringY>
             <EdgeType>Light</EdgeType>
@@ -285,7 +288,7 @@
                 <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Viewport2_Racing_Construction2.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Viewport2_Racing_Construction3.mwm" />
             </BuildProgressModels>
-			<BlockPairName>Viewport2</BlockPairName>
+            <BlockPairName>Viewport2</BlockPairName>
             <MirroringX>Y</MirroringX>
             <MirroringY>X</MirroringY>
             <EdgeType>Light</EdgeType>
@@ -1741,10 +1744,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.8</ColliderDiameter>
                 <ColliderHeight>0.9</ColliderHeight>
                 <ColliderOffset>0.08</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <BlockPairName>OffroadRealWheel1x1</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
             <DeformationRatio>0.3</DeformationRatio>
@@ -1816,6 +1824,11 @@
                 <ColliderHeight>0.85</ColliderHeight>
                 <ColliderOffset>0.27</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints>
             </MountPoints>
             <BlockPairName>OffroadRealWheel2x2</BlockPairName>
@@ -1882,10 +1895,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.9</ColliderDiameter>
                 <ColliderHeight>1.25</ColliderHeight>
                 <ColliderOffset>0.22</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheel</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -1959,6 +1977,11 @@
                 <ColliderHeight>0.9</ColliderHeight>
                 <ColliderOffset>0.15</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheel5x5</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -2028,10 +2051,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.9</ColliderDiameter>
                 <ColliderHeight>0.9</ColliderHeight>
                 <ColliderOffset>0.08</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheel1x1</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -2101,10 +2129,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.9</ColliderDiameter>
                 <ColliderHeight>0.88</ColliderHeight>
                 <ColliderOffset>0.28</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints>
             </MountPoints>
             <BlockPairName>OffroadRealWheel2x2</BlockPairName>
@@ -2172,10 +2205,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.9</ColliderDiameter>
                 <ColliderHeight>0.62</ColliderHeight>
                 <ColliderOffset>0.36</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheel</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -2250,6 +2288,11 @@
                 <ColliderHeight>0.9</ColliderHeight>
                 <ColliderOffset>0.15</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheel5x5</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -2319,10 +2362,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.8</ColliderDiameter>
                 <ColliderHeight>0.9</ColliderHeight>
                 <ColliderOffset>0.0058</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <BlockPairName>OffroadRealWheel1x1mirrored</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
             <DeformationRatio>0.3</DeformationRatio>
@@ -2394,6 +2442,11 @@
                 <ColliderHeight>0.85</ColliderHeight>
                 <ColliderOffset>0.387</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints>
             </MountPoints>
             <BlockPairName>OffroadRealWheel2x2Mirrored</BlockPairName>
@@ -2460,10 +2513,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.9</ColliderDiameter>
                 <ColliderHeight>1.25</ColliderHeight>
                 <ColliderOffset>0.22</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheelmirrored</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -2537,6 +2595,11 @@
                 <ColliderHeight>0.9</ColliderHeight>
                 <ColliderOffset>0.15</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheel5x5mirrored</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -2606,10 +2669,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.9</ColliderDiameter>
                 <ColliderHeight>0.9</ColliderHeight>
                 <ColliderOffset>0.08</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheel1x1mirrored</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -2679,10 +2747,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.9</ColliderDiameter>
                 <ColliderHeight>0.88</ColliderHeight>
                 <ColliderOffset>0.28</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints>
             </MountPoints>
             <BlockPairName>OffroadRealWheel2x2Mirrored</BlockPairName>
@@ -2750,10 +2823,15 @@
                 </DynamicMode>
             </VoxelPlacement>
             <WheelPlacementCollider>
-                <ColliderDiameter>1</ColliderDiameter>
+                <ColliderDiameter>0.9</ColliderDiameter>
                 <ColliderHeight>0.62</ColliderHeight>
                 <ColliderOffset>0.36</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheelmirrored</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -2828,6 +2906,11 @@
                 <ColliderHeight>0.9</ColliderHeight>
                 <ColliderOffset>0.15</ColliderOffset>
             </WheelPlacementCollider>
+            <SingleBlockGridVoxelPlacement>
+                <PlacementMode>Volumetric</PlacementMode>
+                <MaxAllowed>0.25</MaxAllowed>
+                <MinAllowed>0.0</MinAllowed>
+            </SingleBlockGridVoxelPlacement>
             <MountPoints/>
             <BlockPairName>OffroadRealWheel5x5mirrored</BlockPairName>
             <UsesDeformation>false</UsesDeformation>
@@ -3739,7 +3822,7 @@
                 <SubtypeId>OffroadSmallShortSuspension3x3</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_OffroadShortSuspension3x3</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\SmallShortOffroadWheelsSuspension_3x3_Right.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeShortOffroadWheelsSuspension_3x3_Right.dds</Icon>
             <Description>Description_Suspension</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -3822,7 +3905,7 @@
                 <SubtypeId>OffroadSmallShortSuspension5x5</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_OffroadShortSuspension5x5</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\SmallShortOffroadWheelsSuspension_5x5_Right.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeShortOffroadWheelsSuspension_5x5_Right.dds</Icon>
             <Description>Description_Suspension</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
@@ -3907,7 +3990,7 @@
                 <SubtypeId>OffroadSmallShortSuspension1x1</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_OffroadShortSuspension1x1</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\SmallShortOffroadWheelsSuspension_1x1_Right.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeShortOffroadWheelsSuspension_1x1_Right.dds</Icon>
             <Description>Description_Suspension</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
@@ -3991,7 +4074,7 @@
                 <SubtypeId>OffroadSmallShortSuspension2x2</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_OffroadShortSuspension2x2</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\SmallShortOffroadWheelsSuspension_2x2_Right.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeShortOffroadWheelsSuspension_2x2_Right.dds</Icon>
             <Description>Description_Suspension</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -4422,7 +4505,7 @@
                 <SubtypeId>OffroadSmallShortSuspension3x3mirrored</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_OffroadShortSuspension3x3mirrored</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\SmallShortOffroadWheelsSuspension_3x3_Left.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeShortOffroadWheelsSuspension_3x3_Left.dds</Icon>
             <Description>Description_Suspension</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -4506,7 +4589,7 @@
                 <SubtypeId>OffroadSmallShortSuspension5x5mirrored</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_OffroadShortSuspension5x5mirrored</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\SmallShortOffroadWheelsSuspension_5x5_Left.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeShortOffroadWheelsSuspension_5x5_Left.dds</Icon>
             <Description>Description_Suspension</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
@@ -4591,7 +4674,7 @@
                 <SubtypeId>OffroadSmallShortSuspension1x1mirrored</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_OffroadShortSuspension1x1Mirrored</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\SmallShortOffroadWheelsSuspension_1x1_Left.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeShortOffroadWheelsSuspension_1x1_Left.dds</Icon>
             <Description>Description_Suspension</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
@@ -4675,7 +4758,7 @@
                 <SubtypeId>OffroadSmallShortSuspension2x2Mirrored</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_OffroadShortSuspension2x2Mirrored</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\SmallShortOffroadWheelsSuspension_2x2_Left.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeShortOffroadWheelsSuspension_2x2_Left.dds</Icon>
             <Description>Description_Suspension</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>

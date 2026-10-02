@@ -669,18 +669,9 @@
             </Components>
             <CriticalComponent Subtype="Motor" Index="0" />
             <MountPoints>
-                <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.3" Default="true" />
-                <MountPoint Side="Bottom" StartX="0.2" StartY="0.7" EndX="0.8" EndY="0.8" />
-                <MountPoint Side="Bottom" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
-                <MountPoint Side="Bottom" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.7" />
-                <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.3" />
-                <MountPoint Side="Right" StartX="0.2" StartY="0.7" EndX="0.8" EndY="0.8" />
-                <MountPoint Side="Right" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
-                <MountPoint Side="Right" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.7" />
-                <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.3" />
-                <MountPoint Side="Left" StartX="0.2" StartY="0.7" EndX="0.8" EndY="0.8" />
-                <MountPoint Side="Left" StartX="0.2" StartY="0.3" EndX="0.3" EndY="0.7" />
-                <MountPoint Side="Left" StartX="0.7" StartY="0.3" EndX="0.8" EndY="0.7" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" Default="true" />
+                <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\PipeTConstruction_1.mwm" />
@@ -893,6 +884,9 @@
 				<Class>EliteConsumables</Class>				
                 <Class>BuildPlanner</Class>
             </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>BuildPlanner</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
             <PrimarySound>BlockAssembler</PrimarySound>
@@ -908,6 +902,7 @@
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
             <DLC>HeavyIndustry</DLC>
+            <AllowSelfPulling>true</AllowSelfPulling>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_RefineryDefinition">
@@ -1002,6 +997,7 @@
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
             <DLC>HeavyIndustry</DLC>
+            <AllowSelfPulling>false</AllowSelfPulling>
         </Definition>
 
         <Definition>
