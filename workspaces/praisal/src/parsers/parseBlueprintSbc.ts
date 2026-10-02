@@ -54,6 +54,7 @@ export const parseBlueprintSbc = async (xml: string, mod: VENDOR_MOD): Promise<I
                 }))
                 .filter((blueprintSbc) => {
                     if(blueprintSbc.type !== 'Ingot') return true
+                    if(blueprintSbc.type === 'Ingot' && blueprintSbc.subtype == "PrototechScrap") return true
 
                     const reqs = Object.keys(blueprintSbc.prerequisites)
                     if(reqs.length > 1) return false

@@ -633,7 +633,7 @@ Array [
 ]
 `;
 
-exports[`PraisalManager with vanilla materials only should build all ingots 1`] = `10`;
+exports[`PraisalManager with vanilla materials only should build all ingots 1`] = `11`;
 
 exports[`PraisalManager with vanilla materials only should build all ingots 2`] = `
 Array [
@@ -647,6 +647,7 @@ Array [
   "Ingot/Gold",
   "Ingot/Platinum",
   "Ingot/Uranium",
+  "Ingot/PrototechScrap",
 ]
 `;
 
@@ -751,6 +752,16 @@ Array [
     "time": 4,
     "type": "Ingot",
     "volume": 0.052,
+  },
+  Object {
+    "mass": 10,
+    "prerequisites": Object {
+      "Ingot/PrototechScrap": 1,
+    },
+    "subtype": "PrototechScrap",
+    "time": 1,
+    "type": "Ingot",
+    "volume": 1.5,
   },
 ]
 `;
