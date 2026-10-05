@@ -1,4 +1,4 @@
-import { Direction, GridSize, IBlueprint } from '@sepraisal/common'
+import { Direction, GridSize, IBlueprint, countBlocks } from '@sepraisal/common'
 import clsx from 'clsx'
 import moment from 'moment'
 import * as React from 'react'
@@ -32,13 +32,17 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 }
 
 
-export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, className, long, ...otherProps} = props
-    const {sbc} = bp
+export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
+    const { bp, className, long, ...otherProps } = props
+    const { sbc } = bp
 
-    const jumpDrives = sbc.blocks['JumpDrive/LargeJumpDrive'] ?? 0
-    const parachutes = (sbc.blocks['Parachute/LgParachute'] ?? 0) + (sbc.blocks['Parachute/SmParachute'] ?? 0)
-
+    const jumpDrives = countBlocks(sbc.blocks, [
+        'JumpDrive/LargeJumpDrive',
+    ])
+    const parachutes = countBlocks(sbc.blocks, [
+        'Parachute/LgParachute',
+        'Parachute/SmParachute',
+    ])
     const mass = sbc.blockMass
 
     const reqParachutesForSlow = getRequiredParachutes(5, mass, sbc.gridSize)
@@ -177,7 +181,7 @@ interface IBpProjectionRow {
 
 const averageThrust = (directions: Partial<Record<Direction, number>>) => {
     let total = 0
-    for(const direction of (Object.values(Direction) as Direction[])) {
+    for (const direction of (Object.values(Direction) as Direction[])) {
         const thrust = directions[direction]
         total += thrust !== undefined ? thrust : 0
     }
@@ -186,14 +190,14 @@ const averageThrust = (directions: Partial<Record<Direction, number>>) => {
 }
 
 const speedToFixed = (speed: number | undefined, mass: number, toFixed = 2) => {
-    if(speed === undefined || speed === 0) return '-'
+    if (speed === undefined || speed === 0) return '-'
 
     return `${(speed / mass).toFixed(toFixed)}`
 }
 
 const gyros = (mass: number, gridSize: GridSize, blocks: Partial<Record<string, number>>, toFixed = 2) => {
     const result = blocks[gridSize === 'Small' ? 'Gyro/SmallBlockGyro' : 'Gyro/LargeBlockGyro']
-    if(result === undefined) return '-'
+    if (result === undefined) return '-'
 
     // TODO: Calculate °/s .
     // const forceMagnitude = gridSize === 'Small' ? 3.36 * 10000000 : 448000  // = Torque
@@ -202,10 +206,10 @@ const gyros = (mass: number, gridSize: GridSize, blocks: Partial<Record<string, 
     return result
 }
 
-const terminalVelocity = (mass: number, blocks: {'Parachute/LgParachute'?: number, 'Parachute/SmParachute'?: number}, toFixed = 1) => {
-    const largeHatches = blocks['Parachute/LgParachute'] ?? 0
-    const smallHatches = blocks['Parachute/SmParachute'] ?? 0
-    if(largeHatches === 0 && smallHatches === 0) return '-'
+const terminalVelocity = (mass: number, blocks: { 'Parachute/LgParachute'?: number, 'Parachute/SmParachute'?: number }, toFixed = 1) => {
+    const largeHatches = countBlocks(blocks, ['Parachute/LgParachute'])
+    const smallHatches = countBlocks(blocks, ['Parachute/SmParachute'])
+    if (largeHatches === 0 && smallHatches === 0) return '-'
 
     const RADMULT = 8  // radius multiplier
     const REEFLEVEL = 0.6  // reefing level
@@ -242,7 +246,7 @@ const wheeled = (blocks: Record<string, number>) => {
     const x3 = entries.filter(([cube]) => cube.includes('Suspension3x3')).reduce((sum, [, count]) => sum + count, 0)
     const x5 = entries.filter(([cube]) => cube.includes('Suspension5x5')).reduce((sum, [, count]) => sum + count, 0)
 
-    if(x1 + x3 + x5 === 0) return '-'
+    if (x1 + x3 + x5 === 0) return '-'
 
     return [
         x1 === 0 ? undefined : `${x1} small`,
@@ -259,7 +263,7 @@ const getRequiredParachutes = (targetVelocity: number, mass: number, gridSize: G
     let currentVelocity = Number.POSITIVE_INFINITY
     do {
         amount = amount + 1
-        currentVelocity = Number(terminalVelocity(mass, {[parachuteGridSize ? 'Parachute/SmParachute' : 'Parachute/LgParachute' ]: amount}))
+        currentVelocity = Number(terminalVelocity(mass, { [parachuteGridSize ? 'Parachute/SmParachute' : 'Parachute/LgParachute']: amount }))
 
     } while (currentVelocity > targetVelocity)
 
@@ -268,18 +272,18 @@ const getRequiredParachutes = (targetVelocity: number, mass: number, gridSize: G
 
 const hydroFuel = (gridSize: GridSize, blocks: Partial<Record<string, number>>, thrust: Partial<Record<Direction, number>>) => {
     const tanks = blocks[gridSize === 'Small' ? 'OxygenTank/SmallHydrogenTank' : 'OxygenTank/LargeHydrogenTank']
-    if(tanks === undefined) return '-'
+    if (tanks === undefined) return '-'
 
     const capacity = gridSize === 'Small' ? 80000 : 2500000
     const total = tanks * capacity
-    if(total === 0) return '-'
+    if (total === 0) return '-'
 
     // At worst, 3 sides shoot at the same time (e.g. dampeners).
-    const fwbw     = Math.max(thrust.Forward  !== undefined ? thrust.Forward : 0,  thrust.Backward !== undefined ? thrust.Backward  : 0)
-    const sideways = Math.max(thrust.Left     !== undefined ? thrust.Left    : 0,  thrust.Right    !== undefined ? thrust.Right     : 0)
-    const updown   = Math.max(thrust.Up       !== undefined ? thrust.Up      : 0,  thrust.Down     !== undefined ? thrust.Down      : 0)
+    const fwbw = Math.max(thrust.Forward !== undefined ? thrust.Forward : 0, thrust.Backward !== undefined ? thrust.Backward : 0)
+    const sideways = Math.max(thrust.Left !== undefined ? thrust.Left : 0, thrust.Right !== undefined ? thrust.Right : 0)
+    const updown = Math.max(thrust.Up !== undefined ? thrust.Up : 0, thrust.Down !== undefined ? thrust.Down : 0)
     const totalThrust = fwbw + sideways + updown
-    if(totalThrust === 0) return '-'
+    if (totalThrust === 0) return '-'
 
     // Thrust-to-Fuel is between 0.75 to 0.93 . With assumption of NOT shooting 3-ways all the time, let's round optimistically up to 1.
     const consumption = totalThrust / 1000 * 1
@@ -292,9 +296,9 @@ const jumpDistance = (mass: number, jumpDrives: number) => {
     const maxDistance = 2000
     const maxMass = 1250000
 
-    if(jumpDrives === 0) return '-'
+    if (jumpDrives === 0) return '-'
 
-    if(maxMass * jumpDrives > mass) {
+    if (maxMass * jumpDrives > mass) {
         return Math.floor(maxDistance * jumpDrives)
     } else {
         return Math.floor(maxDistance * jumpDrives * (maxMass / mass))

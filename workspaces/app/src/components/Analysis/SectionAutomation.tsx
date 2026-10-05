@@ -1,4 +1,4 @@
-import { IBlueprint } from '@sepraisal/common'
+import { IBlueprint, countBlocks } from '@sepraisal/common'
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -24,40 +24,62 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 }
 
 
-export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, className, long, ...otherProps} = props
+export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
+    const { bp, className, long, ...otherProps } = props
     const sbc = bp.sbc
 
-    const progBlocks = (sbc.blocks['MyProgrammableBlock/LargeProgrammableBlock'] ?? 0) + (sbc.blocks['MyProgrammableBlock/SmallProgrammableBlock'] ?? 0)
-    const sensors = (sbc.blocks['SensorBlock/LargeBlockSensor'] ?? 0) + (sbc.blocks['SensorBlock/SmallBlockSensor'] ?? 0)
-    const timers = (sbc.blocks['TimerBlock/TimerBlockLarge'] ?? 0) + (sbc.blocks['TimerBlock/TimerBlockSmall'] ?? 0)
+    const progBlocks = countBlocks(sbc.blocks, [
+        'MyProgrammableBlock/LargeProgrammableBlock',
+        'MyProgrammableBlock/SmallProgrammableBlock',
+    ])
+    const sensors = countBlocks(sbc.blocks, [
+        'SensorBlock/LargeBlockSensor',
+        'SensorBlock/SmallBlockSensor',
+    ])
+    const timers = countBlocks(sbc.blocks, [
+        'TimerBlock/TimerBlockLarge',
+        'TimerBlock/TimerBlockSmall',
+    ])
 
-    const projectors = (sbc.blocks['MyObjectBuilder_Projector/LargeProjector'] ?? 0) + (sbc.blocks['MyObjectBuilder_Projector/SmallProjector'] ?? 0)
-    const soundBlocks = (sbc.blocks['SoundBlock/SmallBlockSoundBlock'] ?? 0) + (sbc.blocks['SoundBlock/LargeBlockSoundBlock'] ?? 0)
-    const buttons = (sbc.blocks['ButtonPanel/ButtonPanelLarge'] ?? 0) + (sbc.blocks['ButtonPanel/ButtonPanelSmall'] ?? 0)
-    const sorters = (sbc.blocks['ConveyorSorter/LargeBlockConveyorSorter'] ?? 0)
-        + (sbc.blocks['ConveyorSorter/MediumBlockConveyorSorter'] ?? 0)
-        + (sbc.blocks['ConveyorSorter/SmallBlockConveyorSorter'] ?? 0)
-
-    const lcds = 0
-        + (sbc.blocks["TextPanel/SmallTextPanel"] ?? 0)
-        + (sbc.blocks["TextPanel/SmallLCDPanelWide"] ?? 0)
-        + (sbc.blocks["TextPanel/SmallLCDPanel"] ?? 0)
-        + (sbc.blocks["TextPanel/LargeBlockCorner_LCD_1"] ?? 0)
-        + (sbc.blocks["TextPanel/LargeBlockCorner_LCD_2"] ?? 0)
-        + (sbc.blocks["TextPanel/LargeBlockCorner_LCD_Flat_1"] ?? 0)
-        + (sbc.blocks["TextPanel/LargeBlockCorner_LCD_Flat_2"] ?? 0)
-        + (sbc.blocks["TextPanel/SmallBlockCorner_LCD_1"] ?? 0)
-        + (sbc.blocks["TextPanel/SmallBlockCorner_LCD_2"] ?? 0)
-        + (sbc.blocks["TextPanel/SmallBlockCorner_LCD_Flat_1"] ?? 0)
-        + (sbc.blocks["TextPanel/SmallBlockCorner_LCD_Flat_2"] ?? 0)
-        + (sbc.blocks["TextPanel/LargeTextPanel"] ?? 0)
-        + (sbc.blocks["TextPanel/LargeLCDPanel"] ?? 0)
-        + (sbc.blocks["TextPanel/LargeLCDPanelWide"] ?? 0)
-        + (sbc.blocks["LCDPanelsBlock/LabEquipment"] ?? 0)
-        + (sbc.blocks["LCDPanelsBlock/MedicalStation"] ?? 0)
-        + (sbc.blocks["TextPanel/TransparentLCDLarge"] ?? 0)
-        + (sbc.blocks["TextPanel/TransparentLCDSmall"] ?? 0)
+    const projectors = countBlocks(sbc.blocks, [
+        'MyObjectBuilder_Projector/LargeProjector',
+        'MyObjectBuilder_Projector/SmallProjector',
+    ])
+    const soundBlocks = countBlocks(sbc.blocks, [
+        'SoundBlock/SmallBlockSoundBlock',
+        'SoundBlock/LargeBlockSoundBlock',
+    ])
+    const buttons = countBlocks(sbc.blocks, [
+        'ButtonPanel/ButtonPanelLarge',
+        'ButtonPanel/ButtonPanelSmall',
+    ])
+    const sorters = countBlocks(sbc.blocks, [
+        'ConveyorSorter/LargeBlockConveyorSorter',
+        'ConveyorSorter/MediumBlockConveyorSorter',
+        'ConveyorSorter/SmallBlockConveyorSorter',
+    ])
+    const lcds = countBlocks(sbc.blocks, [
+        'MyProgrammableBlock/LargeProgrammableBlock',
+        'MyProgrammableBlock/SmallProgrammableBlock',
+        'TextPanel/SmallTextPanel',
+        'TextPanel/SmallLCDPanelWide',
+        'TextPanel/SmallLCDPanel',
+        'TextPanel/LargeBlockCorner_LCD_1',
+        'TextPanel/LargeBlockCorner_LCD_2',
+        'TextPanel/LargeBlockCorner_LCD_Flat_1',
+        'TextPanel/LargeBlockCorner_LCD_Flat_2',
+        'TextPanel/SmallBlockCorner_LCD_1',
+        'TextPanel/SmallBlockCorner_LCD_2',
+        'TextPanel/SmallBlockCorner_LCD_Flat_1',
+        'TextPanel/SmallBlockCorner_LCD_Flat_2',
+        'TextPanel/LargeTextPanel',
+        'TextPanel/LargeLCDPanel',
+        'TextPanel/LargeLCDPanelWide',
+        'LCDPanelsBlock/LabEquipment',
+        'LCDPanelsBlock/MedicalStation',
+        'TextPanel/TransparentLCDLarge',
+        'TextPanel/TransparentLCDSmall',
+    ])
 
     return (
         <MySection heading='Automation' label='prog.blocks' value={progBlocks || '-'} className={clsx(classes.root, className)} {...otherProps}>

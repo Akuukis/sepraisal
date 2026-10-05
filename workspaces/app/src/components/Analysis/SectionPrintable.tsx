@@ -1,4 +1,4 @@
-import { IBlueprint } from '@sepraisal/common'
+import { IBlueprint, countBlocks } from '@sepraisal/common'
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -26,15 +26,16 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 }
 
 
-export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, className, long, ...otherProps} = props
-    const {sbc} = bp
+export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
+    const { bp, className, long, ...otherProps } = props
+    const { sbc } = bp
 
-    const {top, front, side} = sbc.integrityPlanes
-    const batteryBlocks = 0
-        + (sbc.blocks['BatteryBlock/SmallBlockBatteryBlock'] ?? 0)
-        + (sbc.blocks['BatteryBlock/LargeBlockBatteryBlock'] ?? 0)
-        + (sbc.blocks['BatteryBlock/SmallBlockSmallBatteryBlock'] ?? 0)
+    const { top, front, side } = sbc.integrityPlanes
+    const batteryBlocks = countBlocks(sbc.blocks, [
+        'BatteryBlock/SmallBlockBatteryBlock',
+        'BatteryBlock/LargeBlockBatteryBlock',
+        'BatteryBlock/SmallBlockSmallBatteryBlock',
+    ])
 
     const blockSize = sbc.gridSize === 'Small' ? 0.5 : 2.5
     const length = top[0].length * blockSize
@@ -58,7 +59,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             AutoPrinter (3x2):
         </MyLink>
     )
-    const apCheck = printable && weldersHorizontally <=3 && weldersVertically <=2 && weldersDeep === 1 ? 'Probably' : '-'
+    const apCheck = printable && weldersHorizontally <= 3 && weldersVertically <= 2 && weldersDeep === 1 ? 'Probably' : '-'
 
     return (
         <MySection heading='Printable' label='printer size' value={output} className={clsx(classes.root, className)} {...otherProps}>
@@ -83,7 +84,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <MyBoxColumn width={3}>
                 <MyBoxRow width={3}>
                     <MyBox width={3}>
-                        <LegendCell width={2} legend={apLink} legendProps={{align: 'right'}} />
+                        <LegendCell width={2} legend={apLink} legendProps={{ align: 'right' }} />
                         <ValueCell label='compatibility' value={apCheck} />
                     </MyBox>
                 </MyBoxRow>

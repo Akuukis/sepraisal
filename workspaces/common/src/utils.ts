@@ -43,6 +43,7 @@ export const Worker = <T extends unknown[]>(work: Work<T>, errors?: Error[]) => 
 export const sleep = async (seconds: number): Promise<void> => new Promise<void>((resolve) => setTimeout(() => resolve(), seconds * 1000))
 export const timebomb = async (seconds: number): Promise<never> => new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Timeouted.')), seconds * 1000))
 export const timeout = async <TRes>(seconds: number, promise: Promise<TRes>): Promise<TRes> => Promise.race([promise, timebomb(seconds)])
+export const countBlocks = (blocks: Record<string, number>, names: string[]): number => names.reduce((total, name) => total + (blocks[name] ?? 0), 0);
 
 export const mapToRecord = <TKey extends string | number | symbol, TValue extends unknown>(map: Map<TKey, TValue>): Record<TKey, TValue> => {
     const entries = [...map.entries()]
