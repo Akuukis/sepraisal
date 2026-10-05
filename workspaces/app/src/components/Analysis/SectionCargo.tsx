@@ -1,4 +1,4 @@
-import { IBlueprint } from '@sepraisal/common'
+import { IBlueprint, countBlocks } from '@sepraisal/common'
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -26,12 +26,12 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 }
 
 
-export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, className, long, ...otherProps} = props
-    const {sbc} = bp
+export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
+    const { bp, className, long, ...otherProps } = props
+    const { sbc } = bp
 
     const praisalManager = React.useContext(CONTEXT.PRAISAL_MANAGER)
-    if(!praisalManager) return null
+    if (!praisalManager) return null
 
     // Taken from wiki
     const iceToGas = 9
@@ -39,7 +39,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
     const missileVolume = 60  // TODO: praisalManager.?.get(`Component/Missile200mm`)!.volume
 
     const oreDef = praisalManager.ores.get(`Ore/Ice`)
-    if(!oreDef) return null
+    if (!oreDef) return null
     const oreVolume = oreDef.volume
 
     const anyVolume = getVolumeAny(sbc.blocks)
@@ -69,7 +69,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
 
     const totalOxygen = getTotalOxygen(sbc.blocks)
     const totalHydrogen = getTotalHydrogen(sbc.blocks)
-    const generators = (sbc.blocks['OxygenGenerator/'] ?? 0) + (sbc.blocks['OxygenGenerator/OxygenGeneratorSmall'] ?? 0)
+
+    const generators = countBlocks(sbc.blocks, [
+        'OxygenGenerator/',
+        'OxygenGenerator/OxygenGeneratorSmall',
+    ])
 
     const gasExtra = generators && iceToGas * ice
     const gasPotentialExtra = generators && iceToGas * orePotential
@@ -80,13 +84,13 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             heading='Cargo Capacity'
             label='total cargo (l)'
             value={formatDecimal(totalItemVolume)}
-            MyBoxColumnProps={{height: 4}}
+            MyBoxColumnProps={{ height: 4 }}
             className={clsx(classes.root, className)}
             {...otherProps}
             innerChildren={(
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>
-                        <LegendCell legend='Breakdown' legendProps={{align: 'center'}} />
+                        <LegendCell legend='Breakdown' legendProps={{ align: 'center' }} />
                         <ValueCell label='universal (l)' value={anyVolume ? formatDecimal(anyVolume) : '-'} />
                         <ValueCell label='misc (l)' value={miscVolume ? formatDecimal(miscVolume) : '-'} />
                         <ValueCell label='ores (kg)' value={oreTotalVolume ? formatDecimal(oreTotalVolume) : '-'} />
@@ -102,7 +106,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
             <MyBoxColumn height={4} width={3}>
                 <MyBoxRow height={3} width={3}>
                     <MyBox width={3}>
-                        <LegendCell padded width={3} legend='Universal&nbsp;Cargo in&nbsp;terms&nbsp;of&nbsp;various&nbsp;examples' legendProps={{noWrap: false, align: 'center'}} />
+                        <LegendCell padded width={3} legend='Universal&nbsp;Cargo in&nbsp;terms&nbsp;of&nbsp;various&nbsp;examples' legendProps={{ noWrap: false, align: 'center' }} />
                         <ValueCell label='ammo (pc)' value={ammoContainersPotential ? `+${formatDecimal(ammoContainersPotential)}` : '-'} />
                         <ValueCell label='missiles (pc)' value={missilesPotential ? `+${formatDecimal(missilesPotential)}` : '-'} />
                         <ValueCell label='ore/ice (kg)' value={orePotential ? `+${formatDecimal(orePotential)}` : '-'} />
@@ -113,7 +117,7 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 </MyBoxRow>
                 <MyBoxRow height={1} width={3}>
                     <MyBox width={3}>
-                        <LegendCell legend='Generators produce gas' legendProps={{noWrap: false, align: 'right'}} />
+                        <LegendCell legend='Generators produce gas' legendProps={{ noWrap: false, align: 'right' }} />
                         <ValueCell label='from ice (l)' value={gasExtra ? `${formatDecimal(gasExtra)}` : '-'} />
                         <ValueCell label='from extra ice (l)' value={gasPotentialExtra ? `+${formatDecimal(gasPotentialExtra)}` : '-'} />
                     </MyBox>
@@ -137,7 +141,7 @@ interface IBlock {
 }
 
 const blocks = (blockMap: IBlueprint.ISbc['blocks']): IBlock[] => Object.entries(blockMap)
-    .map(([type, amount]) => ({type, amount}))
+    .map(([type, amount]) => ({ type, amount }))
 
 const getTotalOxygen = (blockMap: IBlueprint.ISbc['blocks']) => blocks(blockMap).reduce((sum, block) => sum + (STORAGE_OXYGEN[block.type] || 0) * block.amount, 0)
 const getTotalHydrogen = (blockMap: IBlueprint.ISbc['blocks']) => blocks(blockMap).reduce((sum, block) => sum + (STORAGE_HYDROGEN[block.type] || 0) * block.amount, 0)

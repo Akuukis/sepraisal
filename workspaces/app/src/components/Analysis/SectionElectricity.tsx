@@ -1,4 +1,4 @@
-import { IBlueprint } from '@sepraisal/common'
+import { IBlueprint, countBlocks } from '@sepraisal/common'
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -24,19 +24,39 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 }
 
 
-export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, className, long, ...otherProps} = props
-    const {sbc} = bp
+export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
+    const { bp, className, long, ...otherProps } = props
+    const { sbc } = bp
 
     const maxOutput = getMaxOutput(sbc.blocks)
     const maxStorage = getMaxStorage(sbc.blocks)
-    const smallReactors = (sbc.blocks['Reactor/SmallBlockSmallGenerator'] ?? 0) + (sbc.blocks['Reactor/LargeBlockSmallGenerator'] ?? 0)
-    const largeReactors = (sbc.blocks['Reactor/SmallBlockLargeGenerator'] ?? 0) + (sbc.blocks['Reactor/LargeBlockLargeGenerator'] ?? 0)
-    const batteries = (sbc.blocks['BatteryBlock/SmallBlockBatteryBlock'] ?? 0) + (sbc.blocks['BatteryBlock/LargeBlockBatteryBlock'] ?? 0)
-    const smallBatteries = (sbc.blocks['BatteryBlock/SmallBlockSmallBatteryBlock'] ?? 0)
-    const solarPanels = (sbc.blocks['SolarPanel/SmallBlockSolarPanel'] ?? 0) + (sbc.blocks['SolarPanel/LargeBlockSolarPanel'] ?? 0)
-    const hydroEngine = (sbc.blocks['HydrogenEngine/SmallHydrogenEngine'] ?? 0) + (sbc.blocks['HydrogenEngine/LargeHydrogenEngine'] ?? 0)
-    const windTurbines = (sbc.blocks['WindTurbine/LargeBlockWindTurbine'] ?? 0)
+
+    const smallReactors = countBlocks(sbc.blocks, [
+        'Reactor/SmallBlockSmallGenerator',
+        'Reactor/LargeBlockSmallGenerator',
+    ])
+    const largeReactors = countBlocks(sbc.blocks, [
+        'Reactor/SmallBlockLargeGenerator',
+        'Reactor/LargeBlockLargeGenerator',
+    ])
+    const batteries = countBlocks(sbc.blocks, [
+        'BatteryBlock/SmallBlockBatteryBlock',
+        'BatteryBlock/LargeBlockBatteryBlock',
+    ])
+    const smallBatteries = countBlocks(sbc.blocks, [
+        'BatteryBlock/SmallBlockSmallBatteryBlock',
+    ])
+    const solarPanels = countBlocks(sbc.blocks, [
+        'SolarPanel/SmallBlockSolarPanel',
+        'SolarPanel/LargeBlockSolarPanel',
+    ])
+    const hydroEngine = countBlocks(sbc.blocks, [
+        'HydrogenEngine/SmallHydrogenEngine',
+        'HydrogenEngine/LargeHydrogenEngine',
+    ])
+    const windTurbines = countBlocks(sbc.blocks, [
+        'WindTurbine/LargeBlockWindTurbine',
+    ])
 
     return (
         <MySection heading='Electricity' label='max output (MW)' value={maxOutput || '-'} className={clsx(classes.root, className)} {...otherProps}>
@@ -73,25 +93,20 @@ type ProjectionCardSbc =
 interface IBpProjectionRow {
     sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]},
 }
+const getMaxOutput = (blocks: IBpProjectionRow['sbc']['blocks']) =>
+    0.5 * countBlocks(blocks, ['Reactor/SmallBlockSmallGenerator'])
+   + 14.75 * countBlocks(blocks, ['Reactor/SmallBlockLargeGenerator'])
+   + 4 * countBlocks(blocks, ['BatteryBlock/SmallBlockBatteryBlock'])
+   + 0.2 * countBlocks(blocks, ['BatteryBlock/SmallBlockSmallBatteryBlock'])
+   + 0.04 * countBlocks(blocks, ['SolarPanel/SmallBlockSolarPanel'])
+   + 0.5 * countBlocks(blocks, ['HydrogenEngine/SmallHydrogenEngine'])
+   + 15 * countBlocks(blocks, ['Reactor/LargeBlockSmallGenerator'])
+   + 300 * countBlocks(blocks, ['Reactor/LargeBlockLargeGenerator'])
+   + 12 * countBlocks(blocks, ['BatteryBlock/LargeBlockBatteryBlock'])
+   + 0.16 * countBlocks(blocks, ['SolarPanel/LargeBlockSolarPanel'])
+   + 5.0 * countBlocks(blocks, ['HydrogenEngine/LargeHydrogenEngine'])
 
-const getMaxOutput = (blocks: IBpProjectionRow['sbc']['blocks']) => {
-    return 0
-        +   0.5  * (blocks['Reactor/SmallBlockSmallGenerator'] ?? 0)
-        +  14.75 * (blocks['Reactor/SmallBlockLargeGenerator'] ?? 0)
-        +   4    * (blocks['BatteryBlock/SmallBlockBatteryBlock'] ?? 0)
-        +   0.2  * (blocks['BatteryBlock/SmallBlockSmallBatteryBlock'] ?? 0)
-        +   0.04 * (blocks['SolarPanel/SmallBlockSolarPanel'] ?? 0)
-        +   0.5  * (blocks['HydrogenEngine/SmallHydrogenEngine'] ?? 0)
-        +  15    * (blocks['Reactor/LargeBlockSmallGenerator'] ?? 0)
-        + 300    * (blocks['Reactor/LargeBlockLargeGenerator'] ?? 0)
-        +  12    * (blocks['BatteryBlock/LargeBlockBatteryBlock'] ?? 0)
-        +   0.16 * (blocks['SolarPanel/LargeBlockSolarPanel'] ?? 0)
-        +   5.0  * (blocks['HydrogenEngine/LargeHydrogenEngine'] ?? 0)
-}
-
-const getMaxStorage = (blocks: IBpProjectionRow['sbc']['blocks']) => {
-    return 0
-        +   1    * (blocks['BatteryBlock/SmallBlockBatteryBlock'] ?? 0)
-        +   0.05 * (blocks['BatteryBlock/SmallBlockSmallBatteryBlock'] ?? 0)
-        +   3    * (blocks['BatteryBlock/LargeBlockBatteryBlock'] ?? 0)
-}
+const getMaxStorage = (blocks: IBpProjectionRow['sbc']['blocks']) =>
+    1 * countBlocks(blocks, ['BatteryBlock/SmallBlockBatteryBlock'])
+   + 0.05 * countBlocks(blocks, ['BatteryBlock/SmallBlockSmallBatteryBlock'])
+   + 3 * countBlocks(blocks, ['BatteryBlock/LargeBlockBatteryBlock'])

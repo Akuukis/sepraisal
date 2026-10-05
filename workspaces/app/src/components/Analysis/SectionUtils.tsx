@@ -1,4 +1,4 @@
-import { IBlueprint } from '@sepraisal/common'
+import { IBlueprint, countBlocks } from '@sepraisal/common'
 import clsx from 'clsx'
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
@@ -24,77 +24,151 @@ interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' 
 }
 
 
-export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes, theme, ...props}) => {
-    const {bp, className, long, ...otherProps} = props
-    const {sbc} = bp
+export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classes, theme, ...props }) => {
+    const { bp, className, long, ...otherProps } = props
+    const { sbc } = bp
 
-    const remotes = (sbc.blocks['RemoteControl/LargeBlockRemoteControl'] ?? 0) + (sbc.blocks['RemoteControl/SmallBlockRemoteControl'] ?? 0)
-    const cameras = (sbc.blocks['CameraBlock/SmallCameraBlock'] ?? 0) + (sbc.blocks['CameraBlock/LargeCameraBlock'] ?? 0)
-    const oreDetectors = (sbc.blocks['OreDetector/LargeOreDetector'] ?? 0) + (sbc.blocks['OreDetector/SmallBlockOreDetector'] ?? 0)
-    const landingGears = (sbc.blocks['LandingGear/LargeBlockLandingGear'] ?? 0) + (sbc.blocks['LandingGear/SmallBlockLandingGear'] ?? 0)
-    const beacons = (sbc.blocks['Beacon/LargeBlockBeacon'] ?? 0) + (sbc.blocks['Beacon/SmallBlockBeacon'] ?? 0)
-    const radioAntennas = (sbc.blocks['RadioAntenna/LargeBlockRadioAntenna'] ?? 0) + (sbc.blocks['RadioAntenna/SmallBlockRadioAntenna'] ?? 0)
-    const laserAntenna = (sbc.blocks['LaserAntenna/LargeBlockLaserAntenna'] ?? 0) + (sbc.blocks['LaserAntenna/SmallBlockLaserAntenna'] ?? 0)
-    const spotlights = (sbc.blocks['ReflectorLight/LargeBlockFrontLight'] ?? 0) + (sbc.blocks['ReflectorLight/SmallBlockFrontLight'] ?? 0)
+    const remotes = countBlocks(sbc.blocks, [
+        'RemoteControl/LargeBlockRemoteControl',
+        'RemoteControl/SmallBlockRemoteControl',
+    ])
 
-    const medical = (sbc.blocks['MedicalRoom/LargeMedicalRoom'] ?? 0)
-    const cryoChambers = (sbc.blocks['CryoChamber/LargeBlockCryoChamber'] ?? 0) + (sbc.blocks['CryoChamber/SmallBlockCryoChamber'] ?? 0)
-    const survivalKits = (sbc.blocks['SurvivalKit/SurvivalKitLarge'] ?? 0) + (sbc.blocks['SurvivalKit/SurvivalKit'] ?? 0)
-    const airVents = (sbc.blocks['AirVent/'] ?? 0) + (sbc.blocks['AirVent/SmallAirVent'] ?? 0)
-    const oxygenTanks = (sbc.blocks['OxygenTank/OxygenTankSmall'] ?? 0) + (sbc.blocks['OxygenTank/'] ?? 0)
-    const oxygenFarm = (sbc.blocks['OxygenFarm/LargeBlockOxygenFarm'] ?? 0)
+    const cameras = countBlocks(sbc.blocks, [
+        'CameraBlock/SmallCameraBlock',
+        'CameraBlock/LargeCameraBlock',
+    ])
 
-    const oxygenGenerator = (sbc.blocks['OxygenGenerator/'] ?? 0) + (sbc.blocks['OxygenGenerator/OxygenGeneratorSmall'] ?? 0)
-    const hydrogenTanks = (sbc.blocks['OxygenTank/LargeHydrogenTank'] ?? 0) + (sbc.blocks['OxygenTank/SmallHydrogenTank'] ?? 0)
+    const oreDetectors = countBlocks(sbc.blocks, [
+        'OreDetector/LargeOreDetector',
+        'OreDetector/SmallBlockOreDetector',
+    ])
 
-    const connectors = (sbc.blocks['ShipConnector/Connector'] ?? 0) + (sbc.blocks['ShipConnector/ConnectorMedium'] ?? 0)
-    const ejectors = (sbc.blocks['ShipConnector/Connector'] ?? 0)
+    const landingGears = countBlocks(sbc.blocks, [
+        'LandingGear/LargeBlockLandingGear',
+        'LandingGear/SmallBlockLandingGear',
+    ])
 
-    const virtualMass = (sbc.blocks['VirtualMass/VirtualMassLarge'] ?? 0) + (sbc.blocks['VirtualMass/VirtualMassSmall'] ?? 0)
-    const gravityGen = (sbc.blocks['GravityGenerator/'] ?? 0) + (sbc.blocks['GravityGeneratorSphere/'] ?? 0)
-    const mergeBlocks = (sbc.blocks['MergeBlock/LargeShipMergeBlock'] ?? 0) + (sbc.blocks['MergeBlock/SmallShipMergeBlock'] ?? 0)
+    const beacons = countBlocks(sbc.blocks, [
+        'Beacon/LargeBlockBeacon',
+        'Beacon/SmallBlockBeacon',
+    ])
 
-    const lights = 0
-        + (sbc.blocks["InteriorLight/SmallLight"] ?? 0)
-        + (sbc.blocks["InteriorLight/SmallBlockSmallLight"] ?? 0)
-        + (sbc.blocks["InteriorLight/LargeBlockLight_1corner"] ?? 0)
-        + (sbc.blocks["InteriorLight/LargeBlockLight_2corner"] ?? 0)
-        + (sbc.blocks["InteriorLight/SmallBlockLight_1corner"] ?? 0)
-        + (sbc.blocks["InteriorLight/SmallBlockLight_2corner"] ?? 0)
-    const cockpits = 0
-        + (sbc.blocks["Cockpit/LargeBlockCockpit"] ?? 0)
-        + (sbc.blocks["Cockpit/LargeBlockCockpitSeat"] ?? 0)
-        + (sbc.blocks["Cockpit/SmallBlockCockpit"] ?? 0)
-        + (sbc.blocks["Cockpit/DBSmallBlockFighterCockpit"] ?? 0)
-        + (sbc.blocks["Cockpit/CockpitOpen"] ?? 0)
-        + (sbc.blocks["Cockpit/OpenCockpitSmall"] ?? 0)
-        + (sbc.blocks["Cockpit/SmallBlockCockpitIndustrial"] ?? 0)
-        + (sbc.blocks["Cockpit/LargeBlockCockpitIndustrial"] ?? 0)
+    const radioAntennas = countBlocks(sbc.blocks, [
+        'RadioAntenna/LargeBlockRadioAntenna',
+        'RadioAntenna/SmallBlockRadioAntenna',
+    ])
+
+    const laserAntenna = countBlocks(sbc.blocks, [
+        'LaserAntenna/LargeBlockLaserAntenna',
+        'LaserAntenna/SmallBlockLaserAntenna',
+    ])
+
+    const spotlights = countBlocks(sbc.blocks, [
+        'ReflectorLight/LargeBlockFrontLight',
+        'ReflectorLight/SmallBlockFrontLight',
+    ])
+
+    const medical = countBlocks(sbc.blocks, [
+        'MedicalRoom/LargeMedicalRoom',
+    ])
+
+    const cryoChambers = countBlocks(sbc.blocks, [
+        'CryoChamber/LargeBlockCryoChamber',
+        'CryoChamber/SmallBlockCryoChamber',
+    ])
+
+    const survivalKits = countBlocks(sbc.blocks, [
+        'SurvivalKit/SurvivalKitLarge',
+        'SurvivalKit/SurvivalKit',
+    ])
+
+    const airVents = countBlocks(sbc.blocks, [
+        'AirVent/',
+        'AirVent/SmallAirVent',
+    ])
+
+    const oxygenTanks = countBlocks(sbc.blocks, [
+        'OxygenTank/OxygenTankSmall',
+        'OxygenTank/',
+    ])
+
+    const oxygenFarm = countBlocks(sbc.blocks, [
+        'OxygenFarm/LargeBlockOxygenFarm',
+    ])
+
+    const oxygenGenerator = countBlocks(sbc.blocks, [
+        'OxygenGenerator/',
+        'OxygenGenerator/OxygenGeneratorSmall',
+    ])
+
+    const hydrogenTanks = countBlocks(sbc.blocks, [
+        'OxygenTank/LargeHydrogenTank',
+        'OxygenTank/SmallHydrogenTank',
+    ])
+
+    const connectors = countBlocks(sbc.blocks, [
+        'ShipConnector/Connector',
+        'ShipConnector/ConnectorMedium',
+    ])
+
+    const virtualMass = countBlocks(sbc.blocks, [
+        'VirtualMass/VirtualMassLarge',
+        'VirtualMass/VirtualMassSmall',
+    ])
+
+    const gravityGen = countBlocks(sbc.blocks, [
+        'GravityGenerator/',
+        'GravityGeneratorSphere/',
+    ])
+
+    const mergeBlocks = countBlocks(sbc.blocks, [
+        'MergeBlock/LargeShipMergeBlock',
+        'MergeBlock/SmallShipMergeBlock',
+    ])
+
+    const lights = countBlocks(sbc.blocks, [
+        'InteriorLight/SmallLight',
+        'InteriorLight/SmallBlockSmallLight',
+        'InteriorLight/LargeBlockLight_1corner',
+        'InteriorLight/LargeBlockLight_2corner',
+        'InteriorLight/SmallBlockLight_1corner',
+        'InteriorLight/SmallBlockLight_2corner',
+    ])
+
+    const cockpits = countBlocks(sbc.blocks, [
+        'Cockpit/LargeBlockCockpit',
+        'Cockpit/LargeBlockCockpitSeat',
+        'Cockpit/SmallBlockCockpit',
+        'Cockpit/DBSmallBlockFighterCockpit',
+        'Cockpit/CockpitOpen',
+        'Cockpit/OpenCockpitSmall',
+        'Cockpit/SmallBlockCockpitIndustrial',
+        'Cockpit/LargeBlockCockpitIndustrial',
+    ])
 
     const total = 0
-        + remotes
-        + cameras
-        + oreDetectors
-        + landingGears
-        + beacons
-        + radioAntennas
-        + laserAntenna
-        + spotlights
-        + medical
-        + cryoChambers
-        + survivalKits
-        + airVents
-        // + oxygenTanks
-        + oxygenFarm
-        + oxygenGenerator
-        // + hydrogenTanks
-        + connectors
-        + ejectors
-        + virtualMass
-        + gravityGen
-        + mergeBlocks
-        + lights
-        + cockpits
+      + remotes
+      + cameras
+      + oreDetectors
+      + landingGears
+      + beacons
+      + radioAntennas
+      + laserAntenna
+      + spotlights
+      + medical
+      + cryoChambers
+      + survivalKits
+      + airVents
+      // + oxygenTanks
+      + oxygenFarm
+      + oxygenGenerator
+      // + hydrogenTanks
+      + connectors
+      + virtualMass
+      + gravityGen
+      + mergeBlocks
+      + lights
+      + cockpits
 
     return (
         <MySection heading='Utilities' label='total' value={total} className={clsx(classes.root, className)} {...otherProps}>
@@ -137,9 +211,6 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                         <ValueCell label='air vents' value={airVents || '-'} />
                         <ValueCell label='oxygen farm' value={oxygenFarm || '-'} />
                         <ValueCell label='oxygen generator' value={oxygenGenerator || '-'} />
-                    </MyBox>
-                    <MyBox width={1}>
-                        <ValueCell label='ejectors' value={ejectors || '-'} />
                     </MyBox>
                     <MyBox width={2}>
                         <ValueCell label='virtual mass' value={virtualMass || '-'} />
