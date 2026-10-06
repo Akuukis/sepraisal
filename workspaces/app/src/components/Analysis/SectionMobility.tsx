@@ -38,6 +38,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
 
     const jumpDrives = countBlocks(sbc.blocks, [
         'JumpDrive/LargeJumpDrive',
+        'JumpDrive/LargeJumpDriveReskin',
+        'JumpDrive/LargePrototechJumpDrive',
+        'JumpDrive/SmallPrototechJumpDrive',
     ])
     const parachutes = countBlocks(sbc.blocks, [
         'Parachute/LgParachute',
@@ -206,7 +209,7 @@ const gyros = (mass: number, gridSize: GridSize, blocks: Partial<Record<string, 
     return result
 }
 
-const terminalVelocity = (mass: number, blocks: { 'Parachute/LgParachute'?: number, 'Parachute/SmParachute'?: number }, toFixed = 1) => {
+const terminalVelocity = (mass: number, blocks: Record<string, number>, toFixed = 1) => {
     const largeHatches = countBlocks(blocks, ['Parachute/LgParachute'])
     const smallHatches = countBlocks(blocks, ['Parachute/SmParachute'])
     if (largeHatches === 0 && smallHatches === 0) return '-'
@@ -293,7 +296,7 @@ const hydroFuel = (gridSize: GridSize, blocks: Partial<Record<string, number>>, 
 }
 
 const jumpDistance = (mass: number, jumpDrives: number) => {
-    const maxDistance = 2000
+    const maxDistance = 5000
     const maxMass = 1250000
 
     if (jumpDrives === 0) return '-'

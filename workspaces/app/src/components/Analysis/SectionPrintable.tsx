@@ -32,9 +32,16 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
 
     const { top, front, side } = sbc.integrityPlanes
     const batteryBlocks = countBlocks(sbc.blocks, [
-        'BatteryBlock/SmallBlockBatteryBlock',
         'BatteryBlock/LargeBlockBatteryBlock',
+        'BatteryBlock/SmallBlockBatteryBlock',
         'BatteryBlock/SmallBlockSmallBatteryBlock',
+        'BatteryBlock/LargeBlockBatteryBlockWarfare2',
+        'BatteryBlock/SmallBlockBatteryBlockWarfare2',
+        'BatteryBlock/LargeBlockBatteryReskin',
+        'BatteryBlock/LargeBlockBatteryReskinOffset',
+        'BatteryBlock/SmallBlockBatteryReskin',
+        'BatteryBlock/LargeBlockPrototechBattery',
+        'BatteryBlock/SmallBlockPrototechBattery',
     ])
 
     const blockSize = sbc.gridSize === 'Small' ? 0.5 : 2.5
