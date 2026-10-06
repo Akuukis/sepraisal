@@ -21,8 +21,8 @@ const styles = (theme: IMyTheme) => createStyles({
 
 
 interface IProps extends Omit<React.ComponentProps<typeof MySection>, 'heading' | 'value' | 'label'> {
-    bp: IBpProjectionRow
-    long?: boolean
+   bp: IBpProjectionRow
+   long?: boolean
 }
 
 
@@ -49,11 +49,11 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
     const ammoTotalVolume = getVolumeAmmo(sbc.blocks)
     const missileTotalVolume = getVolumeMissile(sbc.blocks)
     const totalItemVolume =
-        + anyVolume
-        + miscVolume
-        + iceTotalVolume
-        + ammoTotalVolume
-        + missileTotalVolume
+      + anyVolume
+      + miscVolume
+      + iceTotalVolume
+      + ammoTotalVolume
+      + missileTotalVolume
 
     const ammo = ammoTotalVolume / ammoVolume
     const missiles = missileTotalVolume / missileVolume
@@ -129,15 +129,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
 
 
 type ProjectionCardSbc =
-    | 'blocks'
+   | 'blocks'
 
 interface IBpProjectionRow {
-    sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]},
+   sbc: { [key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key] },
 }
 
 interface IBlock {
-    type: keyof IBlueprint.ISbc['blocks']
-    amount: number
+   type: keyof IBlueprint.ISbc['blocks']
+   amount: number
 }
 
 const blocks = (blockMap: IBlueprint.ISbc['blocks']): IBlock[] => Object.entries(blockMap)
@@ -155,28 +155,49 @@ const getVolumeMissile = (blockMap: IBlueprint.ISbc['blocks']) => blocks(blockMa
 const STORAGE_OXYGEN = {
     "OxygenTank/": 100000,
     "OxygenTank/OxygenTankSmall": 50000,
+    "OxygenTank/SmallOxygenTankSmall": 3000,
+    "OxygenTank/LargeBlockOxygenTankLab": 100000,
     "Cockpit/LargeBlockCockpit": 60,
     "Cockpit/SmallBlockCockpit": 60,
     "Cockpit/DBSmallBlockFighterCockpit": 60,
 } as const
 
 const STORAGE_HYDROGEN = {
-    "OxygenTank/LargeHydrogenTank": 5000000,
-    "OxygenTank/SmallHydrogenTank": 160000,
-    "OxygenTank/LargeHydrogenTankSmall": 350000,
-    "OxygenTank/SmallHydrogenTankSmall": 7000,
+    "OxygenTank/LargeHydrogenTank": 15000000,
+    "OxygenTank/LargeHydrogenTankIndustrial": 15000000,
+    "OxygenTank/LargeHydrogenTankBulk": 15000000,
+    "OxygenTank/LargeHydrogenTankSmall": 1000000,
+    "OxygenTank/LargeHydrogenTankSmallLab": 1000000,
+    "OxygenTank/SmallHydrogenTank": 500000,
+    "OxygenTank/SmallHydrogenTankBulk": 500000,
+    "OxygenTank/SmallHydrogenTankSmall": 15000,
+    "OxygenTank/SmallHydrogenTankLab": 15000,
 } as const
 
 const STORAGE_ANY = {
     "CargoContainer/SmallBlockSmallContainer": 125,
     "CargoContainer/SmallBlockMediumContainer": 3375,
+    "CargoContainer/SmallBlockModularContainer": 10000,
     "CargoContainer/SmallBlockLargeContainer": 15625,
     "CargoContainer/LargeBlockSmallContainer": 15625,
     "CargoContainer/LargeBlockLargeContainer": 421875,
-    "Collector/Collector": 1575,
+    "CargoContainer/LargeBlockLargeIndustrialContainer": 421875,
+    "CargoContainer/LargeBlockBulkContainerA": 820000,
+    "CargoContainer/LargeBlockBulkContainerB": 820000,
+    "CargoContainer/LargeBlockBulkContainerC": 820000,
+    "CargoContainer/LargeBlockCargoTerminal": 15625,
+    "CargoContainer/LargeBlockCargoTerminalHalf": 7000,
+    "Collector/Collector": 6250,
     "Collector/CollectorSmall": 1575,
+    "Collector/CollectorFlat": 500,
     "ShipConnector/Connector": 8000,
     "ShipConnector/ConnectorMedium": 1152,
+    "ShipConnector/ConnectorSmall": 64,
+    "ShipConnector/SmallBlockInsetConnector": 1152,
+    "ShipConnector/SmallBlockInsetConnectorMedium": 1152,
+    "ShipConnector/LargeBlockInsetConnector": 8000,
+    "ShipConnector/LargeBlockInsetConnectorSmall": 8000,
+    "ShipConnector/LargeBlockStructural_PlatformConnector": 8000,
 } as const
 
 const STORAGE_MISC = {
@@ -196,23 +217,49 @@ const STORAGE_MISC = {
 const STORAGE_ORE = {
     "Drill/LargeBlockDrill": 23437.50,
     "Drill/SmallBlockDrill": 3375,
+    'Drill/LargeBlockDrillReskin': 23437.50,
+    'Drill/SmallBlockDrillReskin': 3375,
+    'Drill/LargeBlockPrototechDrill': 50000,
 }
 
 const STORAGE_ICE = {
     "OxygenGenerator/": 4000,
     "OxygenGenerator/OxygenGeneratorSmall": 1000,
+    "OxygenGenerator/IrrigationSystem": 10000,
 }
 
 const STORAGE_AMMO = {
     "LargeGatlingTurret/": 384,
-    "LargeGatlingTurret/SmallGatlingTurret": 84,
+    'LargeGatlingTurret/LargeGatlingTurretReskin': 384,
+    "LargeGatlingTurret/SmallGatlingTurret": 80,
+    'LargeGatlingTurret/SmallGatlingTurretReskin': 80,
     "SmallGatlingGun/": 64,
+    "SmallGatlingGun/SmallGatlingGunWarfare2": 64,
 }
 
 const STORAGE_MISSILE = {
     "LargeMissileTurret/": 384,
+    'LargeMissileTurret/LargeMissileTurretReskin': 360,
     "LargeMissileTurret/SmallMissileTurret": 120,
+    'LargeMissileTurret/SmallMissileTurretReskin': 120,
     "SmallMissileLauncher/": 240,
+    "SmallMissileLauncher/SmallMissileLauncherWarfare2": 240,
     "SmallMissileLauncher/LargeMissileLauncher": 1140,
     "SmallMissileLauncherReload/SmallRocketLauncherReload": 240,
+}
+
+const STORAGE_OTHER_GUNS = {
+    // Rail Gun Ammo
+    'SmallMissileLauncherReload/LargeRailgun': 240,
+    'SmallMissileLauncherReload/SmallRailgun': 48,
+    // Artillery Ammo
+    'SmallMissileLauncher/LargeBlockLargeCalibreGun': 300, // Artillery
+    'LargeMissileTurret/LargeCalibreTurret': 600, // Artillery Turret
+    // Assault Canon Ammo
+    'SmallMissileLauncherReload/SmallBlockMediumCalibreGun': 90, // Assault 
+    'LargeMissileTurret/LargeBlockMediumCalibreTurret': 180, // Assault Turret
+    'LargeMissileTurret/SmallBlockMediumCalibreTurret': 90, // Assault Turret
+    // Autocannon ammo
+    'SmallGatlingGun/SmallBlockAutocannon': 72,
+    'LargeGatlingTurret/AutoCannonTurret': 72,
 }
