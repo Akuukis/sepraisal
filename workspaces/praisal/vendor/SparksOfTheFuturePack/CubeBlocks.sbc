@@ -18,7 +18,7 @@
             <Components>
                 <Component Subtype="InteriorPlate" Count="25" />
                 <Component Subtype="Construction" Count="150" />
-                <Component Subtype="Computer" Count="25" />scifi
+                <Component Subtype="Computer" Count="25" />
                 <Component Subtype="Display" Count="250" />
                 <Component Subtype="BulletproofGlass" Count="150" />
             </Components>
@@ -1608,7 +1608,7 @@
                 <SubtypeId>LargeBlockSmallThrustSciFi</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_SmallThrustSciFi</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\large_IonThrusterSmall_SciFi.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\Large_IonThrusterSmall_SciFi.dds</Icon>
             <Description>Description_IonThrust</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
@@ -1706,7 +1706,7 @@
                 <SubtypeId>LargeBlockLargeThrustSciFi</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_LargeThrustSciFi</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\large_IonThrusterLarge_SciFi.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\Large_IonThrusterLarge_SciFi.dds</Icon>
             <Description>Description_IonThrust</Description>
             <CubeSize>Large</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>

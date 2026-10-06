@@ -187,6 +187,8 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <EmissiveColorPreset>Extended</EmissiveColorPreset>
             <IsAirTight>true</IsAirTight>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
             <PCU>15</PCU>
             <TargetingGroups>
                 <string>PowerSystems</string>
@@ -946,6 +948,11 @@
             <TargetingGroups>
                 <string>PowerSystems</string>
             </TargetingGroups>
+            <AimingOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-1</Z>
+            </AimingOffset>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_SolarPanelDefinition">
             <Id>
@@ -1078,6 +1085,11 @@
             <TargetingGroups>
                 <string>PowerSystems</string>
             </TargetingGroups>
+            <AimingOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>-0.2</Z>
+            </AimingOffset>
         </Definition>
     </CubeBlocks>
 </Definitions>

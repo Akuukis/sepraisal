@@ -2762,7 +2762,7 @@
             </Id>
             <DisplayName>DisplayName_Block_SymbolUnderscore</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\Symbol_Underscore.dds</Icon>
-            <Description>Description_Symbol</Description>
+            <Description>Description_Symbols</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
             <Size x="1" y="1" z="1" />

@@ -24,8 +24,9 @@
             </Components>
             <CriticalComponent Subtype="BulletproofGlass" Index="0" />
             <BuildProgressModels>
-                <Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\BridgeWindow1x1SlopeConstruction_1.mwm" />
-                <Model BuildPercentUpperBound="1.0" File="Models\Cubes\Large\BridgeWindow1x1SlopeConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\BridgeWindow1x1SlopeConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\BridgeWindow1x1SlopeConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.0" File="Models\Cubes\Large\BridgeWindow1x1SlopeConstruction_3.mwm" />
             </BuildProgressModels>
             <BlockPairName>BridgeWindow1x1Slope</BlockPairName>
             <EdgeType>Light</EdgeType>
@@ -74,8 +75,9 @@
             </Components>
             <CriticalComponent Subtype="BulletproofGlass" Index="0" />
             <BuildProgressModels>
-                <Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\BridgeWindow1x1FaceConstruction_1.mwm" />
-                <Model BuildPercentUpperBound="1.0" File="Models\Cubes\Large\BridgeWindow1x1FaceConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\BridgeWindow1x1FaceConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\BridgeWindow1x1FaceConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.0" File="Models\Cubes\Large\BridgeWindow1x1FaceConstruction_3.mwm" />
             </BuildProgressModels>
             <BlockPairName>BridgeWindow1x1Face</BlockPairName>
             <EdgeType>Light</EdgeType>
@@ -758,6 +760,7 @@
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
             <DLC>Warfare2</DLC>
+            <DepressurizationEffectOffset x="0" y="-5" z ="0" />
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_AirtightHangarDoorDefinition">
@@ -817,6 +820,7 @@
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
             <DLC>Warfare2</DLC>
+            <DepressurizationEffectOffset x="0" y="-5" z ="0" />
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_AirtightHangarDoorDefinition">
@@ -876,6 +880,7 @@
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
             <DLC>Warfare2</DLC>
+            <DepressurizationEffectOffset x="0" y="-5" z ="0" />
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_WeaponBlockDefinition">
@@ -884,7 +889,7 @@
                 <SubtypeId>SmallMissileLauncherWarfare2</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_RocketLauncherWarfare2</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\RocketlauncherReskin.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\RocketLauncherReskin.dds</Icon>
             <Description>Description_RocketLauncher</Description>
             <CubeSize>Small</CubeSize>
             <GuiVisible>false</GuiVisible>
@@ -938,7 +943,7 @@
                 <SubtypeId>SmallGatlingGunWarfare2</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_GatlingGunWarfare2</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\gatlingGunReskin.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\GatlingGunReskin.dds</Icon>
             <Description>Description_GatlingGun</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -1184,8 +1189,9 @@
             <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
-            <DepressurizationEffectOffset x="0" y="1.25" z ="0" />
+            <DepressurizationEffectOffset x="1.125" y="0.5625" z ="0" />
             <DLC>Warfare2</DLC>
+            <PressurizeCube>true</PressurizeCube>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_DoorDefinition">
@@ -1251,8 +1257,9 @@
             <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
-            <DepressurizationEffectOffset x="0" y="1.25" z ="0" />
+            <DepressurizationEffectOffset x="1.25" y="0.5625" z ="0" />
             <DLC>Warfare2</DLC>
+            <PressurizeCube>true</PressurizeCube>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_SearchlightDefinition">
@@ -1519,7 +1526,7 @@
                 <SubtypeId>SmallHeatVentBlock</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_HeatVentWarfare2</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\HeatVent_small.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\HeatVent.dds</Icon>
             <Description>Description_HeatVent</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -1585,6 +1592,9 @@
                 <TypeId>Cockpit</TypeId>
                 <SubtypeId>SmallBlockStandingCockpit</SubtypeId>
             </Id>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
             <DisplayName>DisplayName_Block_CockpitStandingBridge</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\StandingBridge.dds</Icon>
             <Description>Description_CockpitStandingBridge</Description>
@@ -1658,6 +1668,9 @@
                 <TypeId>Cockpit</TypeId>
                 <SubtypeId>LargeBlockStandingCockpit</SubtypeId>
             </Id>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
             <DisplayName>DisplayName_Block_CockpitStandingBridge</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\StandingBridge.dds</Icon>
             <Description>Description_CockpitStandingBridge</Description>

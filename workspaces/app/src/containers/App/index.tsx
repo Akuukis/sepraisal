@@ -37,13 +37,19 @@ import CubeBlocksWeaponsLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/
 import CubeBlocksWheelsLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Wheels.sbc'
 import CubeBlocksWindowsLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Windows.sbc'
 import PhysicalItemsLink from '@sepraisal/praisal/vendor/Vanilla/PhysicalItems.sbc'
-import CubeBlocksAutomatonLink from '@sepraisal/praisal/vendor/Automation/CubeBlocks.sbc'
+import CubeBlocksGridAIPackLink from '@sepraisal/praisal/vendor/GridAIPack/CubeBlocks.sbc'
 import CubeBlocksDecorative3Link from '@sepraisal/praisal/vendor/DecorativePack3/CubeBlocks.sbc'
 import CubeBlocksSignalsPackLink from '@sepraisal/praisal/vendor/SignalsPack/CubeBlocks.sbc'
 import CubeBlocksContactPackLink from '@sepraisal/praisal/vendor/ContactPack/CubeBlocks.sbc'
+import CubeBlocksFieldworkLink from '@sepraisal/praisal/vendor/Fieldwork/CubeBlocks.sbc'
+import CubeBlocksApexSurvivalPackLink from '@sepraisal/praisal/vendor/ApexSurvivalPack/CubeBlocks.sbc'
+import CubeBlocksCoreSystemsPackLink from '@sepraisal/praisal/vendor/CoreSystemsPack/CubeBlocks.sbc'
+import CubeBlocksEconomy2PackLink from '@sepraisal/praisal/vendor/Economy2Pack/CubeBlocks.sbc'
+import CubeBlocksProsperityPackLink from '@sepraisal/praisal/vendor/ProsperityPack/CubeBlocks.sbc'
 import CubeBlocksArmor3Link from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Armor_3.sbc'
-import CubeBlocksGridAIPackLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_GridAIPack.sbc'
 import CubeBlocksPrototechLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Prototech.sbc'
+import CubeBlocksEconomyDeluxeLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_EconomyDeluxe.sbc'
+import CubeBlocksStructuralLink from '@sepraisal/praisal/vendor/Vanilla/CubeBlocks/CubeBlocks_Structural.sbc'
 
 
 import * as React from 'react'
@@ -118,8 +124,9 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksWheelsLink              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksWindowsLink             ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksArmor3Link              ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
-                fetch(CubeBlocksGridAIPackLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksPrototechLink           ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksEconomyDeluxeLink       ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
+                fetch(CubeBlocksStructuralLink          ).then(async (res) => [await res.text(), VENDOR_MOD.VANILLA]),
                 fetch(CubeBlocksDecorative1Link         ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_1]),
                 fetch(CubeBlocksDecorative2Link         ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_2]),
                 fetch(CubeBlocksEconomyLink             ).then(async (res) => [await res.text(), VENDOR_MOD.ECONOMY]),
@@ -129,10 +136,15 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({children, classes
                 fetch(CubeBlocksWarfare1Link            ).then(async (res) => [await res.text(), VENDOR_MOD.WARFARE_1]),
                 fetch(CubeBlocksIndustrialPackLink      ).then(async (res) => [await res.text(), VENDOR_MOD.INDUSTRIAL]),
                 fetch(CubeBlocksWarfare2Link            ).then(async (res) => [await res.text(), VENDOR_MOD.WARFARE_2]), //this line wasn't added in the SEPraisal update for warfare 2 lol
-                fetch(CubeBlocksAutomatonLink           ).then(async (res) => [await res.text(), VENDOR_MOD.AUTOMATION]),
+                fetch(CubeBlocksGridAIPackLink          ).then(async (res) => [await res.text(), VENDOR_MOD.GRIDAIPACK]),
                 fetch(CubeBlocksDecorative3Link         ).then(async (res) => [await res.text(), VENDOR_MOD.DECORATIVE_3]),
                 fetch(CubeBlocksSignalsPackLink         ).then(async (res) => [await res.text(), VENDOR_MOD.SIGNALS]),
                 fetch(CubeBlocksContactPackLink         ).then(async (res) => [await res.text(), VENDOR_MOD.CONTACT]),
+                fetch(CubeBlocksFieldworkLink           ).then(async (res) => [await res.text(), VENDOR_MOD.FIELDWORK]),
+                fetch(CubeBlocksApexSurvivalPackLink    ).then(async (res) => [await res.text(), VENDOR_MOD.APEXSURVIVALPACK]),
+                fetch(CubeBlocksCoreSystemsPackLink     ).then(async (res) => [await res.text(), VENDOR_MOD.CORESYSTEMSPACK]),
+                fetch(CubeBlocksEconomy2PackLink        ).then(async (res) => [await res.text(), VENDOR_MOD.ECONOMY2PACK]),
+                fetch(CubeBlocksProsperityPackLink      ).then(async (res) => [await res.text(), VENDOR_MOD.PROSPERITYPACK]),
             ] as never) as [string, string, string, ...[string, VENDOR_MOD][]]
             const praisalManager = new PraisalManager()
             await praisalManager.addPhysicalItemsSbc(physicalItemsSbc, VENDOR_MOD.VANILLA)

@@ -41,8 +41,8 @@
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\MedicalRoomConstruction_3.mwm" />
             </BuildProgressModels>
             <ScreenAreas>
-                <ScreenArea Name="CockpitScreen_01" DisplayName="Top panel" />
-                <ScreenArea Name="CockpitScreen_02" DisplayName="Bottom panel" />
+                <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="15" ScreenHeight="9" />
+                <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="128" ScreenWidth="11" ScreenHeight="4" />
             </ScreenAreas>
             <VoxelPlacement>
                 <!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
@@ -144,6 +144,73 @@
             <PCU>15</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
+        
+        <Definition xsi:type="MyObjectBuilder_CryoChamberDefinition">
+            <Id>
+                <TypeId>CryoChamber</TypeId>
+                <SubtypeId>LargeBlockBedFree</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_BedFree</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\BedFree.dds</Icon>
+            <Description>Description_Bed</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Model>Models\Cubes\Large\BedFree.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <CharacterAnimation>Normal_Bed_Laying_Pose</CharacterAnimation>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="SmallTube" Count="8" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="InteriorPlate" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.3" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.3" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.25" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.25" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\BedFree_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\BedFree_Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\BedFree_Construction_3.mwm" />
+            </BuildProgressModels>
+            <VoxelPlacement>
+                <StaticMode>
+                    <PlacementMode>Volumetric</PlacementMode>
+                    <MaxAllowed>0.15</MaxAllowed>
+                    <MinAllowed>0</MinAllowed>
+                </StaticMode>
+                <DynamicMode>
+                    <PlacementMode>Volumetric</PlacementMode>
+                    <MaxAllowed>0.15</MaxAllowed>
+                    <MinAllowed>0</MinAllowed>
+                </DynamicMode>
+            </VoxelPlacement>
+            <BlockPairName>BedFree</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <EnableFirstPerson>true</EnableFirstPerson>
+            <EnableShipControl>false</EnableShipControl>
+            <EnableBuilderCockpit>false</EnableBuilderCockpit>
+            <IsPressurized>false</IsPressurized>
+            <HasInventory>false</HasInventory>
+            <OxygenCapacity>1</OxygenCapacity>
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <IdlePowerConsumption>0.00003</IdlePowerConsumption>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <BuildTimeSeconds>14</BuildTimeSeconds>
+            <PCU>15</PCU>
+        </Definition>
+        
         <Definition xsi:type="MyObjectBuilder_CryoChamberDefinition">
             <Id>
                 <TypeId>CryoChamber</TypeId>

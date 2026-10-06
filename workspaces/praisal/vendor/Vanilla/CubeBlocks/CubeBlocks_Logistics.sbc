@@ -39,7 +39,7 @@
                 <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\OxygenStorageConstruction_1.mwm" />
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\OxygenStorageConstruction_2.mwm" />
             </BuildProgressModels>
-            <BlockPairName>OxygenTank</BlockPairName>
+            <BlockPairName>LargeOxygenTank</BlockPairName>
             <Center x="1" y="1" z="1" />
             <MirroringY>Z</MirroringY>
             <MirroringZ>Y</MirroringZ>
@@ -81,12 +81,89 @@
                 <unsignedInt>600</unsignedInt>
             </TieredUpdateTimes>
         </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
+            <Id>
+                <TypeId>OxygenTank</TypeId>
+                <SubtypeId>SmallOxygenTankSmall</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_SmallOxygenTank</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\OxygenTank.dds</Icon>
+            <Description>Description_OxygenTank</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="2" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\SmallOxygenTank.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="1" />
+                <Component Subtype="LargeTube" Count="1" />
+                <Component Subtype="SmallTube" Count="1" />
+                <Component Subtype="Computer" Count="4" />
+                <Component Subtype="Construction" Count="1" />
+                <Component Subtype="SteelPlate" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Back" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Left" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Right" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\SmallOxygenTankConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\SmallOxygenTankConstruction_2.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>OxygenTank</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <EdgeType>Light</EdgeType>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <Capacity>3000</Capacity>
+            <InventoryMaxVolume>0.12</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <OperationalPowerConsumption>0.001</OperationalPowerConsumption>
+            <StandbyPowerConsumption>0.000001</StandbyPowerConsumption>
+            <StoredGasId>
+                <TypeId>GasProperties</TypeId>
+                <SubtypeId>Oxygen</SubtypeId>
+            </StoredGasId>
+            <BlueprintClasses>
+                <Class>OxygenBottles</Class>
+            </BlueprintClasses>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+            <LeakPercent>0.025</LeakPercent>
+            <GasExplosionMaxRadius>2</GasExplosionMaxRadius>
+            <GasExplosionNeededVolumeToReachMaxRadius>3000</GasExplosionNeededVolumeToReachMaxRadius>
+            <GasExplosionDamageMultiplier>0.00015</GasExplosionDamageMultiplier>
+            <GasExplosionSound>WepSmallWarheadExpl</GasExplosionSound>
+            <GasExplosionEffect>BlockDestroyedExplosion_Small</GasExplosionEffect>
+            <TieredUpdateTimes>
+                <unsignedInt>100</unsignedInt>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+        
         <Definition xsi:type="MyObjectBuilder_GasTankDefinition">
             <Id>
                 <TypeId>OxygenTank</TypeId>
                 <SubtypeId />
             </Id>
-            <DisplayName>DisplayName_Block_OxygenTank</DisplayName>
+            <DisplayName>DisplayName_Block_SmallOxygenTank</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\OxygenTank.dds</Icon>
             <Description>Description_OxygenTank</Description>
             <CubeSize>Large</CubeSize>
@@ -256,7 +333,7 @@
                 <SubtypeId>LargeHydrogenTankSmall</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_HydrogenTankSmall</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\largeHydrogenTankSmall.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\LargeHydrogenTankSmall.dds</Icon>
             <Description>Description_HydrogenTank</Description>
             <Public>true</Public>
             <CubeSize>Large</CubeSize>
@@ -502,6 +579,9 @@
                 <SubtypeId />
             </Id>
             <DisplayName>DisplayName_Block_AirVent</DisplayName>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Airvent_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Airvent_No</YesNoToolbarNoTooltip>
             <Icon>Textures\GUI\Icons\Cubes\AirVent.dds</Icon>
             <Description>Description_AirVent</Description>
             <CubeSize>Large</CubeSize>
@@ -557,6 +637,9 @@
                 <SubtypeId>AirVentFull</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_AirVentFull</DisplayName>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Airvent_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Airvent_No</YesNoToolbarNoTooltip>
             <Icon>Textures\GUI\Icons\Cubes\OxygenPressurizerFullLarge.dds</Icon>
             <Description>Description_AirVent</Description>
             <CubeSize>Large</CubeSize>
@@ -616,6 +699,9 @@
                 <SubtypeId>SmallAirVent</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_AirVent</DisplayName>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Airvent_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Airvent_No</YesNoToolbarNoTooltip>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
             <Icon>Textures\GUI\Icons\Cubes\AirVent.dds</Icon>
             <Description>Description_AirVent</Description>
             <CubeSize>Small</CubeSize>
@@ -672,6 +758,9 @@
             </Id>
             <DisplayName>DisplayName_Block_AirVentFull</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\OxygenPressurizerFullSmall.dds</Icon>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Airvent_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Airvent_No</YesNoToolbarNoTooltip>
             <Description>Description_AirVent</Description>
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
@@ -1212,6 +1301,60 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>25</PCU>
         </Definition>
+        <Definition  xsi:type="MyObjectBuilder_PoweredCargoContainerDefinition">
+            <Id>
+                <TypeId>Collector</TypeId>
+                <SubtypeId>CollectorFlat</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_CollectorFlat</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\SmallCollector.dds</Icon>
+            <Description>Description_Collector</Description>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="1" z="3" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\SmallCollector.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="Construction" Count="15" />
+                <Component Subtype="SmallTube" Count="5" />
+                <Component Subtype="Motor" Count="5" />
+                <Component Subtype="Display" Count="2" />
+                <Component Subtype="Computer" Count="5" />
+                <Component Subtype="SteelPlate" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\SmallCollectorConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\SmallCollectorConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\SmallCollectorConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>CollectorFlat</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>10</BuildTimeSeconds>
+            <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
+            <RequiredPowerInput>0.002</RequiredPowerInput>
+            <InventorySize>
+                <X>0.5</X>
+                <Y>0.5</Y>
+                <Z>2</Z>
+            </InventorySize>
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="3" EndY="3" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="3" EndY="1" />
+            </MountPoints>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <ActionSound>BlockCollect</ActionSound>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+        </Definition>
         <Definition xsi:type="MyObjectBuilder_ShipConnectorDefinition">
             <Id>
                 <TypeId>ShipConnector</TypeId>
@@ -1451,6 +1594,74 @@
         <Definition xsi:type="MyObjectBuilder_ShipConnectorDefinition">
             <Id>
                 <TypeId>ShipConnector</TypeId>
+                <SubtypeId>LargeBlockInsetConnectorSmall</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_InsetConnectorSmall</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\InsetConnector_medium.dds</Icon>
+            <Description>Description_Connector</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\LargeGridSmallConnector.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="130" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="SmallTube" Count="12" />
+                <Component Subtype="Motor" Count="8" />
+                <Component Subtype="Computer" Count="20" />
+                <Component Subtype="SteelPlate" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LargeGridSmallConnectorConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LargeGridSmallConnectorConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LargeGridSmallConnectorConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>InsetConnectorSmall</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <MountPoints>
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.15" />
+                <MountPoint Side="Left" StartX="0" StartY="0.85" EndX="1" EndY="1.0" />
+                <MountPoint Side="Left" StartX="0.45" StartY="0.45" EndX="0.55" EndY="0.55" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.15" />
+                <MountPoint Side="Right" StartX="0" StartY="0.85" EndX="1" EndY="1.0" />
+                <MountPoint Side="Right" StartX="0.45" StartY="0.45" EndX="0.55" EndY="0.55" />
+                <MountPoint Side="Front" StartX="0.1" StartY="0" EndX="0.5" EndY="0.05" />
+                <MountPoint Side="Front" StartX="0.5" StartY="0.05" EndX="0.9" EndY="0.1" />
+                <MountPoint Side="Front" StartX="0.1" StartY="0.9" EndX="0.5" EndY="0.95" />
+                <MountPoint Side="Front" StartX="0.5" StartY="0.95" EndX="0.9" EndY="1" />
+                <MountPoint Side="Front" StartX="0.05" StartY="0.1" EndX="0.1" EndY="0.5" />
+                <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="0.05" EndY="0.9" />
+                <MountPoint Side="Front" StartX="0.95" StartY="0.1" EndX="1" EndY="0.5" />
+                <MountPoint Side="Front" StartX="0.9" StartY="0.5" EndX="0.95" EndY="0.9" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+            </MountPoints>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <ActionSound>BlockEject</ActionSound>
+            <EmissiveColorPreset>ConnectBlock</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>125</PCU>
+            <AutoUnlockTime_Min>0</AutoUnlockTime_Min>
+            <AutoUnlockTime_Max>3600</AutoUnlockTime_Max>
+            <TieredUpdateTimes>
+                <unsignedInt>80</unsignedInt>
+                <unsignedInt>160</unsignedInt>
+                <unsignedInt>320</unsignedInt>
+            </TieredUpdateTimes>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_ShipConnectorDefinition">
+            <Id>
+                <TypeId>ShipConnector</TypeId>
                 <SubtypeId>SmallBlockInsetConnector</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_InsetConnectorSmall</DisplayName>
@@ -1511,6 +1722,7 @@
                 <unsignedInt>320</unsignedInt>
             </TieredUpdateTimes>
         </Definition>
+        
 
         <Definition xsi:type="MyObjectBuilder_ShipConnectorDefinition">
             <Id>
@@ -2186,7 +2398,7 @@
                 <TypeId>ConveyorConnector</TypeId>
                 <SubtypeId>ConveyorTubeCurvedMedium</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Block_ConveyorTubeCurved</DisplayName>
+            <DisplayName>DisplayName_Block_MediumConveyorTubeCurved</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\ConveyorTubeCurved.dds</Icon>
             <Description>Description_ConveyorTube</Description>
             <CubeSize>Small</CubeSize>
@@ -2236,7 +2448,7 @@
                 <TypeId>Conveyor</TypeId>
                 <SubtypeId>SmallShipConveyorHub</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Block_Conveyor</DisplayName>
+            <DisplayName>DisplayName_Block_MediumConveyor</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\Conveyor.dds</Icon>
             <Description>Description_ConveyorTube</Description>
             <CubeSize>Small</CubeSize>
@@ -2440,7 +2652,7 @@
                 <TypeId>ConveyorSorter</TypeId>
                 <SubtypeId>MediumBlockConveyorSorter</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Block_ConveyorSorter</DisplayName>
+            <DisplayName>DisplayName_Block_MediumConveyorSorter</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\ConveyorSorterMedium.dds</Icon>
             <Description>Description_ConveyorSorter</Description>
             <CubeSize>Small</CubeSize>
@@ -2613,7 +2825,7 @@
                 <TypeId>CubeBlock</TypeId>
                 <SubtypeId>SmallBlockConveyorCap</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Block_ConveyorCap</DisplayName>
+            <DisplayName>DisplayName_Block_ConveyorCapSmall</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\ConveyorCapSmall.dds</Icon>
             <Description>Description_ConveyorTube</Description>
             <CubeSize>Small</CubeSize>

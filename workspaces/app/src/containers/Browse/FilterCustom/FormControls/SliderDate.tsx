@@ -273,6 +273,11 @@ const MARKS: IMark[] = [
     //{value: toValue('2024-01-15'), version: '1.203.6', summary: 'Microsoft Store'},
     {value: toValue('2024-05-13'), version: '1.204', summary: 'Signal Update and DLC'},
     {value: toValue('2024-10-14'), version: '1.205', summary: 'Contact Update and DLC'},
+    {value: toValue('2025-04-28'), version: '1.206', summary: 'Fieldwork Update and DLC'},
+    {value: toValue('2025-09-08'), version: '1.207', summary: 'Apex Survival Update and DLC'},
+    {value: toValue('2025-11-24'), version: '1.208', summary: 'Core Systems Update and DLC'},
+    {value: toValue('2026-05-04'), version: '1.209', summary: 'Economy 2 Update and DLC'},
+    {value: toValue('2026-07-27'), version: '1.210', summary: 'Prosperity Update and DLC'},
 
     {value: toValue(moment()), version: '?.???', summary: 'Today'},
 ]

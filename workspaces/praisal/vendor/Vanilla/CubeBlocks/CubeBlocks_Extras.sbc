@@ -294,6 +294,42 @@
             <PCU>1</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
+		
+        <Definition>
+            <Id>
+                <TypeId>CubeBlock</TypeId>
+                <SubtypeId>EngineerPlushieSE2</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_EngineerPlushieSE2</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\PlushieSE2.dds</Icon>
+            <Description>Description_EngineerPlushieSE2</Description>
+            <Public>true</Public>
+            <CubeSize>Small</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <Center x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\PlushieSE2.mwm</Model>
+            <Components>
+                <Component Subtype="EngineerPlushieSE2" Count="1" />
+            </Components>
+            <CriticalComponent Subtype="EngineerPlushieSE2" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" Default="true" />
+            </MountPoints>
+            <BlockPairName>EngineerPlushieSE2</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>3</BuildTimeSeconds>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <PCU>1</PCU>
+            <IsAirTight>false</IsAirTight>
+            <IsInventoryItem>true</IsInventoryItem>
+        </Definition>
 
         <Definition>
             <Id>
@@ -826,6 +862,5 @@
             <PCU>1</PCU>
             <IsAirTight>false</IsAirTight>
         </Definition>
-		
     </CubeBlocks>
 </Definitions>
