@@ -273,7 +273,6 @@
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>225</PCU>
-            <IsAirTight>false</IsAirTight>
             <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
             <InventoryFillFactorMin>.25</InventoryFillFactorMin>
             <InventoryFillFactorMax>.5</InventoryFillFactorMax>
@@ -300,6 +299,7 @@
             <PlaceDecals>false</PlaceDecals>
             <BlockTopology>TriangleMesh</BlockTopology>
             <Size x="5" y="5" z="5" />
+            <Center x="2" y="0" z="2" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\GatlingTurret.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
@@ -346,7 +346,7 @@
             <OverlayTexture>Textures\GUI\Screens\turret_overlay.dds</OverlayTexture>
             <WeaponDefinitionId Subtype="SmallGatlingTurret" />
             <HiddenTargetingOptions>Friends</HiddenTargetingOptions>
-            <InventoryMaxVolume>0.084</InventoryMaxVolume>
+            <InventoryMaxVolume>0.08</InventoryMaxVolume>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <ResourceSinkGroup>Defense</ResourceSinkGroup>
@@ -451,7 +451,6 @@
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>275</PCU>
-            <IsAirTight>false</IsAirTight>
             <AmmoPullAmountPerTick>3</AmmoPullAmountPerTick>
             <InventoryFillFactorMin>.25</InventoryFillFactorMin>
             <InventoryFillFactorMax>.5</InventoryFillFactorMax>
@@ -479,6 +478,7 @@
             <PlaceDecals>false</PlaceDecals>
             <BlockTopology>TriangleMesh</BlockTopology>
             <Size x="5" y="5" z="5" />
+            <Center x="2" y="0" z="2" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\MissileTurret.mwm</Model>
             <UseModelIntersection>true</UseModelIntersection>
@@ -583,7 +583,7 @@
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
-                <MountPoint Side="Bottom" StartX="0.46" StartY="0.46" EndX="0.54" EndY="0.54" />
+                <MountPoint Side="Bottom" StartX="0.3" StartY="0.3" EndX="0.7" EndY="0.7" />
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\InteriorTurretConstruction_1.mwm" />
@@ -1443,8 +1443,8 @@
             <TargetingGroups>
                 <string>Weapons</string>
             </TargetingGroups>
-            <UpCameraOffset>1.0</UpCameraOffset>
-            <ForwardCameraOffset>0.5</ForwardCameraOffset>
+            <UpCameraOffset>0.5</UpCameraOffset>
+            <ForwardCameraOffset>0.6</ForwardCameraOffset>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_LargeTurretBaseDefinition">

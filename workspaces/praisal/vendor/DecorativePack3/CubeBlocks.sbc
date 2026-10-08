@@ -977,6 +977,9 @@
                 <TypeId>Cockpit</TypeId>
                 <SubtypeId>SmallBlockCapCockpit</SubtypeId>
             </Id>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
             <DisplayName>DisplayName_Block_CapCockpit</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\CapCockpit.dds</Icon>
             <Description>Description_CockpitIndustrial</Description>
@@ -1089,7 +1092,7 @@
                 <string>TransparentScreenArea_Outside</string>
             </MaterialNamesToHideWhenOffline>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <RequiredPowerInput>0.00002</RequiredPowerInput>
+            <RequiredPowerInput>0.00006</RequiredPowerInput>
             <PanelMaterialName>TransparentScreenArea</PanelMaterialName>
             <DamageEffectName>Damage_Electrical_Damaged_HoloLCD</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
@@ -1349,7 +1352,7 @@
             <OxygenCapacity>1</OxygenCapacity>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <IdlePowerConsumption>0.00003</IdlePowerConsumption>
-            <EmissiveColorPreset>UnpoweredOccupancy</EmissiveColorPreset>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
             <BuildTimeSeconds>9</BuildTimeSeconds>
@@ -1424,7 +1427,7 @@
             <OxygenCapacity>1</OxygenCapacity>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <IdlePowerConsumption>0.00003</IdlePowerConsumption>
-            <EmissiveColorPreset>UnpoweredOccupancy</EmissiveColorPreset>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
             <BuildTimeSeconds>9</BuildTimeSeconds>
@@ -1517,7 +1520,7 @@
 			<MirroringY>X</MirroringY>
             <EdgeType>Light</EdgeType>
             <BuildTimeSeconds>8</BuildTimeSeconds>
-            <MaxScreenRenderDistance>10</MaxScreenRenderDistance>
+            <MaxScreenRenderDistance>60</MaxScreenRenderDistance>
             <GuiVisible>false</GuiVisible>
             <ScreenWidth>5</ScreenWidth>
             <ScreenHeight>3</ScreenHeight>
@@ -2531,13 +2534,14 @@
             <CriticalComponent Subtype="SmallTube" Index="0" />
             <MountPoints>
 				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="0.44" Default="true" />
-				<MountPoint Side="Bottom" StartX="0.27" StartY="0.92" EndX="0.73" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0.27" StartY="0.8" EndX="0.73" EndY="1" />
 				<MountPoint Side="Bottom" StartX="0.73" StartY="0.44" EndX="1" EndY="1" />
 				<MountPoint Side="Bottom" StartX="0" StartY="0.44" EndX="0.27" EndY="1" />
 				<MountPoint Side="Top" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
 				<MountPoint Side="Top" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
 				<MountPoint Side="Top" StartX="0" StartY="0" EndX="0.05" EndY="1" />
 				<MountPoint Side="Top" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0.3" StartY="0.05" EndX="0.7" EndY="0.2" />
 				<MountPoint Side="Left" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
 				<MountPoint Side="Left" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
 				<MountPoint Side="Left" StartX="0" StartY="0" EndX="0.05" EndY="1" />
@@ -2995,7 +2999,6 @@
             <HasInventory>false</HasInventory>
             <BuildTimeSeconds>18</BuildTimeSeconds>
             <PCU>15</PCU>
-            <IsAirTight>true</IsAirTight>
             <DLC>DecorativeBlocks3</DLC>
         </Definition>
         
@@ -3077,7 +3080,7 @@
             <OxygenCapacity>1</OxygenCapacity>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <IdlePowerConsumption>0.00003</IdlePowerConsumption>
-            <EmissiveColorPreset>UnpoweredOccupancy</EmissiveColorPreset>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
             <BuildTimeSeconds>18</BuildTimeSeconds>

@@ -27,8 +27,13 @@
             <Center x="1" y="0" z="1" />
             <MountPoints>
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="2" EndY="4" />
+                <MountPoint Side="Front" StartX="0.4" StartY="0" EndX="1.6" EndY="0.7" />
+                <MountPoint Side="Front" StartX="0.4" StartY="1.3" EndX="1.6" EndY="1.7" />
+                <MountPoint Side="Front" StartX="0.4" StartY="3.3" EndX="1.6" EndY="4" />
                 <MountPoint Side="Bottom" StartX="0" StartY="1" EndX="2" EndY="2" Default="true" />
+                <MountPoint Side="Bottom" StartX="0.4" StartY="0" EndX="1.6" EndY="0.1" />
                 <MountPoint Side="Top" StartX="0" StartY="0" EndX="2" EndY="1" />
+                <MountPoint Side="Top" StartX="0.4" StartY="1.9" EndX="1.6" EndY="2" />
                 <MountPoint Side="Left" StartX="1" StartY="0" EndX="2" EndY="4" />
                 <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="4" />
             </MountPoints>
@@ -75,6 +80,7 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>false</AllowSelfPulling>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_RefineryDefinition">
             <Id>
@@ -82,7 +88,7 @@
                 <SubtypeId>Blast Furnace</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_Arc_Furnace</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\Blastfurnace.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\BlastFurnace.dds</Icon>
             <Description>Description_RefineryBasic</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
@@ -102,8 +108,11 @@
             <MirroringY>Z</MirroringY>
             <MountPoints>
                 <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0.6" EndX="1" EndY="1" />
                 <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="1" EndX="0.4" EndY="2" />
                 <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0.6" StartY="1" EndX="1" EndY="2" />
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" />
                 <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="2" />
             </MountPoints>
@@ -147,6 +156,7 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>false</AllowSelfPulling>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_OxygenGeneratorDefinition">
@@ -162,6 +172,7 @@
             <Size x="1" y="2" z="1" />
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\OxygenGenerator.mwm</Model>
+            <PreciseMode>true</PreciseMode>
             <Components>
                 <Component Subtype="SteelPlate" Count="110" />
                 <Component Subtype="Construction" Count="5" />
@@ -229,6 +240,10 @@
                 <Class>OxygenBottles</Class>
                 <Class>HydrogenBottles</Class>
             </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>OxygenBottles</IgnoredClassIcon>
+				<IgnoredClassIcon>HydrogenBottles</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <GenerateSound>BlockOxyGenProcess</GenerateSound>
@@ -260,6 +275,7 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Small\OxygenGenerator.mwm</Model>
             <SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
+            <PreciseMode>true</PreciseMode>
             <Components>
                 <Component Subtype="SteelPlate" Count="6" />
                 <Component Subtype="Construction" Count="8" />
@@ -329,6 +345,10 @@
                 <Class>OxygenBottles</Class>
                 <Class>HydrogenBottles</Class>
             </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>OxygenBottles</IgnoredClassIcon>
+				<IgnoredClassIcon>HydrogenBottles</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
             <BlockPairName>OxygenGenerator</BlockPairName>
@@ -410,6 +430,9 @@
 				<Class>EliteConsumables</Class>				
                 <Class>BuildPlanner</Class>
             </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>BuildPlanner</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
             <PrimarySound>BlockAssembler</PrimarySound>
@@ -423,6 +446,7 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>true</AllowSelfPulling>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_AssemblerDefinition">
             <Id>
@@ -430,7 +454,7 @@
                 <SubtypeId>BasicAssembler</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Block_BasicAssembler</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\basicAssembler.dds</Icon>
+            <Icon>Textures\GUI\Icons\Cubes\BasicAssembler.dds</Icon>
             <Description>Description_AssemblerBasic</Description>
             <CubeSize>Large</CubeSize>
             <GuiVisible>false</GuiVisible>
@@ -495,6 +519,7 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>true</AllowSelfPulling>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_SurvivalKitDefinition">
             <Id>
@@ -538,8 +563,8 @@
             <BuildTimeSeconds>30</BuildTimeSeconds>
             <ResourceSinkGroup>LifeSupport</ResourceSinkGroup>
             <ScreenAreas>
-                <ScreenArea Name="CockpitScreen_01" DisplayName="Top panel" />
-                <ScreenArea Name="CockpitScreen_02" DisplayName="Bottom panel" />
+                <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" />
+                <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="128" ScreenWidth="11" ScreenHeight="4" />
             </ScreenAreas>
             <BlueprintClasses>
                 <Class>SurvivalKitIngots</Class>
@@ -548,7 +573,16 @@
                 <Class>BasicTools</Class>
 				<Class>BasicWeapons</Class>
 				<Class>BasicConsumables</Class>
+                <Class>BasicFoodProcessorRations</Class>
             </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>BasicComponents</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicEquipment</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicTools</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicWeapons</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicConsumables</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicFoodProcessorRations</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
             <AssemblySpeed>0.3</AssemblySpeed>
 
             <StandbyPowerConsumption>0.015</StandbyPowerConsumption>
@@ -586,6 +620,7 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>true</AllowSelfPulling>
         </Definition>
         <Definition xsi:type="MyObjectBuilder_SurvivalKitDefinition">
             <Id>
@@ -637,11 +672,20 @@
                 <Class>BasicTools</Class>
 				<Class>BasicWeapons</Class>
 				<Class>BasicConsumables</Class>
+                <Class>BasicFoodProcessorRations</Class>
             </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>BasicComponents</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicEquipment</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicTools</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicWeapons</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicConsumables</IgnoredClassIcon>
+				<IgnoredClassIcon>BasicFoodProcessorRations</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
             <AssemblySpeed>0.3</AssemblySpeed>
             <ScreenAreas>
-                <ScreenArea Name="CockpitScreen_01" DisplayName="Top panel" />
-                <ScreenArea Name="CockpitScreen_02" DisplayName="Bottom panel" />
+                <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="5" ScreenHeight="3" />
+                <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="128" ScreenWidth="11" ScreenHeight="4" />
             </ScreenAreas>
 
             <StandbyPowerConsumption>0.015</StandbyPowerConsumption>
@@ -682,8 +726,9 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>true</AllowSelfPulling>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_OxygenFarmDefinition">
             <Id>
                 <TypeId>OxygenFarm</TypeId>
@@ -699,22 +744,23 @@
             <ModelOffset x="0" y="0" z="0" />
             <Model>Models\Cubes\Large\SolarHydroponics.mwm</Model>
             <Components>
-                <Component Subtype="SteelPlate" Count="40" />
-                <Component Subtype="BulletproofGlass" Count="60" />
-                <Component Subtype="LargeTube" Count="20" />
-                <Component Subtype="SmallTube" Count="10" />
-                <Component Subtype="Construction" Count="20" />
-                <Component Subtype="Computer" Count="20" />
+                <Component Subtype="SteelPlate" Count="30" />
                 <Component Subtype="BulletproofGlass" Count="40" />
+                <Component Subtype="SmallTube" Count="30" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="20" />
             </Components>
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
-                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
                 <MountPoint Side="Right" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
-                <MountPoint Side="Bottom" StartX="0" StartY="0.25" EndX="3" EndY="0.75" />
-                <MountPoint Side="Top" StartX="0" StartY="0.25" EndX="3" EndY="0.75" />
-                <MountPoint Side="Back" StartX="0" StartY="0.375" EndX="1" EndY="0.625" />
-                <MountPoint Side="Front" StartX="2" StartY="0.375" EndX="3" EndY="0.625" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0.1" EndX="0.9" EndY="0.9" />
+                <MountPoint Side="Bottom" StartX="0.9" StartY="0.3" EndX="2.9" EndY="0.7" />
+                <MountPoint Side="Top" StartX="0" StartY="0.1" EndX="0.9" EndY="0.9" />
+                <MountPoint Side="Top" StartX="0.9" StartY="0.3" EndX="2.9" EndY="0.7" />
+                <MountPoint Side="Back" StartX="0" StartY="0.1" EndX="0.9" EndY="0.9" />
+                <MountPoint Side="Front" StartX="2.1" StartY="0.1" EndX="3" EndY="0.9" />
             </MountPoints>
             <MirroringX>Y</MirroringX>
             <MirroringY>X</MirroringY>
@@ -745,6 +791,58 @@
             <OperationalPowerConsumption>0.02</OperationalPowerConsumption>
             <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
             <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <PCU>25</PCU>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>LargeBlockAlgaeFarm</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_AlgaeFarm</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\AlgaeFarm.dds</Icon>
+            <Description>Description_AlgaeFarm</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="1" z="1" />
+            <Center x="2" y="0" z="0" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\AlgaeFarm.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="30" />
+                <Component Subtype="BulletproofGlass" Count="40" />
+                <Component Subtype="SmallTube" Count="30" />
+                <Component Subtype="Construction" Count="30" />
+                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="BulletproofGlass" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.8" EndY="0.8" />
+                <MountPoint Side="Bottom" StartX="2" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0.3" EndX="2" EndY="0.7" />
+                <MountPoint Side="Top" StartX="2" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Top" StartX="0.2" StartY="0.3" EndX="2" EndY="0.7" />
+                <MountPoint Side="Back" StartX="2" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <MirroringX>Y</MirroringX>
+            <MirroringY>X</MirroringY>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\AlgaeFarmConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\AlgaeFarmConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\AlgaeFarmConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>AlgaeFarm</BlockPairName>
+            <RequiredPowerInput>0.0002</RequiredPowerInput>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
             <EmissiveColorPreset>Default</EmissiveColorPreset>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
@@ -917,6 +1015,219 @@
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>1</PCU>
             <IsAirTight>false</IsAirTight>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
+            <Id>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>LargeBlockFarmPlot</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FarmPlot</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\FarmPlot.dds</Icon>
+            <Description>Description_FarmPlot</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FarmPlot.mwm</Model>
+            <Components>
+                <Component Subtype="InteriorPlate" Count="20" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="SmallTube" Count="10" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="InteriorPlate" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="1" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.35" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.35" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.35" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.35" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\FarmPlotConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\FarmPlotConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FarmPlotConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FarmPlot</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>20</BuildTimeSeconds>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <PCU>30</PCU>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_AssemblerDefinition">
+            <Id>
+                <TypeId>Assembler</TypeId>
+                <SubtypeId>FoodProcessor</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_FoodProcessor</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\food_processor.dds</Icon>
+            <Description>Description_FoodProcessor</Description>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\FoodProcessor.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="20" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="Motor" Count="4" />
+                <Component Subtype="Display" Count="2" />
+                <Component Subtype="Computer" Count="20" />
+                <Component Subtype="BulletproofGlass" Count="10" />
+                <Component Subtype="SteelPlate" Count="10" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Front" StartX="0.1" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.9" EndY="1" />
+                <MountPoint Side="Back" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.3" />
+                <MountPoint Side="Right" StartX="0" StartY="0.9" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\FoodProcessorConstruction1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\FoodProcessorConstruction2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\FoodProcessorConstruction3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>FoodProcessor</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>30</BuildTimeSeconds>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <InventoryMaxVolume>1</InventoryMaxVolume>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <StandbyPowerConsumption>0.004</StandbyPowerConsumption>
+            <OperationalPowerConsumption>0.18</OperationalPowerConsumption>
+            <BlueprintClasses>
+                <Class>FoodProcessorRations</Class>
+				<Class>FoodProcessorSeeds</Class>
+            </BlueprintClasses>
+            <AssemblySpeed>1</AssemblySpeed>
+            <ScreenAreas>
+                <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="256" ScreenWidth="7" ScreenHeight="6" />
+            </ScreenAreas>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <PrimarySound>BlockAssembler</PrimarySound>
+            <ActionSound>BlockAssemblerProcess</ActionSound>
+            <DestroyEffect>Explosion_Missile</DestroyEffect>
+            <DestroySound>WepSmallMissileExpl</DestroySound>
+            <PCU>40</PCU>
+            <MirroringY>X</MirroringY>
+            <MirroringX>Y</MirroringX>
+            <TieredUpdateTimes>
+                <unsignedInt>60</unsignedInt>
+                <unsignedInt>120</unsignedInt>
+                <unsignedInt>240</unsignedInt>
+            </TieredUpdateTimes>
+            <IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
+            <EnableDisassembly>false</EnableDisassembly>
+            <EnableCooperativeMode>false</EnableCooperativeMode>
+            <AllowSelfPulling>true</AllowSelfPulling>
+        </Definition>
+    
+        <Definition xsi:type="MyObjectBuilder_OxygenGeneratorDefinition">
+            <Id>
+                <TypeId>OxygenGenerator</TypeId>
+                <SubtypeId>IrrigationSystem</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_IrrigationSystem</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\IrrigationSystem.dds</Icon>
+            <Description>Description_IrrigationSystem</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="2" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\IrrigationSystem.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="80" />
+                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="LargeTube" Count="10" />
+                <Component Subtype="Motor" Count="6" />
+                <Component Subtype="Computer" Count="5" />
+                <Component Subtype="SteelPlate" Count="20" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Back" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Back" StartX="0.3" StartY="0" EndX="0.7" EndY="0.7" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Front" StartX="0.9" StartY="0" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0.1" StartY="0" EndX="0.9" EndY="0.8" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="2" Default="true" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="0.1" EndY="2" />
+                <MountPoint Side="Top" StartX="0.9" StartY="0" EndX="1" EndY="2" />
+                <MountPoint Side="Top" StartX="0.1" StartY="0.2" EndX="0.9" EndY="1.8" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="2" EndY="0.1" />
+                <MountPoint Side="Left" StartX="0" StartY="0.9" EndX="2" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="2" EndY="0.1" />
+                <MountPoint Side="Right" StartX="0" StartY="0.9" EndX="2" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\IrrigationSystemConstruction1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\IrrigationSystemConstruction2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\IrrigationSystemConstruction3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>IrrigationSystem</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>20</BuildTimeSeconds>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <IceConsumptionPerSecond>10</IceConsumptionPerSecond>
+            <InventoryMaxVolume>10</InventoryMaxVolume>
+            <CanRefillBottles>false</CanRefillBottles>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
+            <FuelPullAmountFromConveyorInMinutes>2.2</FuelPullAmountFromConveyorInMinutes>
+            <StandbyPowerConsumption>0.001</StandbyPowerConsumption>
+            <OperationalPowerConsumption>0.25</OperationalPowerConsumption>
+            <ProducedGases>
+                <GasInfo>
+                    <Id>
+                        <TypeId>GasProperties</TypeId>
+                        <SubtypeId>Water</SubtypeId>
+                    </Id>
+                    <IceToGasRatio>1</IceToGasRatio>
+                </GasInfo>
+            </ProducedGases>
+            <BlueprintClasses>
+                <Class>Water</Class>
+            </BlueprintClasses>
+            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+            <DamagedSound>ParticleHeavyMech</DamagedSound>
+            <GenerateSound>BlockIrrigationProcess</GenerateSound>
+            <IdleSound>BlockIrrigationIdle</IdleSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <PCU>50</PCU>
+            <TieredUpdateTimes>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+                <unsignedInt>1200</unsignedInt>
+            </TieredUpdateTimes>
         </Definition>
     </CubeBlocks>
 </Definitions>

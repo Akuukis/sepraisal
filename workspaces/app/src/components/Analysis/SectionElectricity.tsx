@@ -33,29 +33,50 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
 
     const smallReactors = countBlocks(sbc.blocks, [
         'Reactor/SmallBlockSmallGenerator',
+        'Reactor/SmallBlockSmallGeneratorWarfare2',
         'Reactor/LargeBlockSmallGenerator',
+        'Reactor/LargeBlockSmallGeneratorWarfare2',
     ])
     const largeReactors = countBlocks(sbc.blocks, [
         'Reactor/SmallBlockLargeGenerator',
+        'Reactor/SmallBlockLargeGeneratorWarfare2',
         'Reactor/LargeBlockLargeGenerator',
+        'Reactor/LargeBlockLargeGeneratorWarfare2',
     ])
     const batteries = countBlocks(sbc.blocks, [
         'BatteryBlock/SmallBlockBatteryBlock',
+        'BatteryBlock/SmallBlockBatteryBlockWarfare2',
         'BatteryBlock/LargeBlockBatteryBlock',
+        'BatteryBlock/LargeBlockBatteryBlockWarfare2',
+        'BatteryBlock/LargeBlockBatteryReskin',
+        'BatteryBlock/LargeBlockBatteryReskinOffset',
+        'BatteryBlock/SmallBlockBatteryReskin',
+        'BatteryBlock/LargeBlockPrototechBattery',
+        'BatteryBlock/SmallBlockPrototechBattery',
     ])
     const smallBatteries = countBlocks(sbc.blocks, [
         'BatteryBlock/SmallBlockSmallBatteryBlock',
     ])
     const solarPanels = countBlocks(sbc.blocks, [
-        'SolarPanel/SmallBlockSolarPanel',
         'SolarPanel/LargeBlockSolarPanel',
+        'SolarPanel/SmallBlockSolarPanel',
+        'SolarPanel/LargeBlockColorableSolarPanel',
+        'SolarPanel/LargeBlockColorableSolarPanelCorner',
+        'SolarPanel/LargeBlockColorableSolarPanelCornerInverted',
+        'SolarPanel/SmallBlockColorableSolarPanel',
+        'SolarPanel/SmallBlockColorableSolarPanelCorner',
+        'SolarPanel/SmallBlockColorableSolarPanelCornerInverted',
     ])
     const hydroEngine = countBlocks(sbc.blocks, [
-        'HydrogenEngine/SmallHydrogenEngine',
         'HydrogenEngine/LargeHydrogenEngine',
+        'HydrogenEngine/SmallHydrogenEngine',
+        'HydrogenEngine/LargeHydrogenEngineReskin',
+        'HydrogenEngine/SmallHydrogenEngineReskin',
+        'HydrogenEngine/LargePrototechReactor',
     ])
     const windTurbines = countBlocks(sbc.blocks, [
         'WindTurbine/LargeBlockWindTurbine',
+        'WindTurbine/LargeBlockWindTurbineReskin',
     ])
 
     return (
@@ -88,15 +109,31 @@ export default hot(createSmartFC(styles, __filename)<IProps>(({ children, classe
 
 
 type ProjectionCardSbc =
-    | 'blocks'
+   | 'blocks'
 
 interface IBpProjectionRow {
-    sbc: {[key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key]},
+   sbc: { [key in keyof Pick<IBlueprint.ISbc, ProjectionCardSbc>]: IBlueprint.ISbc[key] },
 }
 const getMaxOutput = (blocks: IBpProjectionRow['sbc']['blocks']) =>
     0.5 * countBlocks(blocks, ['Reactor/SmallBlockSmallGenerator'])
    + 14.75 * countBlocks(blocks, ['Reactor/SmallBlockLargeGenerator'])
-   + 4 * countBlocks(blocks, ['BatteryBlock/SmallBlockBatteryBlock'])
+   + 12 * countBlocks(blocks, [
+       'BatteryBlock/LargeBlockBatteryBlock',
+       'BatteryBlock/LargeBlockBatteryBlockWarfare2',
+   ])
+   + 6 * countBlocks(blocks, [
+       'BatteryBlock/LargeBlockBatteryReskin',
+       'BatteryBlock/LargeBlockBatteryReskinOffset',
+   ])
+   + 48 * countBlocks(blocks, [
+       'BatteryBlock/LargeBlockPrototechBattery',
+   ])
+   + 4 * countBlocks(blocks, [
+       'BatteryBlock/SmallBlockBatteryBlock',
+       'BatteryBlock/SmallBlockBatteryBlockWarfare2',
+       'BatteryBlock/SmallBlockBatteryReskin',
+   ])
+   + 2.8 * countBlocks(blocks, ['BatteryBlock/SmallBlockPrototechBattery',])
    + 0.2 * countBlocks(blocks, ['BatteryBlock/SmallBlockSmallBatteryBlock'])
    + 0.04 * countBlocks(blocks, ['SolarPanel/SmallBlockSolarPanel'])
    + 0.5 * countBlocks(blocks, ['HydrogenEngine/SmallHydrogenEngine'])
@@ -107,6 +144,21 @@ const getMaxOutput = (blocks: IBpProjectionRow['sbc']['blocks']) =>
    + 5.0 * countBlocks(blocks, ['HydrogenEngine/LargeHydrogenEngine'])
 
 const getMaxStorage = (blocks: IBpProjectionRow['sbc']['blocks']) =>
-    1 * countBlocks(blocks, ['BatteryBlock/SmallBlockBatteryBlock'])
+    3 * countBlocks(blocks, [
+        'BatteryBlock/LargeBlockBatteryBlock',
+        'BatteryBlock/LargeBlockBatteryBlockWarfare2',
+    ])
+   + 1.5 * countBlocks(blocks, [
+       'BatteryBlock/LargeBlockBatteryReskin',
+       'BatteryBlock/LargeBlockBatteryReskinOffset',
+   ])
+   + 18 * countBlocks(blocks, [
+       'BatteryBlock/LargeBlockPrototechBattery',
+   ])
+   + 1 * countBlocks(blocks, [
+       'BatteryBlock/SmallBlockBatteryBlock',
+       'BatteryBlock/SmallBlockBatteryBlockWarfare2',
+       'BatteryBlock/SmallBlockBatteryReskin',
+   ])
+   + 2 * countBlocks(blocks, ['BatteryBlock/SmallBlockPrototechBattery',])
    + 0.05 * countBlocks(blocks, ['BatteryBlock/SmallBlockSmallBatteryBlock'])
-   + 3 * countBlocks(blocks, ['BatteryBlock/LargeBlockBatteryBlock'])

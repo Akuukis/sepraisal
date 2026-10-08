@@ -436,8 +436,8 @@
             <DisplayName>DisplayName_Item_ReactorComponents</DisplayName>
             <Icon>Textures\GUI\Icons\component\reactor_components_component.dds</Icon>
             <Prerequisites>
-                <Item Amount="15" TypeId="Ingot" SubtypeId="Iron" />
                 <Item Amount="20" TypeId="Ingot" SubtypeId="Stone" />
+                <Item Amount="15" TypeId="Ingot" SubtypeId="Iron" />
                 <Item Amount="5" TypeId="Ingot" SubtypeId="Silver" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="Reactor" />
@@ -469,10 +469,10 @@
             <DisplayName>DisplayName_Item_GravityGeneratorComponents</DisplayName>
             <Icon>Textures\GUI\Icons\component\gravity_generator_components_component.dds</Icon>
             <Prerequisites>
+                <Item Amount="600" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="220" TypeId="Ingot" SubtypeId="Cobalt" />
                 <Item Amount="5" TypeId="Ingot" SubtypeId="Silver" />
                 <Item Amount="10" TypeId="Ingot" SubtypeId="Gold" />
-                <Item Amount="220" TypeId="Ingot" SubtypeId="Cobalt" />
-                <Item Amount="600" TypeId="Ingot" SubtypeId="Iron" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="GravityGenerator" />
             <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
@@ -625,6 +625,40 @@
             <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
             <IsPrimary>true</IsPrimary>
         </Blueprint>
+		
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0021_Medkit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Blueprint_Medkit</DisplayName>
+            <Icon>Textures\GUI\Icons\Items\MedKit.dds</Icon>
+            <Prerequisites>
+                <Item Amount="4.5" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="2.75" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="1.75" TypeId="Ingot" SubtypeId="Nickel" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="ConsumableItem" SubtypeId="Medkit" />
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0022_Powerkit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Blueprint_Powerkit</DisplayName>
+            <Icon>Textures\GUI\Icons\Items\PowerKit.dds</Icon>
+            <Prerequisites>
+                <Item Amount="6" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="1.25" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="1.75" TypeId="Ingot" SubtypeId="Nickel" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="ConsumableItem" SubtypeId="Powerkit" />
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+            <IsPrimary>true</IsPrimary>
+        </Blueprint>
 
         <Blueprint>
             <Id>
@@ -634,14 +668,152 @@
             <DisplayName>DisplayName_Item_CanvasCartridge</DisplayName>
             <Icon>Textures\GUI\Icons\component\Cartridge_Icon.dds</Icon>
             <Prerequisites>
-                <Item Amount="35" TypeId="Ingot" SubtypeId="Silicon" />
                 <Item Amount="2" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="35" TypeId="Ingot" SubtypeId="Silicon" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="Canvas" />
             <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
         </Blueprint>
 		
-		<!-- Datapad blueprint is in Blueprints_Economy.sbc -->
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0040_Datapad</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Datapad</DisplayName>
+            <Icon>Textures\GUI\Icons\Items\Datapad_Item.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="5" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
+            </Prerequisites>
+            <Results>
+                <Item Amount="1" TypeId="Datapad" SubtypeId="Datapad" />
+            </Results>
+            <BaseProductionTimeInSeconds>5</BaseProductionTimeInSeconds>
+        </Blueprint>
+		
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0050_FlareGun</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FlareGun</DisplayName>
+            <Icon>Textures\GUI\Icons\FlareGun.dds</Icon>
+            <Prerequisites>
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="0.4" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="0.2" TypeId="Ingot" SubtypeId="Nickel" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="FlareGunItem" />
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
+        </Blueprint>
+		
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0051_FlareGunMagazine</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FlareClip</DisplayName>
+            <Icon>Textures\GUI\Icons\ammo\FlareGun_Ammo.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0.20" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="0.05" TypeId="Ingot" SubtypeId="Nickel" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FlareClip" />
+            <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0060_FireworksBoxBlue</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FireworksBoxBlue</DisplayName>
+            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxBlue" />
+            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0061_FireworksBoxGreen</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FireworksBoxGreen</DisplayName>
+            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxGreen" />
+            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0062_FireworksBoxRed</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FireworksBoxRed</DisplayName>
+            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxRed" />
+            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0063_FireworksBoxYellow</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FireworksBoxYellow</DisplayName>
+            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxYellow" />
+            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0064_FireworksBoxPink</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FireworksBoxPink</DisplayName>
+            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxPink" />
+            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+        </Blueprint>
+
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>Position0065_FireworksBoxRainbow</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FireworksBoxRainbow</DisplayName>
+            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxRainbow" />
+            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+        </Blueprint>
 
 
 		<!-- Weapons -->
@@ -657,7 +829,8 @@
                 <Item Amount="0.3" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="SemiAutoPistolItem" />
-            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -668,11 +841,12 @@
             <DisplayName>DisplayName_Item_FullAutoPistol</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponPistol_FullAuto_Warfare.dds</Icon>
             <Prerequisites>
-                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="SemiAutoPistolItem" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Cobalt" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="FullAutoPistolItem" />
-            <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -683,13 +857,13 @@
             <DisplayName>DisplayName_Item_ElitePistol</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponPistol_Elite_Warfare.dds</Icon>
             <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.4" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Platinum" />
+                <Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="SemiAutoPistolItem" />
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="0.25" TypeId="Ingot" SubtypeId="Platinum" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="ElitePistolItem" />
-            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -701,10 +875,13 @@
             <Icon>Textures\GUI\Icons\WeaponAutomaticRifle.dds</Icon>
             <Prerequisites>
                 <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
+				<Item Amount="1" TypeId="Ingot" SubtypeId="Cobalt" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AutomaticRifleItem" />
-            <BaseProductionTimeInSeconds>10</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -715,11 +892,13 @@
             <DisplayName>DisplayName_Item_RapidFireAutomaticRifle</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponAutomaticRifle_RapidFire.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="8" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="AutomaticRifleItem" />
+				<Item Amount="2" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Cobalt" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="RapidFireAutomaticRifleItem" />
-            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -730,12 +909,13 @@
             <DisplayName>DisplayName_Item_PreciseAutomaticRifle</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponAutomaticRifle_Precise.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Cobalt" />
+                <Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="AutomaticRifleItem" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Cobalt" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="PreciseAutomaticRifleItem" />
-            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -746,13 +926,15 @@
             <DisplayName>DisplayName_Item_EliteAutomaticRifle</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponAutomaticRifle_Elite.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="4" TypeId="Ingot" SubtypeId="Platinum" />
-                <Item Amount="6" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="AutomaticRifleItem" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Cobalt" />
+				<Item Amount="2" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Platinum" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="UltimateAutomaticRifleItem" />
-            <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -763,12 +945,14 @@
             <DisplayName>DisplayName_Item_BasicHandHeldLauncher</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponRocketLauncher_Regular.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="20" TypeId="Ingot" SubtypeId="Iron" />
+				<Item Amount="8" TypeId="Ingot" SubtypeId="Silicon" />
                 <Item Amount="10" TypeId="Ingot" SubtypeId="Nickel" />
                 <Item Amount="5" TypeId="Ingot" SubtypeId="Cobalt" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="BasicHandHeldLauncherItem" />
-            <BaseProductionTimeInSeconds>15</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -779,31 +963,13 @@
             <DisplayName>DisplayName_Item_AdvancedHandHeldLauncher</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponRocketLauncher_Precise.dds</Icon>
             <Prerequisites>
-                <Item Amount="30" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="10" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Cobalt" />
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Platinum" />
+				<Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="BasicHandHeldLauncherItem" />
+                <Item Amount="0.75" TypeId="Ingot" SubtypeId="Platinum" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AdvancedHandHeldLauncherItem" />
-            <BaseProductionTimeInSeconds>20</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
-
-        <Blueprint>
-            <Id>
-                <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Position0005_FlareGun</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_FlareGun</DisplayName>
-            <Icon>Textures\GUI\Icons\FlareGun.dds</Icon>
-            <Prerequisites>
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.3" TypeId="Ingot" SubtypeId="Nickel" />
-            </Prerequisites>
-            <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="FlareGunItem" />
-            <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
-        </Blueprint>
-
-
 
         <!-- Tools -->
         <Blueprint>
@@ -814,13 +980,13 @@
             <DisplayName>DisplayName_Item_AngleGrinder</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponGrinder.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Stone" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="6" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="2" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="2" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinderItem" />
-            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
             <IsPrimary>true</IsPrimary>
         </Blueprint>
 
@@ -832,13 +998,12 @@
             <DisplayName>DisplayName_Item_AngleGrinder2</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponGrinder_1.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Cobalt" />
-                <Item Amount="6" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinderItem" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Cobalt" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinder2Item" />
-            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
             <IsPrimary>true</IsPrimary>
         </Blueprint>
 
@@ -850,14 +1015,12 @@
             <DisplayName>DisplayName_Item_AngleGrinder3</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponGrinder_2.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Cobalt" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Silicon" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Silver" />
+				<Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinder2Item" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinder3Item" />
-            <BaseProductionTimeInSeconds>36</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -868,14 +1031,12 @@
             <DisplayName>DisplayName_Item_AngleGrinder4</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponGrinder_3.dds</Icon>
             <Prerequisites>
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Cobalt" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Silicon" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Platinum" />
+				<Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinder3Item" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="AngleGrinder4Item" />
-            <BaseProductionTimeInSeconds>50</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -886,12 +1047,13 @@
             <DisplayName>DisplayName_Item_HandDrill</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponDrill.dds</Icon>
             <Prerequisites>
-                <Item Amount="20" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Nickel" />
+                <Item Amount="8" TypeId="Ingot" SubtypeId="Iron" />
                 <Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="3" TypeId="Ingot" SubtypeId="Nickel" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrillItem" />
-            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
             <IsPrimary>true</IsPrimary>
         </Blueprint>
 
@@ -903,12 +1065,12 @@
             <DisplayName>DisplayName_Item_HandDrill2</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponDrill_1.dds</Icon>
             <Prerequisites>
-                <Item Amount="20" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Silicon" />
+                <Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrillItem" />
+                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Cobalt" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrill2Item" />
-            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
             <IsPrimary>true</IsPrimary>
         </Blueprint>
 
@@ -920,13 +1082,12 @@
             <DisplayName>DisplayName_Item_HandDrill3</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponDrill_2.dds</Icon>
             <Prerequisites>
-                <Item Amount="20" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Silver" />
+                <Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrill2Item" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrill3Item" />
-            <BaseProductionTimeInSeconds>36</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -937,13 +1098,12 @@
             <DisplayName>DisplayName_Item_HandDrill4</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponDrill_3.dds</Icon>
             <Prerequisites>
-                <Item Amount="20" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Platinum" />
+				<Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrill3Item" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="HandDrill4Item" />
-            <BaseProductionTimeInSeconds>50</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -955,11 +1115,12 @@
             <Icon>Textures\GUI\Icons\WeaponWelder.dds</Icon>
             <Prerequisites>
                 <Item Amount="5" TypeId="Ingot" SubtypeId="Iron" />
+                <Item Amount="3" TypeId="Ingot" SubtypeId="Silicon" />
                 <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="3" TypeId="Ingot" SubtypeId="Stone" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="WelderItem" />
-            <BaseProductionTimeInSeconds>1</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>2</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
             <IsPrimary>true</IsPrimary>
         </Blueprint>
 
@@ -971,13 +1132,12 @@
             <DisplayName>DisplayName_Item_Welder2</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponWelder_1.dds</Icon>
             <Prerequisites>
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="0.2" TypeId="Ingot" SubtypeId="Cobalt" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Silicon" />
+				<Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="WelderItem" />
+                <Item Amount="1.5" TypeId="Ingot" SubtypeId="Cobalt" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="Welder2Item" />
-            <BaseProductionTimeInSeconds>12</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
             <IsPrimary>true</IsPrimary>
         </Blueprint>
 
@@ -989,13 +1149,12 @@
             <DisplayName>DisplayName_Item_Welder3</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponWelder_2.dds</Icon>
             <Prerequisites>
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="0.2" TypeId="Ingot" SubtypeId="Cobalt" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Silver" />
+				<Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="Welder2Item" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Silver" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="Welder3Item" />
-            <BaseProductionTimeInSeconds>36</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>4</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
         <Blueprint>
@@ -1006,13 +1165,12 @@
             <DisplayName>DisplayName_Item_Welder4</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponWelder_3.dds</Icon>
             <Prerequisites>
-                <Item Amount="5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="1" TypeId="Ingot" SubtypeId="Nickel" />
-                <Item Amount="0.2" TypeId="Ingot" SubtypeId="Cobalt" />
-                <Item Amount="2" TypeId="Ingot" SubtypeId="Platinum" />
+				<Item Amount="1" TypeId="PhysicalGunObject" SubtypeId="Welder3Item" />
+                <Item Amount="1" TypeId="Ingot" SubtypeId="Platinum" />
             </Prerequisites>
             <Result Amount="1" TypeId="PhysicalGunObject" SubtypeId="Welder4Item" />
-            <BaseProductionTimeInSeconds>50</BaseProductionTimeInSeconds>
+            <BaseProductionTimeInSeconds>6</BaseProductionTimeInSeconds>
+			<IgnoreEfficiencyMultiplier>true</IgnoreEfficiencyMultiplier>
         </Blueprint>
 
 
@@ -1282,111 +1440,6 @@
             <BaseProductionTimeInSeconds>14</BaseProductionTimeInSeconds>
         </Blueprint>
 
-        <Blueprint>
-            <Id>
-                <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Position0005_FlareGunMagazine</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_FlareClip</DisplayName>
-            <Icon>Textures\GUI\Icons\ammo\FlareGun_Ammo.dds</Icon>
-            <Prerequisites>
-                <Item Amount="0.20" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.05" TypeId="Ingot" SubtypeId="Nickel" />
-            </Prerequisites>
-            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FlareClip" />
-            <BaseProductionTimeInSeconds>3</BaseProductionTimeInSeconds>
-        </Blueprint>
-
-        <Blueprint>
-            <Id>
-                <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Position0007_FireworksBoxBlue</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_FireworksBoxBlue</DisplayName>
-            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
-            <Prerequisites>
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
-            </Prerequisites>
-            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxBlue" />
-            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
-        </Blueprint>
-
-        <Blueprint>
-            <Id>
-                <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Position00071_FireworksBoxGreen</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_FireworksBoxGreen</DisplayName>
-            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
-            <Prerequisites>
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
-            </Prerequisites>
-            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxGreen" />
-            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
-        </Blueprint>
-
-        <Blueprint>
-            <Id>
-                <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Position00072_FireworksBoxRed</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_FireworksBoxRed</DisplayName>
-            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
-            <Prerequisites>
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
-            </Prerequisites>
-            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxRed" />
-            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
-        </Blueprint>
-
-        <Blueprint>
-            <Id>
-                <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Position00073_FireworksBoxYellow</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_FireworksBoxYellow</DisplayName>
-            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
-            <Prerequisites>
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
-            </Prerequisites>
-            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxYellow" />
-            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
-        </Blueprint>
-
-        <Blueprint>
-            <Id>
-                <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Position00074_FireworksBoxPink</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_FireworksBoxPink</DisplayName>
-            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
-            <Prerequisites>
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
-            </Prerequisites>
-            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxPink" />
-            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
-        </Blueprint>
-
-        <Blueprint>
-            <Id>
-                <TypeId>BlueprintDefinition</TypeId>
-                <SubtypeId>Position00075_FireworksBoxRainbow</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_FireworksBoxRainbow</DisplayName>
-            <Icon>Textures\GUI\Icons\ammo\FireworksBox.dds</Icon>
-            <Prerequisites>
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Iron" />
-                <Item Amount="0.5" TypeId="Ingot" SubtypeId="Magnesium" />
-            </Prerequisites>
-            <Result Amount="1" TypeId="AmmoMagazine" SubtypeId="FireworksBoxRainbow" />
-            <BaseProductionTimeInSeconds>8</BaseProductionTimeInSeconds>
-        </Blueprint>
-
 
 		<!-- Special Items -->
         <Blueprint>
@@ -1414,6 +1467,20 @@
                 <Item Amount="0" TypeId="Component" SubtypeId="EngineerPlushie" />
             </Prerequisites>
             <Result Amount="1" TypeId="Component" SubtypeId="EngineerPlushie" />
+            <BaseProductionTimeInSeconds>99999</BaseProductionTimeInSeconds>
+        </Blueprint>
+		
+        <Blueprint>
+            <Id>
+                <TypeId>BlueprintDefinition</TypeId>
+                <SubtypeId>EngineerPlushieSE2</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_EngineerPlushieSE2</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Plushie.dds</Icon>
+            <Prerequisites>
+                <Item Amount="0" TypeId="Component" SubtypeId="EngineerPlushieSE2" />
+            </Prerequisites>
+            <Result Amount="1" TypeId="Component" SubtypeId="EngineerPlushieSE2" />
             <BaseProductionTimeInSeconds>99999</BaseProductionTimeInSeconds>
         </Blueprint>
 

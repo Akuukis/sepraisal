@@ -794,7 +794,7 @@
                 <ScreenArea Name="ScreenArea270" DisplayName="ScreenArea270" TextureResolution="256" ScreenWidth="10" ScreenHeight="6" />
             </ScreenAreas>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
-            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <RequiredPowerInput>0.00002</RequiredPowerInput>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>50</PCU>
@@ -2192,8 +2192,9 @@
             <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
-            <DepressurizationEffectOffset x="-1.2" y="0" z ="-2" />
+            <DepressurizationEffectOffset x="-0.5625" y="0" z ="0.5625" />
             <DLC>Signal</DLC>
+            <PressurizeCube>true</PressurizeCube>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_DoorDefinition">
@@ -2234,6 +2235,7 @@
                 <MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
 
                 <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false" PressurizedWhenClosed="false"/>
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\NarrowDoorHalf_Construction_1.mwm" />
@@ -2256,8 +2258,9 @@
             <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
-            <DepressurizationEffectOffset x="-1.2" y="0" z ="-2" />
+            <DepressurizationEffectOffset x="-0.5625" y="0" z ="0.5625" />
             <DLC>Signal</DLC>
+            <PressurizeCube>true</PressurizeCube>
         </Definition>
         
         <Definition>
@@ -2680,7 +2683,6 @@
             <MountPoints>
                 <MountPoint Side="Top" StartX="0.4" StartY="0.4" EndX="0.6" EndY="0.6" />
                 <MountPoint Side="Bottom" StartX="0.4" StartY="0.4" EndX="0.6" EndY="0.6" Default="true" />
-                <MountPoint Side="Left" StartX="0.4" StartY="0.2" EndX="0.6" EndY="0.8" />
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\TrussPillarDecoyConstruction_1.mwm" />

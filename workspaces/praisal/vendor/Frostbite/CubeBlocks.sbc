@@ -150,6 +150,9 @@
                 <MountPoint Side="Top" StartX="0" StartY="0.5" EndX="1" EndY="1" />
                 <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="0.5" Default="true" />
                 <MountPoint Side="Bottom" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false" PressurizedWhenClosed="false"/>
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
             </MountPoints>
             <BuildProgressModels>
                 <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\OffsetDoorConstruction_1.mwm" />
@@ -172,6 +175,7 @@
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
             <DLC>Frostbite</DLC>
+            <PressurizeCube>true</PressurizeCube>
         </Definition>
 
         <Definition>

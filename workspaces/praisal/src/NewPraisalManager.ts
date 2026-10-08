@@ -34,8 +34,9 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor_3.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_GridAIPack.sbc')],
         [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Prototech.sbc')],
+        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_EconomyDeluxe.sbc')],
+        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Structural.sbc')],
 
         [VENDOR_MOD.DECORATIVE_1        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_1      , 'CubeBlocks.sbc')],
         [VENDOR_MOD.DECORATIVE_2        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_2      , 'CubeBlocks.sbc')],
@@ -46,9 +47,15 @@ export const NewPraisalManager = (): () => Promise<PraisalManager> => {
         [VENDOR_MOD.WARFARE_1           , join(VENDOR_DIR, VENDOR_MOD.WARFARE_1         , 'CubeBlocks.sbc')],
         [VENDOR_MOD.INDUSTRIAL          , join(VENDOR_DIR, VENDOR_MOD.INDUSTRIAL        , 'CubeBlocks.sbc')],
         [VENDOR_MOD.WARFARE_2           , join(VENDOR_DIR, VENDOR_MOD.WARFARE_2         , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.GRIDAIPACK          , join(VENDOR_DIR, VENDOR_MOD.GRIDAIPACK        , 'CubeBlocks.sbc')],
         [VENDOR_MOD.DECORATIVE_3        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_3      , 'CubeBlocks.sbc')],
         [VENDOR_MOD.SIGNALS             , join(VENDOR_DIR, VENDOR_MOD.SIGNALS           , 'CubeBlocks.sbc')],
         [VENDOR_MOD.CONTACT             , join(VENDOR_DIR, VENDOR_MOD.CONTACT           , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.FIELDWORK           , join(VENDOR_DIR, VENDOR_MOD.FIELDWORK         , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.APEXSURVIVALPACK    , join(VENDOR_DIR, VENDOR_MOD.APEXSURVIVALPACK  , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.CORESYSTEMSPACK     , join(VENDOR_DIR, VENDOR_MOD.CORESYSTEMSPACK   , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.ECONOMY2PACK        , join(VENDOR_DIR, VENDOR_MOD.ECONOMY2PACK      , 'CubeBlocks.sbc')],
+        [VENDOR_MOD.PROSPERITYPACK      , join(VENDOR_DIR, VENDOR_MOD.PROSPERITYPACK    , 'CubeBlocks.sbc')],
     ].map(([mod, path]) => [mod, readFileSync(path).toString()] as [VENDOR_MOD, string])
     const componentsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
     const blueprintsSbc = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()

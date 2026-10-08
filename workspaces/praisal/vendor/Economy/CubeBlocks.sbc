@@ -103,7 +103,7 @@
             <MirroringX>Y</MirroringX>
             <MirroringY>X</MirroringY>
             <BuildTimeSeconds>40</BuildTimeSeconds>
-			<ResourceSinkGroup>SafeZoneBlock</ResourceSinkGroup>
+            <ResourceSinkGroup>SafeZoneBlock</ResourceSinkGroup>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
 
@@ -112,18 +112,20 @@
             <MinSafeZoneRadius>10</MinSafeZoneRadius>
             <DefaultSafeZoneRadius>10</DefaultSafeZoneRadius>
             <SafeZoneActivationTimeS>120</SafeZoneActivationTimeS>
-            <MaxSafeZonePowerDrainkW>300000</MaxSafeZonePowerDrainkW>
+            <MaxSafeZonePowerDrainkW>128000</MaxSafeZonePowerDrainkW>
             <MinSafeZonePowerDrainkW>5000</MinSafeZonePowerDrainkW>
             <SafeZoneUpkeep>1</SafeZoneUpkeep>
             <SafeZoneUpkeepTimeM>60</SafeZoneUpkeepTimeM>
+            <FillRatio>0.5</FillRatio>
+            <ItemPullPerRequest>1</ItemPullPerRequest>
             <!-- End Safezone Props-->
 
             <ActionSound>BlockSafeZone</ActionSound>
             <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
             <DestroySound>WepSmallWarheadExpl</DestroySound>
             <PCU>50</PCU>
+            <Repairable>false</Repairable>
         </Definition>
-
 
         <Definition xsi:type="MyObjectBuilder_ContractBlockDefinition">
             <Id>
@@ -184,116 +186,61 @@
             <EmissiveColorPreset>Default</EmissiveColorPreset>
         </Definition>
 
-        <Definition xsi:type="MyObjectBuilder_VendingMachineDefinition">
+        <Definition xsi:type="MyObjectBuilder_FunctionalBlockDefinition">
             <Id>
-                <TypeId>VendingMachine</TypeId>
-                <SubtypeId>VendingMachine</SubtypeId>
+                <TypeId>FunctionalBlock</TypeId>
+                <SubtypeId>ServicesTerminal</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Block_VendingMachine</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\VendingMachine.dds</Icon>
-            <Description>Description_VendingMachine</Description>
+            <DisplayName>DisplayName_Block_ServicesTerminal</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\ServicesTerminal.dds</Icon>
+            <Description>Description_ServicesTerminal</Description>
             <CubeSize>Large</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
             <Size x="1" y="1" z="1" />
             <ModelOffset x="0" y="0" z="0" />
-            <Model>Models\Cubes\Large\VendingMachine.mwm</Model>
+            <Model>Models\Cubes\Large\ServicesTerminal.mwm</Model>
             <Components>
-                <Component Subtype="InteriorPlate" Count="10" />
-                <Component Subtype="Construction" Count="10" />
-                <Component Subtype="Motor" Count="4" />
-                <Component Subtype="Display" Count="4" />
-                <Component Subtype="Computer" Count="10" />
-                <Component Subtype="InteriorPlate" Count="10" />
-            </Components>
-            <CriticalComponent Subtype="Computer" Index="0" />
-            <BuildProgressModels>
-                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\VendingMachineConstruction_1.mwm" />
-                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\VendingMachineConstruction_2.mwm" />
-                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\VendingMachineConstruction_3.mwm" />
-            </BuildProgressModels>
-            <ScreenAreas>
-                <ScreenArea Name="VendingScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="1024" ScreenWidth="15" ScreenHeight="9" Script="TSS_VendingMachine" />
-                <!--<ScreenArea Name="VendingScreen_02" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="128" ScreenWidth="11" ScreenHeight="4" />-->
-            </ScreenAreas>
-            <BlockPairName>VendingMachine</BlockPairName>
-            <EdgeType>Light</EdgeType>
-            <BuildTimeSeconds>20</BuildTimeSeconds>
-            <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
-            <RequiredPowerInput>0.002</RequiredPowerInput>
-            <InventorySize>
-                <X>2.5</X>
-                <Y>2.5</Y>
-                <Z>1</Z>
-            </InventorySize>
-            <MountPoints>
-                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <!--<MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
-                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />-->
-            </MountPoints>
-            <IsAirTight>false</IsAirTight>
-            <MirroringY>X</MirroringY>
-            <MirroringX>Y</MirroringX>
-            <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
-            <DamagedSound>ParticleHeavyMech</DamagedSound>
-            <ActionSound>BlockCollect</ActionSound>
-            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
-            <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>10</PCU>
-            <EmissiveColorPreset>Default</EmissiveColorPreset>
-            <DLC>Economy</DLC>
-        </Definition>
-
-        <Definition xsi:type="MyObjectBuilder_StoreBlockDefinition">
-            <Id>
-                <TypeId>StoreBlock</TypeId>
-                <SubtypeId>AtmBlock</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Block_ATM</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\ATM.dds</Icon>
-            <Description>Description_AtmBlock</Description>
-            <CubeSize>Large</CubeSize>
-            <BlockTopology>TriangleMesh</BlockTopology>
-            <Size x="1" y="1" z="1" />
-            <ModelOffset x="0" y="0" z="0" />
-            <Model>Models\Cubes\Large\ATM.mwm</Model>
-            <Components>
-                <Component Subtype="SteelPlate" Count="10" />
-                <Component Subtype="Construction" Count="20" />
+                <Component Subtype="SteelPlate" Count="15" />
+                <Component Subtype="Construction" Count="12" />
+                <Component Subtype="RadioCommunication" Count="2" />
+                <Component Subtype="Detector" Count="6" />
                 <Component Subtype="Motor" Count="2" />
-                <Component Subtype="Computer" Count="10" />
+                <Component Subtype="Computer" Count="8" />
                 <Component Subtype="Display" Count="4" />
-                <Component Subtype="SteelPlate" Count="10" />
+                <Component Subtype="SteelPlate" Count="8" />
             </Components>
-            <CriticalComponent Subtype="Computer" Index="0" />
+            <CriticalComponent Subtype="Display" Index="0" />
             <BuildProgressModels>
-                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\ATMConstruction_1.mwm" />
-                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\ATMConstruction_2.mwm" />
-                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\ATMConstruction_3.mwm" />
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\ServicesTerminalConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\ServicesTerminalConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\ServicesTerminalConstruction_3.mwm" />
             </BuildProgressModels>
-            <ScreenAreas>
-                <ScreenArea Name="ATM_Screen" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="16" ScreenHeight="10" />
-                <ScreenArea Name="ATM_Keyboard" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="256" ScreenWidth="5" ScreenHeight="2" />
-                <ScreenArea Name="ATM_Numpad" DisplayName="DisplayName_Screen_Numpad" TextureResolution="128" ScreenWidth="4" ScreenHeight="5" />
-            </ScreenAreas>
-            <BlockPairName>AtmBlock</BlockPairName>
-            <EdgeType>Light</EdgeType>
-            <BuildTimeSeconds>15</BuildTimeSeconds>
-            <ResourceSinkGroup>Conveyors</ResourceSinkGroup>
-            <RequiredPowerInput>0.002</RequiredPowerInput>
             <MountPoints>
-                <MountPoint Side="Left" StartX="0.2" StartY="0.2" EndX="0.8" EndY="1" />
+                <MountPoint Side="Bottom" StartX="0.2" StartY="0" EndX="0.8" EndY="0.3" Default="true" />
+                <MountPoint Side="Bottom" StartX="0.8" StartY="0" EndX="1" EndY="0.5" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="0.2" EndY="0.5" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.9" />
+                <MountPoint Side="Right" StartX="0.8" StartY="0.3" EndX="1" EndY="0.9" />
+                <MountPoint Side="Right" StartX="0.6" StartY="0" EndX="1" EndY="0.3" />
+                <MountPoint Side="Right" StartX="0.6" StartY="0.9" EndX="0.9" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0.3" EndX="0.2" EndY="0.9" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.4" EndY="0.3" />
+                <MountPoint Side="Left" StartX="0.1" StartY="0.9" EndX="0.4" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0.6" EndX="1" EndY="0.9" />
             </MountPoints>
             <MirroringY>X</MirroringY>
             <MirroringX>Y</MirroringX>
+            <BlockPairName>ServicesTerminal</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <ScreenAreas>
+                <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_Large" TextureResolution="512" ScreenWidth="10" ScreenHeight="16" />
+            </ScreenAreas>
+            <EmissiveColorPreset>Default</EmissiveColorPreset>
+            <BuildTimeSeconds>20</BuildTimeSeconds>
             <DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
             <DamagedSound>ParticleHeavyMech</DamagedSound>
-            <ActionSound>BlockCollect</ActionSound>
-            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
-            <DestroySound>WepSmallWarheadExpl</DestroySound>
-            <PCU>10</PCU>
-            <EmissiveColorPreset>Default</EmissiveColorPreset>
             <IsAirTight>false</IsAirTight>
-            <DLC>Economy</DLC>
+            <PCU>10</PCU>
         </Definition>
     </CubeBlocks>
 </Definitions>

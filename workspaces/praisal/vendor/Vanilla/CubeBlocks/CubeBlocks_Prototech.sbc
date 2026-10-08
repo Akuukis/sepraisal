@@ -68,6 +68,7 @@
             <DisassembleRatio>5</DisassembleRatio>
             <DamageEffectName>Damage_Electrical_Prototech_JumpDrive_L</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
+            <EmissiveColorPreset>JumpDrive</EmissiveColorPreset>
 
             <ResourceSinkGroup>Charging</ResourceSinkGroup>
             <RequiredPowerInput>64</RequiredPowerInput>
@@ -89,6 +90,7 @@
                 <string>Propulsion</string>
             </TargetingGroups>
             <PCU>80</PCU>
+            <Repairable>false</Repairable>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_JumpDriveDefinition">
@@ -151,6 +153,7 @@
             <DisassembleRatio>5</DisassembleRatio>
             <DamageEffectName>Damage_Electrical_Prototech_JumpDrive_S</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
+            <EmissiveColorPreset>JumpDrive</EmissiveColorPreset>
 
             <ResourceSinkGroup>Charging</ResourceSinkGroup>
             <RequiredPowerInput>24</RequiredPowerInput>
@@ -158,7 +161,7 @@
             <PowerEfficiency>0.9</PowerEfficiency>
 
             <MaxJumpDistance>500000</MaxJumpDistance>
-            <MaxJumpMass>50000</MaxJumpMass>
+            <MaxJumpMass>120000</MaxJumpMass>
             <EmissiveColorPreset>Extended</EmissiveColorPreset>
             <DestroyEffect>Explosion_Warhead_30</DestroyEffect>
             <DestroySound>WepLrgWarheadExpl</DestroySound>
@@ -172,8 +175,9 @@
                 <string>Propulsion</string>
             </TargetingGroups>
             <PCU>80</PCU>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
             <Id>
                 <TypeId>Thrust</TypeId>
@@ -300,8 +304,9 @@
             <TargetingGroups>
                 <string>Propulsion</string>
             </TargetingGroups>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_ThrustDefinition">
             <Id>
                 <TypeId>Thrust</TypeId>
@@ -423,8 +428,9 @@
             <TargetingGroups>
                 <string>Propulsion</string>
             </TargetingGroups>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_RefineryDefinition">
             <Id>
                 <TypeId>Refinery</TypeId>
@@ -531,8 +537,10 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>false</AllowSelfPulling>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_RefineryDefinition">
             <Id>
                 <TypeId>Refinery</TypeId>
@@ -629,8 +637,10 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>false</AllowSelfPulling>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_AssemblerDefinition">
             <Id>
                 <TypeId>Assembler</TypeId>
@@ -725,8 +735,10 @@
                 <unsignedInt>120</unsignedInt>
                 <unsignedInt>240</unsignedInt>
             </TieredUpdateTimes>
+            <AllowSelfPulling>true</AllowSelfPulling>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_GyroDefinition">
             <Id>
                 <TypeId>Gyro</TypeId>
@@ -811,8 +823,9 @@
             <TargetingGroups>
                 <string>Propulsion</string>
             </TargetingGroups>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_GyroDefinition">
             <Id>
                 <TypeId>Gyro</TypeId>
@@ -895,8 +908,9 @@
             <TargetingGroups>
                 <string>Propulsion</string>
             </TargetingGroups>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
         <Definition xsi:type="MyObjectBuilder_BatteryBlockDefinition">
             <Id>
                 <TypeId>BatteryBlock</TypeId>
@@ -973,6 +987,7 @@
             <TargetingGroups>
                 <string>PowerSystems</string>
             </TargetingGroups>
+            <Repairable>false</Repairable>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_BatteryBlockDefinition">
@@ -1054,6 +1069,7 @@
             <TargetingGroups>
                 <string>PowerSystems</string>
             </TargetingGroups>
+            <Repairable>false</Repairable>
         </Definition>
 
         <Definition xsi:type="MyObjectBuilder_ShipDrillDefinition">
@@ -1101,11 +1117,13 @@
             <CriticalComponent Subtype="Computer" Index="0" />
             <MountPoints>
                 <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.4" EndY="2.5" />
-                <MountPoint Side="Right" StartX="0" StartY="1.2" EndX="0.8" EndY="1.8" />
+                <MountPoint Side="Right" StartX="0.4" StartY="1.2" EndX="0.8" EndY="1.8" />
                 <MountPoint Side="Left" StartX="3.6" StartY="0.5" EndX="4" EndY="2.5" />
-                <MountPoint Side="Left" StartX="3.2" StartY="1.2" EndX="4" EndY="1.8" />
+                <MountPoint Side="Left" StartX="3.2" StartY="1.2" EndX="3.6" EndY="1.8" />
                 <MountPoint Side="Top" StartX="0.5" StartY="0" EndX="2.5" EndY="0.4" />
+                <MountPoint Side="Top" StartX="1.4" StartY="0.4" EndX="1.6" EndY="0.6" />
                 <MountPoint Side="Bottom" StartX="0.5" StartY="3.6" EndX="2.5" EndY="4" />
+                <MountPoint Side="Bottom" StartX="1.4" StartY="3.4" EndX="1.6" EndY="3.6" />
                 <MountPoint Side="Back" StartX="0" StartY="0.3" EndX="3" EndY="2.7" Default="true" />
                 <MountPoint Side="Back" StartX="0.3" StartY="0" EndX="2.7" EndY="0.3" />
                 <MountPoint Side="Back" StartX="0.3" StartY="2.7" EndX="2.7" EndY="3" />
@@ -1167,7 +1185,236 @@
             <DrillingMaterialName>ShipDrill_Prototech</DrillingMaterialName>
             
             <PCU>300</PCU>
+            <Repairable>false</Repairable>
         </Definition>
-        
+
+        <Definition xsi:type="MyObjectBuilder_HydrogenEngineDefinition">
+            <Id>
+                <TypeId>HydrogenEngine</TypeId>
+                <SubtypeId>LargePrototechReactor</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_PrototechReactor</DisplayName>
+            <Description>Description_PrototechReactor</Description>
+            <Icon>Textures\GUI\Icons\Cubes\Prototech_Reactor.dds</Icon>
+            <CubeSize>Large</CubeSize>
+            <GuiVisible>false</GuiVisible>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="2" z="2" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\Prototech_Reactor.mwm</Model>
+            <Components>
+                <Component Subtype="PrototechFrame" Count="1">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="PrototechPanel" Count="125" />
+                <Component Subtype="Construction" Count="200" />
+                <Component Subtype="PrototechCapacitor" Count="10">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="PrototechCoolingUnit" Count="30">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="Superconductor" Count="400" />
+                <Component Subtype="Reactor" Count="1000" />
+                <Component Subtype="Computer" Count="100" />
+                <Component Subtype="PrototechPanel" Count="275" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Bottom" StartX="0" StartY="0.15" EndX="3" EndY="2" Default="true" />
+                <MountPoint Side="Front" StartX="0" StartY="0.15" EndX="0.1" EndY="1" />
+                <MountPoint Side="Front" StartX="2.9" StartY="0.15" EndX="3" EndY="1" />
+                <MountPoint Side="Back" StartX="0.1" StartY="0" EndX="2.9" EndY="0.9" />
+                <MountPoint Side="Back" StartX="0" StartY="0.9" EndX="0.9" EndY="1.5" />
+                <MountPoint Side="Back" StartX="2.1" StartY="0.9" EndX="3" EndY="1.5" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="1.9" EndY="1" />
+                <MountPoint Side="Left" StartX="0.5" StartY="1" EndX="2" EndY="1.5" />
+                <MountPoint Side="Right" StartX="0.1" StartY="0" EndX="2" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="1" EndX="1.5" EndY="1.5" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Prototech_Reactor_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Prototech_Reactor_Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Prototech_Reactor_Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>PrototechReactor</BlockPairName>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>120</BuildTimeSeconds>
+			<DisassembleRatio>5</DisassembleRatio>
+            <ResourceSinkGroup>Generators</ResourceSinkGroup>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <MaxPowerOutput>400</MaxPowerOutput>
+            <FuelCapacity>150000</FuelCapacity>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <IsAirTight>false</IsAirTight>
+            <InventorySize>
+                <X>1</X>
+                <Y>1</Y>
+                <Z>1</Z>
+            </InventorySize>
+            <FuelInfos>
+                <FuelInfo>
+                    <Id>
+                        <TypeId>GasProperties</TypeId>
+                        <SubtypeId>Hydrogen</SubtypeId>
+                    </Id>
+                </FuelInfo>
+            </FuelInfos>
+            <FuelProductionToCapacityMultiplier>0.4</FuelProductionToCapacityMultiplier>
+            <PrimarySound>ArcShipLrgFusionLrg</PrimarySound>
+
+            <DamageEffectName>Damage_Electrical_Prototech_Reactor</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <DestroyEffect>Explosion_Warhead_02</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+
+			<!-- Turbine Speed / Animation Controls -->
+            <AnimationSpeed>1.5</AnimationSpeed>
+            <AnimationSpinUpSpeed>0.3</AnimationSpinUpSpeed>
+            <AnimationSpinDownSpeed>0.3</AnimationSpinDownSpeed>
+
+            <PCU>25</PCU>
+            <TargetingGroups>
+                <string>PowerSystems</string>
+            </TargetingGroups>
+            <Repairable>false</Repairable>
+        </Definition>
+
+        <Definition xsi:type="MyObjectBuilder_OxygenGeneratorDefinition">
+            <Id>
+                <TypeId>OxygenGenerator</TypeId>
+                <SubtypeId>LargeBlockPrototechOxygenGenerator</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_PrototechOxygenGenerator</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\Prototech_Generator.dds</Icon>
+            <Description>Description_PrototechOxygenGenerator</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="3" y="2" z="1" />
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Large\Prototech_Generator.mwm</Model>
+            <PreciseMode>true</PreciseMode>
+            <Components>
+                <Component Subtype="PrototechFrame" Count="1">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="PrototechPanel" Count="100" />
+                <Component Subtype="Construction" Count="40" />
+                <Component Subtype="PrototechCircuitry" Count="10">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="LargeTube" Count="10" />
+                <Component Subtype="PrototechMachinery" Count="10">
+                    <DeconstructId>
+                        <TypeId>Ingot</TypeId>
+                        <SubtypeId>PrototechScrap</SubtypeId>
+                    </DeconstructId>
+                </Component>
+                <Component Subtype="Computer" Count="20" />
+                <Component Subtype="PrototechPanel" Count="50" />
+            </Components>
+            <CriticalComponent Subtype="Computer" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Back" StartX="0.9" StartY="1" EndX="2.1" EndY="2" PropertiesMask="2" ExclusionMask="1" />
+                <MountPoint Side="Back" StartX="0.9" StartY="0" EndX="2.1" EndY="1" />
+                <MountPoint Side="Back" StartX="0" StartY="0" EndX="0.1" EndY="2" />
+                <MountPoint Side="Back" StartX="2.9" StartY="0" EndX="3" EndY="2" />
+                <MountPoint Side="Front" StartX="0.9" StartY="1" EndX="2.1" EndY="2" PropertiesMask="2" ExclusionMask="1" />
+                <MountPoint Side="Front" StartX="0.9" StartY="0" EndX="2.1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0" EndX="0.1" EndY="2" />
+                <MountPoint Side="Front" StartX="2.9" StartY="0" EndX="3" EndY="2" />
+                <MountPoint Side="Bottom" StartX="0" StartY="0" EndX="3" EndY="1" Default="true" />
+                <MountPoint Side="Top" StartX="0.9" StartY="0" EndX="2.1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="0.1" EndY="1" />
+                <MountPoint Side="Top" StartX="2.9" StartY="0" EndX="3" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0" EndX="0.1" EndY="2" />
+                <MountPoint Side="Left" StartX="0.9" StartY="0" EndX="1" EndY="2" />
+                <MountPoint Side="Right" StartX="0" StartY="0" EndX="0.1" EndY="2" />
+                <MountPoint Side="Right" StartX="0.9" StartY="0" EndX="1" EndY="2" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\Prototech_Generator_Construction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\Prototech_Generator_Construction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Prototech_Generator_Construction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>PrototechGenerator</BlockPairName>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>100</BuildTimeSeconds>
+            <ResourceSourceGroup>Reactors</ResourceSourceGroup>
+            <ResourceSinkGroup>Factory</ResourceSinkGroup>
+            <IceConsumptionPerSecond>250</IceConsumptionPerSecond>
+            <InventoryMaxVolume>10</InventoryMaxVolume>
+            <InventorySize>
+                <X>2</X>
+                <Y>2</Y>
+                <Z>2</Z>
+            </InventorySize>
+
+            <InventoryFillFactorMin>0.3</InventoryFillFactorMin>
+            <InventoryFillFactorMax>0.6</InventoryFillFactorMax>
+
+            <FuelPullAmountFromConveyorInMinutes>2.2</FuelPullAmountFromConveyorInMinutes>
+            
+            <StandbyPowerConsumption>0.005</StandbyPowerConsumption>
+            <OperationalPowerConsumption>1</OperationalPowerConsumption>
+            <ProducedGases>
+                <GasInfo>
+                    <Id>
+                        <TypeId>GasProperties</TypeId>
+                        <SubtypeId>Oxygen</SubtypeId>
+                    </Id>
+                    <IceToGasRatio>10</IceToGasRatio>
+                </GasInfo>
+                <GasInfo>
+                    <Id>
+                        <TypeId>GasProperties</TypeId>
+                        <SubtypeId>Hydrogen</SubtypeId>
+                    </Id>
+                    <IceToGasRatio>20</IceToGasRatio>
+                </GasInfo>
+            </ProducedGases>
+            <BlueprintClasses>
+                <Class>Ice</Class>
+                <Class>OxygenBottles</Class>
+                <Class>HydrogenBottles</Class>
+            </BlueprintClasses>
+            <IgnoredBlueprintClassesIcons>
+                <IgnoredClassIcon>OxygenBottles</IgnoredClassIcon>
+                <IgnoredClassIcon>HydrogenBottles</IgnoredClassIcon>
+            </IgnoredBlueprintClassesIcons>
+            <DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+            <DamagedSound>ParticleWeapExpl</DamagedSound>
+            <GenerateSound>PrototechO2H2GeneratorProcess</GenerateSound>
+            <IdleSound>BlockPrototechOxyGenIdle</IdleSound>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
+            <DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+            <DestroySound>WepSmallWarheadExpl</DestroySound>
+            <MirroringY>Z</MirroringY>
+            <MirroringZ>Y</MirroringZ>
+            <PCU>50</PCU>
+            <TieredUpdateTimes>
+                <unsignedInt>300</unsignedInt>
+                <unsignedInt>600</unsignedInt>
+                <unsignedInt>1200</unsignedInt>
+            </TieredUpdateTimes>
+            <Repairable>false</Repairable>
+        </Definition>
     </CubeBlocks>
 </Definitions>

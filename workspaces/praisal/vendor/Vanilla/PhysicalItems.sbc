@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <PhysicalItems>
-        <PhysicalItem>
+
+        <!-- Ores -->
+		<PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
                 <SubtypeId>Stone</SubtypeId>
@@ -20,7 +22,39 @@
             <IconSymbol>IconSymbol_Stone</IconSymbol>
             <MinimalPricePerUnit>10</MinimalPricePerUnit>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>Ore</TypeId>
+                <SubtypeId>Ice</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Ice</DisplayName>
+            <Icon>Textures\GUI\Icons\ore_H2O_ice.dds</Icon>
+            <Size>
+                <X>0.07</X>
+                <Y>0.07</Y>
+                <Z>0.07</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.37</Volume>
+            <Model>Models\Components\Sphere.mwm</Model>
+            <PhysicalMaterial>Stone</PhysicalMaterial>
+            <IconSymbol>IconSymbol_Ice</IconSymbol>
+
+            <MinimalPricePerUnit>50</MinimalPricePerUnit>
+            <MinimumOfferAmount>1000</MinimumOfferAmount>
+            <MaximumOfferAmount>10000</MaximumOfferAmount>
+            <MinimumOrderAmount>1000</MinimumOrderAmount>
+            <MaximumOrderAmount>20000</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
+            <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
+        </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -44,10 +78,12 @@
             <MinimumOrderAmount>1000</MinimumOrderAmount>
             <MaximumOrderAmount>20000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -71,10 +107,12 @@
             <MinimumOrderAmount>1000</MinimumOrderAmount>
             <MaximumOrderAmount>20000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -98,10 +136,12 @@
             <MinimumOrderAmount>1000</MinimumOrderAmount>
             <MaximumOrderAmount>9000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -125,10 +165,12 @@
             <MinimumOrderAmount>1000</MinimumOrderAmount>
             <MaximumOrderAmount>9000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -152,10 +194,12 @@
             <MinimumOrderAmount>1000</MinimumOrderAmount>
             <MaximumOrderAmount>20000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -179,10 +223,12 @@
             <MinimumOrderAmount>1500</MinimumOrderAmount>
             <MaximumOrderAmount>15000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -206,10 +252,12 @@
             <MinimumOrderAmount>1500</MinimumOrderAmount>
             <MaximumOrderAmount>15000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -227,16 +275,18 @@
             <Model>Models\Components\Sphere.mwm</Model>
             <PhysicalMaterial>Stone</PhysicalMaterial>
             <IconSymbol>IconSymbol_Pt</IconSymbol>
-            <MinimalPricePerUnit>400</MinimalPricePerUnit>
+            <MinimalPricePerUnit>350</MinimalPricePerUnit>
             <MinimumOfferAmount>100</MinimumOfferAmount>
             <MaximumOfferAmount>1000</MaximumOfferAmount>
             <MinimumOrderAmount>100</MinimumOrderAmount>
             <MaximumOrderAmount>1000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ore</TypeId>
@@ -254,17 +304,38 @@
             <Model>Models\Components\Sphere.mwm</Model>
             <PhysicalMaterial>Stone</PhysicalMaterial>
             <IconSymbol>IconSymbol_U</IconSymbol>
-            <MinimalPricePerUnit>500</MinimalPricePerUnit>
+            <MinimalPricePerUnit>350</MinimalPricePerUnit>
             <MinimumOfferAmount>100</MinimumOfferAmount>
             <MaximumOfferAmount>1000</MaximumOfferAmount>
             <MinimumOrderAmount>100</MinimumOrderAmount>
             <MaximumOrderAmount>1000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
+            <Id>
+                <TypeId>Ore</TypeId>
+                <SubtypeId>Scrap</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Scrap</DisplayName>
+            <Icon>Textures\GUI\Icons\component\ScrapMetalComponent.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.254</Volume>
+            <Model>Models\Components\ScrapMetalComponent.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+        </PhysicalItem>
+		
+        <!-- Ingots -->
+		<PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
                 <SubtypeId>Stone</SubtypeId>
@@ -282,7 +353,9 @@
             <PhysicalMaterial>Metal</PhysicalMaterial>
             <IconSymbol>IconSymbol_Gravel</IconSymbol>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -305,10 +378,12 @@
             <MinimumOrderAmount>1000</MinimumOrderAmount>
             <MaximumOrderAmount>20000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>            
 
             <MinimumAcquisitionAmount>30</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>300</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -331,10 +406,12 @@
             <MinimumOrderAmount>100</MinimumOrderAmount>
             <MaximumOrderAmount>10000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>3</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>30</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -357,10 +434,12 @@
             <MinimumOrderAmount>20</MinimumOrderAmount>
             <MaximumOrderAmount>1000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -383,10 +462,12 @@
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>200</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>200</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -409,10 +490,12 @@
             <MinimumOrderAmount>1000</MinimumOrderAmount>
             <MaximumOrderAmount>20000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>4</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>40</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -435,10 +518,12 @@
             <MinimumOrderAmount>30</MinimumOrderAmount>
             <MaximumOrderAmount>3000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>500</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -461,10 +546,12 @@
             <MinimumOrderAmount>30</MinimumOrderAmount>
             <MaximumOrderAmount>3000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>50</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>250</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -487,10 +574,12 @@
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>1000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
-            <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>200</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem>
             <Id>
                 <TypeId>Ingot</TypeId>
@@ -513,87 +602,358 @@
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>1000</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
-            <MinimumAcquisitionAmount>10</MinimumAcquisitionAmount>
+            <MinimumAcquisitionAmount>100</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>200</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>Ingot</TypeId>
+                <SubtypeId>PrototechScrap</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_PrototechScrap</DisplayName>
+            <Icon>Textures\GUI\Icons\component\ScrapPrototechComponent.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>10</Mass>
+            <Volume>1.5</Volume>
+            <Model>Models\Components\ScrapPrototechComponent.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+			<MinimalPricePerUnit>25000</MinimalPricePerUnit>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
 
-        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+		<!-- Tools -->
+        <PhysicalItem>
             <Id>
                 <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>SemiAutoPistolItem</SubtypeId>
+                <SubtypeId>WelderItem</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_SemiAutoPistol</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponPistol_Warfare.dds</Icon>
-            <Description>Description_SemiAutoPistol</Description>
+            <DisplayName>DisplayName_Item_Welder</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponWelder.dds</Icon>
+            <Description>Description_Welder</Description>
             <Size>
-                <X>0.27</X>
-                <Y>0.15</Y>
-                <Z>0.08</Z>
+                <X>0.4</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
             </Size>
-            <Mass>1</Mass>
-            <Volume>6</Volume>
-            <Model>Models\Weapons\Pistol_Warfare.mwm</Model>
+            <Mass>5</Mass>
+            <Volume>8</Volume>
+            <Model>Models\Weapons\Welder.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <WeaponDefinitionId Subtype="SemiAutoPistolGun" />
-            <ShowAmmoCount>true</ShowAmmoCount>
-            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MinimumOfferAmount>10</MinimumOfferAmount>
             <MaximumOfferAmount>20</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
-        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+		
+        <PhysicalItem>
             <Id>
                 <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>FullAutoPistolItem</SubtypeId>
+                <SubtypeId>Welder2Item</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_FullAutoPistol</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponPistol_FullAuto_Warfare.dds</Icon>
-            <Description>Description_FullAutoPistol</Description>
+            <DisplayName>DisplayName_Item_Welder2</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponWelder_1.dds</Icon>
+            <Description>Description_Welder</Description>
             <Size>
-                <X>0.27</X>
-                <Y>0.15</Y>
-                <Z>0.08</Z>
+                <X>0.4</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
             </Size>
-            <Mass>1</Mass>
+            <Mass>5</Mass>
             <Volume>8</Volume>
-            <Model>Models\Weapons\Pistol_FullAuto_Warfare.mwm</Model>
+            <Model>Models\Weapons\WelderMk2.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <WeaponDefinitionId Subtype="FullAutoPistolGun" />
-            <ShowAmmoCount>true</ShowAmmoCount>
-            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <ExtraInventoryTooltipLineId>Item_Welder_Extra_Tooltip</ExtraInventoryTooltipLineId>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>100</MaximumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
-        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+		
+        <PhysicalItem>
             <Id>
                 <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>ElitePistolItem</SubtypeId>
+                <SubtypeId>Welder3Item</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_ElitePistol</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponPistol_Elite_Warfare.dds</Icon>
-            <Description>Description_ElitePistol</Description>
+            <DisplayName>DisplayName_Item_Welder3</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponWelder_2.dds</Icon>
+            <Description>Description_Welder</Description>
             <Size>
-                <X>0.27</X>
-                <Y>0.15</Y>
-                <Z>0.08</Z>
+                <X>0.4</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
             </Size>
-            <Mass>1</Mass>
-            <Volume>6</Volume>
-            <Model>Models\Weapons\Pistol_Elite_Warfare.mwm</Model>
+            <Mass>5</Mass>
+            <Volume>8</Volume>
+            <Model>Models\Weapons\WelderMk3.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <WeaponDefinitionId Subtype="ElitePistolGun" />
-            <ShowAmmoCount>true</ShowAmmoCount>
+            <ExtraInventoryTooltipLineId>Item_Welder_Extra_Tooltip</ExtraInventoryTooltipLineId>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>Welder4Item</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Welder4</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponWelder_3.dds</Icon>
+            <Description>Description_Welder</Description>
+            <Size>
+                <X>0.4</X>
+                <Y>0.2</Y>
+                <Z>0.1</Z>
+            </Size>
+            <Mass>5</Mass>
+            <Volume>8</Volume>
+            <Model>Models\Weapons\WelderMk4.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <ExtraInventoryTooltipLineId>Item_Welder4_Extra_Tooltip</ExtraInventoryTooltipLineId>
             <MinimumOfferAmount>1</MinimumOfferAmount>
             <MaximumOfferAmount>3</MaximumOfferAmount>
+            <MinimumOrderAmount>5</MinimumOrderAmount>
+            <MaximumOrderAmount>10</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>AngleGrinderItem</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_AngleGrinder</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponGrinder.dds</Icon>
+            <Description>Description_AngleGrinder</Description>
+            <Size>
+                <X>0.5</X>
+                <Y>0.3</Y>
+                <Z>0.2</Z>
+            </Size>
+            <Mass>3</Mass>
+            <Volume>20</Volume>
+            <Model>Models\Weapons\AngleGrinder.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MinimumOfferAmount>10</MinimumOfferAmount>
+            <MaximumOfferAmount>20</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>AngleGrinder2Item</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_AngleGrinder2</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponGrinder_1.dds</Icon>
+            <Description>Description_AngleGrinder</Description>
+            <Size>
+                <X>0.5</X>
+                <Y>0.3</Y>
+                <Z>0.2</Z>
+            </Size>
+            <Mass>3</Mass>
+            <Volume>20</Volume>
+            <Model>Models\Weapons\AngleGrinderMk2.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <ExtraInventoryTooltipLineId>Item_Grinder_Extra_Tooltip</ExtraInventoryTooltipLineId>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>AngleGrinder3Item</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_AngleGrinder3</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponGrinder_2.dds</Icon>
+            <Description>Description_AngleGrinder</Description>
+            <Size>
+                <X>0.5</X>
+                <Y>0.3</Y>
+                <Z>0.2</Z>
+            </Size>
+            <Mass>3</Mass>
+            <Volume>20</Volume>
+            <Model>Models\Weapons\AngleGrinderMk3.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <ExtraInventoryTooltipLineId>Item_Grinder_Extra_Tooltip</ExtraInventoryTooltipLineId>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>AngleGrinder4Item</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_AngleGrinder4</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponGrinder_3.dds</Icon>
+            <Description>Description_AngleGrinder</Description>
+            <Size>
+                <X>0.5</X>
+                <Y>0.3</Y>
+                <Z>0.2</Z>
+            </Size>
+            <Mass>3</Mass>
+            <Volume>20</Volume>
+            <Model>Models\Weapons\AngleGrinderMk4.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <ExtraInventoryTooltipLineId>Item_Grinder4_Extra_Tooltip</ExtraInventoryTooltipLineId>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>3</MaximumOfferAmount>
+            <MinimumOrderAmount>5</MinimumOrderAmount>
+            <MaximumOrderAmount>10</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>HandDrillItem</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_HandDrill</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponDrill.dds</Icon>
+            <Description>Description_HandDrill</Description>
+            <Size>
+                <X>1.2</X>
+                <Y>0.6</Y>
+                <Z>0.3</Z>
+            </Size>
+            <Mass>22</Mass>
+            <Volume>25</Volume>
+            <Model>Models\Weapons\HandDrill.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <MinimumOfferAmount>10</MinimumOfferAmount>
+            <MaximumOfferAmount>20</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>HandDrill2Item</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_HandDrill2</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponDrill_1.dds</Icon>
+            <Description>Description_HandDrill</Description>
+            <Size>
+                <X>1.2</X>
+                <Y>0.6</Y>
+                <Z>0.3</Z>
+            </Size>
+            <Mass>22</Mass>
+            <Volume>25</Volume>
+            <Model>Models\Weapons\HandDrillMk2.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <ExtraInventoryTooltipLineId>Item_Drill_Extra_Tooltip</ExtraInventoryTooltipLineId>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>HandDrill3Item</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_HandDrill3</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponDrill_2.dds</Icon>
+            <Description>Description_HandDrill</Description>
+            <Size>
+                <X>1.2</X>
+                <Y>0.6</Y>
+                <Z>0.3</Z>
+            </Size>
+            <Mass>22</Mass>
+            <Volume>25</Volume>
+            <Model>Models\Weapons\HandDrillMk3.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <ExtraInventoryTooltipLineId>Item_Drill_Extra_Tooltip</ExtraInventoryTooltipLineId>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem>
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>HandDrill4Item</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_HandDrill4</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponDrill_3.dds</Icon>
+            <Description>Description_HandDrill</Description>
+            <Size>
+                <X>1.2</X>
+                <Y>0.6</Y>
+                <Z>0.3</Z>
+            </Size>
+            <Mass>22</Mass>
+            <Volume>25</Volume>
+            <Model>Models\Weapons\HandDrillMk4.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <ExtraInventoryTooltipLineId>Item_Drill4_Extra_Tooltip</ExtraInventoryTooltipLineId>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>3</MaximumOfferAmount>
+            <MinimumOrderAmount>5</MinimumOrderAmount>
+            <MaximumOrderAmount>10</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
 
+        <!-- Weapons -->
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
             <Id>
                 <TypeId>PhysicalGunObject</TypeId>
@@ -617,7 +977,93 @@
             <MaximumOfferAmount>5</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+
+		<PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>SemiAutoPistolItem</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_SemiAutoPistol</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponPistol_Warfare.dds</Icon>
+            <Description>Description_SemiAutoPistol</Description>
+            <Size>
+                <X>0.27</X>
+                <Y>0.15</Y>
+                <Z>0.08</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>6</Volume>
+            <Model>Models\Weapons\Pistol_Warfare.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="SemiAutoPistolGun" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>20</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>FullAutoPistolItem</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_FullAutoPistol</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponPistol_FullAuto_Warfare.dds</Icon>
+            <Description>Description_FullAutoPistol</Description>
+            <Size>
+                <X>0.27</X>
+                <Y>0.15</Y>
+                <Z>0.08</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>8</Volume>
+            <Model>Models\Weapons\Pistol_FullAuto_Warfare.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="FullAutoPistolGun" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
+            <Id>
+                <TypeId>PhysicalGunObject</TypeId>
+                <SubtypeId>ElitePistolItem</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_ElitePistol</DisplayName>
+            <Icon>Textures\GUI\Icons\WeaponPistol_Elite_Warfare.dds</Icon>
+            <Description>Description_ElitePistol</Description>
+            <Size>
+                <X>0.27</X>
+                <Y>0.15</Y>
+                <Z>0.08</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>6</Volume>
+            <Model>Models\Weapons\Pistol_Elite_Warfare.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <WeaponDefinitionId Subtype="ElitePistolGun" />
+            <ShowAmmoCount>true</ShowAmmoCount>
+            <MinimumOfferAmount>1</MinimumOfferAmount>
+            <MaximumOfferAmount>3</MaximumOfferAmount>
+            <MinimumOrderAmount>10</MinimumOrderAmount>
+            <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
 
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
@@ -643,7 +1089,9 @@
             <MaximumOfferAmount>20</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
 
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
@@ -669,7 +1117,9 @@
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
 
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
@@ -695,7 +1145,9 @@
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
 
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
@@ -721,7 +1173,9 @@
             <MaximumOfferAmount>3</MaximumOfferAmount>
             <MinimumOrderAmount>5</MinimumOrderAmount>
             <MaximumOrderAmount>10</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
 
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
@@ -747,7 +1201,9 @@
             <MaximumOfferAmount>5</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
 
         <PhysicalItem xsi:type="MyObjectBuilder_WeaponItemDefinition">
@@ -773,10 +1229,13 @@
             <MaximumOfferAmount>3</MaximumOfferAmount>
             <MinimumOrderAmount>10</MinimumOrderAmount>
             <MaximumOrderAmount>100</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
         </PhysicalItem>
 
-        <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
+        <!-- Bottles -->
+		<PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
             <Id>
                 <TypeId>OxygenContainerObject</TypeId>
                 <SubtypeId>OxygenBottle</SubtypeId>
@@ -796,16 +1255,19 @@
                 <TypeId>GasProperties</TypeId>
                 <SubtypeId>Oxygen</SubtypeId>
             </StoredGasId>
-            <Capacity>100</Capacity>
+            <Capacity>40</Capacity>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>20</MinimumOrderAmount>
             <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
         </PhysicalItem>
+		
         <PhysicalItem xsi:type="MyObjectBuilder_OxygenContainerDefinition">
             <Id>
                 <TypeId>GasContainerObject</TypeId>
@@ -826,301 +1288,280 @@
                 <TypeId>GasProperties</TypeId>
                 <SubtypeId>Hydrogen</SubtypeId>
             </StoredGasId>
-            <Capacity>1000</Capacity>
+            <Capacity>400</Capacity>
             <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>10</MaximumOfferAmount>
             <MinimumOrderAmount>20</MinimumOrderAmount>
             <MaximumOrderAmount>50</MaximumOrderAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
 
             <MinimumAcquisitionAmount>20</MinimumAcquisitionAmount>
             <MaximumAcquisitionAmount>50</MaximumAcquisitionAmount>
         </PhysicalItem>
-        <PhysicalItem>
+		
+		<!-- Consumables -->
+        <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
             <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>WelderItem</SubtypeId>
+                <TypeId>ConsumableItem</TypeId>
+                <SubtypeId>Medkit</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_Welder</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponWelder.dds</Icon>
-            <Description>Description_Welder</Description>
+            <DisplayName>DisplayName_Item_Medkit</DisplayName>
+            <Description>Description_Medkit</Description>
+            <Icon>Textures\GUI\Icons\Items\MedKit.dds</Icon>
             <Size>
-                <X>0.4</X>
+                <X>0.2</X>
                 <Y>0.2</Y>
-                <Z>0.1</Z>
+                <Z>0.2</Z>
             </Size>
-            <Mass>5</Mass>
-            <Volume>8</Volume>
-            <Model>Models\Weapons\Welder.mwm</Model>
+            <Mass>10</Mass>
+            <Volume>12</Volume>
+            <Model>Models\Items\Medkit_Item.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MinimumOfferAmount>10</MinimumOfferAmount>
+            <Stats>
+                <Stat Name="Health" Value ="0.025" Time="10"/>
+            </Stats>
+			<UseSound>PlayUseMedKit</UseSound>
+			<ExtraInventoryTooltipLineId>Item_Medkit_Extra_Tooltip</ExtraInventoryTooltipLineId>
+
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+            <Id>
+                <TypeId>ConsumableItem</TypeId>
+                <SubtypeId>Powerkit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Powerkit</DisplayName>
+            <Description>Description_Powerkit</Description>
+            <Icon>Textures\GUI\Icons\Items\PowerKit.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.2</Z>
+            </Size>
+            <Mass>9</Mass>
+            <Volume>9</Volume>
+            <Model>Models\Items\PowerKit.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <Stats>
+                <Stat Name="BatteryCharge" Value ="0.025" Time="10"/>
+            </Stats>
+			<UseSound>PlayUsePowerKit</UseSound>
+			<ExtraInventoryTooltipLineId>Item_Powerkit_Extra_Tooltip</ExtraInventoryTooltipLineId>
+
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>50</MaximumOfferAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+        <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
+            <Id>
+                <TypeId>ConsumableItem</TypeId>
+                <SubtypeId>RadiationKit</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_RadiationKit</DisplayName>
+            <Description>Description_RadiationKit</Description>
+            <Icon>Textures\GUI\Icons\Items\AntiRadiationMedkit.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.2</Y>
+                <Z>0.2</Z>
+            </Size>
+            <Mass>6</Mass>
+            <Volume>8</Volume>
+            <Model>Models\Items\AntiRadiationMedkit.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+            <Stats>
+                <Stat Name="Radiation" Value ="-0.0333" Time="30"/>
+				<Stat Name="RadiationImmunity" Value ="1" Time="1"/>
+            </Stats>
+			<UseSound>PlayUseRadiationKit</UseSound>
+			<ExtraInventoryTooltipLineId>Item_RadiationKit_Extra_Tooltip</ExtraInventoryTooltipLineId>
+
+            <MinimalPricePerUnit>1750</MinimalPricePerUnit>
+            <MinimumOfferAmount>5</MinimumOfferAmount>
+            <MaximumOfferAmount>10</MaximumOfferAmount>
+			<DepositAllEnabled>false</DepositAllEnabled>
+            <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+        </PhysicalItem>
+		
+		<!-- Story Items -->
+        <PhysicalItem xsi:type="MyObjectBuilder_DatapadDefinition">
+            <Id>
+                <TypeId>Datapad</TypeId>
+                <SubtypeId>Datapad</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_Datapad</DisplayName>
+            <Description>Description_Datapad</Description>
+            <Icon>Textures\GUI\Icons\Items\Datapad_Item.dds</Icon>
+            <Size>
+                <X>0.2</X>
+                <Y>0.1</Y>
+                <Z>0.2</Z>
+            </Size>
+            <Mass>0.2</Mass>
+            <Volume>0.4</Volume>
+            <Model>Models\Items\Datapad_Item.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+
+            <MinimumOfferAmount>5</MinimumOfferAmount>
             <MaximumOfferAmount>20</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>100</MaximumOrderAmount>
             <CanPlayerOrder>true</CanPlayerOrder>
+            <CanPlayerOffer>true</CanPlayerOffer>
+            <AlwaysInStore>true</AlwaysInStore>
         </PhysicalItem>
-        <PhysicalItem>
+		
+		<!-- Economy -->
+        <PhysicalItem xsi:type="MyObjectBuilder_PackageDefinition">
             <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>Welder2Item</SubtypeId>
+                <TypeId>Package</TypeId>
+                <SubtypeId>Package</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_Welder2</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponWelder_1.dds</Icon>
-            <Description>Description_Welder</Description>
-            <Size>
-                <X>0.4</X>
-                <Y>0.2</Y>
-                <Z>0.1</Z>
-            </Size>
-            <Mass>5</Mass>
-            <Volume>8</Volume>
-            <Model>Models\Weapons\WelderMk2.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Welder_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>5</MinimumOfferAmount>
-            <MaximumOfferAmount>10</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
-        <PhysicalItem>
-            <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>Welder3Item</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_Welder3</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponWelder_2.dds</Icon>
-            <Description>Description_Welder</Description>
-            <Size>
-                <X>0.4</X>
-                <Y>0.2</Y>
-                <Z>0.1</Z>
-            </Size>
-            <Mass>5</Mass>
-            <Volume>8</Volume>
-            <Model>Models\Weapons\WelderMk3.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Welder_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>5</MinimumOfferAmount>
-            <MaximumOfferAmount>10</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
-        <PhysicalItem>
-            <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>Welder4Item</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_Welder4</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponWelder_3.dds</Icon>
-            <Description>Description_Welder</Description>
-            <Size>
-                <X>0.4</X>
-                <Y>0.2</Y>
-                <Z>0.1</Z>
-            </Size>
-            <Mass>5</Mass>
-            <Volume>8</Volume>
-            <Model>Models\Weapons\WelderMk4.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Welder4_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>1</MinimumOfferAmount>
-            <MaximumOfferAmount>3</MaximumOfferAmount>
-            <MinimumOrderAmount>5</MinimumOrderAmount>
-            <MaximumOrderAmount>10</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
-        <PhysicalItem>
-            <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>AngleGrinderItem</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_AngleGrinder</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponGrinder.dds</Icon>
-            <Description>Description_AngleGrinder</Description>
+            <DisplayName>DisplayName_Item_Package</DisplayName>
+            <Description>Description_Package</Description>
+            <Icon>Textures\GUI\Icons\Items\ContractPackage.dds</Icon>
             <Size>
                 <X>0.5</X>
-                <Y>0.3</Y>
-                <Z>0.2</Z>
+                <Y>0.5</Y>
+                <Z>0.5</Z>
             </Size>
-            <Mass>3</Mass>
-            <Volume>20</Volume>
-            <Model>Models\Weapons\AngleGrinder.mwm</Model>
+            <Mass>100</Mass>
+            <Volume>125</Volume>
+            <Model>Models\Components\ContractPackage.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MinimumOfferAmount>10</MinimumOfferAmount>
-            <MaximumOfferAmount>20</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>100</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
+			<DepositAllEnabled>false</DepositAllEnabled>
         </PhysicalItem>
-        <PhysicalItem>
+
+        <PhysicalItem xsi:type="MyObjectBuilder_PackageDefinition">
             <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>AngleGrinder2Item</SubtypeId>
+                <TypeId>Package</TypeId>
+                <SubtypeId>EncryptedDataStorage</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_AngleGrinder2</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponGrinder_1.dds</Icon>
-            <Description>Description_AngleGrinder</Description>
+            <DisplayName>DisplayName_Item_EncryptedDataStorage</DisplayName>
+            <Description>Description_Package</Description>
+            <Icon>Textures\GUI\Icons\Items\EncryptedDataStorage.dds</Icon>
             <Size>
                 <X>0.5</X>
-                <Y>0.3</Y>
-                <Z>0.2</Z>
+                <Y>0.5</Y>
+                <Z>0.5</Z>
             </Size>
-            <Mass>3</Mass>
-            <Volume>20</Volume>
-            <Model>Models\Weapons\AngleGrinderMk2.mwm</Model>
+            <Mass>40</Mass>
+            <Volume>30</Volume>
+            <Model>Models\Items\EncryptedDataStorage.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Grinder_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>5</MinimumOfferAmount>
-            <MaximumOfferAmount>10</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
+			<DepositAllEnabled>false</DepositAllEnabled>
         </PhysicalItem>
-        <PhysicalItem>
+		
+        <PhysicalItem xsi:type="MyObjectBuilder_PackageDefinition">
             <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>AngleGrinder3Item</SubtypeId>
+                <TypeId>Package</TypeId>
+                <SubtypeId>InterceptedTransmissions</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_AngleGrinder3</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponGrinder_2.dds</Icon>
-            <Description>Description_AngleGrinder</Description>
+            <DisplayName>DisplayName_Item_InterceptedTransmissions</DisplayName>
+            <Description>Description_Package</Description>
+            <Icon>Textures\GUI\Icons\Items\InterceptedTransmissions.dds</Icon>
+            <Size>
+                <X>0.15</X>
+                <Y>0.15</Y>
+                <Z>0.15</Z>
+            </Size>
+            <Mass>1</Mass>
+            <Volume>0.8</Volume>
+            <Model>Models\Items\InterceptedTransmissions.mwm</Model>
+            <PhysicalMaterial>Metal</PhysicalMaterial>
+			<DepositAllEnabled>false</DepositAllEnabled>
+        </PhysicalItem>
+		
+        <PhysicalItem xsi:type="MyObjectBuilder_PackageDefinition">
+            <Id>
+                <TypeId>Package</TypeId>
+                <SubtypeId>ResearchMaterials</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Item_ResearchMaterials</DisplayName>
+            <Description>Description_Package</Description>
+            <Icon>Textures\GUI\Icons\Items\ResearchMaterials.dds</Icon>
             <Size>
                 <X>0.5</X>
-                <Y>0.3</Y>
-                <Z>0.2</Z>
+                <Y>0.5</Y>
+                <Z>0.5</Z>
             </Size>
-            <Mass>3</Mass>
+            <Mass>8</Mass>
             <Volume>20</Volume>
-            <Model>Models\Weapons\AngleGrinderMk3.mwm</Model>
+            <Model>Models\Items\ResearchMaterials.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Grinder_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>5</MinimumOfferAmount>
-            <MaximumOfferAmount>10</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
+			<DepositAllEnabled>false</DepositAllEnabled>
         </PhysicalItem>
-        <PhysicalItem>
+		
+        <PhysicalItem xsi:type="MyObjectBuilder_PackageDefinition">
             <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>AngleGrinder4Item</SubtypeId>
+                <TypeId>Package</TypeId>
+                <SubtypeId>SmuggledGoods</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_AngleGrinder4</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponGrinder_3.dds</Icon>
-            <Description>Description_AngleGrinder</Description>
+            <DisplayName>DisplayName_Item_SmuggledGoods</DisplayName>
+            <Description>Description_Package</Description>
+            <Icon>Textures\GUI\Icons\Items\SmuggledGoods.dds</Icon>
             <Size>
                 <X>0.5</X>
-                <Y>0.3</Y>
-                <Z>0.2</Z>
+                <Y>0.5</Y>
+                <Z>0.5</Z>
             </Size>
-            <Mass>3</Mass>
-            <Volume>20</Volume>
-            <Model>Models\Weapons\AngleGrinderMk4.mwm</Model>
+            <Mass>80</Mass>
+            <Volume>115</Volume>
+            <Model>Models\Items\SmuggledGoods.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Grinder4_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>1</MinimumOfferAmount>
-            <MaximumOfferAmount>3</MaximumOfferAmount>
-            <MinimumOrderAmount>5</MinimumOrderAmount>
-            <MaximumOrderAmount>10</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
+			<DepositAllEnabled>false</DepositAllEnabled>
         </PhysicalItem>
-        <PhysicalItem>
+		
+        <PhysicalItem xsi:type="MyObjectBuilder_PackageDefinition">
             <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>HandDrillItem</SubtypeId>
+                <TypeId>Package</TypeId>
+                <SubtypeId>TechnicalBlueprints</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_HandDrill</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponDrill.dds</Icon>
-            <Description>Description_HandDrill</Description>
+            <DisplayName>DisplayName_Item_TechnicalBlueprints</DisplayName>
+            <Description>Description_Package</Description>
+            <Icon>Textures\GUI\Icons\Items\TechnicalBlueprints.dds</Icon>
             <Size>
-                <X>1.2</X>
-                <Y>0.6</Y>
-                <Z>0.3</Z>
+                <X>0.25</X>
+                <Y>0.25</Y>
+                <Z>0.25</Z>
             </Size>
-            <Mass>22</Mass>
-            <Volume>25</Volume>
-            <Model>Models\Weapons\HandDrill.mwm</Model>
+            <Mass>1</Mass>
+            <Volume>1</Volume>
+            <Model>Models\Items\TechnicalBlueprints.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <MinimumOfferAmount>10</MinimumOfferAmount>
-            <MaximumOfferAmount>20</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>100</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
+			<DepositAllEnabled>false</DepositAllEnabled>
         </PhysicalItem>
-        <PhysicalItem>
+
+        <PhysicalItem xsi:type="MyObjectBuilder_PhysicalItemDefinition">
             <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>HandDrill2Item</SubtypeId>
+                <TypeId>PhysicalObject</TypeId>
+                <SubtypeId>SpaceCredit</SubtypeId>
             </Id>
-            <DisplayName>DisplayName_Item_HandDrill2</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponDrill_1.dds</Icon>
-            <Description>Description_HandDrill</Description>
+            <DisplayName>DisplayName_Item_SpaceCredit</DisplayName>
+            <Description>Description_SpaceCredit</Description>
+            <Icon>Textures\GUI\Icons\Items\SpaceCredit.dds</Icon>
             <Size>
-                <X>1.2</X>
-                <Y>0.6</Y>
-                <Z>0.3</Z>
+                <X>0.001</X>
+                <Y>0.001</Y>
+                <Z>0.001</Z>
             </Size>
-            <Mass>22</Mass>
-            <Volume>25</Volume>
-            <Model>Models\Weapons\HandDrillMk2.mwm</Model>
+            <Mass>0.001</Mass>
+            <Volume>0.001</Volume>
+            <MaxStackAmount>1000000</MaxStackAmount>
+            <Model>Models\Components\SpaceCredit.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Drill_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>5</MinimumOfferAmount>
-            <MaximumOfferAmount>10</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
         </PhysicalItem>
-        <PhysicalItem>
-            <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>HandDrill3Item</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_HandDrill3</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponDrill_2.dds</Icon>
-            <Description>Description_HandDrill</Description>
-            <Size>
-                <X>1.2</X>
-                <Y>0.6</Y>
-                <Z>0.3</Z>
-            </Size>
-            <Mass>22</Mass>
-            <Volume>25</Volume>
-            <Model>Models\Weapons\HandDrillMk3.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Drill_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>5</MinimumOfferAmount>
-            <MaximumOfferAmount>10</MaximumOfferAmount>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
-        <PhysicalItem>
-            <Id>
-                <TypeId>PhysicalGunObject</TypeId>
-                <SubtypeId>HandDrill4Item</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_HandDrill4</DisplayName>
-            <Icon>Textures\GUI\Icons\WeaponDrill_3.dds</Icon>
-            <Description>Description_HandDrill</Description>
-            <Size>
-                <X>1.2</X>
-                <Y>0.6</Y>
-                <Z>0.3</Z>
-            </Size>
-            <Mass>22</Mass>
-            <Volume>25</Volume>
-            <Model>Models\Weapons\HandDrillMk4.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <ExtraInventoryTooltipLineId>Item_Drill4_Extra_Tooltip</ExtraInventoryTooltipLineId>
-            <MinimumOfferAmount>1</MinimumOfferAmount>
-            <MaximumOfferAmount>3</MaximumOfferAmount>
-            <MinimumOrderAmount>5</MinimumOrderAmount>
-            <MaximumOrderAmount>10</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
+		
+		<!-- Misc -->
         <PhysicalItem>
             <Id>
                 <TypeId>PhysicalGunObject</TypeId>
@@ -1136,31 +1577,15 @@
             <Mass>1</Mass>
             <Volume>1</Volume>
         </PhysicalItem>
-        <PhysicalItem>
-            <Id>
-                <TypeId>Ore</TypeId>
-                <SubtypeId>Scrap</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_Scrap</DisplayName>
-            <Icon>Textures\GUI\Icons\component\ScrapMetalComponent.dds</Icon>
-            <Size>
-                <X>0.2</X>
-                <Y>0.2</Y>
-                <Z>0.1</Z>
-            </Size>
-            <Mass>1</Mass>
-            <Volume>0.254</Volume>
-            <Model>Models\Components\ScrapMetalComponent.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-        </PhysicalItem>
-        <PhysicalItem>
+
+		<PhysicalItem> <!-- Old definition for backwards compatibility, use Ore version instead -->
             <Id>
                 <TypeId>Ingot</TypeId>
                 <SubtypeId>Scrap</SubtypeId>
             </Id>
             <DisplayName>DisplayName_Item_ScrapIngot</DisplayName>
-            <!-- Old definition for backwards compatibility -->
             <Icon>Textures\GUI\Icons\component\ScrapMetalComponent.dds</Icon>
+			<Public>false</Public>
             <Size>
                 <X>0.2</X>
                 <Y>0.2</Y>
@@ -1170,54 +1595,10 @@
             <Volume>0.254</Volume>
             <Model>Models\Components\ScrapMetalComponent.mwm</Model>
             <PhysicalMaterial>Metal</PhysicalMaterial>
+			<CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
-        <PhysicalItem>
-            <Id>
-                <TypeId>Ingot</TypeId>
-                <SubtypeId>PrototechScrap</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_PrototechScrap</DisplayName>
-            <Icon>Textures\GUI\Icons\component\ScrapPrototechComponent.dds</Icon>
-            <Size>
-                <X>0.2</X>
-                <Y>0.2</Y>
-                <Z>0.1</Z>
-            </Size>
-            <Mass>10</Mass>
-            <Volume>1.5</Volume>
-            <Model>Models\Components\ScrapPrototechComponent.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-			<MinimalPricePerUnit>25000</MinimalPricePerUnit>
-            <MinimumOrderAmount>10</MinimumOrderAmount>
-            <MaximumOrderAmount>50</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
-        <PhysicalItem>
-            <Id>
-                <TypeId>Ore</TypeId>
-                <SubtypeId>Ice</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_Ice</DisplayName>
-            <Icon>Textures\GUI\Icons\ore_H2O_ice.dds</Icon>
-            <Size>
-                <X>0.07</X>
-                <Y>0.07</Y>
-                <Z>0.07</Z>
-            </Size>
-            <Mass>1</Mass>
-            <Volume>0.37</Volume>
-            <Model>Models\Components\Sphere.mwm</Model>
-            <PhysicalMaterial>Stone</PhysicalMaterial>
-            <IconSymbol>IconSymbol_Ice</IconSymbol>
 
-            <MinimalPricePerUnit>50</MinimalPricePerUnit>
-            <MinimumOfferAmount>1000</MinimumOfferAmount>
-            <MaximumOfferAmount>10000</MaximumOfferAmount>
-            <MinimumOrderAmount>1000</MinimumOrderAmount>
-            <MaximumOrderAmount>20000</MaximumOrderAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
-        <PhysicalItem>
+        <PhysicalItem> <!-- Unused -->
             <Id>
                 <TypeId>Ore</TypeId>
                 <SubtypeId>Organic</SubtypeId>
@@ -1235,11 +1616,13 @@
             <PhysicalMaterial>Stone</PhysicalMaterial>
             <IconSymbol>IconSymbol_Organic</IconSymbol>
         </PhysicalItem>
-        <PhysicalItem>
+
+        <!-- Environment Items -->
+		<PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
                 <SubtypeId>DesertTree</SubtypeId>
-            </Id>
+            </Id>            
             <DisplayName>DisplayName_Item_Welder</DisplayName>
             <Icon>Textures\GUI\Icons\WeaponWelder.dds</Icon>
             <Size>
@@ -1253,6 +1636,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1271,6 +1655,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1289,6 +1674,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1307,6 +1693,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1325,6 +1712,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1343,6 +1731,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1361,6 +1750,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1379,6 +1769,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1397,6 +1788,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1415,6 +1807,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1433,6 +1826,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1451,6 +1845,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1469,6 +1864,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1487,6 +1883,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1505,6 +1902,7 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
+
         <PhysicalItem>
             <Id>
                 <TypeId>TreeObject</TypeId>
@@ -1523,74 +1921,6 @@
             <PhysicalMaterial>Wood</PhysicalMaterial>
             <CanSpawnFromScreen>false</CanSpawnFromScreen>
         </PhysicalItem>
-        <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
-            <Id>
-                <TypeId>ConsumableItem</TypeId>
-                <SubtypeId>ClangCola</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_ClangCola</DisplayName>
-            <Description>Description_ClangKola</Description>
-            <Icon>Textures\GUI\Icons\Items\ClangCola.dds</Icon>
-            <Size>
-                <X>0.14</X>
-                <Y>0.43</Y>
-                <Z>0.14</Z>
-            </Size>
-            <Mass>1</Mass>
-            <Volume>1</Volume>
-            <Model>Models\Items\ClangCola.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <Stats>
-                <Stat Name="Health" Value ="0.01" Time="3"/>
-            </Stats>
-            <MinimalPricePerUnit>100</MinimalPricePerUnit>
-            <MinimumOfferAmount>1000</MinimumOfferAmount>
-            <MaximumOfferAmount>10000</MaximumOfferAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
-        <PhysicalItem xsi:type="MyObjectBuilder_ConsumableItemDefinition">
-            <Id>
-                <TypeId>ConsumableItem</TypeId>
-                <SubtypeId>CosmicCoffee</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_CosmicCoffee</DisplayName>
-            <Description>Description_CosmicCoffee</Description>
-            <Icon>Textures\GUI\Icons\Items\CosmicCoffee.dds</Icon>
-            <Size>
-                <X>0.14</X>
-                <Y>0.43</Y>
-                <Z>0.14</Z>
-            </Size>
-            <Mass>1</Mass>
-            <Volume>1</Volume>
-            <Model>Models\Items\CosmicCoffee.mwm</Model>
-            <PhysicalMaterial>Metal</PhysicalMaterial>
-            <Stats>
-                <Stat Name="Health" Value ="0.01" Time="3"/>
-            </Stats>
 
-            <MinimalPricePerUnit>100</MinimalPricePerUnit>
-            <MinimumOfferAmount>1000</MinimumOfferAmount>
-            <MaximumOfferAmount>10000</MaximumOfferAmount>
-            <CanPlayerOrder>true</CanPlayerOrder>
-        </PhysicalItem>
-
-        <!--<PhysicalItem>
-            <Id>
-                <TypeId>Ingot</TypeId>
-                <SubtypeId>EngineerPlushie</SubtypeId>
-            </Id>
-            <DisplayName>DisplayName_Item_Uncraftable</DisplayName>
-            <Icon>Textures\GUI\Icons\Cubes\Plushie.dds</Icon>
-            <Size>
-                <X>0.07</X>
-                <Y>0.07</Y>
-                <Z>0.07</Z>
-            </Size>
-            <Mass>0</Mass>
-            <Volume>0</Volume>
-            <Model>Models\Components\Sphere.mwm</Model>
-            <PhysicalMaterial>Stone</PhysicalMaterial>
-        </PhysicalItem>-->
     </PhysicalItems>
 </Definitions>

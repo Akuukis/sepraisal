@@ -176,8 +176,8 @@
             <CubeSize>Small</CubeSize>
             <BlockTopology>TriangleMesh</BlockTopology>
             <Size x="1" y="1" z="1" />
-            <ModelOffset x="0" y="0" z="-1" />
-            <Model>Models\Cubes\Large\InteriorLight.mwm</Model>
+            <ModelOffset x="0" y="0" z="0" />
+            <Model>Models\Cubes\Small\InteriorLight.mwm</Model>
             <Components>
                 <Component Subtype="Construction" Count="2" />
             </Components>
@@ -188,7 +188,7 @@
             <IsStandAlone>false</IsStandAlone>
             <HasPhysics>false</HasPhysics>
             <BuildProgressModels>
-                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\InteriorLightConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\InteriorLightConstruction_1.mwm" />
             </BuildProgressModels>
             <BlockPairName>InteriorLight</BlockPairName>
             <MirroringZ>Y</MirroringZ>

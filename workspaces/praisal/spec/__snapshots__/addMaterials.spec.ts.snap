@@ -18,7 +18,7 @@ exports[`PraisalManager with economy materials only should build all ores 2`] = 
 
 exports[`PraisalManager with economy materials only should build all ores 3`] = `Array []`;
 
-exports[`PraisalManager with vanilla materials only should build all components 1`] = `31`;
+exports[`PraisalManager with vanilla materials only should build all components 1`] = `32`;
 
 exports[`PraisalManager with vanilla materials only should build all components 2`] = `
 Array [
@@ -45,6 +45,7 @@ Array [
   "Component/Superconductor",
   "Component/Canvas",
   "Component/EngineerPlushie",
+  "Component/EngineerPlushieSE2",
   "Component/SabiroidPlushie",
   "Component/PrototechFrame",
   "Component/PrototechPanel",
@@ -477,6 +478,23 @@ Array [
     "mass": 1,
     "maxIntegrity": 5,
     "prerequisites": Object {
+      "Component/EngineerPlushieSE2": 0,
+    },
+    "size": Object {
+      "X": 0.1,
+      "Y": 0.1,
+      "Z": 0.1,
+    },
+    "subtype": "EngineerPlushieSE2",
+    "time": 99999,
+    "type": "Component",
+    "volume": 3,
+  },
+  Object {
+    "health": 50,
+    "mass": 1,
+    "maxIntegrity": 5,
+    "prerequisites": Object {
       "Component/SabiroidPlushie": 0,
     },
     "size": Object {
@@ -771,6 +789,7 @@ exports[`PraisalManager with vanilla materials only should build all ores 1`] = 
 exports[`PraisalManager with vanilla materials only should build all ores 2`] = `
 Array [
   "Ore/Stone",
+  "Ore/Ice",
   "Ore/Iron",
   "Ore/Nickel",
   "Ore/Cobalt",
@@ -781,7 +800,6 @@ Array [
   "Ore/Platinum",
   "Ore/Uranium",
   "Ore/Scrap",
-  "Ore/Ice",
   "Ore/Organic",
 ]
 `;
@@ -791,6 +809,12 @@ Array [
   Object {
     "mass": 1,
     "subtype": "Stone",
+    "type": "Ore",
+    "volume": 0.37,
+  },
+  Object {
+    "mass": 1,
+    "subtype": "Ice",
     "type": "Ore",
     "volume": 0.37,
   },
@@ -853,12 +877,6 @@ Array [
     "subtype": "Scrap",
     "type": "Ore",
     "volume": 0.254,
-  },
-  Object {
-    "mass": 1,
-    "subtype": "Ice",
-    "type": "Ore",
-    "volume": 0.37,
   },
   Object {
     "mass": 1,

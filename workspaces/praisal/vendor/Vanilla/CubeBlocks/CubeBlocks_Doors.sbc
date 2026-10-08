@@ -170,6 +170,7 @@
             <DestroyEffect>BlockDestroyed_Large</DestroyEffect>
             <DestroySound>PoofExplosionCat3</DestroySound>
             <PCU>115</PCU>
+            <DepressurizationEffectOffset x="0" y="-5" z ="0" />
         </Definition>
         <Definition xsi:type="MyObjectBuilder_AirtightSlideDoorDefinition">
             <Id>

@@ -461,7 +461,7 @@
             <OxygenCapacity>1</OxygenCapacity>
             <ResourceSinkGroup>Utility</ResourceSinkGroup>
             <IdlePowerConsumption>0.00003</IdlePowerConsumption>
-            <EmissiveColorPreset>UnpoweredOccupancy</EmissiveColorPreset>
+            <EmissiveColorPreset>Extended</EmissiveColorPreset>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
             <DamagedSound>ParticleElectrical</DamagedSound>
             <BuildTimeSeconds>14</BuildTimeSeconds>
@@ -847,7 +847,7 @@
             <IsPressurized>false</IsPressurized>
             <HasInventory>false</HasInventory>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
-            <DamagedSound>ParticleElectrical</DamagedSound>>
+            <DamagedSound>ParticleElectrical</DamagedSound>
             <BuildTimeSeconds>14</BuildTimeSeconds>
             <PCU>15</PCU>
             <DLC>DecorativeBlocks</DLC>
@@ -915,7 +915,7 @@
             <IsPressurized>false</IsPressurized>
             <HasInventory>false</HasInventory>
             <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
-            <DamagedSound>ParticleElectrical</DamagedSound>>
+            <DamagedSound>ParticleElectrical</DamagedSound>
             <BuildTimeSeconds>15</BuildTimeSeconds>
             <PCU>15</PCU>
             <DLC>DecorativeBlocks</DLC>
@@ -1042,6 +1042,9 @@
                 <TypeId>Cockpit</TypeId>
                 <SubtypeId>SmallBlockCockpitIndustrial</SubtypeId>
             </Id>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
             <DisplayName>DisplayName_Block_CockpitIndustrial</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\CockpitIndustrial.dds</Icon>
             <Description>Description_CockpitIndustrial</Description>
@@ -1052,6 +1055,7 @@
             <Model>Models\Cubes\small\CockpitIndustrial.mwm</Model>
             <InteriorModel>Models\Cubes\small\CockpitIndustrialInterior.mwm</InteriorModel>
             <CharacterAnimation>cockpit1_small</CharacterAnimation>
+			<UsesDeformation>false</UsesDeformation>
             <ModelOffset x="0" y="0" z="0" />
             <Components>
                 <Component Subtype="SteelPlate" Count="10" />
@@ -1083,8 +1087,7 @@
                 <ScreenArea Name="CockpitScreen_01" DisplayName="DisplayName_Screen_TopLeft" TextureResolution="256" ScreenWidth="7" ScreenHeight="5" Script="TSS_EnergyHydrogen" />
                 <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_TopCenter" TextureResolution="256" ScreenWidth="3" ScreenHeight="2" Script="TSS_Velocity" />
                 <ScreenArea Name="CockpitScreen_03" DisplayName="DisplayName_Screen_TopRight" TextureResolution="256" ScreenWidth="7" ScreenHeight="5" Script="TSS_Gravity" />
-                <ScreenArea Name="CockpitScreen_04" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="128" ScreenWidth="2" ScreenHeight="1" Script="TSS_ArtificialHorizon" />
-                <ScreenArea Name="CockpitScreen_05" DisplayName="DisplayName_Screen_Numpad" TextureResolution="128" ScreenWidth="5" ScreenHeight="6" />
+                <ScreenArea Name="CockpitScreen_04" DisplayName="DisplayName_Screen_Center" TextureResolution="128" ScreenWidth="2" ScreenHeight="1" Script="TSS_ArtificialHorizon" />
             </ScreenAreas>
             <BlockPairName>CockpitIndustrial</BlockPairName>
             <MirroringZ>Y</MirroringZ>
@@ -1112,6 +1115,9 @@
                 <TypeId>Cockpit</TypeId>
                 <SubtypeId>LargeBlockCockpitIndustrial</SubtypeId>
             </Id>
+            <YesNoToolbarBackground>true</YesNoToolbarBackground>
+            <YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+            <YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
             <DisplayName>DisplayName_Block_CockpitIndustrial</DisplayName>
             <Icon>Textures\GUI\Icons\Cubes\LargeCockpitIndustrial.dds</Icon>
             <Description>Description_CockpitIndustrial</Description>
@@ -1122,6 +1128,7 @@
             <Model>Models\Cubes\Large\CockpitIndustrial.mwm</Model>
             <InteriorModel>Models\Cubes\large\CockpitIndustrialInterior.mwm</InteriorModel>
             <CharacterAnimation>cockpit1_small</CharacterAnimation>
+			<UsesDeformation>false</UsesDeformation>
             <ModelOffset x="0" y="0" z="0" />
             <Components>
                 <Component Subtype="SteelPlate" Count="20" />
@@ -1166,8 +1173,7 @@
                 <ScreenArea Name="CockpitScreen_02" DisplayName="DisplayName_Screen_TopLeft" TextureResolution="256" ScreenWidth="10" ScreenHeight="7" Script="TSS_EnergyHydrogen" />
                 <ScreenArea Name="CockpitScreen_03" DisplayName="DisplayName_Screen_TopCenter" TextureResolution="256" ScreenWidth="10" ScreenHeight="7" Script="TSS_Velocity" />
                 <ScreenArea Name="CockpitScreen_04" DisplayName="DisplayName_Screen_TopRight" TextureResolution="256" ScreenWidth="5" ScreenHeight="3" Script="TSS_Gravity" />
-                <ScreenArea Name="CockpitScreen_05" DisplayName="DisplayName_Screen_Keyboard" TextureResolution="256" ScreenWidth="5" ScreenHeight="3" Script="TSS_ArtificialHorizon"/>
-                <ScreenArea Name="CockpitScreen_06" DisplayName="DisplayName_Screen_Numpad" TextureResolution="256" ScreenWidth="4" ScreenHeight="5" />
+                <ScreenArea Name="CockpitScreen_05" DisplayName="DisplayName_Screen_Center" TextureResolution="256" ScreenWidth="5" ScreenHeight="3" Script="TSS_ArtificialHorizon"/>
             </ScreenAreas>
             <BlockPairName>CockpitIndustrial</BlockPairName>
             <MirroringZ>Y</MirroringZ>

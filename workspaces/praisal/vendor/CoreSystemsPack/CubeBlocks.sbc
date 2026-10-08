@@ -1,0 +1,2696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<CubeBlocks>
+		<!-- Decorative Blocks 208 update-->
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdge</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeA</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_Edge.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_Edge.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="20" />
+				<Component Subtype="Construction" Count="8" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Left" StartX="0.45" StartY="0" EndX="0.55" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\Round_Edge_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_Edge_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdge</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdgeB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_EdgeB.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_EdgeB.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="20" />
+				<Component Subtype="Construction" Count="8" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Left" StartX="0.45" StartY="0" EndX="0.55" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\Round_Edge_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_Edge_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdgeC</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeC</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_EdgeC.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_EdgeC.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="20" />
+				<Component Subtype="Construction" Count="8" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Left" StartX="0.45" StartY="0" EndX="0.55" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\Cubes\Large\Round_Edge_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_Edge_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeC</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdgeCorner</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeCorner</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_Corner.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_Corner.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="15" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_Corner_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_Corner_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeCorner</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>12</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdgeCornerB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeCornerB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_CornerSlope.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_CornerSlope.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="15" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_CornerSlope_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_CornerSlope_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeCornerB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>12</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdgeCornerInv</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeCornerInv</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_CornerInv.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_CornerInv.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="20" />
+				<Component Subtype="Construction" Count="8" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Front" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_CornerInv_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_CornerInv_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeCornerInv</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdgeCornerInvB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeCornerInvB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_CornerInvSlope.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_CornerInvSlope.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="20" />
+				<Component Subtype="Construction" Count="8" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Front" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_CornerInv_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_CornerInv_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeCornerInvB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundHalfEdge</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdge</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdge.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_HalfEdge.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="10" />
+				<Component Subtype="Construction" Count="4" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_HalfEdge_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_HalfEdge_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdge</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundHalfEdgeCorner</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdgeCorner</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeCorner.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_HalfEdgeCorner.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="8" />
+				<Component Subtype="Construction" Count="3" />
+				<Component Subtype="InteriorPlate" Count="2" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" Default="true" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_HalfEdgeCorner_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_HalfEdgeCorner_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdgeCorner</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>6</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundHalfEdgeCornerB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdgeCornerB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeCornerSlope.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_HalfEdgeCornerSlope.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="8" />
+				<Component Subtype="Construction" Count="3" />
+				<Component Subtype="InteriorPlate" Count="2" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" Default="true" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_HalfEdgeCornerSlope_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_HalfEdgeCornerSlope_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdgeCornerB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>6</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundHalfEdgeCornerInv</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdgeCornerInv</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeCornerInv.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_HalfEdgeCornerInv.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="15" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_HalfEdgeCornerInv_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_HalfEdgeCornerInv_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdgeCornerInv</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundHalfEdgeCornerInvB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdgeCornerInvB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeCornerInvSlope.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_HalfEdgeCornerInvSlope.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="15" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_HalfEdgeCornerInvSlope_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_HalfEdgeCornerInvSlope_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdgeCornerInvB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdgeSlopeBase</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeSlopeBase</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeSlopeBase.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_HalfEdgeSlopeBase.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="15" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_HalfEdgeSlopeBase_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_HalfEdgeSlopeBase_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeSlopeBase</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>LargeBlockRoundEdgeSlopeTip</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeSlopeTip</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeSlopeTip.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Large</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Large\Round_HalfEdgeSlopeTip.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="10" />
+				<Component Subtype="Construction" Count="4" />
+				<Component Subtype="InteriorPlate" Count="5" />
+				<Component Subtype="Construction" Count="2" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Large\Round_HalfEdgeSlopeTip_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\Round_HalfEdgeSlopeTip_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeSlopeTip</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>8</BuildTimeSeconds>
+			<IsAirTight>false</IsAirTight>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundEdge</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeA</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_Edge_small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_Edge.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="4" />
+				<Component Subtype="Construction" Count="2" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Left" StartX="0.45" StartY="0" EndX="0.55" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_Edge_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdge</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>6</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundEdgeCorner</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeCorner</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_Corner_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_Corner.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="3" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_Corner_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeCorner</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>5</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundEdgeCornerB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeCornerB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_CornerSlope_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_CornerSlope.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="3" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_CornerSlope_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeCornerB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>5</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundEdgeCornerInv</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeCornerInv</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_CornerInv_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_CornerInv.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="4" />
+				<Component Subtype="Construction" Count="2" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Front" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_CornerInv_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeCornerInv</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>6</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundEdgeCornerInvB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeCornerInvB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_CornerInvSlope_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_CornerInvSlope.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="4" />
+				<Component Subtype="Construction" Count="2" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Front" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_CornerInvSlope_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeCornerInvB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>6</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundHalfEdge</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdge</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdge_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_HalfEdge.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_HalfEdge_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdge</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>4</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundHalfEdgeCorner</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdgeCorner</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeCorner_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_HalfEdgeCorner.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" Default="true" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_HalfEdgeCorner_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdgeCorner</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>3</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundHalfEdgeCornerB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdgeCornerB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeCornerSlope_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_HalfEdgeCornerSlope.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" Default="true" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_HalfEdgeCornerSlope_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdgeCornerB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>3</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundHalfEdgeCornerInv</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdgeCornerInv</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeCornerInv_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_HalfEdgeCornerInv.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_HalfEdgeCornerInv_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdgeCornerInv</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>4</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundHalfEdgeCornerInvB</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundHalfEdgeCornerInvB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeCornerInvSlope_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_HalfEdgeCornerInvSlope.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_HalfEdgeCornerInvSlope_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundHalfEdgeCornerInvB</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>4</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundEdgeSlopeBase</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeSlopeBase</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeSlopeBase_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_HalfEdgeSlopeBase.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="3" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.5" EndY="0.5" />
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0.5" EndX="0.8" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_HalfEdgeSlopeBase_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeSlopeBase</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>6</BuildTimeSeconds>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition>
+			<Id>
+				<TypeId>CubeBlock</TypeId>
+				<SubtypeId>SmallBlockRoundEdgeSlopeTip</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_RoundEdgeSlopeTip</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\Round_HalfEdgeSlopeTip_Small.dds</Icon>
+			<Description>Description_RoundEdgeBlock</Description>
+			<CubeSize>Small</CubeSize>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Model>Models\Cubes\Small\Round_HalfEdgeSlopeTip.mwm</Model>
+			<Components>
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+				<Component Subtype="InteriorPlate" Count="1" />
+				<Component Subtype="Construction" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.2" StartY="0.2" EndX="0.5" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0" EndX="0.8" EndY="0.5" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\Round_HalfEdgeSlopeTip_Construction_1.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>RoundEdgeSlopeTip</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>3</BuildTimeSeconds>
+			<IsAirTight>false</IsAirTight>
+			<PCU>1</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_DoorDefinition">
+			<Id>
+				<TypeId>Door</TypeId>
+				<SubtypeId>LargeBlockCentredDoor</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_CenteredDoor</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\CentredDoor.dds</Icon>
+			<Description>Description_Door</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\CentredDoor.mwm</Model>
+			<PlaceDecals>false</PlaceDecals>
+			<OpenSound>BlockDoorSmallOpen</OpenSound>
+			<CloseSound>BlockDoorSmallClose</CloseSound>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10" />
+				<Component Subtype="Construction" Count="15" />
+				<Component Subtype="Motor" Count="4" />
+				<Component Subtype="Display" Count="1" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="Construction" Count="25" />
+				<Component Subtype="SteelPlate" Count="20" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.05" EndY="1" />
+				<MountPoint Side="Front" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Front" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
+				<MountPoint Side="Front" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="0.05" EndY="1" />
+				<MountPoint Side="Back" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
+				<MountPoint Side="Back" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>                
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\CentredDoorConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\CentredDoorConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CentredDoorConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>CenteredDoor</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<DisassembleRatio>1.5</DisassembleRatio>
+			<ResourceSinkGroup>Doors</ResourceSinkGroup>
+			<MaxOpen>0.885</MaxOpen>
+			<OpeningSpeed>2.5</OpeningSpeed>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+			<DestroySound>PoofExplosionCat3</DestroySound>
+			<PCU>115</PCU>
+			<DLC>CoreSystems</DLC>
+            <PressurizeCube>true</PressurizeCube>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_DoorDefinition">
+			<Id>
+				<TypeId>Door</TypeId>
+				<SubtypeId>LargeBlockCentredDoorGlass</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_CenteredDoorGlass</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\CentredDoorGlass.dds</Icon>
+			<Description>Description_Door</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\CentredDoorGlass.mwm</Model>
+			<PlaceDecals>false</PlaceDecals>
+			<OpenSound>BlockDoorSmallOpen</OpenSound>
+			<CloseSound>BlockDoorSmallClose</CloseSound>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10" />
+				<Component Subtype="Construction" Count="15" />
+				<Component Subtype="Motor" Count="4" />
+				<Component Subtype="Display" Count="1" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="BulletproofGlass" Count="10" />
+				<Component Subtype="SteelPlate" Count="20" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="0.05" EndY="1" />
+				<MountPoint Side="Front" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Front" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
+				<MountPoint Side="Front" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="0.05" EndY="1" />
+				<MountPoint Side="Back" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
+				<MountPoint Side="Back" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>				
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\CentredDoorConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\CentredDoorConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CentredDoorConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>CenteredDoorGlass</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<DisassembleRatio>1.5</DisassembleRatio>
+			<ResourceSinkGroup>Doors</ResourceSinkGroup>
+			<MaxOpen>0.885</MaxOpen>
+			<OpeningSpeed>2.5</OpeningSpeed>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+			<DestroySound>PoofExplosionCat3</DestroySound>
+			<PCU>115</PCU>
+			<DLC>CoreSystems</DLC>
+            <PressurizeCube>true</PressurizeCube>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_DoorDefinition">
+			<Id>
+				<TypeId>Door</TypeId>
+				<SubtypeId>LargeBlockHalfCentredDoor</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_HalfCenteredDoor</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\CentredDoorHalf.dds</Icon>
+			<Description>Description_Door</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\CentredDoorHalf.mwm</Model>
+			<PlaceDecals>false</PlaceDecals>
+			<OpenSound>BlockDoorSmallOpen</OpenSound>
+			<CloseSound>BlockDoorSmallClose</CloseSound>
+			<Components>
+				<Component Subtype="SteelPlate" Count="5" />
+				<Component Subtype="Construction" Count="15" />
+				<Component Subtype="Motor" Count="4" />
+				<Component Subtype="Display" Count="1" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="Construction" Count="25" />
+				<Component Subtype="SteelPlate" Count="15" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="0.05" EndY="1" />
+				<MountPoint Side="Back" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
+				<MountPoint Side="Back" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
+				<MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false" PressurizedWhenClosed="false"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\CentredDoorHalfConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\CentredDoorHalfConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CentredDoorHalfConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>CenteredHalfDoor</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>18</BuildTimeSeconds>
+			<DisassembleRatio>1.5</DisassembleRatio>
+			<ResourceSinkGroup>Doors</ResourceSinkGroup>
+			<MaxOpen>0.885</MaxOpen>
+			<OpeningSpeed>2.5</OpeningSpeed>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+			<DestroySound>PoofExplosionCat3</DestroySound>
+			<PCU>115</PCU>
+			<DLC>CoreSystems</DLC>
+            <PressurizeCube>true</PressurizeCube>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_DoorDefinition">
+			<Id>
+				<TypeId>Door</TypeId>
+				<SubtypeId>LargeBlockHalfCentredDoorGlass</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_HalfCenteredDoorGlass</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\CentredDoorHalfGlass.dds</Icon>
+			<Description>Description_Door</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\CentredDoorHalfGlass.mwm</Model>
+			<PlaceDecals>false</PlaceDecals>
+			<OpenSound>BlockDoorSmallOpen</OpenSound>
+			<CloseSound>BlockDoorSmallClose</CloseSound>
+			<Components>
+				<Component Subtype="SteelPlate" Count="5" />
+				<Component Subtype="Construction" Count="15" />
+				<Component Subtype="Motor" Count="4" />
+				<Component Subtype="Display" Count="1" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="BulletproofGlass" Count="10" />
+				<Component Subtype="SteelPlate" Count="15" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="0.05" EndY="1" />
+				<MountPoint Side="Back" StartX="0.95" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0.05" StartY="0" EndX="0.95" EndY="0.05" />
+				<MountPoint Side="Back" StartX="0.05" StartY="0.95" EndX="0.95" EndY="1" />
+				<MountPoint Side="Left" StartX="0.5" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="0.5" EndY="1" />
+				<MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.5" EndX="1" EndY="1" Default="true" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false"/>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="1" Enabled="false" PressurizedWhenOpen="false" PressurizedWhenClosed="false"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\CentredDoorHalfConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\CentredDoorHalfConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\CentredDoorHalfConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>CenteredHalfDoorGlass</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>18</BuildTimeSeconds>
+			<DisassembleRatio>1.5</DisassembleRatio>
+			<ResourceSinkGroup>Doors</ResourceSinkGroup>
+			<MaxOpen>0.885</MaxOpen>
+			<OpeningSpeed>2.5</OpeningSpeed>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+			<DestroySound>PoofExplosionCat3</DestroySound>
+			<PCU>115</PCU>
+			<DLC>CoreSystems</DLC>
+            <PressurizeCube>true</PressurizeCube>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_DoorDefinition">
+			<Id>
+				<TypeId>Door</TypeId>
+				<SubtypeId>SmallBlockCentredDoor</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_CenteredDoor</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\CentredDoorSmall.dds</Icon>
+			<Description>Description_Door</Description>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="4" z="1"></Size>
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Small\CentredDoorSmall.mwm</Model>
+			<PlaceDecals>false</PlaceDecals>
+			<OpenSound>BlockDoorSmallOpen</OpenSound>
+			<CloseSound>BlockDoorSmallClose</CloseSound>
+			<Components>
+				<Component Subtype="SteelPlate" Count="5" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="Motor" Count="2" />
+				<Component Subtype="Display" Count="1" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="Construction" Count="20" />
+				<Component Subtype="SteelPlate" Count="5" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="4" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="4" />
+				<MountPoint Side="Top" StartX="0" StartY="0" EndX="5" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="1" Default="true" />
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="1.1" EndY="4" />
+				<MountPoint Side="Front" StartX="3.9" StartY="0" EndX="5" EndY="4" />
+				<MountPoint Side="Front" StartX="1.1" StartY="3.9" EndX="3.9" EndY="4" />
+				<MountPoint Side="Front" StartX="1.1" StartY="0" EndX="3.9" EndY="0.1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1.1" EndY="4" />
+				<MountPoint Side="Back" StartX="3.9" StartY="0" EndX="5" EndY="4" />
+				<MountPoint Side="Back" StartX="1.1" StartY="3.9" EndX="3.9" EndY="4" />
+				<MountPoint Side="Back" StartX="1.1" StartY="0" EndX="3.9" EndY="0.1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="5" EndY="4" Enabled="false" PressurizedWhenOpen="false"/>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="5" EndY="4" Enabled="false" PressurizedWhenOpen="false" PressurizedWhenClosed="false"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\CentredDoorSmallConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\CentredDoorSmallConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\CentredDoorSmallConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>CenteredDoor</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<DisassembleRatio>1.5</DisassembleRatio>
+			<ResourceSinkGroup>Doors</ResourceSinkGroup>
+			<MaxOpen>0.885</MaxOpen>
+			<OpeningSpeed>2.5</OpeningSpeed>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+			<DestroySound>PoofExplosionCat3</DestroySound>
+			<PCU>115</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_DoorDefinition">
+			<Id>
+				<TypeId>Door</TypeId>
+				<SubtypeId>SmallBlockCentredDoorGlass</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_CenteredDoorGlass</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\CentredDoorSmallGlass.dds</Icon>
+			<Description>Description_Door</Description>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="5" y="4" z="1"></Size>
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Small\CentredDoorSmallGlass.mwm</Model>
+			<PlaceDecals>false</PlaceDecals>
+			<OpenSound>BlockDoorSmallOpen</OpenSound>
+			<CloseSound>BlockDoorSmallClose</CloseSound>
+			<Components>
+				<Component Subtype="SteelPlate" Count="5" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="Motor" Count="2" />
+				<Component Subtype="Display" Count="1" />
+				<Component Subtype="Computer" Count="2" />
+				<Component Subtype="BulletproofGlass" Count="10" />
+				<Component Subtype="SteelPlate" Count="5" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="4" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="4" />
+				<MountPoint Side="Top" StartX="0" StartY="0" EndX="5" EndY="1" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="5" EndY="1" Default="true" />
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="1.1" EndY="4" />
+				<MountPoint Side="Front" StartX="3.9" StartY="0" EndX="5" EndY="4" />
+				<MountPoint Side="Front" StartX="1.1" StartY="3.9" EndX="3.9" EndY="4" />
+				<MountPoint Side="Front" StartX="1.1" StartY="0" EndX="3.9" EndY="0.1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1.1" EndY="4" />
+				<MountPoint Side="Back" StartX="3.9" StartY="0" EndX="5" EndY="4" />
+				<MountPoint Side="Back" StartX="1.1" StartY="3.9" EndX="3.9" EndY="4" />
+				<MountPoint Side="Back" StartX="1.1" StartY="0" EndX="3.9" EndY="0.1" />
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="5" EndY="4" Enabled="false" PressurizedWhenOpen="false"/>
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="5" EndY="4" Enabled="false" PressurizedWhenOpen="false" PressurizedWhenClosed="false"/>
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\CentredDoorSmallConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\CentredDoorSmallConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\CentredDoorSmallConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>CenteredDoorGlass</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<DisassembleRatio>1.5</DisassembleRatio>
+			<ResourceSinkGroup>Doors</ResourceSinkGroup>
+			<MaxOpen>0.885</MaxOpen>
+			<OpeningSpeed>2.5</OpeningSpeed>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<EmissiveColorPreset>Default</EmissiveColorPreset>
+			<DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+			<DestroySound>PoofExplosionCat3</DestroySound>
+			<PCU>115</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_HydrogenEngineDefinition">
+			<Id>
+				<TypeId>HydrogenEngine</TypeId>
+				<SubtypeId>LargeHydrogenEngineReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_Hydrogen_EngineReskin</DisplayName>
+			<Description>Description_PowerGenerator</Description>
+			<Icon>Textures\GUI\Icons\Cubes\HydrogenEngineReskin.dds</Icon>
+			<CubeSize>Large</CubeSize>
+			<GuiVisible>false</GuiVisible>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="2" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\HydrogenEngineReskin.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="80" />
+				<Component Subtype="Construction" Count="60" />
+				<Component Subtype="LargeTube" Count="12" />
+				<Component Subtype="SmallTube" Count="20" />
+				<Component Subtype="Motor" Count="12" />
+				<Component Subtype="Computer" Count="4" />
+				<Component Subtype="PowerCell" Count="1" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="SteelPlate" Count="20" />
+			</Components>
+			<CriticalComponent Subtype="PowerCell" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Bottom" StartX="0.1" StartY="0.1" EndX="0.9" EndY="1.9" Default="true" />
+				<MountPoint Side="Top" StartX="0.25" StartY="0.2" EndX="0.75" EndY="0.75" />
+				<MountPoint Side="Front" StartX="0.15" StartY="0" EndX="0.85" EndY="0.85" />
+				<MountPoint Side="Back" StartX="0.1" StartY="0" EndX="0.9" EndY="0.1" />
+				<MountPoint Side="Back" StartX="0.1" StartY="0.7" EndX="0.9" EndY="0.9" />
+				<MountPoint Side="Left" StartX="0.2" StartY="0" EndX="1.8" EndY="0.1" />
+				<MountPoint Side="Right" StartX="0.2" StartY="0" EndX="1.8" EndY="0.1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\HydrogenEngineReskinConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\HydrogenEngineReskinConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\HydrogenEngineReskinConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>HydrogenEngineReskin</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>60</BuildTimeSeconds>
+			<ResourceSinkGroup>Generators</ResourceSinkGroup>
+			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
+			<MaxPowerOutput>5</MaxPowerOutput>
+			<FuelCapacity>100000</FuelCapacity>
+			<EmissiveColorPreset>Extended</EmissiveColorPreset>
+			<IsAirTight>false</IsAirTight>
+			<InventorySize>
+				<X>1</X>
+				<Y>1</Y>
+				<Z>1</Z>
+			</InventorySize>
+			<FuelInfos>
+				<FuelInfo>
+					<Id>
+						<TypeId>GasProperties</TypeId>
+						<SubtypeId>Hydrogen</SubtypeId>
+					</Id>
+				</FuelInfo>
+			</FuelInfos>
+			<FuelProductionToCapacityMultiplier>0.01</FuelProductionToCapacityMultiplier>
+			<PrimarySound>ArcBlockHydrogenEngineReskinLarge</PrimarySound>
+
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>Explosion_Warhead_02</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+
+			<AnimationSpeed>5</AnimationSpeed>
+			<PistonAnimationMin>-0.15</PistonAnimationMin>
+			<PistonAnimationMax>0.01</PistonAnimationMax>
+			<PistonAnimationOffsets>
+				<float>0.0</float>
+				<float>0.5</float>
+				<float>0.0</float>
+				<float>0.5</float>
+				<float>0.0</float>
+				<float>0.5</float>
+				<float>0.0</float>
+				<float>0.5</float>
+			</PistonAnimationOffsets>
+			<AnimationSpinUpSpeed>1</AnimationSpinUpSpeed>
+			<AnimationSpinDownSpeed>1</AnimationSpinDownSpeed>
+			<TargetingGroups>
+				<string>PowerSystems</string>
+			</TargetingGroups>
+			<PCU>25</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_HydrogenEngineDefinition">
+			<Id>
+				<TypeId>HydrogenEngine</TypeId>
+				<SubtypeId>SmallHydrogenEngineReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_Hydrogen_EngineReskin</DisplayName>
+			<Description>Description_PowerGenerator</Description>
+			<Icon>Textures\GUI\Icons\Cubes\HydrogenEngineReskin_Small.dds</Icon>
+			<CubeSize>Small</CubeSize>
+			<GuiVisible>false</GuiVisible>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="2" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Small\HydrogenEngineReskin_Small.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="25" />
+				<Component Subtype="Construction" Count="18" />
+				<Component Subtype="LargeTube" Count="4" />
+				<Component Subtype="SmallTube" Count="6" />
+				<Component Subtype="Motor" Count="4" />
+				<Component Subtype="Computer" Count="1" />
+				<Component Subtype="PowerCell" Count="1" />
+				<Component Subtype="Construction" Count="2" />
+				<Component Subtype="SteelPlate" Count="15" />
+			</Components>
+			<CriticalComponent Subtype="PowerCell" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Right" StartX="0.4" StartY="0" EndX="2.6" EndY="0.1" />
+				<MountPoint Side="Right" StartX="0.4" StartY="1.6" EndX="2.6" EndY="1.8" />
+				<MountPoint Side="Right" StartX="0.1" StartY="0.9" EndX="0.4" EndY="1.8" />
+				<MountPoint Side="Right" StartX="2.6" StartY="0.2" EndX="2.9" EndY="1.8" />
+				<MountPoint Side="Left" StartX="0.4" StartY="0" EndX="2.6" EndY="0.1" />
+				<MountPoint Side="Left" StartX="0.4" StartY="1.6" EndX="2.6" EndY="1.8" />
+				<MountPoint Side="Left" StartX="0.1" StartY="0.2" EndX="0.4" EndY="1.8" />
+				<MountPoint Side="Left" StartX="2.6" StartY="0.9" EndX="2.9" EndY="1.8" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.4" EndX="3" EndY="2.6" Default="true" />
+				<MountPoint Side="Bottom" StartX="1.1" StartY="0.1" EndX="1.9" EndY="2.9" />
+				<MountPoint Side="Top" StartX="0.2" StartY="0.1" EndX="2.8" EndY="0.4" />
+				<MountPoint Side="Top" StartX="0.2" StartY="2.6" EndX="2.8" EndY="2.9" />
+				<MountPoint Side="Top" StartX="1.1" StartY="0.4" EndX="1.9" EndY="2.6" />
+				<MountPoint Side="Front" StartX="1" StartY="0" EndX="2" EndY="0.9" />
+				<MountPoint Side="Front" StartX="0.1" StartY="0.9" EndX="2.9" EndY="1.9" />
+				<MountPoint Side="Back" StartX="1" StartY="0" EndX="2" EndY="0.9" />
+				<MountPoint Side="Back" StartX="0.1" StartY="0.9" EndX="2.9" EndY="1.9" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.5" File="Models\Cubes\Small\HydrogenEngineReskin_SmallConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="1.0" File="Models\Cubes\Small\HydrogenEngineReskin_SmallConstruction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>HydrogenEngineReskin</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>40</BuildTimeSeconds>
+			<ResourceSinkGroup>Generators</ResourceSinkGroup>
+			<ResourceSourceGroup>Reactors</ResourceSourceGroup>
+			<MaxPowerOutput>0.5</MaxPowerOutput>
+			<FuelCapacity>5000</FuelCapacity>
+			<IsAirTight>false</IsAirTight>
+			<InventorySize>
+				<X>1</X>
+				<Y>1</Y>
+				<Z>1</Z>
+			</InventorySize>
+			<FuelInfos>
+				<FuelInfo>
+					<Id>
+						<TypeId>GasProperties</TypeId>
+						<SubtypeId>Hydrogen</SubtypeId>
+					</Id>
+				</FuelInfo>
+			</FuelInfos>
+			<FuelProductionToCapacityMultiplier>0.01</FuelProductionToCapacityMultiplier>
+			<PrimarySound>ArcBlockHydrogenEngineReskinSmall</PrimarySound>
+
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+
+			<AnimationSpeed>5</AnimationSpeed>
+			<PistonAnimationMin>-0.05</PistonAnimationMin>
+			<PistonAnimationMax>0.01</PistonAnimationMax>
+			<PistonAnimationOffsets>
+				<float>0.0</float>
+				<float>0.5</float>
+				<float>0.0</float>
+				<float>0.5</float>
+			</PistonAnimationOffsets>
+			<AnimationSpinUpSpeed>1</AnimationSpinUpSpeed>
+			<AnimationSpinDownSpeed>1</AnimationSpinDownSpeed>
+			<TargetingGroups>
+				<string>PowerSystems</string>
+			</TargetingGroups>
+			<PCU>25</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+			<Id>
+				<TypeId>Cockpit</TypeId>
+				<SubtypeId>LargeBlockSuspendedControlSeat</SubtypeId>
+			</Id>
+			<YesNoToolbarBackground>true</YesNoToolbarBackground>
+			<YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+			<YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
+			<DisplayName>DisplayName_Block_SuspendedControlSeat</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SuspendedControlSeat_LargeGrid.dds</Icon>
+			<Description>Description_SuspendedConstrolSeat</Description>
+			<CubeSize>Large</CubeSize>
+			<GuiVisible>false</GuiVisible>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<Model>Models\Cubes\Large\SuspendedControlSeat.mwm</Model>
+			<CharacterAnimation>BridgeCockpitPose</CharacterAnimation>
+			<BackpackEnabled>false</BackpackEnabled>
+			<ModelOffset x="0" y="0" z="0" />
+			<Components>
+				<Component Subtype="InteriorPlate" Count="10" />
+				<Component Subtype="Construction" Count="20" />
+				<Component Subtype="Motor" Count="2" />
+				<Component Subtype="Computer" Count="20" />
+				<Component Subtype="Display" Count="6" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="InteriorPlate" Count="20" />
+			</Components>
+			<CriticalComponent Subtype="Display" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0.35" StartY="0" EndX="0.65" EndY="0.5" Default="true"/>
+				<MountPoint Side="Back" StartX="0.35" StartY="0.9" EndX="0.65" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\SuspendedControlSeatConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\SuspendedControlSeatConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SuspendedControlSeatConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>SuspendedControlSeat</BlockPairName>
+			<ScreenAreas>
+				<ScreenArea Name="TransparentScreenArea90" DisplayName="DisplayName_Screen_TopCenter" TextureResolution="512" ScreenWidth="7" ScreenHeight="3" Script="TSS_EnergyHydrogen" />
+			</ScreenAreas>
+			<MaterialNamesToHideWhenOffline>
+				<string>HoloScreen</string>
+				<string>TransparentScreenArea_Outside</string>
+			</MaterialNamesToHideWhenOffline>
+			<VoxelPlacement>
+				<StaticMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<MirroringZ>Y</MirroringZ>
+			<MirroringY>Z</MirroringY>
+			<EdgeType>Light</EdgeType>
+			<EnableFirstPerson>true</EnableFirstPerson>
+			<EnableShipControl>true</EnableShipControl>
+			<EnableBuilderCockpit>false</EnableBuilderCockpit>
+			<TargetLockingEnabled>true</TargetLockingEnabled>
+			<IsPressurized>false</IsPressurized>
+			<BuildTimeSeconds>30</BuildTimeSeconds>
+			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+			<DamagedSound>ParticleElectrical</DamagedSound>
+			<IsAirTight>false</IsAirTight>
+			<HasInventory>false</HasInventory>
+			<PCU>45</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+			<Id>
+				<TypeId>Cockpit</TypeId>
+				<SubtypeId>LargeBlockSuspendedControlSeatB</SubtypeId>
+			</Id>
+			<YesNoToolbarBackground>true</YesNoToolbarBackground>
+			<YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+			<YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
+			<DisplayName>DisplayName_Block_SuspendedControlSeatB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SuspendedControlSeatB_LargeGrid.dds</Icon>
+			<Description>Description_SuspendedConstrolSeat</Description>
+			<CubeSize>Large</CubeSize>
+			<GuiVisible>false</GuiVisible>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<Model>Models\Cubes\Large\SuspendedControlSeatB.mwm</Model>
+			<CharacterAnimation>BridgeCockpitPose</CharacterAnimation>
+			<BackpackEnabled>false</BackpackEnabled>
+			<ModelOffset x="0" y="0" z="0" />
+			<Components>
+				<Component Subtype="InteriorPlate" Count="10" />
+				<Component Subtype="Construction" Count="20" />
+				<Component Subtype="Motor" Count="2" />
+				<Component Subtype="Computer" Count="20" />
+				<Component Subtype="Display" Count="2" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="InteriorPlate" Count="20" />
+			</Components>
+			<CriticalComponent Subtype="Display" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0.35" StartY="0" EndX="0.65" EndY="0.5" Default="true"/>
+				<MountPoint Side="Back" StartX="0.35" StartY="0.9" EndX="0.65" EndY="1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\SuspendedControlSeatBConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\SuspendedControlSeatBConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SuspendedControlSeatBConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>SuspendedControlSeatB</BlockPairName>
+			<ScreenAreas>
+			</ScreenAreas>
+			<VoxelPlacement>
+				<StaticMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<MirroringZ>Y</MirroringZ>
+			<MirroringY>Z</MirroringY>
+			<EdgeType>Light</EdgeType>
+			<EnableFirstPerson>true</EnableFirstPerson>
+			<EnableShipControl>true</EnableShipControl>
+			<EnableBuilderCockpit>false</EnableBuilderCockpit>
+			<TargetLockingEnabled>true</TargetLockingEnabled>
+			<IsPressurized>false</IsPressurized>
+			<BuildTimeSeconds>30</BuildTimeSeconds>
+			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+			<DamagedSound>ParticleElectrical</DamagedSound>
+			<IsAirTight>false</IsAirTight>
+			<HasInventory>false</HasInventory>
+			<PCU>15</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+			<Id>
+				<TypeId>Cockpit</TypeId>
+				<SubtypeId>SmallBlockSuspendedControlSeat</SubtypeId>
+			</Id>
+			<YesNoToolbarBackground>true</YesNoToolbarBackground>
+			<YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+			<YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
+			<DisplayName>DisplayName_Block_SuspendedControlSeat</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SuspendedControlSeat.dds</Icon>
+			<Description>Description_SuspendedConstrolSeat</Description>
+			<CubeSize>Small</CubeSize>
+			<GuiVisible>false</GuiVisible>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<Model>Models\Cubes\Small\SuspendedControlSeat.mwm</Model>
+			<CharacterAnimation>BridgeCockpitPose</CharacterAnimation>
+			<BackpackEnabled>false</BackpackEnabled>
+			<ModelOffset x="0" y="0" z="0" />
+			<Components>
+				<Component Subtype="InteriorPlate" Count="10" />
+				<Component Subtype="Construction" Count="15" />
+				<Component Subtype="Motor" Count="1" />
+				<Component Subtype="Computer" Count="15" />
+				<Component Subtype="Display" Count="4" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="10" />
+			</Components>
+			<CriticalComponent Subtype="Display" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="1" StartY="0" EndX="2" EndY="2" Default="true"/>
+				<MountPoint Side="Back" StartX="1" StartY="2.7" EndX="2" EndY="3" />
+				<MountPoint Side="Back" StartX="1.3" StartY="1" EndX="1.7" EndY="1.2" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\SuspendedControlSeatConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\SuspendedControlSeatConstruction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>SuspendedControlSeat</BlockPairName>
+			<ScreenAreas>
+				<ScreenArea Name="TransparentScreenArea90" DisplayName="DisplayName_Screen_TopCenter" TextureResolution="512" ScreenWidth="2" ScreenHeight="1" Script="TSS_EnergyHydrogen" />
+			</ScreenAreas>
+			<MaterialNamesToHideWhenOffline>
+				<string>HoloScreen</string>
+				<string>TransparentScreenArea_Outside</string>
+			</MaterialNamesToHideWhenOffline>
+			<VoxelPlacement>
+				<StaticMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<MirroringZ>Y</MirroringZ>
+			<MirroringY>Z</MirroringY>
+			<EdgeType>Light</EdgeType>
+			<EnableFirstPerson>true</EnableFirstPerson>
+			<EnableShipControl>true</EnableShipControl>
+			<EnableBuilderCockpit>false</EnableBuilderCockpit>
+			<TargetLockingEnabled>true</TargetLockingEnabled>
+			<IsPressurized>false</IsPressurized>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+			<DamagedSound>ParticleElectrical</DamagedSound>
+			<IsAirTight>false</IsAirTight>
+			<HasInventory>false</HasInventory>
+			<PCU>45</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_CockpitDefinition">
+			<Id>
+				<TypeId>Cockpit</TypeId>
+				<SubtypeId>SmallBlockSuspendedControlSeatB</SubtypeId>
+			</Id>
+			<YesNoToolbarBackground>true</YesNoToolbarBackground>
+			<YesNoToolbarYesTooltip>YesNoToolbarTooltip_Cockpit_Yes</YesNoToolbarYesTooltip>
+			<YesNoToolbarNoTooltip>YesNoToolbarTooltip_Cockpit_No</YesNoToolbarNoTooltip>
+			<DisplayName>DisplayName_Block_SuspendedControlSeatB</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SuspendedControlSeatB.dds</Icon>
+			<Description>Description_SuspendedConstrolSeat</Description>
+			<CubeSize>Small</CubeSize>
+			<GuiVisible>false</GuiVisible>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<Model>Models\Cubes\Small\SuspendedControlSeatB.mwm</Model>
+			<CharacterAnimation>BridgeCockpitPose</CharacterAnimation>
+			<BackpackEnabled>false</BackpackEnabled>
+			<ModelOffset x="0" y="0" z="0" />
+			<Components>
+				<Component Subtype="InteriorPlate" Count="10" />
+				<Component Subtype="Construction" Count="15" />
+				<Component Subtype="Motor" Count="1" />
+				<Component Subtype="Computer" Count="15" />
+				<Component Subtype="Display" Count="2" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="10" />
+			</Components>
+			<CriticalComponent Subtype="Display" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="1" StartY="0" EndX="2" EndY="2" Default="true"/>
+				<MountPoint Side="Back" StartX="1" StartY="2.7" EndX="2" EndY="3" />
+				<MountPoint Side="Back" StartX="1.3" StartY="1" EndX="1.7" EndY="1.2" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\SuspendedControlSeatBConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\SuspendedControlSeatBConstruction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>SuspendedControlSeatB</BlockPairName>
+			<ScreenAreas>
+			</ScreenAreas>
+			<VoxelPlacement>
+				<StaticMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<MirroringZ>Y</MirroringZ>
+			<MirroringY>Z</MirroringY>
+			<EdgeType>Light</EdgeType>
+			<EnableFirstPerson>true</EnableFirstPerson>
+			<EnableShipControl>true</EnableShipControl>
+			<EnableBuilderCockpit>false</EnableBuilderCockpit>
+			<TargetLockingEnabled>true</TargetLockingEnabled>
+			<IsPressurized>false</IsPressurized>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+			<DamagedSound>ParticleElectrical</DamagedSound>
+			<IsAirTight>false</IsAirTight>
+			<HasInventory>false</HasInventory>
+			<PCU>15</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_JumpDriveDefinition">
+			<Id>
+				<TypeId>JumpDrive</TypeId>
+				<SubtypeId>LargeJumpDriveReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_JumpDriveReskin</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\JumpDriveReskin.dds</Icon>
+			<Description>Description_JumpDrive</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="2" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\JumpDriveReskin.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="40" />
+				<Component Subtype="MetalGrid" Count="50" />
+				<Component Subtype="GravityGenerator" Count="20" />
+				<Component Subtype="Detector" Count="20" />
+				<Component Subtype="PowerCell" Count="120" />
+				<Component Subtype="Superconductor" Count="1000" />
+				<Component Subtype="Computer" Count="300" />
+				<Component Subtype="Construction" Count="40" />
+				<Component Subtype="SteelPlate" Count="20" />
+			</Components>
+			<CriticalComponent Subtype="Computer" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0" StartY="0.3" EndX="3" EndY="2.7" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0.3" EndX="3" EndY="2.7" Default="true" />
+				<MountPoint Side="Front" StartX="0" StartY="0.3" EndX="0.6" EndY="1.7" />
+				<MountPoint Side="Front" StartX="2.4" StartY="0.3" EndX="3" EndY="1.7" />
+				<MountPoint Side="Front" StartX="0.6" StartY="0.3" EndX="2.4" EndY="1.1" />
+				<MountPoint Side="Back" StartX="0" StartY="0.3" EndX="0.6" EndY="1.7" />
+				<MountPoint Side="Back" StartX="2.4" StartY="0.3" EndX="3" EndY="1.7" />
+				<MountPoint Side="Back" StartX="0.6" StartY="0.3" EndX="2.4" EndY="1.1" />
+				<MountPoint Side="Left" StartX="0.3" StartY="0" EndX="2.7" EndY="2" />
+				<MountPoint Side="Left" StartX="0" StartY="0.3" EndX="3" EndY="1.7" />
+				<MountPoint Side="Right" StartX="0.3" StartY="0" EndX="2.7" EndY="0.2" />
+				<MountPoint Side="Right" StartX="0.3" StartY="1.8" EndX="2.7" EndY="2" />
+				<MountPoint Side="Right" StartX="0" StartY="0.3" EndX="0.2" EndY="1.7" />
+				<MountPoint Side="Right" StartX="2.8" StartY="0.3" EndX="3" EndY="1.7" />
+				<MountPoint Side="Right" StartX="1.1" StartY="0.6" EndX="1.9" EndY="1.4" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\JumpDriveReskinConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\JumpDriveReskinConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\JumpDriveReskinConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>JumpDriveReskin</BlockPairName>
+			<MirroringY>X</MirroringY>
+			<MirroringX>Y</MirroringX>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>120</BuildTimeSeconds>
+			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+			<DamagedSound>ParticleElectrical</DamagedSound>
+			<EmissiveColorPreset>JumpDrive</EmissiveColorPreset>
+
+			<ResourceSinkGroup>Charging</ResourceSinkGroup>
+			<RequiredPowerInput>32</RequiredPowerInput>
+			<PowerNeededForJump>3</PowerNeededForJump>
+			<PowerEfficiency>0.8</PowerEfficiency>
+
+			<MaxJumpDistance>2000000</MaxJumpDistance>
+			<MaxJumpMass>1250000</MaxJumpMass>
+			<EmissiveColorPreset>Extended</EmissiveColorPreset>
+			<DestroyEffect>Explosion_Warhead_30</DestroyEffect>
+			<DestroySound>WepLrgWarheadExpl</DestroySound>
+			<TargetingGroups>
+				<string>Propulsion</string>
+			</TargetingGroups>
+			<PCU>80</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_ThrustDefinition">
+			<Id>
+				<TypeId>Thrust</TypeId>
+				<SubtypeId>LargeBlockLargeHydrogenThrustReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_LargeHydrogenThrustReskin</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SciFiHydrogenThrusterLargeLarge.dds</Icon>
+			<Description>Description_HydrogenThrust</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\ScifiHydrogenThruster.mwm</Model>
+			<ThrusterType>Hydrogen</ThrusterType>
+			<SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
+			<Components>
+				<Component Subtype="SteelPlate" Count="100" />
+				<Component Subtype="Construction" Count="150" />
+				<Component Subtype="MetalGrid" Count="250" />
+				<Component Subtype="LargeTube" Count="40" />
+				<Component Subtype="Construction" Count="30" />
+				<Component Subtype="SteelPlate" Count="50" />
+			</Components>
+			<CriticalComponent Subtype="LargeTube" Index="0" />
+			<Center x="1" y="1" z="2" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0" StartY="0.5" EndX="3" EndY="2.5" Default="true"/>
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="2.5" EndY="3" />
+				<MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.5" EndY="2.5" />
+                <MountPoint Side="Right" StartX="0.5" StartY="1.1" EndX="0.9" EndY="1.9" />
+				<MountPoint Side="Left" StartX="2.5" StartY="0.5" EndX="3" EndY="2.5" />
+                <MountPoint Side="Left" StartX="2.1" StartY="1.1" EndX="2.5" EndY="1.9" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="2.5" EndX="2.5" EndY="3" />
+                <MountPoint Side="Bottom" StartX="1.1" StartY="2.1" EndX="1.9" EndY="2.5" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="2.5" EndY="0.5" />
+            	<MountPoint Side="Top" StartX="1.1" StartY="0.5" EndX="1.9" EndY="0.9" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\SciFiHydrogenThruster_Construction1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\SciFiHydrogenThruster_Construction2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SciFiHydrogenThruster_Construction3.mwm" />
+			</BuildProgressModels>
+			<VoxelPlacement>
+				<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+				<StaticMode>
+					<PlacementMode>Volumetric</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>Volumetric</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<BlockPairName>LargeHydrogenThrustReskin</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>90</BuildTimeSeconds>
+			<FuelConverter>
+				<FuelId>
+					<TypeId>GasProperties</TypeId>
+					<SubtypeId>Hydrogen</SubtypeId>
+				</FuelId>
+				<Efficiency>1</Efficiency>
+			</FuelConverter>
+			<MaxPowerConsumption>7.5</MaxPowerConsumption>
+			<MinPowerConsumption>0.000000001</MinPowerConsumption>
+			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
+			<ForceMagnitude>7200000</ForceMagnitude>
+			<SlowdownFactor>1</SlowdownFactor>
+			<FlameDamageLengthScale>0.6</FlameDamageLengthScale>
+			<FlameLengthScale>1.15</FlameLengthScale>
+			<FlameIdleColor>
+				<X>1</X>
+				<Y>0.75</Y>
+				<Z>0.35</Z>
+				<W>0.75</W>
+			</FlameIdleColor>
+			<FlameFullColor>
+				<X>1</X>
+				<Y>0.75</Y>
+				<Z>0.35</Z>
+				<W>0.75</W>
+			</FlameFullColor>
+			<FlamePointMaterial>EngineThrustMiddle</FlamePointMaterial>
+			<FlameLengthMaterial>SciFiThrusterFlame</FlameLengthMaterial>
+			<FlameFlare>LargeGridLargeThruster</FlameFlare>
+			<FlameVisibilityDistance>700</FlameVisibilityDistance>
+			<FlameGlareQuerySize>1.5</FlameGlareQuerySize>
+			<PrimarySound>LrgShipLrgJetHydrogen</PrimarySound>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<Public>true</Public>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<TieredUpdateTimes>
+				<unsignedInt>100</unsignedInt>
+				<unsignedInt>3600</unsignedInt>
+				<unsignedInt>0</unsignedInt>
+			</TieredUpdateTimes>
+			<TargetingGroups>
+				<string>Propulsion</string>
+			</TargetingGroups>
+			<PCU>12</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_ThrustDefinition">
+			<Id>
+				<TypeId>Thrust</TypeId>
+				<SubtypeId>LargeBlockSmallHydrogenThrustReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_SmallHydrogenThrustReskin</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SciFiHydrogenThrusterLargeSmall.dds</Icon>
+			<Description>Description_HydrogenThrust</Description>
+			<CubeSize>Large</CubeSize>
+			<GuiVisible>false</GuiVisible>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\ScifiHydrogenThrusterSmall.mwm</Model>
+			<ThrusterType>Hydrogen</ThrusterType>
+			<SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
+			<Components>
+				<Component Subtype="SteelPlate" Count="15" />
+				<Component Subtype="Construction" Count="40" />
+				<Component Subtype="MetalGrid" Count="40" />
+				<Component Subtype="LargeTube" Count="8" />
+				<Component Subtype="Construction" Count="20" />
+				<Component Subtype="SteelPlate" Count="10" />
+			</Components>
+			<CriticalComponent Subtype="LargeTube" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true"/>
+				<MountPoint Side="Right" StartX="0" StartY="0.15" EndX="0.2" EndY="0.85" />
+				<MountPoint Side="Left" StartX="0.8" StartY="0.15" EndX="1" EndY="0.85" />
+				<MountPoint Side="Bottom" StartX="0.15" StartY="0.8" EndX="0.85" EndY="1" />
+				<MountPoint Side="Top" StartX="0.15" StartY="0" EndX="0.85" EndY="0.2" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\SciFiHydrogenThrusterSmall_Construction1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\SciFiHydrogenThrusterSmall_Construction2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\SciFiHydrogenThrusterSmall_Construction3.mwm" />
+			</BuildProgressModels>
+			<VoxelPlacement>
+				<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+				<StaticMode>
+					<PlacementMode>Volumetric</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>Volumetric</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<BlockPairName>SmallHydrogenThrustReskin</BlockPairName>
+			<Center x="0" y="0" z="0" />
+			<MirroringZ>Y</MirroringZ>
+			<MirroringY>Z</MirroringY>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>40</BuildTimeSeconds>
+			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
+			<ForceMagnitude>1080000</ForceMagnitude>
+			<SlowdownFactor>1</SlowdownFactor>
+			<FuelConverter>
+				<FuelId>
+					<TypeId>GasProperties</TypeId>
+					<SubtypeId>Hydrogen</SubtypeId>
+				</FuelId>
+				<Efficiency>1</Efficiency>
+			</FuelConverter>
+			<MaxPowerConsumption>1.25</MaxPowerConsumption>
+			<MinPowerConsumption>0.000000001</MinPowerConsumption>
+			<FlameDamageLengthScale>0.6</FlameDamageLengthScale>
+			<FlameLengthScale>1.15</FlameLengthScale>
+			<FlameIdleColor>
+				<X>1</X>
+				<Y>0.75</Y>
+				<Z>0.35</Z>
+				<W>0.75</W>
+			</FlameIdleColor>
+			<FlameFullColor>
+				<X>1</X>
+				<Y>0.75</Y>
+				<Z>0.35</Z>
+				<W>0.75</W>
+			</FlameFullColor>
+			<FlamePointMaterial>EngineThrustMiddle</FlamePointMaterial>
+			<FlameLengthMaterial>SciFiThrusterFlame</FlameLengthMaterial>
+			<FlameFlare>LargeGridSmallThruster</FlameFlare>
+			<FlameVisibilityDistance>500</FlameVisibilityDistance>
+			<FlameGlareQuerySize>1</FlameGlareQuerySize>
+			<PrimarySound>LrgShipSmJetHydrogen</PrimarySound>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<Public>true</Public>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<IsAirTight>false</IsAirTight>
+			<TieredUpdateTimes>
+				<unsignedInt>100</unsignedInt>
+				<unsignedInt>3600</unsignedInt>
+				<unsignedInt>0</unsignedInt>
+			</TieredUpdateTimes>
+			<TargetingGroups>
+				<string>Propulsion</string>
+			</TargetingGroups>
+			<PCU>12</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_ThrustDefinition">
+			<Id>
+				<TypeId>Thrust</TypeId>
+				<SubtypeId>SmallBlockLargeHydrogenThrustReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_LargeHydrogenThrustReskin</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SciFiHydrogenThrusterSmallLarge.dds</Icon>
+			<Description>Description_HydrogenThrust</Description>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="3" y="3" z="3" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Small\ScifiHydrogenThrusterLarge.mwm</Model>
+			<ThrusterType>Hydrogen</ThrusterType>
+			<SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
+			<Components>
+				<Component Subtype="SteelPlate" Count="20" />
+				<Component Subtype="Construction" Count="20" />
+				<Component Subtype="MetalGrid" Count="22" />
+				<Component Subtype="LargeTube" Count="10" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="SteelPlate" Count="10" />
+			</Components>
+			<CriticalComponent Subtype="LargeTube" Index="0" />
+			<Center x="1" y="1" z="2" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0" StartY="0.5" EndX="3" EndY="2.5" Default="true"/>
+				<MountPoint Side="Back" StartX="0.5" StartY="0" EndX="2.5" EndY="3" />
+				<MountPoint Side="Right" StartX="0" StartY="0.5" EndX="0.5" EndY="2.5" />
+                <MountPoint Side="Right" StartX="0.5" StartY="1.1" EndX="0.9" EndY="1.9" />
+				<MountPoint Side="Left" StartX="2.5" StartY="0.5" EndX="3" EndY="2.5" />
+                <MountPoint Side="Left" StartX="2.1" StartY="1.1" EndX="2.5" EndY="1.9" />
+				<MountPoint Side="Bottom" StartX="0.5" StartY="2.5" EndX="2.5" EndY="3" />
+                <MountPoint Side="Bottom" StartX="1.1" StartY="2.1" EndX="1.9" EndY="2.5" />
+				<MountPoint Side="Top" StartX="0.5" StartY="0" EndX="2.5" EndY="0.5" />
+                <MountPoint Side="Top" StartX="1.1" StartY="0.5" EndX="1.9" EndY="0.9" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\SciFiHydrogenThrusterLarge_Construction1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\SciFiHydrogenThrusterLarge_Construction2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\SciFiHydrogenThrusterLarge_Construction3.mwm" />
+			</BuildProgressModels>
+			<VoxelPlacement>
+				<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+				<StaticMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>OutsideVoxel</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<BlockPairName>LargeHydrogenThrustReskin</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>20</BuildTimeSeconds>
+			<FuelConverter>
+				<FuelId>
+					<TypeId>GasProperties</TypeId>
+					<SubtypeId>Hydrogen</SubtypeId>
+				</FuelId>
+				<Efficiency>1</Efficiency>
+			</FuelConverter>
+			<MaxPowerConsumption>0.6</MaxPowerConsumption>
+			<MinPowerConsumption>0.000000001</MinPowerConsumption>
+			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
+			<ForceMagnitude>480000</ForceMagnitude>
+			<SlowdownFactor>1</SlowdownFactor>
+			<FlameDamageLengthScale>0.6</FlameDamageLengthScale>
+			<FlameLengthScale>1.15</FlameLengthScale>
+			<FlameIdleColor>
+				<X>1</X>
+				<Y>0.75</Y>
+				<Z>0.35</Z>
+				<W>0.75</W>
+			</FlameIdleColor>
+			<FlameFullColor>
+				<X>1</X>
+				<Y>0.75</Y>
+				<Z>0.35</Z>
+				<W>0.75</W>
+			</FlameFullColor>
+			<FlamePointMaterial>EngineThrustMiddle</FlamePointMaterial>
+			<FlameLengthMaterial>SciFiThrusterFlame</FlameLengthMaterial>
+			<FlameFlare>LargeGridLargeThruster</FlameFlare>
+			<FlameVisibilityDistance>700</FlameVisibilityDistance>
+			<FlameGlareQuerySize>1.5</FlameGlareQuerySize>
+			<PrimarySound>SmShipLrgJetHydrogen</PrimarySound>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<DestroyEffect>BlockDestroyedExplosion_Large</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<TieredUpdateTimes>
+				<unsignedInt>100</unsignedInt>
+				<unsignedInt>3600</unsignedInt>
+				<unsignedInt>0</unsignedInt>
+			</TieredUpdateTimes>
+			<TargetingGroups>
+				<string>Propulsion</string>
+			</TargetingGroups>
+			<PCU>12</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_ThrustDefinition">
+			<Id>
+				<TypeId>Thrust</TypeId>
+				<SubtypeId>SmallBlockSmallHydrogenThrustReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_SmallHydrogenThrustReskin</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\SciFiHydrogenThrusterSmallSmall.dds</Icon>
+			<Description>Description_HydrogenThrust</Description>
+			<CubeSize>Small</CubeSize>
+			<GuiVisible>false</GuiVisible>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Small\ScifiHydrogenThrusterSmall.mwm</Model>
+			<ThrusterType>Hydrogen</ThrusterType>
+			<SilenceableByShipSoundSystem>true</SilenceableByShipSoundSystem>
+			<Components>
+				<Component Subtype="SteelPlate" Count="2" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="MetalGrid" Count="4" />
+				<Component Subtype="LargeTube" Count="2" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="SteelPlate" Count="5" />
+			</Components>
+			<CriticalComponent Subtype="LargeTube" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="1" Default="true"/>
+				<MountPoint Side="Right" StartX="0" StartY="0.2" EndX="0.1" EndY="0.8" />
+				<MountPoint Side="Left" StartX="0.9" StartY="0.2" EndX="1" EndY="0.8" />
+				<MountPoint Side="Bottom" StartX="0.2" StartY="0.9" EndX="0.8" EndY="1" />
+				<MountPoint Side="Top" StartX="0.2" StartY="0" EndX="0.8" EndY="0.1" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Small\SciFiHydrogenThrusterSmall_Construction1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Small\SciFiHydrogenThrusterSmall_Construction2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\SciFiHydrogenThrusterSmall_Construction3.mwm" />
+			</BuildProgressModels>
+			<VoxelPlacement>
+				<!--Possible settings Both,InVoxel,OutsideVoxel,Volumetric. If volumetric set than MaxAllowed and MinAllowed will be used.-->
+				<StaticMode>
+					<PlacementMode>Volumetric</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</StaticMode>
+				<DynamicMode>
+					<PlacementMode>Volumetric</PlacementMode>
+					<MaxAllowed>0.2</MaxAllowed>
+					<MinAllowed>0</MinAllowed>
+				</DynamicMode>
+			</VoxelPlacement>
+			<BlockPairName>SmallHydrogenThrustReskin</BlockPairName>
+			<Center x="0" y="0" z="0" />
+			<MirroringZ>Y</MirroringZ>
+			<MirroringY>Z</MirroringY>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<ResourceSinkGroup>Thrust</ResourceSinkGroup>
+			<ForceMagnitude>98400</ForceMagnitude>
+			<FuelConverter>
+				<FuelId>
+					<TypeId>GasProperties</TypeId>
+					<SubtypeId>Hydrogen</SubtypeId>
+				</FuelId>
+				<Efficiency>1</Efficiency>
+			</FuelConverter>
+			<MaxPowerConsumption>0.125</MaxPowerConsumption>
+			<MinPowerConsumption>0.000000001</MinPowerConsumption>
+			<SlowdownFactor>1</SlowdownFactor>
+			<FlameDamageLengthScale>0.34</FlameDamageLengthScale>
+			<FlameLengthScale>1.5</FlameLengthScale>
+			<FlameIdleColor>
+				<X>1</X>
+				<Y>0.75</Y>
+				<Z>0.35</Z>
+				<W>0.75</W>
+			</FlameIdleColor>
+			<FlameFullColor>
+				<X>1</X>
+				<Y>0.75</Y>
+				<Z>0.35</Z>
+				<W>0.75</W>
+			</FlameFullColor>
+			<FlamePointMaterial>EngineThrustMiddle</FlamePointMaterial>
+			<FlameLengthMaterial>SciFiThrusterFlame</FlameLengthMaterial>
+			<FlameFlare>LargeGridSmallThruster</FlameFlare>
+			<FlameVisibilityDistance>500</FlameVisibilityDistance>
+			<FlameGlareQuerySize>1</FlameGlareQuerySize>
+			<PrimarySound>SmShipSmJetHydrogen</PrimarySound>
+			<DamageEffectName>Damage_WeapExpl_Damaged</DamageEffectName>
+			<DamagedSound>ParticleWeapExpl</DamagedSound>
+			<Public>true</Public>
+			<DestroyEffect>BlockDestroyedExplosion_Small</DestroyEffect>
+			<DestroySound>WepSmallWarheadExpl</DestroySound>
+			<IsAirTight>false</IsAirTight>
+			<TieredUpdateTimes>
+				<unsignedInt>100</unsignedInt>
+				<unsignedInt>3600</unsignedInt>
+				<unsignedInt>0</unsignedInt>
+			</TieredUpdateTimes>
+			<TargetingGroups>
+				<string>Propulsion</string>
+			</TargetingGroups>
+			<PCU>12</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_LandingGearDefinition">
+			<Id>
+				<TypeId>LandingGear</TypeId>
+				<SubtypeId>LargeBlockLandingGearReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_LandingGearReskin</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\LandingGearReskin.dds</Icon>
+			<Description>Description_LandingGear</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="2" />
+			<Center x="0" y="0" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\LandingGearReskin.mwm</Model>
+			<LockSound>ShipLandGearOn</LockSound>
+			<UnlockSound>ShipLandGearOff</UnlockSound>
+			<FailedAttachSound>ShipLandGearNothing01</FailedAttachSound>
+			<Components>
+				<Component Subtype="SteelPlate" Count="40" />
+				<Component Subtype="Construction" Count="10" />
+				<Component Subtype="Motor" Count="4" />
+				<Component Subtype="SteelPlate" Count="20" />
+			</Components>
+			<CriticalComponent Subtype="Motor" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0.7" EndX="1" EndY="1" />
+				<MountPoint Side="Left" StartX="1" StartY="0.7" EndX="2" EndY="1" />
+				<MountPoint Side="Left" StartX="1" StartY="0.5" EndX="1.4" EndY="0.7" />
+				<MountPoint Side="Right" StartX="0" StartY="0.7" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0.6" StartY="0.5" EndX="1" EndY="0.7" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\LandingGearReskin_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\LandingGearReskin_Construction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\LandingGearReskin_Construction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>LandingGearReskin</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>24</BuildTimeSeconds>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<EmissiveColorPreset>ConnectBlock</EmissiveColorPreset>
+			<MaxLockSeparatingVelocity>7</MaxLockSeparatingVelocity>
+			<DestroyEffect>BlockDestroyed_Large</DestroyEffect>
+			<DestroySound>PoofExplosionCat3</DestroySound>
+			<IsAirTight>false</IsAirTight>
+			<PCU>35</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+		<Definition xsi:type="MyObjectBuilder_LandingGearDefinition">
+			<Id>
+				<TypeId>LandingGear</TypeId>
+				<SubtypeId>SmallBlockLandingGearReskin</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_LandingGearReskin</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\LandingGearReskinSmall.dds</Icon>
+			<Description>Description_LandingGear</Description>
+			<CubeSize>Small</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="2" />
+			<Center x="0" y="0" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Small\LandingGearReskin.mwm</Model>
+			<LockSound>ShipLandGearOn</LockSound>
+			<UnlockSound>ShipLandGearOff</UnlockSound>
+			<FailedAttachSound>ShipLandGearNothing01</FailedAttachSound>
+			<Components>
+				<Component Subtype="SteelPlate" Count="1" />
+				<Component Subtype="Construction" Count="3" />
+				<Component Subtype="Motor" Count="1" />
+				<Component Subtype="SteelPlate" Count="1" />
+			</Components>
+			<CriticalComponent Subtype="Motor" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+				<MountPoint Side="Back" StartX="0" StartY="0.7" EndX="1" EndY="1" />
+				<MountPoint Side="Left" StartX="1" StartY="0.7" EndX="2" EndY="1" />
+				<MountPoint Side="Left" StartX="1" StartY="0.4" EndX="1.4" EndY="0.7" />
+				<MountPoint Side="Right" StartX="0" StartY="0.7" EndX="1" EndY="1" />
+				<MountPoint Side="Right" StartX="0.6" StartY="0.4" EndX="1" EndY="0.7" />
+			</MountPoints>
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.50" File="Models\Cubes\Small\LandingGearReskin_Construction_1.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Small\LandingGearReskin_Construction_2.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>LandingGearReskin</BlockPairName>
+			<MirroringY>Z</MirroringY>
+			<MirroringZ>Y</MirroringZ>
+			<BuildTimeSeconds>10</BuildTimeSeconds>
+			<EdgeType>Light</EdgeType>
+			<DamageEffectName>Damage_HeavyMech_Damaged</DamageEffectName>
+			<DamagedSound>ParticleHeavyMech</DamagedSound>
+			<EmissiveColorPreset>ConnectBlock</EmissiveColorPreset>
+			<MaxLockSeparatingVelocity>7</MaxLockSeparatingVelocity>
+			<DestroyEffect>BlockDestroyed_Small</DestroyEffect>
+			<DestroySound>PoofExplosionCat1</DestroySound>
+			<IsAirTight>false</IsAirTight>
+			<PCU>35</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_LightingBlockDefinition">
+			<Id>
+				<TypeId>InteriorLight</TypeId>
+				<SubtypeId>LargeBlockTrofferLight</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_TrofferLight</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\TrofferLight.dds</Icon>
+			<Description>Description_InteriorLight</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\TrofferLight.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="10" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="20" />
+				<Component Subtype="Construction" Count="5" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\TrofferLightConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\TrofferLightConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\TrofferLightConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>TrofferLight</BlockPairName>
+			<MirroringZ>Y</MirroringZ>
+			<MirroringY>Z</MirroringY>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>14</BuildTimeSeconds>
+			<LightRadius Min="1" Max="20" Default="3.6" />
+			<LightFalloff Min="0" Max="3" Default="1.3" />
+			<LightIntensity Min="0.5" Max="10" Default="5" />
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
+			<RequiredPowerInput>0.00006</RequiredPowerInput>
+			<PointLightEmissiveMaterial>LightPanel_Light</PointLightEmissiveMaterial>
+			<SpotLightEmissiveMaterial>EmissiveSpotlight</SpotLightEmissiveMaterial>
+			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+			<DamagedSound>ParticleElectrical</DamagedSound>
+			<DestroyEffect>BlockDestroyed_Small</DestroyEffect>
+			<DestroyEffectOffset>
+				<X>0</X>
+				<Y>0</Y>
+				<Z>1.1</Z>
+			</DestroyEffectOffset>
+			<DestroySound>PoofExplosionCat1</DestroySound>
+			<IsAirTight>true</IsAirTight>
+			<PCU>20</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+		
+		<Definition xsi:type="MyObjectBuilder_LightingBlockDefinition">
+			<Id>
+				<TypeId>InteriorLight</TypeId>
+				<SubtypeId>LargeBlockHalfTrofferLight</SubtypeId>
+			</Id>
+			<DisplayName>DisplayName_Block_TrofferLightHalf</DisplayName>
+			<Icon>Textures\GUI\Icons\Cubes\HalfTrofferLight.dds</Icon>
+			<Description>Description_InteriorLight</Description>
+			<CubeSize>Large</CubeSize>
+			<BlockTopology>TriangleMesh</BlockTopology>
+			<Size x="1" y="1" z="1" />
+			<ModelOffset x="0" y="0" z="0" />
+			<Model>Models\Cubes\Large\HalfTrofferLight.mwm</Model>
+			<Components>
+				<Component Subtype="SteelPlate" Count="5" />
+				<Component Subtype="Construction" Count="5" />
+				<Component Subtype="InteriorPlate" Count="10" />
+				<Component Subtype="Construction" Count="5" />
+			</Components>
+			<CriticalComponent Subtype="Construction" Index="0" />
+			<MountPoints>
+				<MountPoint Side="Back" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Front" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Left" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Right" StartX="0" StartY="0" EndX="1" EndY="0.5" />
+				<MountPoint Side="Bottom" StartX="0" StartY="0" EndX="1" EndY="1" />
+			</MountPoints>			
+			<BuildProgressModels>
+				<Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\HalfTrofferLightConstruction_1.mwm" />
+				<Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\HalfTrofferLightConstruction_2.mwm" />
+				<Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\HalfTrofferLightConstruction_3.mwm" />
+			</BuildProgressModels>
+			<BlockPairName>TrofferLightHalf</BlockPairName>
+			<MirroringZ>Y</MirroringZ>
+			<MirroringY>Z</MirroringY>
+			<EdgeType>Light</EdgeType>
+			<BuildTimeSeconds>12</BuildTimeSeconds>
+			<LightRadius Min="1" Max="20" Default="3.6" />
+			<LightFalloff Min="0" Max="3" Default="1.3" />
+			<LightIntensity Min="0.5" Max="10" Default="5" />
+			<ResourceSinkGroup>Utility</ResourceSinkGroup>
+			<RequiredPowerInput>0.00006</RequiredPowerInput>
+			<PointLightEmissiveMaterial>LightPanel_Light</PointLightEmissiveMaterial>
+			<SpotLightEmissiveMaterial>EmissiveSpotlight</SpotLightEmissiveMaterial>
+			<DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+			<DamagedSound>ParticleElectrical</DamagedSound>
+			<DestroyEffect>BlockDestroyed_Small</DestroyEffect>
+			<DestroyEffectOffset>
+				<X>0</X>
+				<Y>0</Y>
+				<Z>1.1</Z>
+			</DestroyEffectOffset>
+			<DestroySound>PoofExplosionCat1</DestroySound>
+			<PCU>20</PCU>
+			<DLC>CoreSystems</DLC>
+		</Definition>
+
+        <Definition xsi:type="MyObjectBuilder_LightingBlockDefinition">
+            <Id>
+                <TypeId>InteriorLight</TypeId>
+                <SubtypeId>LargeBlockHalfTrofferLightInv</SubtypeId>
+            </Id>
+            <DisplayName>DisplayName_Block_TrofferLightHalfInv</DisplayName>
+            <Icon>Textures\GUI\Icons\Cubes\HalfTrofferLightInv.dds</Icon>
+            <Description>Description_InteriorLight</Description>
+            <CubeSize>Large</CubeSize>
+            <BlockTopology>TriangleMesh</BlockTopology>
+            <Size x="1" y="1" z="1" />
+            <ModelOffset x="0" y="0" z="0" /> <!-- Using this causes the debug for mountpoints to look all wrong but it is actually working correctly. Good luck guessing!-->
+            <Model>Models\Cubes\Large\HalfTrofferLightInverted.mwm</Model>
+            <Components>
+                <Component Subtype="SteelPlate" Count="5" />
+                <Component Subtype="Construction" Count="5" />
+                <Component Subtype="InteriorPlate" Count="10" />
+                <Component Subtype="Construction" Count="5" />
+            </Components>
+            <CriticalComponent Subtype="Construction" Index="0" />
+            <MountPoints>
+                <MountPoint Side="Back" StartX="0" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Front" StartX="0" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Left" StartX="0" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Right" StartX="0" StartY="0.5" EndX="1" EndY="1" />
+                <MountPoint Side="Top" StartX="0" StartY="0" EndX="1" EndY="1" />
+            </MountPoints>
+            <BuildProgressModels>
+                <Model BuildPercentUpperBound="0.33" File="Models\Cubes\Large\HalfTrofferLightInvertedConstruction_1.mwm" />
+                <Model BuildPercentUpperBound="0.66" File="Models\Cubes\Large\HalfTrofferLightInvertedConstruction_2.mwm" />
+                <Model BuildPercentUpperBound="1.00" File="Models\Cubes\Large\HalfTrofferLightInvertedConstruction_3.mwm" />
+            </BuildProgressModels>
+            <BlockPairName>TrofferLightHalfInv</BlockPairName>
+            <MirroringZ>Y</MirroringZ>
+            <MirroringY>Z</MirroringY>
+            <EdgeType>Light</EdgeType>
+            <BuildTimeSeconds>12</BuildTimeSeconds>
+            <LightRadius Min="1" Max="20" Default="3.6" />
+            <LightFalloff Min="0" Max="3" Default="1.3" />
+            <LightIntensity Min="0.5" Max="10" Default="5" />
+            <ResourceSinkGroup>Utility</ResourceSinkGroup>
+            <RequiredPowerInput>0.00006</RequiredPowerInput>
+            <PointLightEmissiveMaterial>LightPanel_Light</PointLightEmissiveMaterial>
+            <SpotLightEmissiveMaterial>EmissiveSpotlight</SpotLightEmissiveMaterial>
+            <DamageEffectName>Damage_Electrical_Damaged</DamageEffectName>
+            <DamagedSound>ParticleElectrical</DamagedSound>
+            <DestroyEffect>BlockDestroyed_Small</DestroyEffect>
+            <DestroyEffectOffset>
+                <X>0</X>
+                <Y>0</Y>
+                <Z>1.1</Z>
+            </DestroyEffectOffset>
+            <DestroySound>PoofExplosionCat1</DestroySound>
+            <PCU>20</PCU>
+            <DLC>CoreSystems</DLC>
+        </Definition>
+	</CubeBlocks>
+</Definitions>
