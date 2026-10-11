@@ -215,14 +215,14 @@ const STORAGE_MISC = {
     'Assembler/LargeAssemblerIndustrial': 4000,
     'SurvivalKit/SurvivalKitLarge': 2000,
     'SurvivalKit/SurvivalKit': 1000,
-    'ShipGrinder/LargeShipGrinder': 31250,
-    'ShipGrinder/SmallShipGrinder': 6750,
-    'ShipGrinder/LargeShipGrinderReskin': 31250,
-    'ShipGrinder/SmallShipGrinderReskin': 6750,
-    'ShipWelder/LargeShipWelder': 31250,
-    'ShipWelder/SmallShipWelder': 6750,
-    'ShipWelder/LargeShipWelderReskin': 31250,
-    'ShipWelder/SmallShipWelderReskin': 6750,
+    'ShipGrinder/LargeShipGrinder': 15625,
+    'ShipGrinder/SmallShipGrinder': 3375,
+    'ShipGrinder/LargeShipGrinderReskin': 15625,
+    'ShipGrinder/SmallShipGrinderReskin': 3375,
+    'ShipWelder/LargeShipWelder': 15625,
+    'ShipWelder/SmallShipWelder': 3375,
+    'ShipWelder/LargeShipWelderReskin': 15625,
+    'ShipWelder/SmallShipWelderReskin': 3375,
 }
 
 const STORAGE_ORE = {
