@@ -56,12 +56,13 @@ jobs:
     - name: Lint All
       run: yarn lint
 
-    - name: Test Praisal & report coverage
-      uses: paambaati/codeclimate-action@v9.0.0
-      env:
-        CC_TEST_REPORTER_ID: 73ce349159b6e9697d0c0a094ee7ee7e812762200f48696fba8eae814183d5fd
-      with:
-        coverageCommand: yarn test:coverage
+    # TODO: CodeClimate has been deprecated, migrate to Qlty, see #88
+    # - name: Test Praisal & report coverage
+    #   uses: paambaati/codeclimate-action@v9.0.0
+    #   env:
+    #     CC_TEST_REPORTER_ID: 73ce349159b6e9697d0c0a094ee7ee7e812762200f48696fba8eae814183d5fd
+    #   with:
+    #     coverageCommand: yarn test:coverage
 
 
   deploy_web_dev:
