@@ -131,10 +131,6 @@ jobs:
           working-directory: ./workspaces/app/
           run: yarn package
 
-        - name: Debug AWS credentials
-          run: |
-            echo "AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID != '' && '***' || 'NOT SET' }}"
-            echo "AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY != '' && '***' || 'NOT SET' }}"
         - name: Configure AWS Credentials
           uses: aws-actions/configure-aws-credentials@v6
           with:
