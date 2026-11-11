@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
-        "fast-xml-parser": "^3.19.0",
+        "fast-xml-parser": "^5.12.0",
         "jszip": "^3.2.2",
         "mobx": "^5.15.4",
         "object.fromentries": "^2.0.2"
