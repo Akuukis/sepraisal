@@ -1,14 +1,21 @@
 
 [Unit]
 Description=SEPraisal Server
+After=network-online.target
+Wants=network-online.target
 
 [Service]
-User=steam
-ExecStart=/home/steam/sepraisal/start.sh
-TimeoutSec=30
+Type=simple
+User=sepraisal
+Group=sepraisal
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=SEPRAISAL_ROOT=/srv/sepraisal
+EnvironmentFile=-/etc/default/sepraisal
+ExecStart=/usr/bin/env bash ${SEPRAISAL_ROOT}/workspaces/server/utils/start.sh
+TimeoutStartSec=30
 Restart=on-failure
 RestartSec=30
-StartLimitInterval=350
+StartLimitIntervalSec=350
 StartLimitBurst=10
 
 [Install]

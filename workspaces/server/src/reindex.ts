@@ -24,6 +24,11 @@ export const main = async (): Promise<void> => {
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Connected successfully to server')
     const db = client.db(DB_NAME)
+    const existingCollections = await db.listCollections({ name: 'blueprints' }, { nameOnly: true }).toArray()
+    if(existingCollections.length === 0) {
+        await db.createCollection('blueprints')
+        console.info('Collection "blueprints" created.')
+    }
     const collection = db.collection<IBlueprint>('blueprints')
 
     await recreateIndex(collection, { 'steam.subscriberCount': 1 }, { name: "SubscriberCountIndex" })
