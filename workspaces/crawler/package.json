@@ -29,6 +29,7 @@
     "dependencies": {
         "@sepraisal/common": "^0.0.1",
         "@sepraisal/praisal": "^0.0.1",
+        "cheerio": "^0.22.0",
         "form-data": "^3.0.0",
         "moment": "^2.24.0",
         "mongodb": "^3.5.4",

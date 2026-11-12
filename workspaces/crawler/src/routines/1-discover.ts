@@ -1,8 +1,8 @@
 import { DB_NAME, DB_URL, IBlueprint, idFromHref, toMinSec, Work, Worker } from '@sepraisal/common'
 import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
-import scrapeIt from 'scrape-it'
 
+import { ensureSteamCmdLogin, scrapeHtml, steamFetchHtml } from '../utils'
 
 /**
 * For first run, use `TYPE = 'totaluniquesubscribers'` and `MAX_PAGES = 1670`.
@@ -35,8 +35,9 @@ export interface IDiscoverScrapeData {
 const scrape = async (page: number): Promise<IDiscoverScrapeData> => {
 
     const url = `https://steamcommunity.com/workshop/browse/?appid=244850&requiredtags%5B0%5D=Blueprint&actualsort=$TYPE&browsesort=${TYPE}&p=${page}`
+    const html = await steamFetchHtml(url)
 
-    const {data} = await scrapeIt<IDiscoverScrapeData>(url, {
+    const data = scrapeHtml<IDiscoverScrapeData>(html, {
         items: {listItem: '.workshopItem', data: {
             _id: {selector: 'a:nth-child(1)', attr: 'data-publishedfileid', convert: Number},
             title: {selector: 'div.workshopItemTitle'},
@@ -75,6 +76,7 @@ const work: Work<IWorkItem> = async (collection: Collection<{_id: number}>, inde
 export const main = async (): Promise<void> => {
 
     const timer = Date.now()
+    await ensureSteamCmdLogin()
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Successfully connected to server.')
     const db = client.db(DB_NAME)
