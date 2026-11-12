@@ -8,7 +8,13 @@ export const main = async (): Promise<void> => {
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Connected successfully to server')
     const db = client.db(DB_NAME)
-    await db.createCollection('blueprints')
+    try {
+        await db.createCollection('blueprints')
+        console.info('Collection "blueprints" created.')
+    } catch(err) {
+        if(err.codeName !== 'NamespaceExists') throw err
+        console.info('Collection "blueprints" already exists.')
+    }
 
     await createIndex()
 
