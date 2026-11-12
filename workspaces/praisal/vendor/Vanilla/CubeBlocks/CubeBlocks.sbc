@@ -218,23 +218,44 @@
         <!-- End Region Row 0-->
         <!-- Region Row 1-->
         <BlockPosition>
-            <Name>ArmorPanelLight</Name>
+            <Name>ArmorLightTransitionBlocks</Name>
             <Position>
                 <X>0</X>
                 <Y>1</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>ArmorPanelHeavy</Name>
+            <Name>ArmorHeavyTransitionBlocks</Name>
             <Position>
                 <X>1</X>
                 <Y>1</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>BeamBlock</Name>
+            <Name>ArmorPanelLight</Name>
             <Position>
                 <X>2</X>
+                <Y>1</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>ArmorPanelHeavy</Name>
+            <Position>
+                <X>3</X>
+                <Y>1</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>BeamBlock</Name>
+            <Position>
+                <X>4</X>
+                <Y>1</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>Truss</Name>
+            <Position>
+                <X>5</X>
                 <Y>1</Y>
             </Position>
         </BlockPosition>
@@ -303,6 +324,13 @@
                 <Y>2</Y>
             </Position>
         </BlockPosition>
+        <BlockPosition>
+            <Name>AccessPanel1</Name>
+            <Position>
+                <X>9</X>
+                <Y>2</Y>
+            </Position>
+        </BlockPosition>
         <!-- End Region Row 2 -->
         <!-- Region Row 3-->
         <BlockPosition>
@@ -358,6 +386,13 @@
             <Name>OpenCockpit</Name>
             <Position>
                 <X>2</X>
+                <Y>3</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>FlightMovementBlock</Name>
+            <Position>
+                <X>6</X>
                 <Y>3</Y>
             </Position>
         </BlockPosition>
@@ -512,6 +547,13 @@
                 <Y>5</Y>
             </Position>
         </BlockPosition>
+        <BlockPosition>
+            <Name>LargeAtmoThrustFlat</Name>
+            <Position>
+                <X>9</X>
+                <Y>5</Y>
+            </Position>
+        </BlockPosition>
         <!--End Region Row 5-->
         <!-- Region Row 6-->
         <BlockPosition>
@@ -590,6 +632,13 @@
             <Name>LaserAntenna</Name>
             <Position>
                 <X>3</X>
+                <Y>7</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>TrussPillarBeacon</Name>
+            <Position>
+                <X>4</X>
                 <Y>7</Y>
             </Position>
         </BlockPosition>
@@ -688,6 +737,13 @@
                 <Y>9</Y>
             </Position>
         </BlockPosition>
+        <BlockPosition>
+            <Name>Barrel</Name>
+            <Position>
+                <X>4</X>
+                <Y>9</Y>
+            </Position>
+        </BlockPosition>
         <!-- End Region Row 9 -->
         <!-- Region Row 10 -->
         <BlockPosition>
@@ -760,6 +816,13 @@
                 <Y>10</Y>
             </Position>
         </BlockPosition>
+        <BlockPosition>
+            <Name>Decoy</Name>
+            <Position>
+                <X>9</X>
+                <Y>10</Y>
+            </Position>
+        </BlockPosition>
         <!-- End Region Row 10 -->
         <!-- Region Row 11 -->
         <BlockPosition>
@@ -807,42 +870,42 @@
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>Decoy</Name>
+            <Name>ReflectorLight</Name>
             <Position>
                 <X>4</X>
                 <Y>12</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>ReflectorLight</Name>
+            <Name>Ladder2</Name>
             <Position>
                 <X>5</X>
                 <Y>12</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>Ladder2</Name>
+            <Name>RailingStraight</Name>
             <Position>
                 <X>6</X>
                 <Y>12</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>RailingStraight</Name>
+            <Name>Catwalk</Name>
             <Position>
                 <X>7</X>
                 <Y>12</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>Catwalk</Name>
+            <Name>Embrasure</Name>
             <Position>
                 <X>8</X>
                 <Y>12</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>Embrasure</Name>
+            <Name>AirDuct1</Name>
             <Position>
                 <X>9</X>
                 <Y>12</Y>
@@ -1112,23 +1175,37 @@
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>BarredWindow</Name>
+            <Name>RoundWindow</Name>
             <Position>
                 <X>5</X>
                 <Y>17</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>HalfWindow</Name>
+            <Name>BarredWindow</Name>
             <Position>
                 <X>6</X>
                 <Y>17</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
-            <Name>BridgeWindow1x1Slope</Name>
+            <Name>HalfWindow</Name>
             <Position>
                 <X>7</X>
+                <Y>17</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>BridgeWindow1x1Slope</Name>
+            <Position>
+                <X>8</X>
+                <Y>17</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>ExtendedWindow</Name>
+            <Position>
+                <X>9</X>
                 <Y>17</Y>
             </Position>
         </BlockPosition>
@@ -1181,19 +1258,60 @@
         <BlockPosition>
             <Name>Symbol1</Name>
             <Position>
-                <X>4</X>
+                <X>1</X>
                 <Y>22</Y>
             </Position>
         </BlockPosition>
         <BlockPosition>
             <Name>SymbolHyphen</Name>
             <Position>
-                <X>6</X>
+                <X>2</X>
+                <Y>22</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>WarningSign1</Name>
+            <Position>
+                <X>3</X>
+                <Y>22</Y>
+            </Position>
+        </BlockPosition>
+        <BlockPosition>
+            <Name>EmotionController</Name>
+            <Position>
+                <X>4</X>
                 <Y>22</Y>
             </Position>
         </BlockPosition>
 
         <!-- End Region Row 22 -->
+        <!-- Region Row 23 -->
+        
+        <BlockPosition>
+            <Name>EngineerPlushie</Name>
+            <Position>
+                <X>0</X>
+                <Y>23</Y>
+            </Position>
+        </BlockPosition>
+
+        <BlockPosition>
+            <Name>SabiroidPlushie</Name>
+            <Position>
+                <X>1</X>
+                <Y>23</Y>
+            </Position>
+        </BlockPosition>
+
+        <BlockPosition>
+            <Name>StatueEngineer</Name>
+            <Position>
+                <X>2</X>
+                <Y>23</Y>
+            </Position>
+        </BlockPosition>
+
+        <!-- End Region Row 23 -->
         <!-- Region Auto-assigned-->
         <!-- Region Page 1-->
         <BlockPosition>
