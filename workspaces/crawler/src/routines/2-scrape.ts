@@ -1,12 +1,14 @@
 import { DB_NAME, DB_URL, IBlueprint, idFromHref, timeout, toMinSec, VENDOR_MOD, Work, Worker } from '@sepraisal/common'
+import cheerio = require('cheerio')
+import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import moment from 'moment'
 import { Collection, MongoClient } from 'mongodb'
 import pad from 'pad'
-import scrapeIt from 'scrape-it'
-import { Omit, PickByValueExact } from 'utility-types'
+import { join } from 'path'
+import { Omit } from 'utility-types'
 
 import { QUERIES } from '../queries'
-import { prepareQuery } from '../utils'
+import { ensureSteamCmdLogin, prepareQuery, scrapeHtml, steamFetchHtml } from '../utils'
 
 
 type IFlagParam = Omit<IBlueprint.ISteam, 'flagsRed' | 'flagsYellow' | 'flagsGreen'>
@@ -70,7 +72,6 @@ const VENDOR_ID_TO_MOD = {
 const thumbIdConvert = (url: string) => url.includes('default_image') ? null : `${url.split('/')[4]}-${url.split('/')[5]}`
 const commaNumber = (rawNumber: string) => Number(rawNumber.replace(',', ''))
 const authorIdConvert = (input: string) => (input.match(/com\/(.*)/) || [''])[1]
-const authorTitleConvert = (input: string) => (input.match(/(.*?)\r/) || [''])[1]
 const ratingStarsConvert = (input: string) => input.includes('not-yet') ? null : Number((input.match(/(\d)-star_large\.png/) || [null])[1])
 const ratingCountConvert = (input: string) => input === '' ? null : Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [null])[1])
 const suffixConvert = (input: string) => Number((input.replace(',', '').match(/(\d+(\.\d+)?)/) || [''])[1])
@@ -79,13 +80,67 @@ const dlcsConvert = (input: string): VENDOR_MOD => VENDOR_ID_TO_MOD[Number(input
 const dateConvert = (steamDate: string) => {
     if(steamDate === '') return null
 
-    return moment(steamDate, steamDate.includes(',') ? 'DD MMM, YYYY @ h:ma' : 'DD MMM @ h:ma')
-        .utc()  // Steam shows local time, so convert back to UTC.
-        .toDate()
+    const parsed = moment(steamDate, steamDate.includes(',') ? 'DD MMM, YYYY @ h:ma' : 'DD MMM @ h:ma', true)
+    if(!parsed.isValid()) return null
+
+    return parsed.utc().toDate()  // Steam shows local time, so convert back to UTC.
+}
+
+const decodeHtmlEntity = (input: string): string =>
+    input
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, '\'')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+
+const parseTitleFromHtml = (html: string): string | null => {
+    const ogTitle = html.match(/<meta\s+property="og:title"\s+content="([^"]+)"/i)
+    if(ogTitle && ogTitle[1]) return decodeHtmlEntity(ogTitle[1]).replace(/^Steam Workshop::/, '').trim()
+
+    const titleTag = html.match(/<title>\s*([^<]+?)\s*<\/title>/i)
+    if(titleTag && titleTag[1]) return decodeHtmlEntity(titleTag[1]).replace(/^Steam Workshop::/, '').trim()
+
+    return null
+}
+
+const stripHtml = (input: string): string =>
+    decodeHtmlEntity(input.replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim()
+
+const parseDetailStatDatesFromHtml = (html: string): Date[] =>
+    [...html.matchAll(/<div class="detailsStatRight">([\s\S]*?)<\/div>/g)]
+        .map((match) => stripHtml(match[1]))
+        .map((value) => dateConvert(value))
+        .filter((value): value is Date => value instanceof Date)
+
+const textOrNull = (value: string | null | undefined): string | null => {
+    if(typeof value !== 'string') return null
+    const trimmed = value.trim()
+
+    return trimmed === '' ? null : trimmed
+}
+
+const firstTextNode = ($element: Cheerio): string | null => {
+    const node = $element.contents().toArray().find((child) => child.type === 'text')
+    if(!node || typeof node.data !== 'string') return null
+
+    return textOrNull(node.data)
+}
+
+const SCRAPE_DEBUG_ENABLED = /^(1|true|yes)$/i.test(process.env.crawler_debug_scrape || '')
+
+const writeScrapeDebugDump = (id: number, payload: unknown): void => {
+    if(!SCRAPE_DEBUG_ENABLED) return
+
+    const debugDir = join(process.cwd(), 'debug', 'scrape')
+    if(!existsSync(debugDir)) mkdirSync(debugDir, {recursive: true})
+    const debugPath = join(debugDir, `${id}.json`)
+    writeFileSync(debugPath, JSON.stringify(payload, null, 2), 'utf8')
 }
 
 const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
     const url = `https://steamcommunity.com/sharedfiles/filedetails/?id=${id}`
+    const html = await steamFetchHtml(url)
 
     type IScrapeSteamDataOmits =
         | '_error'
@@ -104,96 +159,198 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
         | 'modsCount'
     type IScrapeSteamData = Omit<IFlagParam, IScrapeSteamDataOmits>
 
-    const {data: dataRaw} = await scrapeIt<IScrapeSteamData>(url, {
-        id: {selector: 'a.sectionTab:nth-child(1)', attr: 'href', convert: idFromHref},
-        title: {selector: '.workshopItemTitle'},
-        authors: {listItem: 'div.creatorsBlock > div.friendBlock', data: {
-            id: {selector: '.friendBlockLinkOverlay', attr: 'href', convert: authorIdConvert},
-            title: {selector: '.friendBlockContent', convert: authorTitleConvert},
-        }},
-        ratingStars: {selector: '.ratingSection img', attr: 'src', convert: ratingStarsConvert},
-        ratingCount: {selector: '.ratingSection .numRatings', convert: ratingCountConvert},
-        commentCount: {selector: 'a.sectionTab:nth-child(3) > span:nth-child(1) > span:nth-child(1)', convert: commaNumber},
-        _thumbName: {selector: '#previewImageMain,#previewImage', attr: 'src', convert: thumbIdConvert},
-        sizeMB: {selector: 'div.detailsStatRight:nth-child(1)', convert: suffixConvert},
-        postedDate: {selector: 'div.detailsStatRight:nth-child(2)', convert: dateConvert},
-        updatedDate: {selector: 'div.detailsStatRight:nth-child(3)', convert: dateConvert},
-        revision: {selector: '.detailsStatNumChangeNotes', convert: suffixConvert},
-        mods: {listItem: '#RequiredItems > a', data: {
-            id: {attr: 'href', convert: idFromHref},
-            title: {selector: '.requiredItem'},
-        }},
-        DLCs: {listItem: '.requiredDLCContainer > .requiredDLCItem > a', data: {
-            id: {attr: 'href', convert: dlcsConvert}
-        }},
-        collections: {listItem: 'div.parentCollections > div.parentCollection', data: {
-            id: {attr: 'onclick', convert: idFromHref},
-            title: {selector: '.parentCollectionTitle'},
-        }},
-        visitorCount: {selector: '.stats_table tr:nth-child(1) > td:nth-child(1)', convert: commaNumber},
-        subscriberCount: {selector: '.stats_table tr:nth-child(2) > td:nth-child(1)', convert: commaNumber},
-        favoriteCount: {selector: '.stats_table tr:nth-child(3) > td:nth-child(1)', convert: commaNumber},
-        description: {selector: '.workshopItemDescription', how: 'html'},
-    } as Record<keyof IScrapeSteamData, scrapeIt.ScrapeOptions>)
+    const $ = cheerio.load(html)
+    const detailsStatRight = $('.detailsStatsContainerRight .detailsStatRight').toArray()
+        .map((element) => textOrNull($(element).text()))
+        .filter((value): value is string => value !== null)
+    const statsRows = $('.stats_table tr').toArray().map((element) =>
+        $(element).find('td').toArray().map((td) => textOrNull($(td).text()) || '')
+    )
+    const authors = $('div.creatorsBlock > div.friendBlock').toArray().map((element) => {
+        const block = $(element)
+        const href = textOrNull(block.find('.friendBlockLinkOverlay').attr('href'))
+        const authorTitle = firstTextNode(block.find('.friendBlockContent'))
 
-    // Check that data actually is there.
-    ;([
-        'description',
-        'title',
-    ] as Array<keyof PickByValueExact<IScrapeSteamData, string>>).forEach((prop) => {
-        if(typeof dataRaw[prop] !== 'string') throw new Error(`Field ${prop} failed to scrape.`)
-    })
-    ;([
-        'commentCount',
-        'favoriteCount',
-        'id',
-        'revision',
-        'sizeMB',
-        'subscriberCount',
-        'visitorCount',
-    ] as Array<keyof PickByValueExact<IScrapeSteamData, number>>).forEach((prop) => {
-        if(typeof dataRaw[prop] !== 'number') throw new Error(`Field ${prop} failed to scrape.`)
-    })
-    ;([
-        'postedDate',
-        // 'updatedDate',  // OK to be null, then defaults to postedDate.
-    ] as Array<keyof PickByValueExact<IScrapeSteamData, Date>>).forEach((prop) => {
-        if(!(dataRaw[prop] instanceof Date)) throw new Error(`Field ${prop} failed to scrape.`)
+        return href && authorTitle ? {
+            id: authorIdConvert(href),
+            title: authorTitle,
+        } : null
+    }).filter((value): value is NonNullable<typeof value> => value !== null)
+    const collections = $('div.parentCollections > div.parentCollection').toArray().map((element) => {
+        const item = $(element)
+        const onclick = textOrNull(item.attr('onclick'))
+        const titleValue = textOrNull(item.find('.parentCollectionTitle').text())
+
+        return onclick && titleValue ? {
+            id: idFromHref(onclick),
+            title: titleValue,
+        } : null
+    }).filter((value): value is NonNullable<typeof value> => value !== null)
+    const dlcs = $('.requiredDLCContainer > .requiredDLCItem > a').toArray().map((element) => {
+        const href = textOrNull($(element).attr('href'))
+
+        return href ? dlcsConvert(href) : null
+    }).filter((value): value is NonNullable<typeof value> => value !== null)
+    const mods = $('#RequiredItems > a').toArray().map((element) => {
+        const item = $(element)
+        const href = textOrNull(item.attr('href'))
+        const titleValue = textOrNull(item.find('.requiredItem').text())
+
+        return href && titleValue ? {
+            id: idFromHref(href),
+            title: titleValue,
+        } : null
+    }).filter((value): value is NonNullable<typeof value> => value !== null)
+    const dataRaw: Partial<IScrapeSteamData> = {
+        title: textOrNull($('.workshopItemTitle').first().text()) || undefined,
+        authors,
+        ratingStars: ratingStarsConvert(textOrNull($('.ratingSection img').first().attr('src')) || ''),
+        ratingCount: ratingCountConvert(textOrNull($('.ratingSection .numRatings').first().text()) || ''),
+        commentCount: (() => {
+            const value = textOrNull($('a.sectionTab.comments .tabCount').first().text())
+            return value !== null ? commaNumber(value) : undefined
+        })(),
+        _thumbName: thumbIdConvert(textOrNull($('#previewImageMain,#previewImage').first().attr('src')) || 'default_image'),
+        sizeMB: (() => {
+            const value = detailsStatRight[0]
+            return value ? suffixConvert(value) : undefined
+        })(),
+        postedDate: (() => {
+            const value = detailsStatRight[1]
+            return value ? dateConvert(value) || undefined : undefined
+        })(),
+        updatedDate: (() => {
+            const value = detailsStatRight[2]
+            return value ? dateConvert(value) || undefined : undefined
+        })(),
+        revision: (() => {
+            const value = textOrNull($('.detailsStatNumChangeNotes').first().text())
+            return value ? suffixConvert(value) : undefined
+        })(),
+        mods,
+        DLCs: dlcs,
+        collections,
+        visitorCount: (() => {
+            const value = statsRows[0] && statsRows[0][0]
+            return value ? commaNumber(value) : undefined
+        })(),
+        subscriberCount: (() => {
+            const value = statsRows[1] && statsRows[1][0]
+            return value ? commaNumber(value) : undefined
+        })(),
+        favoriteCount: (() => {
+            const value = statsRows[2] && statsRows[2][0]
+            return value ? commaNumber(value) : undefined
+        })(),
+        description: $('.workshopItemDescription').first().html() || undefined,
+    }
+
+    const detailStatDates = parseDetailStatDatesFromHtml(html)
+    const title = typeof dataRaw.title === 'string' ? dataRaw.title : parseTitleFromHtml(html)
+    const description = typeof dataRaw.description === 'string' ? dataRaw.description : ''
+    const commentCount = typeof dataRaw.commentCount === 'number' ? dataRaw.commentCount : 0
+    const favoriteCount = typeof dataRaw.favoriteCount === 'number' ? dataRaw.favoriteCount : 0
+    const revision = typeof dataRaw.revision === 'number' ? dataRaw.revision : 1
+    const sizeMB = typeof dataRaw.sizeMB === 'number' ? dataRaw.sizeMB : 0
+    const subscriberCount = typeof dataRaw.subscriberCount === 'number' ? dataRaw.subscriberCount : 0
+    const visitorCount = typeof dataRaw.visitorCount === 'number' ? dataRaw.visitorCount : 0
+    const postedDate = dataRaw.postedDate instanceof Date ? dataRaw.postedDate : detailStatDates[0]
+    const updatedDate = dataRaw.updatedDate instanceof Date ? dataRaw.updatedDate : detailStatDates[1] || postedDate
+    const thumbName = typeof dataRaw._thumbName === 'string' || dataRaw._thumbName === null ? dataRaw._thumbName : null
+    const ratingStars = typeof dataRaw.ratingStars === 'number' ? dataRaw.ratingStars : null
+    const storedRatingCount = typeof dataRaw.ratingCount === 'number' ? dataRaw.ratingCount : null
+    const defaultedFields = [
+        ...(Array.isArray(dataRaw.authors) ? [] : ['authors']),
+        ...(Array.isArray(dataRaw.collections) ? [] : ['collections']),
+        ...(Array.isArray(dataRaw.DLCs) ? [] : ['DLCs']),
+        ...(Array.isArray(dataRaw.mods) ? [] : ['mods']),
+        ...(typeof dataRaw.title === 'string' ? [] : title ? ['title'] : []),
+        ...(typeof dataRaw.description === 'string' ? [] : ['description']),
+        ...(typeof dataRaw.commentCount === 'number' ? [] : ['commentCount']),
+        ...(typeof dataRaw.favoriteCount === 'number' ? [] : ['favoriteCount']),
+        ...(typeof dataRaw.revision === 'number' ? [] : ['revision']),
+        ...(typeof dataRaw.sizeMB === 'number' ? [] : ['sizeMB']),
+        ...(typeof dataRaw.subscriberCount === 'number' ? [] : ['subscriberCount']),
+        ...(typeof dataRaw.visitorCount === 'number' ? [] : ['visitorCount']),
+        ...(dataRaw.postedDate instanceof Date ? [] : postedDate instanceof Date ? ['postedDate'] : []),
+        ...(dataRaw.updatedDate instanceof Date ? [] : updatedDate instanceof Date ? ['updatedDate'] : []),
+        ...((typeof dataRaw._thumbName === 'string' || dataRaw._thumbName === null) ? [] : ['_thumbName']),
+        ...(typeof dataRaw.ratingStars === 'number' || dataRaw.ratingStars === null ? [] : ['ratingStars']),
+        ...(typeof dataRaw.ratingCount === 'number' || dataRaw.ratingCount === null ? [] : ['ratingCount']),
+    ]
+    const requiredFailures = [
+        ...((typeof title === 'string' && title !== '') ? [] : ['title']),
+        ...(postedDate instanceof Date ? [] : ['postedDate']),
+    ]
+
+    writeScrapeDebugDump(id, {
+        id,
+        url,
+        parsed: dataRaw,
+        derived: {
+            titleFromHtml: parseTitleFromHtml(html),
+            detailStatDates,
+        },
+        normalized: {
+            id,
+            title,
+            authors,
+            description,
+            _thumbName: thumbName,
+            postedDate,
+            updatedDate,
+            sizeMB,
+            revision,
+            mods,
+            DLCs: dlcs,
+            collections,
+            ratingStars,
+            ratingCount: storedRatingCount,
+            commentCount,
+            visitorCount,
+            subscriberCount,
+            favoriteCount,
+        },
+        defaultedFields,
+        requiredFailures,
     })
 
+    if(typeof title !== 'string' || title === '') throw new Error('Field title failed to scrape.')
+    if(!(postedDate instanceof Date)) throw new Error('Field postedDate failed to scrape.')
 
-    const ratingCount = (dataRaw.ratingCount !== null ? dataRaw.ratingCount : 0)
-    const exposureMax = Math.max(dataRaw.visitorCount, dataRaw.subscriberCount)
-    const exposureTotal = dataRaw.visitorCount + dataRaw.subscriberCount
-    const activityMax = Math.max(ratingCount, dataRaw.commentCount, dataRaw.favoriteCount)
-    const activityTotal = ratingCount + dataRaw.commentCount + dataRaw.favoriteCount
-    const popularity = dataRaw.subscriberCount / Math.sqrt(Math.min(30, moment().diff(dataRaw.postedDate, 'd')))
-    const authorsCount = dataRaw.authors.length
-    const collectionsCount = dataRaw.collections.length
-    const DLCsCount = dataRaw.DLCs.length
-    const modsCount = dataRaw.mods.length
+
+    const ratingCount = storedRatingCount !== null ? storedRatingCount : 0
+    const exposureMax = Math.max(visitorCount, subscriberCount)
+    const exposureTotal = visitorCount + subscriberCount
+    const activityMax = Math.max(ratingCount, commentCount, favoriteCount)
+    const activityTotal = ratingCount + commentCount + favoriteCount
+    const popularity = subscriberCount / Math.sqrt(Math.min(30, moment().diff(postedDate, 'd')))
+    const authorsCount = authors.length
+    const collectionsCount = collections.length
+    const DLCsCount = dlcs.length
+    const modsCount = mods.length
 
     const dataForFlags: IFlagParam = {
         id,
-        title: dataRaw.title,
-        authors: dataRaw.authors,
-        description: dataRaw.description,
-        _thumbName: dataRaw._thumbName,
+        title,
+        authors,
+        description,
+        _thumbName: thumbName,
         _updated: new Date(),
-        postedDate: dataRaw.postedDate,
-        updatedDate: dataRaw.updatedDate || dataRaw.postedDate,  // UpdatedDate doesn't exist if posted but not updated.
-        sizeMB: dataRaw.sizeMB,
-        revision: dataRaw.revision,
-        mods: dataRaw.mods,
+        postedDate,
+        updatedDate,  // UpdatedDate doesn't exist if posted but not updated.
+        sizeMB,
+        revision,
+        mods,
         /* eslint-disable-next-line @typescript-eslint/no-explicit-any */  // Hack around enforced object due scraping.
-        DLCs: dataRaw.DLCs.map(({id}: any) => id),
-        collections: dataRaw.collections,
-        ratingStars: dataRaw.ratingStars,
-        ratingCount: dataRaw.ratingCount,
-        commentCount: dataRaw.commentCount,
-        visitorCount: dataRaw.visitorCount,
-        subscriberCount: dataRaw.subscriberCount,
-        favoriteCount: dataRaw.favoriteCount,
+        DLCs: dlcs,
+        collections,
+        ratingStars,
+        ratingCount: storedRatingCount,
+        commentCount,
+        visitorCount,
+        subscriberCount,
+        favoriteCount,
 
         _revision: null,
         _version: IBlueprint.VERSION.steam,
@@ -221,35 +378,62 @@ const scrape = async (id: number): Promise<IBlueprint.ISteam> => {
 
 const removeRemoved = async (collection: Collection<IBlueprint>, doc: IProjection, prefix: string): Promise<boolean> => {
     const url = `https://steamcommunity.com/sharedfiles/filedetails/?id=${doc._id}`
-    const {data} = await scrapeIt<{adultGate: boolean, removed: boolean, breadcumb: string}>(url, {
+    const html = await steamFetchHtml(url).catch((err: Error) => {
+        if(String(err.message).includes('Steam access denied')) {
+            console.warn(`${prefix}Steam access denied while checking removal state.`)
+            return ''
+        }
+        throw err
+    })
+    if(html === '') return true
+
+    const looksLikeWorkshopPage =
+        html.includes('class="workshopItemTitle"')
+        || html.includes('<title>Steam Workshop::')
+        || html.includes(`sharedfiles/filedetails/?id=${doc._id}`)
+    if(looksLikeWorkshopPage) return false
+
+    const dataRaw = scrapeHtml<{
+        adultGate?: boolean,
+        removed?: boolean,
+        breadcumb?: string,
+        workshopTitle?: string,
+    }>(html, {
         adultGate: {selector: '.adult_content_age_gate', attr: 'class', convert: (str) => str === 'adult_content_age_gate'},
         breadcumb: {selector: '.breadcrumbs > a:nth-child(1)'},
         removed: {selector: '#message > h3', convert: (str) => str.includes('There was a problem accessing the item.')},
+        workshopTitle: {selector: '.workshopItemTitle'},
     })
+    const data = dataRaw && typeof dataRaw === 'object' ? dataRaw : {}
+    const breadcumb = typeof data.breadcumb === 'string' ? data.breadcumb : ''
+    const removed = data.removed === true
+    const adultGate = data.adultGate === true
+    const workshopTitle = typeof data.workshopTitle === 'string' ? data.workshopTitle : ''
 
-    switch(data.breadcumb) {
+    switch(breadcumb) {
         case('Space Engineers'): {
             return false  // not to remove.
         }
         case(''): {
-            if(data.removed) {
+            if(workshopTitle !== '') return false
+            if(removed) {
                 try {
                     await collection.deleteOne({_id: doc._id})
                     console.info(`${prefix}removed from workshop, deleted.`)
                 } catch(err) {
                     console.warn(`${prefix}removed from workshop, but failed to delete.`)
                 }
-            } else if (data.adultGate) {
+            } else if (adultGate) {
                 console.warn(`${prefix}has adult game, since when SE has that?`)
             } else {
-                console.warn(`${prefix}Suspicious:`, data)
+                dumpSuspiciousFallbackAndExit(doc._id, html, prefix)
             }
 
             return true
         }
         default: {
-            await collection.deleteOne({id: doc._id})
-            console.warn(`${prefix}Cleanup from "${data.breadcumb}".. how did it get here?`)
+            await collection.deleteOne({_id: doc._id})
+            console.warn(`${prefix}Cleanup from "${breadcumb}".. how did it get here?`)
 
             return true
         }
@@ -258,6 +442,18 @@ const removeRemoved = async (collection: Collection<IBlueprint>, doc: IProjectio
 }
 
 const scraped = new Map<number, [number | null, number]>()
+let suspiciousFallbackDumped = false
+
+const dumpSuspiciousFallbackAndExit = (id: number, html: string, prefix: string): never => {
+    if(!suspiciousFallbackDumped) {
+        suspiciousFallbackDumped = true
+        const debugPath = '/root/broke.html'
+        writeFileSync(debugPath, html, 'utf8')
+        console.error(`${prefix}Suspicious fallback page dumped to ${debugPath}. Exiting.`)
+    }
+
+    process.exit(1)
+}
 
 type IWorkItem = [Collection, IProjection, number]
 const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, index: number): Promise<void> => {
@@ -265,12 +461,12 @@ const work: Work<IWorkItem> = async (collection: Collection, doc: IProjection, i
 
     let steam: IBlueprint.ISteam
     try {
-        steam = await timeout(9, scrape(doc._id))
+        steam = await timeout(SCRAPE_TIMEOUT_SECONDS, scrape(doc._id))
     } catch(err) {
         try {
-            if(!await timeout(9, removeRemoved(collection, doc, prefix))) console.error(`${prefix}legit error: ${err}`)
+            if(!await timeout(SCRAPE_TIMEOUT_SECONDS, removeRemoved(collection, doc, prefix))) console.error(`${prefix}legit error: ${err instanceof Error ? err.message : err}`)
         } catch(err2) {
-            console.error(`${prefix}Failed to scrape.`)
+            console.error(`${prefix}Failed to scrape: ${err2 instanceof Error ? err2.message : err2}`)
         }
 
         return
@@ -297,6 +493,7 @@ export const main = async (): Promise<void> => {
 
 
     const timer = Date.now()
+    await ensureSteamCmdLogin()
     const client = await MongoClient.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     console.info('Successfully connected to server.')
     const db = client.db(DB_NAME)
@@ -334,16 +531,9 @@ export const main = async (): Promise<void> => {
 
     const worker = Worker<IWorkItem>(work, errors)
 
-    await Promise.all([
-        worker(works, 0),
-        worker(works, 1),
-        worker(works, 2),
-        worker(works, 3),
-        worker(works, 4),
-        worker(works, 5),
-        worker(works, 6),
-        worker(works, 7),
-    ])
+    await Promise.all(
+        Array.from({length: SCRAPE_WORKER_COUNT}, (_, i) => worker(works, i))
+    )
 
     /* eslint-disable @typescript-eslint/no-unused-vars */
     const found = [...scraped.values()]
@@ -369,3 +559,5 @@ export const main = async (): Promise<void> => {
 
 
 }
+const SCRAPE_TIMEOUT_SECONDS = 120
+const SCRAPE_WORKER_COUNT = 1
