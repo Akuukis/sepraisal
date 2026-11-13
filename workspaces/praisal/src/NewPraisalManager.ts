@@ -4,39 +4,13 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 
 import { PraisalManager } from './PraisalManager'
+import { getVanillaCubeBlocksPaths, VENDOR_DIR } from './vendorFiles'
 
-export const VENDOR_DIR = join(__dirname, '..', 'vendor')
+export { VENDOR_DIR }
 
 export const NewPraisalManager = (): () => Promise<PraisalManager> => {
     const cubeBlocksSbcs = [
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor_2.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Automation.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Communications.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Control.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Doors.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Energy.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Extras.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Gravity.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Interiors.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_LCDPanels.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Lights.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Logistics.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Mechanical.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Medical.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Production.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Symbols.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Thrusters.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Tools.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Utility.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Weapons.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Wheels.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Windows.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Armor_3.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Prototech.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_EconomyDeluxe.sbc')],
-        [VENDOR_MOD.VANILLA     , join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'CubeBlocks', 'CubeBlocks_Structural.sbc')],
+        ...getVanillaCubeBlocksPaths().map((path) => [VENDOR_MOD.VANILLA, path] as const),
 
         [VENDOR_MOD.DECORATIVE_1        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_1      , 'CubeBlocks.sbc')],
         [VENDOR_MOD.DECORATIVE_2        , join(VENDOR_DIR, VENDOR_MOD.DECORATIVE_2      , 'CubeBlocks.sbc')],

@@ -1,5 +1,5 @@
 import { VENDOR_MOD } from '@sepraisal/common/src'
-import { readFileSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import { join } from 'path'
 
 import { PraisalManager } from '../src'
@@ -10,9 +10,16 @@ const VENDOR_DIR = join(__dirname, '..', 'vendor')
 const physicalItemsSbcVanilla = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'PhysicalItems.sbc')).toString()
 const materialsSbcVanilla = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Blueprints.sbc')).toString()
 const componentsSbcVanilla = readFileSync(join(VENDOR_DIR, VENDOR_MOD.VANILLA, 'Components.sbc')).toString()
-const physicalItemsSbcEconomy = readFileSync(join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'PhysicalItems.sbc')).toString()
-const materialsSbcEconomy = readFileSync(join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'Blueprints.sbc')).toString()
-const componentsSbcEconomy = readFileSync(join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'Components.sbc')).toString()
+const economyPhysicalItemsPath = join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'PhysicalItems.sbc')
+const economyMaterialsPath = join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'Blueprints.sbc')
+const economyComponentsPath = join(VENDOR_DIR, VENDOR_MOD.ECONOMY, 'Components.sbc')
+const hasEconomyMaterials =
+    existsSync(economyPhysicalItemsPath) &&
+    existsSync(economyMaterialsPath) &&
+    existsSync(economyComponentsPath)
+const physicalItemsSbcEconomy = hasEconomyMaterials ? readFileSync(economyPhysicalItemsPath).toString() : null
+const materialsSbcEconomy = hasEconomyMaterials ? readFileSync(economyMaterialsPath).toString() : null
+const componentsSbcEconomy = hasEconomyMaterials ? readFileSync(economyComponentsPath).toString() : null
 
 let sepraisal: PraisalManager
 
@@ -46,11 +53,20 @@ describe('PraisalManager with vanilla materials only', () => {
 })
 describe('PraisalManager with economy materials only', () => {
     beforeEach(async () => {
+        if(!hasEconomyMaterials) {
+            return
+        }
         sepraisal = new PraisalManager()
-        await sepraisal.addPhysicalItemsSbc(physicalItemsSbcEconomy, VENDOR_MOD.ECONOMY)
-        await sepraisal.addBlueprintsSbc(materialsSbcEconomy, VENDOR_MOD.ECONOMY)
-        await sepraisal.addComponentsSbc(componentsSbcEconomy, VENDOR_MOD.ECONOMY)
+        await sepraisal.addPhysicalItemsSbc(physicalItemsSbcEconomy!, VENDOR_MOD.ECONOMY)
+        await sepraisal.addBlueprintsSbc(materialsSbcEconomy!, VENDOR_MOD.ECONOMY)
+        await sepraisal.addComponentsSbc(componentsSbcEconomy!, VENDOR_MOD.ECONOMY)
         sepraisal.build()
     })
-    testMaterials()
+    if(hasEconomyMaterials) {
+        testMaterials()
+    } else {
+        test('should skip when economy material SBC files are not present in the game data', () => {
+            expect(hasEconomyMaterials).toBe(false)
+        })
+    }
 })

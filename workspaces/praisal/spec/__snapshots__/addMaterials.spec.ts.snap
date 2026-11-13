@@ -1,23 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PraisalManager with economy materials only should build all components 1`] = `0`;
-
-exports[`PraisalManager with economy materials only should build all components 2`] = `Array []`;
-
-exports[`PraisalManager with economy materials only should build all components 3`] = `Array []`;
-
-exports[`PraisalManager with economy materials only should build all ingots 1`] = `0`;
-
-exports[`PraisalManager with economy materials only should build all ingots 2`] = `Array []`;
-
-exports[`PraisalManager with economy materials only should build all ingots 3`] = `Array []`;
-
-exports[`PraisalManager with economy materials only should build all ores 1`] = `0`;
-
-exports[`PraisalManager with economy materials only should build all ores 2`] = `Array []`;
-
-exports[`PraisalManager with economy materials only should build all ores 3`] = `Array []`;
-
 exports[`PraisalManager with vanilla materials only should build all components 1`] = `32`;
 
 exports[`PraisalManager with vanilla materials only should build all components 2`] = `
